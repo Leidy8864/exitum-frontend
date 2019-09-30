@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'karla';
+  /*src: url('./public/font/Karla-Regular.ttf')  format('truetype'),  Safari, Android, iOS */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  font-family: karla;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
