@@ -1,11 +1,12 @@
-import React from 'react';
-import View from './Home-view';
 
-class Home extends React.Component {
+import React from 'react';
+import View from './Banner-view';
+
+class Banner extends React.Component {
     render() {
         return (
             <View/>
         );
     }
 }
-export default Home;
+export default Banner;

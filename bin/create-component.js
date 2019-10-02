@@ -27,7 +27,7 @@ export default ${args[0]};
 //Content View
 const contentView= `
 import React from 'react';
-import './style.css';
+import './style.scss';
 
 function View(){
     return(
@@ -46,7 +46,7 @@ const createSchedule = async () =>{
         await mkdir(`src/components/${args[0]}`)
         await writeFile(`src/components/${args[0]}/${args[0]}-controller.js`, contentController);
         await writeFile(`src/components/${args[0]}/${args[0]}-view.js`, contentView);
-        await writeFile(`src/components/${args[0]}/style.css`,contentCss);
+        await writeFile(`src/components/${args[0]}/style.scss`,contentCss);
         console.log(`Component ${args[0]} created !!!!`)
     }else{
         console.log(`Component ${args[0]} created before =( `);

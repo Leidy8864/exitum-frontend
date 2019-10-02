@@ -1,0 +1,26 @@
+nav {
+  position: absolute !important;
+  background: transparent !important;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+nav .container-exlg a {
+  color: #fff;
+  font-size: 40px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+nav .container-exlg a:hover {
+  color: #77FAB3;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+a.signin {
+  text-decoration: none !important;
+  font-size: 22px !important;
+}
+/*# sourceMappingURL=style.css.map */

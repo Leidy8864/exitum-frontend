@@ -1,0 +1,179 @@
+.modal {
+    background-image: url(../../public/images/login-desenfocado.png) !important;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    .modal-dialog {
+        margin-top: 100px;
+        max-width: auto;
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 4px 20px 0 rgba(131, 118, 118, 0.14), 0 7px 10px -5px rgba(94, 40, 189, 0.4);
+            .welcome-ex {
+                margin: 30px auto;
+                width: 400px;
+                text-align: center;
+                span {
+                    font-family: 'Nunito';
+                    text-transform: uppercase;
+                }
+                h2 {
+                    font-family: 'Poppins';
+                    font-size: 50px;
+                }
+                p {
+                    font-family: 'Nunito';
+                    color: rgb(143, 138, 138);
+                    font-weight: 100;
+                }
+            }
+        }  
+    }
+}
+
+.bg-register {
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: auto;
+}
+
+form {
+    padding: 20px 50px;
+    input {
+        width: 100%;
+        padding: 20px;
+        border-radius: 26px;
+        border:none;
+        font-family: 'Poppins';
+        font-size: 12px;
+        font-weight: 200;
+        outline: none;
+        background: #F8F8FA 0% 0% no-repeat padding-box;
+        margin: 5px;
+    }
+}
+form.form-signin {
+    padding: 20px 50px;
+    input {
+        width: 100%;
+        padding: 20px;
+        border-radius: 26px;
+        border:none;
+        font-family: 'Poppins';
+        font-size: 12px;
+        font-weight: 200;
+        outline: none;
+        background: #F8F8FA 0% 0% no-repeat padding-box;
+        margin: 0px !important;
+    }
+}
+
+.none {
+    display: none !important;
+}
+
+.forget-password {
+    text-align: center;
+    color: #3369FD;
+    a {
+        text-decoration: none !important;
+        p {
+            font-size: 14px;
+        }
+    }
+    a:hover {
+        color: #3369FD;
+    }
+}
+
+.send-submit {
+    text-align: center;
+    margin: 0px auto;
+    width: 100%;
+    button.submit-signin {
+        margin-left: 0px;
+        width: 100%;
+        padding: 20px;
+        background: #3369FD;  /* fallback for old browsers */
+        border-radius: 26px;
+        border: none;
+        color: #fff;
+        outline: none;
+        font-family: 'Poppins';
+        font-size: 15px;
+        font-weight: 100;
+        text-transform: capitalize;
+        box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+    }
+    button.submit-signup {
+        margin-left: 14px;
+        margin-top: 10px;
+        width: 93%;
+        padding: 20px;
+        background: #3369FD;  /* fallback for old browsers */
+        border-radius: 26px;
+        border: none;
+        color: #fff;
+        outline: none;
+        font-family: 'Poppins';
+        font-size: 15px;
+        font-weight: 100;
+        text-transform: capitalize;
+        box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+    }
+    
+}
+.border-space {
+    width: 80%;
+    margin: 0 auto;
+    .to {
+        text-align: center;
+        font-family: 'Poppins';
+        color: #afacac;
+    }
+}
+.socials {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    .kep-login-facebook {
+        padding: 10px 15px;
+        border-radius: 50% !important;
+        font-family: 'Poppins';
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+    .fab {
+        color: #FFF;
+        background: #3369FD;
+        font-size: 24px;
+        padding: 15px 22px !important;
+        border-radius: 50%;
+        margin-right: 40px;
+        box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+    }
+    button {
+        background: #3369FD !important;
+        padding: 0px !important;
+        border-radius: 50% !important;
+        box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4) !important;
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 18px;
+            padding: 0px !important;
+            background: #3369FD !important;
+            svg {
+                background: #3369FD;
+                g {
+                    path:nth-last-child(n+2) {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
