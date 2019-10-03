@@ -14,7 +14,7 @@ function View(props){
                         <div className="row">
                             <div className="col-md-12 pt-4 info-signup">
                                 <div className="welcome-ex">
-                                <h2>Exitum</h2>
+                                    <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/></span>
                                     <span className="text-forget">Ingresa tu email y te enviaremos un mensaje para que puedas recuperar tu contraseña</span> 
                                 </div>
                                 <form className="form-signin">

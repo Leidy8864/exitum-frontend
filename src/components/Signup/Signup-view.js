@@ -5,7 +5,21 @@ import GoogleLogin from 'react-google-login'
 
 function View(props) {
 
-    const { name, lastName, email, password, responseFacebook, responseGoogle, logged } = props
+    const { 
+        name, 
+        lastname, 
+        email, 
+        password, 
+        responseFacebook, 
+        responseGoogle, 
+        logged,
+        content_error_name,
+        content_error_lastname,
+        content_error_email,
+        content_error_password,
+        content_error_registro,
+        content_exito_registro
+    } = props
 
     return (
         <div className="modal fade" id="signup" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -13,8 +27,7 @@ function View(props) {
                 <div className="modal-content">
                     <div className=" pt-4 info-signup">
                         <div className="welcome-ex">
-                            <span>Que bueno verte de nuevo</span>
-                            <h2>Exitum</h2>
+                            <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/></span>
                         </div>
                         <form onSubmit={logged}>
                             <div className="row">
@@ -26,15 +39,21 @@ function View(props) {
                                         type="text"
                                         placeholder="Nombre"
                                     />
+                                    <div>
+                                        {content_error_name}
+                                    </div>
                                 </div>
                                 <div className="col-md-6">
                                     <input
                                         className="mediun"
-                                        onChange={lastName}
+                                        onChange={lastname}
                                         name="lastname"
                                         type="text"
                                         placeholder="Apellidos"
                                     />
+                                    <div>
+                                        {content_error_lastname}
+                                    </div>
                                 </div>
                                 <div className="col-md-12">
                                     <input
@@ -43,6 +62,9 @@ function View(props) {
                                         type="email"
                                         placeholder="Email"
                                     />
+                                    <div>
+                                        {content_error_email}
+                                    </div>
                                 </div>
                                 <div className="col-md-12">
                                     <input
@@ -51,12 +73,25 @@ function View(props) {
                                         type="password"
                                         placeholder="Contraseña"
                                     />
+                                    <div>
+                                        {content_error_password}
+                                    </div>
                                 </div>
                                 <div className="send-submit">
-                                    <button type="submit" className="submit-signup">Iniciar Sesión</button>
+                                    <button type="submit" className="submit-signup">Registrate</button>
                                 </div>
                             </div>
                         </form>
+                        <div className="col-md-12">
+                            <div className="div-margin-30px">
+                                    {content_error_registro}
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="div-margin-30px">
+                                    {content_exito_registro}
+                            </div>
+                        </div>
                         <div className="border-space">
                             <hr />
                             <div className="to">

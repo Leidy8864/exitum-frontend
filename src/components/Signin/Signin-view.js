@@ -7,7 +7,17 @@ import { Link } from 'react-router-dom'
 
 function View(props) {
 
-    const {forgetPass , email, password, responseFacebook, responseGoogle, logged } = props
+    const {
+        forgetPass , 
+        email, 
+        contentError, 
+        contentErrorUser,
+        contentErrorPass,
+        password, 
+        responseFacebook, 
+        responseGoogle, 
+        logged
+    } = props;
 
     return (
         <Fragment>
@@ -18,8 +28,7 @@ function View(props) {
                         <div className="row">
                             <div className="col-md-12 pt-4 info-signup">
                                 <div className="welcome-ex">
-                                    <span>Que bueno verte de nuevo</span>
-                                    <h2>Exitum</h2>
+                                    <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/></span>
                                 </div>
                                 <form className="form-signin" onSubmit={logged}>
                                     <div className="form-group">
@@ -30,6 +39,9 @@ function View(props) {
                                             placeholder="Email"
                                         />
                                     </div>
+                                    <div>
+                                        {contentErrorUser}
+                                    </div>
                                     <div className="form-group">
                                         <input
                                             onChange={password}
@@ -38,11 +50,17 @@ function View(props) {
                                             placeholder="Contraseña"
                                         />
                                     </div>
-
+                                    <div>
+                                        {contentErrorPass}
+                                    </div>
+                                    
                                     <div className="send-submit">
                                         <button type="submit" className="submit-signin">Iniciar Sesión</button>
                                     </div>
                                 </form>
+                                <div className="div-margin-30px">
+                                        {contentError}
+                                </div>
                                 <div className="forget-password">  
                                     <Link onClick={forgetPass} data-toggle="modal" data-target="#forgetpass" to="/"><p>¿Olvidaste tu contraseña?</p></Link>
                                 </div>

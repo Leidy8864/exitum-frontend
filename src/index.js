@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './components/Home/Home-controller';
+import Dashboard from './components/Dashboard/Dashboard-controller';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -17,6 +18,7 @@ const Root = () => (
         <Router>
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
         </Router>
     </Provider>

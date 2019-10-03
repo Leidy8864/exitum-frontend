@@ -10,7 +10,10 @@ class Signin extends React.Component {
 
     state = {
         email: '',
-        password: ''
+        password: '',
+        error_login: '',
+        error_user: '',
+        error_pass: ''
     }
 
     email = e => {
@@ -23,23 +26,41 @@ class Signin extends React.Component {
 
     forgetPass = e => {
         e.preventDefault(e);
+        this.setState({ error_login: '' })
     }
 
-    logged = e => {
+    logged = async e => {
         e.preventDefault();
+
+        this.setState({ error_login: '' });
+        this.setState({ error_user: '' });
+        this.setState({ error_pass: '' });
+
         const {email, password} = this.state
         const formData = {
             email,
             password
         }
-        console.log('onSubmit() is called')
-        console.log('form data', formData)
-        this.props.signIn(formData);
-        if (!this.props.errorMessage) {
-            this.props.history.push('/dashboard')
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
+        if(email && password){
+            const response = await this.props.signIn(formData);
+            if(response.status){
+                this.props.history.push('/dashboard');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            }else{
+                console.log("error = ", response.message)
+                this.setState({ error_login: response.message })
+            }
+        }else{
+            if(!email){
+                this.setState({ error_user: 'Debes ingresar un usuario' })
+            }
+    
+            if(!password){
+                this.setState({ error_pass: 'Debes ingresar una clave' })
+            }
         }
+
     }
 
 
@@ -66,13 +87,30 @@ class Signin extends React.Component {
     }
 
     render() {
-
+        let error_login = this.state.error_login;
+        let contentError=<br/>;
+        let error_user = this.state.error_user;
+        let contentErrorUser=<br/>;
+        let error_pass = this.state.error_pass;
+        let contentErrorPass=<br/>;
+        if(error_login){
+            contentError = <div className="error-message"><p>{error_login}</p></div>;
+        }
+        if(error_user){
+            contentErrorUser = <div className="error-message-aux"><p>{error_user}</p></div>;
+        }
+        if(error_pass){
+            contentErrorPass = <div className="error-message-aux"><p>{error_pass}</p></div>;
+        }
         return (
             <View
                 responseFacebook={this.responseFacebook}
                 responseGoggle={this.responseGoggle}
                 logged={this.logged}
                 email={this.email}
+                contentError={contentError}
+                contentErrorUser={contentErrorUser}
+                contentErrorPass={contentErrorPass}
                 password={this.password}
                 forgetPass={this.forgetPass}
             />

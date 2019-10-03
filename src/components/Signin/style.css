@@ -37,6 +37,26 @@
   color: #8f8a8a;
   font-weight: 100;
 }
+.modal .modal-dialog .modal-content .welcome-ex .div-margin-30px {
+  margin: 30px
+}
+.modal .modal-dialog .modal-content .error-message{
+  color: #c81313;
+  background-color: #FF9DA2;
+  padding: 19px 5% 2px;
+  border-radius: 5px;
+}
+.modal .modal-dialog .modal-content .exito-message{
+  color: #13c837;
+  background-color: #c8ffbc;
+  padding: 19px 5% 2px;
+  border-radius: 5px;
+}
+.modal .modal-dialog .modal-content .error-message-aux{
+  color: #c81313;
+  padding-left: 15px;
+  margin-bottom: 30px
+}
 
 .bg-register {
   background-size: cover;
@@ -71,6 +91,12 @@ form input {
 
 form.form-signin {
   padding: 20px 50px;
+}
+
+form.form-signin  .error-message-aux{
+  color: #c81313;
+  padding-left: 15px;
+  margin-bottom: 30px
 }
 
 form.form-signin input {

@@ -10,17 +10,23 @@ class Signup extends React.Component {
 
     state = {
         name: '',
-        lastName: '',
+        lastname: '',
         email: '',
-        password: ''
+        password: '',
+        error_name: '',
+        error_lastname: '',
+        error_email: '',
+        error_password: '',
+        error_registro: '',
+        exito_registro:'',
     }
 
     name = e => {
         this.setState({ name: e.target.value })
     }
 
-    lastName = e => {
-        this.setState({ lastName: e.target.value })
+    lastname = e => {
+        this.setState({ lastname: e.target.value })
     }
 
     email = e => {
@@ -31,22 +37,61 @@ class Signup extends React.Component {
         this.setState({ password: e.target.value })
     }
 
-    logged = e => {
+    logged = async e => {
+        this.setState({ error_name: '' });
+        this.setState({ error_lastname: '' });
+        this.setState({ error_email: '' });
+        this.setState({ error_password: '' });
+        this.setState({ error_registro: '' });
+        this.setState({ exito_registro: '' });
+
         e.preventDefault();
-        const {name,lastName,email, password} = this.state
+        const {name,lastname,email, password} = this.state
         const formData = {
             name,
-            lastName,
+            lastname,
             email,
             password
         }
-        console.log('onSubmit() is called')
-        console.log('form data', formData)
-        this.props.signIn(formData);
-        if (!this.props.errorMessage) {
-            this.props.history.push('/dashboard')
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
+        if(name && lastname && email && password && password.length >= 8){
+            // console.log('onSubmit() is called')
+            // console.log('form data', formData)
+            // this.props.signUp(formData);
+            // if (!this.props.errorMessage) {
+            //     this.props.history.push('/dashboard')
+            //     $('body').removeClass('modal-open');
+            //     $('.modal-backdrop').remove();
+            // }
+            const response = await this.props.signUp(formData);
+            console.log("response = ", response)
+            if(response.status){
+                localStorage.setItem('token',response.data.accessToken)
+                this.setState({ exito_registro: 'Se te ha enviado un correo para validar tu registro.' })
+                this.props.history.push('/dashboard');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            }else{
+                console.log("error = ", response.message)
+                this.setState({ error_registro: response.message })
+            }
+        }else{
+            if(!name){
+                this.setState({ error_name: 'Debes ingresar un nombre' })
+            }
+            if(!lastname){
+                this.setState({ error_lastname: 'Debes ingresar un apellido' })
+            }
+            if(!email){
+                this.setState({ error_email: 'Debes ingresar un email' })
+            }
+            if(!password){
+                this.setState({ error_password: 'Debes ingresar una clave' })
+            }else{
+                if(password.length < 8){
+                    this.setState({ error_password: 'La clave debe tener mínimo 8 caracteres' })
+                }
+            }
+            
         }
     }
 
@@ -74,6 +119,38 @@ class Signup extends React.Component {
     }
 
     render() {
+        let error_name = this.state.error_name;
+        let error_lastname = this.state.error_lastname;
+        let error_email = this.state.error_email;
+        let error_password = this.state.error_password;
+        let error_registro = this.state.error_registro;
+        let exito_registro = this.state.exito_registro;
+        let content_error_name = <br/>
+        let content_error_lastname = <br/>
+        let content_error_email = <br/>
+        let content_error_password = <br/>
+        let content_error_registro = <br/>
+        let content_exito_registro = <br/>
+
+
+        if(error_name){
+            content_error_name = <div className="error-message-aux"><p>{error_name}</p></div>;
+        }
+        if(error_lastname){
+            content_error_lastname = <div className="error-message-aux"><p>{error_lastname}</p></div>;
+        }
+        if(error_email){
+            content_error_email = <div className="error-message-aux"><p>{error_email}</p></div>;
+        }
+        if(error_password){
+            content_error_password = <div className="error-message-aux"><p>{error_password}</p></div>;
+        }
+        if(error_registro){
+            content_error_registro = <div className="error-message"><p>{error_registro}</p></div>;
+        }
+        if(exito_registro){
+            content_exito_registro = <div className="exito-message"><p>{exito_registro}</p></div>;
+        }
 
         return (
             <View
@@ -81,9 +158,15 @@ class Signup extends React.Component {
                 responseGoggle={this.responseGoggle}
                 logged={this.logged}
                 name={this.name}
-                lastName={this.lastName}
+                lastname={this.lastname}
                 email={this.email}
                 password={this.password}
+                content_error_name = {content_error_name}
+                content_error_lastname = {content_error_lastname}
+                content_error_email = {content_error_email}
+                content_error_password = {content_error_password}
+                content_error_registro = {content_error_registro}
+                content_exito_registro = {content_exito_registro}
             />
         );
     }
