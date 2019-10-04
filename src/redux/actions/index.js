@@ -8,18 +8,10 @@ export const oauthGoogle = data => {
         console.log('we received',data);
         const newData = {
             access_token : data,
-            role : "employee",
-            method : "google",
-            country_id : 1
+            method : "google"
         }
         const res = await axios.post(root + 'users/oauth/google',newData);
-        
-        dispatch({
-            type: AUTH_SIGN_UP,
-            payload: res.data.accessData.accessToken
-        })
-
-        localStorage.setItem('JWT_TOKEN',res.data.accessData.accessToken)
+        return res.data
     }
 }
 
@@ -28,9 +20,7 @@ export const oauthFacebook = data => {
         console.log('we received',data);
         const newData = {
             access_token : data,
-            role : "employee",
-            method : "facebook",
-            country_id : 1
+            method : "facebook"
         }
         const res = await axios.post(root + 'users/oauth/facebook',newData);
         console.log(res);
@@ -40,6 +30,7 @@ export const oauthFacebook = data => {
         // })
 
         // localStorage.setItem('JWT_TOKEN',res.data.accessData.accessToken)
+        return res.data
     }
 }
 
@@ -56,6 +47,7 @@ export const signUp = data => {
             // })
 
             // localStorage.setItem('token',res.data.accessData.accessToken)
+            console.log(res);
             return res.data;
         } catch (err) {
             // console.log(err)

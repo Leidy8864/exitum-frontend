@@ -4,7 +4,7 @@ nav {
     width: 100%;
     top: 0;
     z-index: 10;
-    .container-exlg {
+    .container-fluid {
         a {
             color: #fff;
             font-size: 40px;
@@ -17,7 +17,71 @@ nav {
     }
 }
 
+.navbar-toggler {
+    outline: none !important;
+    .navbar-toggler-icon {
+        background: #fff !important;
+    }
+}
+
 a.signin {
     text-decoration: none !important;
     font-size: 22px !important;
+}
+
+.hamburger:after,
+.hamburger:before,
+.hamburger {
+    transition: 1s;
+    position: absolute;
+    width: 100%;
+    content: '';
+    background-color: rgb(254, 254, 254);
+}
+
+.hamburger {
+    height: 7%;
+}
+
+.hamburger:before {
+    height: 100%;
+    top: 50px;
+    right: 0px;
+}
+
+.hamburger:after {
+    height: 100%;
+    top: -50px;
+    right: 0px;
+}
+
+.cruz {
+    transition: 1s;
+    transform: rotateZ(45deg);
+}
+
+.cruz:before {
+    transition: 1s;
+    top: 0px;
+    transform: rotateZ(90deg);
+}
+
+.cruz:after {
+    transition: 1s;
+    top: 0px;
+    transform: rotateZ(0deg);
+}
+
+.menu {
+    position: absolute;
+    width: 200px;
+    z-index: 2048;
+    height: 200px;
+    top: -45px;
+    right: -60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform: scale(.2);
 }

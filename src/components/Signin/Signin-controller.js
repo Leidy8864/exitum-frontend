@@ -44,6 +44,9 @@ class Signin extends React.Component {
         if(email && password){
             const response = await this.props.signIn(formData);
             if(response.status){
+                localStorage.setItem('token',response.data.accessToken)
+                localStorage.setItem('name',response.data.name)
+                localStorage.setItem('lastname',response.data.lastname)
                 this.props.history.push('/dashboard');
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();

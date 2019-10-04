@@ -10,10 +10,17 @@ class Header extends React.Component {
         $('body').addClass('bn-login')
     }
 
+    componentDidMount = () => {
+        $('.menu').on('click', function () {
+            $('.hamburger').toggleClass('cruz');
+        })
+    }
+
     render() {
         return (
             <View
                 modalLogin={this.modalLogin}
+                menuCel={this.menuCel}
             />
         );
     }

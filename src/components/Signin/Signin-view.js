@@ -79,7 +79,6 @@ function View(props) {
                                         callback={responseFacebook}
                                         cssClass="fab fa-facebook-f"
                                     />
-
                                     <GoogleLogin
                                         clientId="700642697607-67d5v2cokbnfue09v44061sj3iq6cr6d.apps.googleusercontent.com"
                                         buttonText=""

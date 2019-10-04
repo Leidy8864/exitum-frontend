@@ -54,18 +54,12 @@ class Signup extends React.Component {
             password
         }
         if(name && lastname && email && password && password.length >= 8){
-            // console.log('onSubmit() is called')
-            // console.log('form data', formData)
-            // this.props.signUp(formData);
-            // if (!this.props.errorMessage) {
-            //     this.props.history.push('/dashboard')
-            //     $('body').removeClass('modal-open');
-            //     $('.modal-backdrop').remove();
-            // }
             const response = await this.props.signUp(formData);
             console.log("response = ", response)
             if(response.status){
                 localStorage.setItem('token',response.data.accessToken)
+                localStorage.setItem('name',response.data.name)
+                localStorage.setItem('lastname',response.data.lastname)
                 this.setState({ exito_registro: 'Se te ha enviado un correo para validar tu registro.' })
                 this.props.history.push('/dashboard');
                 $('body').removeClass('modal-open');
@@ -109,13 +103,13 @@ class Signup extends React.Component {
     }
 
     async responseFacebook(res) {
-        console.log('responseFacebook', res);
-        await this.props.oauthFacebook(res.accessToken)
-        if (!this.props.errorMessage) {
-            this.props.history.push('/dashboard');
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-        }
+        console.log('responseFacebook', res.accessToken);
+        await this.props.oauthFacebook(res)
+        // if (!this.props.errorMessage) {
+        //     this.props.history.push('/dashboard');
+        //     $('body').removeClass('modal-open');
+        //     $('.modal-backdrop').remove();
+        // }
     }
 
     render() {

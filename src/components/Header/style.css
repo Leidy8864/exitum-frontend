@@ -6,21 +6,103 @@ nav {
   z-index: 10;
 }
 
-nav .container-exlg a {
+nav .container-fluid a {
   color: #fff;
   font-size: 40px;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-nav .container-exlg a:hover {
+nav .container-fluid a:hover {
   color: #77FAB3;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
+.navbar-toggler {
+  outline: none !important;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background: #fff !important;
+}
+
 a.signin {
   text-decoration: none !important;
   font-size: 22px !important;
+}
+
+.hamburger:after,
+.hamburger:before,
+.hamburger {
+  -webkit-transition: 1s;
+  transition: 1s;
+  position: absolute;
+  width: 100%;
+  content: '';
+  background-color: #fefefe;
+}
+
+.hamburger {
+  height: 7%;
+}
+
+.hamburger:before {
+  height: 100%;
+  top: 50px;
+  right: 0px;
+}
+
+.hamburger:after {
+  height: 100%;
+  top: -50px;
+  right: 0px;
+}
+
+.cruz {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.cruz:before {
+  -webkit-transition: 1s;
+  transition: 1s;
+  top: 0px;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+
+.cruz:after {
+  -webkit-transition: 1s;
+  transition: 1s;
+  top: 0px;
+  -webkit-transform: rotateZ(0deg);
+          transform: rotateZ(0deg);
+}
+
+.menu {
+  position: absolute;
+  width: 200px;
+  z-index: 2048;
+  height: 200px;
+  top: -45px;
+  right: -60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2);
 }
 /*# sourceMappingURL=style.css.map */

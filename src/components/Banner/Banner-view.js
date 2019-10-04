@@ -28,12 +28,18 @@ function View() {
                 </div>
             </div>
             <div className="banner">
-                <div className="container-ex">
+                <div className="container">
                     <div className="container-banner row">
-                        <div className="info-banner col-md-6">
-                            <h3>sueño</h3>
-                            <h2>Tu <span>proyecto</span><br/>
+                        <div className="info-banner col-md-6 ">
+                            <div className="text-info celplus">
+                                <h3>sueño</h3>
+                                <h2>Tu <span>proyecto</span><br />
+                                    en nuestras manos</h2>
+                            </div>
+                            <div className="text-info cel">
+                            <h2>Tu <span>sueño</span><br/>
                                 en nuestras manos</h2>
+                            </div>
                             <div className="btn-register">
                                 <button type="button" className="btn-signup" data-toggle="modal" data-target="#signup">
                                     Registrarme
