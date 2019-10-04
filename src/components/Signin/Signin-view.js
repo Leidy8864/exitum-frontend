@@ -80,11 +80,11 @@ function View(props) {
                                         cssClass="fab fa-facebook-f"
                                     />
                                     <GoogleLogin
-                                        clientId="700642697607-67d5v2cokbnfue09v44061sj3iq6cr6d.apps.googleusercontent.com"
+                                        clientId="990260099345-jh6kjumka8s2a2a796nur9tf64u26tir.apps.googleusercontent.com"
                                         buttonText=""
-                                        onSuccess={responseGoogle}
                                         onFailure={responseGoogle}
                                         icon={true}
+                                        onSuccess={responseGoogle}
                                     >
                                     </GoogleLogin>
                                 </div>

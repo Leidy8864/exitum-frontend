@@ -67,16 +67,16 @@ class Signin extends React.Component {
     }
 
 
-    async responseGoggle(res) {
+    responseGoogle = async (res) => {
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
         await this.props.oauthGoogle(res.accessToken)
-        if (!this.props.errorMessage) {
-            this.props.history.push('/dashboard');
-            $('body').removeClass('modal-open');
-            $('#signin').removeClass('show');
-            $('.modal-backdrop').remove();
-        }
+        // if (!this.props.errorMessage) {
+        //     this.props.history.push('/dashboard');
+        //     $('body').removeClass('modal-open');
+        //     $('#signin').removeClass('show');
+        //     $('.modal-backdrop').remove();
+        // }
     }
 
     async responseFacebook(res) {
@@ -108,7 +108,7 @@ class Signin extends React.Component {
         return (
             <View
                 responseFacebook={this.responseFacebook}
-                responseGoggle={this.responseGoggle}
+                responseGoogle={this.responseGoogle}
                 logged={this.logged}
                 email={this.email}
                 contentError={contentError}

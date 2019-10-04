@@ -90,21 +90,28 @@ class Signup extends React.Component {
     }
 
 
-    async responseGoggle(res) {
+    responseGoogle = async (res) => {
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
-        await this.props.oauthGoogle(res.accessToken)
-        if (!this.props.errorMessage) {
+        const response = await this.props.oauthGoogle(res.accessToken)
+        if(response.status) {
+            localStorage.setItem('token',response.data.accessToken)
+            localStorage.setItem('name',response.data.name);
+            localStorage.setItem('lastname',response.data.name);
+            localStorage.setItem('email',response.data.email);
             this.props.history.push('/dashboard');
             $('body').removeClass('modal-open');
-            $('#signin').removeClass('show');
             $('.modal-backdrop').remove();
+        } else{
+            console.log("error = ", response.message)
+            this.setState({ error_registro: response.message })
         }
     }
 
-    async responseFacebook(res) {
-        console.log('responseFacebook', res.accessToken);
-        await this.props.oauthFacebook(res)
+    responseFacebook = async (res) => {
+        console.log('responseFB', res);
+        console.log('typeof res', typeof res)
+        await this.props.oauthFacebook(res.accessToken)
         // if (!this.props.errorMessage) {
         //     this.props.history.push('/dashboard');
         //     $('body').removeClass('modal-open');
@@ -149,7 +156,7 @@ class Signup extends React.Component {
         return (
             <View
                 responseFacebook={this.responseFacebook}
-                responseGoggle={this.responseGoggle}
+                responseGoogle={this.responseGoogle}
                 logged={this.logged}
                 name={this.name}
                 lastname={this.lastname}
