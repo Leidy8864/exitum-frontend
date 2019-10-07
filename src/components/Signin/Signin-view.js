@@ -73,7 +73,7 @@ function View(props) {
                                 </div>
                                 <div className="d-flex justify-content-center socials">
                                     <FacebookLogin
-                                        appId="2591522130911268"
+                                        appId="2753590341320162"
                                         textButton=""
                                         fields="name,email,picture"
                                         callback={responseFacebook}

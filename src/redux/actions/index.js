@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { AUTH_SIGN_UP, AUTH_ERROR } from './types'
 
-const root = 'http://35.175.241.103:8081/';
+const root = 'http://127.0.0.1:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
@@ -12,6 +12,8 @@ export const oauthGoogle = data => {
                 method: "google"
             }
             const res = await axios.post(root + 'users/oauth/google', newData);
+            console.log(res.data);
+
             return res.data
         } catch (error) {
             console.log(error)
@@ -21,20 +23,21 @@ export const oauthGoogle = data => {
 
 export const oauthFacebook = data => {
     return async dispatch => {
-        console.log('we received', data);
-        const newData = {
-            access_token: data,
-            method: "facebook"
-        }
-        const res = await axios.post(root + 'users/oauth/facebook', newData);
-        console.log(res);
-        // dispatch({
-        //     type: AUTH_SIGN_UP,
-        //     payload: res.data.accessData.accessToken
-        // })
 
-        // localStorage.setItem('JWT_TOKEN',res.data.accessData.accessToken)
-        return res.data
+        try {
+            console.log('we received', data);
+            const newData = {
+                access_token: data,
+                method: "facebook"
+            }
+            const res = await axios.post(root + 'users/oauth/facebook', newData);
+            console.log(res.data);
+
+            return res.data
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 }
 

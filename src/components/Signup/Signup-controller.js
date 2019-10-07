@@ -7,7 +7,6 @@ import $ from 'jquery'
 
 class Signup extends React.Component {
 
-
     state = {
         name: '',
         lastname: '',
@@ -112,11 +111,11 @@ class Signup extends React.Component {
         console.log('responseFB', res);
         console.log('typeof res', typeof res)
         await this.props.oauthFacebook(res.accessToken)
-        // if (!this.props.errorMessage) {
-        //     this.props.history.push('/dashboard');
-        //     $('body').removeClass('modal-open');
-        //     $('.modal-backdrop').remove();
-        // }
+        if (!this.props.errorMessage) {
+            this.props.history.push('/dashboard');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        }
     }
 
     render() {
