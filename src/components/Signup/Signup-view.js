@@ -2,16 +2,18 @@ import React from 'react';
 import './style.scss'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
+import SocialLogin from './SocialButton'
 
 function View(props) {
 
-    const { 
-        name, 
-        lastname, 
-        email, 
-        password, 
-        responseFacebook, 
-        responseGoogle, 
+    const {
+        name,
+        lastname,
+        email,
+        password,
+        responseFacebook,
+        componentClicked,
+        responseGoogle,
         logged,
         content_error_name,
         content_error_lastname,
@@ -27,7 +29,7 @@ function View(props) {
                 <div className="modal-content">
                     <div className=" pt-4 info-signup">
                         <div className="welcome-ex">
-                            <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/></span>
+                            <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg" /></span>
                         </div>
                         <form onSubmit={logged}>
                             <div className="row">
@@ -84,12 +86,12 @@ function View(props) {
                         </form>
                         <div className="col-md-12">
                             <div className="div-margin-30px">
-                                    {content_error_registro}
+                                {content_error_registro}
                             </div>
                         </div>
                         <div className="col-md-12">
                             <div className="div-margin-30px">
-                                    {content_exito_registro}
+                                {content_exito_registro}
                             </div>
                         </div>
                         <div className="border-space">
@@ -101,22 +103,32 @@ function View(props) {
                         </div>
                         <div className="d-flex justify-content-center socials">
                             <FacebookLogin
-                                appId="2591522130911268"
-                                textButton=""
+                                appId="2753590341320162"
+                                autoLoad={true}
                                 fields="name,email,picture"
-                                callback={responseFacebook}
+                                onClick={componentClicked}
                                 cssClass="fab fa-facebook-f"
-                            />
+                                callback={responseFacebook} />,
+                                {/* <FacebookLogin
+                                    appId="339830716680357"
+                                    textButton=""
+                                    fields="name,email,picture"
+                                    callback={responseFacebook}
+                                    onClick={componentClicked}
+                                    cssClass="fab fa-facebook-f"
+                                    icon={true}
+                                    autoLoad={true}
+
+                                /> */}
 
                             <GoogleLogin
                                 clientId="990260099345-jh6kjumka8s2a2a796nur9tf64u26tir.apps.googleusercontent.com"
-                                clientSecret='q5gG1S4oifY19QR4ztcn5b7G'
                                 buttonText=""
                                 onSuccess={responseGoogle}
                                 onFailure={responseGoogle}
                                 icon={true}
-                            >
-                            </GoogleLogin>
+                            />
+                            {/* </GoogleLogin> */}
                         </div>
                     </div>
                     <div className="col-md-0 bg-register">

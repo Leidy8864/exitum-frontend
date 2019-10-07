@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { AUTH_SIGN_UP, AUTH_ERROR } from './types'
 
-const root = 'http://35.175.241.103:8081/';
+const root = 'http://127.0.0.1:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
@@ -22,15 +22,15 @@ export const oauthFacebook = data => {
             access_token : data,
             method : "facebook"
         }
-        const res = await axios.post(root + 'users/oauth/facebook',newData);
-        console.log(res);
+        // const res = await axios.post(root + 'users/oauth/facebook',newData);
+        // console.log("Respuesta del servidor",res);
         // dispatch({
         //     type: AUTH_SIGN_UP,
         //     payload: res.data.accessData.accessToken
         // })
 
         // localStorage.setItem('JWT_TOKEN',res.data.accessData.accessToken)
-        return res.data
+        // return res.data
     }
 }
 

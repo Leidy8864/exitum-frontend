@@ -7,7 +7,6 @@ import $ from 'jquery'
 
 class Signup extends React.Component {
 
-
     state = {
         name: '',
         lastname: '',
@@ -90,7 +89,9 @@ class Signup extends React.Component {
     }
 
 
-    async responseGoggle(res) {
+    responseGoogle = async (res) => {
+
+
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
         await this.props.oauthGoogle(res.accessToken)
@@ -102,9 +103,11 @@ class Signup extends React.Component {
         }
     }
 
-    async responseFacebook(res) {
-        console.log('responseFacebook', res.accessToken);
-        await this.props.oauthFacebook(res)
+    componentClicked = (err) =>{ console.log("kHAAAAAAAAA",err)};
+    
+    responseFacebook = async (res) => {
+        console.log('responseFacebook', res);
+        // await this.props.oauthFacebook(res)
         // if (!this.props.errorMessage) {
         //     this.props.history.push('/dashboard');
         //     $('body').removeClass('modal-open');
@@ -149,7 +152,7 @@ class Signup extends React.Component {
         return (
             <View
                 responseFacebook={this.responseFacebook}
-                responseGoggle={this.responseGoggle}
+                responseGoogle={this.responseGoogle}
                 logged={this.logged}
                 name={this.name}
                 lastname={this.lastname}
