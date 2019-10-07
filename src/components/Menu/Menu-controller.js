@@ -1,6 +1,9 @@
 
 import React from 'react';
 import View from './Menu-view';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import * as actions  from '../../redux/actions'
 
 class Menu extends React.Component {
     state = {
@@ -13,19 +16,21 @@ class Menu extends React.Component {
         if(id === "inicio_element"){
             this.setState({ selected_inicio: true })
             this.setState({ selected_empleo: false })
+            this.props.history.push('/dashboard');
         }else if (id === "empleo_element"){
             this.setState({ selected_empleo: true })
             this.setState({ selected_inicio: false })
+            this.props.history.push('/advertisement');
         }
     }
 
     render() {
-        let classInicio = "element"
-        if(this.state.selected_inicio){
+        let classInicio = "element";
+        let classEmpleo = "element";
+        if(this.props.selected == "inicio"){
             classInicio+= " selected"
-        }
-        let classEmpleo = "element"
-        if(this.state.selected_empleo){
+
+        }else{
             classEmpleo+= " selected"
         }
         return (
@@ -37,4 +42,7 @@ class Menu extends React.Component {
         );
     }
 }
-export default Menu;
+
+export default withRouter(
+    connect(null, actions)(Menu)
+)

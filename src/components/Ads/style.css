@@ -1,0 +1,31 @@
+.Ads {
+  float: left;
+  width: 65%;
+  height: calc(100vh - 90px);
+  color: #3369fd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+}
+
+.Ads .Ads-plus {
+  cursor: pointer;
+}
+
+.Ads .Ads-plus span {
+  font-size: 40px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.Ads .Ads-plus:hover {
+  color: #9ab2f5;
+}
+/*# sourceMappingURL=style.css.map */
