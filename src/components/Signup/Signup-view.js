@@ -11,7 +11,6 @@ function View(props) {
         email,
         password,
         responseFacebook,
-        componentClicked,
         responseGoogle,
         logged,
         content_error_name,
@@ -107,11 +106,7 @@ function View(props) {
                                 textButton=""
                                 fields="name,email,picture"
                                 callback={responseFacebook}
-                                onClick={componentClicked}
                                 cssClass="fab fa-facebook-f"
-                                icon={true}
-                                autoLoad={true}
-
                             />
 
                             <GoogleLogin

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { AUTH_SIGN_UP, AUTH_ERROR } from './types'
 
-const root = 'http://127.0.0.1:8081/';
+const root = 'http://192.168.139.1:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
