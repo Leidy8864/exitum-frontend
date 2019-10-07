@@ -27,7 +27,7 @@ export default ${args[0]};
 //Content View
 const contentView= `
 import React from 'react';
-import './style.scss';
+import './style.css';
 
 function View(){
     return(

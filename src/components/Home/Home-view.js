@@ -10,7 +10,7 @@ function View(){
         <div>
             <Header/>
             <Banner/>
-        </div>
+          </div>
     );
 }
 export default View;
