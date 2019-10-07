@@ -10,8 +10,28 @@ function View(){
                         <div className="modal-content">
                             <div className="container">
                                 <div className="row">
-                                    <div className="title">
-
+                                    <div className="title_">
+                                        Nuevo Anuncio
+                                    </div>
+                                    <div className="form_group_">
+                                        <label>Elige el proyecto</label>
+                                        <input/>
+                                    </div>
+                                    <div className="form_group_">
+                                        <label>Rubro</label>
+                                        <input/>
+                                    </div>
+                                    <div className="form_group_">
+                                        <label>Titulo del Anuncio</label>
+                                        <input/>
+                                    </div>
+                                    <div className="form_group_">
+                                        <label>Descripción del requerimiento</label>
+                                        <text/>
+                                    </div>
+                                    <div className="form_group_">
+                                        <label>Aptitudes del perfil</label>
+                                        <input/>
                                     </div>
                                 </div>
                             </div>
