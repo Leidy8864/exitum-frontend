@@ -27,7 +27,7 @@ class Menu extends React.Component {
     render() {
         let classInicio = "element";
         let classEmpleo = "element";
-        if(this.props.selected == "inicio"){
+        if(this.props.selected === "inicio"){
             classInicio+= " selected"
 
         }else{
