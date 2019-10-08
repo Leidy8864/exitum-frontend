@@ -1,0 +1,23 @@
+.Ads{
+    float: left;
+    width: 65%;
+    height: calc(100vh - 90px);
+    color: #3369fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    .Ads-plus{
+        cursor: pointer;
+        span{
+            font-size: 40px;
+            margin: -20px -30px;
+            padding-top: 5px;
+            font-weight: bold;
+            position: absolute;
+        }
+    }
+    .Ads-plus:hover{
+        color: #9ab2f5;
+    }
+}

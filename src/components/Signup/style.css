@@ -1,6 +1,27 @@
 .error-message-aux {
-  color: #c81313;
-  padding-left: 10px;
-  margin-bottom: 30px;
+  color: #f46565;
+  margin-top: 7px;
+  border-radius: 17px;
+  margin-bottom: 7px;
+  font-size: 13px;
+  text-align: center;
+  font-family: 'Poppins';
+}
+
+@media screen and (max-width: 576px) {
+  form.form-signin input {
+    padding: 15px !important;
+    border-radius: 17px;
+  }
+  .forget-password {
+    margin-top: 16px !important;
+  }
+  button.submit-signin {
+    padding: 15px !important;
+    border-radius: 17px !important;
+  }
+  .to {
+    font-size: 15px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

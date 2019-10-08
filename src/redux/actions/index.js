@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { AUTH_SIGN_UP, AUTH_ERROR } from './types'
+import { AUTH_ERROR } from './types'
 
 const root = 'http://35.175.241.103:8081/';
 
