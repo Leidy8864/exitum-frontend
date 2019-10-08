@@ -1,7 +1,27 @@
 import React, {Fragment} from 'react';
+import Select from 'react-select';
 import './style.css'
 
-function View(){
+function View(props){
+    const {
+        className,
+        proyectClassNamePrefix,
+        AreaClassNamePrefix,
+        skillClassNamePrefix,
+        proyectPlaceholder,
+        areaPlaceholder,
+        skillPlaceholder,
+        isDisabled,
+        isLoading,
+        isClearable,
+        isRtl,
+        isSearchable,
+        proyectName,
+        areaName,
+        proyectsOptions,
+        areaOptions,
+        skillsOptions
+    } = props;
     return(
         <div className="Modal-ads">
             <Fragment>
@@ -14,24 +34,64 @@ function View(){
                                         Nuevo Anuncio
                                     </div>
                                     <div className="form_group_">
-                                        <label>Elige el proyecto</label>
-                                        <input/>
+                                        <label>Seleccionar Proyecto</label>
+                                        <Fragment>
+                                            <Select
+                                                className={className}
+                                                classNamePrefix={proyectClassNamePrefix}
+                                                placeholder = {proyectPlaceholder}
+                                                // defaultValue={defaultValue}
+                                                isDisabled={isDisabled}
+                                                isLoading={isLoading}
+                                                isClearable={isClearable}
+                                                isRtl={isRtl}
+                                                isSearchable={isSearchable}
+                                                name={proyectName}
+                                                options={proyectsOptions}
+                                            />
+                                        </Fragment>
                                     </div>
                                     <div className="form_group_">
-                                        <label>Rubro</label>
-                                        <input/>
+                                        <label>Seleccionar Area</label>
+                                        <Fragment>
+                                            <Select
+                                                className={className}
+                                                classNamePrefix={AreaClassNamePrefix}
+                                                placeholder = {areaPlaceholder}
+                                                // defaultValue={defaultValue}
+                                                isDisabled={isDisabled}
+                                                isLoading={isLoading}
+                                                isClearable={isClearable}
+                                                isRtl={isRtl}
+                                                isSearchable={isSearchable}
+                                                name={areaName}
+                                                options={areaOptions}
+                                            />
+                                        </Fragment>
                                     </div>
                                     <div className="form_group_">
                                         <label>Titulo del Anuncio</label>
                                         <input/>
                                     </div>
                                     <div className="form_group_">
-                                        <label>Descripción del requerimiento</label>
-                                        <text/>
+                                        <label>Aptitudes del perfil</label>
+                                        <Fragment>
+                                            <Select
+                                                isMulti
+                                                name="colors"
+                                                options={skillsOptions}
+                                                className="basic-multi-select"
+                                                classNamePrefix={skillClassNamePrefix}
+                                                placeholder={skillPlaceholder}
+                                            />
+                                        </Fragment>
                                     </div>
                                     <div className="form_group_">
-                                        <label>Aptitudes del perfil</label>
-                                        <input/>
+                                        <label>Descripción del requerimiento</label>
+                                        <textarea/>
+                                    </div>
+                                    <div className="form_group_">
+                                        <button type="button">Guardar</button>
                                     </div>
                                 </div>
                             </div>
