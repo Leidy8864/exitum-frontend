@@ -70,22 +70,36 @@ class Signin extends React.Component {
     responseGoogle = async (res) => {
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
-        await this.props.oauthGoogle(res.accessToken)
-        // if (!this.props.errorMessage) {
-        //     this.props.history.push('/dashboard');
-        //     $('body').removeClass('modal-open');
-        //     $('#signin').removeClass('show');
-        //     $('.modal-backdrop').remove();
-        // }
-    }
-
-    async responseFacebook(res) {
-        console.log('responseFacebook', res);
-        await this.props.oauthFacebook(res.accessToken)
-        if (!this.props.errorMessage) {
+        const response = await this.props.oauthGoogle(res.accessToken)
+        if (response.status) {
+            localStorage.setItem('token',response.data.accessToken)
+            localStorage.setItem('name',response.data.name);
+            localStorage.setItem('lastname',response.data.lastname);
+            localStorage.setItem('email',response.data.email);
             this.props.history.push('/dashboard');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
+        }else{
+            console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
+            this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
+
+        }
+    }
+
+    responseFacebook = async (res) => {
+        console.log('responseFacebook', res);
+        const response = await this.props.oauthFacebook(res.accessToken)
+        if (response.status) {
+            localStorage.setItem('token',response.data.accessToken)
+            localStorage.setItem('name',response.data.name);
+            localStorage.setItem('lastname',response.data.name);
+            localStorage.setItem('email',response.data.email);
+            this.props.history.push('/dashboard');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        }else{
+            console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
+            this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
         }
     }
 

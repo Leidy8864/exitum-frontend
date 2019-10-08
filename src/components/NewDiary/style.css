@@ -1,60 +1,59 @@
-.background-login {
-  background-image: url(../../public/images/login-desenfocado.png) !important;
+.modal {
   background-size: cover;
   width: 100%;
   height: auto;
 }
 
-.background-login .modal-dialog {
+.modal .modal-dialog {
   margin-top: 100px;
   max-width: auto;
 }
 
-.background-login .modal-dialog .modal-content {
+.modal .modal-dialog .modal-content {
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 20px 0 rgba(131, 118, 118, 0.14), 0 7px 10px -5px rgba(94, 40, 189, 0.4);
           box-shadow: 0 4px 20px 0 rgba(131, 118, 118, 0.14), 0 7px 10px -5px rgba(94, 40, 189, 0.4);
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex {
+.modal .modal-dialog .modal-content .welcome-ex {
   text-align: center;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex span {
+.modal .modal-dialog .modal-content .welcome-ex span {
   font-family: 'Nunito';
   text-transform: uppercase;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex h2 {
+.modal .modal-dialog .modal-content .welcome-ex h2 {
   font-family: 'Poppins';
   font-size: 30px;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex p {
+.modal .modal-dialog .modal-content .welcome-ex p {
   font-family: 'Nunito';
   color: #8f8a8a;
   font-weight: 100;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex .div-margin-30px {
+.modal .modal-dialog .modal-content .welcome-ex .div-margin-30px {
   margin: 30px;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex .error-message {
+.modal .modal-dialog .modal-content .welcome-ex .error-message {
   color: #c81313;
   background-color: #FF9DA2;
   padding: 19px 5% 2px;
   border-radius: 5px;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex .exito-message {
+.modal .modal-dialog .modal-content .welcome-ex .exito-message {
   color: #13c837;
   background-color: #c8ffbc;
   padding: 19px 5% 2px;
   border-radius: 5px;
 }
 
-.background-login .modal-dialog .modal-content .welcome-ex .error-message-aux {
+.modal .modal-dialog .modal-content .welcome-ex .error-message-aux {
   color: #c81313;
   padding-left: 15px;
   margin-bottom: 30px;
