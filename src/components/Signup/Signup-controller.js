@@ -92,7 +92,8 @@ class Signup extends React.Component {
     responseGoogle = async (res) => {
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
-        const response = await this.props.oauthGoogle(res.accessToken)
+        const response = await this.props.oauthGoogle(res.accessToken);
+        console.log(response)
         if(response.status) {
             localStorage.setItem('token',response.data.accessToken)
             localStorage.setItem('name',response.data.name);
