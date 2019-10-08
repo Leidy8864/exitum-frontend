@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss'
+import './style.css'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
 
@@ -40,9 +40,7 @@ function View(props) {
                                         type="text"
                                         placeholder="Nombre"
                                     />
-                                    <div>
-                                        {content_error_name}
-                                    </div>
+                                    {content_error_name}
                                 </div>
                                 <div className="col-md-6">
                                     <input
@@ -52,9 +50,7 @@ function View(props) {
                                         type="text"
                                         placeholder="Apellidos"
                                     />
-                                    <div>
-                                        {content_error_lastname}
-                                    </div>
+                                    {content_error_lastname}
                                 </div>
                                 <div className="col-md-12">
                                     <input
@@ -63,9 +59,7 @@ function View(props) {
                                         type="email"
                                         placeholder="Email"
                                     />
-                                    <div>
-                                        {content_error_email}
-                                    </div>
+                                    {content_error_email}
                                 </div>
                                 <div className="col-md-12">
                                     <input
@@ -74,25 +68,15 @@ function View(props) {
                                         type="password"
                                         placeholder="Contraseña"
                                     />
-                                    <div>
-                                        {content_error_password}
-                                    </div>
+                                    {content_error_password}
                                 </div>
                                 <div className="send-submit">
                                     <button type="submit" className="submit-signup">Registrate</button>
                                 </div>
                             </div>
                         </form>
-                        <div className="col-md-12">
-                            <div className="div-margin-30px">
-                                {content_error_registro}
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="div-margin-30px">
-                                {content_exito_registro}
-                            </div>
-                        </div>
+                            {content_error_registro}
+                            {content_exito_registro}
                         <div className="border-space">
                             <hr />
                             <div className="to">

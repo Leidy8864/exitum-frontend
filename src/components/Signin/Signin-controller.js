@@ -91,11 +91,11 @@ class Signin extends React.Component {
 
     render() {
         let error_login = this.state.error_login;
-        let contentError=<br/>;
+        let contentError='';
         let error_user = this.state.error_user;
-        let contentErrorUser=<br/>;
+        let contentErrorUser='';
         let error_pass = this.state.error_pass;
-        let contentErrorPass=<br/>;
+        let contentErrorPass='';
         if(error_login){
             contentError = <div className="error-message"><p>{error_login}</p></div>;
         }

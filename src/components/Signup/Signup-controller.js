@@ -125,12 +125,12 @@ class Signup extends React.Component {
         let error_password = this.state.error_password;
         let error_registro = this.state.error_registro;
         let exito_registro = this.state.exito_registro;
-        let content_error_name = <br/>
-        let content_error_lastname = <br/>
-        let content_error_email = <br/>
-        let content_error_password = <br/>
-        let content_error_registro = <br/>
-        let content_exito_registro = <br/>
+        let content_error_name = '';
+        let content_error_lastname = '';
+        let content_error_email = '';
+        let content_error_password = '';
+        let content_error_registro = '';
+        let content_exito_registro = '';
 
 
         if(error_name){

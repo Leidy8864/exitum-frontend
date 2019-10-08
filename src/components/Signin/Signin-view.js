@@ -50,17 +50,12 @@ function View(props) {
                                             placeholder="Contraseña"
                                         />
                                     </div>
-                                    <div>
                                         {contentErrorPass}
-                                    </div>
-                                    
                                     <div className="send-submit">
                                         <button type="submit" className="submit-signin">Iniciar Sesión</button>
                                     </div>
                                 </form>
-                                <div className="div-margin-30px">
-                                        {contentError}
-                                </div>
+                                    {contentError}
                                 <div className="forget-password">  
                                     <Link onClick={forgetPass} data-toggle="modal" data-target="#forgetpass" to="/"><p>¿Olvidaste tu contraseña?</p></Link>
                                 </div>
