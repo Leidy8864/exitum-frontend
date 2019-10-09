@@ -52,13 +52,39 @@ p {
   display: none;
 }
 
-.text-abrv {
-  position: relative;
+button.boton-sidebar {
+  margin-left: 23px;
+  margin-right: 20px;
+  background: #fff;
+  outline: none !important;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
 }
 
-.text-abrv img {
-  width: 40px;
-  border-radius: 50%;
+button.boton-sidebar .fas {
+  color: #696a6c;
+}
+
+button.boton-sidebar-cell {
+  display: none;
+  background: #fff;
+  border: none;
+  font-size: 16px;
+  padding: 6px 16px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+
+button.boton-sidebar-cell .fas {
+  color: #696a6c;
+}
+
+.text-abrv {
+  position: relative;
 }
 
 .sidebar {
@@ -73,6 +99,7 @@ p {
           transform: translateX(0%);
   -webkit-box-shadow: 0px 0px 4px #a8a8a8;
           box-shadow: 0px 0px 4px #a8a8a8;
+  z-index: 1024;
 }
 
 .sidebar .img-sidebar {
@@ -117,7 +144,7 @@ p {
   content: "";
   position: absolute;
   bottom: 0;
-  top: 68px;
+  top: 77px;
   right: 15px;
   height: 1px;
   width: calc(100% - 30px);
@@ -130,65 +157,61 @@ p {
   margin-right: 35px;
 }
 
-.sidebar .navegacion {
-  position: relative;
-  z-index: 10;
+ul {
+  margin-top: 20px !important;
+  padding: 0px !important;
 }
 
-.sidebar .navegacion .nav-pills .nav-link.active, .sidebar .navegacion .nav-pills .show > .nav-link {
-  color: #396afc;
-  background-color: white;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(27, 96, 187, 0.4);
-          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(27, 96, 187, 0.4);
+ul li {
+  position: relative;
+  display: block;
+  list-style: none;
+  padding: 20px;
+  z-index: 1024;
 }
 
-.sidebar .navegacion .nav-link {
-  position: relative;
-  right: 10px;
-  height: 45px;
+ul li a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
-          justify-content: flex-start;
-  font-family: 'Ubuntu';
-  font-weight: 200 !important;
-  color: #8a8484;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.sidebar .navegacion .nav-link .fas.fa-tachometer-alt {
-  margin-right: 20px;
-  font-size: 21px;
+ul li a img.rocket {
+  width: 17px;
+  margin-left: 15px;
 }
 
-.sidebar .navegacion .nav-link .fas.fa-home {
-  margin-right: 26px;
-  font-size: 21px;
+ul li a span.home {
+  margin-left: 40px;
 }
 
-.sidebar .navegacion .nav-link .fas.fa-box {
-  margin-right: 25px;
-  font-size: 21px;
+ul li a img {
+  margin-left: 20px;
 }
 
-.sidebar .navegacion .nav-link .fas.fa-building {
-  margin-right: 27px;
-  font-size: 21px;
+ul li a span {
+  margin-left: 10px;
+  font-size: 18px;
 }
 
-.sidebar .navegacion .nav-link .fas.fa-users {
-  margin-right: 21px;
-  font-size: 21px;
-}
-
-.sidebar .navegacion .nav-link:active, .sidebar .navegacion .nav-link:focus {
-  background: #dedddf;
-  color: #fff;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+ul li a.active:before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #3369FD;
+  left: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 @media screen and (max-width: 1024px) {

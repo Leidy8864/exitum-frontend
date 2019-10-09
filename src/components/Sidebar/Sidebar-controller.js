@@ -10,15 +10,15 @@ class Sidebar extends React.Component {
 
     selectOne = e => {
         e.preventDefault()
-        // $('#link').addClass('active')
-        // $('#link-1').removeClass('active')
+        $('#link').addClass('active')
+        $('#link-1').removeClass('active')
         this.props.history.push('/dashboard');
     }
 
     selectTwo = e => {
         e.preventDefault()
-        // $('#link').addClass('active')
-        // $('#link-1').removeClass('active')
+        $('#link').addClass('active')
+        $('#link-1').removeClass('active')
         this.props.history.push('/advertisement');
     }
 

@@ -20,7 +20,7 @@ function View(props) {
                 </li>
                 
                 <li>
-                    <NavLink to="/advertisement3" id="link-1" onClick={selectTwo}>
+                    <NavLink to="/advertisement" id="link-1" onClick={selectTwo}>
                         <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
                         <span>Anuncios</span>
                     </NavLink>
