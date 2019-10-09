@@ -151,6 +151,17 @@ ul li a {
   transition: all 0.5s;
 }
 
+.exit-dashboard {
+  position: absolute;
+  top: 820px;
+  left: 30px;
+  z-index: 2000;
+}
+
+.exit-dashboard img {
+  width: 32px !important;
+}
+
 ul li a img.rocket {
   width: 17px;
   margin-left: 15px;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './style.css';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function View(props) {
     const {
@@ -16,6 +16,9 @@ function View(props) {
                 </div>
             </div>
             {menu}
+            <div className="exit-dashboard">
+                <Link to="/"><img src={require('../../public/img/exit.png')} /></Link>
+            </div>
         </div>
     );
 }
