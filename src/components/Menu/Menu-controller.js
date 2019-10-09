@@ -4,40 +4,33 @@ import View from './Menu-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import * as actions  from '../../redux/actions'
+import $ from 'jquery'
 
 class Menu extends React.Component {
     state = {
-        selected_inicio: true,
-        selected_empleo: false,
+        active: true,
+        active_anuncio: false
     }
-    obtenerIdseleccionado = async(e) =>{
-        const id = e.target.id;
-        console.log(e.target.id)
-        if(id === "inicio_element"){
-            this.setState({ selected_inicio: true })
-            this.setState({ selected_empleo: false })
-            this.props.history.push('/dashboard');
-        }else if (id === "empleo_element"){
-            this.setState({ selected_empleo: true })
-            this.setState({ selected_inicio: false })
-            this.props.history.push('/advertisement');
-        }
+
+    selectOne = e => {
+        e.preventDefault()
+        $('#link').addClass('active')
+        $('#link-1').removeClass('active')
+        this.props.history.push('/dashboard');
+    }
+
+    selectTwo = e => {
+        e.preventDefault()
+        $('#link').removeClass('active')
+        $('#link-1').addClass('active')
+        this.props.history.push('/advertisement');
     }
 
     render() {
-        let classInicio = "element";
-        let classEmpleo = "element";
-        if(this.props.selected === "inicio"){
-            classInicio+= " selected"
-
-        }else{
-            classEmpleo+= " selected"
-        }
         return (
             <View
-            obtenerIdseleccionado = {this.obtenerIdseleccionado}
-            classInicio = {classInicio}
-            classEmpleo = {classEmpleo}
+             selectOne = {this.selectOne}
+             selectTwo = {this.selectTwo}
             />
         );
     }

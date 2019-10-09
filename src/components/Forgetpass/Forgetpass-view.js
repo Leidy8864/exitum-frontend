@@ -13,7 +13,9 @@ function View(props){
                         <div className="row">
                             <div className="col-md-12 pt-4 info-signup">
                                 <div className="welcome-ex">
-                                    <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/></span>
+                                    <div className="logo">
+                                    <img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/>
+                                    </div>
                                     <span className="text-forget">Ingresa tu email y te enviaremos un mensaje para que puedas recuperar tu contraseña</span> 
                                 </div>
                                 <form className="form-signin">
@@ -26,7 +28,7 @@ function View(props){
                                     </div>
 
                                     <div className="send-submit">
-                                        <button data-dismiss="modal" aria-label="Close" onClick={sendEmail} type="submit" className="submit-signin">Iniciar Sesión</button>
+                                        <button data-dismiss="modal" aria-label="Close" onClick={sendEmail} type="submit" className="submit-signin">Recuperar Password</button>
                                     </div>
                                 </form>
                             </div>
