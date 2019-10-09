@@ -16,7 +16,11 @@
 }
 
 .Tree .Tree-plus {
-  cursor: pointer;
+  color: #660101;
+  padding: 20px;
+  background: #ff9b9b;
+  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
 }
 
 .Tree .Tree-plus span {
