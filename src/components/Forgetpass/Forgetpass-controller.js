@@ -7,7 +7,9 @@ class Forgetpass extends React.Component {
 
     sendEmail = e => {
         e.preventDefault();
-        $('.modal-content').closest(this)
+        $('#forgetpass').modal('hide');
+        $('#signin').modal('show');
+        
     }
 
     render() {

@@ -26,6 +26,7 @@ class Signin extends React.Component {
 
     forgetPass = e => {
         e.preventDefault(e);
+        $('#signin').modal('hide');
         this.setState({ error_login: '' })
     }
 
@@ -49,8 +50,6 @@ class Signin extends React.Component {
                 localStorage.setItem('lastname',response.data.lastname)
                 localStorage.setItem('role',response.data.role)
                 this.props.history.push('/dashboard');
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
             }else{
                 console.log("error = ", response.message)
                 this.setState({ error_login: response.message })
