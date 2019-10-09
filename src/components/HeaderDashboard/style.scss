@@ -1,0 +1,70 @@
+nav.dashboard-header.traslate {
+    left: 88px;
+    transition: 0.3s;
+}
+nav.dashboard-header {
+    transition: 0.3s;
+    height: 66px;
+    left: 300px;
+    right: 0;
+    width: auto;
+    margin-top: 0;
+    z-index: 0;
+    position: fixed !important;
+    background: rgb(255, 255, 255) !important;
+    box-shadow: 0px 0px 4px #a8a8a8;
+    button.boton-sidebar {
+        background: #fff;
+        outline: none;
+        border:none;
+        padding: 6px 16px;
+        border-radius: 100%;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+        .fas {
+            color: rgb(105, 106, 108);
+        }
+    }
+    button.boton-sidebar-cell {
+        display: none;
+        background: #fff;
+        border:none;
+        font-size: 16px;
+        padding: 6px 16px;
+        border-radius: 100%;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+        .fas {
+            color: rgb(105, 106, 108);
+        }
+    }
+    button.navbar-toggler {
+        background: #fff;
+        border:none;
+        font-size: 16px;
+        padding: 6px 6px;
+        border-radius: 100%;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+        .fas {
+            color: rgb(105, 106, 108);
+        }
+    }
+    .navbar-brand {
+        font-family: 'Ubuntu';
+        font-weight: 300;
+    }
+}
+
+
+
+.user{
+    float: right;
+    width: 300px;
+    height: 90px;
+    font-size: 20px;
+    font-weight: 800;
+    span img{
+        width: auto;
+        height: 40px;
+        margin: 25px;
+        border-radius: 50%;
+    }
+}

@@ -23,7 +23,7 @@ class Menu extends React.Component {
         e.preventDefault()
         $('#link').removeClass('active')
         $('#link-1').addClass('active')
-        this.props.history.push('/advertisement');
+        this.props.history.push('/advertisement')
     }
 
     render() {

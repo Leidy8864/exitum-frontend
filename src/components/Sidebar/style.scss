@@ -1,0 +1,220 @@
+.sidebar::before, .sidebar::after {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    z-index: 3;
+    position: absolute;
+}
+.sidebar.traslate {
+    transition: 0.3s;
+    width: 88px;
+    .cabecera {
+        .text-logo 
+        p{
+            display: none;
+        }
+    }
+    .navegacion {
+        margin-top: 16px;
+        .nav-link {
+            .fas.fa-tachometer-alt {
+                margin-right: 0px;
+                margin-left: 3px;
+            }
+            .fas.fa-home {
+                margin-right: 0px;
+                margin-left: 3px;
+            }
+            .fas.fa-box {
+                margin-right: 0px;
+                margin-left: 3px;
+            }
+            .fas.fa-building {
+                margin-right: 0px;
+                margin-left: 3px;
+            }
+            .fas.fa-users {
+                margin-right: 0px;
+                margin-left: 3px;
+            }
+        }
+        .nav-link p{
+            display: none;
+        }
+    }
+}
+
+.text-abrv {
+    position: relative;
+    img {
+        width: 40px;
+        border-radius: 50%;
+    }
+}
+
+.sidebar {
+    transition: 0.3s;
+    width: 300px;
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    max-height: calc(100% + 0px);
+    transform: translateX(0%);
+    box-shadow: 0px 0px 4px #a8a8a8;
+    .img-sidebar {
+        background: #ffffff !important;  /* fallback for old browsers */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 1;
+        position: absolute;
+        transition: all 300ms linear;
+        background-size: cover;
+        background-position: center center;
+        background-blend-mode: soft-light;
+        background-color: rgba(48, 48, 48, 0.9);
+    }          
+    .cabecera {
+        display: block;
+        position: relative;
+        z-index: 10;
+        color: rgb(97, 93, 93);
+        font-family: 'Ubuntu' !important;
+        font-weight: 200 !important;
+        font-size: 1.2rem;
+        .text-logo {
+            display: flex;
+            p {
+                margin: 4px !important;
+            }
+        }
+        .text-logo::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            top: 68px;
+            right: 15px;
+            height: 1px;
+            width: calc(100% - 30px);
+            background-color: rgba(138, 78, 78, 0.3);
+            z-index: 1024;
+        }
+        .text-abrv {
+            margin-left: 25px;
+            margin-right: 35px;
+        }
+    }
+    .navegacion {
+        position: relative;
+        z-index: 10;
+        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            color: #396afc;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 4px 20px 0 rgba(0,0,0,.14),0 7px 10px -5px rgba(27, 96, 187, 0.4);
+        }
+        .nav-link {
+            position: relative;
+            right: 10px;
+            height: 45px;
+            display: flex;
+            justify-content: flex-start;
+            font-family: 'Ubuntu';
+            font-weight: 200 !important;
+            color: rgb(138, 132, 132);
+            transition: 0.4s;
+            .fas.fa-tachometer-alt {
+                margin-right: 20px;
+                font-size: 21px;
+            }
+            .fas.fa-home {
+                margin-right: 26px;
+                font-size: 21px;
+            }
+            .fas.fa-box {
+                margin-right: 25px;
+                font-size: 21px;
+            }
+            .fas.fa-building {
+                margin-right: 27px;
+                font-size: 21px;
+            }
+            .fas.fa-users {
+                margin-right: 21px;
+                font-size: 21px;
+            }
+        }
+        .nav-link:active ,.nav-link:focus {
+            background: rgb(222, 221, 223);
+            color: #fff;  
+            box-shadow: 0 4px 20px 0 rgba(0,0,0,.14),0 7px 10px -5px rgba(156,39,176,.4);
+        }
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .sidebar.traslate { 
+        width: 0px;
+        .nav-link {
+            display: none !important;
+        }
+    }
+    .sidebar {
+        width: 0px !important;
+        .nav-link {
+            display: none !important;
+        }
+    }
+    nav.dashboard-header.traslate {
+        left: 0px !important;
+        transition: 0.3s;
+    }
+    nav.dashboard-header {
+        left: 0px !important;
+        transition: 0.3s;
+    }
+}
+
+@media screen and (max-width: 993px) {
+    button.boton-sidebar-cell {
+        display: block !important;
+    }
+    button.boton-sidebar {
+        display: none;
+    }
+    .navbar-brand {
+        position: absolute;
+        left: 54px !important;
+    }
+    .sidebar.traslate-cell {
+        top: 0;
+        left: 0;
+        width: 260px !important;
+        height: 100vh;
+        display: block !important;
+        z-index: 2032 ;
+        position: fixed;
+        transform: translate3d(0,260px,0,0) !important;
+        border-top: none;
+        box-shadow: 0 10px 30px -12px
+        rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px
+        rgba(0, 0, 0, 0.2);
+        overflow-y: visible;
+        text-align: left;
+        transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+        visibility: visible;
+        padding-left: 0;
+        padding-right: 0px;
+        .navegacion {
+            .nav-pills {
+                display: block !important;
+                .nav-link {
+                    display: flex !important;
+                }
+            }
+        }
+    }
+}
