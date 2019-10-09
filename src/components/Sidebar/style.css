@@ -1,13 +1,3 @@
-.sidebar::before, .sidebar::after {
-  top: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  display: block;
-  z-index: 3;
-  position: absolute;
-}
-
 .sidebar.traslate {
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -15,7 +5,7 @@
 }
 
 .sidebar.traslate .cabecera .text-logo
-p {
+img {
   display: none;
 }
 
@@ -23,32 +13,7 @@ p {
   margin-top: 16px;
 }
 
-.sidebar.traslate .navegacion .nav-link .fas.fa-tachometer-alt {
-  margin-right: 0px;
-  margin-left: 3px;
-}
-
-.sidebar.traslate .navegacion .nav-link .fas.fa-home {
-  margin-right: 0px;
-  margin-left: 3px;
-}
-
-.sidebar.traslate .navegacion .nav-link .fas.fa-box {
-  margin-right: 0px;
-  margin-left: 3px;
-}
-
-.sidebar.traslate .navegacion .nav-link .fas.fa-building {
-  margin-right: 0px;
-  margin-left: 3px;
-}
-
-.sidebar.traslate .navegacion .nav-link .fas.fa-users {
-  margin-right: 0px;
-  margin-left: 3px;
-}
-
-.sidebar.traslate .navegacion .nav-link p {
+.sidebar.traslate .navegacion ul li a span {
   display: none;
 }
 
@@ -136,8 +101,9 @@ button.boton-sidebar-cell .fas {
   display: flex;
 }
 
-.sidebar .cabecera .text-logo p {
-  margin: 4px !important;
+.sidebar .cabecera .text-logo img {
+  width: 90px;
+  margin-left: 4px;
 }
 
 .sidebar .cabecera .text-logo::after {
@@ -145,9 +111,9 @@ button.boton-sidebar-cell .fas {
   position: absolute;
   bottom: 0;
   top: 77px;
-  right: 15px;
+  right: 0px;
   height: 1px;
-  width: calc(100% - 30px);
+  width: calc(100%);
   background-color: rgba(138, 78, 78, 0.3);
   z-index: 1024;
 }
@@ -191,15 +157,15 @@ ul li a img.rocket {
 }
 
 ul li a span.home {
-  margin-left: 40px;
+  margin-left: 34px;
 }
 
 ul li a img {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 ul li a span {
-  margin-left: 10px;
+  margin-left: 25px;
   font-size: 18px;
 }
 
@@ -218,8 +184,8 @@ ul li a.active:before {
   .sidebar.traslate {
     width: 0px;
   }
-  .sidebar.traslate .nav-link {
-    display: none !important;
+  .sidebar.traslate ul li a {
+    display: none;
   }
   .sidebar {
     width: 0px !important;

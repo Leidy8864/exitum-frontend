@@ -3,10 +3,15 @@ import React from 'react';
 import View from './Sidebar-view';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actions  from '../../redux/actions'
+import { NavLink } from 'react-router-dom'
+import * as actions from '../../redux/actions'
 import $ from 'jquery'
 
 class Sidebar extends React.Component {
+
+    state = {
+        isConfirmed: localStorage.getItem('confirmed') || false,
+    }
 
     selectOne = e => {
         e.preventDefault()
@@ -36,11 +41,45 @@ class Sidebar extends React.Component {
     }
 
     render() {
-        
+
+        let menu =
+            <div className="navegacion">
+                <ul>
+                    <li>
+                        <NavLink to="/dashboard" id="link" onClick={this.selectOne}>
+                            <img className="rocket" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
+                            <span className="home">Inicio</span>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/advertisement" id="link-1" onClick={this.selectTwo}>
+                            <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
+                            <span>Anuncios</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+
+        if (this.state.isConfirmed === "false") {
+            menu = 
+            <div className="navegacion">
+                <ul>
+                    <li>
+                        <NavLink to="/dashboard" id="link" onClick={this.selectOne}>
+                            <img className="rocket" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
+                            <span className="home">Inicio</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
+        }
+
         return (
             <View
                 selectOne={this.selectOne}
                 selectTwo={this.selectTwo}
+                menu={menu}
             />
         );
     }
