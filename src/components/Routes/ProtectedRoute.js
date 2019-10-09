@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 class ProtectedRoute extends React.Component {
 

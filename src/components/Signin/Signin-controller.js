@@ -46,9 +46,13 @@ class Signin extends React.Component {
             const response = await this.props.signIn(formData);
             if(response.status){
                 localStorage.setItem('token',response.data.accessToken)
-                localStorage.setItem('name',response.data.name)
-                localStorage.setItem('lastname',response.data.lastname)
-                localStorage.setItem('role',response.data.role)
+                localStorage.setItem('confirmed',response.data.confirmed);
+                // localStorage.setItem('lastname',response.data.name);
+                // localStorage.setItem('email',response.data.email);
+                // localStorage.setItem('role',response.data.role)
+                
+                $('.modal-backdrop').remove();
+                $('body').removeClass('modal-open');
                 this.props.history.push('/dashboard');
             }else{
                 console.log("error = ", response.message)
@@ -73,14 +77,14 @@ class Signin extends React.Component {
         const response = await this.props.oauthGoogle(res.accessToken)
         if (response.status) {
             localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
-
-            this.props.history.push('/dashboard');
-            $('body').removeClass('modal-open');
+            localStorage.setItem('confirmed',response.data.confirmed);
+            // localStorage.setItem('lastname',response.data.name);
+            // localStorage.setItem('email',response.data.email);
+            // localStorage.setItem('role',response.data.role)
+            
             $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+            this.props.history.push('/dashboard');
         }else{
             console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
             this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
@@ -93,14 +97,15 @@ class Signin extends React.Component {
         const response = await this.props.oauthFacebook(res.accessToken)
         if (response.status) {
             localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.name);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
-
-            this.props.history.push('/dashboard');
-            $('body').removeClass('modal-open');
+            localStorage.setItem('confirmed',response.data.confirmed);
+            // localStorage.setItem('lastname',response.data.name);
+            // localStorage.setItem('email',response.data.email);
+            // localStorage.setItem('role',response.data.role)
+            
             $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+            
+            this.props.history.push('/dashboard');
         }else{
             console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
             this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });

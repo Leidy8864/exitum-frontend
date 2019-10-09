@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 class ChooseProfileRoute extends React.Component {
 
@@ -10,7 +11,7 @@ class ChooseProfileRoute extends React.Component {
 
         console.log("ROLE",role);
 
-        if (role != 'undefined') {
+        if (role !== 'undefined') {
             return false
         } else {
             return true;

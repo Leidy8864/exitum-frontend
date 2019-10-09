@@ -1,10 +1,14 @@
 
 import React from 'react';
 import './style.css';
+// import { Link } from 'react-router-dom';
 
-function View(){
+function View(props){
+    const {blockTree} = props
     return(
-        <div className="Tree"> Say hi!</div>
+        <div className="Tree">
+            {blockTree}
+        </div>
     );
 }
 export default View;

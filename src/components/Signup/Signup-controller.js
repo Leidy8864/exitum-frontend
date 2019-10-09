@@ -57,14 +57,15 @@ class Signup extends React.Component {
             console.log("response = ", response)
             if(response.status){
                 localStorage.setItem('token',response.data.accessToken)
-                localStorage.setItem('name',response.data.name)
-                localStorage.setItem('lastname',response.data.lastname)
-                localStorage.setItem('role',response.data.role)
+                localStorage.setItem('confirmed',response.data.confirmed)
+                // localStorage.setItem('lastname',response.data.lastname)
+                // localStorage.setItem('role',response.data.role)
+                
+                $('.modal-backdrop').remove();
+                $('body').removeClass('modal-open');
 
                 this.setState({ exito_registro: 'Se te ha enviado un correo para validar tu registro.' })
                 this.props.history.push('/dashboard');
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
             }else{
                 console.log("error = ", response.message)
                 this.setState({ error_registro: response.message })
@@ -98,14 +99,14 @@ class Signup extends React.Component {
         console.log(response)
         if(response.status) {
             localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.name);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
+            localStorage.setItem('confirmed',response.data.confirmed)
+            // localStorage.setItem('lastname',response.data.lastname)
+            // localStorage.setItem('role',response.data.role)
 
-            this.props.history.push('/dashboard');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
+
+            this.props.history.push('/dashboard');
         } else{
             console.log("error = ", response.message)
             this.setState({ error_registro: response.message })
@@ -118,14 +119,13 @@ class Signup extends React.Component {
         const response =  await this.props.oauthFacebook(res.accessToken)
         if(response.status) {
             localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
-
-            this.props.history.push('/dashboard');
+            localStorage.setItem('confirmed',response.data.confirmed)
+            // localStorage.setItem('lastname',response.data.lastname)
+            // localStorage.setItem('role',response.data.role)
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
+
+            this.props.history.push('/dashboard');
         } else{
             console.log("error = ", response.message)
             this.setState({ error_registro: response.message })

@@ -6,7 +6,7 @@ function View(props){
     const { 
         name, 
         lastname,
-        photo,
+        // photo,
     } = props
 
     return(

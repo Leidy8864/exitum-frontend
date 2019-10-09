@@ -16,7 +16,7 @@ function View(props) {
             </div>
             <div className="cabecera">
                 <div className="text-logo pt-4">
-                    <span className="text-abrv"><img src={logo}/></span>
+                    <span className="text-abrv"><img src={logo} alt="img"/></span>
                     <p>EXITUM</p>
                 </div>
             </div>

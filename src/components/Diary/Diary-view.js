@@ -1,5 +1,6 @@
 
-import React, { Fragment } from 'react';
+// import React, { Fragment } from 'react';
+import React from 'react';
 import './style.css';
 import NewDiary from '../NewDiary/NewDiary-controller';
 function View(props) {
