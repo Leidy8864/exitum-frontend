@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { AUTH_ERROR } from './types'
+import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
 
 const root = 'http://35.175.241.103:8081/';
 
@@ -77,4 +77,17 @@ export const signIn = data => {
             console.log(err)
         }
     }
+}
+
+export const updateUser = async (data) => {
+    console.log("DATA", data);
+    try {
+        const res = await axios.post(root + 'users/update', data);
+        console.log(res)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+
+    }
+
 }

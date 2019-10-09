@@ -73,6 +73,7 @@ function View(props) {
                                         fields="name,email,picture"
                                         callback={responseFacebook}
                                         cssClass="fab fa-facebook-f"
+                                        icon={true}
                                     />
                                     <GoogleLogin
                                         clientId="990260099345-jh6kjumka8s2a2a796nur9tf64u26tir.apps.googleusercontent.com"

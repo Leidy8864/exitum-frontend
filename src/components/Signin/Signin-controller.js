@@ -47,6 +47,7 @@ class Signin extends React.Component {
                 localStorage.setItem('token',response.data.accessToken)
                 localStorage.setItem('name',response.data.name)
                 localStorage.setItem('lastname',response.data.lastname)
+                localStorage.setItem('role',response.data.role)
                 this.props.history.push('/dashboard');
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();
@@ -76,6 +77,8 @@ class Signin extends React.Component {
             localStorage.setItem('name',response.data.name);
             localStorage.setItem('lastname',response.data.lastname);
             localStorage.setItem('email',response.data.email);
+            localStorage.setItem('role',response.data.role)
+
             this.props.history.push('/dashboard');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
@@ -94,6 +97,8 @@ class Signin extends React.Component {
             localStorage.setItem('name',response.data.name);
             localStorage.setItem('lastname',response.data.name);
             localStorage.setItem('email',response.data.email);
+            localStorage.setItem('role',response.data.role)
+
             this.props.history.push('/dashboard');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
