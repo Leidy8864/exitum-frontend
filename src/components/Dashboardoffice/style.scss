@@ -8,7 +8,7 @@
 }
 
 .main-panel.traslate {
-    padding: 88px 0px 0px 88px;
+    padding: 77px 0px 0px 94px;
     transition: 0.3s;
 }
 .main-panel {
@@ -18,5 +18,8 @@
     .container-fluid {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .col-md-3{
+        padding: 0 auto !important;
     }
 }
