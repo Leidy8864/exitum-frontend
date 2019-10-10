@@ -1,9 +1,10 @@
 import React from 'react';
 import View from './Signup-view';
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import * as actions  from '../../redux/actions'
-import $ from 'jquery'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+// import * as actions  from '../../redux/actions';
+import clearSignUp from '../../redux/actions/clean-sign-up'
+import $ from 'jquery';
 
 class Signup extends React.Component {
 
@@ -37,6 +38,7 @@ class Signup extends React.Component {
     }
 
     logged = async e => {
+        this.props.clearSignUp("0");
         this.setState({ error_name: '' });
         this.setState({ error_lastname: '' });
         this.setState({ error_email: '' });
@@ -94,6 +96,7 @@ class Signup extends React.Component {
 
 
     responseGoogle = async (res) => {
+        this.props.clearSignUp("0");
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken);
@@ -118,6 +121,7 @@ class Signup extends React.Component {
     }
 
     responseFacebook = async (res) => {
+        this.props.clearSignUp("0");
         console.log('responseFB', res);
         console.log('typeof res', typeof res)
         const response =  await this.props.oauthFacebook(res.accessToken)
@@ -138,6 +142,9 @@ class Signup extends React.Component {
     }
 
     render() {
+        const {
+            cleanSignUpReducer
+        } = this.props;
         let error_name = this.state.error_name;
         let error_lastname = this.state.error_lastname;
         let error_email = this.state.error_email;
@@ -151,18 +158,26 @@ class Signup extends React.Component {
         let content_error_registro = '';
         let content_exito_registro = '';
 
+        if(cleanSignUpReducer){
+            error_name = '';
+            error_lastname = '';
+            error_email = '';
+            error_password = '';
+            error_registro = '';
+            exito_registro = '';
+        }
 
         if(error_name){
-            content_error_name = <div className="error-message-aux"><p>{error_name}</p></div>;
+            content_error_name = <p>{error_name}</p>;
         }
         if(error_lastname){
-            content_error_lastname = <div className="error-message-aux"><p>{error_lastname}</p></div>;
+            content_error_lastname = <p>{error_lastname}</p>;
         }
         if(error_email){
-            content_error_email = <div className="error-message-aux"><p>{error_email}</p></div>;
+            content_error_email = <p>{error_email}</p>;
         }
         if(error_password){
-            content_error_password = <div className="error-message-aux"><p>{error_password}</p></div>;
+            content_error_password = <p>{error_password}</p>;
         }
         if(error_registro){
             content_error_registro = <div className="error-message"><p>{error_registro}</p></div>;
@@ -191,8 +206,18 @@ class Signup extends React.Component {
     }
 }
 
+
+const mapStateToProps = state => ({
+    cleanSignUpReducer: state.cleanSignUpReducer
+});
+
+const mapDispatchToProps = {
+    clearSignUp
+};
+
+
 export default withRouter(
-    connect(null, actions)(Signup)
+    connect(mapStateToProps, mapDispatchToProps)(Signup)
 )
 
 
