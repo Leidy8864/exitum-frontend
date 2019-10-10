@@ -2,7 +2,7 @@ import React from 'react';
 import View from './Signup-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import * as actions  from '../../redux/actions';
+import {oauthGoogle,oauthFacebook,signUp,signIn,updateUser} from '../../redux/actions';
 import clearSignUp from '../../redux/actions/clean-sign-up'
 import $ from 'jquery';
 
@@ -212,7 +212,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-    clearSignUp
+    clearSignUp,
+    oauthGoogle,
+    oauthFacebook,
+    signUp,
+    signIn,
+    updateUser
 };
 
 
