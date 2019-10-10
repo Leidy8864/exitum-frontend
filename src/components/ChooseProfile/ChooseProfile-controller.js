@@ -26,7 +26,8 @@ class ChooseProfile extends React.Component {
 
         console.log("Respone data", respone);
 
-        // localStorage.setItem('role',respone.data.role);
+        localStorage.setItem('role',respone.data.role);
+
         this.props.history.push('/dashboard');
 
     }

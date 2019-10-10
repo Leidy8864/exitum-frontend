@@ -62,7 +62,7 @@ class Signup extends React.Component {
                 localStorage.setItem('role',response.data.role)
 
                 this.setState({ exito_registro: 'Se te ha enviado un correo para validar tu registro.' })
-                this.props.history.push('/dashboard');
+                this.props.history.push('/choose-profile');
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();
             }else{
@@ -103,7 +103,7 @@ class Signup extends React.Component {
             localStorage.setItem('email',response.data.email);
             localStorage.setItem('role',response.data.role)
 
-            this.props.history.push('/dashboard');
+            this.props.history.push('/choose-profile');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
         } else{
@@ -123,7 +123,7 @@ class Signup extends React.Component {
             localStorage.setItem('email',response.data.email);
             localStorage.setItem('role',response.data.role)
 
-            this.props.history.push('/dashboard');
+            this.props.history.push('/choose-profile');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
         } else{

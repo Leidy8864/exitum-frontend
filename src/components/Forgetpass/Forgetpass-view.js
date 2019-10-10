@@ -3,7 +3,7 @@ import './style.css';
 
 function View(props){
 
-    const { sendEmail } = props
+    const { handleSubmit,handleChange,content_messsage,content_error_email,form } = props
 
     return(
         <div className="modal fade" id="forgetpass" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -18,17 +18,23 @@ function View(props){
                                     </div>
                                     <span className="text-forget">Ingresa tu email y te enviaremos un mensaje para que puedas recuperar tu contraseña</span> 
                                 </div>
-                                <form className="form-signin">
+                                <form className="form-signin" onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <input
                                             name="email"
                                             type="email"
+                                            onChange={handleChange}
                                             placeholder="Email"
+                                            id = "email"
+                                            value = {form.email}
                                         />
+                                        {content_error_email}
+
                                     </div>
+                                    {content_messsage}
 
                                     <div className="send-submit">
-                                        <button data-dismiss="modal" aria-label="Close" onClick={sendEmail} type="submit" className="submit-signin">Recuperar Password</button>
+                                        <button type="submit" className="submit-signin">Recuperar Password</button>
                                     </div>
                                 </form>
                             </div>

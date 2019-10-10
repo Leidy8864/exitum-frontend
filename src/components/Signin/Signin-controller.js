@@ -2,7 +2,7 @@ import React from 'react';
 import View from './Signin-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import * as actions  from '../../redux/actions'
+import * as actions from '../../redux/actions'
 import $ from 'jquery'
 
 class Signin extends React.Component {
@@ -37,29 +37,29 @@ class Signin extends React.Component {
         this.setState({ error_user: '' });
         this.setState({ error_pass: '' });
 
-        const {email, password} = this.state
+        const { email, password } = this.state
         const formData = {
             email,
             password
         }
-        if(email && password){
+        if (email && password) {
             const response = await this.props.signIn(formData);
-            if(response.status){
-                localStorage.setItem('token',response.data.accessToken)
-                localStorage.setItem('name',response.data.name)
-                localStorage.setItem('lastname',response.data.lastname)
-                localStorage.setItem('role',response.data.role)
-                this.props.history.push('/dashboard');
-            }else{
+            if (response.status) {
+                localStorage.setItem('token', response.data.accessToken)
+                localStorage.setItem('name', response.data.name)
+                localStorage.setItem('lastname', response.data.lastname)
+                localStorage.setItem('role', response.data.role)
+                this.props.history.push('/choose-profile');
+            } else {
                 console.log("error = ", response.message)
                 this.setState({ error_login: response.message })
             }
-        }else{
-            if(!email){
+        } else {
+            if (!email) {
                 this.setState({ error_user: 'Debes ingresar un usuario' })
             }
-    
-            if(!password){
+
+            if (!password) {
                 this.setState({ error_pass: 'Debes ingresar una clave' })
             }
         }
@@ -72,16 +72,16 @@ class Signin extends React.Component {
         console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken)
         if (response.status) {
-            localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role)
 
-            this.props.history.push('/dashboard');
+            this.props.history.push('/choose-profile');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
-        }else{
+        } else {
             console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
             this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
 
@@ -92,16 +92,16 @@ class Signin extends React.Component {
         console.log('responseFacebook', res);
         const response = await this.props.oauthFacebook(res.accessToken)
         if (response.status) {
-            localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.name);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('lastname', response.data.name);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role)
 
-            this.props.history.push('/dashboard');
+            this.props.history.push('/choose-profile');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
-        }else{
+        } else {
             console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
             this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
         }
@@ -109,18 +109,18 @@ class Signin extends React.Component {
 
     render() {
         let error_login = this.state.error_login;
-        let contentError='';
+        let contentError = '';
         let error_user = this.state.error_user;
-        let contentErrorUser='';
+        let contentErrorUser = '';
         let error_pass = this.state.error_pass;
-        let contentErrorPass='';
-        if(error_login){
+        let contentErrorPass = '';
+        if (error_login) {
             contentError = <div className="error-message"><p>{error_login}</p></div>;
         }
-        if(error_user){
+        if (error_user) {
             contentErrorUser = <div className="error-message-aux"><p>{error_user}</p></div>;
         }
-        if(error_pass){
+        if (error_pass) {
             contentErrorPass = <div className="error-message-aux"><p>{error_pass}</p></div>;
         }
         return (

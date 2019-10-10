@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
 
+// const root = 'http://127.0.0.1:8081/';
+
 const root = 'http://35.175.241.103:8081/';
 
 export const oauthGoogle = data => {
@@ -90,4 +92,17 @@ export const updateUser = async (data) => {
 
     }
 
+}
+
+export const forgotPassword = async (data) => {
+    console.log("Data reviced",data);
+
+    try {
+        const res = await axios.post(root + 'users/forgot', data);
+        console.log("RESPONSA API",res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
 }
