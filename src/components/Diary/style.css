@@ -1,7 +1,7 @@
 .Diary {
-  float: right;
-  width: 20%;
-  height: calc(100vh - 90px);
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 77px);
   background-color: #3369fd;
   display: -webkit-box;
   display: -ms-flexbox;

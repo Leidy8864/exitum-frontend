@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
+// import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
+import { AUTH_ERROR } from './types'
 
 // const root = 'http://127.0.0.1:8081/';
 

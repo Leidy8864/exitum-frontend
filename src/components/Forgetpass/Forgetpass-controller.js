@@ -71,6 +71,7 @@ class Forgetpass extends React.Component {
             if (response.status) {
                 console.log("DATA RESPONSE", response);
                 this.setState({
+                    success_message: response.message,
                     form: {
                         email: ''
                     }

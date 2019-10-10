@@ -40,7 +40,9 @@ function View(props) {
                                         type="text"
                                         placeholder="Nombre"
                                     />
-                                    {content_error_name}
+                                    <div className="error-message-aux">
+                                        {content_error_name}
+                                    </div>
                                 </div>
                                 <div className="col-md-6">
                                     <input
@@ -50,7 +52,9 @@ function View(props) {
                                         type="text"
                                         placeholder="Apellidos"
                                     />
-                                    {content_error_lastname}
+                                    <div className="error-message-aux">
+                                        {content_error_lastname}
+                                    </div>
                                 </div>
                                 <div className="col-md-12">
                                     <input
@@ -59,7 +63,9 @@ function View(props) {
                                         type="email"
                                         placeholder="Email"
                                     />
-                                    {content_error_email}
+                                    <div className="error-message-aux">
+                                        {content_error_email}
+                                    </div>
                                 </div>
                                 <div className="col-md-12">
                                     <input
@@ -68,7 +74,9 @@ function View(props) {
                                         type="password"
                                         placeholder="Contraseña"
                                     />
-                                    {content_error_password}
+                                    <div className="error-message-aux">
+                                        {content_error_password}
+                                    </div>
                                 </div>
                                 <div className="send-submit">
                                     <button type="submit" className="submit-signup">Registrate</button>

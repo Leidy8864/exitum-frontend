@@ -13,7 +13,10 @@
   color: #f46565;
   font-size: 14px !important;
 }
-
+.modal-dialog .modal-content .welcome-ex span img{
+  width: 200px;
+  height: auto;
+}
 @media screen and (max-width: 576px) {
   form.form-signin input {
     padding: 15px !important;
