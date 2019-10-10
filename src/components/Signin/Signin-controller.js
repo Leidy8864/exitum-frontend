@@ -2,7 +2,8 @@ import React from 'react';
 import View from './Signin-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import * as actions from '../../redux/actions'
+import { oauthGoogle, oauthFacebook, signIn } from '../../redux/actions';
+
 import $ from 'jquery'
 
 class Signin extends React.Component {
@@ -27,7 +28,7 @@ class Signin extends React.Component {
     forgetPass = e => {
         e.preventDefault(e);
         $('#signin').modal('hide');
-        this.setState({ error_login: '' })
+        this.setState({ error_login: '' });
     }
 
     logged = async e => {
@@ -44,18 +45,18 @@ class Signin extends React.Component {
         }
         if (email && password) {
             const response = await this.props.signIn(formData);
-            if(response.status){
-                localStorage.setItem('token',response.data.accessToken)
-                localStorage.setItem('confirmed',response.data.confirmed);
-                localStorage.setItem('name',response.data.name);
-                localStorage.setItem('lastname',response.data.lastname);
-                localStorage.setItem('email',response.data.email);
-                localStorage.setItem('role',response.data.role)
-                
+            if (response.status) {
+                localStorage.setItem('token', response.data.accessToken)
+                localStorage.setItem('confirmed', response.data.confirmed);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role)
+
                 $('.modal-backdrop').remove();
                 $('body').removeClass('modal-open');
                 this.props.history.push('/dashboard');
-            }else{
+            } else {
                 console.log("error = ", response.message)
                 this.setState({ error_login: response.message })
             }
@@ -77,17 +78,17 @@ class Signin extends React.Component {
         console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken)
         if (response.status) {
-            localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('confirmed',response.data.confirmed);
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role)
-            
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('confirmed', response.data.confirmed);
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role)
+
             $('.modal-backdrop').remove();
             $('body').removeClass('modal-open');
             this.props.history.push('/dashboard');
-        }else{
+        } else {
             console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
             this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
 
@@ -98,18 +99,18 @@ class Signin extends React.Component {
         console.log('responseFacebook', res);
         const response = await this.props.oauthFacebook(res.accessToken)
         if (response.status) {
-            localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('confirmed',response.data.confirmed);
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role);
-            
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('confirmed', response.data.confirmed);
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role);
+
             $('.modal-backdrop').remove();
             $('body').removeClass('modal-open');
-            
+
             this.props.history.push('/dashboard');
-        }else{
+        } else {
             console.log("Credenciales incorrectas, por favor intentelo nuevamente.", response.message)
             this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
         }
@@ -147,7 +148,14 @@ class Signin extends React.Component {
     }
 }
 
+
+const mapDispatchToProps = {
+    oauthGoogle, 
+    oauthFacebook, 
+    signIn
+};
+
 export default withRouter(
-    connect(null, actions)(Signin)
+    connect(null, mapDispatchToProps)(Signin)
 )
 

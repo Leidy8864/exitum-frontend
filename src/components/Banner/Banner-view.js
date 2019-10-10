@@ -11,7 +11,7 @@ import './style.css';
 
 function View(props) {
     const {
-        clearSignUp,
+        cleanForm,
     } = props
     return (
         <Fragment>
@@ -44,7 +44,7 @@ function View(props) {
                                 en nuestras manos</h2>
                             </div>
                             <div className="btn-register">
-                                <button onClick={clearSignUp} type="button" className="btn-signup" data-toggle="modal" data-target="#signup" >
+                                <button onClick={cleanForm} type="button" className="btn-signup" data-toggle="modal" data-target="#signup" >
                                     Registrarme
                                 </button>
                             </div>

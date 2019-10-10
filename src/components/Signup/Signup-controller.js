@@ -3,7 +3,7 @@ import View from './Signup-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {oauthGoogle,oauthFacebook,signUp,signIn,updateUser} from '../../redux/actions';
-import clearSignUp from '../../redux/actions/clean-sign-up'
+import cleanForm from '../../redux/actions/clean-form'
 import $ from 'jquery';
 
 class Signup extends React.Component {
@@ -38,7 +38,7 @@ class Signup extends React.Component {
     }
 
     logged = async e => {
-        this.props.clearSignUp("0");
+        this.props.cleanForm("0");
         this.setState({ error_name: '' });
         this.setState({ error_lastname: '' });
         this.setState({ error_email: '' });
@@ -54,6 +54,9 @@ class Signup extends React.Component {
             email,
             password
         }
+
+        console.log("FORMDATA",formData);
+        
         if(name && lastname && email && password && password.length >= 8){
             const response = await this.props.signUp(formData);
             console.log("response = ", response)
@@ -96,7 +99,7 @@ class Signup extends React.Component {
 
 
     responseGoogle = async (res) => {
-        this.props.clearSignUp("0");
+        this.props.cleanForm("0");
         console.log('responseGoggle', res);
         console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken);
@@ -121,7 +124,7 @@ class Signup extends React.Component {
     }
 
     responseFacebook = async (res) => {
-        this.props.clearSignUp("0");
+        this.props.cleanForm("0");
         console.log('responseFB', res);
         console.log('typeof res', typeof res)
         const response =  await this.props.oauthFacebook(res.accessToken)
@@ -143,7 +146,7 @@ class Signup extends React.Component {
 
     render() {
         const {
-            cleanSignUpReducer
+            cleanFormReducer
         } = this.props;
         let error_name = this.state.error_name;
         let error_lastname = this.state.error_lastname;
@@ -158,7 +161,7 @@ class Signup extends React.Component {
         let content_error_registro = '';
         let content_exito_registro = '';
 
-        if(cleanSignUpReducer){
+        if(cleanFormReducer){
             error_name = '';
             error_lastname = '';
             error_email = '';
@@ -208,11 +211,11 @@ class Signup extends React.Component {
 
 
 const mapStateToProps = state => ({
-    cleanSignUpReducer: state.cleanSignUpReducer
+    cleanFormReducer: state.cleanFormReducer
 });
 
 const mapDispatchToProps = {
-    clearSignUp,
+    cleanForm,
     oauthGoogle,
     oauthFacebook,
     signUp,

@@ -3,7 +3,7 @@ import './style.css';
 
 function View(props){
 
-    const { handleSubmit,handleChange,content_messsage,content_error_email,form } = props
+    const { handleSubmit,handleChange,content_messsage,content_error_email } = props
 
     return(
         <div className="modal fade" id="forgetpass" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -26,7 +26,6 @@ function View(props){
                                             onChange={handleChange}
                                             placeholder="Email"
                                             id = "email"
-                                            value = {form.email}
                                         />
                                         {content_error_email}
 

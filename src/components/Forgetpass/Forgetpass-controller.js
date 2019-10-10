@@ -2,7 +2,7 @@ import React from 'react';
 import View from './Forgetpass-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import * as actions from '../../redux/actions'
+import * as actions from '../../redux/actions/'
 import $ from 'jquery'
 
 
@@ -11,27 +11,9 @@ class Forgetpass extends React.Component {
         form: {
             email: ''
         },
-
         success_message: '',
         error_message: '',
         error_email: ''
-    }
-
-    // componentDidMount(){
-    //     if ($('#forgetpass').is(':visible')) {
-    //         alert("K")
-    //     }
-    //     // $('#forgetpass').is(':visible');
-    // }
-
-    cleanErrors = e => {
-        if ($('#forgetpass').is(':visible')) {
-            alert("K")
-            this.setState({
-                error_email: ''
-            })
-        }
-
     }
     sendEmail = e => {
         e.preventDefault();
@@ -42,6 +24,7 @@ class Forgetpass extends React.Component {
     handleChange = e => {
         this.setState({
             form: {
+                ...this.state.form,
                 email: e.target.value
             }
         });
@@ -57,88 +40,43 @@ class Forgetpass extends React.Component {
         });
 
         e.preventDefault();
+        const {email} = this.state.form;
 
-        console.log("SAASASADASDA");
-        const data = this.state.form;
+        console.log("STATE FORM",email);
 
-        if (data.email) {
-            console.log("K");
+        const formData = {
+            email
+        }
+        // console.log("formdata",formData);
+        console.log("EMAIL",email);
 
-            const response = await actions.forgotPassword(data);
+        if (email) {
+            // console.log("EMAIL",data.email);
+
+            const response = await actions.forgotPassword(formData)
 
             console.log("DATA RESPONSE", response);
 
             if (response.status) {
                 console.log("DATA RESPONSE", response);
                 this.setState({
-                    success_message: response.message,
-                    form: {
-                        email: ''
-                    }
+                    success_message: response.message
                 });
 
                 console.log("success message", this.state);
-
-                // $("#email").val('');
             } else {
                 console.log("error reset password", response.message);
 
                 this.setState({
-                    error_message: response.message,
-                    form: {
-                        email: ''
-                    }
+                    error_message: response.message
                 });
-
-                // $("#email").val('');
-
-
-
-                // setTimeout(()=>{
-                //     this.setState({
-                //         error_message  : ''
-                //     });
-                //     // $('.error-message').html('');
-                // },3000)
-
-                // this.setState({
-                //     error_email : ''
-                // });
-
-                return;
-
             }
         } else {
             this.setState({
                 error_email: 'Debes ingresar un email válido',
-                error_message: '',
             });
-            // setTimeout(()=>{
-            //     this.setState({
-            //         error_email  : ''
-            //     });
-            //     // $('.error-message').html('');
-            // },3000)
-
             console.log("Error")
-            return;
         }
-        // try {
-        //     const data = JSON.stringify(this.state);
-        //     console.log("DATA IN JSON",data);
-
-        //     const response = await actions.resetPassword(data);
-
-        //     console.log("DATA RESPONSE", response);
-
-        //     this.setState({
-
-        //     })
-        //     // $('#forgetpass').modal('hide');
-        //     // $('#signin').modal('show');
-        // } catch (error) {
-        //     console.log("error reset password", error);
-        // }
     }
 
     render() {
@@ -165,9 +103,11 @@ class Forgetpass extends React.Component {
                 handleSubmit={this.handleSubmit}
                 content_messsage={content_messsage}
                 content_error_email={content_error_email}
-                form={this.state.form}
             />
         );
     }
 }
-export default Forgetpass;
+
+export default withRouter(
+    connect(null, actions)(Forgetpass)
+)

@@ -1,4 +1,4 @@
-import { type as findResultsType } from '../actions/clean-sign-up';
+import { type as findResultsType } from '../actions/clean-form';
 
 const defaultState = true;
 
