@@ -4,7 +4,7 @@ import View from './Tree-view';
 
 class Tree extends React.Component {
     state = {
-        isConfirmed: localStorage.getItem('confirmed') || false,
+        isConfirmed: localStorage.getItem('confirmed') || "false",
     }
     
     render() {

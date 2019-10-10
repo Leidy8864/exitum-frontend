@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 
 function View(props) {
     const {
-        menu
+        menu,
+        logOut
     } = props;
     return (
         <div className="sidebar">
@@ -17,7 +18,7 @@ function View(props) {
             </div>
             {menu}
             <div className="exit-dashboard">
-                <Link to="/"><img src={require('../../public/img/exit.png')} /></Link>
+                <Link to="/" onClick={logOut}><img src={require('../../public/img/exit.png')} /></Link>
             </div>
         </div>
     );

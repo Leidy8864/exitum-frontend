@@ -26,6 +26,11 @@ class Sidebar extends React.Component {
         $('#link-1').removeClass('active')
         this.props.history.push('/advertisement');
     }
+    logOut = e => {
+        e.preventDefault()
+        localStorage.clear();
+        this.props.history.push('/');
+    }
 
     componentDidMount = () => {
         $('.boton-sidebar').on('click', function () {
@@ -80,6 +85,7 @@ class Sidebar extends React.Component {
                 selectOne={this.selectOne}
                 selectTwo={this.selectTwo}
                 menu={menu}
+                logOut={this.logOut}
             />
         );
     }

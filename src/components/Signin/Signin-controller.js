@@ -47,9 +47,10 @@ class Signin extends React.Component {
             if(response.status){
                 localStorage.setItem('token',response.data.accessToken)
                 localStorage.setItem('confirmed',response.data.confirmed);
-                // localStorage.setItem('lastname',response.data.name);
-                // localStorage.setItem('email',response.data.email);
-                // localStorage.setItem('role',response.data.role)
+                localStorage.setItem('name',response.data.name);
+                localStorage.setItem('lastname',response.data.lastname);
+                localStorage.setItem('email',response.data.email);
+                localStorage.setItem('role',response.data.role)
                 
                 $('.modal-backdrop').remove();
                 $('body').removeClass('modal-open');
@@ -78,9 +79,10 @@ class Signin extends React.Component {
         if (response.status) {
             localStorage.setItem('token',response.data.accessToken)
             localStorage.setItem('confirmed',response.data.confirmed);
-            // localStorage.setItem('lastname',response.data.name);
-            // localStorage.setItem('email',response.data.email);
-            // localStorage.setItem('role',response.data.role)
+            localStorage.setItem('name',response.data.name);
+            localStorage.setItem('lastname',response.data.lastname);
+            localStorage.setItem('email',response.data.email);
+            localStorage.setItem('role',response.data.role)
             
             $('.modal-backdrop').remove();
             $('body').removeClass('modal-open');
@@ -98,9 +100,10 @@ class Signin extends React.Component {
         if (response.status) {
             localStorage.setItem('token',response.data.accessToken)
             localStorage.setItem('confirmed',response.data.confirmed);
-            // localStorage.setItem('lastname',response.data.name);
-            // localStorage.setItem('email',response.data.email);
-            // localStorage.setItem('role',response.data.role)
+            localStorage.setItem('name',response.data.name);
+            localStorage.setItem('lastname',response.data.lastname);
+            localStorage.setItem('email',response.data.email);
+            localStorage.setItem('role',response.data.role);
             
             $('.modal-backdrop').remove();
             $('body').removeClass('modal-open');
