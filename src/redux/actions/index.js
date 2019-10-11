@@ -96,11 +96,11 @@ export const updateUser = async (data) => {
 }
 
 export const forgotPassword = async (data) => {
-    console.log("Data reviced",data);
+    console.log("Data reviced", data);
 
     try {
         const res = await axios.post(root + 'users/forgot', data);
-        console.log("RESPONSA API",res.data);
+        console.log("RESPONSA API", res.data);
 
         return res.data;
     } catch (error) {
@@ -108,15 +108,38 @@ export const forgotPassword = async (data) => {
     }
 }
 
-export const resetPassword = async(data) =>{
-    console.log("Data reviced",data);
+export const verifyToken = async (token) => {
+    console.log("Data reviced", token);
 
     try {
-        const res = await axios.get(root + 'users/reset', data);
-        console.log("RESPONSA API",res.data);
+        const res = await axios.get(root + 'users/verificationToken/'+token);
+        console.log("RESPONSA API", res.data);
 
         return res.data;
     } catch (error) {
         console.log("Error" + error);
-    } 
+    }
+}
+
+export const resetPassword = async (data) => {
+    console.log("Data reviced", data);
+
+    try {
+        const res = await axios.post(root + 'users/reset', data);
+        console.log("RESPONSA API", res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
+export const authToken = async (data) => {
+    try {
+        const res = await axios.get(root + 'users/authentication/' + data)
+        // console.log(res)
+        return res.data;
+    } catch (err) {
+        console.log("Error" + err);
+    }
 }

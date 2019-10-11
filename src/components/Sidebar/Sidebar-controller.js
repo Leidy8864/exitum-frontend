@@ -11,6 +11,7 @@ class Sidebar extends React.Component {
 
     state = {
         isConfirmed: localStorage.getItem('confirmed') || false,
+        role: localStorage.getItem('role') || '',
     }
 
     selectOne = e => {
@@ -45,7 +46,17 @@ class Sidebar extends React.Component {
         })
     }
 
+    chooseProfile = async() =>{
+        const {isConfirmed, role } =this.state;
+        if(isConfirmed === "true" && (role === "" || role ==="undefined")){
+            console.log("chosse role")
+        }
+    }
+
     render() {
+        
+        this.chooseProfile();
+
 
         let menu =
             <div className="navegacion">

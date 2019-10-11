@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import Dashboardoffice from '../components/Dashboardoffice/Dashboardoffice-controller';
 import ChooseProfileController from '../components/ChooseProfile/ChooseProfile-controller';
 import Advertisement from '../components/Advertisement/Advertisement-controller';
+import NotFound from '../components/NotFound/NotFound-controller';
+
 import store from '../redux/store';
 import ChooseProfileRoute from './ChooseProfileRoute';
 import ProtectedRoute from './ProtectedRoute';
@@ -21,7 +23,8 @@ class AllRoutes extends React.Component {
             <ProtectedRoute exact path="/dashboard" component={Dashboardoffice} />
             <ChooseProfileRoute exact path="/choose-profile" component={ChooseProfileController} />
             <Route exact path="/advertisement" component={Advertisement} />
-            <Route exact path="/users/reset/:token" component={ResetPassword}/>
+            <Route exact path="/users/reset" component={ResetPassword}/>
+            <Route path="*" component={NotFound}/>
           </Switch>
         </Router>
       </Provider>

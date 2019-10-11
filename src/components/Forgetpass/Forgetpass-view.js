@@ -18,7 +18,7 @@ function View(props){
                                     </div>
                                     <span className="text-forget">Ingresa tu email y te enviaremos un mensaje para que puedas recuperar tu contraseña</span> 
                                 </div>
-                                <form className="form-signin" onSubmit={handleSubmit}>
+                                <form className="form-signin justify-content-center" onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <input
                                             name="email"
