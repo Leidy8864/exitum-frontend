@@ -10,24 +10,24 @@
 }
 
 .main-panel.traslate {
-  padding: 77px 0px 0px 300px;
+  padding: 77px 0px 0px 94px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .main-panel {
-  padding: 77px 0px 0px 300px;
-  width: calc(100% - 15px);
+  padding: 88px 0px 0px 300px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background: white;
 }
-.main-panel .col-md-3{
-  padding: 0 !important;
-}
 
 .main-panel .container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.main-panel .col-md-3 {
+  padding: 0 auto !important;
 }
 /*# sourceMappingURL=style.css.map */

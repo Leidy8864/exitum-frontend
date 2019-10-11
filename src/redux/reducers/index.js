@@ -6,5 +6,5 @@ import cleanFormReducer from './cleanFormReducer';
 export default combineReducers({
     form: formReducer,
     user : userReducer,
-    cleanFormReducer: cleanFormReducer,
+    cleanFormReducer: cleanFormReducer
 });

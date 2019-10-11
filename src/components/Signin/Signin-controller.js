@@ -3,6 +3,7 @@ import View from './Signin-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { oauthGoogle, oauthFacebook, signIn } from '../../redux/actions';
+import cleanForm from '../../redux/actions/clean-form'
 
 import $ from 'jquery'
 
@@ -29,6 +30,9 @@ class Signin extends React.Component {
         e.preventDefault(e);
         $('#signin').modal('hide');
         this.setState({ error_login: '' });
+        $('#email').val(''); //Limpiamos el campo de email del forget password form
+        this.props.cleanForm("1");
+
     }
 
     logged = async e => {
@@ -150,6 +154,7 @@ class Signin extends React.Component {
 
 
 const mapDispatchToProps = {
+    cleanForm,
     oauthGoogle, 
     oauthFacebook, 
     signIn

@@ -107,3 +107,16 @@ export const forgotPassword = async (data) => {
         console.log("Error" + error);
     }
 }
+
+export const resetPassword = async(data) =>{
+    console.log("Data reviced",data);
+
+    try {
+        const res = await axios.get(root + 'users/reset', data);
+        console.log("RESPONSA API",res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    } 
+}

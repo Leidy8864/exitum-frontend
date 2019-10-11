@@ -33,7 +33,7 @@ function View(props){
                                     {content_messsage}
 
                                     <div className="send-submit">
-                                        <button type="submit" className="submit-signin">Recuperar Password</button>
+                                        <button type="submit" className="submit-signin">Recuperar contraseña</button>
                                     </div>
                                 </form>
                             </div>

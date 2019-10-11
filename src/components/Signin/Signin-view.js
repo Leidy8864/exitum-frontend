@@ -90,7 +90,7 @@ function View(props) {
                 </div>
             </div>
         </div>
-        <Forgetpass/>
+        <Forgetpass clear={true}/>
         </Fragment>
     );
 }

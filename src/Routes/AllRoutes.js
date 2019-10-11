@@ -9,6 +9,7 @@ import Advertisement from '../components/Advertisement/Advertisement-controller'
 import store from '../redux/store';
 import ChooseProfileRoute from './ChooseProfileRoute';
 import ProtectedRoute from './ProtectedRoute';
+import ResetPassword from '../components/ResetPassword/ResetPassword-controller';
 
 class AllRoutes extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class AllRoutes extends React.Component {
             <ProtectedRoute exact path="/dashboard" component={Dashboardoffice} />
             <ChooseProfileRoute exact path="/choose-profile" component={ChooseProfileController} />
             <Route exact path="/advertisement" component={Advertisement} />
+            <Route exact path="/users/reset/:token" component={ResetPassword}/>
           </Switch>
         </Router>
       </Provider>
