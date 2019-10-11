@@ -107,3 +107,13 @@ export const forgotPassword = async (data) => {
         console.log("Error" + error);
     }
 }
+
+export const authToken = async (data) => {
+    try {
+        const res = await axios.get(root + 'users/authentication/' + data)
+        // console.log(res)
+        return res.data;
+    } catch (err) {
+        console.log("Error" + err);
+    }
+}
