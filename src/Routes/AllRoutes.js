@@ -12,6 +12,7 @@ import store from '../redux/store';
 import ChooseProfileRoute from './ChooseProfileRoute';
 import ProtectedRoute from './ProtectedRoute';
 import ResetPassword from '../components/ResetPassword/ResetPassword-controller';
+import HomeRoute from './HomeRoute';
 
 class AllRoutes extends React.Component {
   render() {
@@ -19,10 +20,10 @@ class AllRoutes extends React.Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <HomeRoute exact path="/" component={Home} />
             <ProtectedRoute exact path="/dashboard" component={Dashboardoffice} />
             <ChooseProfileRoute exact path="/choose-profile" component={ChooseProfileController} />
-            <Route exact path="/advertisement" component={Advertisement} />
+            <ProtectedRoute exact path="/advertisement" component={Advertisement} />
             <Route exact path="/users/reset" component={ResetPassword}/>
             <Route path="*" component={NotFound}/>
           </Switch>
