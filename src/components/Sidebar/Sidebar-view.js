@@ -13,12 +13,12 @@ function View(props) {
             <div className="cabecera">
                 <div className="text-logo pt-4">
                     <button className="boton-sidebar"><span><i className="fas fa-ellipsis-v"></i></span></button>
-                    <img src={require('../../public/images/svg/logo-azul.svg')}/>
+                    <img src={require('../../public/images/svg/logo-azul.svg')} alt="img"/>
                 </div>
             </div>
             {menu}
             <div className="exit-dashboard">
-                <Link to="/" onClick={logOut}><img src={require('../../public/img/exit.png')} /></Link>
+                <Link to="/" onClick={logOut}><img src={require('../../public/img/exit.png')} alt="img"/></Link>
             </div>
         </div>
     );
