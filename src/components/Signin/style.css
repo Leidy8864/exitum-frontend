@@ -24,6 +24,12 @@
   text-transform: uppercase;
 }
 
+.background-login .modal-dialog .modal-content .welcome-ex span img{
+  width: 200px;
+  height: auto;
+}
+
+
 .background-login .modal-dialog .modal-content .welcome-ex h2 {
   font-family: 'Ubuntu';
   font-size: 30px;

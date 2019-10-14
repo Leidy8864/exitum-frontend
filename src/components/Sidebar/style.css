@@ -5,7 +5,7 @@
 }
 
 .sidebar.traslate .cabecera .text-logo
-p {
+img {
   display: none;
 }
 
@@ -24,7 +24,7 @@ button.boton-sidebar {
   outline: none !important;
   border: none;
   padding: 6px 16px;
-  border-radius: 50%;
+  border-radius: 100%;
   -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
 }
@@ -108,7 +108,8 @@ button.boton-sidebar-cell .fas {
 }
 
 .sidebar .cabecera .text-logo img {
-  width: 20px !important;
+  width: 90px;
+  margin-left: 4px;
 }
 
 .sidebar .cabecera .text-logo::after {
@@ -116,9 +117,9 @@ button.boton-sidebar-cell .fas {
   position: absolute;
   bottom: 0;
   top: 77px;
-  right: 15px;
+  right: 0px;
   height: 1px;
-  width: calc(100% - 30px);
+  width: calc(100%);
   background-color: rgba(138, 78, 78, 0.3);
   z-index: 1024;
 }
@@ -155,6 +156,18 @@ ul li a {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
+.exit-dashboard {
+  position: absolute;
+  top: 820px;
+  left: 30px;
+  z-index: 2000;
+}
+
+.exit-dashboard img {
+  width: 32px !important;
+}
+
 
 ul li a img.rocket {
   width: 17px;
