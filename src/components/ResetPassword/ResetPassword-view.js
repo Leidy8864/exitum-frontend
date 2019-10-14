@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './style.css';
-
 function View(props) {
 
     const {
@@ -19,11 +18,25 @@ function View(props) {
 
                         {
                             error ?
-                                    <div className="alert alert-danger" role="alert">
-                                        {content_error_message}
+                                <div>
+                                    <div className="welcome-ex col-sm-12">
+                                        <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg" /></span>
                                     </div>
+                                    <div className="card mt-5 ">
+                                        <div className="card-body">
+                                            <h1 className="card-title text-center text-danger my-2">
+                                                Acceso Denegado</h1>
+                                            <h3 className="card-text  text-center text-secondary my-4">
+                                                <span><img src={require("../../public/images/svg/alert-icon.svg")} alt="svg" className="mb-1 mx-2" /></span>
+                                                No tienes permiso para acceder a este contenido
+                                            </h3>
+                                            <div className="send-submit">
+                                                <a className="btn btn-outline-primary btn-lg" href="/" role="button">Ir al Inicio</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 :
-
                                 <div>
 
                                     <div className="welcome-ex col-sm-12">
@@ -57,44 +70,10 @@ function View(props) {
 
                                 </div>
                         }
-
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-        // <div className="container  ">
-        //     <div className="row  py-2">
-        //         <div className="card  border-primary justify-content-center">
-        //             <div>
-        //                 <div className="card-body">
-        //                     <h3 className="card-title">Vertical Center</h3>
-        //                     <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        //                     <a href="#" className="btn btn-outline-secondary">Outline</a>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     {/* <form action="">
-        //         <div className="row align-items-center h-100">
-        //             <div className="col-sm-12">
-        //                 <input type="password"
-        //                     name="password"
-        //                     placeholder="Cambiar Contraseña" />
-        //             </div>
-        //             <div className="col-sm-12">
-        //                 <input type="password"
-        //                     name="confirmPassword"
-        //                     placeholder="Confirmar Contraseña" />
-        //             </div>
-        //             <div className="send-submit">
-        //                 <button type="submit" className="submit-signup">Restablecer</button>
-        //             </div>
-        //         </div>
-        //     </form> */}
-        // </div>
     );
 }
 export default View;

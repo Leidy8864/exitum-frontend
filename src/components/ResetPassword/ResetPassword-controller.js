@@ -25,6 +25,8 @@ class ResetPassword extends React.Component {
         if (indexToken !== -1 && token) {
 
             const response = await verifyToken(token);
+            
+            console.log("TOKEN ENVIADO", token)
 
             console.log("RESPONSE VERIFY", response)
             if (response.status) {
@@ -36,8 +38,7 @@ class ResetPassword extends React.Component {
             } else {
                 this.setState({
                     error: true,
-                    isLoading: false,
-                    error_message: response.message
+                    isLoading: false
                 });
             }
         } else {
@@ -107,7 +108,7 @@ class ResetPassword extends React.Component {
     }
     render() {
 
-        const { error, isLoading, error_message } = this.state;
+        const { error, isLoading } = this.state;
 
         if (isLoading) {
             return (
@@ -119,7 +120,7 @@ class ResetPassword extends React.Component {
 
             let content_error_message = '';
 
-            if (error_message) {
+            if (error) {
                 content_error_message = <div className="error-message col-sm-12"><p id="error-message">{error_message}</p></div>;
             }
             return (
