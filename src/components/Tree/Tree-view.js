@@ -1,13 +1,14 @@
 
 import React from 'react';
 import './style.css';
+import ChooseProfile from '../ChooseProfile/ChooseProfile-controller'
 // import { Link } from 'react-router-dom';
 
 function View(props){
-    const {blockTree} = props
+    const {blockTree, conditionShowChooseProfile} = props
     return(
         <div className="Tree">
-            {blockTree}
+            {conditionShowChooseProfile ? <ChooseProfile/> : blockTree}
         </div>
     );
 }

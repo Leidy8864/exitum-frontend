@@ -8,13 +8,14 @@ class Tree extends React.Component {
     state = {
         isConfirmed: localStorage.getItem('confirmed') || "false",
         url: window.location.href,
+        conditionShowChooseProfile: false,
     }
 
-    analyzeUrl = async () => {
-        const { url } = this.state;
+    async componentDidMount() {
+        const { url, isConfirmed } = this.state;
         const token = url.substr(url.indexOf("token") + 6);
         // alert(token);
-        if(url.indexOf("token") != -1){
+        if(url.indexOf("token") !== -1){
             const response = await mapDispatchToProps.authToken(token);
             console.log("response = ", response);
             // if(response.status){
@@ -36,6 +37,14 @@ class Tree extends React.Component {
             localStorage.setItem('role',response.data.role)
             window.location.href = "/dashboard";
         }
+        else{
+            const role = localStorage.getItem('role');
+            if(isConfirmed === "true"){ 
+                if(role === "undefined" || role === "" || !role){
+                    this.setState({ conditionShowChooseProfile: true });
+                }
+            }
+        }
     }
 
     render() {
@@ -44,11 +53,12 @@ class Tree extends React.Component {
             blockTree = <div className="Tree"> <div className="Tree-plus">Favor de verificar su cuenta, revisar su correo electrónico!</div></div>;
         }
 
-        this.analyzeUrl();
+        // this.analyzeUrl();
 
         return (
             <View
             blockTree={blockTree}
+            conditionShowChooseProfile = {this.state.conditionShowChooseProfile}
             />
         );
     }

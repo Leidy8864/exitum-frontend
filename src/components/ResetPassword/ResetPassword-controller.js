@@ -107,7 +107,7 @@ class ResetPassword extends React.Component {
     }
     render() {
 
-        const { error, isLoading, error_message } = this.state;
+        const { error, isLoading } = this.state;
 
         if (isLoading) {
             return (
