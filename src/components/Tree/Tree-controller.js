@@ -48,7 +48,7 @@ class Tree extends React.Component {
     }
 
     render() {
-        let blockTree =<div className="Tree"> Say hi!</div>;
+        let blockTree =<div className="Tree"></div>;
         if(this.state.isConfirmed === "false"){
             blockTree = <div className="Tree"> <div className="Tree-plus">Favor de verificar su cuenta, revisar su correo electrónico!</div></div>;
         }

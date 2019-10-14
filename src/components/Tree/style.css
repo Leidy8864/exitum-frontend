@@ -1,33 +1,19 @@
 .Tree {
-  float: left;
   width: 100%;
-  height: calc(100vh - 77px);
-  color: #3369fd;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  height: 100%;
+}
+
+.container-tree {
+  padding: 200px;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-proyect {
+  position: absolute;
+  top: 140px;
+  right: 50px;
+  color: #3369fd;
   font-size: 25px;
 }
-
-.Tree .Tree-plus {
-  color: #660101;
-  padding: 20px;
-  background: #ff9b9b;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
-}
-
-.Tree .Tree-plus span {
-  font-size: 40px;
-  margin: -20px -30px;
-  padding-top: 5px;
-  font-weight: bold;
-  position: absolute;
-}
-/*# sourceMappingURL=style.css.map */
