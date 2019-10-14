@@ -1,16 +1,32 @@
 .Tree {
   width: 100%;
   height: 100%;
+}
 
+.Tree-plus {
+  text-align: center;
+  padding: 10px;
+  background: crimson;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 140px;
 }
 
 .container-tree {
-  padding-top: 200px;
+  width: 100%;
+  height: calc(100vh - 90px);
+  color: #3369fd;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-align: center;
   align-items: center;
-  font-size: 25px;
+}
 
+.container-tree .Tree {
+  text-align: center;
+  padding-top: 200px;
 }
 
 .add-proyect {
@@ -18,5 +34,5 @@
   top: 140px;
   right: 50px;
   color: #3369fd;
-  font-size: 25px;
+  font-size: 30px;
 }

@@ -28,6 +28,10 @@
   padding-right: 0px;
 }
 
+.main-panel .container-fluid .row {
+  margin-left: 0px !important;
+}
+
 .main-panel .col-md-3 {
   padding: 0 !important;
 }
