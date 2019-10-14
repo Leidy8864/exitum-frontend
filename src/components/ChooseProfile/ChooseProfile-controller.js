@@ -28,7 +28,8 @@ class ChooseProfile extends React.Component {
 
         localStorage.setItem('role',respone.data.role);
 
-        this.props.history.push('/dashboard');
+        // this.props.history.push('/dashboard');
+        window.location.href = "/dashboard";
 
     }
 
