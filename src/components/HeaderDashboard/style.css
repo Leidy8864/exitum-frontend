@@ -37,6 +37,10 @@ nav.dashboard-header .navbar-brand {
   font-weight: 300;
 }
 
+button.boton-sidebar {
+  padding: 7px 19px !important;
+}
+
 .user {
   float: right;
   width: 300px;
