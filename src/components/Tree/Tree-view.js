@@ -8,17 +8,17 @@ function View(props) {
     const { blockTree, conditionShowChooseProfile } = props
     return (
         <Fragment>
-            <div className="tree-block">
+            <div className="container-tree">
                 {conditionShowChooseProfile ? <ChooseProfile /> : blockTree}
             </div>
-            <div className="Tree">
+            {/* <div className="Tree">
                 <div className="container-tree">
                 <div className="add-proyect">
                     <span>+Postular un proyecto</span>
                 </div>
                     <img src={require('../../public/images/svg/Capsula.svg')} alt="capsula" />
                 </div>
-            </div>
+            </div> */}
         </Fragment>
     );
 }

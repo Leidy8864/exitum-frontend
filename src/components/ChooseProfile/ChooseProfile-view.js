@@ -10,13 +10,23 @@ function View(props) {
     } = props;
 
     return (
-        <div>
-
+        <div className="ChooseProfile">
+            <div className="title">
+                Elige un perfil
+            </div>
             <form>
-
-            {/* <input type="text" onChange={email}/> */}
-            <input type="radio" name="role" onChange={handleChangeRole} value="employee"/>Impulsor
-            <input type="radio" name="role" onChange={handleChangeRole} value="entrepreneur" />Emprendedor
+            <div className="content-radio">
+                <img className="img_impulsor" src={require("../../public/images/svg/asistente_impulsor.svg")} alt="svg"/>
+                <br/>
+                <input type="radio" name="role" id="employee" onChange={handleChangeRole} value="employee"/>
+                <label for="employee">Impulsor</label>
+            </div>
+            <div className="content-radio">
+                <img className="img_emprendedor" src={require("../../public/images/svg/asistente_emprendedor.svg")} alt="svg"/>
+                <br/>
+                <input type="radio" name="role" id="entrepreneur" onChange={handleChangeRole} value="entrepreneur" />
+                <label for="entrepreneur">Emprendedor</label>
+            </div>
             </form>
         </div>
     );

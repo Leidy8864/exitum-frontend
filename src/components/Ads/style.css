@@ -1,6 +1,6 @@
 .Ads {
   float: left;
-  width: 65%;
+  width: 100%;
   height: calc(100vh - 90px);
   color: #3369fd;
   display: -webkit-box;
