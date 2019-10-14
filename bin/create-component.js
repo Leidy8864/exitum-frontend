@@ -46,7 +46,7 @@ const createSchedule = async () =>{
         await mkdir(`src/components/${args[0]}`)
         await writeFile(`src/components/${args[0]}/${args[0]}-controller.js`, contentController);
         await writeFile(`src/components/${args[0]}/${args[0]}-view.js`, contentView);
-        await writeFile(`src/components/${args[0]}/style.scss`,contentCss);
+        await writeFile(`src/components/${args[0]}/style.css`,contentCss);
         console.log(`Component ${args[0]} created !!!!`)
     }else{
         console.log(`Component ${args[0]} created before =( `);
