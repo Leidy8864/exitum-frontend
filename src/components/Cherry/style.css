@@ -2,4 +2,75 @@
     position: absolute;
     right: 40px;
     bottom: 60px;
+    z-index: 2;
 }
+
+/* Display the modal when targeted */
+
+.modal {
+    opacity: 0;
+    transition: all ease 0.6s;
+    overflow: auto;
+}
+
+.modal:target {
+    opacity: 1;
+    display: table;
+    position: absolute;
+    z-index: 3;
+    transition: all ease 0.6s;
+  }
+  
+  /* The modal box */
+  .modal-dialog {
+    display: table-cell;
+  }
+  
+  /* The modal's content */
+  .modal-dialog .modal-content {
+    background-color: #ffffff;
+    position: absolute;
+    border:none;
+    right: 30px;
+    bottom: 50px;
+    padding: 0;
+    max-width: 300px;
+    box-shadow: none !important;
+  
+    /* Add animation */
+    -webkit-animation-name: example !important; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 0.5s !important; /* Chrome, Safari, Opera */
+    animation-name: example !important;
+    animation-duration: 0.5s !important;
+  }
+  
+  /* The button used to close the modal */
+  .closecherry {
+     padding: 15px;
+     text-align: center;
+  }
+  
+  a.closebtn {
+    background: #376EF9;
+    padding: 10px 35%;
+    color: #fff;
+    text-decoration: none !important;
+    border-radius: 10px;
+    font-size: 19px;
+  }
+
+  a.closebtn:hover {
+      color: #fff;
+  }
+  
+  .container {
+    padding: 10px 16px;
+    font-size: 19px;
+    color: rgb(121, 115, 115);
+  }
+  
+  header {
+    background-color: #376EF9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }

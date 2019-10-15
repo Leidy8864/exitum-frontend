@@ -4,6 +4,7 @@ import Stages from '../../components/Stages/Stages-controller'
 import Challenges from '../../components/Challenges/Challenges-controller'
 import AddProyect from '../../components/AddProyect/AddProyect-controller'
 import './style.css';
+import Cherry from '../Cherry/Cherry-controller';
 
 function View(){
     return(
@@ -18,6 +19,7 @@ function View(){
                         <div className="col-md-7">
                             <Challenges />
                         </div>
+                        <Cherry />
                     </div>
                 </div>
             </div>

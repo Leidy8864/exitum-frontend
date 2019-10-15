@@ -20,7 +20,7 @@
   width: calc(100% - 15px);
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  background: white;
+  background: #F8F8FA;
 }
 
 .main-panel .container-fluid {

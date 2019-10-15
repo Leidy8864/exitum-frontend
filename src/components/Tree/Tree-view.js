@@ -13,7 +13,7 @@ function View(props) {
 
                 {conditionShowTreeContainer ? <Entrepeneur /> : 
                     conditionShowCapsule ? <div className="Tree">
-                        <img src={require('../../public/images/svg/Capsula.svg')} onClick={showTreeContainer} />
+                        <img alt="capsula" src={require('../../public/images/svg/Capsula.svg')} onClick={showTreeContainer} />
                     </div>: <br/>
                 }
 

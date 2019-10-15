@@ -53,6 +53,7 @@ button.boton-sidebar-cell .fas {
 }
 
 .sidebar {
+  background: #fff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   width: 300px;

@@ -25,7 +25,7 @@ class AllRoutes extends React.Component {
             <ChooseProfileRoute exact path="/choose-profile" component={ChooseProfileController} />
             <ProtectedRoute exact path="/advertisement" component={Advertisement} />
             <Route exact path="/users/reset" component={ResetPassword}/>
-            <Route path="*" component={NotFound}/>
+            <Route path="*" component={NotFound}/>    
           </Switch>
         </Router>
       </Provider>
