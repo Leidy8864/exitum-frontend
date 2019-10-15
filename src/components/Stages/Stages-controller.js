@@ -1,13 +1,12 @@
 
 import React from 'react';
-import View from './Cherry-view';
+import View from './Stages-view';
 
-class Cherry extends React.Component {
-
+class Stages extends React.Component {
     render() {
         return (
             <View/>
         );
     }
 }
-export default Cherry;
+export default Stages;

@@ -3,12 +3,16 @@ import View from './Tree-view';
 import {authToken} from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 class Tree extends React.Component {
     state = {
         isConfirmed: localStorage.getItem('confirmed') || "false",
+        role: localStorage.getItem('role') || "",
         url: window.location.href,
         conditionShowChooseProfile: false,
+        conditionShowCapsule: false,
+        conditionShowTreeContainer: false,
     }
 
     async componentDidMount() {
@@ -47,15 +51,21 @@ class Tree extends React.Component {
         }
     }
 
+    showTreeContainer = async () => {
+        this.setState({
+            conditionShowTreeContainer: true,
+        });
+    }
+
     render() {
-        let blockTree =<div className="Tree">
-            <div className="add-proyect">
-                + Postular a un proyecto
-            </div>
-            <img src={require('../../public/images/svg/Capsula.svg')} />
-        </div>;
+
+        let {conditionShowCapsule, conditionShowTreeContainer} = this.state;
+        let blockTree=<br/>;
         if(this.state.isConfirmed === "false"){
             blockTree = <div className="Tree"><div className="Tree-plus">Favor de verificar su cuenta, revisar su correo electrónico!</div></div>;
+        }
+        if(this.state.isConfirmed === "true" && (this.state.role === "employee" || this.state.role === "entrepreneur")){
+            conditionShowCapsule = true;
         }
 
         // this.analyzeUrl();
@@ -64,6 +74,9 @@ class Tree extends React.Component {
             <View
             blockTree={blockTree}
             conditionShowChooseProfile = {this.state.conditionShowChooseProfile}
+            conditionShowCapsule = {conditionShowCapsule}
+            conditionShowTreeContainer = {conditionShowTreeContainer}
+            showTreeContainer = {this.showTreeContainer}
             />
         );
     }
