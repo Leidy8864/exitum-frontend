@@ -90,7 +90,7 @@ function View(props){
                                         <label>Descripción del requerimiento</label>
                                         <textarea/>
                                     </div>
-                                    <div className="form_group_">
+                                    <div className="form_group_ form_group__">
                                         <button type="button">Guardar</button>
                                     </div>
                                 </div>
