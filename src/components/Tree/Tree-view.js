@@ -11,14 +11,6 @@ function View(props) {
             <div className="container-tree">
                 {conditionShowChooseProfile ? <ChooseProfile /> : blockTree}
             </div>
-            {/* <div className="Tree">
-                <div className="container-tree">
-                <div className="add-proyect">
-                    <span>+Postular un proyecto</span>
-                </div>
-                    <img src={require('../../public/images/svg/Capsula.svg')} alt="capsula" />
-                </div>
-            </div> */}
         </Fragment>
     );
 }

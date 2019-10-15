@@ -48,9 +48,14 @@ class Tree extends React.Component {
     }
 
     render() {
-        let blockTree =<div className="Tree"></div>;
+        let blockTree =<div className="Tree">
+            <div className="add-proyect">
+                + Postular a un proyecto
+            </div>
+            <img src={require('../../public/images/svg/Capsula.svg')} />
+        </div>;
         if(this.state.isConfirmed === "false"){
-            blockTree = <div className="Tree"> <div className="Tree-plus">Favor de verificar su cuenta, revisar su correo electrónico!</div></div>;
+            blockTree = <div className="Tree"><div className="Tree-plus">Favor de verificar su cuenta, revisar su correo electrónico!</div></div>;
         }
 
         // this.analyzeUrl();

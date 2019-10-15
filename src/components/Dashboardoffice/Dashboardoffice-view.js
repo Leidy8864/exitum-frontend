@@ -4,6 +4,7 @@ import Sidebar from '../Sidebar/Sidebar-controller'
 import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
 import Tree from '../Tree/Tree-controller'
 import Diary from '../Diary/Diary-controller'
+import Cherry from '../Cherry/Cherry-controller'
 
 function View() {
     return (
@@ -15,6 +16,7 @@ function View() {
                     <div className="row">
                         <div className="col-md-9">
                             <Tree />
+                            <Cherry />
                         </div>
                         <div className="col-md-3">
                             <Diary />
