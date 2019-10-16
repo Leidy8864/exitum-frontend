@@ -7,34 +7,39 @@
 
 /* Display the modal when targeted */
 
-.modal {
+.message {
     opacity: 0;
     transition: all ease 0.6s;
     overflow: auto;
 }
 
-.modal:target {
+.message:target {
     opacity: 1;
     display: table;
     position: absolute;
-    z-index: 3;
+    z-index: 2003;
+    width: 100%;
+    height: 100vh;
+    right: 0px;
+    bottom: 0px;
     transition: all ease 0.6s;
   }
   
   /* The modal box */
-  .modal-dialog {
+  .modal-message {
     display: table-cell;
   }
   
   /* The modal's content */
-  .modal-dialog .modal-content {
-    background-color: #ffffff;
+  .modal-message .message-content {
+    background-color: transparent;
     position: absolute;
     border:none;
-    right: 30px;
-    bottom: 50px;
+    z-index: 2000;
+    right: 40px;
+    bottom: 40px;
     padding: 0;
-    max-width: 300px;
+    width: 300px;
     box-shadow: none !important;
   
     /* Add animation */
@@ -46,13 +51,15 @@
   
   /* The button used to close the modal */
   .closecherry {
-     padding: 15px;
+     padding: 8px;
      text-align: center;
+     background: #fff;
+     margin-bottom: 10px;
   }
   
   a.closebtn {
     background: #376EF9;
-    padding: 10px 35%;
+    padding: 10px 32%;
     color: #fff;
     text-decoration: none !important;
     border-radius: 10px;
@@ -63,14 +70,15 @@
       color: #fff;
   }
   
-  .container {
+  .container-message {
     padding: 10px 16px;
     font-size: 19px;
     color: rgb(121, 115, 115);
+    background: #fff;
   }
   
   header {
-    background-color: #376EF9;
+    background-color: #376EF9 !important;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }

@@ -5,26 +5,26 @@ import { Link } from 'react-router-dom'
 
 function View(props) {
 
-    const { chikoinfo, cherry, showCherry } = props
-
+    const { role,chikoinfo, cherry } = props
     return (
         <Fragment>
             <div className="Cherry">
-                <a href="#id01">{showCherry ? chikoinfo : cherry}</a>
+                <a href="#id01">{ role === 'entrepreneur' ? chikoinfo : null }</a>
+                <a href="#id02">{ role === 'employee' ? cherry : null }</a>
             </div>
-            <div id="id01" class="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <header class="container">
+            <div id="id02" className="message">
+            <div className="modal-message">
+                <div className="message-content">
+                <header className="container-message">
                     <img src={require('../../public/images/svg/Fresita.svg')} alt="Informacion" />
                 </header>
-                <div class="container">
+                <div className="container-message">
                     <p>Hola soy tu asistente personal, Listo para ayudarte en todo lo que necesites, recuerda postular a varios anuncios
                         para tener mas oportunidades de cojer un proyecto
                     </p>
                 </div>
                 <div className="closecherry">
-                        <a href="#" class="closebtn">Entendido</a>
+                        <a href="#" className="closebtn">Entendido</a>
                     </div>
                 </div>
             </div>
