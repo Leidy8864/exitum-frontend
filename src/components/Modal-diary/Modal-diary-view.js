@@ -5,12 +5,15 @@ import DatePicker from 'react-date-picker';
 
 function View(props){
     const {
+        isHour,
+        isMeet,
         onChange,
+        onChange_,
         className,
         contactoClassNamePrefix,
         contactoPlaceholder,
         contactoName,
-        contactoOptions,
+        contactosOptions,
         isDisabled,
         isLoading,
         isClearable,
@@ -19,7 +22,8 @@ function View(props){
         date,
         hoursOptions,
         selectHour,
-        selected
+        selected,
+        selectTypeDiary
     } = props;
     
     return(
@@ -34,33 +38,35 @@ function View(props){
                                         Nueva Agenda
                                     </div>
                                     <div className="form_group_">
-                                        <input type="radio" name="role" id="meet" value="meet"/>
+                                        <input type="radio" name="role" id="meet" value="meet" onClick={selectTypeDiary}/>
                                         <label className="label-radio-modal-diary" htmlFor="meet">Reunion</label>
-                                        <input type="radio" name="role" id="reminder" value="reminder" />
+                                        <input type="radio" name="role" id="reminder" value="reminder" onClick={selectTypeDiary}/>
                                         <label className="label-radio-modal-diary" htmlFor="reminder">Recordatorio</label>
                                     </div>
                                     <div className="form_group_">
                                         <label>Titulo</label>
-                                        <input placeholder="Titulo ..."/>
+                                        <input/>
                                     </div>
-                                    <div className="form_group_">
-                                        <label>Contacto</label>
-                                        <Fragment>
-                                            <Select
-                                                className={className}
-                                                classNamePrefix={contactoClassNamePrefix}
-                                                placeholder = {contactoPlaceholder}
-                                                // defaultValue={defaultValue}
-                                                isDisabled={isDisabled}
-                                                isLoading={isLoading}
-                                                isClearable={isClearable}
-                                                isRtl={isRtl}
-                                                isSearchable={isSearchable}
-                                                name={contactoName}
-                                                options={contactoOptions}
-                                            />
-                                        </Fragment>
-                                    </div>
+                                    {isMeet ? 
+                                        <div className="form_group_">
+                                            <label>Contacto</label>
+                                            <Fragment>
+                                                <Select
+                                                    className={className}
+                                                    classNamePrefix={contactoClassNamePrefix}
+                                                    placeholder = ""
+                                                    // defaultValue={defaultValue}
+                                                    isDisabled={isDisabled}
+                                                    isLoading={isLoading}
+                                                    isClearable={isClearable}
+                                                    isRtl={isRtl}
+                                                    isSearchable={isSearchable}
+                                                    name={contactoName}
+                                                    options={contactosOptions}
+                                                    onChange={onChange_}
+                                                />
+                                            </Fragment>
+                                        </div>: <br/>}
                                     <div className="form_group_">
                                         <label>Fecha del evento</label>
                                         <Fragment>
@@ -71,21 +77,22 @@ function View(props){
                                             />
                                         </Fragment>
                                     </div>
-                                    <div className="form_group_">
-                                        <label>Hora del evento</label>
-                                        {
-                                            hoursOptions.map(dt =>
-                                                <div 
-                                                    key={dt}
-                                                    id={dt}
-                                                    className= {selected === dt ? "hourModalAdsSelected": "hourModalAds"}
-                                                    onClick={selectHour}
-                                                >
-                                                    {dt}
-                                                </div>
-                                            )
-                                        }
-                                    </div>
+                                    {isHour ? 
+                                        <div className="form_group_">
+                                            <label>Hora del evento</label>
+                                            {
+                                                hoursOptions.map(dt =>
+                                                    <div 
+                                                        key={dt}
+                                                        id={dt}
+                                                        className= {selected === dt ? "hourModalAdsSelected": "hourModalAds"}
+                                                        onClick={selectHour}
+                                                    >
+                                                        {dt}
+                                                    </div>
+                                                )
+                                            }
+                                        </div>: <br/>}
                                     <div className="form_group_">
                                         <label>Descripción</label>
                                         <textarea/>

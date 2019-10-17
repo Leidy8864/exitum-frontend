@@ -10,17 +10,36 @@ class ModalDiary extends React.Component {
         isRtl: false,
         isSearchable: true,
         date: new Date(),
-        selected : ""
+        selected : "",
+        hoursOptions: [],
+        isMeet: false,
+        isHour: false
     };
       
-    // handleChange = date => {
-    //     this.setState({
-    //       date: date
-    //     });  
-    // };
+    handleChange = async(selectedOption) => {
+        this.setState({hoursOptions: [
+            '8:00 am', '9:00 am', '10:00 am', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
+        ]});
+    }
 
     selectHour = async (e) =>{
         this.setState({selected: e.target.id});
+    }
+
+    selectTypeDiary = async (e) =>{
+        if(e.target.value === 'meet'){
+            this.setState({ hoursOptions: [] });
+            this.setState({ isMeet: true });
+            this.setState({ isHour: true });
+        }else{
+            this.setState({ isMeet: false });
+            this.setState({ isHour: true });
+            this.setState({hoursOptions: [
+                '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
+                '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
+                '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm',
+            ]});
+        }
     }
 
     onChange = date => this.setState({ date })
@@ -44,23 +63,15 @@ class ModalDiary extends React.Component {
             isLoading,
             isRtl,
             selected,
+            hoursOptions,
+            isMeet,
+            isHour
         } = this.state;
 
         const contactosOptions = [
             { value: 'contacto1', label: 'contacto1' },
             { value: 'contacto2', label: 'contacto2' },
             { value: 'contacto3', label: 'contacto3' },
-        ];
-
-        const hoursOptions = [
-             '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
-             '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
-             '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm',
-        ];
-
-        const hoursrMeetOptions = [
-             '9:00 am', '10:00 am', '2:00 pm', '3:00 pm',
-             '8:00 pm', '9:00 pm'
         ];
 
         return (
@@ -77,11 +88,15 @@ class ModalDiary extends React.Component {
                 isRtl={isRtl}
                 isSearchable={isSearchable}
                 contactoName="contacto"
-                contactoptions={contactosOptions}
+                contactosOptions={contactosOptions}
                 date={this.state.date}
                 hoursOptions={hoursOptions}
                 selectHour={this.selectHour}
                 selected={selected}
+                onChange_={this.handleChange}
+                selectTypeDiary = {this.selectTypeDiary}
+                isMeet={isMeet}
+                isHour={isHour}
             />
         );
     }
