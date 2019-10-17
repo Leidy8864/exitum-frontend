@@ -201,13 +201,10 @@ ul li a.active:before {
 
 @media screen and (max-width: 1024px) {
   .sidebar.traslate {
-    width: 0px;
-  }
-  .sidebar.traslate ul li a {
-    display: none;
+    width: 88px;
   }
   .sidebar {
-    width: 0px !important;
+    width: 88px !important;
   }
   .sidebar .nav-link {
     display: none !important;
@@ -224,21 +221,22 @@ ul li a.active:before {
   }
 }
 
-@media screen and (max-width: 993px) {
-  button.boton-sidebar-cell {
-    display: block !important;
-  }
-  button.boton-sidebar {
-    display: none;
+@media screen and (max-width: 1200px) {
+  .sidebar.traslate {
+    width: 88px !important;
   }
   .navbar-brand {
     position: absolute;
     left: 54px !important;
   }
+  .sidebar {
+    width: 300px !important;
+  }
+  
   .sidebar.traslate-cell {
     top: 0;
     left: 0;
-    width: 260px !important;
+    width: 88px !important;
     height: 100vh;
     display: block !important;
     z-index: 2032;

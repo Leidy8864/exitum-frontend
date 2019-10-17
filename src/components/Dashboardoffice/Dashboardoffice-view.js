@@ -14,7 +14,7 @@ function View() {
             <main className="main-panel">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-xl-9 col-md-12">
+                        <div className="col-xl-9 col-md-12 content-tree">
                             <Tree />
                             <Cherry />
                         </div>

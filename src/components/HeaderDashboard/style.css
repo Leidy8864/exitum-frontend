@@ -12,7 +12,7 @@ nav.dashboard-header {
   right: 0;
   width: auto;
   margin-top: 0;
-  z-index: 0;
+  z-index: 1000;
   position: fixed !important;
   background: white !important;
   border-bottom: 1px solid #d6d3d3;
@@ -43,7 +43,6 @@ button.boton-sidebar {
 
 .user {
   float: right;
-  width: 300px;
   height: 90px;
   font-size: 20px;
   font-weight: 800;

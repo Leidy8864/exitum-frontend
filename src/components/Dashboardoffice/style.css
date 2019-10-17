@@ -20,6 +20,7 @@
 }
 
 .main-panel {
+  height: 100%;
   padding: 77px 0px 0px 300px;
   width: calc(100% - 15px);
   -webkit-transition: 0.3s;
@@ -44,5 +45,8 @@
 @media screen and (max-width: 1200px) {
   .content-diary {
     padding-right: 0px !important;
+  }
+  .content-tree {
+    height: calc(100vh) !important;
   }
 }
