@@ -16,7 +16,6 @@ function View(props) {
                         <img alt="capsula" src={require('../../public/images/svg/Capsula.svg')} onClick={showTreeContainer} />
                     </div>: <br/>
                 }
-
             </div>
         </Fragment>
     );

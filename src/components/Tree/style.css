@@ -29,10 +29,8 @@
   padding-top: 150px;
 }
 
-.add-proyect {
-  position: absolute;
-  top: 140px;
-  right: 50px;
-  color: #3369fd;
-  font-size: 30px;
+@media screen and (max-width: 1440px) {
+  .container-tree .Tree {
+    padding-top: 70px;
+  }
 }

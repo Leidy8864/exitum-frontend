@@ -12,7 +12,7 @@ function View(props) {
                 <a href="#id01">{ role === 'entrepreneur' ? chikoinfo : null }</a>
                 <a href="#id02">{ role === 'employee' ? cherry : null }</a>
             </div>
-            <div id="id02" className="message">
+            <div id="id01" className="message">
             <div className="modal-message">
                 <div className="message-content">
                 <header className="container-message">

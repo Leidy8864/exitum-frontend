@@ -47,3 +47,11 @@
   margin-left: -13px;
 }
 /*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 1200px) {
+  .Diary {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    display: none;
+  }
+}
