@@ -17,37 +17,6 @@ img {
   display: none;
 }
 
-button.boton-sidebar {
-  margin-left: 23px;
-  margin-right: 20px;
-  background: #fff;
-  outline: none !important;
-  border: none;
-  padding: 6px 16px;
-  border-radius: 100%;
-  -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-}
-
-button.boton-sidebar .fas {
-  color: #696a6c;
-}
-
-button.boton-sidebar-cell {
-  display: none;
-  background: #fff;
-  border: none;
-  font-size: 16px;
-  padding: 6px 16px;
-  border-radius: 100%;
-  -webkit-box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-}
-
-button.boton-sidebar-cell .fas {
-  color: #696a6c;
-}
-
 .text-abrv {
   position: relative;
 }
@@ -56,7 +25,7 @@ button.boton-sidebar-cell .fas {
   background: #fff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  width: 300px;
+  width: 260px;
   position: fixed;
   height: 100vh;
   top: 0px;
@@ -66,6 +35,7 @@ button.boton-sidebar-cell .fas {
   -webkit-box-shadow: 0px 0px 4px #a8a8a8;
           box-shadow: 0px 0px 4px #a8a8a8;
   z-index: 1024;
+  box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 
 .sidebar .img-sidebar {
@@ -183,15 +153,23 @@ ul li a img {
   margin-left: 15px;
 }
 
+ul li a {
+  text-decoration: none !important;
+}
+
 ul li a span {
   margin-left: 25px;
   font-size: 18px;
 }
 
+ul li a span:hover {
+  color: #3369FD;
+} 
+
 ul li a.active:before {
   content: '';
   position: absolute;
-  width: 6px;
+  width: 4px;
   height: 100%;
   background: #3369FD;
   left: 0;
@@ -199,70 +177,26 @@ ul li a.active:before {
   transition: all 0.5s;
 }
 
-@media screen and (max-width: 1024px) {
-  .sidebar.traslate {
-    width: 0px;
-  }
-  .sidebar.traslate ul li a {
-    display: none;
-  }
+@media screen and (max-width: 991px) {
   .sidebar {
-    width: 0px !important;
-  }
-  .sidebar .nav-link {
-    display: none !important;
-  }
-  nav.dashboard-header.traslate {
-    left: 0px !important;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-  }
-  nav.dashboard-header {
-    left: 0px !important;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+    position: fixed;
+    display: block;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    right: 0;
+    left: auto;
+    z-index: 1032;
+    visibility: visible;
+    background-color: #9a9a9a;
+    overflow-y: visible;
+    border-top: none;
+    text-align: left;
+    padding-right: 0;
+    padding-left: 0;
+    transform: translate3d(260px,0,0);
+    transition: all .33s
   }
 }
 
-@media screen and (max-width: 993px) {
-  button.boton-sidebar-cell {
-    display: block !important;
-  }
-  button.boton-sidebar {
-    display: none;
-  }
-  .navbar-brand {
-    position: absolute;
-    left: 54px !important;
-  }
-  .sidebar.traslate-cell {
-    top: 0;
-    left: 0;
-    width: 260px !important;
-    height: 100vh;
-    display: block !important;
-    z-index: 2032;
-    position: fixed;
-    -webkit-transform: translate3d(0, 260px, 0, 0) !important;
-            transform: translate3d(0, 260px, 0, 0) !important;
-    border-top: none;
-    -webkit-box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-            box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-    overflow-y: visible;
-    text-align: left;
-    -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-    transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-    visibility: visible;
-    padding-left: 0;
-    padding-right: 0px;
-  }
-  .sidebar.traslate-cell .navegacion .nav-pills {
-    display: block !important;
-  }
-  .sidebar.traslate-cell .navegacion .nav-pills .nav-link {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
-}
 /*# sourceMappingURL=style.css.map */

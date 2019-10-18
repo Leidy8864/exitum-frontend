@@ -4,11 +4,27 @@
     right: 30px;
     z-index: 1;
     display: flex;
-    font-size: 40px;
+    font-size: 30px;
+    color: #3369fd;
 }
 
 @media screen and (max-width: 1440px) {
     .add-proyect{
         top: 30px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .add-proyect{
+        top: 30px;
+        right: 90px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .add-proyect{
+        right: 10px;
+        font-size: 25px;
     }
 }

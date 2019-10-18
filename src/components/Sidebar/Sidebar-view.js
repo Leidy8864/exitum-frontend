@@ -12,7 +12,6 @@ function View(props) {
         <div className="sidebar">
             <div className="cabecera">
                 <div className="text-logo pt-4">
-                    <button className="boton-sidebar"><span><i className="fas fa-ellipsis-v"></i></span></button>
                     <img src={require('../../public/images/svg/logo-azul.svg')} alt="img"/>
                 </div>
             </div>
