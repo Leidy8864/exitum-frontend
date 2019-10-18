@@ -40,9 +40,9 @@ function View(props){
                                     </div>
                                     <div className="form_group_">
                                         <input type="radio" name="role" id="meet" value="meet"/>
-                                        <label class="label-radio-modal-diary"for="meet">Reunion</label>
+                                        <label className="label-radio-modal-diary"htmlFor="meet">Reunion</label>
                                         <input type="radio" name="role" id="reminder" value="reminder" />
-                                        <label class="label-radio-modal-diary"for="reminder">Recordatorio</label>
+                                        <label className="label-radio-modal-diary"htmlFor="reminder">Recordatorio</label>
                                     </div>
                                     <div className="form_group_">
                                         <label>Titulo</label>

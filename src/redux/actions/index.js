@@ -112,7 +112,7 @@ export const verifyToken = async (token) => {
     console.log("Data reviced", token);
 
     try {
-        const res = await axios.get(root + 'users/verificationToken/'+token);
+        const res = await axios.get(root + 'users/verificationToken/' + token);
         console.log("RESPONSA API", res.data);
 
         return res.data;
@@ -141,5 +141,43 @@ export const authToken = async (data) => {
         return res.data;
     } catch (err) {
         console.log("Error" + err);
+    }
+}
+
+
+
+//Proyectos o Startups
+
+export const createStartup = async (data) => {
+    try {
+        const res = await axios.post(root + 'startups/create' , data);
+
+        console.log("RES DATA", res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
+export const listCategories = async () => {
+
+    try {
+        const res = await axios.get(root + 'categories/list');
+        console.log(res.data.data);
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
+export const listStages = async () => {
+
+    try {
+        const res = await axios.get(root + 'stages/list');
+        console.log(res.data.data);
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error);
     }
 }

@@ -87,7 +87,7 @@ function View(props){
                                         </Fragment>
                                     </div>
                                     <div className="form_group_">
-                                        <label>Descripción del requerimiento</label>
+                                        <label>Descripción del proyecto</label>
                                         <textarea/>
                                     </div>
                                     <div className="form_group_">
