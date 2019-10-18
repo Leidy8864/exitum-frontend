@@ -4,6 +4,7 @@ import Sidebar from '../Sidebar/Sidebar-controller'
 import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
 import Tree from '../Tree/Tree-controller'
 import Diary from '../Diary/Diary-controller'
+import Cherry from '../Cherry/Cherry-controller'
 
 function View() {
     return (
@@ -13,10 +14,11 @@ function View() {
             <main className="main-panel">
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-md-9">
+                        <div className="col-xl-9 col-md-12">
                             <Tree />
+                            <Cherry />
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-xl-3 content-diary">
                             <Diary />
                         </div>
                     </div>

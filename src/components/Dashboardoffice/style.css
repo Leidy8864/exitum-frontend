@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.content-diary {
+  padding-right: 0px !important;
+}
+
 .main-panel.traslate {
   padding: 77px 0px 0px 88px;
   -webkit-transition: 0.3s;
@@ -20,7 +24,7 @@
   width: calc(100% - 15px);
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  background: white;
+  background: #F8F8FA;
 }
 
 .main-panel .container-fluid {
@@ -36,3 +40,9 @@
   padding: 0 !important;
 }
 /*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 1200px) {
+  .content-diary {
+    padding-right: 0px !important;
+  }
+}

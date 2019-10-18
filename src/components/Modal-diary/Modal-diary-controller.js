@@ -9,7 +9,41 @@ class ModalDiary extends React.Component {
         isLoading: false,
         isRtl: false,
         isSearchable: true,
+        date: new Date(),
+        selected : "",
+        hoursOptions: [],
+        isMeet: false,
+        isHour: false
     };
+      
+    handleChange = async(selectedOption) => {
+        this.setState({hoursOptions: [
+            '8:00 am', '9:00 am', '10:00 am', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
+        ]});
+    }
+
+    selectHour = async (e) =>{
+        this.setState({selected: e.target.id});
+    }
+
+    selectTypeDiary = async (e) =>{
+        if(e.target.value === 'meet'){
+            this.setState({ hoursOptions: [] });
+            this.setState({ isMeet: true });
+            this.setState({ isHour: true });
+        }else{
+            this.setState({ isMeet: false });
+            this.setState({ isHour: true });
+            this.setState({hoursOptions: [
+                '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
+                '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
+                '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm',
+            ]});
+        }
+    }
+
+    onChange = date => this.setState({ date })
+
     toggleClearable = () =>
         this.setState(state => ({ isClearable: !state.isClearable }));
     toggleDisabled = () =>
@@ -19,6 +53,8 @@ class ModalDiary extends React.Component {
     toggleRtl = () => this.setState(state => ({ isRtl: !state.isRtl }));
     toggleSearchable = () =>
         this.setState(state => ({ isSearchable: !state.isSearchable }));
+
+    
     render() {
         const {
             isClearable,
@@ -26,42 +62,22 @@ class ModalDiary extends React.Component {
             isDisabled,
             isLoading,
             isRtl,
+            selected,
+            hoursOptions,
+            isMeet,
+            isHour
         } = this.state;
+
         const contactosOptions = [
             { value: 'contacto1', label: 'contacto1' },
             { value: 'contacto2', label: 'contacto2' },
             { value: 'contacto3', label: 'contacto3' },
         ];
-        const diaOptions = [
-            { value: '01', label: '01' },{ value: '02', label: '02' },{ value: '03', label: '03' },{ value: '04', label: '04' },
-            { value: '05', label: '05' },{ value: '06', label: '06' },{ value: '07', label: '07' },{ value: '08', label: '08' },
-            { value: '09', label: '09' },{ value: '10', label: '10' },{ value: '11', label: '11' },{ value: '12', label: '12' },
-            { value: '13', label: '13' },{ value: '14', label: '14' },{ value: '15', label: '15' },{ value: '16', label: '16' },
-            { value: '17', label: '17' },{ value: '18', label: '18' },{ value: '19', label: '19' },{ value: '20', label: '20' },
-            { value: '21', label: '21' },{ value: '22', label: '22' },{ value: '23', label: '23' },{ value: '24', label: '24' },
-            { value: '25', label: '25' },{ value: '26', label: '26' },{ value: '27', label: '27' },{ value: '28', label: '28' },
-            { value: '29', label: '29' },{ value: '30', label: '30' }
-        ];
-        const mesOptions = [
-            { value: '01', label: 'Enero' },{ value: '02', label: 'Febrero' },{ value: '03', label: 'Marzo' },{ value: '04', label: 'Abril' },
-            { value: '05', label: 'Mayo' },{ value: '06', label: 'Junio' },{ value: '07', label: 'Julio' },{ value: '08', label: 'Agosto' },
-            { value: '09', label: 'Septiembre' },{ value: '10', label: 'Octubre' },{ value: '11', label: 'Noviembre' },{ value: '12', label: 'Diciembre' },
-        ];
-        const anhoOptions = [
-            { value: '2019', label: '2019' },
-            { value: '2020', label: '2020' },
-            { value: '2021', label: '2021' },
-            { value: '2022', label: '2022' },
-            { value: '2023', label: '2023' },
-            { value: '2024', label: '2024' },
-            { value: '2025', label: '2025' },
-            { value: '2026', label: '2026' },
-            { value: '2027', label: '2027' },
-        ];
+
         return (
             <View
                 // value={selectedOption}
-                // onChange={this.handleChange}
+                onChange={this.onChange}
                 // options={options}
                 className="basic-single"
                 contactoClassNamePrefix="contacto"
@@ -72,19 +88,15 @@ class ModalDiary extends React.Component {
                 isRtl={isRtl}
                 isSearchable={isSearchable}
                 contactoName="contacto"
-                contactoptions={contactosOptions}
-                diaClassNamePrefix="dia"
-                diaPlaceholder="Dia"
-                diaName="dia"
-                diaOptions={diaOptions}
-                mesClassNamePrefix="mes"
-                mesPlaceholder="Mes"
-                mesName="mes"
-                mesOptions={mesOptions}
-                anhoClassNamePrefix="anho"
-                anhoPlaceholder="Año"
-                anhoName="anho"
-                anhoOptions={anhoOptions}
+                contactosOptions={contactosOptions}
+                date={this.state.date}
+                hoursOptions={hoursOptions}
+                selectHour={this.selectHour}
+                selected={selected}
+                onChange_={this.handleChange}
+                selectTypeDiary = {this.selectTypeDiary}
+                isMeet={isMeet}
+                isHour={isHour}
             />
         );
     }

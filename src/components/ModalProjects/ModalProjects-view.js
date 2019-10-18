@@ -14,8 +14,7 @@ function View(props) {
         content_error_category,
         content_error_stage,
         content_error_description,
-        content_message,
-        defaultValue
+        content_message
     } = props;
     return (
         <div className="Modal-ads">
@@ -44,6 +43,7 @@ function View(props) {
                                                 name="category_id"
                                                 options={categoryOptions}
                                                 onChange={handleSelectChange}
+                                                placeholder="Rubro..."
                                                 id="category_id"
                                             />
                                         </Fragment>
@@ -76,7 +76,7 @@ function View(props) {
                                     </div>
                                     {content_message}
 
-                                    <div className="form_group_">
+                                    <div className="form_group_ form_group__">
                                         <button type="button" onClick={handleSubmit}>Guardar</button>
                                     </div>
                                 </div>

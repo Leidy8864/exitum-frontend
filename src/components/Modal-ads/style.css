@@ -22,7 +22,7 @@
   height: auto;
   margin: 15px 125px;
   color: #ffffff !important;
-  background-color: #3369fd !important;
+  background-color: #3369fd;
   border-radius: 10px;
   font-size: 20px;
 }
@@ -32,6 +32,7 @@
   font-size: 15px;
   font-weight: bold;
   margin: 10px 15px;
+  color: #3369fd !important;
 }
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ input {
@@ -89,7 +90,9 @@
 .area__control--menu-is-open,
 .area__menu,
 .skill__menu,
+.contacto__menu,
 .skill__placeholder,
+.contacto__single-value,
 .proyecto__menu {
   color: #3369fd !important;
   font-weight: 100 !important;

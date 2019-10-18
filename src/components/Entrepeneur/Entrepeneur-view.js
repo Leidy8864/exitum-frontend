@@ -4,6 +4,7 @@ import Stages from '../../components/Stages/Stages-controller'
 import Challenges from '../../components/Challenges/Challenges-controller'
 import AddProyect from '../../components/AddProyect/AddProyect-controller'
 import './style.css';
+import Cherry from '../Cherry/Cherry-controller';
 
 function View(){
     return(
@@ -12,12 +13,13 @@ function View(){
                 <div className="container">
                     <div className="row">
                         <AddProyect />
-                        <div className="col-md-5">
+                        <div className="col-xl-5 col-md-12 m-md-0">
                             <Stages />
                         </div>
-                        <div className="col-md-7">
+                        <div className="col-xl-7 col-md-12 m-md-0">
                             <Challenges />
                         </div>
+                        <Cherry />
                     </div>
                 </div>
             </div>

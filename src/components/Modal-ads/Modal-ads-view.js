@@ -39,7 +39,7 @@ function View(props){
                                             <Select
                                                 className={className}
                                                 classNamePrefix={proyectClassNamePrefix}
-                                                placeholder = {proyectPlaceholder}
+                                                // placeholder = {proyectPlaceholder}
                                                 // defaultValue={defaultValue}
                                                 isDisabled={isDisabled}
                                                 isLoading={isLoading}
@@ -57,7 +57,7 @@ function View(props){
                                             <Select
                                                 className={className}
                                                 classNamePrefix={AreaClassNamePrefix}
-                                                placeholder = {areaPlaceholder}
+                                                // placeholder = {areaPlaceholder}
                                                 // defaultValue={defaultValue}
                                                 isDisabled={isDisabled}
                                                 isLoading={isLoading}
@@ -82,7 +82,7 @@ function View(props){
                                                 options={skillsOptions}
                                                 className="basic-multi-select"
                                                 classNamePrefix={skillClassNamePrefix}
-                                                placeholder={skillPlaceholder}
+                                                // placeholder={skillPlaceholder}
                                             />
                                         </Fragment>
                                     </div>
@@ -90,7 +90,7 @@ function View(props){
                                         <label>Descripción del proyecto</label>
                                         <textarea/>
                                     </div>
-                                    <div className="form_group_">
+                                    <div className="form_group_ form_group__">
                                         <button type="button">Guardar</button>
                                     </div>
                                 </div>
