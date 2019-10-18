@@ -10,16 +10,18 @@ function View() {
     return (
         <div className="dashboard">
             <Sidebar />
-            <HeaderDashboard />
             <main className="main-panel">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-xl-9 col-md-12 content-tree">
-                            <Tree />
-                            <Cherry />
-                        </div>
-                        <div className="col-xl-3 content-diary">
-                            <Diary />
+                <HeaderDashboard />
+                <div className="content">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-xl-9 col-lg-12">
+                                <Tree />
+                                <Cherry />
+                            </div>
+                            <div className="col-xl-3 col-lg-12">
+                                <Diary />
+                            </div>
                         </div>
                     </div>
                 </div>

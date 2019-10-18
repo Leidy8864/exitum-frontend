@@ -1,8 +1,3 @@
-.Tree {
-  width: 100%;
-  height: 100%;
-}
-
 .Tree-plus {
   text-align: center;
   padding: 10px;
@@ -12,19 +7,7 @@
   margin-top: 140px;
 }
 
-.container-tree {
-  width: 100%;
-  height: calc(100vh - 90px);
-  color: #3369fd;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.container-tree .Tree {
+.Tree {
   text-align: center;
   padding-top: 150px;
 }
