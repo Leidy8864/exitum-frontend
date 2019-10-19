@@ -27,6 +27,10 @@ body {
   margin-left: auto;
 }
 
+.message {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   html {
     overflow-x: hidden;
@@ -38,6 +42,9 @@ body {
     left: 0;
     transform: translate3d(260px,0,0);
     transition: all .33s cubic-bezier(.685,.0473,.346,1);
+  }
+  .main-panel {
+    overflow-x: scroll !important;
   }
   .nav-open .sidebar {
     transform: translateX(0px);

@@ -25,3 +25,12 @@
         margin-top: 30px;
     }
 }
+
+@media screen and (max-width: 420px) {
+    .container-stage {
+        margin-top: 60px;
+    }
+    .container-stage img {
+      width: 185px;
+    }
+  }
