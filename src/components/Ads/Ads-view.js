@@ -1,21 +1,16 @@
 
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
 import ModalAds from '../Modal-ads/Modal-ads-controller';
 import ChooseProfile from '../ChooseProfile/ChooseProfile-controller';
+import AddAds from '../AddAds/AddAds-controller'
 
 function View(props){
     const {conditionShowChooseProfile} = props
     return(
         <div className="Ads"> 
             {conditionShowChooseProfile ? <ChooseProfile/> : 
-                <Link className="signin" to="" data-toggle="modal" data-target="#AdsModal">
-                    <div className="Ads-plus">
-                        <span> + </span>
-                        Agregar aununcio
-                    </div>
-                </Link>
+                <AddAds/>
             }
             <ModalAds/>
         </div>
