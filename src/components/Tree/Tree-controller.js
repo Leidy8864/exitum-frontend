@@ -12,7 +12,7 @@ class Tree extends React.Component {
         url: window.location.href,
         conditionShowChooseProfile: false,
         conditionShowCapsule: false,
-        conditionShowTreeContainer: false,
+        conditionShowTreeContainer: localStorage.getItem('conditionShowTreeContainer') || false,
     }
 
     async componentDidMount() {
@@ -55,6 +55,7 @@ class Tree extends React.Component {
         this.setState({
             conditionShowTreeContainer: true,
         });
+        localStorage.setItem('conditionShowTreeContainer', true)
     }
 
     render() {

@@ -22,7 +22,7 @@ class ResetPassword extends React.Component {
         const indexToken = url.indexOf("token")
         const token = url.substr(indexToken + 6);
 
-        if (indexToken !== -1 && token) {
+        if (indexToken !== -1) {
 
             const response = await verifyToken(token);
             
