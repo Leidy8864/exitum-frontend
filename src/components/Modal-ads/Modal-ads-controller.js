@@ -34,43 +34,46 @@ class ModalAds extends React.Component {
 
     async componentDidMount() {
 
-        const token = localStorage.getItem('token');
-        const result = jwt.decode(token);
-
-        const startupsData = await listStartupsByUser({
-            id: result.id
-        });
-
-        const skillsData = await listSkills();
-        const areasData = await listAreas();
-
-        console.log("startupsData data", startupsData);
-
-
-        var startups = [];
-        var skills = [];
-        var areas = [];
-
-        if (startupsData.length >= 1) {
-            startups = startupsData.map(x => ({ label: x.name, value: x.id }));
+        try {
+            const token = localStorage.getItem('token');
+            const result = jwt.decode(token);
+            
+            const startupsData = await listStartupsByUser({
+                id: result.id
+            });
+            const skillsData = await listSkills();
+            const areasData = await listAreas();
+    
+            console.log("startupsData data", startupsData);
+    
+    
+            var startups = [];
+            var skills = [];
+            var areas = [];
+    
+            if (startupsData.length >= 1) {
+                startups = startupsData.map(x => ({ label: x.name, value: x.id }));
+            }
+    
+            if (skillsData.length >= 1) {
+                skills = skillsData.map(x => ({ label: x.skill, value: x.id }));
+            }
+            if (areasData.length >= 1) {
+                areas = areasData.map(x => ({ label: x.name, value: x.id }));
+            }
+            
+            console.log("STARTUPS", startups);
+            // console.log("SKILLS", skills);
+            console.log("AREAS", areas);
+    
+            this.setState({
+                startups: startups,
+                list_skills: skills,
+                areas: areas
+            });
+        } catch (error) {
+            console.log("ERROR");
         }
-
-        if (skillsData.length >= 1) {
-            skills = skillsData.map(x => ({ label: x.skill, value: x.id }));
-        }
-        if (areasData.length >= 1) {
-            areas = areasData.map(x => ({ label: x.name, value: x.id }));
-        }
-        
-        console.log("STARTUPS", startups);
-        // console.log("SKILLS", skills);
-        console.log("AREAS", areas);
-
-        this.setState({
-            startups: startups,
-            list_skills: skills,
-            areas: areas
-        });
 
     }
 

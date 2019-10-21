@@ -25,28 +25,33 @@ class ModalsProjects extends React.Component {
     };
     async componentDidMount() {
 
-        const categorysData = await listCategories();
+        try {
 
-        const stageData = await listStages();
+            const categorysData = await listCategories();
 
-        var categories = [];
-        var stages = [];
-        if (categorysData.length >= 1) {
-            categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+            const stageData = await listStages();
+
+            var categories = [];
+            var stages = [];
+            if (categorysData.length >= 1) {
+                categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+            }
+            if (stageData.length >= 1) {
+                stages = stageData.map(x => ({ label: x.stage, value: x.id }));
+            }
+
+            const token = localStorage.getItem('token');
+
+            const result = jwt.decode(token);
+
+            this.setState({
+                categories: categories,
+                stages: stages,
+                id: result.id
+            });
+        } catch (error) {
+            console.log("ERROR");
         }
-        if (stageData.length >= 1) {
-            stages = stageData.map(x => ({ label: x.stage, value: x.id }));
-        }
-
-        const token = localStorage.getItem('token');
-
-        const result = jwt.decode(token);
-
-        this.setState({
-            categories: categories,
-            stages: stages,
-            id: result.id
-        });
 
     }
     handleChange = (e) => {
