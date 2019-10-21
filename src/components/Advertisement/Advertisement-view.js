@@ -25,10 +25,10 @@ function View() {
                 <div className="content">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-md-9">
+                            <div className="col-xl-9 col-lg-12">
                                 <Ads />
                             </div>
-                            <div className="col-xl-12 col-lg-12">
+                            <div className="col-xl-3 col-lg-12">
                                 <Diary />
                             </div>
                         </div>

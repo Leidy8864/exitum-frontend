@@ -17,3 +17,21 @@
     padding-top: 70px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .Tree {
+    padding-top: 10px;
+  }
+  .Tree img {
+    width: 270px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .Tree {
+    padding-top: 10px;
+  }
+  .Tree img {
+    width: 245px;
+  }
+}

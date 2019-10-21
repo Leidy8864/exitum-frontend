@@ -1,12 +1,20 @@
 
 import React from 'react';
 import View from './HeaderDashboard-view';
+import $ from 'jquery'
 
 class HeaderDashboard extends React.Component {
 
     state = {
         name: localStorage.getItem('name'),
         lastname: localStorage.getItem('lastname')
+    }
+
+    componentDidMount = () => {
+        $('.navbar-toggler').on('click', function () {
+            $('html').toggleClass('nav-open');
+            $('.opacity-panel').toggleClass('close-layer visible')
+        })
     }
 
     render() {

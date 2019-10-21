@@ -33,19 +33,6 @@ class Sidebar extends React.Component {
         this.props.history.push('/');
     }
 
-    componentDidMount = () => {
-        $('.boton-sidebar').on('click', function () {
-            $('.sidebar').toggleClass('traslate');
-            $('.main-panel').toggleClass('traslate');
-            $('.dashboard-header').toggleClass('traslate');
-        })
-
-        $('.boton-sidebar-cell').on('click', function () {
-            $('.sidebar').toggleClass('traslate-cell');
-            $('.sidebar').removeClass('traslate');
-        })
-    }
-
     chooseProfile = async() =>{
         const {isConfirmed, role } =this.state;
         if(isConfirmed === "true" && (role === "" || role ==="undefined")){

@@ -14,11 +14,15 @@
   position: relative;
   float: right;
   width: calc(100% - 260px);
-  transition: .33s,cubic-bezier(.685,.0473,.346,1);
+  transition: all .33s cubic-bezier(.685,.0473,.346,1);
 }
 
 .content .container-fluid {
   background: #F8F8FA;
+}
+
+.visible {
+  visibility: visible!important;
 }
 
 @media screen and (max-width: 991px) {

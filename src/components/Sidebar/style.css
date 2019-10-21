@@ -184,17 +184,16 @@ ul li a.active:before {
     top: 0;
     height: 100vh;
     width: 260px;
-    right: 0;
-    left: auto;
+    left: 0;
     z-index: 1032;
     visibility: visible;
-    background-color: #9a9a9a;
-    overflow-y: visible;
+    background-color: #ffffff;
+    overflow-x: visible;
     border-top: none;
     text-align: left;
     padding-right: 0;
     padding-left: 0;
-    transform: translate3d(260px,0,0);
+    transform: translate3d(-260px,0,0);
     transition: all .33s
   }
 }
