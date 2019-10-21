@@ -4,7 +4,9 @@ import './style.css';
 
 function View(){
     return(
-        <div> Say hi!</div>
+        <div> 
+            <h1>Say hi!</h1>
+        </div>
     );
 }
 export default View;
