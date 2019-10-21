@@ -8,6 +8,15 @@
     color: #3369fd;
 }
 
+.add-proyect a:hover {
+    text-decoration: none !important;
+    color: #3369fd;
+}
+
+.add-proyect a {
+    font-size: 22px;
+}
+
 @media screen and (max-width: 1440px) {
     .add-proyect{
         top: 30px;

@@ -14,7 +14,7 @@ function View(props) {
         <div>
             <div className="add-proyect">
                 <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                    <div className="Ads-plus">
+                    <div className="Ads-plusito">
                         <span> + </span>
                         Agregar un proyecto
                     </div>
