@@ -9,7 +9,9 @@ function View(props) {
 
     const  {
         cleanForm,
-        blockProjects
+        blockProjects,
+        selectProject,
+        selected,
     } = props
     return (
         <div className="add-proyect-container">
@@ -18,13 +20,14 @@ function View(props) {
                 {
                     blockProjects.map(dt =>
                         <div 
-                            key={dt.id}
+                            key={"project"+dt.id}
                             id={dt.id}
+                            className= {selected.toString() === dt.id.toString() ? "projectblockSelected": "projectblock"}
                             // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
-                            className= "hourModalAds"
-                            // onClick={selectHour}
+                            onClick={selectProject}
                         >
                             {dt.name}
+
                         </div>
                     )
                 }

@@ -6,9 +6,11 @@ import cleanForm from '../../redux/actions/clean-form';
 import { listStartupsByUser } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import getIdProject from '../../redux/actions/get-id-project';
 class AddProyect extends React.Component {
     state = {
-        blockProjects: []
+        blockProjects: [],
+        selected: ""
     }
 
     cleanForm = () => {
@@ -24,15 +26,10 @@ class AddProyect extends React.Component {
         try {
             let proyectos = [];
             const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
-
-            console.log("listaProyectos = ", listaProyectos)
-
             if (listaProyectos.length >= 1) {
                 proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
-                // proyectos = listaProyectos.map(x => ({ label: x.name, value: x.id }));
+                this.setState({selected: listaProyectos[0].id});
             }
-            
-            console.log("proyectos = ", proyectos)
 
             this.setState({
                 blockProjects: proyectos
@@ -44,17 +41,25 @@ class AddProyect extends React.Component {
 
     }
 
+    selectProject = async (e) =>{
+        this.props.getIdProject(e.target.id);
+        this.setState({selected: e.target.id});
+    }
+
     render() {
         return (
             <View
             cleanForm={this.cleanForm}
             blockProjects={this.state.blockProjects}
+            selectProject={this.selectProject}
+            selected={this.state.selected}
             />
         );
     }
 }
 const mapDispatchToProps = {
     cleanForm,
+    getIdProject,
     listStartupsByUser
 };
 
