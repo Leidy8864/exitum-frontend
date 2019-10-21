@@ -4,31 +4,31 @@
 
 .container-stage {
     text-align: center; 
-    margin-top: 200px; 
+    margin-top: 10px; 
 }
 
 @media screen and (max-width: 1440px) {
     .container-stage {
-        margin-top: 90px;
+        margin-top: 10px;
     }
 }
 
 
 @media screen and (max-width: 1200px) {
     .container-stage {
-        margin-top: 150px;
+        margin-top: 10px;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .container-stage {
-        margin-top: 30px;
+        margin-top: 10px;
     }
 }
 
 @media screen and (max-width: 420px) {
     .container-stage {
-        margin-top: 60px;
+        margin-top: 10px;
     }
     .container-stage img {
       width: 185px;

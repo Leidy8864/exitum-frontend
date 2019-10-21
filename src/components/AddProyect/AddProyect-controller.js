@@ -7,7 +7,9 @@ import { listStartupsByUser } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 class AddProyect extends React.Component {
-
+    state = {
+        blockProjects: []
+    }
 
     cleanForm = () => {
         $('#name_project').val('');
@@ -20,8 +22,21 @@ class AddProyect extends React.Component {
     async componentDidMount() {
 
         try {
+            let proyectos = [];
+            const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
 
-            const listaProyectos = await listStartupsByUser({id:"1"});
+            console.log("listaProyectos = ", listaProyectos)
+
+            if (listaProyectos.length >= 1) {
+                proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
+                // proyectos = listaProyectos.map(x => ({ label: x.name, value: x.id }));
+            }
+            
+            console.log("proyectos = ", proyectos)
+
+            this.setState({
+                blockProjects: proyectos
+            });
 
         } catch (error) {
             console.log("ERROR");
@@ -33,6 +48,7 @@ class AddProyect extends React.Component {
         return (
             <View
             cleanForm={this.cleanForm}
+            blockProjects={this.state.blockProjects}
             />
         );
     }
