@@ -33,7 +33,8 @@ class Tree extends React.Component {
             // }else{
             //     alert(response.message)
             // }
-            localStorage.setItem('token',token)
+            localStorage.setItem('token',token);
+            localStorage.setItem('id',response.data.id);
             localStorage.setItem('confirmed',response.data.confirmed);
             localStorage.setItem('lastname',response.data.lastname);
             localStorage.setItem('name',response.data.name);

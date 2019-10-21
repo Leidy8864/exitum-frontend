@@ -2,7 +2,8 @@
 import React from 'react';
 import View from './AddProyect-view';
 import $ from 'jquery';
-import cleanForm from '../../redux/actions/clean-form'
+import cleanForm from '../../redux/actions/clean-form';
+import { listStartupsByUser } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 class AddProyect extends React.Component {
@@ -16,6 +17,18 @@ class AddProyect extends React.Component {
         this.props.cleanForm("1");
     }
 
+    async componentDidMount() {
+
+        try {
+
+            const listaProyectos = await listStartupsByUser({id:"1"});
+
+        } catch (error) {
+            console.log("ERROR");
+        }
+
+    }
+
     render() {
         return (
             <View
@@ -25,7 +38,8 @@ class AddProyect extends React.Component {
     }
 }
 const mapDispatchToProps = {
-    cleanForm
+    cleanForm,
+    listStartupsByUser
 };
 
 

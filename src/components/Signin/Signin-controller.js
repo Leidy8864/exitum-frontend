@@ -50,7 +50,9 @@ class Signin extends React.Component {
         if (email && password) {
             const response = await this.props.signIn(formData);
             if (response.status) {
-                localStorage.setItem('token', response.data.accessToken)
+                console.log(response.data)
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('token', response.data.accessToken);
                 localStorage.setItem('confirmed', response.data.confirmed);
                 localStorage.setItem('name', response.data.name);
                 localStorage.setItem('lastname', response.data.lastname);
@@ -82,6 +84,7 @@ class Signin extends React.Component {
         console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken)
         if (response.status) {
+            localStorage.setItem('id', response.data.id);
             localStorage.setItem('token', response.data.accessToken)
             localStorage.setItem('confirmed', response.data.confirmed);
             localStorage.setItem('name', response.data.name);
@@ -103,6 +106,7 @@ class Signin extends React.Component {
         console.log('responseFacebook', res);
         const response = await this.props.oauthFacebook(res.accessToken)
         if (response.status) {
+            localStorage.setItem('id', response.data.id);
             localStorage.setItem('token', response.data.accessToken)
             localStorage.setItem('confirmed', response.data.confirmed);
             localStorage.setItem('name', response.data.name);
