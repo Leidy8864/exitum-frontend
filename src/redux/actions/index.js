@@ -148,6 +148,17 @@ export const authToken = async (data) => {
 
 //Proyectos o Startups
 
+export const listStartupsByUser = async (data) => {
+
+    try {
+        const res = await axios.post(root + 'startups/listById',data);
+        console.log("LISTADO DE STARTUPS",res.data.startups);
+        return res.data.startups;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
 export const createStartup = async (data) => {
     try {
         const res = await axios.post(root + 'startups/create' , data);
@@ -176,6 +187,43 @@ export const listStages = async () => {
     try {
         const res = await axios.get(root + 'stages/list');
         console.log(res.data.data);
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
+//Advertisiments
+export const createAdvertisement = async (data) => {
+    console.log("Data reviced", data);
+
+    try {
+        const res = await axios.post(root+'ads/create', data);
+
+        console.log("RES DATA", res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error",error);
+    }
+}
+
+export const listSkills= async () => {
+
+    try {
+        const res = await axios.get(root + 'skills/list');
+        console.log(res.data.data);
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
+export const listAreas= async () => {
+
+    try {
+        const res = await axios.get(root + 'areas/list');
+        console.log("DATA LISTADO",res.data.data);
         return res.data.data;
     } catch (error) {
         console.log("Error" + error);

@@ -25,23 +25,33 @@ class ModalsProjects extends React.Component {
     };
     async componentDidMount() {
 
-        const categorysData = await listCategories();
+        try {
 
-        const stageData = await listStages();
+            const categorysData = await listCategories();
 
-        const categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+            const stageData = await listStages();
 
-        const stages = stageData.map(x => ({ label: x.stage, value: x.id }));
+            var categories = [];
+            var stages = [];
+            if (categorysData.length >= 1) {
+                categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+            }
+            if (stageData.length >= 1) {
+                stages = stageData.map(x => ({ label: x.stage, value: x.id }));
+            }
 
-        const token = localStorage.getItem('token');
+            const token = localStorage.getItem('token');
 
-        const result = jwt.decode(token);
+            const result = jwt.decode(token);
 
-        this.setState({
-            categories: categories,
-            stages: stages,
-            id: result.id
-        });
+            this.setState({
+                categories: categories,
+                stages: stages,
+                id: result.id
+            });
+        } catch (error) {
+            console.log("ERROR");
+        }
 
     }
     handleChange = (e) => {
@@ -94,12 +104,9 @@ class ModalsProjects extends React.Component {
                 setTimeout(
                     () => {
                         $('#NewProjectModal').modal('hide');
-                        this.setState({
-                            name: '',
-                            description: ''
-                        });
+                        window.location.reload();
                     },
-                    1500
+                    900
                 );
             } else {
                 console.log("error = ", response.message)
@@ -107,12 +114,9 @@ class ModalsProjects extends React.Component {
                 setTimeout(
                     () => {
                         $('#NewProjectModal').modal('hide');
-                        this.setState({
-                            name: '',
-                            description: ''
-                        });
+                        window.location.reload();
                     },
-                    1500
+                    900
                 );
             }
 

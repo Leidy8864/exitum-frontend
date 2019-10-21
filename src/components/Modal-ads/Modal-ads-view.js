@@ -1,16 +1,13 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import Select from 'react-select';
 import './style.css'
 
-function View(props){
+function View(props) {
     const {
         className,
         proyectClassNamePrefix,
         AreaClassNamePrefix,
         skillClassNamePrefix,
-        proyectPlaceholder,
-        areaPlaceholder,
-        skillPlaceholder,
         isDisabled,
         isLoading,
         isClearable,
@@ -18,18 +15,28 @@ function View(props){
         isSearchable,
         proyectName,
         areaName,
-        proyectsOptions,
+        startupOptions,
         areaOptions,
-        skillsOptions
+        skillsOptions,
+        handleChange,
+        handleSelectChange,
+        handleSubmit,
+        content_error_title,
+        content_error_startup,
+        content_error_area,
+        content_error_description,
+        content_error_skills,
+        content_message,
+        
     } = props;
-    return(
+    return (
         <div className="Modal-ads">
             <Fragment>
                 <div className="modal fade" id="AdsModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="container">
-                                <div className="row">
+                                <div className="row justify-content-center">
                                     <div className="title_">
                                         Nuevo Anuncio
                                     </div>
@@ -39,17 +46,20 @@ function View(props){
                                             <Select
                                                 className={className}
                                                 classNamePrefix={proyectClassNamePrefix}
-                                                // placeholder = {proyectPlaceholder}
+                                                // placeholder = "Proyectos..."
                                                 // defaultValue={defaultValue}
                                                 isDisabled={isDisabled}
                                                 isLoading={isLoading}
-                                                isClearable={isClearable}
                                                 isRtl={isRtl}
                                                 isSearchable={isSearchable}
-                                                name={proyectName}
-                                                options={proyectsOptions}
+                                                name="startup_id"
+                                                options={startupOptions}
+                                                onChange={handleSelectChange}
                                             />
                                         </Fragment>
+                                        <div className="error-message-aux">
+                                            {content_error_startup}
+                                        </div>
                                     </div>
                                     <div className="form_group_">
                                         <label>Seleccionar Area</label>
@@ -57,41 +67,58 @@ function View(props){
                                             <Select
                                                 className={className}
                                                 classNamePrefix={AreaClassNamePrefix}
-                                                // placeholder = {areaPlaceholder}
-                                                // defaultValue={defaultValue}
+                                                placeholder="Area..."
+                                                // value={defaultValue}
                                                 isDisabled={isDisabled}
                                                 isLoading={isLoading}
-                                                isClearable={isClearable}
                                                 isRtl={isRtl}
                                                 isSearchable={isSearchable}
-                                                name={areaName}
+                                                name="area_id"
                                                 options={areaOptions}
+                                                onChange={handleSelectChange}
+
                                             />
                                         </Fragment>
+                                        <div className="error-message-aux">
+                                            {content_error_area}
+                                        </div>
                                     </div>
                                     <div className="form_group_">
                                         <label>Titulo del Anuncio</label>
-                                        <input/>
+                                        <input name="title" onChange={handleChange} id="title" />
+                                        <div className="error-message-aux">
+                                            {content_error_title}
+                                        </div>
                                     </div>
                                     <div className="form_group_">
                                         <label>Aptitudes del perfil</label>
                                         <Fragment>
                                             <Select
                                                 isMulti
-                                                name="colors"
+                                                name="skills"
                                                 options={skillsOptions}
                                                 className="basic-multi-select"
                                                 classNamePrefix={skillClassNamePrefix}
-                                                // placeholder={skillPlaceholder}
+                                                placeholder="Skills..."
+                                                onChange={handleSelectChange}
+                                                id="skills"
                                             />
                                         </Fragment>
+                                        <div className="error-message-aux">
+                                            {content_error_skills}
+                                        </div>
                                     </div>
                                     <div className="form_group_">
                                         <label>Descripción del proyecto</label>
-                                        <textarea/>
+                                        <textarea name="description" onChange={handleChange} id="description" />
+                                        <div className="error-message-aux">
+                                            {content_error_description}
+                                        </div>
                                     </div>
+                                    {content_message}
+
                                     <div className="form_group_ form_group__">
-                                        <button type="button">Guardar</button>
+                                        <button type="submit" onClick={handleSubmit}>Guardar</button>
                                     </div>
                                 </div>
                             </div>

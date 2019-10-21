@@ -15,3 +15,4 @@ import 'popper.js/dist/popper.min.js'
 ReactDOM.render(<AllRoutes />, document.getElementById('root'));
 
 serviceWorker.unregister();
+    

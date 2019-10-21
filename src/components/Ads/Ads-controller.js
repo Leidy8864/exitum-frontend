@@ -4,6 +4,8 @@ import View from './Ads-view';
 import {authToken} from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import cleanForm from '../../redux/actions/clean-form'
+import $ from 'jquery';
 
 class Ads extends React.Component {
 
@@ -49,17 +51,25 @@ class Ads extends React.Component {
         }
     }
 
+    cleanForm = () => {
+        $('#title').val('');
+        $('#description').val('');
+        this.props.cleanForm("1");
+    }
+
     render() {
         return (
             <View
                 conditionShowChooseProfile = {this.state.conditionShowChooseProfile}
+                cleanForm={this.cleanForm}
             />
         );
     }
 }
 
 const mapDispatchToProps = {
-    authToken
+    authToken,
+    cleanForm
 };
 
 
