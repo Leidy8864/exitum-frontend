@@ -29,9 +29,14 @@ class ModalsProjects extends React.Component {
 
         const stageData = await listStages();
 
-        const categories = categorysData.map(x => ({ label: x.name, value: x.id }));
-
-        const stages = stageData.map(x => ({ label: x.stage, value: x.id }));
+        var categories = [];
+        var stages = [];
+        if (categorysData.length >= 1) {
+            categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+        }
+        if (stageData.length >= 1) {
+            stages = stageData.map(x => ({ label: x.stage, value: x.id }));
+        }
 
         const token = localStorage.getItem('token');
 
@@ -94,12 +99,9 @@ class ModalsProjects extends React.Component {
                 setTimeout(
                     () => {
                         $('#NewProjectModal').modal('hide');
-                        this.setState({
-                            name: '',
-                            description: ''
-                        });
+                        window.location.reload();
                     },
-                    1500
+                    900
                 );
             } else {
                 console.log("error = ", response.message)
@@ -107,12 +109,9 @@ class ModalsProjects extends React.Component {
                 setTimeout(
                     () => {
                         $('#NewProjectModal').modal('hide');
-                        this.setState({
-                            name: '',
-                            description: ''
-                        });
+                        window.location.reload();
                     },
-                    1500
+                    900
                 );
             }
 

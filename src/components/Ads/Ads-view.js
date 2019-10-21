@@ -6,11 +6,11 @@ import ModalAds from '../Modal-ads/Modal-ads-controller';
 import ChooseProfile from '../ChooseProfile/ChooseProfile-controller';
 
 function View(props){
-    const {conditionShowChooseProfile} = props
+    const {conditionShowChooseProfile,cleanForm} = props
     return(
         <div className="Ads"> 
             {conditionShowChooseProfile ? <ChooseProfile/> : 
-                <Link className="signin" to="" data-toggle="modal" data-target="#AdsModal">
+                <Link className="signin" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
                     <div className="Ads-plus">
                         <span> + </span>
                         Agregar aununcio
