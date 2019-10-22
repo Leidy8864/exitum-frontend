@@ -22,6 +22,7 @@ class ModalsProjects extends React.Component {
         error_message: '',
         categories: [],
         stages: [],
+        stageDescription : ''
     };
     async componentDidMount() {
 
@@ -31,13 +32,15 @@ class ModalsProjects extends React.Component {
 
             const stageData = await listStages();
 
+            console.log("STAGE DATA",stageData);
+            
             var categories = [];
             var stages = [];
             if (categorysData.length >= 1) {
                 categories = categorysData.map(x => ({ label: x.name, value: x.id }));
             }
             if (stageData.length >= 1) {
-                stages = stageData.map(x => ({ label: x.stage, value: x.id }));
+                stages = stageData.map(x => ({ label: x.stage, value: x.id, description : x.description }));
             }
 
             const token = localStorage.getItem('token');
@@ -63,8 +66,14 @@ class ModalsProjects extends React.Component {
         });
     }
     handleSelectChange = (option, action) => {
+
+        const stage = this.state.stages.find( (stage) => stage.value === option.value );
+
+        console.log("STAGE FOUND",stage);
+        
         this.setState({
-            [action.name]: option.value
+            [action.name]: option.value,
+            stageDescription : stage.description
         });
     }
 
@@ -140,6 +149,7 @@ class ModalsProjects extends React.Component {
         const {
             categories,
             stages,
+            stageDescription
         } = this.state;
 
         const { cleanFormReducer } = this.props;
@@ -194,6 +204,7 @@ class ModalsProjects extends React.Component {
                 content_error_category={content_error_category}
                 content_error_stage={content_error_stage}
                 content_error_description={content_error_description}
+                stageDescription = {stageDescription}
                 handleChange={this.handleChange}
                 handleSelectChange={this.handleSelectChange}
                 handleSubmit={this.handleSubmit}

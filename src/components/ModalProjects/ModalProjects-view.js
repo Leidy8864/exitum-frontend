@@ -14,7 +14,8 @@ function View(props) {
         content_error_category,
         content_error_stage,
         content_error_description,
-        content_message
+        content_message,
+        stageDescription
     } = props;
     return (
         <div className="Modal-ads">
@@ -63,7 +64,16 @@ function View(props) {
                                                 id="stage_id"
                                             />
                                         </Fragment>
+
                                         <div className="error-message-aux">
+                                            {
+                                                stageDescription ?
+                                                <div>
+                                                    <span><img src={require("../../public/images/svg/idea.svg")} alt="svg" width="30"/></span>
+                                                    <h6 className="text-secondary">{stageDescription}</h6>
+                                                </div>
+                                                : ''
+                                            }
                                             {content_error_stage}
                                         </div>
                                     </div>

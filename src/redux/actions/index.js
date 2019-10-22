@@ -208,6 +208,19 @@ export const createAdvertisement = async (data) => {
     }
 }
 
+
+export const updateAdvertisement = async (data) => {
+    try {
+        const res = await axios.post(root + 'ads/update', data);
+
+        console.log("RES DATA", res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
+
 export const listSkills = async () => {
 
     try {
@@ -233,7 +246,9 @@ export const listAreas = async () => {
 export const listAdsByUser = async (data) => {
 
     try {
-        const res = await axios.get(root + 'ads/user/' + data + '/list');
+        const res = await axios.get(root + 'ads/listByEntrepreneur',{
+            params : data
+        });
         console.log("DATA LISTADO", res.data.data);
         return res.data.data;
     } catch (error) {
