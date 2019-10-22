@@ -26,7 +26,7 @@ function View(props) {
                             // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
                             onClick={selectProject}
                         >
-                            {dt.name}
+                            <span>{dt.name}</span>
 
                         </div>
                     )
