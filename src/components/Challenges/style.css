@@ -10,7 +10,8 @@
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 15px -10px #E0E0E0;
-    padding: 40px;
+    padding: 10px 40px;
+    width: 90%;
 }
 
 .challenge {
@@ -18,7 +19,7 @@
     justify-content: space-between;
     align-items: flex-end;
     box-shadow: 0 2px 10px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(8, 93, 252, 0.4);
-    margin-top: 40px;
+    margin: 30px 0px;
     border-radius: 6px;
 }
 
