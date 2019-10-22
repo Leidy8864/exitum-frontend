@@ -1,11 +1,85 @@
+.add-proyect-container{
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.proyects-list{
+    float: left;
+    width: 70%;
+    height: 80px;
+    display: flex;
+    overflow-x: auto;
+}
+.projectblock{
+    background-color: #fff;
+    color: #3369fd;
+    border: 1px solid #3369fd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    width: 30%;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.projectblock>span, .projectblockSelected>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+    text-align: center;
+    position: relative;
+    top: 45%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.projectblockSelected{
+    background-color: #3369fd;
+    color: #fff;
+    border: 1px solid #3369fd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    width: 27%;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
 .add-proyect{
-    position: absolute;
+    padding-top: 20px;
     top: 100px;
     right: 60px;
     z-index: 10;
     display: flex;
-    font-size: 30px;
+    font-size: 27px;
     color: #3369fd;
+    float: left;
+}
+
+.add-proyect a:hover {
+    text-decoration: none !important;
+    color: #3369fd;
+}
+
+.add-proyect a {
+    font-size: 22px;
+}
+.Ads-plusito span{
+    padding: 10px 10px 10px 17px;
+    margin: 12px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 14px 34px -18px rgba(219,219,219,1);
+    -moz-box-shadow: 3px 14px 34px -18px rgba(219,219,219,1);
+    box-shadow: 3px 14px 34px -18px rgba(219,219,219,1);
 }
 
 @media screen and (max-width: 1440px) {

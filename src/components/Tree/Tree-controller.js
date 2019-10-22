@@ -12,7 +12,7 @@ class Tree extends React.Component {
         url: window.location.href,
         conditionShowChooseProfile: false,
         conditionShowCapsule: false,
-        conditionShowTreeContainer: false,
+        conditionShowTreeContainer: localStorage.getItem('conditionShowTreeContainer') || false,
     }
 
     async componentDidMount() {
@@ -33,7 +33,8 @@ class Tree extends React.Component {
             // }else{
             //     alert(response.message)
             // }
-            localStorage.setItem('token',token)
+            localStorage.setItem('token',token);
+            localStorage.setItem('id',response.data.id);
             localStorage.setItem('confirmed',response.data.confirmed);
             localStorage.setItem('lastname',response.data.lastname);
             localStorage.setItem('name',response.data.name);
@@ -55,6 +56,7 @@ class Tree extends React.Component {
         this.setState({
             conditionShowTreeContainer: true,
         });
+        localStorage.setItem('conditionShowTreeContainer', true)
     }
 
     render() {
