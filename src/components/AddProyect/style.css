@@ -48,7 +48,7 @@
     font-size: 14px;
     text-align: center;
     float: left;
-    width: 30%;
+    width: 27%;
     cursor: pointer;
     flex-shrink: 0;
 }
@@ -59,7 +59,7 @@
     right: 60px;
     z-index: 10;
     display: flex;
-    font-size: 30px;
+    font-size: 27px;
     color: #3369fd;
     float: left;
 }
