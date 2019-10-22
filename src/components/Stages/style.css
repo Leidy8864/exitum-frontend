@@ -3,8 +3,39 @@
 }
 
 .container-stage {
-    text-align: center; 
-    margin-top: 10px; 
+    position: relative; 
+    margin-top: 30px; 
+}
+
+.stage-1,.stage-2, .stage-3, .stage-4,.stage-5 {
+    position: absolute;
+}
+
+.stage-1 {
+    top: 0px;
+    right: 147px;
+}
+
+.stage-2 {
+    transform: rotate(90deg);
+    top: 116px;
+    right: 45px;
+}
+
+.stage-3 {
+    top: 231px;
+    right: 147px;
+}
+
+.stage-4 {
+    transform: rotate(90deg);
+    top: 349px;
+    right: 45px;
+}
+
+.stage-5 {
+    top: 468px;
+    right: 147px;
 }
 
 @media screen and (max-width: 1440px) {
@@ -29,8 +60,5 @@
 @media screen and (max-width: 420px) {
     .container-stage {
         margin-top: 10px;
-    }
-    .container-stage img {
-      width: 185px;
     }
   }

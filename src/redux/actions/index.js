@@ -240,3 +240,14 @@ export const listAdsByUser = async (data) => {
         console.log("Error" + error);
     }
 }
+
+export const actuallyStage = async (id) => {
+    
+    try {
+        const res = await axios.get(root + `challenges/actualStage/${id}`)
+        console.log("DATA ETAPA POR ID", res.data.data)
+        return res.data.data;
+    }catch(error) {
+        console.log("Error" + error)
+    }
+}
