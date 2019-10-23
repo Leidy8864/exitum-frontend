@@ -21,6 +21,10 @@
   background: #F8F8FA;
 }
 
+.content-two {
+  position: relative;
+}
+
 .visible {
   visibility: visible!important;
 }

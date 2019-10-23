@@ -1,6 +1,9 @@
 /* No CSS *//*# sourceMappingURL=style.css.map */
 .ChooseProfile{
-    width: 70%;
+    width: 60%;
+    position: absolute;
+    top: 25%;
+    left: 21%;
     height: 400px;
     color: #fff;
     background-color: #3369fd;

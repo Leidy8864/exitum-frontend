@@ -12,6 +12,10 @@
   padding-top: 150px;
 }
 
+.Tree img {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1440px) {
   .container-tree .Tree {
     padding-top: 70px;
