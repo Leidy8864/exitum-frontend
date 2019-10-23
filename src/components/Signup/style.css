@@ -8,6 +8,10 @@
   font-family: 'Ubuntu';
 }
 
+.modal-open {
+  background: violet !important;
+}
+
 .error-message {
   text-align: center;
   color: #f46565;
