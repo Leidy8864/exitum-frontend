@@ -1,7 +1,18 @@
 ul li.nav-item a.active:before {
     background: none !important;
-  }
-  div#lista-anuncios   {
-    height: calc(100vh - 230px);
-    overflow-y: scroll;;
-  }
+}
+div#lista-anuncios   {
+  height: calc(100vh - 230px);
+  overflow-y: scroll;;
+}
+
+.title_add{
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+.margin_botton_15{
+  margin-bottom: 15px;
+}
+

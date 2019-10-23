@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import getIdActualStage from '../../redux/actions/get-id-project';
 import { actuallyStage } from '../../redux/actions'
+import { isPast } from 'date-fns';
 
 class Stages extends React.Component {
 
@@ -15,12 +16,24 @@ class Stages extends React.Component {
 
     async componentDidMount() {
         try {
-            const listaStages = await actuallyStage();
+            console.log("idProject = ",localStorage.getItem('idProject'));
+            const listaStages = await actuallyStage(localStorage.getItem('idProject'));
             this.setState({
                 listStages: listaStages.step
             })
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-            console.log('STAGES',listaStages.step);
+    async lstStage() {
+        console.log("lstStage = ", this.props.getIdProjectReducer)
+        try {
+            const listaStages = await actuallyStage(this.props.getIdProjectReducer);
+            this.setState({
+                listStages: listaStages.step
+            })
             
         } catch (error) {
             console.log(error)
@@ -35,22 +48,35 @@ class Stages extends React.Component {
     render() {
 
         const {
+            getIdProjectReducer
+        } = this.props;
+
+        console.log("getIdProjectReducer = ", getIdProjectReducer);
+
+        const {
             listStages
         } = this.state
 
         return (
             <View
                 listStages = {listStages}
+                lstStage = {this.lstStage}
+                getIdProjectReducer = {getIdProjectReducer}
+                // this.lstStage(getIdProjectReducer);
                 selectStage = {this.selectStage}
             />
         );
     }
 }
 
+const mapStateToProps = state => ({
+    getIdProjectReducer: state.getIdProjectReducer
+});
+
 const mapDispatchToProps = {
     getIdActualStage
 };
 
 export default withRouter(
-    connect(null, mapDispatchToProps)(Stages)
+    connect(mapStateToProps, mapDispatchToProps)(Stages)
 )

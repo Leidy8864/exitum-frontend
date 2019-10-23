@@ -29,6 +29,9 @@ class AddProyect extends React.Component {
             const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
             if (listaProyectos.length >= 1) {
                 proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
+                localStorage.setItem('idProject', listaProyectos[0].id.toString());
+                // localStorage.setItem('idProject', listaProyectos[0].id);
+                this.props.getIdProject(listaProyectos[0].id);
                 this.setState({
                     selected: listaProyectos[0].id,
                     show_add_proyect_empty: false,
@@ -51,6 +54,7 @@ class AddProyect extends React.Component {
     }
 
     selectProject = async (e) =>{
+        localStorage.setItem('idProject', e.target.id);
         this.props.getIdProject(e.target.id);
         this.setState({selected: e.target.id});
     }

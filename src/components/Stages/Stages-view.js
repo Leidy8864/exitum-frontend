@@ -7,15 +7,18 @@ function View(props) {
 
     const {
         listStages,
-        selectStage
+        selectStage,
+        lstStage,
+        getIdProjectReducer
     } = props
-
-    console.log(listStages)
 
     return (
         <div className="stages">
             <div className="stage">
                 <div className="container-stage">
+                    {/* {
+                        lstStage
+                    } */}
                     {
                         listStages.map(function(item,index){
                             return(
