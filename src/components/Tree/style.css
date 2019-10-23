@@ -1,10 +1,27 @@
 .Tree-plus {
-  text-align: center;
-  padding: 10px;
-  background: crimson;
-  color: #fff;
+  position: absolute;
+  z-index: 2000;
+  top: 25%;
+  width: 500px;
   border-radius: 10px;
-  margin-top: 140px;
+  left: 40%;
+  color: rgb(233, 229, 229);
+  padding: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Helvetica Neue';
+  letter-spacing: 0.5px;
+  background:#263238;  /* fallback for old browsers */
+  box-shadow: 2px 2px 67px -26px rgba(0,0,0,0.75);
+}
+
+.img-verify img {
+  width: 130px;
+  display: inline-block;
+  -webkit-transform: translate3d(0px, -50px, 10px);
+          transform: translate3d(0px, -50px, 10px);
+  -webkit-animation: levitate 1s ease-in-out infinite alternate;
+          animation: levitate 1s ease-in-out infinite alternate;
 }
 
 .Tree {
