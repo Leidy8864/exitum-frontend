@@ -12,35 +12,52 @@ function View(props) {
         blockProjects,
         selectProject,
         selected,
+        show_add_proyect_empty
     } = props
     return (
         <div className="add-proyect-container">
-            <div className="proyects-list">
-                {/* {blockProjects} */}
-                {
-                    blockProjects.map(dt =>
-                        <div 
-                            key={"project"+dt.id}
-                            id={dt.id}
-                            className= {selected.toString() === dt.id.toString() ? "projectblockSelected": "projectblock"}
-                            // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
-                            onClick={selectProject}
-                        >
-                            <span>{dt.name}</span>
+            {show_add_proyect_empty ? 
+                <div>
+                    <div className="proyects-list"></div>
+                    <div className="add-proyect">
+                        <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
+                            <div className="Ads-plusito">
+                                <span> + </span>
+                                Agregar un proyecto
+                            </div>
+                        </Link>
+                    </div> 
+                </div>
+                : 
+                <div >
+                    <div className="proyects-list-aux">
+                        {
+                            blockProjects.map(dt =>
+                                <div 
+                                    key={"project"+dt.id}
+                                    id={dt.id}
+                                    className= {selected.toString() === dt.id.toString() ? "projectblockSelected": "projectblock"}
+                                    // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
+                                    onClick={selectProject}
+                                >
+                                    {dt.name}
 
-                        </div>
-                    )
-                }
-            </div>
-            <div className="add-proyect">
-                <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                    <div className="Ads-plusito">
-                        <span> + </span>
-                        Agregar un proyecto
+                                </div>
+                            )
+                        }
                     </div>
-                </Link>
-            </div>
 
+                    <div className="add-proyect-aux">
+                        <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
+                            <div className="Ads-plusito">
+                                <span> + </span>
+                                Agregar un proyecto
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+                
+            }
             <ModalProjects />
         </div>
     );

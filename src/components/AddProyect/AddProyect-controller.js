@@ -10,7 +10,8 @@ import getIdProject from '../../redux/actions/get-id-project';
 class AddProyect extends React.Component {
     state = {
         blockProjects: [],
-        selected: ""
+        selected: "",
+        show_add_proyect_empty: false,
     }
 
     cleanForm = () => {
@@ -28,7 +29,15 @@ class AddProyect extends React.Component {
             const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
             if (listaProyectos.length >= 1) {
                 proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
-                this.setState({selected: listaProyectos[0].id});
+                this.setState({
+                    selected: listaProyectos[0].id,
+                    show_add_proyect_empty: false,
+                });
+            }else{
+                this.setState({
+                    // selected: listaProyectos[0].id,
+                    show_add_proyect_empty: true,
+                });
             }
 
             this.setState({
@@ -53,6 +62,7 @@ class AddProyect extends React.Component {
             blockProjects={this.state.blockProjects}
             selectProject={this.selectProject}
             selected={this.state.selected}
+            show_add_proyect_empty={this.state.show_add_proyect_empty}
             />
         );
     }
