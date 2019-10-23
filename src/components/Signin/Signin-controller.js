@@ -60,7 +60,8 @@ class Signin extends React.Component {
                 localStorage.setItem('email', response.data.email);
                 localStorage.setItem('role', response.data.role)
 
-                $('.modal-backdrop').addClass('verify-email')
+                // $('.modal-backdrop').addClass('verify-email')
+                $('#signin').modal('hide');
                 this.props.history.push('/dashboard');
             } else {
                 console.log("error = ", response.message)

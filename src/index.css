@@ -2,7 +2,12 @@
   font-family: 'ubuntu';
   font-family: 'Helvetica Neue';
   src: url('./public/font/Ubuntu-Regular.ttf')  format('truetype');/* Safari, Android, iOS */
-  src: url('./public/font/HelveticaNeue\ Thin.ttf') format('truetype');
+  src: url(/fonts/HelveticaNeue.ttf);
+  src: url(/fonts/HelveticaNeue\ Medium.ttf);
+  src: url(/fonts/HelveticaNeueMed.ttf);
+  src: url(/fonts/HelveticaNeue\ BlackCond.ttf);
+  src: url(/fonts/HelveticaNeue\ Thin.ttf);
+  src: url(/fonts/HelveticaNeue\ Light.ttf);
 }
 body {
   margin: 0;

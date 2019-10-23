@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import './style.css';
 import ChooseProfile from '../ChooseProfile/ChooseProfile-controller'
 import Entrepeneur from '../Entrepeneur/Entrepeneur-controller';
+import Capsula from '../../public/img/Capsula'
 
 function View(props) {
     const { blockTree, conditionShowChooseProfile,conditionShowCapsule, showTreeContainer, conditionShowTreeContainer } = props
@@ -12,7 +13,7 @@ function View(props) {
 
                 {conditionShowTreeContainer ? <Entrepeneur /> : 
                     conditionShowCapsule ? <div className="Tree">
-                        <img alt="capsula" src={require('../../public/images/svg/Capsula.svg')} onClick={showTreeContainer} />
+                        <Capsula/>
                     </div>: <br/>
                 }
         </Fragment>

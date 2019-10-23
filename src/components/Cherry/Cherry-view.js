@@ -17,8 +17,8 @@ function View(props) {
                 <div id="id01" className="message">
                 <div className="modal-message">
                     <div className="message-content">
-                    <header className="container-message">
-                        <img src={require('../../public/images/svg/Fresita.svg')} alt="Informacion" />
+                    <header className="container-message text-center">
+                        <img src={require('../../public/img/chikorita.png')} alt="Informacion" />
                     </header>
                     <div className="container-message">
                         <p>Hola soy tu asistente personal, Listo para ayudarte en todo lo que necesites, recuerda postular a varios anuncios

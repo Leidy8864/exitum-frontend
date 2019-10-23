@@ -15,6 +15,10 @@
   box-shadow: 2px 2px 67px -26px rgba(0,0,0,0.75);
 }
 
+.container-message img{
+  width: 150px;
+}
+
 .img-verify img {
   width: 130px;
   display: inline-block;
@@ -29,8 +33,135 @@
   padding-top: 150px;
 }
 
-.Tree img {
+
+.Tree svg:hover g#Ellipse_392{
   cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg {
+  transition: all ease 2s !important;
+  -webkit-transform: translate3d(0px, 20px, 10px);
+  transform: translate3d(0px, 20px, 10px);
+  -webkit-animation: levitate 3s ease-in-out infinite alternate;
+  animation: levitate 3s ease-in-out infinite alternate;
+}
+
+
+.Tree svg:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all ease 2s !important;
+  -webkit-transform: translate3d(0px, 20px, 10px);
+  transform: translate3d(0px, 20px, 10px);
+  -webkit-animation: levitate 3s ease-in-out infinite alternate;
+  animation: levitate 3s ease-in-out infinite alternate;
+}
+
+.Tree svg:hover g#Ellipse_392-2{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-3{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-4{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-5{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-6{
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover path#Path_401{
+  cursor: pointer;
+  fill: rgb(252, 252, 252) !important;
+  opacity: 1;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Path_402{
+  cursor: pointer;
+  fill: rgb(255, 255, 255) !important;
+  opacity: 0.6;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Path_417{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Path_410{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Intersection_2{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover g g path#Path_419{
+  cursor: pointer;
+  fill: #2FD566;
+  opacity: 0.6;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover g g path#Path_238{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  transition: all ease 2s !important;
+}
+
+@-webkit-keyframes levitate {
+  0% {
+    -webkit-transform: translate3d(0, 0%, 10);
+            transform: translate3d(0, 0%, 10);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -22%, 0);
+            transform: translate3d(0, -22%, 0);
+  }
+}
+
+@keyframes levitate {
+  0% {
+    -webkit-transform: translate3d(0, 10%, 10) ;
+            transform: translate3d(0, 10%, 10) ;
+  }
+  100% {
+    -webkit-transform: translate3d(0, -22%, 0);
+            transform: translate3d(0, -22%, 0);
+  }
 }
 
 @media screen and (max-width: 1440px) {
@@ -56,3 +187,4 @@
     width: 245px;
   }
 }
+
