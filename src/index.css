@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'ubuntu';
+  font-family: 'Helvetica Neue';
   src: url('./public/font/Ubuntu-Regular.ttf')  format('truetype');/* Safari, Android, iOS */
+  src: url('./public/font/HelveticaNeue\ Thin.ttf') format('truetype');
 }
 body {
   margin: 0;

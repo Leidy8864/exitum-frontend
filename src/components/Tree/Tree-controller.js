@@ -3,7 +3,6 @@ import View from './Tree-view';
 import {authToken} from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom'
 
 class Tree extends React.Component {
     state = {
@@ -64,7 +63,13 @@ class Tree extends React.Component {
         let {conditionShowCapsule, conditionShowTreeContainer} = this.state;
         let blockTree=<br/>;
         if(this.state.isConfirmed === "false"){
-            blockTree = <div className="Tree"><div className="Tree-plus">Favor de verificar su cuenta, revisar su correo electrónico!</div></div>;
+            blockTree = <div className="Tree">
+                <div className="Tree-plus">
+                    <div className="img-verify">
+                    <img src={require('../../public/images/svg/verify.png')} />
+                    </div>
+                    Por favor de verificar su correo electronico, para que puedas acceder a tu cuenta!</div>
+                </div>;
         }
         if(this.state.isConfirmed === "true" && (this.state.role === "employee" || this.state.role === "entrepreneur")){
             conditionShowCapsule = true;
