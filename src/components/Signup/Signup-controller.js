@@ -62,6 +62,7 @@ class Signup extends React.Component {
             console.log("response = ", response)
             if(response.status){
                 localStorage.setItem('id', response.data.id);
+                localStorage.setItem('infoChiko', true);
                 localStorage.setItem('token',response.data.accessToken)
                 localStorage.setItem('confirmed',response.data.confirmed);
                 localStorage.setItem('lastname',response.data.lastname);
@@ -108,6 +109,7 @@ class Signup extends React.Component {
         console.log(response)
         if(response.status) {
             localStorage.setItem('id', response.data.id);
+            localStorage.setItem('infoChiko', true);
             localStorage.setItem('token',response.data.accessToken)
             localStorage.setItem('confirmed',response.data.confirmed);
             localStorage.setItem('lastname',response.data.lastname);
@@ -132,6 +134,7 @@ class Signup extends React.Component {
         const response =  await this.props.oauthFacebook(res.accessToken)
         if(response.status) {
             localStorage.setItem('id', response.data.id);
+            localStorage.setItem('infoChiko', true);
             localStorage.setItem('token',response.data.accessToken)
             localStorage.setItem('confirmed',response.data.confirmed);
             localStorage.setItem('lastname',response.data.lastname);
