@@ -2,40 +2,95 @@
     
 }
 
+.scroll-stage {
+    overflow-y: scroll;
+}
+
 .container-stage {
     position: relative; 
     margin-top: 30px; 
 }
 
-.stage-1,.stage-2, .stage-3, .stage-4,.stage-5 {
+.img0,.img1, .img2, .img3,.img4 {
     position: absolute;
+    z-index: 1000;
+    cursor: pointer;
 }
 
-.stage-1 {
+.img0 {
     top: 0px;
     right: 147px;
 }
 
-.stage-2 {
+.img1 {
     transform: rotate(90deg);
     top: 116px;
     right: 45px;
 }
 
-.stage-3 {
+.img2{
     top: 231px;
     right: 147px;
 }
 
-.stage-4 {
+.img3 {
     transform: rotate(90deg);
     top: 349px;
     right: 45px;
 }
 
-.stage-5 {
+.img4 {
     top: 468px;
     right: 147px;
+}
+
+.icon0 img {
+    width: 40px;
+}
+
+.icon1 img {
+    width: 40px;
+}
+
+.icon2 img {
+    width: 40px;
+}
+
+.icon3 img {
+    width: 40px;
+}
+
+.icon4 img {
+    width: 40px;
+}
+
+.icon0,.icon1,.icon2,.icon3,.icon4 {
+    position: absolute;
+}
+
+.icon0 {
+    top: 30px;
+    right: 205px;
+}
+
+.icon1 {
+    top: 145px;
+    right: 90px;
+}
+
+.icon2 {
+    top: 255px;
+    right: 205px;
+}
+
+.icon3 {
+    top: 375px;
+    right: 90px;
+}
+
+.icon4 {
+    top: 500px;
+    right: 205px;
 }
 
 @media screen and (max-width: 1440px) {
