@@ -15,7 +15,7 @@ function View(props) {
     } = props
 
     return (
-        <div className="container">
+        <div className="container" id="lista-anuncios">
             <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="active-tab">
                     <div className="row">
@@ -29,7 +29,7 @@ function View(props) {
                                                     <h5 className="card-title col-sm-9">{item.title}</h5>
                                                     <div className="col-sm-3">
                                                         <span><a href="#"><img src={require("../../public/images/svg/pause.svg")} alt="svg" width="23" id={item.id} onClick={handleClickPause.bind(this, index)} /></a></span>
-                                                        <span className="pl-2"><a href="#"><img src={require("../../public/images/svg/delete.svg")} alt="svg" width="23" id={item.id} onClick={handleClickDelete.bind(this, index,item.state)} /></a></span>
+                                                        <span className="pl-2"><a href="#"><img src={require("../../public/images/svg/delete.svg")} alt="svg" width="23" id={item.id} onClick={handleClickDelete.bind(this, index, item.state)} /></a></span>
                                                     </div>
                                                 </div>
 
@@ -63,7 +63,7 @@ function View(props) {
                                                     <h5 className="card-title col-sm-9">{item.title}</h5>
                                                     <div className="col-sm-3">
                                                         <span><a href="#"><img src={require("../../public/images/svg/play-button.svg")} alt="svg" width="23" id={item.id} onClick={handleClickPlay.bind(this, index)} /></a></span>
-                                                        <span className="pl-2"><a href="#"><img src={require("../../public/images/svg/delete.svg")} alt="svg" width="23" id={item.id} onClick={handleClickDelete.bind(this, index,item.state)} /></a></span>
+                                                        <span className="pl-2"><a href="#"><img src={require("../../public/images/svg/delete.svg")} alt="svg" width="23" id={item.id} onClick={handleClickDelete.bind(this, index, item.state)} /></a></span>
                                                     </div>
                                                 </div>
 

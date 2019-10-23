@@ -1,3 +1,7 @@
 ul li.nav-item a.active:before {
     background: none !important;
   }
+  div#lista-anuncios   {
+    height: calc(100vh - 230px);
+    overflow-y: scroll;;
+  }

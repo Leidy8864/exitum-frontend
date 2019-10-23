@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import Swal from 'sweetalert2'
+import $ from 'jquery';
+import { log } from 'util';
 
 class AddsList extends React.Component {
 
@@ -23,7 +25,8 @@ class AddsList extends React.Component {
 
         const data = {
             user_id: result.id,
-            state: 'active'
+            state: 'active',
+            page : 1
         }
         const adsActive = await listAdsByUser(data);
         data.state = 'closed'
@@ -35,6 +38,34 @@ class AddsList extends React.Component {
         })
 
         console.log("ADS", adsActive);
+
+        $("#lista-anuncios").scroll(function() {
+
+            // if ($("#lista-anuncios").height()) {
+            //     console.log("LISTADO DE ANUNCIOS");
+                
+
+
+            // }
+            // console.log("scrollTop", $(window).scrollTop())
+            // console.log(" document height", $(document).height());                  
+
+            // console.log(" window height", $(window).height());     
+            
+            console.log("LISTADO DE ANUNCIOS");
+
+
+            console.log("scrollTop", $("#lista-anuncios").scrollTop())
+            console.log(" document height", $(document).height());                  
+
+            console.log(" window height", $("#lista-anuncios").height());
+            console.log("-----------");
+
+            if($("#lista-anuncios").scrollTop() == $("#lista-anuncios").height() + 272) {
+                console.log("ADASDSADSADSAD");
+                
+            }
+        });
 
     }
 
