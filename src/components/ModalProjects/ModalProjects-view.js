@@ -69,7 +69,7 @@ function View(props) {
                                             {
                                                 stageDescription ?
                                                 <div>
-                                                    <span><img src={require("../../public/images/svg/idea.svg")} alt="svg" width="30"/></span>
+                                                    <span><img className="idea-img" src={require("../../public/images/svg/idea.svg")} alt="svg" width="30"/></span>
                                                     <h6 className="text-secondary">{stageDescription}</h6>
                                                 </div>
                                                 : ''

@@ -7,6 +7,7 @@ import cleanForm from '../../redux/actions/clean-form';
 import { datailChallenge } from '../../redux/actions';
 
 class DetailChallenge extends React.Component {
+
     render() {
         return (
             <View/>
