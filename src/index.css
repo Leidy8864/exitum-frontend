@@ -15,9 +15,9 @@ body {
   height: 100%;
   width: 100%;
   background: #fff;
-  font-family: ubuntu !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Helvetica Neue' !important;
 }
 
 .container-exlg {
