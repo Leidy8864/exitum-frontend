@@ -1,11 +1,20 @@
 import React, {Component, Fragment } from 'react';
 
 class Capsula extends Component {
-    state = {}
+    constructor(props) {
+        super(props);
+
+        this.state = {
+        };
+    }
+
     render() {
+
+        const { showTreeContainer } = this.props
+
         return (
             <Fragment>
-                <svg xmlns="http://www.w3.org/2000/svg"  width="279.681" height="541.377" viewBox="0 0 279.681 541.377">
+                <svg onClick={showTreeContainer} xmlns="http://www.w3.org/2000/svg"  width="279.681" height="541.377" viewBox="0 0 279.681 541.377">
                         <defs>
                     <linearGradient id="linear-gradient" x1="0.278" y1="0.143" x2="0.684" y2="0.954" gradientUnits="objectBoundingBox">
                         <stop offset="0" stop-color="#3369fd" />

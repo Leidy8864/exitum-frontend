@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import './style.css';
 import ChooseProfile from '../ChooseProfile/ChooseProfile-controller'
 import Entrepeneur from '../Entrepeneur/Entrepeneur-controller';
-import Capsula from '../../public/img/Capsula'
+import Capsula from '../../public/img/Capsula';
 
 function View(props) {
     const { blockTree, conditionShowChooseProfile,conditionShowCapsule, showTreeContainer, conditionShowTreeContainer } = props
@@ -13,7 +13,7 @@ function View(props) {
 
                 {conditionShowTreeContainer ? <Entrepeneur /> : 
                     conditionShowCapsule ? <div className="Tree">
-                        <Capsula/>
+                        <Capsula showTreeContainer={showTreeContainer}/>
                     </div>: <br/>
                 }
         </Fragment>

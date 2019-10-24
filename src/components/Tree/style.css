@@ -61,14 +61,12 @@
 }
 
 .Tree svg:hover g#Ellipse_392-2{
-  cursor: pointer;
   fill: #ECDC33;
   transition: all ease 2s !important;
   opacity: 0.6;
 }
 
 .Tree svg:hover g#Ellipse_392-3{
-  cursor: pointer;
   fill: #ECDC33;
   transition: all ease 2s !important;
   opacity: 0.6;
@@ -131,8 +129,8 @@
 
 .Tree svg:hover g g path#Path_419{
   cursor: pointer;
-  fill: #2FD566;
-  opacity: 0.6;
+  fill: rgb(0, 38, 255);
+  opacity: 0.9;
   transition: all ease 2s !important;
 }
 
