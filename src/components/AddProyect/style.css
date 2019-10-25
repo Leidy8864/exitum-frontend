@@ -10,6 +10,7 @@
     height: 80px;
     display: flex;
     overflow-x: auto;
+    font-family: 'Work Sans' !important;
 }
 .add-proyect-aux{
     text-decoration: none !important;
@@ -61,12 +62,13 @@
     border-radius: 10px;
     margin: 10px 10px 20px;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     float: left;
     width: 20%;
     cursor: pointer;
     flex-shrink: 0;
+    font-family: 'Work Sans' !important;
 }
 
 .projectblock>span, .projectblockSelected>span {
@@ -88,12 +90,13 @@
     border-radius: 10px;
     margin: 10px 10px 20px;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     float: left;
     width: 20%;
     cursor: pointer;
     flex-shrink: 0;
+    font-family: 'Work Sans' !important;
 }
 
 .add-proyect{

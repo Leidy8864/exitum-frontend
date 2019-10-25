@@ -5,11 +5,7 @@
   margin-bottom: 7px;
   font-size: 13px;
   text-align: center;
-  font-family: 'Ubuntu';
-}
-
-.modal-open {
-  background: violet !important;
+  font-family: 'Work Sans';
 }
 
 .error-message {

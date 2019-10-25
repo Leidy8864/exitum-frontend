@@ -14,6 +14,7 @@ nav.dashboard-header {
 .content-user {
   position: absolute;
   right: 300px;
+  font-family: 'Work Sans';
 }
 
 .content-user span img {

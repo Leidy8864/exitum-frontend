@@ -18,6 +18,7 @@
 .Diary .start-diary {
   color: #ffffff;
   font-size: 24px;
+  font-family: 'Work Sans' !important;
 }
 
 .Diary .start-diary button.add-diary {
@@ -33,7 +34,7 @@
   border: none;
   color: #3369FD;
   outline: none;
-  font-family: 'Poppins';
+  font-family: 'Work Sans' !important;
   font-size: 50px;
   font-weight: bold;
   text-transform: capitalize;

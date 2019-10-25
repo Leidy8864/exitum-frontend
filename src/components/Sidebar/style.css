@@ -60,7 +60,7 @@ img {
   position: relative;
   z-index: 10;
   color: #615d5d;
-  font-family: 'Ubuntu' !important;
+  font-family: 'Work Sans' !important;
   font-weight: 200 !important;
   font-size: 1.2rem;
 }
@@ -113,6 +113,7 @@ ul li {
 }
 
 ul li a {
+  font-family: 'Work Sans' !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,7 +160,7 @@ ul li a {
 ul li a span {
   margin-left: 25px;
   font-size: 18px;
-  font-family: 'Helvetica Neue';
+  font-family: 'Work Sans';
 }
 
 ul li a span:hover {
