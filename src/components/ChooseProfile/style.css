@@ -7,13 +7,15 @@
     height: 400px;
     color: #fff;
     background-color: #3369fd;
-    text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 25px 20px -21px rgba(221, 211, 211, 0.57);
 }
 .ChooseProfile .title{
     text-align: center;
     margin: 50px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bolder;
+    font-family: 'Work Sans';
 }
 .content-radio{
     float: left;
@@ -36,12 +38,14 @@
 [type="radio"]:checked + label,
 [type="radio"]:not(:checked) + label
 {
+    font-family: 'Work Sans';
     position: relative;
     padding-left: 28px;
     cursor: pointer;
     line-height: 20px;
     display: inline-block;
     color: #fff;
+    font-size: 20px;
 }
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {

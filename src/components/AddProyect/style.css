@@ -118,7 +118,13 @@
 .add-proyect a {
     font-size: 22px;
 }
+
+.Ads-plusito {
+    font-family: 'Work Sans' !important;
+}
+
 .Ads-plusito span{
+    font-family: 'Work Sans' !important;
     padding: 10px 10px 10px 17px;
     margin: 12px;
     /* background: #fff;
