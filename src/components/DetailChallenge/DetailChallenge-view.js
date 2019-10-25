@@ -14,12 +14,12 @@ function View(){
                                         Realizar el model Business Canvas
                                     </div>
                                     <div className="container_challenge_tabs">
-                                        <ul class="nav nav-pills" id="myTab" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link px-4 active" id="active-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="active" aria-selected="true">RETO</a>
+                                        <ul className="nav nav-pills" id="myTab" role="tablist">
+                                            <li className="nav-item">
+                                                <a className="nav-link px-4 active" id="active-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="active" aria-selected="true">RETO</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link px-4" id="closed-tab" data-toggle="tab" href="#howto" role="tab" aria-controls="closed" aria-selected="false">COMO LO HICIERON</a>
+                                            <li className="nav-item">
+                                                <a className="nav-link px-4" id="closed-tab" data-toggle="tab" href="#howto" role="tab" aria-controls="closed" aria-selected="false">COMO LO HICIERON</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -53,12 +53,12 @@ function View(){
                                                 <div className="response_ ">
                                                     <input type="file"></input>
                                                 </div>
-                                                <div class="form_group_ form_group__">
+                                                <div className="form_group_ form_group__">
                                                     <button type="button">completar reto</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="closed-tab">
+                                        <div className="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="closed-tab">
                                             <div className="row_detail">
                                                 how to
                                             </div>

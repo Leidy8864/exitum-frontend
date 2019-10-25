@@ -32,7 +32,7 @@ function View(props) {
                 <div >
                     <div className="proyects-list-aux">
                         {
-                            blockProjects.map(dt =>
+                            blockProjects.map((dt) =>
                                 <div 
                                     key={"project"+dt.id}
                                     id={dt.id}

@@ -1,4 +1,4 @@
-import getIdActualStage from '../actions/get-id-actual-stage';
+import  { type as getIdActualStage } from '../actions/get-id-actual-stage';
 
 const defaultState = 0;
 
@@ -7,9 +7,8 @@ function reducer(state = defaultState, { type, payload }) {
         case getIdActualStage: {
             return payload;
         }
-
         default:
-            return 0;
+            return state;
     }
 }
 

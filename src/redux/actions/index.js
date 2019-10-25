@@ -1,10 +1,10 @@
 import axios from 'axios'
 // import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
-import { AUTH_ERROR } from './types'
+import { AUTH_ERROR} from './types'
 
-// const root = 'http://127.0.0.1:8081/';
+const root = 'http://127.0.0.1:8081/';
 
-const root = 'http://35.175.241.103:8081/';
+// const root = 'http://35.175.241.103:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
@@ -246,8 +246,8 @@ export const listAreas = async () => {
 export const listAdsByUser = async (data) => {
 
     try {
-        const res = await axios.get(root + 'ads/listByEntrepreneur',{
-            params : data
+        const res = await axios.get(root + 'ads/listByEntrepreneur', {
+            params: data
         });
         console.log("DATA LISTADO", res.data.data);
         return res.data.data;
@@ -256,35 +256,50 @@ export const listAdsByUser = async (data) => {
     }
 }
 
+// export const fetchAlbums = (id) => async dispatch => {
+//     dispatch({ type: "FETCH_ALBUMS_BY_ARTIST"});
+
+//     //'43ZHCT0cAZBISjO8DG9PnE'
+//     spotifyApi.getArtistAlbums(id)
+//       .then((response) => {
+//         dispatch({ type: "FETCH_ALBUMS_BY_ARTIST_FULFILLED", payload: response})
+//       })
+//       .catch((err) => {
+//         dispatch({ type: "FETCH_ALBUMS_BY_ARTIST_REJECTED", payload: err})
+//       });
+//   }
+
 export const actuallyStage = async (id) => {
-    
+    console.log("id llegado", id);
+
     try {
         const res = await axios.get(root + `challenges/actualStage/${id}`)
-        // console.log("DATA ETAPA POR ID", res.data.data)
+
+
         return res.data.data;
-    }catch(error) {
+    } catch (error) {
         console.log("Error" + error)
     }
 }
 
-export const challengeByStep = async (id) => {
-    
-    try {
-        const res = await axios.get(root + `steps/startup/${id}`)
-        // console.log("DATA ETAPA POR ID", res.data.data)
-        return res.data.data;
-    }catch(error) {
-        console.log("Error" + error)
-    }
-}
+    export const challengeByStep = async (id) => {
 
-export const datailChallenge = async (id) => {
-    
-    try {
-        const res = await axios.get(root + `steps/show/${id}`)
-        // console.log("DATA ETAPA POR ID", res.data.data)
-        return res.data.data;
-    }catch(error) {
-        console.log("Error" + error)
+        try {
+            const res = await axios.get(root + `steps/startup/${id}`)
+            // console.log("DATA ETAPA POR ID", res.data.data)
+            return res.data.data;
+        } catch (error) {
+            console.log("Error" + error)
+        }
     }
-}
+
+    export const datailChallenge = async (id) => {
+
+        try {
+            const res = await axios.get(root + `steps/show/${id}`)
+            // console.log("DATA ETAPA POR ID", res.data.data)
+            return res.data.data;
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }

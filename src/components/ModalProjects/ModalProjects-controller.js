@@ -69,7 +69,7 @@ class ModalsProjects extends React.Component {
 
         let stageDescription = "";
 
-        if (action.name == "stage_id") {
+        if (action.name === "stage_id") {
 
             const stage = this.state.stages.find((stage) => stage.value === option.value);
             stageDescription = stage.description;

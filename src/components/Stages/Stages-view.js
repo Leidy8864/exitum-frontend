@@ -9,26 +9,26 @@ function View(props) {
         listStages,
         selectStage,
         lstStage,
-        getIdProjectReducer
+        getIdProjectReducer,
+        stage
     } = props
 
     return (
         <div className="stages">
             <div className="stage">
                 <div className="container-stage">
-                    {/* {
-                        lstStage
-                    } */}
+
                     {
                         listStages.map(function(item,index){
                             return(
                                 <div key={index} className="">
+                                    <p>{item.name_step}</p>
                                     <div className={`img` + index} onClick={selectStage}>
-                                        <img  src={item.icon_count_tip} />
+                                        <img  src={item.icon_count_tip} id={item.id_step} />
                                     </div>
-                                    <div className={`icon`+ index}>
+                                    {/* <div className={`icon`+ index}>
                                         <img className="" src={item.icon} />
-                                    </div>
+                                    </div> */}
                                 </div>
                             )
                         })

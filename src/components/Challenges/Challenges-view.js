@@ -12,11 +12,11 @@ function View(props){
         <div className="challenges">
             <div className="container-chellenges">
                 {
-                    blockChallenge.map(dt =>
-                        <Link id={dt.id} className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" onClick={cleanForm}>
+                    blockChallenge.map((dt,index) =>
+                        <Link id={dt.id} className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" onClick={cleanForm} key={"project"+index}>
                             <div 
                                 className={dt.status === "completado" ? "challenge_complete" : "challenge"}
-                                key={"project"+dt.id}
+                                
                                 id={dt.id}
                             >
                                 <p>{dt.title}</p>

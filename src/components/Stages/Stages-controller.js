@@ -3,32 +3,37 @@ import React from 'react';
 import View from './Stages-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
-import getIdActualStage from '../../redux/actions/get-id-project';
+import getIdActualStage from '../../redux/actions/get-id-actual-stage';
 import { actuallyStage } from '../../redux/actions'
-import { isPast } from 'date-fns';
 
 class Stages extends React.Component {
 
     state = {
         listStages: [],
-        selected: '',
+        selected: ''
     }
 
-    async componentDidMount() {
-        try {
-            console.log("idProject = ",localStorage.getItem('idProject'));
-            const listaStages = await actuallyStage(localStorage.getItem('idProject'));
-            this.setState({
-                listStages: listaStages.step
-            })
-            
-        } catch (error) {
-            console.log(error)
-        }
+    //Función que detecta los cambios en el componente para modificar el state
+    async componentDidUpdate(nextProps){
+        const {projectId} = this.props;
+        if (nextProps.projectId !== projectId) {           
+            if (projectId) {
+                try {
+                    const listStages = await actuallyStage(projectId);
+                    if (listStages) {
+                        this.props.getIdActualStage(listStages.step[0].id_step);
+                        console.log("STAGES",listStages);
+                    }
+                    this.setState({
+                        listStages : listStages.step
+                    });
+                } catch (error) {
+                    console.log("Error al listar Stages");
+                } 
+            } 
+          } 
     }
-
     async lstStage() {
-        console.log("lstStage = ", this.props.getIdProjectReducer)
         try {
             const listaStages = await actuallyStage(this.props.getIdProjectReducer);
             this.setState({
@@ -41,36 +46,31 @@ class Stages extends React.Component {
     }
 
     selectStage = async (e) => {
+        console.log("EVENT ID",e.target.id);
+        
         this.props.getIdActualStage(e.target.id);
+        
         this.setState({selected: e.target.id}); 
     }
 
     render() {
 
         const {
-            getIdProjectReducer
-        } = this.props;
-
-        console.log("getIdProjectReducer = ", getIdProjectReducer);
-
-        const {
             listStages
         } = this.state
-
+        
         return (
             <View
                 listStages = {listStages}
-                lstStage = {this.lstStage}
-                getIdProjectReducer = {getIdProjectReducer}
-                // this.lstStage(getIdProjectReducer);
                 selectStage = {this.selectStage}
             />
+
         );
     }
 }
 
-const mapStateToProps = state => ({
-    getIdProjectReducer: state.getIdProjectReducer
+const mapStateToProps = (state) => ({    
+    projectId: state.getIdProjectReducer,
 });
 
 const mapDispatchToProps = {
