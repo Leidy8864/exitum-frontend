@@ -1,13 +1,6 @@
 @font-face {
-  font-family: 'ubuntu';
-  font-family: 'Helvetica Neue';
-  src: url('./public/font/Ubuntu-Regular.ttf');/* Safari, Android, iOS */
-  src: url('/fonts/HelveticaNeue.ttf');
-  src: url('/fonts/HelveticaNeue\ Medium.ttf');
-  src: url('/fonts/HelveticaNeueMed.ttf');
-  src: url('/fonts/HelveticaNeue\ BlackCond.ttf');
-  src: url('/fonts/HelveticaNeue\ Thin.ttf');
-  src: url('/fonts/HelveticaNeue\ Light.ttf');
+  font-family: 'Work Sans';
+  src: url('./public/font/WorkSans-Regular.ttf');
 }
 body {
   margin: 0;
@@ -17,25 +10,18 @@ body {
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Helvetica Neue' !important;
+  font-weight: normal;
 }
 
-.container-exlg {
-  width: 93%;
-  display: flex;
-  margin: 0 auto;
-}
-
-.container-ex {
-  width: 1400px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 .message {
   display: block;
+}
+
+.modal-content {
+  border: none !important;
+  outline: none;
+  font-family: 'Work Sans' !important;
 }
 
 @media screen and (max-width: 991px) {

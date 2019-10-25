@@ -9,10 +9,24 @@ div#lista-anuncios   {
 .title_add{
   font-size: 22px;
   font-weight: bold;
-
+  color: aliceblue;
 }
 
 .margin_botton_15{
   margin-bottom: 15px;
 }
 
+.card.card-body {
+  border: none;
+  border-radius: 8px !important;
+  color: #fff;
+  background: #606c88;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  box-shadow: 0 25px 20px -21px rgba(221, 211, 211, 0.57);
+}
+
+.images-icons {
+  display: flex;
+  justify-content: flex-end;
+}

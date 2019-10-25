@@ -30,28 +30,30 @@ function View(){
                                                     Descripción del reto
                                                 </div>
                                                 <div className="description_">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor id est quis gravida. Phasellus molestie feugiat aliquam. Vivamus semper elit nec nunc cursus pulvinar. Vestibulum quis pretium ipsum. Duis in purus at erat molestie fermentum non non turpis. Etiam quis lectus sit amet tellus tempus condimentum. Suspendisse eu sem vel lacus imperdiet tincidunt quis eget justo. Integer ac ante ultrices, eleifend nibh sit amet, venenatis nunc. 
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor id est quis gravida. Phasellus molestie feugiat aliquam. Vivamus semper elit nec nunc cursus pulvinar. Vestibulum quis pretium ipsum. Duis in purus at erat molestie fermentum non non turpis. 
                                                 </div>
                                                 <div className="subtitle_">
                                                     Archivos para descargar
                                                 </div>
                                                 <div className="downloads_container">
-                                                    <a className="downloads_" href="">Coffee.docx</a>
-                                                    <a className="downloads_" href="">Tea.docx</a>
-                                                    <a className="downloads_" href="">Milk.docx</a>
-
+                                                    <a className="downloads_" href="">Coffee.docx</a><img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
+                                                    <br/>
+                                                    <br/>
+                                                    <a className="downloads_" href="">Tea.docx</a><img className="left-img" src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
                                                 </div>
                                                 <div className="subtitle_">
                                                     Respuesta al reto planteado
                                                 </div>
-                                                <div className="response_ ">
+                                                <div className="response_1 ">
                                                     <textarea></textarea>
                                                 </div>
                                                 <div className="subtitle_">
                                                     Subir archivos
                                                 </div>
-                                                <div className="response_ ">
-                                                    <input type="file"></input>
+                                                <div className="response_file ">
+                                                    <p id="texto">Subir archivos</p>
+                                                {/* <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} /> */}
+                                                    <input id="choose_file" type="file"></input>
                                                 </div>
                                                 <div className="form_group_ form_group__">
                                                     <button type="button">completar reto</button>

@@ -6,6 +6,12 @@
     width: 100%;
     /* padding-left: 15%; */
 }
+
+.container_challenge_tabs {
+    width: 100%;
+    padding-left: 15%;
+}
+
 .row_detail{
     width: calc(100% - 10%);
     padding-left: 10%;
@@ -14,37 +20,104 @@
     color: #3369fd !important;
     margin-bottom: 20px;
     margin-top: 20px;
-    padding-left: 20px;
     /* width: calc(100% - 60px); */
 }
 .subtitle_{
     color: #2d2d2d !important;
     font-weight: bolder;
     margin-bottom: 20px;
+    display: block;
 }
 .downloads_{
-    margin: 0 10px;
+    margin: 0px;
     margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #3369fd;
+    border-radius: 10px;
+    padding: 10px 30px;
 }
+
+.downloads_container img {
+    width: 24px !important;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.downloads_container img.left-img {
+    margin-left: 44px !important;
+}
+
+.downloads_:hover{
+    background: #3369fd;
+    color: #fff;
+    transition: all ease 1s;
+    text-decoration: none;
+}
+
+input[type=”file”] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -1;
+    }
+
 .downloads_container{
     margin: 0 10px;
     margin-bottom: 20px;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
 }
-.response_{
-    width: calc(100% - 30px);
+
+input#choose_file {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    opacity: 0;
+}
+
+.response_1 {
     height: auto;
     margin: 0 0 15px;
 }
-.response_ textarea {
+
+.response_file{
+    position: relative;
+    height: auto;
+    margin: 0 0 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #3369fd;
+}
+
+p#texto {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: 6px;
+}
+
+.response_ img {
+    width: 27px;
+}
+.response_1 textarea {
+    outline: none;
     width: calc(100% - 30px);
     height: 100px;
     font-size: 15px;
     font-weight: 800;
-    margin: 0px 15px;
     border: 1px solid #3369fd;
-    padding: 10px;
     color: #3369fd !important;
     font-weight: 100 !important;
     border-radius: 10px;
     resize: none;
+  }
+
+  .form_group_ {
+      margin-top: 10px !important;
   }
