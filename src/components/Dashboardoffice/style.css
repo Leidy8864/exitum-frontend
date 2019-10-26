@@ -13,7 +13,7 @@
 .main-panel {
   position: relative;
   float: right;
-  width: calc(100% - 260px);
+  width: calc(100% - 230px);
   transition: all .33s cubic-bezier(.685,.0473,.346,1);
 }
 

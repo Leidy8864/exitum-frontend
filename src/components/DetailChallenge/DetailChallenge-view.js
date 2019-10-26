@@ -56,7 +56,7 @@ function View(){
                                                     <input id="choose_file" type="file"></input>
                                                 </div>
                                                 <div class="form_group_ form_group__">
-                                                    <button type="button">completar reto</button>
+                                                    <button type="button">Completar Reto</button>
                                                 </div>
                                             </div>
                                         </div>

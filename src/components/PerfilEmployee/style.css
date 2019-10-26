@@ -1,0 +1,22 @@
+.count_title {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Work Sans';
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.count_title img {
+    width: 40px;
+}
+
+.form-control {
+    background: #EFEFEF !important;
+    outline: none !important;
+    border: none !important;
+    font-family: 'Work Sans';
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
