@@ -1,150 +1,139 @@
 .user-img {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-profile {
+    position: relative;
+    margin-top: -80px;
+}
+
+.edit-profile  a img{
+    width: 35px;
+}
+
+.user-bg {
+    width: 100%;
+    position: relative;
+    background: #3369fd;
+    background-size: cover;
+    height: 25vh;
 }
 
 .img {
     border-radius: 50%;
-    width: 100px;
+    width: 160px;
 }
 
 .user-name {
     margin-top: 10px;
-    text-align: center;
-    color: #fff;
+    color: #777;
     font-family: 'Work Sans';
 }
 
-.info-employee {
-    margin-top: 20px;
-    color: #fff;
+.experience-study,.experience-work {
     display: flex;
-    justify-content: center;
-}
-
-.info-employee .info {
-    margin-left: 10px;
-    display: block;
-    font-family: 'Work Sans';
-}
-
-.info-employee .info p{
-    display: block;
-    margin: 0px;
-}
-
-.info-employee .info span{
-    font-weight: bold;
-}
-
-.info-employee .icon-employee img{
-    width: 50px;
-}
-
-.user-start {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.user-start img{
-    width: 23px;
-    margin-left: 10px;
-}
-
-.user-sale {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.user-sale p{
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    text-align: center;
-    border: 2px dashed #fff;
-    font-family: 'Work Sans';
-    border-radius: 6px;
-}
-
-.user-follower {
-    text-align: center;
-}
-
-.user-follower p {
-    padding: 8px;
-    border-radius: 7px;
-    background: #fff;
-    color: #3369fd;
-    font-family: 'Work Sans';
-    font-weight: bold;
-}
-
-.user-skills {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 60px;
-    text-align: center;
     align-items: center;
+    padding: 10px !important;
 }
 
-.user-skills p {
-    background: #A2BBFF;
-    color: #6C80B1;
-    border-radius: 4px;
+.content-two {
+    overflow-x: hidden;
+}
+
+.experience-work a img, .experience-study a img{
+    width: 24px;
+}
+
+.experience-work span, .experience-study span{
     margin-left: 10px;
-    padding: 2px 7px;
-    font-family: 'Work Sans';
+    color: #777;
 }
 
-.add-skills {
-
+div ul.experiences {
+    margin-top: 0px !important;
 }
 
-.user-skills .add-skills  {
-    margin-left: 15px;
-    background: #fff !important;
+.profile-info {
+    margin: 0px !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-header  {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+}
+
+.experience-header a img {
+    background: #3369fd;
+    width: 35px;
     border-radius: 50%;
-    padding: 1px 12px;
-    font-size: 21px;
-    position: relative;
-    top: -5px;
-    text-decoration: none;
+    padding: 10px;
 }
 
-.user-plus {
-    background: #A2BBFF;
-    margin-top: 30px;
-    border-radius: 6px;
-    padding: 24px;
-}
-
-.plus {
+.experience-info {
+    color: #777;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+}
+
+.info-experience {
+    display: flex;
+}
+
+.experience-info-content {
+    
+}
+
+.img-experience a img {
+    width: 70px;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+}
+
+.education-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.education-info {
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-education {
+    display: flex;
+}
+
+.img-education a img {
+    width: 70px;
+}
+
+.aptitud-header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    color: #777;
 }
 
-.plus img {
-    width: 20px;
+.aptitud-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
 }
 
-.plus a {
-    text-decoration: none !important;
-}
-
-.plus span {
-    color: #6C80B1;
-    margin-left: 10px;
-    font-family: 'Work Sans';
-    transition: all ease 0.3s;
-}
-
-.plus span:hover {
-    color: #6C80B1;
-    font-weight: bold;
-    margin-left: 10px;
-    font-family: 'Work Sans';
-    transition: all ease 0.3s;
+.info-aptitud ul li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
 }

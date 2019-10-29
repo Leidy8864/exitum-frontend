@@ -28,7 +28,6 @@ function View() {
                                 <input className="form-control" type="text" placeholder="930465230"/>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

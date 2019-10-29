@@ -18,8 +18,8 @@ function View() {
                         <div className="row">
                             <div className="col-xl-9 col-lg-12 content-two">
                                 <Driving />
-                                <Tree />
-                                <Cherry />
+                                {/* <Tree />
+                                <Cherry /> */}
                             </div>
                             <div className="col-xl-3 col-lg-12">
                                 <Diary />

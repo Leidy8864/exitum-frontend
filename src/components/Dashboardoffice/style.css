@@ -34,4 +34,10 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .main-panel {
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=style.css.map */
