@@ -13,7 +13,6 @@ function View(props) {
         onChange,
         onChange_,
         university,
-        other_university
     } = props
 
     return (
@@ -41,6 +40,7 @@ function View(props) {
                                         <DatePicker
                                             onChange={onChange}
                                             value={date}
+                                            name="date_start"
                                         />
                                     </Fragment>
                                 </div>
@@ -50,6 +50,7 @@ function View(props) {
                                         <DatePicker
                                             onChange={onChange_}
                                             value={dateFinal}
+                                            name="date_end"
                                         />
                                     </Fragment>
                                 </div>
@@ -58,17 +59,8 @@ function View(props) {
                                     <input 
                                     type="text" 
                                     className="form-control"
-                                    name="university"
+                                    name="university_id"
                                     onChange={university}
-                                    />
-                                </div>
-                                <div className="row">
-                                    <label>Otra Universidad</label>
-                                    <input 
-                                    type="text" 
-                                    className="form-control"
-                                    name="other_university"
-                                    onChange={other_university}
                                     />
                                 </div>
                                 <div className="modal-footer">

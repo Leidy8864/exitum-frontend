@@ -37,7 +37,7 @@ class ModalExperience extends React.Component {
         const response = await this.props.createExperience(formData);
         console.log("response", response);
     }
-
+    
     onChange = date => this.setState({ date })
     onChange_ = dateFinal => this.setState({ dateFinal})
     

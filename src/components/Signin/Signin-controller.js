@@ -85,6 +85,7 @@ class Signin extends React.Component {
         console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken)
         if (response.status) {
+            console.log(response)
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('infoChiko', true);
             localStorage.setItem('token', response.data.accessToken)

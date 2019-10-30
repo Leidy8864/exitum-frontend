@@ -3,12 +3,15 @@ import React, { Fragment } from 'react';
 import ModalExperience from '../ModalExperience/ModalExperience-controller'
 import ModalEducation from '../ModalEducation/ModalEducation-controller'
 import ModalSkill from '../ModalSkill/ModalSkill-controller'
+import ModalCertificate from '../ModalCertificate/ModalCertificate-controller'
+import ModalUpdateCertificate from '../ModalUpdateCertificate/ModalUpdateCertificate-controller'
+import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
+import {Link} from 'react-router-dom'
 import './style.css';
 
 function View(props) {
 
-    const {user,lastname} = props
-
+    const { user, lastname, certifications } = props
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -19,25 +22,13 @@ function View(props) {
                             <img className="img" src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p720x720/10428028_835695433158765_3788812662788954865_n.jpg?_nc_cat=106&_nc_oc=AQmJVvoI1HFbx8zVRMe97wFm7ZW-JdW0pzu4HOKyzxed0RlRbL5OZ-pmHeXkFEiduCRldkEWxZ61HEOQNGN0ljH2&_nc_ht=scontent.flim1-1.fna&oh=ffd2fe1bafe1323e783160abee692407&oe=5E240E72" />
                         </div>
                         <div className="edit-profile mr-5 mt-2">
-                            <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                            <a href="#" data-toggle="modal" data-target="#perfil"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
                         </div>
                     </div>
                     <div className="profile-info">
                         <div className="user-name ml-5 mb-4">
                             <h2>{user} {lastname}</h2>
                             <span>Programador Frontend en Techie</span>
-                        </div>
-                        <div>
-                            <ul className="experiences mr-2">
-                                <li className="experience-work">
-                                    <a><img src="https://media.licdn.com/dms/image/C4E0BAQHn44w7q1n2_A/company-logo_400_400/0?e=1580342400&v=beta&t=Sh75IYul4OHWdjxOq1kUvXegWNYV0k8wl7ptURbZT5E" /></a>
-                                    <span>Techie</span>
-                                </li>
-                                <li className="experience-study">
-                                    <a><img src="https://media.licdn.com/dms/image/C4E0BAQHufAU__NTUlw/company-logo_400_400/0?e=1580342400&v=beta&t=e9zU3--DO7yZOu4Q2HrGeCHVFp_PsSAFClWrhzAZZ84" /></a>
-                                    <span>Universidad Nacional del Callao</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -100,35 +91,44 @@ function View(props) {
 
             <ModalExperience />
             <ModalEducation />
+            <ModalPerfil />
 
             <div className="card mt-5 ml-4 mb-5">
                 <div className="experience mt-3">
                     <div className="experience-header">
                         <h3 className="ml-5">Certificados</h3>
-                        <a href="#"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#certificate"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
-                <div className="experience-info">
-                    <div className="info-experience">
-                        <div className="img-experience ml-4 mt-3">
-                            {/*  */}
-                        </div>
-                        <div className="experience-info-content ml-4 mt-3">
-                            <h4>Get Connected</h4>
-                            <span>Cisco</span>
-                            <div className="time-exp">
-                                Exp.Ago. de 2017.
-                        </div>
-                            <div className="description mb-4">
-                                Desarrollo y Diseño de aplicaciones web.
-                        </div>
-                        </div>
-                    </div>
-                    <div className="edit-profile mr-5 mt-2">
-                        <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
-                    </div>
-                </div>
-                <hr />
+                {
+                    certifications.map(function (item, index) {
+                        return (
+                            <Fragment  key={index}>
+                                <div className="experience-info">
+                                    <div className="info-experience">
+                                        <div className="img-experience ml-4 mt-3">
+                                            {/*  */}
+                                        </div>
+                                        <div className="experience-info-content ml-4 mt-3">
+                                            <h4>{item.name}</h4>
+                                            <span>{item.issuing_company}</span>
+                                            <div className="time-exp">
+                                                {item.expedition} - {item.expiration}
+                                            </div>
+                                            <div className="description mb-4">
+                                                <Link to="#">{item.document_url}</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="edit-profile mr-5 mt-2">
+                                        <a href="#" data-toggle="modal" data-target="#updatecertificate"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                    </div>
+                                </div>
+                                <hr />
+                            </Fragment>
+                        )
+                    })
+                }
                 <div className="aptitud mt-3">
                     <div className="aptitud-header">
                         <h3 className="ml-5">Aptitudes</h3>
@@ -152,6 +152,8 @@ function View(props) {
             </div>
 
             <ModalSkill />
+            <ModalCertificate />
+            <ModalUpdateCertificate />
 
         </Fragment>
     );

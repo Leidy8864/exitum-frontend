@@ -341,3 +341,32 @@ export const createEducation = async (data) => {
         console.log("Error" + error)
     }
 }
+
+export const createCertification =  data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(
+                root + `certifications/create`,data,
+                { 
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded;'
+                    } 
+                }
+            )
+            console.log('RES DATA',res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const showCertificationByUser = async (id) => {
+    try {
+        const res = await axios.get(root + `certifications/list-by-id/${id}`)
+        console.log('CERTIFICATIONS BY ID', res);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}

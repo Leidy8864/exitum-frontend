@@ -14,7 +14,6 @@ class ModalEducation extends React.Component {
         date: new Date(),
         dateFinal: new Date(),
         university_id: 1,
-        other_university: ''
     }
 
     description = e => {
@@ -25,23 +24,20 @@ class ModalEducation extends React.Component {
         this.setState({ university_id: e.target.value })
     }
 
-    other_university = e => {
-        this.setState({ other_university: e.target.value })
-    }
-
     education = async e => {
         e.preventDefault();
-        const { description, date, dateFinal, university_id, other_university } = this.state
+        let user_id = localStorage.getItem('id');
+        const { description, date, dateFinal, university_id } = this.state
         let date_start = moment(date).format('L')
         let date_end = moment(dateFinal).format('L')
 
         const formData = {
-            description, date_start,date_end,university_id,other_university
+            user_id,description, date_start,date_end,university_id
         }
 
         console.log('FORMDATA',formData);
         const response = await this.props.createEducation(formData);
-        console.log("response", response);
+        console.log("RESPUESTA", response);
     }
 
     onChange = date => this.setState({ date })
@@ -53,7 +49,6 @@ class ModalEducation extends React.Component {
                 education = {this.education}
                 description = {this.description}
                 university_id = {this.university_id}
-                other_university = {this.other_university}
                 onChange={this.onChange}
                 onChange_= {this.onChange_}
                 date={this.state.date}
