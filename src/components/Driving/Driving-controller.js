@@ -5,7 +5,8 @@ import View from './Driving-view';
 class Driving extends React.Component {
     render() {
         return (
-            <View/>
+            <View
+            />
         );
     }
 }

@@ -288,3 +288,23 @@ export const datailChallenge = async (id) => {
         console.log("Error" + error)
     }
 }
+
+export const createExperience = async (data) => {
+    try {
+        const res = await axios.post(root + `experiences/create`,data)
+        console.log('RES DATA', res);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const createEducation = async (data) => {
+    try {
+        const res = await axios.post(root + `education/create`,data)
+        console.log('RES DATA',res);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}

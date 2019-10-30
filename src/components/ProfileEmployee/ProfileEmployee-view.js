@@ -1,8 +1,14 @@
 
 import React, { Fragment } from 'react';
+import ModalExperience from '../ModalExperience/ModalExperience-controller'
+import ModalEducation from '../ModalEducation/ModalEducation-controller'
+import ModalSkill from '../ModalSkill/ModalSkill-controller'
 import './style.css';
 
-function View() {
+function View(props) {
+
+    const {user,lastname} = props
+
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -18,7 +24,7 @@ function View() {
                     </div>
                     <div className="profile-info">
                         <div className="user-name ml-5 mb-4">
-                            <h2>Diego Jesús Ortega Roldan</h2>
+                            <h2>{user} {lastname}</h2>
                             <span>Programador Frontend en Techie</span>
                         </div>
                         <div>
@@ -41,13 +47,13 @@ function View() {
                 <div className="experience mt-3">
                     <div className="experience-header">
                         <h3 className="ml-5">Experiencia</h3>
-                        <a href="#"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#experience"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 <div className="experience-info">
                     <div className="info-experience">
-                        <div className="img-experience ml-5 mt-3">
-                            <a href="#"><img src="https://media.licdn.com/dms/image/C4E0BAQHn44w7q1n2_A/company-logo_400_400/0?e=1580342400&v=beta&t=Sh75IYul4OHWdjxOq1kUvXegWNYV0k8wl7ptURbZT5E" /></a>
+                        <div className="img-experience ml-4 mt-3">
+                            {/*  */}
                         </div>
                         <div className="experience-info-content ml-4 mt-3">
                             <h4>Programador Frontend</h4>
@@ -68,13 +74,13 @@ function View() {
                 <div className="education mt-3">
                     <div className="education-header">
                         <h3 className="ml-5">Educación</h3>
-                        <a href="#"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#education"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 <div className="education-info">
                     <div className="info-education">
-                        <div className="img-education ml-5 mt-3">
-                            <a href="#"><img src="https://media.licdn.com/dms/image/C4E0BAQHufAU__NTUlw/company-logo_400_400/0?e=1580342400&v=beta&t=e9zU3--DO7yZOu4Q2HrGeCHVFp_PsSAFClWrhzAZZ84" /></a>
+                        <div className="img-education ml-4 mt-3">
+                            {/*  */}
                         </div>
                         <div className="experience-info-content ml-4 mt-3">
                             <h4>Universidad Nacional del Callao</h4>
@@ -92,7 +98,10 @@ function View() {
                 </div>
             </div>
 
-            <div className="card mt-5 ml-4">
+            <ModalExperience />
+            <ModalEducation />
+
+            <div className="card mt-5 ml-4 mb-5">
                 <div className="experience mt-3">
                     <div className="experience-header">
                         <h3 className="ml-5">Certificados</h3>
@@ -101,8 +110,8 @@ function View() {
                 </div>
                 <div className="experience-info">
                     <div className="info-experience">
-                        <div className="img-experience ml-5 mt-3">
-                            <a href="#"><img src="https://media.licdn.com/dms/image/C4D0BAQHO_cO49I_FRA/company-logo_400_400/0?e=1580342400&v=beta&t=oadP5pJMM-PCd7xdRK0WCMUjtQvIy8Eg2m50fHKzs9U" /></a>
+                        <div className="img-experience ml-4 mt-3">
+                            {/*  */}
                         </div>
                         <div className="experience-info-content ml-4 mt-3">
                             <h4>Get Connected</h4>
@@ -123,7 +132,7 @@ function View() {
                 <div className="aptitud mt-3">
                     <div className="aptitud-header">
                         <h3 className="ml-5">Aptitudes</h3>
-                        <a href="#"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#skill"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 <div className="experience-info">
@@ -142,6 +151,7 @@ function View() {
                 </div>
             </div>
 
+            <ModalSkill />
 
         </Fragment>
     );
