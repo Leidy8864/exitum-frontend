@@ -1,8 +1,17 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
 
-function View(){
-    return(
+function View(props) {
+    const {
+        challenge,
+        handleClick,
+        handleInputFileChange,
+        handleChange,
+        content_message,
+        handleDownload,
+        content_error_reply
+    } = props
+    return (
         <div className="Modal-ads">
             <Fragment>
                 <div className="modal fade" id="detailCHallengeModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -11,7 +20,7 @@ function View(){
                             <div className="container">
                                 <div className="row">
                                     <div className="title_">
-                                        Realizar el model Business Canvas
+                                        {challenge.title}
                                     </div>
                                     <div className="container_challenge_tabs">
                                         <ul className="nav nav-pills" id="myTab" role="tablist">
@@ -29,34 +38,54 @@ function View(){
                                                 <div className="subtitle_">
                                                     Descripción del reto
                                                 </div>
-                                                <div className="description_">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor id est quis gravida. Phasellus molestie feugiat aliquam. Vivamus semper elit nec nunc cursus pulvinar. Vestibulum quis pretium ipsum. Duis in purus at erat molestie fermentum non non turpis. 
+                                                <div className="description_ text-justify">
+                                                    {challenge.description}
                                                 </div>
-                                                <div className="subtitle_">
-                                                    Archivos para descargar
-                                                </div>
-                                                <div className="downloads_container">
-                                                    <a className="downloads_" href="">Coffee.docx</a><img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
-                                                    <br/>
-                                                    <br/>
-                                                    <a className="downloads_" href="">Tea.docx</a><img className="left-img" src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
-                                                </div>
+                                                {
+                                                    challenge.files.length >= 1 ?
+                                                        <div>
+
+                                                            <div className="subtitle_">
+                                                                Archivos para descargar
+                                                    </div>
+                                                            <div className="downloads_container">
+                                                                {
+
+                                                                    challenge.files.map((item, index) =>
+                                                                        <div key={index}>
+                                                                            <a className="downloads_" name={item.name} href="#" onClick={handleDownload}>{item.name}</a><img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
+                                                                            <br />
+                                                                            <br />
+                                                                        </div>
+                                                                    )
+                                                                }
+
+                                                            </div>
+                                                        </div>
+                                                        : ''
+                                                }
+
                                                 <div className="subtitle_">
                                                     Respuesta al reto planteado
                                                 </div>
                                                 <div className="response_1 ">
-                                                    <textarea></textarea>
+                                                    <textarea name="reply" onChange={handleChange}></textarea>
+                                                    <div className="error-message-aux">
+                                                        {content_error_reply}
+                                                    </div>
                                                 </div>
                                                 <div className="subtitle_">
                                                     Subir archivos
                                                 </div>
-                                                <div className="response_file ">
-                                                    <p id="texto">Subir archivos</p>
-                                                {/* <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} /> */}
-                                                    <input id="choose_file" type="file"></input>
+                                                <div className="">
+                                                    {/* <label id="texto" htmlFor="choose_files">Subir archivos</label> */}
+                                                    {/* <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} /> */}
+                                                    <input id="choose_files" type="file" name="file" onChange={handleInputFileChange} />
                                                 </div>
+                                                {content_message}
+
                                                 <div className="form_group_ form_group__">
-                                                    <button type="button">completar reto</button>
+                                                    <button type="button" onClick={handleClick}>Completar reto</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -119,7 +119,7 @@ class ModalsProjects extends React.Component {
                         $('#NewProjectModal').modal('hide');
                         window.location.reload();
                     },
-                    900
+                    1000
                 );
             } else {
                 console.log("error = ", response.message)
@@ -127,9 +127,9 @@ class ModalsProjects extends React.Component {
                 setTimeout(
                     () => {
                         $('#NewProjectModal').modal('hide');
-                        window.location.reload();
+                        // window.location.reload();
                     },
-                    900
+                    1000
                 );
             }
 

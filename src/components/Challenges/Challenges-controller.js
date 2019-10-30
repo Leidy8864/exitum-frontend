@@ -3,6 +3,9 @@ import React from 'react';
 import View from './Challenges-view';
 import { challengeByStep } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form';
+import getIdChallenge from '../../redux/actions/getIdChallenge';
+import getListChallenges from '../../redux/actions/getListChallenges';
+
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -15,15 +18,36 @@ class Challenges extends React.Component {
     }
 
     async componentDidUpdate(nextProps){        
-        const {levelId} = this.props;
+        const {levelId,projectId} = this.props;
 
+        console.log("LEVELID",levelId);
+        console.log("PROJECT ID",projectId);
+        
         if (nextProps.levelId !== levelId) {           
             if (levelId) {
+                console.log("I AM HERE");
+                
                 var retos = [];
                 try {
-                    const listaRetos = await challengeByStep(levelId);
-                    if (listaRetos.length >= 1) {
-                        retos = listaRetos.map(x => ({ key: x.id_reto, id: x.id_reto, title: x.title, status: x.status }));
+                    const data = {
+                        step_id : levelId,
+                        startup_id : projectId
+                    };
+                    const response = await challengeByStep(data);
+
+
+                    const listChallenges = response.challenges;
+
+                    console.log("LISTA RETOS",listChallenges);
+                    
+                    if (listChallenges.length >= 1) {
+                        retos = listChallenges.map(x => ({ key: x.tip.id,
+                            challengeId : x.id,
+                            id: x.tip.id, title: x.tip.tip, 
+                            description : x.tip.description,
+                            files : x.tip.file_tips,
+                            status: x.status }));                        
+                        this.props.getListChallenges(retos);
                         console.log("RETOS",retos);                    
 
                         this.setState({
@@ -38,36 +62,10 @@ class Challenges extends React.Component {
             } 
           } 
     }
-    // async componentDidMount() {
 
-    //     try {
-    //         let retos = [];
-    //         const listaRetos = await challengeByStep(1);
-    //         if (listaRetos.length >= 1) {
-    //             retos = listaRetos.map(x => ({ key: x.id_reto, id: x.id_reto, title: x.title, status: x.status }));
-    //             // this.setState({
-    //             //     // selected: listaRetos[0].id,
-    //             //     // show_add_proyect_empty: false,
-    //             // });
-    //             console.log("listaRetos = ", retos)
-    //         }else{
-    //             // this.setState({
-    //             //     // selected: listaRetos[0].id,
-    //             //     // show_add_proyect_empty: true,
-    //             // });
-    //         }
-
-    //         this.setState({
-    //             blockChallenge: retos
-    //         });
-
-    //     } catch (error) {
-    //         console.log("ERROR");
-    //     }
-
-    // }
-
-    cleanForm = () => {
+    handleClick = (id) => {
+        console.log("ID TIP",id);
+        this.props.getIdChallenge(id);
         $('#title').val('');
         $('#description').val('');
         this.props.cleanForm("1");
@@ -77,19 +75,22 @@ class Challenges extends React.Component {
         return (
             <View
                 blockChallenge={this.state.blockChallenge}
-                cleanForm={this.cleanForm}
+                handleClick={this.handleClick}
             />
         );
     }
 }
 
-const mapStateToProps = (state) => ({    
+const mapStateToProps = (state) => ({
+    projectId: state.getIdProjectReducer,    
     levelId: state.getIdStageReducer,
 });
 
 const mapDispatchToProps = {
     challengeByStep,
     cleanForm,
+    getIdChallenge,
+    getListChallenges
 };
 
 

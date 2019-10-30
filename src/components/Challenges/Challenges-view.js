@@ -6,24 +6,31 @@ import DetailChallenge from '../DetailChallenge/DetailChallenge-controller'
 function View(props){
     const  {
         blockChallenge,
-        cleanForm
+        handleClick
     } = props
     return(
         <div className="challenges">
             <div className="container-chellenges">
-                {
+                {   
+                    blockChallenge.length >= 1 ?
                     blockChallenge.map((dt,index) =>
-                        <Link id={dt.id} className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" onClick={cleanForm} key={"project"+index}>
+
+                        <Link className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" key={"project"+index}>
                             <div 
                                 className={dt.status === "completado" ? "challenge_complete" : "challenge"}
                                 
                                 id={dt.id}
+                                onClick={handleClick.bind(this,dt.id)}
                             >
                                 <p>{dt.title}</p>
                                 <span>{dt.status}</span>
                             </div>
                         </Link>
                     )
+                    :
+
+                    <p>Seleccione un nivel</p>
+
                 }
             </div>
             <DetailChallenge/>

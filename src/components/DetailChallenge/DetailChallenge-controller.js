@@ -4,19 +4,150 @@ import View from './DetailChallenge-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import cleanForm from '../../redux/actions/clean-form';
-import { datailChallenge } from '../../redux/actions';
-
+import { datailChallenge, completeChallenge, root } from '../../redux/actions';
+import $ from 'jquery';
 class DetailChallenge extends React.Component {
 
+    state = {
+        file: null,
+        reply: '',
+        challengeId: '',
+        success_message: '',
+        error_message: '',
+        error_reply: '',
+        challenge: {
+            challengeId : '',
+            files: []
+        }
+    }
+    async componentDidUpdate(nextProps) {
+        const { challengeId, challenges } = this.props;
+        if (nextProps.challengeId !== challengeId) {
+            if (challengeId) {
+                const challenge = challenges.find((challenge) => { return challenge.id == challengeId });
+
+                this.setState({
+                    challenge: challenge,
+                    challengeId: challenge.challengeId
+                });
+            }
+        }
+    }
+
+    handleDownload = async (e) => {
+        console.log("VALUE", e.target);
+        const fileName = e.target.name;
+
+        var a = document.createElement("a");
+        a.href = root + 'challenges/download/' + fileName;
+        a.target = "_blank";
+        a.click()
+    }
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+    handleInputFileChange = (e) => {
+        e.preventDefault();
+        console.log("NAME", e.target.files[0]);
+        let file = e.target.files[0];
+
+        this.setState({
+            file: file
+        });
+        // console.log("VALUE", e.target.value);
+    }
+    handleClick = async (e) => {
+        this.props.cleanForm("0");
+        this.setState({
+            error_reply: ''
+        })
+        console.log(e);
+        const { reply, file, challengeId } = this.state;
+        let formData = new FormData();
+        formData.append("file", file);
+        formData.append("reply", reply)
+        formData.append("challenge_id", challengeId);
+
+
+        if (reply) {
+
+            try {
+                const response = await completeChallenge(formData);
+                if (response.status) {
+                    this.setState({ success_message: response.message });
+                    setTimeout(
+                        () => {
+                            $('#detailCHallengeModal').modal('hide');
+                            window.location.reload();
+                        },
+                        1000
+                    );
+                } else {
+                    console.log("error = ", response.message)
+                    this.setState({ error_message: response.message });
+                    setTimeout(
+                        () => {
+                            $('#detailCHallengeModal').modal('hide');
+                            window.location.reload();
+                        },
+                        1000
+                    );
+                }
+            } catch (error) {
+                console.log("ERROR COMPLETANDO PROYECTO"+ error);
+
+            }
+        } else {
+            this.setState({ error_reply: 'Debes ingresar un respuesta' })
+        }
+
+    }
     render() {
+
+        const { cleanFormReducer } = this.props;
+
+        let error_reply = this.state.error_reply;
+        let success_message = this.state.success_message;
+        let error_message = this.state.error_message;
+        let content_error_reply = '';
+        let content_message = '';
+
+        if (cleanFormReducer) {
+            error_reply = '';
+            success_message = '';
+            error_message = '';
+        }
+        if (error_reply) {
+            content_error_reply = <p>{error_reply}</p>
+        }
+        if (success_message) {
+            content_message = <div className="success-message my-3"><p className="text-center">{success_message}</p></div>;
+        }
+        if (error_message) {
+            content_message = <div className="error-message my-3"><p className="text-center">{error_message}</p></div>;
+        }
         return (
-            <View/>
+            <View
+                challenge={this.state.challenge}
+                handleClick={this.handleClick}
+                handleChange={this.handleChange}
+                handleInputFileChange={this.handleInputFileChange}
+                handleDownload={this.handleDownload}
+                content_error_reply={content_error_reply}
+                content_message={content_message}
+
+            />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    cleanFormReducer: state.cleanFormReducer
+    cleanFormReducer: state.cleanFormReducer,
+    challengeId: state.getIdChallengeReducer,
+    challenges: state.getListChallengesReducer,
+
 });
 
 const mapDispatchToProps = {

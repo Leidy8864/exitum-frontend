@@ -5,8 +5,8 @@ import { listAdsByUser, updateAdvertisement } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
-import Swal from 'sweetalert2'
-
+import Swal from 'sweetalert2';
+import $ from 'jquery';
 class AddsList extends React.Component {
 
     state = {
@@ -21,48 +21,92 @@ class AddsList extends React.Component {
 
         const result = jwt.decode(token);
 
+        console.log("result id",result.id);
+        
         const data = {
             user_id: result.id,
             state: 'active',
-            page : 1
+            page: 1
         }
         try {
             const adsActive = await listAdsByUser(data);
             data.state = 'closed'
             const adsPaused = await listAdsByUser(data);
-    
+            
+            var pages = adsActive.pages;
+
             this.setState({
-                adsActive: adsActive,
-                adsPaused: adsPaused
-            })   
+                adsActive: adsActive.data,
+                pages : adsActive.pages,
+                adsPaused: adsPaused.data
+            });
+
+            var page = 1;
+            $('#lista-anuncios').on('scroll', async () => {
+                if ($('#lista-anuncios').scrollTop() +
+                    $('#lista-anuncios').innerHeight() >=
+                    $('#lista-anuncios')[0].scrollHeight) {
+                    
+                    page = page + 1;
+
+                    console.log("PAGE",page);
+                    
+                    const data = {
+                        user_id: result.id,
+                        state: 'active',
+                        page: page
+                    }
+
+                    if (page <= pages) {
+                        console.log("CONSULTANO API");
+                                                
+                        const adsActive = await listAdsByUser(data);
+                        
+                        const adList = adsActive.data;
+
+                        if (adList.length > 0) {
+                            console.log("AQUI PASO");
+                                                    
+                            var newArray = Object.assign([], this.state.adsActive);
+                            
+                            for (let index = 0; index < adList.length; index++) {
+        
+                                newArray.push(adList[index]);
+        
+                            }
+                            this.setState({
+                                adsActive: newArray
+                            });
+                        }
+                    }
+
+                }
+            });
+
         } catch (error) {
             console.error("Error al litar ads");
         }
     }
 
-    deleteAds(index, deleteCount,adType) {
+    deleteAds(index, deleteCount, adType) {
 
-        // var ads = [];
-
-        if (adType == 'active') {            
+        if (adType == 'active') {
             const adsActive = Object.assign([], this.state.adsActive);
             adsActive.splice(index, deleteCount);
 
             this.setState({
-                adsActive : adsActive
+                adsActive: adsActive
             })
         }
-        if (adType == 'closed') {            
+        if (adType == 'closed') {
             const adsPaused = Object.assign([], this.state.adsPaused);
             adsPaused.splice(index, deleteCount);
             this.setState({
-                adsPaused : adsPaused
+                adsPaused: adsPaused
             })
         }
-        // return ads;
-        
-
     }
+
     pauseAdd(index) {
         const adActive = Object.assign({}, this.state.adsActive[index]);
 
@@ -72,11 +116,10 @@ class AddsList extends React.Component {
         adsPaused.push(adActive);
 
         this.setState({
-            adsPaused : adsPaused
+            adsPaused: adsPaused
         });
     }
-
-    playAdd(index){
+    playAdd(index) {
         const adPaused = Object.assign({}, this.state.adsPaused[index]);
 
         adPaused.state = 'active';
@@ -86,58 +129,11 @@ class AddsList extends React.Component {
         adsActive.push(adPaused);
 
         this.setState({
-            adsActive : adsActive
+            adsActive: adsActive
         });
 
     }
-
-    handleClickPause = async (index, e) => {
-
-        e.preventDefault();
-        console.log("EVENT", e);
-
-        console.log("INDEX", index);
-
-        var id = e.target.id;
-
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "Si cierras este anuncio, ya no podrás recibir postulaciones"+ ' ' +
-            "de impulsores",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Aceptar',
-            cancelButtonText : 'Cancelar'
-        }).then(async (result) => {
-            if (result.value) {
-                try {
-                    const data ={
-                        advertisement_id : id,
-                        state : 'closed'
-                    }
-                    const response = await updateAdvertisement(data);
-
-                    if (response.status) {
-                        this.pauseAdd(index);
-                        this.deleteAds(index,1,"active");
-                    }else{
-                        console.log("RESPONSE MESSAGE",response.message);
-                        this.setState({
-                            res_message : response.message
-                        });
-                    }
-                    console.log("RESPONSE", response);   
-                } catch (error) {
-                    console.log("error", error);
-                }
-            }
-        })
-
-    }
-
-    handleClickDelete = async (index,adType, e) => {
+    handleClickDelete = async (index, adType, e) => {
         e.preventDefault();
         console.log("AD TYPE", adType);
 
@@ -150,73 +146,83 @@ class AddsList extends React.Component {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
-            cancelButtonText : 'Cancelar'
+            cancelButtonText: 'Cancelar'
         }).then(async (result) => {
             if (result.value) {
                 try {
-                    const data ={
-                        advertisement_id : id,
-                        state : 'archived'
+                    const data = {
+                        advertisement_id: id,
+                        state: 'archived'
                     }
                     const response = await updateAdvertisement(data);
 
                     if (response.status) {
-
-                       this.deleteAds(index,1,adType);
-
-                    }else{
-                        console.log("RESPONSE MESSAGE",response.message);
+                        this.deleteAds(index, 1, adType);
+                    } else {
+                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
-                            res_message : response.message
+                            res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);   
+                    console.log("RESPONSE", response);
                 } catch (error) {
                     console.log("error", error);
                 }
             }
         });
     }
-    handleClickPlay = async (index, e) => {
-        e.preventDefault();
-        console.log("EVENT ID", e.target.id);
 
+    handleClickUpdate = async (index, adType, e) => {
+        e.preventDefault();
         var id = e.target.id;
+
+        var state = "closed";
+        var updateFunc = this.pauseAdd(index);
+        var text = "Si cierras este anuncio, ya no podrás recibir postulaciones" + ' ' +
+            "de impulsores"
+
+        if (adType === "closed") {
+            state = "active";
+            updateFunc = this.playAdd(index);
+            text = "Si activas este anuncio, podrás recibir postulaciones" + ' ' +
+                "de impulsores interesados.";
+        }
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "Si activas este anuncio, podrás recibir postulaciones"+ ' ' +
-            "de impulsores interesados.",
+            text: text,
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
-            cancelButtonText : 'Cancelar'
+            cancelButtonText: 'Cancelar'
         }).then(async (result) => {
             if (result.value) {
                 try {
-                    const data ={
-                        advertisement_id : id,
-                        state : 'active'
+                    const data = {
+                        advertisement_id: id,
+                        state: state
                     }
                     const response = await updateAdvertisement(data);
 
                     if (response.status) {
-                        this.playAdd(index);
-                        this.deleteAds(index,1,"closed");
-                    }else{
-                        console.log("RESPONSE MESSAGE",response.message);
+                        updateFunc;
+                        this.deleteAds(index, 1, adType);
+                    } else {
+                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
-                            res_message : response.message
+                            res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);   
+                    console.log("RESPONSE", response);
                 } catch (error) {
                     console.log("error", error);
                 }
             }
-        });
+        })
+
     }
+
     render() {
         const {
             adsActive,
@@ -226,9 +232,8 @@ class AddsList extends React.Component {
             <View
                 adsActive={adsActive}
                 adsPaused={adsPaused}
-                handleClickPause={this.handleClickPause}
                 handleClickDelete={this.handleClickDelete}
-                handleClickPlay={this.handleClickPlay}
+                handleClickUpdate={this.handleClickUpdate}
             />
         );
     }

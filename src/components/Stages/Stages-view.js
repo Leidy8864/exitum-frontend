@@ -6,7 +6,7 @@ import './style.css';
 function View(props) {
 
     const {
-        listStages,
+        listSteps,
         selectStage,
         lstStage,
         getIdProjectReducer,
@@ -19,19 +19,25 @@ function View(props) {
                 <div className="container-stage">
 
                     {
-                        listStages.map(function(item,index){
+                        listSteps.length >= 1 ?
+
+                        listSteps.map(function(item,index){
                             return(
                                 <div key={index} className="">
-                                    <p>{item.name_step}</p>
+                                    {/* <p>{item.step}</p> */}
                                     <div className={`img` + index} onClick={selectStage}>
-                                        <img  src={item.icon_count_tip} id={item.id_step} />
+                                        <img  src={item.startup_steps[0].icon_count_tip} id={item.id} />
                                     </div>
-                                    {/* <div className={`icon`+ index}>
+                                    <div className={`icon`+ index}>
                                         <img className="" src={item.icon} />
-                                    </div> */}
+                                    </div>
                                 </div>
                             )
                         })
+
+                        :
+
+                        <p>Seleccione un proyecto</p>
                     }
                 </div>
             </div>

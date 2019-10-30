@@ -9,7 +9,8 @@ import { actuallyStage } from '../../redux/actions'
 class Stages extends React.Component {
 
     state = {
-        listStages: [],
+        listSteps: [
+        ],
         selected: ''
     }
 
@@ -20,13 +21,15 @@ class Stages extends React.Component {
             if (projectId) {
                 try {
                     const listStages = await actuallyStage(projectId);
-                    if (listStages) {
-                        this.props.getIdActualStage(listStages.step[0].id_step);
-                        console.log("STAGES",listStages);
+                    console.log("LISTA STAGES",listStages);
+                    const steps = listStages.steps;
+                    if (steps.length >= 1) {
+                        this.props.getIdActualStage(steps[0].id);
+                        this.setState({
+                            listSteps : steps
+                        });
                     }
-                    this.setState({
-                        listStages : listStages.step
-                    });
+
                 } catch (error) {
                     console.log("Error al listar Stages");
                 } 
@@ -37,7 +40,7 @@ class Stages extends React.Component {
         try {
             const listaStages = await actuallyStage(this.props.getIdProjectReducer);
             this.setState({
-                listStages: listaStages.step
+                listSteps: listaStages.step
             })
             
         } catch (error) {
@@ -56,12 +59,12 @@ class Stages extends React.Component {
     render() {
 
         const {
-            listStages
+            listSteps
         } = this.state
         
         return (
             <View
-                listStages = {listStages}
+            listSteps = {listSteps}
                 selectStage = {this.selectStage}
             />
 

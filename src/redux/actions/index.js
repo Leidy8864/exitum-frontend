@@ -2,9 +2,9 @@ import axios from 'axios'
 // import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
 import { AUTH_ERROR} from './types'
 
-const root = 'http://127.0.0.1:8081/';
+// const root = 'http://127.0.0.1:8081/';
 
-// const root = 'http://35.175.241.103:8081/';
+export const root = 'http://35.175.241.103:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
@@ -249,8 +249,8 @@ export const listAdsByUser = async (data) => {
         const res = await axios.get(root + 'ads/listByEntrepreneur', {
             params: data
         });
-        console.log("DATA LISTADO", res.data.data);
-        return res.data.data;
+        console.log("DATA LISTADO", res.data);
+        return res.data;
     } catch (error) {
         console.log("Error" + error);
     }
@@ -273,7 +273,7 @@ export const actuallyStage = async (id) => {
     console.log("id llegado", id);
 
     try {
-        const res = await axios.get(root + `challenges/actualStage/${id}`)
+        const res = await axios.get(root + `challenges/listStage/${id}`);
 
 
         return res.data.data;
@@ -282,10 +282,12 @@ export const actuallyStage = async (id) => {
     }
 }
 
-    export const challengeByStep = async (id) => {
+    export const challengeByStep = async (data) => {
 
         try {
-            const res = await axios.get(root + `steps/startup/${id}`)
+            const res = await axios.get(root + `challenges/listStep`,{
+                params : data
+            })
             // console.log("DATA ETAPA POR ID", res.data.data)
             return res.data.data;
         } catch (error) {
@@ -299,6 +301,21 @@ export const actuallyStage = async (id) => {
             const res = await axios.get(root + `steps/show/${id}`)
             // console.log("DATA ETAPA POR ID", res.data.data)
             return res.data.data;
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+
+
+    export const completeChallenge = async (data) => {
+
+        try {
+            const res = await axios.post(root + `challenges/reply/`,data)
+            // console.log("DATA ETAPA POR ID", res.data.data)
+
+            console.log("RESPONSE", res.data);
+            
+            return res.data;
         } catch (error) {
             console.log("Error" + error)
         }
