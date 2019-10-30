@@ -1,6 +1,6 @@
 import axios from 'axios'
 // import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
-import { AUTH_ERROR} from './types'
+import { AUTH_ERROR } from './types'
 
 // const root = 'http://127.0.0.1:8081/';
 
@@ -282,41 +282,62 @@ export const actuallyStage = async (id) => {
     }
 }
 
-    export const challengeByStep = async (data) => {
+export const challengeByStep = async (data) => {
 
-        try {
-            const res = await axios.get(root + `challenges/listStep`,{
-                params : data
-            })
-            // console.log("DATA ETAPA POR ID", res.data.data)
-            return res.data.data;
-        } catch (error) {
-            console.log("Error" + error)
-        }
+    try {
+        const res = await axios.get(root + `challenges/listStep`, {
+            params: data
+        })
+        // console.log("DATA ETAPA POR ID", res.data.data)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
     }
+}
 
-    export const datailChallenge = async (id) => {
+export const datailChallenge = async (id) => {
 
-        try {
-            const res = await axios.get(root + `steps/show/${id}`)
-            // console.log("DATA ETAPA POR ID", res.data.data)
-            return res.data.data;
-        } catch (error) {
-            console.log("Error" + error)
-        }
+    try {
+        const res = await axios.get(root + `steps/show/${id}`)
+        // console.log("DATA ETAPA POR ID", res.data.data)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
     }
+}
 
 
-    export const completeChallenge = async (data) => {
+export const completeChallenge = async (data) => {
 
-        try {
-            const res = await axios.post(root + `challenges/reply/`,data)
-            // console.log("DATA ETAPA POR ID", res.data.data)
+    try {
+        const res = await axios.post(root + `challenges/reply/`, data)
+        // console.log("DATA ETAPA POR ID", res.data.data)
 
-            console.log("RESPONSE", res.data);
-            
-            return res.data;
-        } catch (error) {
-            console.log("Error" + error)
-        }
+        console.log("RESPONSE", res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
     }
+}
+
+
+export const createExperience = async (data) => {
+    try {
+        const res = await axios.post(root + `experiences/create`, data)
+        console.log('RES DATA', res);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const createEducation = async (data) => {
+    try {
+        const res = await axios.post(root + `education/create`, data)
+        console.log('RES DATA', res);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}

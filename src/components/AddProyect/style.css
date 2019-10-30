@@ -18,8 +18,7 @@
     font-size: 17px;
     font-weight: bolder;
     position: absolute;
-    left: 10px;
-    top: 30px;
+    bottom: 10px;
 }
 
 .add-proyect-aux a:hover {
@@ -53,7 +52,6 @@
     height: 80px;
     display: flex;
     overflow-x: auto;
-    margin-left: 1.5%;
 }
 .projectblock{
     background-color: #fff;

@@ -13,7 +13,7 @@ class ChooseProfile extends React.Component {
     handleChangeRole = async (e) =>{     
 
         const token = localStorage.getItem('token');
-
+        
         const result = jwt.decode(token);
 
         const data = {

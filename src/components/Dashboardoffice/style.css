@@ -13,7 +13,7 @@
 .main-panel {
   position: relative;
   float: right;
-  width: calc(100% - 260px);
+  width: calc(100% - 230px);
   transition: all .33s cubic-bezier(.685,.0473,.346,1);
 }
 
@@ -30,6 +30,12 @@
 }
 
 @media screen and (max-width: 991px) {
+  .main-panel {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .main-panel {
     width: 100%;
   }

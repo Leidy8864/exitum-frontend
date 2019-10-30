@@ -1,0 +1,139 @@
+.user-img {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-profile {
+    position: relative;
+    margin-top: -80px;
+}
+
+.edit-profile  a img{
+    width: 35px;
+}
+
+.user-bg {
+    width: 100%;
+    position: relative;
+    background: #3369fd;
+    background-size: cover;
+    height: 25vh;
+}
+
+.img {
+    border-radius: 50%;
+    width: 160px;
+}
+
+.user-name {
+    margin-top: 10px;
+    color: #777;
+    font-family: 'Work Sans';
+}
+
+.experience-study,.experience-work {
+    display: flex;
+    align-items: center;
+    padding: 10px !important;
+}
+
+.content-two {
+    overflow-x: hidden;
+}
+
+.experience-work a img, .experience-study a img{
+    width: 24px;
+}
+
+.experience-work span, .experience-study span{
+    margin-left: 10px;
+    color: #777;
+}
+
+div ul.experiences {
+    margin-top: 0px !important;
+}
+
+.profile-info {
+    margin: 0px !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-header  {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+}
+
+.experience-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.experience-info {
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-experience {
+    display: flex;
+}
+
+.experience-info-content {
+    
+}
+
+.img-experience a img {
+    width: 70px;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+}
+
+.education-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.education-info {
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-education {
+    display: flex;
+}
+
+.img-education a img {
+    width: 70px;
+}
+
+.aptitud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777;
+}
+
+.aptitud-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.info-aptitud ul li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
+}

@@ -14,6 +14,10 @@ body {
 }
 
 
+.text-center {
+  font-family: 'Work Sans';
+}
+
 .message {
   display: block;
 }
@@ -33,7 +37,7 @@ body {
 @media screen and (max-width: 991px) {
   .nav-open .main-panel{
     left: 0;
-    transform: translate3d(260px,0,0);
+    transform: translate3d(230px,0,0);
     transition: all .33s cubic-bezier(.685,.0473,.346,1);
   }
   .main-panel {

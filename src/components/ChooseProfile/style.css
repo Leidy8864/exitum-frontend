@@ -38,8 +38,8 @@
 [type="radio"]:checked + label,
 [type="radio"]:not(:checked) + label
 {
-    font-family: 'Work Sans';
     position: relative;
+    font-family: 'Work Sans';
     padding-left: 28px;
     cursor: pointer;
     line-height: 20px;
