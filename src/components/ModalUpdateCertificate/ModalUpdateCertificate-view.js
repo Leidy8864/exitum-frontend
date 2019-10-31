@@ -35,7 +35,7 @@ function View(props){
                                     type="hidden"
                                     name="id"
                                     className="form-control"
-                                    defaultValue={CertificateId}
+                                    value={CertificateId}
                                 />
                                 <div className="row">
                                     <label>Certificacion</label>
@@ -64,7 +64,7 @@ function View(props){
                                     <Fragment>
                                         <DatePicker
                                             onChange={onChange}
-                                            value={date_expidition}
+                                            value={date}
                                             // selected={date_expidition}
                                             name="date_expidition"
                                         />
@@ -75,7 +75,7 @@ function View(props){
                                     <Fragment>
                                         <DatePicker
                                             onChange={onChange_}
-                                            value={date_expiration}
+                                            value={dateFinal}
                                             // selected={date_expiration}
                                             name="date_expiration"
                                         />
@@ -83,10 +83,10 @@ function View(props){
                                 </div>
                                 <div className="response_file mt-3">
                                     <p id="texto">Subir Cerfiticado</p>
-                                    <input id="choose_file" type="file" name="document" />
+                                    <input id="choose_file_" type="file" name="document" />
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="submit" className="btn btn-primary" onClick={certificateUpdate}>Guardar</button>
+                                    <button type="submit" className="btn btn-primary" onClick={certificateUpdate}>Actualizar</button>
                                 </div>
                             </form>
                         </div>
