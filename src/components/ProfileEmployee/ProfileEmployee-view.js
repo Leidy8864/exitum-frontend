@@ -6,12 +6,12 @@ import ModalSkill from '../ModalSkill/ModalSkill-controller'
 import ModalCertificate from '../ModalCertificate/ModalCertificate-controller'
 import ModalUpdateCertificate from '../ModalUpdateCertificate/ModalUpdateCertificate-controller'
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './style.css';
 
 function View(props) {
 
-    const { user, lastname, certifications, idCertificate } = props
+    const { user, lastname, certifications, idCertificate, experiences, educations } = props
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -41,52 +41,70 @@ function View(props) {
                         <a href="#" data-toggle="modal" data-target="#experience"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
-                <div className="experience-info">
-                    <div className="info-experience">
-                        <div className="img-experience ml-4 mt-3">
-                            {/*  */}
-                        </div>
-                        <div className="experience-info-content ml-4 mt-3">
-                            <h4>Programador Frontend</h4>
-                            <span>Techie</span>
-                            <div className="time-exp">
-                                Sep. de 2019 - actualidad 2.meses
-                        </div>
-                            <div className="description mb-4">
-                                Desarrollo y Diseño de aplicaciones web.
-                        </div>
-                        </div>
-                    </div>
-                    <div className="edit-profile mr-5 mt-2">
-                        <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
-                    </div>
-                </div>
-                <hr />
+                {
+                    experiences.length > 0 ?
+                        experiences.map(function (item, index) {
+                            return (
+                                <Fragment key={index}>
+                                    <div className="experience-info">
+                                        <div className="info-experience">
+                                            <div className="img-experience ml-4 mt-3">
+                                                {/*  */}
+                                            </div>
+                                            <div className="experience-info-content ml-4 mt-3">
+                                                <h4>{item.position}</h4>
+                                                <span>{item.company.name}</span>
+                                                <div className="time-exp">
+                                                    {item.date_start}
+                                                </div>
+                                                <div className="description mb-4">
+                                                    {/* Descripcion */}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="edit-profile mr-5 mt-2">
+                                            <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                        </div>
+                                    </div>
+                                </Fragment>
+                            )
+                        }) : null
+                }
+
                 <div className="education mt-3">
                     <div className="education-header">
                         <h3 className="ml-5">Educación</h3>
                         <a href="#" data-toggle="modal" data-target="#education"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
-                <div className="education-info">
-                    <div className="info-education">
-                        <div className="img-education ml-4 mt-3">
-                            {/*  */}
-                        </div>
-                        <div className="experience-info-content ml-4 mt-3">
-                            <h4>Universidad Nacional del Callao</h4>
-                            <div className="description">
-                                Ingenieria de Sistemas
-                        </div>
-                            <div className="time-exp mb-5">
-                                Sep. de 2019 - actualidad 2.meses
-                        </div>
-                        </div>
-                    </div>
-                    <div className="edit-profile mr-5 mt-2">
-                        <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
-                    </div>
-                </div>
+                {
+                    educations.length > 0 ?
+                        educations.map(function (item, index) {
+                            return (
+                                <Fragment key={index}>
+                                    <div className="education-info">
+                                        <div className="info-education">
+                                            <div className="img-education ml-4 mt-3">
+                                                {/*  */}
+                                            </div>
+                                            <div className="experience-info-content ml-4 mt-3">
+                                                <h4>{item.university.university}</h4>
+                                                <div className="description">
+                                                    {item.description}
+                                                </div>
+                                                <div className="time-exp mb-5">
+                                                    {item.date_start} - {item.date_end}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="edit-profile mr-5 mt-2">
+                                            <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                        </div>
+                                    </div>
+                                </Fragment>
+                            )
+                        }) : null
+                }
             </div>
 
             <ModalExperience />
@@ -101,34 +119,34 @@ function View(props) {
                     </div>
                 </div>
                 {
-                    certifications.length > 0 ? 
-                    certifications.map(function (item, index) {
-                        return (
-                            <Fragment  key={index}>
-                                <div className="experience-info">
-                                    <div className="info-experience">
-                                        <div className="img-experience ml-4 mt-3">
-                                            {/*  */}
+                    certifications.length > 0 ?
+                        certifications.map(function (item, index) {
+                            return (
+                                <Fragment key={index}>
+                                    <div className="experience-info">
+                                        <div className="info-experience">
+                                            <div className="img-experience ml-4 mt-3">
+                                                {/*  */}
+                                            </div>
+                                            <div className="experience-info-content ml-4 mt-3">
+                                                <h4>{item.name}</h4>
+                                                <span>{item.issuing_company}</span>
+                                                <div className="time-exp">
+                                                    {item.expedition} - {item.expiration}
+                                                </div>
+                                                <div className="description mb-4">
+                                                    <Link to="#">{item.url}</Link>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="experience-info-content ml-4 mt-3">
-                                            <h4>{item.name}</h4>
-                                            <span>{item.issuing_company}</span>
-                                            <div className="time-exp">
-                                                {item.expedition} - {item.expiration}
-                                            </div>
-                                            <div className="description mb-4">
-                                                <Link to="#">{item.url}</Link>
-                                            </div>
+                                        <div className="edit-profile mr-5 mt-2">
+                                            <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
                                         </div>
                                     </div>
-                                    <div className="edit-profile mr-5 mt-2">
-                                        <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
-                                    </div>
-                                </div>
-                                <hr />
-                            </Fragment>
-                        )
-                    }) : null
+                                    <hr />
+                                </Fragment>
+                            )
+                        }) : null
                 }
                 <div className="aptitud mt-3">
                     <div className="aptitud-header">

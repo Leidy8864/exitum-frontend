@@ -322,20 +322,22 @@ export const completeChallenge = async (data) => {
 }
 
 
-export const createExperience = async (data) => {
-    try {
-        const res = await axios.post(root + `experiences/create`, data)
-        console.log('RES DATA', res);
-        return res.data.data
-    } catch (error) {
-        console.log("Error" + error)
+export const createExperience =  data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `experiences/create`, data)
+            console.log('RES DATA', res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
     }
 }
 
-export const createEducation = async (data) => {
+export const createEducation =  data => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `education/create`, data
+            const res = await axios.post(root + `educations/create`, data
         )
             console.log('RES DATA', res);
             return res.data.data
@@ -361,6 +363,39 @@ export const createCertification =  data => {
         } catch (error) {
             console.log("Error" + error)
         }
+    }
+}
+
+export const createSkills = data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `skills/create`, data
+        )
+            console.log('RES DATA', res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const showExperienceByUser = async (id) => {
+    try {
+        const res = await axios.get(root + `experiences/list-by-id/${id}`);
+        console.log('EXPERIENCES BY ID',res);
+        return res.data.data
+    } catch (error) {
+        console.log('Error' + error)
+    }
+}
+
+export const showEducationByUser = async (id) => {
+    try {
+        const res = await axios.get(root + `educations/list-by-id/${id}`);
+        console.log('EDUCATION BY ID',res);
+        return res.data.data
+    } catch (error) {
+        console.log('Error' + error)
     }
 }
 

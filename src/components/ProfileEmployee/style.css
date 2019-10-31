@@ -12,6 +12,11 @@
     width: 35px;
 }
 
+h3 {
+    color: #3369fd;
+    font-weight: 800;
+}
+
 .user-bg {
     width: 100%;
     position: relative;

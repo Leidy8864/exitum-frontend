@@ -1,2 +1,6 @@
 .Profile{
 }
+
+.content-panel {
+    overflow-y: scroll;
+}

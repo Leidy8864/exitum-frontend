@@ -3,22 +3,28 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showCertificationByUser } from '../../redux/actions';
+import { showCertificationByUser, showExperienceByUser, showEducationByUser } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 
 
 class ProfileEmployee extends React.Component {
 
     state = {
-        certifications : []
+        certifications : [],
+        experiences: [],
+        educations: []
     }
 
     async componentDidMount() {
         try {
             let id = localStorage.getItem('id')
             const certificationsAll = await showCertificationByUser(id);
+            const experiencesAll = await showExperienceByUser(id);
+            const educationsAll = await showEducationByUser(id);
             this.setState({
-                certifications: certificationsAll
+                certifications: certificationsAll,
+                experiences: experiencesAll,
+                educations: educationsAll
             })
         } catch (error) {
             console.log(error)
@@ -39,6 +45,8 @@ class ProfileEmployee extends React.Component {
             <View
                 user={user}
                 lastname={lastname}
+                experiences = {this.state.experiences}
+                educations = {this.state.educations}
                 certifications = {this.state.certifications}
                 idCertificate = {this.idCertificate}
             />

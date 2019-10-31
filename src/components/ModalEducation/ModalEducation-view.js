@@ -12,7 +12,7 @@ function View(props) {
         dateFinal,
         onChange,
         onChange_,
-        university,
+        university_name
     } = props
 
     return (
@@ -59,8 +59,8 @@ function View(props) {
                                     <input 
                                     type="text" 
                                     className="form-control"
-                                    name="university_id"
-                                    onChange={university}
+                                    name="university_name"
+                                    onChange={university_name}
                                     />
                                 </div>
                                 <div className="modal-footer">

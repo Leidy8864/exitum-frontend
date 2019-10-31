@@ -7,12 +7,10 @@ function View(props) {
 
     const {
         position,
-        company,
+        company_name,
         experience,
         date,
-        dateFinal,
         onChange,
-        onChange_
     } = props
 
     return (
@@ -26,7 +24,7 @@ function View(props) {
                         <div className="modal-body">
                             <form onSubmit={experience}>
                                 <div className="row">
-                                    <label>Cargo</label>
+                                    <label>Posision</label>
                                     <input
                                         type="text"
                                         onChange={position}
@@ -38,8 +36,8 @@ function View(props) {
                                     <label>Empresa</label>
                                     <input
                                         type="text"
-                                        onChange={company}
-                                        name="company"
+                                        onChange={company_name}
+                                        name="company_name"
                                         className="form-control"
                                     />
                                 </div>
@@ -49,22 +47,14 @@ function View(props) {
                                         <DatePicker
                                             onChange={onChange}
                                             value={date}
+                                            name="date_start"
                                         />
                                     </Fragment>
                                 </div>
-                                <div className="row clocwerk">
-                                    <label>Fecha final</label>
-                                    <Fragment>
-                                        <DatePicker 
-                                            onChange={onChange_}
-                                            value={dateFinal}
-                                        />
-                                    </Fragment>
-                                </div>
-                                <div className="row mt-1">
+                                {/* <div className="row mt-1">
                                     <label>Actualmente trabajando</label>
                                     <input className="radio-work" type="radio" name="radio" value="false" />
-                                </div>
+                                </div> */}
                                 <div className="modal-footer">
                                     <button type="submit" className="btn btn-primary">Guardar</button>
                                 </div>

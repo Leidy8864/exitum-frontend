@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Work Sans';
   src: url('./public/font/WorkSans-Regular.ttf');
+  
 }
 body {
   margin: 0;
