@@ -6,6 +6,7 @@ import getIdProjectReducer from './getIdProjectReducer';
 import getIdStageReducer from './getIdStageReducer';
 import getListChallengesReducer from './getListChallengesReducer'
 import getIdChallengeReducer from './getIdChallengeReducer'
+import getCertificateReducer from './getCertificateReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -14,6 +15,7 @@ export default combineReducers({
     getIdProjectReducer: getIdProjectReducer,
     getIdStageReducer: getIdStageReducer,
     getListChallengesReducer:getListChallengesReducer,
-    getIdChallengeReducer:getIdChallengeReducer
+    getIdChallengeReducer:getIdChallengeReducer,
+    getCertificateReducer:getCertificateReducer,
 
 });

@@ -12,7 +12,12 @@ function View(props){
         dateFinal,
         onChange,
         onChange_,
-        certificateUpdate
+        certificateUpdate,
+        CertificateId,
+        CertificateName,
+        CertificateIssuingCompany,
+        date_expidition,
+        date_expiration
     } = props
 
     return(
@@ -25,14 +30,22 @@ function View(props){
                         </div>
                         <div className="modal-body">
                             <form>
+                                <input
+                                    id="CertificateId"
+                                    type="hidden"
+                                    name="id"
+                                    className="form-control"
+                                    defaultValue={CertificateId}
+                                />
                                 <div className="row">
                                     <label>Certificacion</label>
                                     <input
                                         type="text"
+                                        id="CertificateName"
                                         onChange={name}
                                         name="name"
                                         className="form-control"
-                                        defaultValue={name}
+                                        defaultValue={CertificateName}
                                     />
                                 </div>
                                 <div className="row">
@@ -40,8 +53,10 @@ function View(props){
                                     <input
                                         type="text"
                                         onChange={company}
+                                        id="CertificateIssuingCompany"
                                         name="issuing_company"
                                         className="form-control"
+                                        defaultValue={CertificateIssuingCompany}
                                     />
                                 </div>
                                 <div className="row clocwerk">
@@ -49,7 +64,8 @@ function View(props){
                                     <Fragment>
                                         <DatePicker
                                             onChange={onChange}
-                                            value={date}
+                                            value={date_expidition}
+                                            // selected={date_expidition}
                                             name="date_expidition"
                                         />
                                     </Fragment>
@@ -59,7 +75,8 @@ function View(props){
                                     <Fragment>
                                         <DatePicker
                                             onChange={onChange_}
-                                            value={dateFinal}
+                                            value={date_expiration}
+                                            // selected={date_expiration}
                                             name="date_expiration"
                                         />
                                     </Fragment>

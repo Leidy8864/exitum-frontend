@@ -4,6 +4,8 @@ import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { showCertificationByUser } from '../../redux/actions';
+import getCertificate from '../../redux/actions/get-certificate';
+
 
 class ProfileEmployee extends React.Component {
 
@@ -23,16 +25,16 @@ class ProfileEmployee extends React.Component {
         }
     }
 
-    idCertificate = e => {
+    idCertificate = async (e) => {
         e.preventDefault();
-        
+        const certificate = this.state.certifications[e.target.id];
+        this.props.getCertificate(certificate);
     }
 
     render() {
 
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname')
-
         return (
             <View
                 user={user}
@@ -45,7 +47,8 @@ class ProfileEmployee extends React.Component {
 }
 
 const mapDispatchToProps = {
-    showCertificationByUser
+    showCertificationByUser,
+    getCertificate
 };
 
 

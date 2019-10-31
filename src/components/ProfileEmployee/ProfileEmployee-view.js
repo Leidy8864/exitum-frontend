@@ -101,7 +101,7 @@ function View(props) {
                     </div>
                 </div>
                 {
-                    certifications >= 1 ? 
+                    certifications.length > 0 ? 
                     certifications.map(function (item, index) {
                         return (
                             <Fragment  key={index}>
@@ -117,12 +117,12 @@ function View(props) {
                                                 {item.expedition} - {item.expiration}
                                             </div>
                                             <div className="description mb-4">
-                                                <Link to="#">{item.document_url}</Link>
+                                                <Link to="#">{item.url}</Link>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="edit-profile mr-5 mt-2">
-                                        <Link to="" onClick={idCertificate} data-toggle="modal" data-target="#updatecertificate"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                        <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
                                     </div>
                                 </div>
                                 <hr />
