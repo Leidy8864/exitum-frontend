@@ -16,6 +16,26 @@ nav.dashboard-header {
   right: 300px;
   font-family: 'Work Sans';
 }
+.menu-profile{
+  background-color: #2d2d2d !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  outline: none !important;
+  /* border:0px !important;
+  outline:0px !important; */
+}
+
+.menu-user:focus{
+  /* outline: none !important; */
+  border:0px !important;
+  outline:0px !important;
+}
+.menu-user{
+  /* outline: none !important; */
+  border:0px !important;
+  outline:0px !important;
+}
 
 .content-user span img {
   width: auto;
@@ -45,7 +65,7 @@ nav.dashboard-header {
   width: 22px;
   height: 2px;
   margin-top: 4px;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   outline: 0;
   display: block;
   border-radius: 1px;

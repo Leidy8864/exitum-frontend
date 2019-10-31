@@ -27,6 +27,12 @@ class Sidebar extends React.Component {
         $('#link-1').removeClass('active')
         this.props.history.push('/advertisement');
     }
+    selectThree = e => {
+        e.preventDefault()
+        $('#link').addClass('active')
+        $('#link-1').removeClass('active')
+        this.props.history.push('/profile');
+    }
     logOut = e => {
         e.preventDefault()
         localStorage.clear();
@@ -50,15 +56,21 @@ class Sidebar extends React.Component {
                 <ul>
                     <li>
                         <NavLink to="/dashboard" id="link" onClick={this.selectOne}>
-                            <img className="rocket" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
+                            <img className="rocket img_menu" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
                             <span className="home">Inicio</span>
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to="/advertisement" id="link-1" onClick={this.selectTwo}>
-                            <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
+                            <img className="img_menu" src={require("../../public/images/svg/empleo.svg")} alt="svg" />
                             <span>Anuncios</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/profile" id="link-1" onClick={this.selectThree}>
+                            <img className="img_menu" src={require("../../public/images/svg/user_.svg")} alt="svg" />
+                            <span>Perfil</span>
                         </NavLink>
                     </li>
                 </ul>

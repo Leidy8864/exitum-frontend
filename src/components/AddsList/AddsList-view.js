@@ -19,7 +19,7 @@ function View(props) {
                 <div className="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="active-tab">
                     <div className="row">
                         {
-                            adsActive.length >= 1 ?
+                            adsActive.length > 0 ?
                                 adsActive.map(function (item, index) {
                                     return (
                                         <div className="col-sm-6 py-2" key={item.id}>

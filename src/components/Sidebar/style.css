@@ -143,6 +143,10 @@ ul li a span {
   font-size: 18px;
   font-family: 'Work Sans';
 }
+.img_menu {
+  width: 24px;
+  height: auto;
+}
 
 ul li a span:hover {
   color: #3369FD;

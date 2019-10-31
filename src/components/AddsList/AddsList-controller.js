@@ -16,12 +16,9 @@ class AddsList extends React.Component {
     }
     async componentDidMount() {
 
-
         const token = localStorage.getItem('token');
 
         const result = jwt.decode(token);
-
-        console.log("result id",result.id);
         
         const data = {
             user_id: result.id,
@@ -36,9 +33,9 @@ class AddsList extends React.Component {
             var pages = adsActive.pages;
 
             this.setState({
-                adsActive: adsActive.data,
-                pages : adsActive.pages,
-                adsPaused: adsPaused.data
+                adsActive: adsActive.status ? adsActive.data : [],
+                pages : adsActive.status ?  adsActive.pages : 1,
+                adsPaused: adsPaused.status ? adsPaused.data : []
             });
 
             var page = 1;
