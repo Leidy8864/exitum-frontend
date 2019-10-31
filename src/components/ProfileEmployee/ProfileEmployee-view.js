@@ -11,7 +11,7 @@ import './style.css';
 
 function View(props) {
 
-    const { user, lastname, certifications, idCertificate, experiences, educations } = props
+    const { user, lastname, certifications, idCertificate, experiences, educations, skills } = props
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -154,20 +154,23 @@ function View(props) {
                         <a href="#" data-toggle="modal" data-target="#skill"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
-                <div className="experience-info">
-                    <div className="info-aptitud ml-4">
-                        <ul>
-                            <li>Trabajo en equipo</li>
-                            <li>Capacidad de adaptacion</li>
-                            <li>Proactivo</li>
-                            <li>Buen Relacionamiento</li>
-                            <li>Polivalente</li>
-                        </ul>
-                    </div>
-                    <div className="edit-profile mr-5 mt-2">
-                        <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
-                    </div>
-                </div>
+                {
+                    skills.length > 0 ?
+                        skills.map(function (item, index) {
+                            return (
+                                <div className="experience-info">
+                                    <div className="info-aptitud ml-4">
+                                        <ul key={index}>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                    <div className="edit-profile mr-5 mt-2">
+                                        <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                    </div>
+                                </div>
+                            )
+                        }) : null
+                }
             </div>
 
             <ModalSkill />

@@ -369,7 +369,7 @@ export const createCertification =  data => {
 export const createSkills = data => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `skills/create`, data
+            const res = await axios.post(root + `skills/userAddSkill`, data
         )
             console.log('RES DATA', res);
             return res.data.data
@@ -403,6 +403,16 @@ export const showCertificationByUser = async (id) => {
     try {
         const res = await axios.get(root + `certifications/list-by-id/${id}`)
         console.log('CERTIFICATIONS BY ID', res);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const showSkillByUser = async (id) => {
+    try {
+        const res = await axios.get(root + `skills/list-by-id/${id}`)
+        console.log('SKILLS BY ID', res);
         return res.data.data
     } catch (error) {
         console.log("Error" + error)

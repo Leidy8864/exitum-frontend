@@ -4,11 +4,13 @@ import View from './ModalSkill-view';
 import { connect } from 'react-redux'
 import {withRouter } from 'react-router-dom'
 import { createSkills } from '../../redux/actions';
+import $ from 'jquery'
 
 class ModalSkill extends React.Component {
 
     state = {
-        skill: ''
+        skill: '',
+        skills: ''
     }
 
     skill = e => {
@@ -17,13 +19,20 @@ class ModalSkill extends React.Component {
 
     skills = async e => {
         e.preventDefault();
+        console.log('Hola')
         let user_id = localStorage.getItem('id');
         const { skill } = this.state
         const formData = {
-            user_id,skill
+            user_id, 
+            skills : [
+                skill
+            ]
         }
 
+        console.log("FORMDATA",formData)
+
         const res = await this.props.createSkills(formData);
+        $('#skill').modal('hide');
         console.log("RESPUESTA SKILL", res);
     }
 

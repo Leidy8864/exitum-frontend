@@ -23,10 +23,10 @@ function View(props){
                                     <label>Descripcion</label>
                                     <input type="text" onChange={skill} name="skill" className="form-control" />
                                 </div>
+                                <div className="modal-footer">
+                                    <button type="submit" className="btn btn-primary">Guardar</button>
+                                </div>
                             </form>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>

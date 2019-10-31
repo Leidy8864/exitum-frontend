@@ -3,7 +3,7 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showCertificationByUser, showExperienceByUser, showEducationByUser } from '../../redux/actions';
+import { showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 
 
@@ -12,7 +12,8 @@ class ProfileEmployee extends React.Component {
     state = {
         certifications : [],
         experiences: [],
-        educations: []
+        educations: [],
+        skills: []
     }
 
     async componentDidMount() {
@@ -21,10 +22,12 @@ class ProfileEmployee extends React.Component {
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);
+            const skillsAll = await showSkillByUser(id)
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,
-                educations: educationsAll
+                educations: educationsAll,
+                skills: skillsAll
             })
         } catch (error) {
             console.log(error)
@@ -47,6 +50,7 @@ class ProfileEmployee extends React.Component {
                 lastname={lastname}
                 experiences = {this.state.experiences}
                 educations = {this.state.educations}
+                skills = {this.state.skills}
                 certifications = {this.state.certifications}
                 idCertificate = {this.idCertificate}
             />
