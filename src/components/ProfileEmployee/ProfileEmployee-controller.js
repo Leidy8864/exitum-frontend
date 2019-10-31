@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { showCertificationByUser, showExperienceByUser, showEducationByUser } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
+import listCertifications from '../../redux/actions/list-certifications';
 
 
 class ProfileEmployee extends React.Component {
@@ -34,10 +35,26 @@ class ProfileEmployee extends React.Component {
     idCertificate = async (e) => {
         e.preventDefault();
         const certificate = this.state.certifications[e.target.id];
+        localStorage.setItem('expedition', certificate.expedition);
+        localStorage.setItem('expiration', certificate.expiration);
         this.props.getCertificate(certificate);
     }
 
+    refreshCertifications = async() =>{
+        const certificationsAll = await showCertificationByUser(localStorage.getItem('id'));
+        this.setState({
+            certifications: certificationsAll
+        });
+        this.props.listCertifications(0);
+    }
+
     render() {
+
+        const {listCertificationsReducer} = this.props;
+
+        if(listCertificationsReducer === 1){
+            this.refreshCertifications();
+        }
 
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname')
@@ -54,12 +71,21 @@ class ProfileEmployee extends React.Component {
     }
 }
 
+
+const mapStateToProps = (state) => ({    
+    listCertificationsReducer: state.listCertificationsReducer,
+});
+
 const mapDispatchToProps = {
     showCertificationByUser,
-    getCertificate
+    getCertificate,
+    listCertifications
 };
 
 
+
+
+
 export default withRouter(
-    connect(null, mapDispatchToProps)(ProfileEmployee)
+    connect(mapStateToProps, mapDispatchToProps)(ProfileEmployee)
 )

@@ -5,7 +5,8 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
 import { createCertification } from '../../redux/actions';
-import $ from 'jquery'
+import $ from 'jquery';
+import listCertifications from '../../redux/actions/list-certifications';
 
 class ModalCertificate extends React.Component {
 
@@ -41,9 +42,10 @@ class ModalCertificate extends React.Component {
         formData.append('date_expiration', moment(date_expiration).format('YYYY-MM-DD'));
         formData.append('document',document.querySelector('#choose_file').files[0]);
         
-        const response = this.props.createCertification(formData);
+        const response = await this.props.createCertification(formData);
         $('#certificate').modal('hide')
         console.log("response", response);
+        this.props.listCertifications(1);
     }
 
     onChange = date_expedition => this.setState({ date_expedition })
@@ -66,7 +68,8 @@ class ModalCertificate extends React.Component {
 }
 
 const mapDispatchToProps = {
-    createCertification
+    createCertification,
+    listCertifications
 }
 
 export default withRouter(

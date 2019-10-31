@@ -366,6 +366,25 @@ export const createCertification =  data => {
     }
 }
 
+export const createCertificationUpdate =  data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(
+                root + `certifications/update`,data,
+                { 
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded;'
+                    } 
+                }
+            )
+            console.log('RES DATA',res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
 export const createSkills = data => {
     return async dispatch => {
         try {
