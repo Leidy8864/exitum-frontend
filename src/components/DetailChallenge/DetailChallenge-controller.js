@@ -24,7 +24,7 @@ class DetailChallenge extends React.Component {
         const { challengeId, challenges } = this.props;
         if (nextProps.challengeId !== challengeId) {
             if (challengeId) {
-                const challenge = challenges.find((challenge) => { return challenge.id == challengeId });
+                const challenge = challenges.find((challenge) => { return challenge.id === challengeId });
 
                 this.setState({
                     challenge: challenge,
@@ -35,7 +35,6 @@ class DetailChallenge extends React.Component {
     }
 
     handleDownload = async (e) => {
-        console.log("VALUE", e.target);
         const fileName = e.target.name;
 
         var a = document.createElement("a");
@@ -50,20 +49,17 @@ class DetailChallenge extends React.Component {
     }
     handleInputFileChange = (e) => {
         e.preventDefault();
-        console.log("NAME", e.target.files[0]);
         let file = e.target.files[0];
 
         this.setState({
             file: file
         });
-        // console.log("VALUE", e.target.value);
     }
     handleClick = async (e) => {
         this.props.cleanForm("0");
         this.setState({
             error_reply: ''
         })
-        console.log(e);
         const { reply, file, challengeId } = this.state;
         let formData = new FormData();
         formData.append("file", file);
@@ -85,7 +81,6 @@ class DetailChallenge extends React.Component {
                         1000
                     );
                 } else {
-                    console.log("error = ", response.message)
                     this.setState({ error_message: response.message });
                     setTimeout(
                         () => {

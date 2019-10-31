@@ -8,7 +8,6 @@ class ProtectedRoute extends React.Component {
     isLogged() {
         const token = localStorage.getItem("token");
 
-        console.log("TOKEN")
         if (token  != null) {
             return true
         } else {

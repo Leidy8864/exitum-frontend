@@ -20,12 +20,12 @@ h3 {
 .delete-skill{
     background-color: #3369fd !important;
     border-radius: 50%;
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important;
+    height: 35px !important;
 }
 .delete-skill img{
     width: 20px !important;
-    margin: 5px;
+    margin: 8px;
 }
 
 .user-bg {

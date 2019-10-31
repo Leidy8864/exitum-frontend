@@ -29,7 +29,6 @@ class Cherry extends React.Component {
             this.setState({show_info: true})
             // localStorage.setItem('show_info', true);
         }
-        // console.log("clickChiko");
     }
 
     render() {
@@ -37,7 +36,6 @@ class Cherry extends React.Component {
         const {role, infoChiko, show_info} = this.state
         let chikoinfo = <br/>;
         let cherry = <br/>;
-        console.log("infoChiko = ", infoChiko);
         if( role === "entrepreneur") {
             if(infoChiko === "true"){
                 chikoinfo = <img src={require('../../public/images/svg/Asistentesigno.svg')} alt="logo de informacion" />

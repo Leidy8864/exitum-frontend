@@ -7,7 +7,7 @@ import { showCertificationByUser, showExperienceByUser, showEducationByUser, sho
 import getCertificate from '../../redux/actions/get-certificate';
 import listCertifications from '../../redux/actions/list-certifications';
 import listSkills  from '../../redux/actions/list-skills';
-import { deleteSkill } from '../../redux/actions';
+import { deleteSkill, deleteCertificate, deleteEducation } from '../../redux/actions';
 import Swal from 'sweetalert2';
 
 class ProfileEmployee extends React.Component {
@@ -26,7 +26,6 @@ class ProfileEmployee extends React.Component {
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id)
-            console.log("skillsAll", skillsAll);
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,
@@ -65,8 +64,6 @@ class ProfileEmployee extends React.Component {
     handleClickDeleteSkill = async (e) => {
         e.preventDefault();
         const idSkill = e.target.id;
-
-        var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
             text: "Si eliminas esta aptitud, ya no podrás deshacer esta acción.",
@@ -88,13 +85,89 @@ class ProfileEmployee extends React.Component {
                     if (response.status) {
 
                     } else {
-                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
                             res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);
                     this.props.listSkills(1);
+                } catch (error) {
+                    console.log("error", error);
+                }
+            }
+        });
+    }
+
+    handleClickDeleteCertificate = async (e) => {
+        e.preventDefault();
+        const certification_id = e.target.id;
+
+        var id = e.target.id;
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Si eliminas este certificado, ya no podrás deshacer esta acción.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.value) {
+                try {
+                    const data = {
+                        user_id: localStorage.getItem('id'),
+                        certification_id: certification_id
+                    }
+                    console.log("response delete certificate data = ", data)
+                    const response = await deleteCertificate(data);
+                    console.log("response delete certificate = ", response)
+                    if (response.status) {
+
+                    } else {
+                        this.setState({
+                            res_message: response.message
+                        });
+                    }
+                    this.props.listCertifications(1);
+                } catch (error) {
+                    console.log("error", error);
+                }
+            }
+        });
+    }
+
+    handleClickDeleteEducation = async (e) => {
+        e.preventDefault();
+        const education_id = e.target.id;
+
+        var id = e.target.id;
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Si eliminas este certificado, ya no podrás deshacer esta acción.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.value) {
+                try {
+                    const data = {
+                        user_id: localStorage.getItem('id'),
+                        education_id: education_id
+                    }
+                    console.log("response delete certificate data = ", data)
+                    const response = await deleteEducation(data);
+                    console.log("response delete certificate = ", response)
+                    if (response.status) {
+
+                    } else {
+                        this.setState({
+                            res_message: response.message
+                        });
+                    }
+                    this.props.listCertifications(1);
                 } catch (error) {
                     console.log("error", error);
                 }
@@ -125,6 +198,8 @@ class ProfileEmployee extends React.Component {
                 certifications = {this.state.certifications}
                 idCertificate = {this.idCertificate}
                 handleClickDeleteSkill = {this.handleClickDeleteSkill}
+                handleClickDeleteCertificate = {this.handleClickDeleteCertificate}
+                handleClickDeleteEducation = {this.handleClickDeleteEducation}
             />
         );
     }

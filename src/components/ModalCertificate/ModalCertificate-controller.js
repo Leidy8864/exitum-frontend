@@ -30,11 +30,6 @@ class ModalCertificate extends React.Component {
         e.preventDefault();
         var formData = new FormData();
         const {name,company,date_expedition,date_expiration} = this.state;
-        console.log("name = ", name);
-        console.log("company = ", company);
-        console.log("date_expedition = ", moment(date_expedition).format('YYYY-MM-DD'));
-        console.log("date_expiration = ", moment(date_expiration).format('YYYY-MM-DD'));
-        console.log("documento = ", document.querySelector('#choose_file').files[0]);
         formData.append('user_id',localStorage.getItem('id'));
         formData.append('name',name);
         formData.append('issuing_company',company);
@@ -44,7 +39,6 @@ class ModalCertificate extends React.Component {
         
         const response = await this.props.createCertification(formData);
         $('#certificate').modal('hide')
-        console.log("response", response);
         this.props.listCertifications(1);
     }
 

@@ -27,18 +27,13 @@ class ModalExperience extends React.Component {
         e.preventDefault();
         let user_id = localStorage.getItem('id')
         const {position,company_name,date} = this.state
-        console.log("position = ", position);
-        console.log("company_name =" ,company_name);
-        console.log("date = ", date);
         let date_start = moment(date).format('YYYY-MM-DD');
         const formData = {
             user_id,position,company_name,date_start
         }
-        console.log('FORMDATA',formData);
 
-        const response = await this.props.createExperience(formData);
+        await this.props.createExperience(formData);
         $('#experience').modal('hide');
-        console.log("response", response);
     }
     
     onChange = date => this.setState({ date })

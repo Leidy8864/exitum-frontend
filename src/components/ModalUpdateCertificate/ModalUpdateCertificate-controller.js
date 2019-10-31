@@ -22,12 +22,6 @@ class ModalUpdateCertificate extends React.Component {
     certificateUpdate = async e => {
         e.preventDefault();
         var formData = new FormData();
-        const {date_expedition,date_expiration} = this.state;
-        console.log("name = ", $('#CertificateName').val());
-        console.log("company = ", $('#CertificateIssuingCompany').val());
-        console.log("date_expedition = ", moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
-        console.log("date_expiration = ", moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
-        console.log("documento = ", document.querySelector('#choose_file_').files[0]);
         formData.append('user_id',localStorage.getItem('id'));
         formData.append('certification_id',$('#CertificateId').val());
         formData.append('name',$('#CertificateName').val());
@@ -36,7 +30,7 @@ class ModalUpdateCertificate extends React.Component {
         formData.append('date_expiration', moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
         formData.append('document',document.querySelector('#choose_file').files[0]);
         
-        const response = await this.props.createCertificationUpdate(formData);
+        await this.props.createCertificationUpdate(formData);
         this.props.listCertifications(1);
         this.props.cleanForm("1");
         this.setState({ changed_date_expedition: false })
@@ -60,8 +54,6 @@ class ModalUpdateCertificate extends React.Component {
         } = this.props;
         let {CertificateId,CertificateName,CertificateIssuingCompany,
             date_expedition,date_expiration,changed_date_expedition,changed_date_expiration} = this.state;
-
-        console.log("getCertificateReducer = ", getCertificateReducer);
         
         CertificateId = getCertificateReducer.id;
         CertificateName = getCertificateReducer.name;

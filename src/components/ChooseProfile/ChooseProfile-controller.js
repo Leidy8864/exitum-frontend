@@ -21,10 +21,7 @@ class ChooseProfile extends React.Component {
             [e.target.name] : e.target.value,
         }
 
-        console.log("result token decoded", data);
         const respone = await updateUser(data);
-
-        console.log("Respone data", respone);
 
         localStorage.setItem('role',respone.data.role);
 

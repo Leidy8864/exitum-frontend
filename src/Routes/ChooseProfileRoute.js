@@ -9,8 +9,6 @@ class ChooseProfileRoute extends React.Component {
     hasRole() {
         const role = localStorage.getItem("role");
 
-        console.log("ROLE",role);
-
         if (role !== 'undefined') {
             return false
         } else {

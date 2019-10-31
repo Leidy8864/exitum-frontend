@@ -8,9 +8,9 @@ function View(props) {
     const {
         listSteps,
         selectStage,
-        lstStage,
-        getIdProjectReducer,
-        stage
+        // lstStage,
+        // getIdProjectReducer,
+        // stage
     } = props
 
     return (
@@ -26,10 +26,10 @@ function View(props) {
                                 <div key={index} className="">
                                     {/* <p>{item.step}</p> */}
                                     <div className={`img` + index} onClick={selectStage}>
-                                        <img  src={item.startup_steps[0].icon_count_tip} id={item.id} />
+                                        <img  src={item.startup_steps[0].icon_count_tip} id={item.id} alt="img" />
                                     </div>
                                     <div className={`icon`+ index}>
-                                        <img className="" src={item.icon} />
+                                        <img className="" src={item.icon} alt="img"/>
                                     </div>
                                 </div>
                             )

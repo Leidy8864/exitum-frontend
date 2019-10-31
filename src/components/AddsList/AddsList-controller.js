@@ -46,7 +46,6 @@ class AddsList extends React.Component {
                     
                     page = page + 1;
 
-                    console.log("PAGE",page);
                     
                     const data = {
                         user_id: result.id,
@@ -55,14 +54,12 @@ class AddsList extends React.Component {
                     }
 
                     if (page <= pages) {
-                        console.log("CONSULTANO API");
                                                 
                         const adsActive = await listAdsByUser(data);
                         
                         const adList = adsActive.data;
 
                         if (adList.length > 0) {
-                            console.log("AQUI PASO");
                                                     
                             var newArray = Object.assign([], this.state.adsActive);
                             
@@ -87,7 +84,7 @@ class AddsList extends React.Component {
 
     deleteAds(index, deleteCount, adType) {
 
-        if (adType == 'active') {
+        if (adType === 'active') {
             const adsActive = Object.assign([], this.state.adsActive);
             adsActive.splice(index, deleteCount);
 
@@ -95,7 +92,7 @@ class AddsList extends React.Component {
                 adsActive: adsActive
             })
         }
-        if (adType == 'closed') {
+        if (adType === 'closed') {
             const adsPaused = Object.assign([], this.state.adsPaused);
             adsPaused.splice(index, deleteCount);
             this.setState({
@@ -132,7 +129,6 @@ class AddsList extends React.Component {
     }
     handleClickDelete = async (index, adType, e) => {
         e.preventDefault();
-        console.log("AD TYPE", adType);
 
         var id = e.target.id;
         Swal.fire({
@@ -156,12 +152,10 @@ class AddsList extends React.Component {
                     if (response.status) {
                         this.deleteAds(index, 1, adType);
                     } else {
-                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
                             res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);
                 } catch (error) {
                     console.log("error", error);
                 }
@@ -175,7 +169,7 @@ class AddsList extends React.Component {
 
         var state = "closed";
         var updateFunc = this.pauseAdd(index);
-        var text = "Si cierras este anuncio, ya no podrás recibir postulaciones" + ' ' +
+        var text = "Si cierras este anuncio, ya no podrás recibir postulaciones" + " " +
             "de impulsores"
 
         if (adType === "closed") {
@@ -206,12 +200,10 @@ class AddsList extends React.Component {
                         updateFunc;
                         this.deleteAds(index, 1, adType);
                     } else {
-                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
                             res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);
                 } catch (error) {
                     console.log("error", error);
                 }

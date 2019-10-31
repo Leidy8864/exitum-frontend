@@ -9,13 +9,11 @@ export const root = 'http://35.175.241.103:8081/';
 export const oauthGoogle = data => {
     return async dispatch => {
         try {
-            console.log('we received', data);
             const newData = {
                 access_token: data,
                 method: "google"
             }
             const res = await axios.post(root + 'users/oauth/google', newData);
-            console.log(res.data);
 
             return res.data
         } catch (error) {
@@ -28,13 +26,11 @@ export const oauthFacebook = data => {
     return async dispatch => {
 
         try {
-            console.log('we received', data);
             const newData = {
                 access_token: data,
                 method: "facebook"
             }
             const res = await axios.post(root + 'users/oauth/facebook', newData);
-            console.log(res.data);
 
             return res.data
         } catch (error) {
@@ -47,21 +43,9 @@ export const oauthFacebook = data => {
 export const signUp = data => {
     return async dispatch => {
         try {
-            console.log('go to AUTH_SIGN_UP in action');
             const res = await axios.post(root + 'users/signUp', data)
-            console.log("res.data = ", res.data);
-            // console.log('go to AUTH_SIGN_UP dispatched in action');
-            // dispatch({
-            //     type: AUTH_SIGN_UP,
-            //     payload: res.data.accessData.accessToken
-            // })
-
-            // localStorage.setItem('token',res.data.accessData.accessToken)
-            console.log(res);
             return res.data;
         } catch (err) {
-            // console.log(err)
-            // console.log('go to AUTH_ERROR dispatched in action');
             dispatch({
                 type: AUTH_ERROR,
                 payload: 'Email is already use'
@@ -74,7 +58,6 @@ export const signIn = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + 'users/signIn', data)
-            console.log(res)
             return res.data;
         } catch (err) {
             console.log(err)
@@ -83,7 +66,6 @@ export const signIn = data => {
 }
 
 export const updateUser = async (data) => {
-    console.log("DATA", data);
     try {
         const res = await axios.post(root + 'users/update', data);
         console.log(res)
@@ -96,12 +78,8 @@ export const updateUser = async (data) => {
 }
 
 export const forgotPassword = async (data) => {
-    console.log("Data reviced", data);
-
     try {
         const res = await axios.post(root + 'users/forgot', data);
-        console.log("RESPONSA API", res.data);
-
         return res.data;
     } catch (error) {
         console.log("Error" + error);
@@ -109,12 +87,8 @@ export const forgotPassword = async (data) => {
 }
 
 export const verifyToken = async (token) => {
-    console.log("Data reviced", token);
-
     try {
         const res = await axios.get(root + 'users/verificationToken/' + token);
-        console.log("RESPONSA API", res.data);
-
         return res.data;
     } catch (error) {
         console.log("Error" + error);
@@ -122,12 +96,8 @@ export const verifyToken = async (token) => {
 }
 
 export const resetPassword = async (data) => {
-    console.log("Data reviced", data);
-
     try {
         const res = await axios.post(root + 'users/reset', data);
-        console.log("RESPONSA API", res.data);
-
         return res.data;
     } catch (error) {
         console.log("Error" + error);
@@ -152,7 +122,6 @@ export const listStartupsByUser = async (data) => {
 
     try {
         const res = await axios.post(root + 'startups/listById', data);
-        console.log("LISTADO DE STARTUPS", res.data.startups);
         return res.data.startups;
     } catch (error) {
         console.log("Error" + error);
@@ -162,9 +131,6 @@ export const listStartupsByUser = async (data) => {
 export const createStartup = async (data) => {
     try {
         const res = await axios.post(root + 'startups/create', data);
-
-        console.log("RES DATA", res.data);
-
         return res.data;
     } catch (error) {
         console.log("Error" + error);
@@ -175,7 +141,6 @@ export const listCategories = async () => {
 
     try {
         const res = await axios.get(root + 'categories/list');
-        console.log(res.data.data);
         return res.data.data;
     } catch (error) {
         console.log("Error" + error);
@@ -186,7 +151,6 @@ export const listStages = async () => {
 
     try {
         const res = await axios.get(root + 'stages/list');
-        console.log(res.data.data);
         return res.data.data;
     } catch (error) {
         console.log("Error" + error);
@@ -195,12 +159,9 @@ export const listStages = async () => {
 
 //Advertisiments
 export const createAdvertisement = async (data) => {
-    console.log("Data reviced", data);
 
     try {
         const res = await axios.post(root + 'ads/create', data);
-
-        console.log("RES DATA", res.data);
 
         return res.data;
     } catch (error) {
@@ -213,8 +174,6 @@ export const updateAdvertisement = async (data) => {
     try {
         const res = await axios.post(root + 'ads/update', data);
 
-        console.log("RES DATA", res.data);
-
         return res.data;
     } catch (error) {
         console.log("Error", error);
@@ -225,7 +184,6 @@ export const listSkillsAxio = async () => {
 
     try {
         const res = await axios.get(root + 'skills/list');
-        console.log(res.data.data);
         return res.data.data;
     } catch (error) {
         console.log("Error" + error);
@@ -235,9 +193,7 @@ export const listSkillsAxio = async () => {
 export const deleteSkill = async (data) => {
     try {
         const res = await axios.post(root + 'skills/delete', data);
-
-        console.log("RES DATA", res.data);
-
+        console.log('RES DATA',res);
         return res.data;
     } catch (error) {
         console.log("Error", error);
@@ -248,7 +204,6 @@ export const listAreas = async () => {
 
     try {
         const res = await axios.get(root + 'areas/list');
-        console.log("DATA LISTADO", res.data.data);
         return res.data.data;
     } catch (error) {
         console.log("Error" + error);
@@ -261,7 +216,6 @@ export const listAdsByUser = async (data) => {
         const res = await axios.get(root + 'ads/listByEntrepreneur', {
             params: data
         });
-        console.log("DATA LISTADO", res.data);
         return res.data;
     } catch (error) {
         console.log("Error" + error);
@@ -282,7 +236,6 @@ export const listAdsByUser = async (data) => {
 //   }
 
 export const actuallyStage = async (id) => {
-    console.log("id llegado", id);
 
     try {
         const res = await axios.get(root + `challenges/listStage/${id}`);
@@ -300,7 +253,6 @@ export const challengeByStep = async (data) => {
         const res = await axios.get(root + `challenges/listStep`, {
             params: data
         })
-        // console.log("DATA ETAPA POR ID", res.data.data)
         return res.data.data;
     } catch (error) {
         console.log("Error" + error)
@@ -311,7 +263,6 @@ export const datailChallenge = async (id) => {
 
     try {
         const res = await axios.get(root + `steps/show/${id}`)
-        // console.log("DATA ETAPA POR ID", res.data.data)
         return res.data.data;
     } catch (error) {
         console.log("Error" + error)
@@ -323,9 +274,6 @@ export const completeChallenge = async (data) => {
 
     try {
         const res = await axios.post(root + `challenges/reply/`, data)
-        // console.log("DATA ETAPA POR ID", res.data.data)
-
-        console.log("RESPONSE", res.data);
 
         return res.data;
     } catch (error) {
@@ -338,7 +286,6 @@ export const createExperience =  data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `experiences/create`, data)
-            console.log('RES DATA', res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -351,7 +298,6 @@ export const createEducation =  data => {
         try {
             const res = await axios.post(root + `educations/create`, data
         )
-            console.log('RES DATA', res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -365,7 +311,6 @@ export const createEducationUpdate =  data => {
             const res = await axios.post(
                 root + `educations/update`,data
             )
-            console.log('RES DATA',res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -384,6 +329,17 @@ export const createCertification =  data => {
                     } 
                 }
             )
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const deleteCertificate =  data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `certifications/delete`,data)
             console.log('RES DATA',res);
             return res.data.data
         } catch (error) {
@@ -403,7 +359,6 @@ export const createCertificationUpdate =  data => {
                     } 
                 }
             )
-            console.log('RES DATA',res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -416,7 +371,6 @@ export const createSkills = data => {
         try {
             const res = await axios.post(root + `skills/userAddSkill`, data
         )
-            console.log('RES DATA', res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -427,7 +381,6 @@ export const createSkills = data => {
 export const showExperienceByUser = async (id) => {
     try {
         const res = await axios.get(root + `experiences/list-by-id/${id}`);
-        console.log('EXPERIENCES BY ID',res);
         return res.data.data
     } catch (error) {
         console.log('Error' + error)
@@ -437,17 +390,27 @@ export const showExperienceByUser = async (id) => {
 export const showEducationByUser = async (id) => {
     try {
         const res = await axios.get(root + `educations/list-by-id/${id}`);
-        console.log('EDUCATION BY ID',res);
         return res.data.data
     } catch (error) {
         console.log('Error' + error)
     }
 }
 
+export const deleteEducation =  data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `educations/delete`,data)
+            console.log('RES DATA',res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
 export const showCertificationByUser = async (id) => {
     try {
         const res = await axios.get(root + `certifications/list-by-id/${id}`)
-        console.log('CERTIFICATIONS BY ID', res);
         return res.data.data
     } catch (error) {
         console.log("Error" + error)
@@ -457,7 +420,6 @@ export const showCertificationByUser = async (id) => {
 export const showSkillByUser = async (id) => {
     try {
         const res = await axios.get(root + `skills/list-by-id/${id}`)
-        console.log('SKILLS BY ID', res);
         return res.data.data
     } catch (error) {
         console.log("Error" + error)

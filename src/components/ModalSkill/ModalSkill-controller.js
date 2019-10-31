@@ -26,9 +26,6 @@ class ModalSkill extends React.Component {
     }
 
     handleChange = (newValue, actionMeta) => {
-        console.group('Value Changed');
-        console.log('listSelectedSkills',newValue);
-        console.log(`action: ${actionMeta.action}`);
         console.groupEnd();
         this.setState({
             skillsSelected: newValue,
@@ -44,11 +41,8 @@ class ModalSkill extends React.Component {
             skills : sendSkills
         }
 
-        console.log("FORMDATA",formData)
-
         const res = await this.props.createSkills(formData);
         $('#skill').modal('hide');
-        console.log("RESPUESTA SKILL", res);
         this.props.listSkills(1);
     }
 

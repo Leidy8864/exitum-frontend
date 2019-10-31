@@ -21,7 +21,6 @@ class Stages extends React.Component {
             if (projectId) {
                 try {
                     const listStages = await actuallyStage(projectId);
-                    console.log("LISTA STAGES",listStages);
                     const steps = listStages.steps;
                     if (steps.length >= 1) {
                         this.props.getIdActualStage(steps[0].id);
@@ -49,7 +48,6 @@ class Stages extends React.Component {
     }
 
     selectStage = async (e) => {
-        console.log("EVENT ID",e.target.id);
         
         this.props.getIdActualStage(e.target.id);
         

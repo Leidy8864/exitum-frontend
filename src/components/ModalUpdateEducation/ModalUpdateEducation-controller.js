@@ -5,7 +5,7 @@ import { createEducationUpdate } from '../../redux/actions';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import listEducations from '../../redux/actions/list-educations';
-import moment from 'moment'
+// import moment from 'moment'
 import $ from 'jquery'
 
 class ModalUpdateEducation extends React.Component {
@@ -14,8 +14,8 @@ class ModalUpdateEducation extends React.Component {
         EducationId: '',
         EducationDescription: '',
         EducationUniversity: '',
-        date_expedition: localStorage.getItem('expedition'),
-        date_expiration: localStorage.getItem('expiration'),
+        date_expedition: new Date(),
+        date_expiration: new Date(),
         changed_date_expedition: false,
         changed_date_expiration: false,
     }
@@ -23,10 +23,6 @@ class ModalUpdateEducation extends React.Component {
     educationUpdate = async e => {
         e.preventDefault();
         const { EducationUniversity, date_start, date_end, EducationDescription } = this.state;
-        console.log("description = ", $('#EducationDescription').val());
-        console.log("university = ", $('#EducationUniversity').val());
-        console.log("date_start = ", moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
-        console.log("date_end = ", moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
         // formData.append('user_id',localStorage.getItem('id'));
         // formData.append('certification_id',$('#CertificateId').val());
         // formData.append('name',$('#CertificateName').val());
@@ -41,7 +37,7 @@ class ModalUpdateEducation extends React.Component {
         }
 
 
-        const response = await this.props.createEducationUpdate(formData);
+        await this.props.createEducationUpdate(formData);
         this.props.listCertifications(1);
         this.props.cleanForm("1");
         this.setState({ changed_date_expedition: false })
@@ -61,12 +57,16 @@ class ModalUpdateEducation extends React.Component {
     render() {
 
         const {
-            getEducationReducer
+            // getEducationReducer
         } = this.props;
-        let { EducationId, EducationDescription, EducationUniversity,
-            date_expedition, date_expiration, changed_date_expedition, changed_date_expiration } = this.state;
-
-        console.log("getEducationReducer = ", getEducationReducer);
+        let { EducationId, 
+                EducationDescription, 
+                EducationUniversity,
+                date_expedition, 
+                date_expiration, 
+                // changed_date_expedition, 
+                // changed_date_expiration 
+            } = this.state;
 
         // EducationId = getEducationReducer.id;
         // EducationDescription = getEducationReducer.description;

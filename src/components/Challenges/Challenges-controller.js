@@ -19,13 +19,8 @@ class Challenges extends React.Component {
 
     async componentDidUpdate(nextProps){        
         const {levelId,projectId} = this.props;
-
-        console.log("LEVELID",levelId);
-        console.log("PROJECT ID",projectId);
-        
         if (nextProps.levelId !== levelId) {           
             if (levelId) {
-                console.log("I AM HERE");
                 
                 var retos = [];
                 try {
@@ -35,10 +30,7 @@ class Challenges extends React.Component {
                     };
                     const response = await challengeByStep(data);
 
-
                     const listChallenges = response.challenges;
-
-                    console.log("LISTA RETOS",listChallenges);
                     
                     if (listChallenges.length >= 1) {
                         retos = listChallenges.map(x => ({ key: x.tip.id,
@@ -47,13 +39,11 @@ class Challenges extends React.Component {
                             description : x.tip.description,
                             files : x.tip.file_tips,
                             status: x.status }));                        
-                        this.props.getListChallenges(retos);
-                        console.log("RETOS",retos);                    
+                        this.props.getListChallenges(retos);              
 
                         this.setState({
                             blockChallenge: retos
                         });
-                        console.log("listaRetos = ", retos)
                     }
                 } catch (error) {
                     console.log("Error al traer challenges");
@@ -64,7 +54,6 @@ class Challenges extends React.Component {
     }
 
     handleClick = (id) => {
-        console.log("ID TIP",id);
         this.props.getIdChallenge(id);
         $('#title').val('');
         $('#description').val('');

@@ -11,7 +11,7 @@ function View(props){
         onChange_,
         className,
         contactoClassNamePrefix,
-        contactoPlaceholder,
+        // contactoPlaceholder,
         contactoName,
         contactosOptions,
         isDisabled,

@@ -44,9 +44,6 @@ class ModalAds extends React.Component {
             const skillsData = await listSkillsAxio();
             const areasData = await listAreas();
     
-            console.log("startupsData data", startupsData);
-    
-    
             var startups = [];
             var skills = [];
             var areas = [];
@@ -61,10 +58,6 @@ class ModalAds extends React.Component {
             if (areasData.length >= 1) {
                 areas = areasData.map(x => ({ label: x.name, value: x.id }));
             }
-            
-            console.log("STARTUPS", startups);
-            // console.log("SKILLS", skills);
-            console.log("AREAS", areas);
     
             this.setState({
                 startups: startups,
@@ -119,8 +112,6 @@ class ModalAds extends React.Component {
     handleSelectChange = (option, action) => {
         var values = [];
         if (Array.isArray(option)) {
-
-            console.log("OPTION", option);
             for (let index = 0; index < option.length; index++) {
                 values.push(option[index].value)
             }
@@ -147,12 +138,7 @@ class ModalAds extends React.Component {
         const formData = { title, description, area_id, startup_id, skills }
         if (title && description && area_id && startup_id && skills.length >= 1) {
 
-            console.log("title" + title);
             const response = await createAdvertisement(formData);
-
-            console.log("DATA RECIBIDA", formData);
-
-            // console.log("DATA RECIBIDA ANUNCIO", response);
 
             if (response.status) {
                 this.setState({ success_message: response.message });
