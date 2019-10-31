@@ -40,7 +40,7 @@ class ModalCertificate extends React.Component {
         formData.append('date_expedition', moment(date_expedition).format('YYYY-MM-DD'));
         formData.append('date_expiration', moment(date_expiration).format('YYYY-MM-DD'));
         formData.append('document',document.querySelector('#choose_file').files[0]);
-
+        
         const response = this.props.createCertification(formData);
         $('#certificate').modal('hide')
         console.log("response", response);

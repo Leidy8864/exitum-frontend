@@ -23,6 +23,11 @@ class ProfileEmployee extends React.Component {
         }
     }
 
+    idCertificate = e => {
+        e.preventDefault();
+        
+    }
+
     render() {
 
         let user = localStorage.getItem('name');
@@ -33,6 +38,7 @@ class ProfileEmployee extends React.Component {
                 user={user}
                 lastname={lastname}
                 certifications = {this.state.certifications}
+                idCertificate = {this.idCertificate}
             />
         );
     }

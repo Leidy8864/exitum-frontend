@@ -333,12 +333,15 @@ export const createExperience = async (data) => {
 }
 
 export const createEducation = async (data) => {
-    try {
-        const res = await axios.post(root + `education/create`, data)
-        console.log('RES DATA', res);
-        return res.data.data
-    } catch (error) {
-        console.log("Error" + error)
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `education/create`, data
+        )
+            console.log('RES DATA', res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
     }
 }
 

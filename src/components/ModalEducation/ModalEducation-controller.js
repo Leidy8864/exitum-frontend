@@ -28,8 +28,8 @@ class ModalEducation extends React.Component {
         e.preventDefault();
         let user_id = localStorage.getItem('id');
         const { description, date, dateFinal, university_id } = this.state
-        let date_start = moment(date).format('L')
-        let date_end = moment(dateFinal).format('L')
+        let date_start = moment(date).format('YYYY-MM-DD');
+        let date_end = moment(dateFinal).format('YYYY-MM-DD');
 
         const formData = {
             user_id,description, date_start,date_end,university_id

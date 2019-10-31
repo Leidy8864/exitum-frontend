@@ -32,6 +32,7 @@ function View(props){
                                         onChange={name}
                                         name="name"
                                         className="form-control"
+                                        defaultValue={name}
                                     />
                                 </div>
                                 <div className="row">

@@ -1,28 +1,29 @@
 
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import View from './ModalUpdateCertificate-view';
+import Axios from 'axios';
 
-class ModalUpdateCertificate extends React.Component {
+export const root = 'http://35.175.241.103:8081/';
 
-    state = {
-        name: '',
-        company: '',
-        date_expedition: new Date(),
-        date_expiration: new Date(),
-        document: ''
-    }
+function ModalUpdateCertificate(props) {
 
-    name = e => {
-        this.setState({ name: e.target.value})
-    }
+    const [certifications, saveCertificates] = useState({
+        name: ''
+    })
 
-    render() {
+    useEffect(() => {
+        const goAPI = async () => {
+            const apiCertificate = await Axios.get(root + `certifications/list-by-id/${9}`);
+            console.log(apiCertificate.data);
+            saveCertificates(apiCertificate.data);
+        }
+        goAPI();
+    }, [])
 
-        return (
-            <View
-                name = {this.name}
-            />
-        );
-    }
+    return (
+        <View
+        />
+    );
 }
+
 export default ModalUpdateCertificate;

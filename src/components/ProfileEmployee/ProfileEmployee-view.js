@@ -11,7 +11,7 @@ import './style.css';
 
 function View(props) {
 
-    const { user, lastname, certifications } = props
+    const { user, lastname, certifications, idCertificate } = props
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -101,6 +101,7 @@ function View(props) {
                     </div>
                 </div>
                 {
+                    certifications >= 1 ? 
                     certifications.map(function (item, index) {
                         return (
                             <Fragment  key={index}>
@@ -121,13 +122,13 @@ function View(props) {
                                         </div>
                                     </div>
                                     <div className="edit-profile mr-5 mt-2">
-                                        <a href="#" data-toggle="modal" data-target="#updatecertificate"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                        <Link to="" onClick={idCertificate} data-toggle="modal" data-target="#updatecertificate"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
                                     </div>
                                 </div>
                                 <hr />
                             </Fragment>
                         )
-                    })
+                    }) : null
                 }
                 <div className="aptitud mt-3">
                     <div className="aptitud-header">
