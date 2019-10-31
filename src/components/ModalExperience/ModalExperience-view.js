@@ -51,10 +51,10 @@ function View(props) {
                                         />
                                     </Fragment>
                                 </div>
-                                {/* <div className="row mt-1">
+                                <div className="row mt-1">
                                     <label>Actualmente trabajando</label>
                                     <input className="radio-work" type="radio" name="radio" value="false" />
-                                </div> */}
+                                </div>
                                 <div className="modal-footer">
                                     <button type="submit" className="btn btn-primary">Guardar</button>
                                 </div>

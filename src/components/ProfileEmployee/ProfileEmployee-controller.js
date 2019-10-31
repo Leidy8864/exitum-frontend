@@ -100,7 +100,7 @@ class ProfileEmployee extends React.Component {
     handleClickDeleteCertificate = async (e) => {
         e.preventDefault();
         const certification_id = e.target.id;
-
+        console.log(certification_id)
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
@@ -119,10 +119,10 @@ class ProfileEmployee extends React.Component {
                         certification_id: certification_id
                     }
                     console.log("response delete certificate data = ", data)
-                    const response = await deleteCertificate(data);
-                    console.log("response delete certificate = ", response)
+                    const response = await this.props.deleteCertificate(data);
+                    console.log("response delete certificate = ", response.status)
                     if (response.status) {
-
+                        console.log('Hola')
                     } else {
                         this.setState({
                             res_message: response.message
@@ -139,7 +139,6 @@ class ProfileEmployee extends React.Component {
     handleClickDeleteEducation = async (e) => {
         e.preventDefault();
         const education_id = e.target.id;
-
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
@@ -158,7 +157,7 @@ class ProfileEmployee extends React.Component {
                         education_id: education_id
                     }
                     console.log("response delete certificate data = ", data)
-                    const response = await deleteEducation(data);
+                    const response = await this.props.deleteEducation(data);
                     console.log("response delete certificate = ", response)
                     if (response.status) {
 
@@ -212,6 +211,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
+    deleteCertificate,
     showCertificationByUser,
     getCertificate,
     listCertifications,

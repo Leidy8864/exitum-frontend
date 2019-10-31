@@ -20,7 +20,7 @@ class ModalExperience extends React.Component {
     }
 
     company_name = e => {
-        this.setState({ name_company: e.target.value })
+        this.setState({ company_name: e.target.value })
     }
 
     experience = async e => {
