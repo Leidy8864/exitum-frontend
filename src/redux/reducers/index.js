@@ -8,6 +8,8 @@ import getListChallengesReducer from './getListChallengesReducer'
 import getIdChallengeReducer from './getIdChallengeReducer'
 import getCertificateReducer from './getCertificateReducer'
 import listCertificationsReducer from './listCertificationsReducer'
+import getEducationReducer from './getEducationReducer'
+import listEducationReducer from './listEducationsReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -19,4 +21,6 @@ export default combineReducers({
     getIdChallengeReducer:getIdChallengeReducer,
     getCertificateReducer:getCertificateReducer,
     listCertificationsReducer:listCertificationsReducer,
+    getEducationReducer: getEducationReducer,
+    listEducationReducer: listEducationReducer
 });

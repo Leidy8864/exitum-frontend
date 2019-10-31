@@ -5,13 +5,14 @@ import ModalEducation from '../ModalEducation/ModalEducation-controller'
 import ModalSkill from '../ModalSkill/ModalSkill-controller'
 import ModalCertificate from '../ModalCertificate/ModalCertificate-controller'
 import ModalUpdateCertificate from '../ModalUpdateCertificate/ModalUpdateCertificate-controller'
+import ModalUpdateEducation from '../ModalUpdateEducation/ModalUpdateEducation-controller'
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
 import { Link } from 'react-router-dom'
 import './style.css';
 
 function View(props) {
 
-    const { user, lastname, certifications, idCertificate, experiences, educations, skills } = props
+    const { user, lastname, certifications, idCertificate, experiences, educations, skills, idEducation } = props
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -98,7 +99,7 @@ function View(props) {
                                             </div>
                                         </div>
                                         <div className="edit-profile mr-5 mt-2">
-                                            <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                            <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
                                         </div>
                                     </div>
                                 </Fragment>
@@ -158,9 +159,9 @@ function View(props) {
                     skills.length > 0 ?
                         skills.map(function (item, index) {
                             return (
-                                <div className="experience-info">
+                                <div className="experience-info" key={index}>
                                     <div className="info-aptitud ml-4">
-                                        <ul key={index}>
+                                        <ul >
                                             <li></li>
                                         </ul>
                                     </div>
@@ -176,6 +177,7 @@ function View(props) {
             <ModalSkill />
             <ModalCertificate />
             <ModalUpdateCertificate />
+            <ModalUpdateEducation />
 
         </Fragment>
     );
