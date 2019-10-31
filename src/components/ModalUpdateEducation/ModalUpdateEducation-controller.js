@@ -68,11 +68,11 @@ class ModalUpdateEducation extends React.Component {
 
         console.log("getEducationReducer = ", getEducationReducer);
 
-        EducationId = getEducationReducer.id;
-        EducationDescription = getEducationReducer.description;
-        EducationUniversity = getEducationReducer.university_name;
-        if (!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.expedition).add(1, 'days').format('YYYY-MM-DD'));
-        if (!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.expiration).add(1, 'days').format('YYYY-MM-DD'));
+        // EducationId = getEducationReducer.id;
+        // EducationDescription = getEducationReducer.description;
+        // EducationUniversity = getEducationReducer.university_name;
+        // if (!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.expedition).add(1, 'days').format('YYYY-MM-DD'));
+        // if (!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.expiration).add(1, 'days').format('YYYY-MM-DD'));
 
         $('#EducationId').val(EducationId);
         $('#EducationDescription').val(EducationDescription);

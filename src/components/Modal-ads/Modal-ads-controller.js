@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import cleanForm from '../../redux/actions/clean-form'
-import { listStartupsByUser, listSkills, createAdvertisement, listAreas } from '../../redux/actions';
+import { listStartupsByUser, listSkillsAxio, createAdvertisement, listAreas } from '../../redux/actions';
 import $ from 'jquery';
 
 class ModalAds extends React.Component {
@@ -41,7 +41,7 @@ class ModalAds extends React.Component {
             const startupsData = await listStartupsByUser({
                 id: result.id
             });
-            const skillsData = await listSkills();
+            const skillsData = await listSkillsAxio();
             const areasData = await listAreas();
     
             console.log("startupsData data", startupsData);
@@ -294,7 +294,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     listStartupsByUser,
-    listSkills,
+    listSkillsAxio,
     createAdvertisement,
     listAreas,
     cleanForm

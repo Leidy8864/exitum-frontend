@@ -221,7 +221,7 @@ export const updateAdvertisement = async (data) => {
     }
 }
 
-export const listSkills = async () => {
+export const listSkillsAxio = async () => {
 
     try {
         const res = await axios.get(root + 'skills/list');
@@ -229,6 +229,18 @@ export const listSkills = async () => {
         return res.data.data;
     } catch (error) {
         console.log("Error" + error);
+    }
+}
+
+export const deleteSkill = async (data) => {
+    try {
+        const res = await axios.post(root + 'skills/delete', data);
+
+        console.log("RES DATA", res.data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
     }
 }
 

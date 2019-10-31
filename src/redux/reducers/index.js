@@ -10,6 +10,7 @@ import getCertificateReducer from './getCertificateReducer'
 import listCertificationsReducer from './listCertificationsReducer'
 import getEducationReducer from './getEducationReducer'
 import listEducationReducer from './listEducationsReducer'
+import listSkillsReducer from './listSkillsReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -22,5 +23,6 @@ export default combineReducers({
     getCertificateReducer:getCertificateReducer,
     listCertificationsReducer:listCertificationsReducer,
     getEducationReducer: getEducationReducer,
-    listEducationReducer: listEducationReducer
+    listEducationReducer: listEducationReducer,
+    listSkillsReducer: listSkillsReducer,
 });

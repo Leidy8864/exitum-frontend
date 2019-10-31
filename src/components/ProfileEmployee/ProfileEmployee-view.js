@@ -9,10 +9,21 @@ import ModalUpdateEducation from '../ModalUpdateEducation/ModalUpdateEducation-c
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
 import { Link } from 'react-router-dom'
 import './style.css';
+import { SlowBuffer } from 'buffer';
 
 function View(props) {
 
-    const { user, lastname, certifications, idCertificate, experiences, educations, skills, idEducation } = props
+    const { 
+        user, 
+        lastname, 
+        certifications, 
+        idCertificate, 
+        experiences, 
+        educations, 
+        skills, 
+        idEducation,
+        handleClickDeleteSkill,
+    } = props
     return (
         <Fragment>
             <div className="card mt-5 ml-4">
@@ -160,13 +171,20 @@ function View(props) {
                         skills.map(function (item, index) {
                             return (
                                 <div className="experience-info" key={index}>
-                                    <div className="info-aptitud ml-4">
+                                    <div className="info-aptitud ml-5">
                                         <ul >
-                                            <li></li>
+                                            <li>{item.skill}</li>
                                         </ul>
                                     </div>
-                                    <div className="edit-profile mr-5 mt-2">
-                                        <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                    <div className="edit-profile delete-skill mr-5 mt-2">
+                                        <a href="#" >
+                                            <img 
+                                                className="img" 
+                                                id={item.id} 
+                                                src={require('../../public/images/svg/delete_.svg')} 
+                                                onClick={handleClickDeleteSkill}
+                                            />
+                                        </a>
                                     </div>
                                 </div>
                             )

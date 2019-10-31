@@ -1,12 +1,14 @@
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
-
+import CreatableSelect from 'react-select/creatable';
 function View(props){
 
     const {
-        skills,
-        skill
+        options,
+        handleChange,
+        saveSkills
+
     } = props
 
     return(
@@ -18,15 +20,16 @@ function View(props){
                             <h5 className="modal-title" id="exampleModalLabel">Aptitudes</h5>
                         </div>
                         <div className="modal-body">
-                            <form onSubmit={skills}>
-                                <div className="row">
-                                    <label>Descripcion</label>
-                                    <input type="text" onChange={skill} name="skill" className="form-control" />
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="submit" className="btn btn-primary">Guardar</button>
-                                </div>
-                            </form>
+                            <Fragment>
+                                <CreatableSelect
+                                    isMulti
+                                    onChange={handleChange}
+                                    options={options}
+                                />
+                            </Fragment>
+                            <div className="modal-footer">
+                                <button type="submit" className="btn btn-primary" onClick={saveSkills}>Guardar</button>
+                            </div>
                         </div>
                     </div>
                 </div>

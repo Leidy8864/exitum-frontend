@@ -17,6 +17,17 @@ h3 {
     font-weight: 800;
 }
 
+.delete-skill{
+    background-color: #3369fd !important;
+    border-radius: 50%;
+    width: 30px !important;
+    height: 30px !important;
+}
+.delete-skill img{
+    width: 20px !important;
+    margin: 5px;
+}
+
 .user-bg {
     width: 100%;
     position: relative;
@@ -88,9 +99,6 @@ div ul.experiences {
     display: flex;
 }
 
-.experience-info-content {
-    
-}
 
 .img-experience a img {
     width: 70px;

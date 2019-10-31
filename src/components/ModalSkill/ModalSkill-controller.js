@@ -3,30 +3,45 @@ import React from 'react';
 import View from './ModalSkill-view';
 import { connect } from 'react-redux'
 import {withRouter } from 'react-router-dom'
-import { createSkills } from '../../redux/actions';
-import $ from 'jquery'
+import { createSkills, listSkillsAxio} from '../../redux/actions';
+import $ from 'jquery';
+import listSkills  from '../../redux/actions/list-skills';
 
 class ModalSkill extends React.Component {
 
     state = {
-        skill: '',
-        skills: ''
+        skillsSelected: [],
+        options:[]
     }
 
-    skill = e => {
-        this.setState({ skill: e.target.value })
+    async componentDidMount() {
+        let skills = [];
+        const skillsData = await listSkillsAxio();
+        if (skillsData.length >= 1) {
+            skills = skillsData.map(x => ({ label: x.skill, value: x.id }));
+        }
+        this.setState({
+            options: skills,
+        });
     }
 
-    skills = async e => {
+    handleChange = (newValue, actionMeta) => {
+        console.group('Value Changed');
+        console.log('listSelectedSkills',newValue);
+        console.log(`action: ${actionMeta.action}`);
+        console.groupEnd();
+        this.setState({
+            skillsSelected: newValue,
+        });
+    };
+
+    saveSkills = async(e)=>{
         e.preventDefault();
-        console.log('Hola')
+        let sendSkills = this.state.skillsSelected.map(x => (x.label));
         let user_id = localStorage.getItem('id');
-        const { skill } = this.state
         const formData = {
-            user_id, 
-            skills : [
-                skill
-            ]
+            user_id: user_id, 
+            skills : sendSkills
         }
 
         console.log("FORMDATA",formData)
@@ -34,20 +49,24 @@ class ModalSkill extends React.Component {
         const res = await this.props.createSkills(formData);
         $('#skill').modal('hide');
         console.log("RESPUESTA SKILL", res);
+        this.props.listSkills(1);
     }
 
     render() {
         return (
             <View
-                skills = {this.skills}
-                skill = {this.skill}
+                saveSkills={this.saveSkills}
+                options = {this.state.options}
+                handleChange = {this.handleChange}
             />
         );
     }
 }
 
 const mapDispatchToProps = {
-    createSkills
+    createSkills,
+    listSkills,
+    listSkillsAxio,
 }
 
 export default withRouter(
