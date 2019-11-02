@@ -56,7 +56,7 @@ class ModalAds extends React.Component {
             }
     
             if (skillsData.length >= 1) {
-                skills = skillsData.map(x => ({ label: x.skill, value: x.id }));
+                skills = skillsData.map(x => ({ label: x.skill, value: x.skill }));
             }
             if (areasData.length >= 1) {
                 areas = areasData.map(x => ({ label: x.name, value: x.id }));
@@ -119,11 +119,10 @@ class ModalAds extends React.Component {
     handleSelectChange = (option, action) => {
         var values = [];
         if (Array.isArray(option)) {
-
-            console.log("OPTION", option);
             for (let index = 0; index < option.length; index++) {
                 values.push(option[index].value)
             }
+            
             this.setState({
                 [action.name]: values
             });
@@ -165,15 +164,15 @@ class ModalAds extends React.Component {
                 );
             }
             else {
-                console.log("error = ", response.message)
+                console.log("error = ", response)
                 this.setState({ error_message: response.message });
-                setTimeout(
-                    () => {
-                        $('#AdsModal').modal('hide');
-                        window.location.reload();
-                    },
-                    900
-                );
+                // setTimeout(
+                //     () => {
+                //         $('#AdsModal').modal('hide');
+                //         window.location.reload();
+                //     },
+                //     900
+                // );
             }
 
         } else {

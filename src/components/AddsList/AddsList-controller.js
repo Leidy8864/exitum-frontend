@@ -11,129 +11,94 @@ class AddsList extends React.Component {
 
     state = {
         res_message: '',
-        adsActive: [],
-        adsPaused: []
+        adsList : []
     }
-    async componentDidMount() {
+    async componentDidUpdate(nextProps) {
 
-        const token = localStorage.getItem('token');
+        const {adState} = this.props;
 
-        const result = jwt.decode(token);
-        
-        const data = {
-            user_id: result.id,
-            state: 'active',
-            page: 1
-        }
-        try {
-            const adsActive = await listAdsByUser(data);
-            data.state = 'closed'
-            const adsPaused = await listAdsByUser(data);
-            
-            var pages = adsActive.pages;
+        if (nextProps.adState !== adState) {
+            if (adState) {
+                
+                const token = localStorage.getItem('token');
 
-            this.setState({
-                adsActive: adsActive.status ? adsActive.data : [],
-                pages : adsActive.status ?  adsActive.pages : 1,
-                adsPaused: adsPaused.status ? adsPaused.data : []
-            });
-
-            var page = 1;
-            $('#lista-anuncios').on('scroll', async () => {
-                if ($('#lista-anuncios').scrollTop() +
-                    $('#lista-anuncios').innerHeight() >=
-                    $('#lista-anuncios')[0].scrollHeight) {
-                    
-                    page = page + 1;
-
-                    console.log("PAGE",page);
-                    
-                    const data = {
-                        user_id: result.id,
-                        state: 'active',
-                        page: page
-                    }
-
-                    if (page <= pages) {
-                        console.log("CONSULTANO API");
-                                                
-                        const adsActive = await listAdsByUser(data);
-                        
-                        const adList = adsActive.data;
-
-                        if (adList.length > 0) {
-                            console.log("AQUI PASO");
-                                                    
-                            var newArray = Object.assign([], this.state.adsActive);
-                            
-                            for (let index = 0; index < adList.length; index++) {
-        
-                                newArray.push(adList[index]);
-        
-                            }
-                            this.setState({
-                                adsActive: newArray
-                            });
-                        }
-                    }
-
+                const result = jwt.decode(token);
+                
+                const data = {
+                    user_id: result.id,
+                    state: adState,
+                    page: 1
                 }
-            });
+                try {
 
-        } catch (error) {
-            console.error("Error al litar ads");
+                    const adsList = await listAdsByUser(data)
+                    
+                    var pages = adsList.status ?  adsList.pages : 1;
+        
+                    this.setState({
+                        pages : pages,
+                        adsList : adsList.status ? adsList.data : []
+                    });
+        
+                    var page = 1;
+                    $('#lista-anuncios').on('scroll', async () => {
+                        if ($('#lista-anuncios').scrollTop() +
+                            $('#lista-anuncios').innerHeight() >=
+                            $('#lista-anuncios')[0].scrollHeight) {
+                            
+                            page = page + 1;
+        
+                            console.log("PAGE",page);
+                            
+                            const data = {
+                                user_id: result.id,
+                                state: adState,
+                                page: page
+                            }
+        
+                            if (page <= pages) {                                                        
+                                const adsList = await listAdsByUser(data);
+                                
+                                const arrayList = adsList.data;
+        
+                                if (arrayList.length > 0) {                                                            
+                                    var newArray = Object.assign([], this.state.adsList);
+                                    
+                                    for (let index = 0; index < arrayList.length; index++) {
+                
+                                        newArray.push(arrayList[index]);
+                
+                                    }
+                                    this.setState({
+                                        adsList: newArray
+                                    });
+                                }
+                            }
+        
+                        }
+                    });
+        
+                } catch (error) {
+                    console.error("Error al litar ads");
+                }
+            }
         }
     }
 
-    deleteAds(index, deleteCount, adType) {
+    deleteAds(index, deleteCount) {
 
-        if (adType == 'active') {
-            const adsActive = Object.assign([], this.state.adsActive);
-            adsActive.splice(index, deleteCount);
-
-            this.setState({
-                adsActive: adsActive
-            })
-        }
-        if (adType == 'closed') {
-            const adsPaused = Object.assign([], this.state.adsPaused);
-            adsPaused.splice(index, deleteCount);
-            this.setState({
-                adsPaused: adsPaused
-            })
-        }
-    }
-
-    pauseAdd(index) {
-        const adActive = Object.assign({}, this.state.adsActive[index]);
-
-        adActive.state = 'closed';
-        const adsPaused = Object.assign([], this.state.adsPaused);
-
-        adsPaused.push(adActive);
+        console.log("INDEX",index);
+        
+        const adsList = Object.assign([], this.state.adsList);
+        adsList.splice(index, deleteCount);
 
         this.setState({
-            adsPaused: adsPaused
+            adsList: adsList
         });
     }
-    playAdd(index) {
-        const adPaused = Object.assign({}, this.state.adsPaused[index]);
 
-        adPaused.state = 'active';
-
-        const adsActive = Object.assign([], this.state.adsActive);
-
-        adsActive.push(adPaused);
-
-        this.setState({
-            adsActive: adsActive
-        });
-
-    }
-    handleClickDelete = async (index, adType, e) => {
+    handleClickDelete = async (index, e) => {
         e.preventDefault();
-        console.log("AD TYPE", adType);
-
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
@@ -154,14 +119,12 @@ class AddsList extends React.Component {
                     const response = await updateAdvertisement(data);
 
                     if (response.status) {
-                        this.deleteAds(index, 1, adType);
+                        this.deleteAds(index,1);
                     } else {
-                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
                             res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);
                 } catch (error) {
                     console.log("error", error);
                 }
@@ -172,15 +135,12 @@ class AddsList extends React.Component {
     handleClickUpdate = async (index, adType, e) => {
         e.preventDefault();
         var id = e.target.id;
-
         var state = "closed";
-        var updateFunc = this.pauseAdd(index);
         var text = "Si cierras este anuncio, ya no podrás recibir postulaciones" + ' ' +
             "de impulsores"
 
         if (adType === "closed") {
             state = "active";
-            updateFunc = this.playAdd(index);
             text = "Si activas este anuncio, podrás recibir postulaciones" + ' ' +
                 "de impulsores interesados.";
         }
@@ -195,6 +155,7 @@ class AddsList extends React.Component {
             cancelButtonText: 'Cancelar'
         }).then(async (result) => {
             if (result.value) {
+
                 try {
                     const data = {
                         advertisement_id: id,
@@ -203,15 +164,13 @@ class AddsList extends React.Component {
                     const response = await updateAdvertisement(data);
 
                     if (response.status) {
-                        updateFunc;
-                        this.deleteAds(index, 1, adType);
+                        // updateFunc;
+                        this.deleteAds(index, 1);
                     } else {
-                        console.log("RESPONSE MESSAGE", response.message);
                         this.setState({
                             res_message: response.message
                         });
                     }
-                    console.log("RESPONSE", response);
                 } catch (error) {
                     console.log("error", error);
                 }
@@ -222,13 +181,12 @@ class AddsList extends React.Component {
 
     render() {
         const {
-            adsActive,
-            adsPaused
+            adsList
         } = this.state
         return (
             <View
-                adsActive={adsActive}
-                adsPaused={adsPaused}
+                adsList={adsList}
+                userRole={this.props.userRole}
                 handleClickDelete={this.handleClickDelete}
                 handleClickUpdate={this.handleClickUpdate}
             />
@@ -236,11 +194,14 @@ class AddsList extends React.Component {
     }
 }
 
+const mapStateToProps = state => ({
+    adState : state.getAdStateReducer
+});
 const mapDispatchToProps = {
-    listAdsByUser
+    listAdsByUser,
 };
 
 export default withRouter(
-    connect(null, mapDispatchToProps)(AddsList)
+    connect(mapStateToProps, mapDispatchToProps)(AddsList)
 )
 

@@ -3,6 +3,7 @@ import React from 'react';
 import View from './AddProyect-view';
 import $ from 'jquery';
 import cleanForm from '../../redux/actions/clean-form';
+import openModal from '../../redux/actions/openModal';
 import { listStartupsByUser} from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -21,10 +22,11 @@ class AddProyect extends React.Component {
         $('input[name=stage_id').val('');
         $('#description').val('');
         this.props.cleanForm("1");
+        this.props.openModal(true);
     }
 
     async componentDidMount() {
-
+        
         try {
             let proyectos = [];
             const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
@@ -35,7 +37,7 @@ class AddProyect extends React.Component {
                 
                 this.setState({
                     selected: listaProyectos[0].id,
-                    show_add_proyect_empty: false,
+                    show_add_proyect_empty: false
                 });
             }else{
                 this.setState({
@@ -79,6 +81,7 @@ const mapDispatchToProps = {
     cleanForm,
     getIdProject,
     listStartupsByUser,
+    openModal
 };
 
 export default withRouter(
