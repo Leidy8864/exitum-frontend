@@ -42,7 +42,6 @@ class Sidebar extends React.Component {
     chooseProfile = async() =>{
         const {isConfirmed, role } =this.state;
         if(isConfirmed === "true" && (role === "" || role ==="undefined")){
-            console.log("chosse role")
         }
     }
 

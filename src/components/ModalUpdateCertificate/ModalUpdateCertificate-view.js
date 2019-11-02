@@ -16,8 +16,8 @@ function View(props){
         CertificateId,
         CertificateName,
         CertificateIssuingCompany,
-        date_expidition,
-        date_expiration
+        // date_expidition,
+        // date_expiration
     } = props
 
     return(

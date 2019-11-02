@@ -7,10 +7,8 @@ const initialStore = {
 const userReducer = (state = initialStore, action) => {
     switch (action.type) {
         case UPDATE_USER:
-            console.log("UPDATED USER", action.user);
             return state;
         case UPDATE_USER_ERROR:
-            console.log("ERROR UPDATE USER", action.error);
             return state;
         default:
             return state;

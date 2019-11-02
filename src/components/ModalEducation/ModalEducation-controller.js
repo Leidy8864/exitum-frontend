@@ -35,10 +35,8 @@ class ModalEducation extends React.Component {
             user_id, date_start, date_end,description,university_name
         }
 
-        console.log('FORMDATA',formData);
         const response = await this.props.createEducation(formData);
         $('#education').modal('hide')
-        console.log("RESPUESTA", response);
     }
 
     onChange = date_expedition => this.setState({ date_expedition })

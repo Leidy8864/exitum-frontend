@@ -21,18 +21,7 @@ class Ads extends React.Component {
         // alert(token);
         if(url.indexOf("token") !== -1){
             const response = await mapDispatchToProps.authToken(token);
-            console.log("response = ", response);
-            // if(response.status){
-            //     localStorage.setItem('token',token)
-            //     localStorage.setItem('confirmed',response.data.confirmed);
-            //     localStorage.setItem('lastname',response.data.lastname);
-            //     localStorage.setItem('name',response.data.name);
-            //     localStorage.setItem('email',response.data.email);
-            //     localStorage.setItem('role',response.data.role)
-            //     window.location.href = "/dashboard";
-            // }else{
-            //     alert(response.message)
-            // }
+
             localStorage.setItem('id',response.data.id);
             localStorage.setItem('token',token);
             localStorage.setItem('confirmed',response.data.confirmed);

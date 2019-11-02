@@ -8,16 +8,16 @@ function View(props) {
     const {
         name,
         date,
-        company,
-        dateFinal,
+        // company,
+        // dateFinal,
         onChange,
-        onChange_,
+        // onChange_,
         certificateUpdate,
         CertificateId,
         CertificateName,
-        CertificateIssuingCompany,
+        // CertificateIssuingCompany,
         date_expidition,
-        date_expiration
+        // date_expiration
     } = props
 
     return (

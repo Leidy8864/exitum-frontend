@@ -26,9 +26,6 @@ class ResetPassword extends React.Component {
 
             const response = await verifyToken(token);
             
-            console.log("TOKEN ENVIADO", token)
-
-            console.log("RESPONSE VERIFY", response)
             if (response.status) {
                 this.setState({
                     error: false,
@@ -80,12 +77,10 @@ class ResetPassword extends React.Component {
                         localStorage.setItem('name', response.data.name);
                         localStorage.setItem('email', response.data.email);
                         localStorage.setItem('role', response.data.role);
-
-                        console.log("RESPUESTA DE INFO", response);
+                        
                         this.props.history.push('/dashboard');
 
                     } else {
-                        console.log("ERROR EN LA RESPUESTA", response.message);
                         this.setState({
                             error_message: response.message
                         })

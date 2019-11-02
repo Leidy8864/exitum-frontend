@@ -1,6 +1,7 @@
 
 import React from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 function View(props) {
     const {
@@ -20,8 +21,8 @@ function View(props) {
                 {
                     userRole === "entrepreneur" ? 
                     <div className="col-sm-3 images-icons">
-                        <span><a href="#"><img src={state === "active" ? require("../../public/images/svg/boton-de-pausa.svg") : require("../../public/images/svg/boton-de-reproduccion.svg")} alt="svg" width="23" id={id} onClick={handleClickUpdate.bind(this, index, state)} /></a></span>
-                        <span className="pl-2"><a href="#"><img src={require("../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basuras.svg")} alt="svg" width="23" id={id} onClick={handleClickDelete.bind(this, index)} /></a></span>
+                        <span><Link to="#"><img src={state === "active" ? require("../../public/images/svg/boton-de-pausa.svg") : require("../../public/images/svg/boton-de-reproduccion.svg")} alt="svg" width="23" id={id} onClick={handleClickUpdate.bind(this, index, state)} /></Link></span>
+                        <span className="pl-2"><Link to="#"><img src={require("../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basuras.svg")} alt="svg" width="23" id={id} onClick={handleClickDelete.bind(this, index)} /></Link></span>
                     </div>
                     : ""
                 }

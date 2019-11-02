@@ -9,7 +9,7 @@ import ModalUpdateEducation from '../ModalUpdateEducation/ModalUpdateEducation-c
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
 import { Link } from 'react-router-dom'
 import './style.css';
-import { SlowBuffer } from 'buffer';
+// import { SlowBuffer } from 'buffer';
 
 function View(props) {
 
@@ -23,6 +23,8 @@ function View(props) {
         skills, 
         idEducation,
         handleClickDeleteSkill,
+        handleClickDeleteCertificate,
+        handleClickDeleteEducation
     } = props
     return (
         <Fragment>
@@ -31,10 +33,10 @@ function View(props) {
                 <div className="user-profile">
                     <div className="user-img ml-5">
                         <div className="img-profile">
-                            <img className="img" src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p720x720/10428028_835695433158765_3788812662788954865_n.jpg?_nc_cat=106&_nc_oc=AQmJVvoI1HFbx8zVRMe97wFm7ZW-JdW0pzu4HOKyzxed0RlRbL5OZ-pmHeXkFEiduCRldkEWxZ61HEOQNGN0ljH2&_nc_ht=scontent.flim1-1.fna&oh=ffd2fe1bafe1323e783160abee692407&oe=5E240E72" />
+                            <img alt="img" className="img" src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p720x720/10428028_835695433158765_3788812662788954865_n.jpg?_nc_cat=106&_nc_oc=AQmJVvoI1HFbx8zVRMe97wFm7ZW-JdW0pzu4HOKyzxed0RlRbL5OZ-pmHeXkFEiduCRldkEWxZ61HEOQNGN0ljH2&_nc_ht=scontent.flim1-1.fna&oh=ffd2fe1bafe1323e783160abee692407&oe=5E240E72" />
                         </div>
                         <div className="edit-profile mr-5 mt-2">
-                            <a href="#" data-toggle="modal" data-target="#perfil"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                            <a href="#" data-toggle="modal" data-target="#perfil"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
                         </div>
                     </div>
                     <div className="profile-info">
@@ -50,7 +52,7 @@ function View(props) {
                 <div className="experience mt-3">
                     <div className="experience-header">
                         <h3 className="ml-5">Experiencia</h3>
-                        <a href="#" data-toggle="modal" data-target="#experience"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#experience"><img  alt="img"className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 {
@@ -75,7 +77,7 @@ function View(props) {
                                             </div>
                                         </div>
                                         <div className="edit-profile mr-5 mt-2">
-                                            <a href="#"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                            <a href="#"><img className="img" alt="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
                                         </div>
                                     </div>
                                 </Fragment>
@@ -86,7 +88,7 @@ function View(props) {
                 <div className="education mt-3">
                     <div className="education-header">
                         <h3 className="ml-5">Educación</h3>
-                        <a href="#" data-toggle="modal" data-target="#education"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#education"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 {
@@ -110,7 +112,20 @@ function View(props) {
                                             </div>
                                         </div>
                                         <div className="edit-profile mr-5 mt-2">
-                                            <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                            <div className="edit-profile mr-1 mt-2">
+                                                <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                            </div>
+                                            <div className="edit-profile delete-skill mr-5 mt-2">
+                                                <a href="#" >
+                                                    <img 
+                                                        alt="img"
+                                                        className="img" 
+                                                        id={item.id} 
+                                                        src={require('../../public/images/svg/delete_.svg')} 
+                                                        onClick={handleClickDeleteEducation}
+                                                    />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </Fragment>
@@ -127,7 +142,7 @@ function View(props) {
                 <div className="experience mt-3">
                     <div className="experience-header">
                         <h3 className="ml-5">Certificados</h3>
-                        <a href="#" data-toggle="modal" data-target="#certificate"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#certificate"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 {
@@ -144,7 +159,7 @@ function View(props) {
                                                 <h4>{item.name}</h4>
                                                 <span>{item.issuing_company}</span>
                                                 <div className="time-exp">
-                                                    {item.expedition} - {item.expiration}
+                                                    {item.date_expedition} - {item.date_expiration}
                                                 </div>
                                                 <div className="description mb-4">
                                                     <Link to="#">{item.url}</Link>
@@ -152,7 +167,20 @@ function View(props) {
                                             </div>
                                         </div>
                                         <div className="edit-profile mr-5 mt-2">
-                                            <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                            <div className="edit-profile mr-1 mt-2">
+                                                <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                            </div>
+                                            <div className="edit-profile delete-skill mr-5 mt-2">
+                                                <a href="#" >
+                                                    <img 
+                                                        alt="img"
+                                                        className="img" 
+                                                        id={item.id} 
+                                                        src={require('../../public/images/svg/delete_.svg')} 
+                                                        onClick={handleClickDeleteCertificate}
+                                                    />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                     <hr />
@@ -163,7 +191,7 @@ function View(props) {
                 <div className="aptitud mt-3">
                     <div className="aptitud-header">
                         <h3 className="ml-5">Aptitudes</h3>
-                        <a href="#" data-toggle="modal" data-target="#skill"><img className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                        <a href="#" data-toggle="modal" data-target="#skill"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
                     </div>
                 </div>
                 {
@@ -179,6 +207,7 @@ function View(props) {
                                     <div className="edit-profile delete-skill mr-5 mt-2">
                                         <a href="#" >
                                             <img 
+                                                alt="img"
                                                 className="img" 
                                                 id={item.id} 
                                                 src={require('../../public/images/svg/delete_.svg')} 

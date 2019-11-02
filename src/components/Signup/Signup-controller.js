@@ -54,12 +54,9 @@ class Signup extends React.Component {
             email,
             password
         }
-
-        console.log("FORMDATA",formData);
         
         if(name && lastname && email && password && password.length >= 8){
             const response = await this.props.signUp(formData);
-            console.log("response = ", response)
             if(response.status){
                 localStorage.setItem('id', response.data.id);
                 localStorage.setItem('infoChiko', true);
@@ -103,10 +100,7 @@ class Signup extends React.Component {
 
     responseGoogle = async (res) => {
         this.props.cleanForm("0");
-        console.log('responseGoggle', res);
-        console.log('typeof res', typeof res)
         const response = await this.props.oauthGoogle(res.accessToken);
-        console.log(response)
         if(response.status) {
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('infoChiko', true);
@@ -129,8 +123,6 @@ class Signup extends React.Component {
 
     responseFacebook = async (res) => {
         this.props.cleanForm("0");
-        console.log('responseFB', res);
-        console.log('typeof res', typeof res)
         const response =  await this.props.oauthFacebook(res.accessToken)
         if(response.status) {
             localStorage.setItem('id', response.data.id);

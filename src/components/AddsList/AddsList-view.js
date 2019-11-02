@@ -37,7 +37,7 @@ function View(props) {
                                     )
                                 })
                                 :
-                                <h4 className="text-center">No se encontraron anuncios activos</h4>
+                                <h4 className="text-center">No se encontraron anuncios</h4>
                         }
                     </div>
                 </div>

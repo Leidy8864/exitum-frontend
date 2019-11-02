@@ -20,25 +20,20 @@ class ModalExperience extends React.Component {
     }
 
     company_name = e => {
-        this.setState({ name_company: e.target.value })
+        this.setState({ company_name: e.target.value })
     }
 
     experience = async e => {
         e.preventDefault();
         let user_id = localStorage.getItem('id')
         const {position,company_name,date} = this.state
-        console.log("position = ", position);
-        console.log("company_name =" ,company_name);
-        console.log("date = ", date);
         let date_start = moment(date).format('YYYY-MM-DD');
         const formData = {
             user_id,position,company_name,date_start
         }
-        console.log('FORMDATA',formData);
 
-        const response = await this.props.createExperience(formData);
+        await this.props.createExperience(formData);
         $('#experience').modal('hide');
-        console.log("response", response);
     }
     
     onChange = date => this.setState({ date })

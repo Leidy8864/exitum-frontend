@@ -78,7 +78,6 @@ class ModalsProjects extends React.Component {
 
             const stage = this.state.stages.find((stage) => stage.value === option.value);
             stageDescription = stage.description;
-            console.log("STAGE FOUND", stage);
         }
         this.setState({
             [action.name]: option.value,
@@ -100,8 +99,6 @@ class ModalsProjects extends React.Component {
 
         e.preventDefault();
 
-        console.log("EEEE", e)
-
         const { id, category_id, stage_id, description, name } = this.state;
 
         const formData = {
@@ -110,12 +107,7 @@ class ModalsProjects extends React.Component {
 
         if (id && category_id && stage_id && description && name) {
 
-            console.log("NAME" + name);
             const response = await createStartup(formData);
-
-            console.log("DATA RECIBIDA", formData);
-
-            console.log("DATA RECIBIDA STARTUP", response);
 
             if (response.status) {
                 this.setState({ success_message: response.message });
