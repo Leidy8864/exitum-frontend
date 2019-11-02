@@ -1,3 +1,6 @@
+.AddsList{
+  display: block;
+}
 ul li.nav-item a.active:before {
     background: none !important;
 }

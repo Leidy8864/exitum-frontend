@@ -1,3 +1,6 @@
+.Tree{
+  display: block;
+}
 .Tree-plus {
   position: absolute;
   z-index: 2000;

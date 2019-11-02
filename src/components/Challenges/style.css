@@ -1,6 +1,8 @@
 /* .Challenges{
 } */
-
+.Challenges{
+    display: block;
+  }
 .challenges {
     position: relative;
 }

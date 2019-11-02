@@ -1,4 +1,6 @@
-
+.Stages{
+    display: block;
+}
 .scroll-stage {
     overflow-y: scroll;
 }

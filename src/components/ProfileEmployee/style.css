@@ -1,3 +1,6 @@
+.ProfileEmployee{
+    display: block;
+}
 .user-img {
     display: flex;
     justify-content: space-between;

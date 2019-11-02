@@ -1,3 +1,6 @@
+.Header{
+  display: block;
+}
 nav {
   position: absolute !important;
   background: transparent !important;

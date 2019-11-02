@@ -1,3 +1,6 @@
+.PerfilEmployee{
+    display: block;
+}
 .count_title {
     display: flex;
     justify-content: space-between;

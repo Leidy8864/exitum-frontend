@@ -1,3 +1,7 @@
+.NewDiary{
+  display: block;
+}
+
 .modal {
   background-size: cover;
   width: 100%;

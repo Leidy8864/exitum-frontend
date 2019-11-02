@@ -1,4 +1,5 @@
 .ModalProjects{
+    display: block;
 }
 
 input#name_project, textarea#description {
