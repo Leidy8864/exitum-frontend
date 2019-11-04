@@ -14,25 +14,6 @@ class Sidebar extends React.Component {
         role: localStorage.getItem('role') || '',
     }
 
-    selectOne = e => {
-        e.preventDefault()
-        $('#link').addClass('active')
-        $('#link-1').removeClass('active')
-        this.props.history.push('/dashboard');
-    }
-
-    selectTwo = e => {
-        e.preventDefault()
-        $('#link').addClass('active')
-        $('#link-1').removeClass('active')
-        this.props.history.push('/advertisement');
-    }
-    selectThree = e => {
-        e.preventDefault()
-        $('#link').addClass('active')
-        $('#link-1').removeClass('active')
-        this.props.history.push('/profile');
-    }
     logOut = e => {
         e.preventDefault()
         localStorage.clear();
@@ -45,6 +26,21 @@ class Sidebar extends React.Component {
         }
     }
 
+    goDashboard = e => {
+        e.preventDefault();
+        this.props.history.push('/dashboard')
+    }
+
+    goAdvertisement = e => {
+        e.preventDefault();
+        this.props.history.push('/advertisement')
+    }
+
+    goProfile = e => {
+        e.preventDefault();
+        this.props.history.push('/profile')
+    }
+
     render() {
         
         this.chooseProfile();
@@ -52,24 +48,24 @@ class Sidebar extends React.Component {
 
         let menu =
             <div className="navegacion">
-                <ul>
-                    <li>
-                        <NavLink to="/dashboard" id="link" onClick={this.selectOne}>
-                            <img className="rocket img_menu" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
-                            <span className="home">Inicio</span>
+                <ul className="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <li className="nav-item">
+                        <NavLink className="nav-link" data-toggle="pill" to="/dashboard" onClick={this.goDashboard}>
+                            <i className="far fa-paper-plane"></i>
+                            <p className="home">Inicio</p>
                         </NavLink>
                     </li>
 
-                    <li>
-                        <NavLink to="/advertisement" id="link-1" onClick={this.selectTwo}>
-                            <img className="img_menu" src={require("../../public/images/svg/empleo.svg")} alt="svg" />
-                            <span>Anuncios</span>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" data-toggle="pill" to="/advertisement" onClick={this.goAdvertisement}>
+                            <i className="far fa-address-card"></i>
+                            <p>Anuncios</p>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/profile" id="link-1" onClick={this.selectThree}>
-                            <img className="img_menu" src={require("../../public/images/svg/user_.svg")} alt="svg" />
-                            <span>Perfil</span>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" data-toggle="pill" to="/profile" onClick={this.goProfile}>
+                            <i className="far fa-user"></i>
+                            <p>Perfil</p>
                         </NavLink>
                     </li>
                 </ul>
@@ -80,9 +76,9 @@ class Sidebar extends React.Component {
             <div className="navegacion">
                 <ul>
                     <li>
-                        <NavLink to="/dashboard" id="link" onClick={this.selectOne}>
-                            <img className="rocket" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
-                            <span className="home">Inicio</span>
+                        <NavLink to="/dashboard" id="link">
+                            <i className="far fa-paper-plane"></i>
+                            <p className="home">Inicio</p>
                         </NavLink>
                     </li>
                 </ul>

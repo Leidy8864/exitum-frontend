@@ -4,3 +4,27 @@
 .content-panel {
     overflow-y: scroll;
 }
+
+.diary-plugin {
+    position: fixed;
+    top: 115px;
+    right: 0;
+    width: 64px;
+    background: rgba(0,0,0,.3);
+    z-index: 1031;
+    border-radius: 8px 0 0 8px;
+    text-align: center;
+}
+
+.diary-link i {
+    color: #fff;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.dropdown-menu {
+    transform: translate3d(-430px, 20px, 0px) !important;
+    background-color: #3369fd !important;
+    width: 400px;
+    height: auto;
+}

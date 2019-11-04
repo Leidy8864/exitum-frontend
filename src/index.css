@@ -1,7 +1,10 @@
 @font-face {
-  font-family: 'Work Sans';
+  font-family: 'Helvetica Neue';
   src: url('./public/font/WorkSans-Regular.ttf');
-  
+  src: url('./public/font/HelveticaNeue.ttf');
+  src: url('./public/font/HelveticaNeue\ Medium.ttf');
+  src: url('./public/font/HelveticaNeue\ BlackCond.ttf');
+  src: url('./public/font/HelveticaNeue\ Light.ttf');
 }
 body {
   margin: 0;
@@ -11,12 +14,6 @@ body {
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: normal;
-}
-
-
-.text-center {
-  font-family: 'Work Sans';
 }
 
 .message {
@@ -26,7 +23,7 @@ body {
 .modal-content {
   border: none !important;
   outline: none;
-  font-family: 'Work Sans' !important;
+  font-family: 'Helvetica Neue' !important;
 }
 
 @media screen and (max-width: 991px) {
@@ -38,11 +35,8 @@ body {
 @media screen and (max-width: 991px) {
   .nav-open .main-panel{
     left: 0;
-    transform: translate3d(230px,0,0);
+    transform: translate3d(260px,0,0);
     transition: all .33s cubic-bezier(.685,.0473,.346,1);
-  }
-  .main-panel {
-    overflow-x: scroll !important;
   }
   .nav-open .sidebar {
     transform: translateX(0px);

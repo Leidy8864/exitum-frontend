@@ -7,11 +7,6 @@
     /* padding-left: 15%; */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: #fff;
-    background-color: #3369fd !important;
-}
-
 .container_challenge_tabs {
     width: 100%;
     padding-left: 15%;

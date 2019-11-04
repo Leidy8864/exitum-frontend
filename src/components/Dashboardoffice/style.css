@@ -2,23 +2,26 @@
   position: relative;
   top: 0;
   height: 100vh;
+  background: #EEF1F8;
 }
 
 .main-panel>.content {
   margin-top: 77px;
   padding: 0px !important;
   min-height: calc(100vh - 123px);
+  background: #EEF1F8;
 }
 
 .main-panel {
+  background: #EEF1F8;
   position: relative;
   float: right;
-  width: calc(100% - 230px);
+  width: calc(100% - 260px);
   transition: all .33s cubic-bezier(.685,.0473,.346,1);
 }
 
 .content .container-fluid {
-  background: #F8F8FA;
+  background: #EEF1F8;
 }
 
 .content-two {

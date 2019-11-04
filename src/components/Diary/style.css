@@ -1,9 +1,5 @@
 .Diary {
   position: relative;
-  float: rigth;
-  left: 15px;
-  height: calc(100vh - 77px);
-  background-color: #3369fd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,15 +14,15 @@
 .Diary .start-diary {
   color: #ffffff;
   font-size: 24px;
-  font-family: 'Work Sans' !important;
+  font-family: 'Helvetica Neue' !important;
 }
 
 .Diary .start-diary button.add-diary {
-  float: left;
+  display: inline;
   position: relative;
   top: -4px;
   width: 50px;
-  height: 40px;
+  height: 50px;
   margin: 5px 20px 5px -10px;
   background: #ffffff;
   /* fallback for old browsers */
@@ -34,7 +30,7 @@
   border: none;
   color: #3369FD;
   outline: none;
-  font-family: 'Work Sans' !important;
+  font-family: 'Helvetica Neue' !important;
   font-size: 50px;
   font-weight: bold;
   text-transform: capitalize;
@@ -45,10 +41,28 @@
 .Diary .start-diary button.add-diary span {
   position: absolute;
   font-size: 50px;
-  margin-top: -40px;
+  margin-top: -42px;
   margin-left: -13px;
 }
 /*# sourceMappingURL=style.css.map */
+
+.diary-header {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal#diary {
+  width: 50% !important;
+  top: 20px;
+  transform: translateX(110%);
+  z-index: 1000 !important;
+}
+
+#content-diary {
+  background: #3369FD;
+}
 
 @media screen and (max-width: 1200px) {
   .Diary {

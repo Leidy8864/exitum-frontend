@@ -6,15 +6,14 @@
   background: #fff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  width: 230px;
+  width: 260px;
   position: fixed;
   height: 100vh;
   top: 0px;
   max-height: calc(100% + 0px);
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  -webkit-box-shadow: 0px 0px 4px #a8a8a8;
-          box-shadow: 0px 0px 4px #a8a8a8;
+  box-shadow: 0 16px 8px -12px rgba(0,0,0,.56), 0 4px 20px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
   z-index: 1024;
 }
 
@@ -41,7 +40,7 @@
   position: relative;
   z-index: 10;
   color: #615d5d;
-  font-family: 'Work Sans' !important;
+  font-family: 'Helvetica Neue' !important;
   font-weight: 200 !important;
   font-size: 1.2rem;
 }
@@ -59,20 +58,10 @@
 }
 
 .sidebar .cabecera .text-logo img {
-  width: 90px;
+  width: 110px;
+  position: relative;
+  top: -10px;
   margin-left: 4px;
-}
-
-.sidebar .cabecera .text-logo::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 77px;
-  right: 0px;
-  height: 1px;
-  width: calc(100%);
-  background-color: rgba(138, 78, 78, 0.3);
-  z-index: 1024;
 }
 
 .sidebar .cabecera .text-abrv {
@@ -85,16 +74,9 @@ ul {
   padding: 0px !important;
 }
 
-ul li {
-  position: relative;
-  display: block;
-  list-style: none;
-  padding: 20px;
-  z-index: 1024;
-}
 
 ul li a {
-  font-family: 'Work Sans' !important;
+  font-family: 'Helvetica Neue' !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,22 +94,24 @@ ul li a {
 .exit-dashboard {
   position: absolute;
   top: 820px;
-  left: 30px;
+  left: 40px;
   z-index: 2000;
 }
 
-.exit-dashboard img {
-  width: 32px !important;
+.exit-dashboard a i{
+  font-size: 28px;
+  color: #787b91;
+  transition: 1s;
 }
 
-
-ul li a img.rocket {
-  width: 17px;
-  margin-left: 15px;
+.exit-dashboard a:hover i{
+  color: #2948ff;
+  transition: 1s;
 }
 
-ul li a span.home {
-  margin-left: 34px;
+h3.name-perfil-sidebar {
+  color: #615d5d;
+  font-size: 25px;
 }
 
 ul li a img {
@@ -138,29 +122,67 @@ ul li a {
   text-decoration: none !important;
 }
 
-ul li a span {
-  margin-left: 25px;
-  font-size: 18px;
-  font-family: 'Work Sans';
+.sidebar .navegacion .nav{
+  display: block;
+  margin-top: 50px !important;
 }
+
+.sidebar .navegacion ul li a i{
+  font-size: 24px;
+  float: left;
+  margin-right: 15px;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  color: #777;
+}
+
+.sidebar .nav li .dropdown-menu a, .sidebar .nav li a {
+  margin: 10px 20px 0;
+  border-radius: 3px;
+  color: #777;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-transform: capitalize;
+  padding: 10px 15px;
+  transition: all .15s ease-in;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background: #396afc !important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
+  transition: all .15s ease-in;
+}
+
+.nav-pills .nav-link.active i {
+  color: #fff !important;
+}
+
+.sidebar .navegacion ul li a p {
+  margin: 0;
+  line-height: 30px;
+  font-size: 17px;
+  position: relative;
+  display: block;
+  height: auto;
+  white-space: nowrap;
+  text-transform: capitalize;
+  transition: all .3s linear;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
 .img_menu {
   width: 24px;
   height: auto;
 }
 
-ul li a span:hover {
-  color: #3369FD;
-} 
-
-ul li a.active:before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 100%;
-  background: #3369FD;
-  left: 0;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+.user-sidebar img{
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 991px) {
@@ -169,7 +191,7 @@ ul li a.active:before {
     display: block;
     top: 0;
     height: 100vh;
-    width: 230px;
+    width: 260px;
     left: 0;
     z-index: 1032;
     visibility: visible;

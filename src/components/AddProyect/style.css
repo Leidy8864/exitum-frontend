@@ -10,7 +10,7 @@
     height: 80px;
     display: flex;
     overflow-x: auto;
-    font-family: 'Work Sans' !important;
+    font-family: 'Helvetica Neue' !important;
 }
 .add-proyect-aux{
     text-decoration: none !important;
@@ -66,7 +66,7 @@
     width: 20%;
     cursor: pointer;
     flex-shrink: 0;
-    font-family: 'Work Sans' !important;
+    font-family: 'Helvetica Neue' !important;
 }
 
 .projectblock>span, .projectblockSelected>span {
@@ -94,7 +94,7 @@
     width: 20%;
     cursor: pointer;
     flex-shrink: 0;
-    font-family: 'Work Sans' !important;
+    font-family: 'Helvetica Neue' !important;
 }
 
 .add-proyect{
@@ -118,11 +118,11 @@
 }
 
 .Ads-plusito {
-    font-family: 'Work Sans' !important;
+    font-family: 'Helvetica Neue' !important;
 }
 
 .Ads-plusito span{
-    font-family: 'Work Sans' !important;
+    font-family: 'Helvetica Neue' !important;
     padding: 10px 10px 10px 17px;
     margin: 12px;
     /* background: #fff;

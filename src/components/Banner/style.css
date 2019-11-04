@@ -18,7 +18,7 @@
 
 .banner .container .container-banner .info-banner {
   margin-top: 250px;
-  font-family: 'Work Sans';
+  font-family: 'Helvetica Neue';
 }
 
 .banner .container .container-banner .info-banner h3 {
@@ -51,7 +51,7 @@
   border: none;
   color: #777474;
   outline: none;
-  font-family: 'Work Sans';
+  font-family: 'Helvetica Neue';
   font-size: 22px;
   -webkit-box-shadow: 0 4px 20px 0 rgba(177, 48, 48, 0.14), 0 7px 10px -5px rgba(40, 189, 77, 0.4);
           box-shadow: 0 4px 20px 0 rgba(177, 48, 48, 0.14), 0 7px 10px -5px rgba(40, 189, 77, 0.4);

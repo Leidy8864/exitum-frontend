@@ -1,2 +1,7 @@
 .AdCard{
 }
+
+span a img svg {
+    fill: tomato !important;
+    opacity: 0;
+}

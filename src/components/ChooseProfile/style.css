@@ -15,7 +15,7 @@
     margin: 50px;
     font-size: 28px;
     font-weight: bolder;
-    font-family: 'Work Sans';
+    font-family: 'Helvetica Neue';
 }
 .content-radio{
     float: left;
@@ -39,7 +39,7 @@
 [type="radio"]:not(:checked) + label
 {
     position: relative;
-    font-family: 'Work Sans';
+    font-family: 'Helvetica Neue';
     padding-left: 28px;
     cursor: pointer;
     line-height: 20px;

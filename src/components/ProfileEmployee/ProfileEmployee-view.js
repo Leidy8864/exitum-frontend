@@ -13,14 +13,14 @@ import './style.css';
 
 function View(props) {
 
-    const { 
-        user, 
-        lastname, 
-        certifications, 
-        idCertificate, 
-        experiences, 
-        educations, 
-        skills, 
+    const {
+        user,
+        lastname,
+        certifications,
+        idCertificate,
+        experiences,
+        educations,
+        skills,
         idEducation,
         handleClickDeleteSkill,
         handleClickDeleteCertificate,
@@ -28,204 +28,268 @@ function View(props) {
     } = props
     return (
         <Fragment>
-            <div className="card mt-5 ml-4">
-                <div className="user-bg"></div>
-                <div className="user-profile">
-                    <div className="user-img ml-5">
-                        <div className="img-profile">
-                            <img alt="img" className="img" src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p720x720/10428028_835695433158765_3788812662788954865_n.jpg?_nc_cat=106&_nc_oc=AQmJVvoI1HFbx8zVRMe97wFm7ZW-JdW0pzu4HOKyzxed0RlRbL5OZ-pmHeXkFEiduCRldkEWxZ61HEOQNGN0ljH2&_nc_ht=scontent.flim1-1.fna&oh=ffd2fe1bafe1323e783160abee692407&oe=5E240E72" />
-                        </div>
-                        <div className="edit-profile mr-5 mt-2">
-                            <a href="#" data-toggle="modal" data-target="#perfil"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
-                        </div>
-                    </div>
-                    <div className="profile-info">
-                        <div className="user-name ml-5 mb-4">
-                            <h2>{user} {lastname}</h2>
-                            <span>Programador Frontend en Techie</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-lg-6 col-md-6 col-xs-6">
+                        <div className="card">
+                            <div className="user-content">
+                                <div className="user-profile row">
+                                    <div className="user-img ml-5">
+                                        <div className="img-profile mt-3 mb-3">
+                                            <Link to="/profile"><img alt="img" className="img" src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p160x160/76652265_3020671151491348_4142212806978043904_n.jpg?_nc_cat=104&_nc_oc=AQkKJ24_lfvVPaUBfwVVyM-AFDe0nfBoBLLwj3jQPbqym-EHnOsnyun-FhqxJai2dYWRs3DydbWsNfjqzM0eCKZa&_nc_ht=scontent.flim1-1.fna&oh=a0c172241527a620b68b54cf8c84c2f1&oe=5E62E90F" /></Link>
+                                        </div>
+                                        <div className="user-name ml-5 mb-4">
+                                            <h2>Ana Sanchez</h2>
+                                            <span>Programador Frontend</span>
+                                            {/* <div className="country-user mt-2">
+                                                <span>Peru</span>
+                                            </div> */}
+                                            <div className="work-user mt-1">
+                                                <span>Actualmente trabajando en </span><strong>Techie</strong>
+                                            </div>
+                                            <div className="work-user mt-1">
+                                                <span className="">Full-time(40hr/wk)</span><i class="fas fa-check-circle"></i>
+                                            </div>
+                                            {/* <div className="available-user mt-2">
+                                    <strong>Disponible: </strong><span>Full Time(40hr/wk)</span>
+                                </div> */}
+                                        </div>
 
-            <div className="card mt-5 ml-4">
-                <div className="experience mt-3">
-                    <div className="experience-header">
-                        <h3 className="ml-5">Experiencia</h3>
-                        <a href="#" data-toggle="modal" data-target="#experience"><img  alt="img"className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
-                    </div>
-                </div>
-                {
-                    experiences.length > 0 ?
-                        experiences.map(function (item, index) {
-                            return (
-                                <Fragment key={index}>
-                                    <div className="experience-info">
-                                        <div className="info-experience">
-                                            <div className="img-experience ml-4 mt-3">
-                                                {/*  */}
-                                            </div>
-                                            <div className="experience-info-content ml-4 mt-3">
-                                                <h4>{item.position}</h4>
-                                                <span>{item.company.name}</span>
-                                                <div className="time-exp">
-                                                    {item.date_start}
-                                                </div>
-                                                <div className="description mb-4">
-                                                    {/* Descripcion */}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="edit-profile mr-5 mt-2">
-                                            <a href="#"><img className="img" alt="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
-                                        </div>
                                     </div>
-                                </Fragment>
-                            )
-                        }) : null
-                }
 
-                <div className="education mt-3">
-                    <div className="education-header">
-                        <h3 className="ml-5">Educación</h3>
-                        <a href="#" data-toggle="modal" data-target="#education"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
-                    </div>
-                </div>
-                {
-                    educations.length > 0 ?
-                        educations.map(function (item, index) {
-                            return (
-                                <Fragment key={index}>
-                                    <div className="education-info">
-                                        <div className="info-education">
-                                            <div className="img-education ml-4 mt-3">
-                                                {/*  */}
-                                            </div>
-                                            <div className="experience-info-content ml-4 mt-3">
-                                                <h4>{item.university.university}</h4>
-                                                <div className="description">
-                                                    {item.description}
-                                                </div>
-                                                <div className="time-exp mb-5">
-                                                    {item.date_start} - {item.date_end}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="edit-profile mr-5 mt-2">
-                                            <div className="edit-profile mr-1 mt-2">
-                                                <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
-                                            </div>
-                                            <div className="edit-profile delete-skill mr-5 mt-2">
-                                                <a href="#" >
-                                                    <img 
-                                                        alt="img"
-                                                        className="img" 
-                                                        id={item.id} 
-                                                        src={require('../../public/images/svg/delete_.svg')} 
-                                                        onClick={handleClickDeleteEducation}
-                                                    />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Fragment>
-                            )
-                        }) : null
-                }
-            </div>
-
-            <ModalExperience />
-            <ModalEducation />
-            <ModalPerfil />
-
-            <div className="card mt-5 ml-4 mb-5">
-                <div className="experience mt-3">
-                    <div className="experience-header">
-                        <h3 className="ml-5">Certificados</h3>
-                        <a href="#" data-toggle="modal" data-target="#certificate"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
-                    </div>
-                </div>
-                {
-                    certifications.length > 0 ?
-                        certifications.map(function (item, index) {
-                            return (
-                                <Fragment key={index}>
-                                    <div className="experience-info">
-                                        <div className="info-experience">
-                                            <div className="img-experience ml-4 mt-3">
-                                                {/*  */}
-                                            </div>
-                                            <div className="experience-info-content ml-4 mt-3">
-                                                <h4>{item.name}</h4>
-                                                <span>{item.issuing_company}</span>
-                                                <div className="time-exp">
-                                                    {item.date_expedition} - {item.date_expiration}
-                                                </div>
-                                                <div className="description mb-4">
-                                                    <Link to="#">{item.url}</Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="edit-profile mr-5 mt-2">
-                                            <div className="edit-profile mr-1 mt-2">
-                                                <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
-                                            </div>
-                                            <div className="edit-profile delete-skill mr-5 mt-2">
-                                                <a href="#" >
-                                                    <img 
-                                                        alt="img"
-                                                        className="img" 
-                                                        id={item.id} 
-                                                        src={require('../../public/images/svg/delete_.svg')} 
-                                                        onClick={handleClickDeleteCertificate}
-                                                    />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                </Fragment>
-                            )
-                        }) : null
-                }
-                <div className="aptitud mt-3">
-                    <div className="aptitud-header">
-                        <h3 className="ml-5">Aptitudes</h3>
-                        <a href="#" data-toggle="modal" data-target="#skill"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
-                    </div>
-                </div>
-                {
-                    skills.length > 0 ?
-                        skills.map(function (item, index) {
-                            return (
-                                <div className="experience-info" key={index}>
-                                    <div className="info-aptitud ml-5">
-                                        <ul >
-                                            <li>{item.skill}</li>
-                                        </ul>
-                                    </div>
-                                    <div className="edit-profile delete-skill mr-5 mt-2">
-                                        <a href="#" >
-                                            <img 
-                                                alt="img"
-                                                className="img" 
-                                                id={item.id} 
-                                                src={require('../../public/images/svg/delete_.svg')} 
-                                                onClick={handleClickDeleteSkill}
-                                            />
-                                        </a>
-                                    </div>
                                 </div>
-                            )
-                        }) : null
-                }
+                                <div className="edit-profile mr-5 mt-4">
+                                    <a href="#" data-toggle="modal" data-target="#perfil"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                </div>
+                                {/* <div className="edit mt-4">
+                                <p>Disponible</p>
+                            </div> */}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6  col-md-6 col-xs-6">
+                        <div className="card">
+                            <div className="profile">
+                            <div className="img-experience experience-header ml-4 mt-4">
+                                <img src={require('../../public/images/svg/avatar.svg')} />
+                                <h3 className="ml-4">Perfil</h3>
+                            </div>
+                            <div className="profile-content ">
+                                <div className="work-user mt-1">
+                                    <strong className="bold">Edad: </strong><span className="line">25 años</span>
+                                </div>
+                                <div className="work-user mt-1">
+                                    <strong className="bold">Direccion: </strong><span className="line">Av La Molina 1255 - La Cascada</span>
+                                </div>
+                                {/* <div className="work-user mt-1">
+                                    <strong className="bold">Años de experiencia: </strong><span className="line">4 años</span>
+                                </div> */}
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="card mt-5">
+                            <div className="experience mt-3">
+                                <div className="img-experience experience-header ml-4 mt-2">
+                                    <img src={require('../../public/images/svg/experience.svg')} />
+                                    <h3 className="ml-4">Experiencia</h3>
+                                </div>
+                                <div className="experience-edit">
+                                    <a href="#" data-toggle="modal" data-target="#experience"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                </div>
+                            </div>
+                            {
+                                experiences.length > 0 ?
+                                    experiences.map(function (item, index) {
+                                        return (
+                                            <Fragment key={index}>
+                                                <div className="experience-info">
+                                                    <div className="info-experience">
+                                                        <div className="experience-info-content mt-3">
+                                                            <span className="bold">{item.position}</span>
+                                                            <br/>
+                                                            <strong>{item.company.name}</strong>
+                                                            <div className="time-exp mt-1">
+                                                                {item.date_start}
+                                                            </div>
+                                                            <div className="description mb-4">
+                                                                {/* Descripcion */}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="edit-profile mr-5 mt-2">
+                                                        <a href="#"><img className="img" alt="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                                    </div>
+                                                </div>
+                                            </Fragment>
+                                        )
+                                    }) : null
+                            }
+
+                        </div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="card mt-5">
+                            <div className="experience mt-3">
+                                <div className="img-experience experience-header ml-4 mt-2">
+                                    <img src={require('../../public/images/svg/birrete.svg')} />
+                                    <h3 className="ml-4">Educación</h3>
+                                </div>
+                                <div className="experience-edit">
+                                    <a href="#" data-toggle="modal" data-target="#education"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                </div>
+                            </div>
+                            {
+                                educations.length > 0 ?
+                                    educations.map(function (item, index) {
+                                        return (
+                                            <Fragment key={index}>
+                                                <div className="experience-info">
+                                                    <div className="info-experience">
+                                                        <div className="experience-info-content mt-3">
+                                                            <span className="bold">{item.university.university}</span>
+                                                            <br/>
+                                                            <div className="description">
+                                                                <strong>{item.description}</strong>
+                                                            </div>
+                                                            <div className="time-exp mt-1">
+                                                                {item.date_start} - {item.date_end}
+                                                            </div>
+                                                            <div className="description mb-4">
+                                                                {/* Descripcion */}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="edit-profile mr-5 mt-2">
+                                                        <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
+
+                                                        {/* <div className="edit-profile delete-skill mr-5 mt-2">
+                                                            <a href="#" >
+                                                                <img
+                                                                    alt="img"
+                                                                    className="img"
+                                                                    id={item.id}
+                                                                    src={require('../../public/images/svg/delete_.svg')}
+                                                                    onClick={handleClickDeleteEducation}
+                                                                />
+                                                            </a>
+                                                        </div> */}
+                                                    </div>
+                                                </div>
+                                            </Fragment>
+                                        )
+                                    }) : null
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <ModalExperience />
+                <ModalEducation />
+                <ModalPerfil />
+
+                <div className="row">
+                    <div className="col-md-6">
+                        <div className="card mt-5 mb-5">
+                            <div className="experience mt-3">
+                                <div className="img-experience experience-header ml-4 mt-2">
+                                    <img src={require('../../public/images/svg/rollo-de-diploma.svg')} />
+                                    <h3 className="ml-4">Certificado</h3>
+                                </div>
+                                <div className="experience-edit">
+                                    <a href="#" data-toggle="modal" data-target="#certificate"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                </div>
+                            </div>
+                            {
+                                certifications.length > 0 ?
+                                    certifications.map(function (item, index) {
+                                        return (
+                                            <Fragment key={index}>
+                                                <div className="experience-info">
+                                                    <div className="info-experience">
+                                                        <div className="experience-info-content mt-3">
+                                                            <span className="bold">{item.name}</span>
+                                                            <br/>
+                                                            <strong>{item.issuing_company}</strong>
+                                                            <div className="time-exp mt-1">
+                                                                {item.date_expedition} - {item.date_expiration}
+                                                            </div>
+                                                            <div className="description mt-1 mb-4">
+                                                                <Link to="#">{item.url}</Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="edit-profile mr-5 mt-2">
+                                                        <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                                        <div className="delete-skill mt-2">
+                                                            <a href="#" >
+                                                                <img
+                                                                    alt="img"
+                                                                    className="img"
+                                                                    id={item.id}
+                                                                    src={require('../../public/images/svg/delete_.svg')}
+                                                                    onClick={handleClickDeleteCertificate}
+                                                                />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Fragment>
+                                        )
+                                    }) : null
+                            }
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="card mt-5 mb-5">
+                            <div className="experience mt-3">
+                                <div className="img-experience experience-header ml-4 mt-2">
+                                    <img src={require('../../public/images/svg/hombre-que-corre.svg')} />
+                                    <h3 className="ml-4">Aptitudes</h3>
+                                </div>
+                                <div className="experience-edit">
+                                    <a href="#" data-toggle="modal" data-target="#skill"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                </div>
+                            </div>
+                            {
+                                skills.length > 0 ?
+                                    skills.map(function (item, index) {
+                                        return (
+                                            <div className="experience-info-skill mb-2" key={index}>
+                                                <div className="info-experience ml-5">
+                                                    <ul className="">
+                                                        <li className="skill-list"><strong>{item.skill}</strong></li>
+                                                    </ul>
+                                                </div>
+                                                <div className="edit-profile delete-skill mr-5 mt-2">
+                                                    <a href="#" >
+                                                        <img
+                                                            alt="img"
+                                                            className="img"
+                                                            id={item.id}
+                                                            src={require('../../public/images/svg/delete_.svg')}
+                                                            onClick={handleClickDeleteSkill}
+                                                        />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        )
+                                    }) : null
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <ModalSkill />
+                <ModalCertificate />
+                <ModalUpdateCertificate />
+                <ModalUpdateEducation />
             </div>
-
-            <ModalSkill />
-            <ModalCertificate />
-            <ModalUpdateCertificate />
-            <ModalUpdateEducation />
-
         </Fragment>
     );
 }

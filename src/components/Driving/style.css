@@ -1,16 +1,1 @@
-.driving{
-    width: 100%;
-    height: auto;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-}
 
-.profile-employee {
-    height: calc(100vh - 77px);
-}
-
-.plus-employee {
-    width: 100%;
-    height: calc(100vh - 77px);
-    padding: 50px;
-}
