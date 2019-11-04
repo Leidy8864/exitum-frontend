@@ -38,7 +38,9 @@ export default View;
 `;
 
 
-const contentCss = `.${args[0]}{\n}`;
+const contentCss = `.${args[0]}{
+    display: block;
+}`;
 
 //method to write the schedule to the component
 const createSchedule = async () =>{

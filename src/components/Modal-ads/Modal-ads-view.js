@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import './style.css'
 
 function View(props) {
@@ -93,7 +94,7 @@ function View(props) {
                                     <div className="form_group_">
                                         <label>Aptitudes del perfil</label>
                                         <Fragment>
-                                            <Select
+                                            <CreatableSelect
                                                 isMulti
                                                 name="skills"
                                                 options={skillsOptions}

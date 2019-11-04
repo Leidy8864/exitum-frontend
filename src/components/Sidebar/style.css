@@ -1,3 +1,6 @@
+.Sidebar{
+  display: block;
+}
 .text-abrv {
   position: relative;
 }

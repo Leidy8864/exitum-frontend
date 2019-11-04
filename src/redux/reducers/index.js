@@ -11,6 +11,9 @@ import listCertificationsReducer from './listCertificationsReducer'
 import getEducationReducer from './getEducationReducer'
 import listEducationReducer from './listEducationsReducer'
 import listSkillsReducer from './listSkillsReducer'
+import openModalReducer from './openModalReducer';
+import getAdStateReducer from './getAdStateReducer';
+
 
 export default combineReducers({
     form: formReducer,
@@ -25,4 +28,6 @@ export default combineReducers({
     getEducationReducer: getEducationReducer,
     listEducationReducer: listEducationReducer,
     listSkillsReducer: listSkillsReducer,
+    openModalReducer: openModalReducer,
+    getAdStateReducer : getAdStateReducer
 });

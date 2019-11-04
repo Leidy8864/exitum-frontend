@@ -1,17 +1,35 @@
 
 import React from 'react';
 import './style.css';
-function View() {
+function View(props) {
+    const {
+        handleSetState,
+        adState,
+        userRole
+    } = props;
     return (
         <div>
-            <ul className="nav nav-pills" id="myTab" role="tablist">
-                <li className="nav-item">
-                    <a className="nav-link px-4 active" id="active-tab" data-toggle="tab" href="#active" role="tab" aria-controls="active" aria-selected="true">EN CURSO</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link px-4" id="closed-tab" data-toggle="tab" href="#closed" role="tab" aria-controls="closed" aria-selected="false">EN PAUSA</a>
-                </li>
-            </ul>
+            {
+                userRole === "entrepreneur" ?
+                    <ul className="nav nav-pills" id="myTab" role="tablist">
+                        <li className="nav-item">
+                            <a className={adState === "active" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "active")}>EN CURSO</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={adState === "closed" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "closed")}>EN PAUSA</a>
+                        </li>
+                    </ul>
+                    :
+                    <ul className="nav nav-pills" id="myTab" role="tablist">
+                        <li className="nav-item">
+                            <a href="#" className="nav-link px-4 active">COINCIDENCIAS</a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link px-4">POSTULACIONES</a>
+                        </li>
+                    </ul>
+
+            }
         </div>
     );
 }

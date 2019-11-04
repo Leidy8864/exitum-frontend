@@ -1,3 +1,6 @@
+.Banner{
+  display: block;
+}
 .banner {
   position: relative;
   background: #093CC3;

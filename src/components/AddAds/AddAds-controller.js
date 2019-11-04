@@ -15,8 +15,11 @@ class AddAds extends React.Component {
     }
 
     render() {
+        const userRole = localStorage.getItem("role");
+
         return (
             <View
+            userRole={userRole}
             cleanForm={this.cleanForm}
             />
         );

@@ -1,3 +1,7 @@
+.HeaderDashboard{
+  display: block;
+}
+
 nav.dashboard-header {
   -webkit-transition: 0.3s;
   transition: 0.3s;

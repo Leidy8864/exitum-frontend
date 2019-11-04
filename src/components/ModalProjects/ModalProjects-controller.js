@@ -24,36 +24,43 @@ class ModalsProjects extends React.Component {
         stages: [],
         stageDescription: ''
     };
-    async componentDidMount() {
+    async componentDidUpdate(nextProps) {
 
-        try {
+        const {isModalOpen} = this.props;
 
-            const categorysData = await listCategories();
-
-            const stageData = await listStages();
-
-            var categories = [];
-            var stages = [];
-            if (categorysData.length >= 1) {
-                categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+        if (nextProps.isModalOpen !== isModalOpen) {
+            if (isModalOpen) {                
+                try {
+    
+                    const categorysData = await listCategories();
+        
+                    const stageData = await listStages();
+        
+                    console.log("STAGE DATA", stageData);
+        
+                    var categories = [];
+                    var stages = [];
+                    if (categorysData.length >= 1) {
+                        categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+                    }
+                    if (stageData.length >= 1) {
+                        stages = stageData.map(x => ({ label: x.stage, value: x.id, description: x.description }));
+                    }
+        
+                    const token = localStorage.getItem('token');
+        
+                    const result = jwt.decode(token);
+        
+                    this.setState({
+                        categories: categories,
+                        stages: stages,
+                        id: result.id
+                    });
+                } catch (error) {
+                    console.log("ERROR");
+                }   
             }
-            if (stageData.length >= 1) {
-                stages = stageData.map(x => ({ label: x.stage, value: x.id, description: x.description }));
-            }
-
-            const token = localStorage.getItem('token');
-
-            const result = jwt.decode(token);
-
-            this.setState({
-                categories: categories,
-                stages: stages,
-                id: result.id
-            });
-        } catch (error) {
-            console.log("ERROR");
         }
-
     }
     handleChange = (e) => {
 
@@ -208,7 +215,8 @@ class ModalsProjects extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    cleanFormReducer: state.cleanFormReducer
+    cleanFormReducer: state.cleanFormReducer,
+    isModalOpen : state.openModalReducer
 });
 const mapDispatchToProps = {
     listCategories,

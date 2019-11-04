@@ -7,10 +7,10 @@ import AdCard from '../AdCard/AdCard-view';
 function View(props) {
 
     const {
-        adsActive,
-        adsPaused,
         handleClickDelete,
-        handleClickUpdate
+        handleClickUpdate,
+        adsList,
+        userRole
     } = props
 
     return (
@@ -19,8 +19,8 @@ function View(props) {
                 <div className="tab-pane fade show active" id="active" role="tabpanel" aria-labelledby="active-tab">
                     <div className="row">
                         {
-                            adsActive.length > 0 ?
-                                adsActive.map(function (item, index) {
+                            adsList.length > 0 ?
+                            adsList.map(function (item, index) {
                                     return (
                                         <div className="col-sm-6 py-2" key={item.id}>
                                             <AdCard
@@ -31,36 +31,13 @@ function View(props) {
                                                 state={item.state}
                                                 handleClickDelete={handleClickDelete}
                                                 handleClickUpdate={handleClickUpdate}
+                                                userRole={userRole}
                                             />
                                         </div>
                                     )
                                 })
                                 :
-                                <h4 className="text-center">No se encontraron anuncios activos</h4>
-                        }
-                    </div>
-                </div>
-                <div className="tab-pane fade" id="closed" role="tabpanel" aria-labelledby="closed-tab">
-                    <div className="row">
-                        {
-                            adsPaused.length >= 1 ?
-                                adsPaused.map(function (item, index) {
-                                    return (
-                                        <div className="col-sm-6 py-2" key={item.id}>
-                                            <AdCard
-                                                title={item.title}
-                                                id={item.id}
-                                                index={index}
-                                                startup={item.startup}
-                                                state={item.state}
-                                                handleClickDelete={handleClickDelete}
-                                                handleClickUpdate={handleClickUpdate}
-                                            />
-                                        </div>
-                                    )
-                                })
-                                :
-                                <h4 className="text-center">No se encontraron anuncios pausados</h4>
+                                <h4 className="text-center">No se encontraron anuncios</h4>
                         }
                     </div>
                 </div>

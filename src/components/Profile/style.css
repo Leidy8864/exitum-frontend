@@ -1,6 +1,6 @@
 .Profile{
+    display: block;
 }
-
 .content-panel {
     overflow-y: scroll;
 }
