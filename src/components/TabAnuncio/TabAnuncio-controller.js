@@ -1,41 +1,54 @@
 
 import React from 'react';
 import View from './TabAnuncio-view';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getAdState from '../../redux/actions/getAdState';
+import getTypeAds from '../../redux/actions/getTypeAds';
 class TabAnuncio extends React.Component {
-
-    componentDidMount(){
-        this.props.getAdState("active");
+    componentDidMount() {
+        if (this.props.userRole === "entrepreneur") {
+            this.props.getAdState("active");
+        } else {
+            this.props.getTypeAds("coincidence");
+        }
     }
     handleSetState = (state) => {
         this.props.getAdState(state);
     }
+
+    handleSetAdType = (adType) => {
+        this.props.getTypeAds(adType);
+    }
     render() {
 
-        const{
+        const {
             adState,
-            userRole
+            userRole,
+            adType
         } = this.props;
         return (
             <View
-            adState = {adState}
-            userRole={userRole}
-            handleSetState = {this.handleSetState}
+                adState={adState}
+                adType={adType}
+                userRole={userRole}
+                handleSetAdType={this.handleSetAdType}
+                handleSetState={this.handleSetState}
             />
         );
     }
 
 }
 
-const mapStateToProps = state =>({
-    adState : state.getAdStateReducer
+const mapStateToProps = state => ({
+    adState: state.getAdStateReducer,
+    adType: state.getTypeAdsReducer
 });
 const mapDispatchToProps = {
-    getAdState
+    getAdState,
+    getTypeAds
 }
 
 export default withRouter(
-    connect(mapStateToProps,mapDispatchToProps)(TabAnuncio)
+    connect(mapStateToProps, mapDispatchToProps)(TabAnuncio)
 )

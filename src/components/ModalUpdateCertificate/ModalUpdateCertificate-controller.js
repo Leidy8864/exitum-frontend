@@ -1,6 +1,6 @@
 import React from 'react';
 import View from './ModalUpdateCertificate-view';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCertificationUpdate } from '../../redux/actions';
 import moment from 'moment';
@@ -23,17 +23,15 @@ class ModalUpdateCertificate extends React.Component {
     certificateUpdate = async e => {
         e.preventDefault();
         var formData = new FormData();
-        formData.append('user_id', localStorage.getItem('id'));
-        formData.append('certification_id', $('#CertificateId').val());
-        formData.append('name', $('#CertificateName').val());
-        formData.append('issuing_company', $('#CertificateIssuingCompany').val());
+        formData.append('user_id',localStorage.getItem('id'));
+        formData.append('certification_id',$('#CertificateId').val());
+        formData.append('name',$('#CertificateName').val());
+        formData.append('issuing_company',$('#CertificateIssuingCompany').val());
         formData.append('date_expedition', moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
         formData.append('date_expiration', moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
-        formData.append('document', document.querySelector('#choose_file').files[0]);
-
-        const response = await this.props.createCertificationUpdate(formData);
-        console.log('RESPUESTA UPDATE', response);
-
+        formData.append('document',document.querySelector('#choose_file').files[0]);
+        
+        await this.props.createCertificationUpdate(formData);
         this.props.listCertifications(1);
         this.props.cleanForm("1");
         this.setState({ changed_date_expedition: false })
@@ -51,7 +49,7 @@ class ModalUpdateCertificate extends React.Component {
     }
     onChange_ = date_expiration => {
         localStorage.setItem('expiration', date_expiration);
-        this.setState({ date_expiration: date_expiration, changed_date_expiration: true })
+        this.setState({ date_expiration: date_expiration, changed_date_expiration: true})
     }
 
 
@@ -59,11 +57,9 @@ class ModalUpdateCertificate extends React.Component {
         const {
             getCertificateReducer
         } = this.props;
-        let { CertificateId, CertificateName, CertificateIssuingCompany,
-            date_expedition, date_expiration, changed_date_expedition, changed_date_expiration } = this.state;
-
-            console.log(date_expedition)
-
+        let {CertificateId,CertificateName,CertificateIssuingCompany,
+            date_expedition,date_expiration,changed_date_expedition,changed_date_expiration} = this.state;
+        
         CertificateId = getCertificateReducer.id;
 
         if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
@@ -73,6 +69,8 @@ class ModalUpdateCertificate extends React.Component {
             CertificateName = getCertificateReducer.name;
             CertificateIssuingCompany = getCertificateReducer.issuing_company;
             $('#CertificateId').val(CertificateId);
+            localStorage.setItem('expedition', new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD')));
+            localStorage.setItem('expiration', new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD')));
         }
 
         return (
@@ -93,8 +91,7 @@ class ModalUpdateCertificate extends React.Component {
     }
 }
 
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({    
     getCertificateReducer: state.getCertificateReducer,
 });
 

@@ -5,3 +5,25 @@ span a img svg {
     fill: tomato !important;
     opacity: 0;
 }
+
+
+.title_add{
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .margin_botton_15{
+    margin-bottom: 15px;
+  }
+  
+  .card.card-body {
+    border: none;
+    border-radius: 8px !important;
+    transition: all ease-in-out 0.6s;
+  }
+  
+  
+  .images-icons {
+    display: flex;
+    justify-content: flex-end;
+  }

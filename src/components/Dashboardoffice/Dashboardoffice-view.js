@@ -21,9 +21,12 @@ function View(props) {
                     <div className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-xl-12 col-lg-12 content-two">
+                                <div className="col-xl-9 col-lg-12 content-two">
                                     <Tree />
                                     <Cherry />
+                                </div>
+                                <div className="col-xl-3 col-lg-12">
+                                    <Diary />
                                 </div>
                             </div>
                         </div>
@@ -32,12 +35,6 @@ function View(props) {
                     </div>
                 </main>
             </div>
-            <div className="diary-plugin">
-                <div className="dropdown show-dropdown open">
-                    <Link to="" onClick={pickDiary} className="diary-link" data-toggle="modal" data-target="#diary"><i className="fas fa-book"></i></Link>
-                </div>
-            </div>
-            <Diary />
         </Fragment>
     );
 }

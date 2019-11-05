@@ -180,7 +180,62 @@ export const updateAdvertisement = async (data) => {
         console.log("Error", error);
     }
 }
+export const listAdsByUser = async (data) => {
 
+    try {
+        const res = await axios.get(root + 'ads/listByEntrepreneur', {
+            params: data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+export const listAdsBySkills = async (data) => {
+
+    try {   
+        const res = await axios.get(root + 'ads/listBySkill', {
+            params: data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+export const getAdDetail = async (adId) => {
+
+    try {   
+        const res = await axios.get(root + `ads/${adId}/detail`);
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
+//End advertisments
+export const listPostulations = async (data) => {
+
+    try {   
+        const res = await axios.get(root + 'ads/listByProposal', {
+            params: data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+//Proposals and Postulations
+
+export const createProposal = async (data) => {
+    try {
+        const res = await axios.post(root + 'proposals/create', data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
+//End Proposal
 export const listSkillsAxio = async () => {
 
     try {
@@ -211,17 +266,6 @@ export const listAreas = async () => {
     }
 }
 
-export const listAdsByUser = async (data) => {
-
-    try {
-        const res = await axios.get(root + 'ads/listByEntrepreneur', {
-            params: data
-        });
-        return res.data;
-    } catch (error) {
-        console.log("Error" + error);
-    }
-}
 
 // export const fetchAlbums = (id) => async dispatch => {
 //     dispatch({ type: "FETCH_ALBUMS_BY_ARTIST"});

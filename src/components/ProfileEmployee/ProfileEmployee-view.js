@@ -32,7 +32,7 @@ function View(props) {
         <Fragment>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-6 col-md-6 col-xs-6">
+                    <div className="col-md-12">
                         <div className="card">
                             <div className="user-content">
                                 <div className="user-profile row">
@@ -70,8 +70,10 @@ function View(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6  col-md-6 col-xs-6">
-                        <div className="card">
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card mt-5">
                             <div className="profile">
                                 <div className="img-experience experience-header ml-4 mt-4">
                                     <img src={require('../../public/images/svg/avatar.svg')} />
@@ -94,7 +96,7 @@ function View(props) {
                 </div>
 
                 <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-md-12">
                         <div className="card mt-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -135,7 +137,7 @@ function View(props) {
 
                         </div>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-md-12">
                         <div className="card mt-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -197,8 +199,8 @@ function View(props) {
                 <ModalPerfil />
 
                 <div className="row">
-                    <div className="col-md-6">
-                        <div className="card mt-5 mb-5">
+                    <div className="col-md-12">
+                        <div className="card mt-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
                                     <img src={require('../../public/images/svg/rollo-de-diploma.svg')} />
@@ -248,7 +250,7 @@ function View(props) {
                             }
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <div className="card mt-5 mb-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -293,7 +295,7 @@ function View(props) {
                 <ModalUpdateCertificate />
                 <ModalUpdateEducation />
             </div>
-        </Fragment>
+        </Fragment >
     );
 }
 export default View;

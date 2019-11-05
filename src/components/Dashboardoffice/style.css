@@ -9,6 +9,17 @@
   background: #EEF1F8;
 }
 
+.content-three{
+  width: 100%;
+  background: #396afc !important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.content-three {
+  width: 100%;
+}
+
 .main-panel>.content {
   margin-top: 77px;
   padding: 0px !important;

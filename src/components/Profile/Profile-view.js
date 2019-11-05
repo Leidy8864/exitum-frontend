@@ -19,20 +19,17 @@ function View(props) {
                     <div className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col">
+                                <div className="col-xl-9 col-lg-12">
                                     <Driving />
+                                </div>
+                                <div className="col-xl-3 col-lg-12 content-three">
+                                    <Diary />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
-            <div className="diary-plugin">
-                <div className="dropdown show-dropdown open">
-                    <Link to="" onClick={pickDiary} className="diary-link" data-toggle="modal" data-target="#diary"><i className="fas fa-book"></i></Link>
-                </div>
-            </div>
-            <Diary />
         </Fragment>
     );
 }
