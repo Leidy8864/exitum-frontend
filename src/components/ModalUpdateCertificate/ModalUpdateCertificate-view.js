@@ -33,7 +33,7 @@ function View(props){
                                     type="hidden"
                                     name="id"
                                     className="form-control"
-                                    value={CertificateId}
+                                    value={CertificateId || ''}
                                 />
                                 <div className="row">
                                     <label>Certificacion</label>

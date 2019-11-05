@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import * as actions from '../../redux/actions'
-import $ from 'jquery'
+// import $ from 'jquery'
 
 class Sidebar extends React.Component {
 

@@ -10,6 +10,7 @@ import cleanForm from '../../redux/actions/clean-form'
 
 class ModalUpdateCertificate extends React.Component {
     state = {
+        name: '',
         CertificateId: '',
         CertificateName: '',
         CertificateIssuingCompany: '',
@@ -40,6 +41,10 @@ class ModalUpdateCertificate extends React.Component {
         $('#updatecertificate').modal('hide');
     }
 
+    name = e => {
+        this.setState({ name: e.target.value })
+    }
+
     onChange = date_expedition => {
         localStorage.setItem('expedition', date_expedition);
         this.setState({ date_expedition: date_expedition, changed_date_expedition: true })
@@ -60,17 +65,19 @@ class ModalUpdateCertificate extends React.Component {
             console.log(date_expedition)
 
         CertificateId = getCertificateReducer.id;
-        CertificateName = getCertificateReducer.name;
-        CertificateIssuingCompany = getCertificateReducer.issuing_company;
-        if (!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.expedition).add(1, 'days').format('YYYY-MM-DD'));
-        if (!changed_date_expiration) date_expiration = new Date(moment(getCertificateReducer.expiration).add(1, 'days').format('YYYY-MM-DD'));
 
-        $('#CertificateId').val(CertificateId);
-        $('#CertificateName').val(CertificateName);
-        $('#CertificateIssuingCompany').val(CertificateIssuingCompany);
+        if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
+        if(!changed_date_expiration) date_expiration = new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
+        
+        if($('#CertificateId').val() !== CertificateId){
+            CertificateName = getCertificateReducer.name;
+            CertificateIssuingCompany = getCertificateReducer.issuing_company;
+            $('#CertificateId').val(CertificateId);
+        }
 
         return (
             <View
+                name= {this.name}
                 onChange={this.onChange}
                 onChange_={this.onChange_}
                 certificateUpdate={this.certificateUpdate}
