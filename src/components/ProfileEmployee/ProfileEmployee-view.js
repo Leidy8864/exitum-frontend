@@ -262,7 +262,7 @@ function View(props) {
                                 </div>
                             </div>
                             {
-                                skills.length > 0 ?
+                                skills && skills.length > 0 ?
                                     skills.map(function (item, index) {
                                         return (
                                             <div className="experience-info-skill mb-2" key={index}>

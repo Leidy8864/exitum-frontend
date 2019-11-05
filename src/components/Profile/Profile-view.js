@@ -6,9 +6,7 @@ import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
 import Driving from '../Driving/Driving-controller'
 import Diary from '../Diary/Diary-controller';
 
-function View(props) {
-
-    const { pickDiary } = props
+function View() {
 
     return (
         <Fragment>
@@ -22,7 +20,7 @@ function View(props) {
                                 <div className="col-xl-9 col-lg-12">
                                     <Driving />
                                 </div>
-                                <div className="col-xl-3 col-lg-12 content-three">
+                                <div className="col-xl-3 col-lg-12 content-diary">
                                     <Diary />
                                 </div>
                             </div>

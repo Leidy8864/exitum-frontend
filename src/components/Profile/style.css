@@ -1,31 +1,14 @@
-.Profile{
-    display: block;
-}
+.content-diary{
+    background: #396afc !important;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
 
-.content-two {
-    overflow-y: scroll;
-}
-
-.diary-plugin {
-    position: fixed;
-    top: 115px;
-    right: 0;
-    width: 64px;
-    background: rgba(0,0,0,.3);
-    z-index: 1031;
-    border-radius: 8px 0 0 8px;
-    text-align: center;
-}
-
-.diary-link i {
-    color: #fff;
-    padding: 20px;
-    font-size: 30px;
-}
-
-.dropdown-menu {
-    transform: translate3d(-430px, 20px, 0px) !important;
-    background-color: #3369fd !important;
-    width: 400px;
+  .Diary {
+    display: flex;
+    justify-content: center;
     height: auto;
-}
+    background: #396afc !important;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
