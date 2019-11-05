@@ -118,8 +118,8 @@ class ProfileEmployee extends React.Component {
             if (result.value) {
                 try {
                     const data = {
-                        user_id: localStorage.getItem('id'),
-                        certification_id: certification_id
+                        user_id: parseInt(localStorage.getItem('id')),
+                        certification_id: parseInt(certification_id)
                     }
                     console.log("response delete certificate data = ", data)
                     const response = await this.props.deleteCertificate(data);
