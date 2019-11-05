@@ -30,9 +30,7 @@ class AddsList extends React.Component {
                     page: 1
                 }
                 try {
-
                     const adsList = await listAdsByUser(data)
-                    
                     var pages = adsList.status ?  adsList.pages : 1;
         
                     this.setState({
@@ -41,10 +39,10 @@ class AddsList extends React.Component {
                     });
         
                     var page = 1;
-                    $('#lista-anuncios').on('scroll', async () => {
-                        if ($('#lista-anuncios').scrollTop() +
-                            $('#lista-anuncios').innerHeight() >=
-                            $('#lista-anuncios')[0].scrollHeight) {
+                    $('#entrepreneur-ads').on('scroll', async () => {
+                        if ($('#entrepreneur-ads').scrollTop() +
+                            $('#entrepreneur-ads').innerHeight() >=
+                            $('#entrepreneur-ads')[0].scrollHeight) {
                             
                             page = page + 1;
         
@@ -65,9 +63,7 @@ class AddsList extends React.Component {
                                     var newArray = Object.assign([], this.state.adsList);
                                     
                                     for (let index = 0; index < arrayList.length; index++) {
-                
                                         newArray.push(arrayList[index]);
-                
                                     }
                                     this.setState({
                                         adsList: newArray

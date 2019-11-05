@@ -33,41 +33,41 @@ class ModalAds extends React.Component {
     };
 
     async componentDidMount() {
-
-        try {
-            const token = localStorage.getItem('token');
-            const result = jwt.decode(token);
-            
-            const startupsData = await listStartupsByUser({
-                id: result.id
-            });
-            const skillsData = await listSkillsAxio();
-            const areasData = await listAreas();
-    
-            var startups = [];
-            var skills = [];
-            var areas = [];
-    
-            if (startupsData.length >= 1) {
-                startups = startupsData.map(x => ({ label: x.name, value: x.id }));
-            }
-    
-            if (skillsData.length >= 1) {
-                skills = skillsData.map(x => ({ label: x.skill, value: x.skill }));
-            }
-            if (areasData.length >= 1) {
-                areas = areasData.map(x => ({ label: x.name, value: x.id }));
-            }
-    
-            this.setState({
-                startups: startups,
-                list_skills: skills,
-                areas: areas
-            });
-        } catch (error) {
-            console.log("ERROR");
+        if (localStorage.getItem('role') === "entrepreneur") {
+            try {
+                const token = localStorage.getItem('token');
+                const result = jwt.decode(token);
+                
+                const startupsData = await listStartupsByUser({
+                    id: result.id
+                });
+                const skillsData = await listSkillsAxio();
+                const areasData = await listAreas();
+        
+                var startups = [];
+                var skills = [];
+                var areas = [];
+        
+                if (startupsData.length >= 1) {
+                    startups = startupsData.map(x => ({ label: x.name, value: x.id }));
+                }
+        
+                if (skillsData.length >= 1) {
+                    skills = skillsData.map(x => ({ label: x.skill, value: x.skill }));
+                }
+                if (areasData.length >= 1) {
+                    areas = areasData.map(x => ({ label: x.name, value: x.id }));
+                }
+        
+                this.setState({
+                    startups: startups,
+                    list_skills: skills,
+                    areas: areas
+                });
+            } catch (error) {
+                console.log("ERROR",error);
+            }   
         }
-
     }
 
     toggleClearable = () =>

@@ -1,20 +1,18 @@
 
 import React from 'react';
 import './style.css';
-
 import AdCard from '../AdCard/AdCard-view';
-
+import AdDetail from '../AdDetail/AdDetail-controller';
 function View(props) {
 
     const {
-        handleClickDelete,
-        handleClickUpdate,
         adsList,
-        userRole
+        userRole,
+        handleSetAdId
     } = props
 
     return (
-        <div className="container ads-list" id="entrepreneur-ads">
+        <div className="container employee-ads-class mt-3" id="employee-ads">
             <div className="row">
                 {
                     adsList.length > 0 ?
@@ -27,10 +25,8 @@ function View(props) {
                                         index={index}
                                         startup={item.startup}
                                         state={item.state}
-                                        handleClickDelete={handleClickDelete}
-                                        handleClickUpdate={handleClickUpdate}
-                                        proposals={item.proposals.length}
                                         userRole={userRole}
+                                        handleSetAdId={handleSetAdId}
                                     />
                                 </div>
                             )
@@ -39,8 +35,8 @@ function View(props) {
                         <h4 className="text-center">No se encontraron anuncios</h4>
                 }
             </div>
+            <AdDetail />
         </div>
-
     );
 }
 export default View;

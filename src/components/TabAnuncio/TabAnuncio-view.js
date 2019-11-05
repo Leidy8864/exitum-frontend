@@ -5,7 +5,9 @@ function View(props) {
     const {
         handleSetState,
         adState,
-        userRole
+        adType,
+        userRole,
+        handleSetAdType
     } = props;
     return (
         <div>
@@ -22,10 +24,10 @@ function View(props) {
                     :
                     <ul className="nav nav-pills" id="myTab" role="tablist">
                         <li className="nav-item">
-                            <a href="#" className="nav-link px-4 active">COINCIDENCIAS</a>
+                            <a href="#" className={adType === "coincidence" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this,"coincidence")}>COINCIDENCIAS</a>
                         </li>
                         <li className="nav-item">
-                            <a href="#" className="nav-link px-4">POSTULACIONES</a>
+                            <a href="#" className={adType === "postulation" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this,"postulation")}>POSTULACIONES</a>
                         </li>
                     </ul>
 

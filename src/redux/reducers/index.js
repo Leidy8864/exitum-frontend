@@ -13,6 +13,9 @@ import listEducationReducer from './listEducationsReducer'
 import listSkillsReducer from './listSkillsReducer'
 import openModalReducer from './openModalReducer';
 import getAdStateReducer from './getAdStateReducer';
+import getTypeAdsReducer from './getTypeAdsReducer';
+import getAdIdReducer from './getAdIdReducer';
+import getListAdsReducer from './getListAdsReducer';
 
 
 export default combineReducers({
@@ -29,5 +32,8 @@ export default combineReducers({
     listEducationReducer: listEducationReducer,
     listSkillsReducer: listSkillsReducer,
     openModalReducer: openModalReducer,
-    getAdStateReducer : getAdStateReducer
+    getAdStateReducer : getAdStateReducer,
+    getTypeAdsReducer : getTypeAdsReducer,
+    getAdIdReducer : getAdIdReducer,
+    getListAdsReducer : getListAdsReducer
 });

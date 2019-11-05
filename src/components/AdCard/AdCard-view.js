@@ -10,21 +10,28 @@ function View(props) {
         index,
         handleClickDelete,
         handleClickUpdate,
+        handleSetAdId,
         startup,
         state,
-        userRole
+        userRole,
+        proposals
     } = props;
     return (
         <div className="card card-body h-100">
-            <div className="row">
-                <h5 className={userRole ==="entrepreneur" ? "card-title title_add col-sm-9" : "card-title title_add col-sm-12"}>{title}</h5>
+            <div>
                 {
-                    userRole === "entrepreneur" ? 
-                    <div className="col-sm-3 images-icons">
-                        <span><Link to="#"><img src={state === "active" ? require("../../public/images/svg/boton-de-pausa.svg") : require("../../public/images/svg/boton-de-reproduccion.svg")} alt="svg" width="23" id={id} onClick={handleClickUpdate.bind(this, index, state)} /></Link></span>
-                        <span className="pl-2"><Link to="#"><img src={require("../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basuras.svg")} alt="svg" width="23" id={id} onClick={handleClickDelete.bind(this, index)} /></Link></span>
-                    </div>
-                    : ""
+                    userRole === "entrepreneur" ?
+                        <div className="row">
+                            <h5 className="text-primary card-title title_add col-sm-9">{title}</h5>
+
+                            <div className="col-sm-3 images-icons">
+                                <span><Link to="#"><img src={state === "active" ? require("../../public/images/svg/pause.svg") : require("../../public/images/svg/play-button.svg")} alt="svg" width="23" id={id} onClick={handleClickUpdate.bind(this, index, state)} /></Link></span>
+                                <span className="pl-2"><Link to="#"><img src={require("../../public/images/svg/delete.svg")} alt="svg" width="23" id={id} onClick={handleClickDelete.bind(this, index)} /></Link></span>
+                            </div>
+                        </div>
+                        :
+                        <Link className="row card-title title_add col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this,id)}>{title}</Link>
+
                 }
             </div>
             <div className="row margin_botton_15">
@@ -34,7 +41,7 @@ function View(props) {
                 userRole === "entrepreneur" ?
                     <div className="row margin_botton_15">
                         <div className="col-sm-6">
-                            <p className="card-text">18 Postulantes</p>
+                            <p className="card-text">{proposals} Postulantes</p>
                         </div>
                         <div className="col-sm-6">
                             <p className="card-text">18 coincidencias</p>
