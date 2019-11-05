@@ -179,6 +179,8 @@ class ProfileEmployee extends React.Component {
 
     fileSelectedHandler = event => {
         let file = event.target.files[0]
+        console.log('FILE',file);
+                
         this.setState({
             file: file
         })
@@ -189,7 +191,7 @@ class ProfileEmployee extends React.Component {
         const formData = new FormData();
         const {file} = this.state
         formData.append("user_id",localStorage.getItem('id'));
-        formData.append("file",file);
+        formData.append("photo",file);
         const res = await this.props.updateImageUser(formData)
         console.log('RESPUESTA IMAGEN',res);
     }
