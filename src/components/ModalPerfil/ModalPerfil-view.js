@@ -2,8 +2,11 @@
 import React from 'react';
 import './style.css';
 
-function View(){
-    return(
+function View(props) {
+
+    const {name,lastname,phone,namePerfil,lastnamePerfil,phonePerfil,updatePerfil} = props
+
+    return (
         <div>
             <div className="modal fade" id="perfil" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -14,21 +17,48 @@ function View(){
                         <div className="modal-body">
                             <form>
                                 <div className="row">
-                                    <label>Nombres</label>
-                                    <input type="text" className="form-control" />
+                                    <div className="col-md-6">
+                                        <label>Nombres</label>
+                                        <input 
+                                        type="text"
+                                        defaultValue={name}
+                                        onChange={namePerfil} 
+                                        className="form-control" 
+                                        />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label>Apellidos</label>
+                                        <input 
+                                        type="text" 
+                                        defaultValue={lastname}
+                                        onChange={lastnamePerfil}
+                                        className="form-control" />
+                                    </div>
                                 </div>
                                 <div className="row">
-                                    <label>Apellidos</label>
-                                    <input type="text" className="form-control" />
+                                    <div className="col-md-6">
+                                        <label>Direccion</label>
+                                        <input type="text" className="form-control" />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label>Celular</label>
+                                        <input 
+                                        type="text" 
+                                        defaultValue={phone}
+                                        onChange={phonePerfil}
+                                        className="form-control" />
+                                    </div>
                                 </div>
                                 <div className="row">
-                                    <label>Puesto actual</label>
-                                    <input type="text" className="form-control" />
+                                    <div className="col-md-12">
+                                        <label>Puesto Actual</label>
+                                        <input type="text" className="form-control" />
+                                    </div>
                                 </div>
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-primary">Guardar</button>
+                            <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>

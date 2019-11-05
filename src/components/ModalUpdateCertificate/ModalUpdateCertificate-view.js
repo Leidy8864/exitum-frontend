@@ -16,8 +16,6 @@ function View(props){
         CertificateId,
         CertificateName,
         CertificateIssuingCompany,
-        // date_expidition,
-        // date_expiration
     } = props
 
     return(
@@ -35,7 +33,7 @@ function View(props){
                                     type="hidden"
                                     name="id"
                                     className="form-control"
-                                    value={CertificateId}
+                                    value={CertificateId || ''}
                                 />
                                 <div className="row">
                                     <label>Certificacion</label>
