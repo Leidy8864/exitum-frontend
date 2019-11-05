@@ -29,7 +29,7 @@ function View(props) {
             </div>
             <div className="diary-plugin">
                 <div className="dropdown show-dropdown open">
-                    <Link to="" onClick={pickDiary} className="diary-link" data-toggle="modal" data-target="#diary"><i class="fas fa-book"></i></Link>
+                    <Link to="" onClick={pickDiary} className="diary-link" data-toggle="modal" data-target="#diary"><i className="fas fa-book"></i></Link>
                 </div>
             </div>
             <Diary />

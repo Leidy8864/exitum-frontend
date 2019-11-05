@@ -48,7 +48,7 @@ function View(props) {
                                                 <span>Actualmente trabajando en </span><strong>Techie</strong>
                                             </div>
                                             <div className="work-user mt-1">
-                                                <span className="">Full-time(40hr/wk)</span><i class="fas fa-check-circle"></i>
+                                                <span className="">Full-time(40hr/wk)</span><i className="fas fa-check-circle"></i>
                                             </div>
                                             {/* <div className="available-user mt-2">
                                     <strong>Disponible: </strong><span>Full Time(40hr/wk)</span>

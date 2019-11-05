@@ -9,7 +9,7 @@ class Diary extends React.Component {
 
     render() {
         let blockDiary =
-            <div className="start-diary modal fade" id="diary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div className="start-diary modal fade" id="diary" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div className="modal-dialog" id="dialog" role="document">
                     <div className="modal-content" id="content-diary">
                         <div className="diary-header">
