@@ -24,6 +24,8 @@ function View(props) {
         idEducation,
         handleClickDeleteSkill,
         handleClickDeleteCertificate,
+        fileSelectedHandler,
+        fileUploadHandler,
         handleClickDeleteEducation
     } = props
     return (
@@ -36,7 +38,8 @@ function View(props) {
                                 <div className="user-profile row">
                                     <div className="user-img ml-5">
                                         <div className="img-profile mt-3 mb-3">
-                                            <Link to="/profile"><img alt="img" className="img" src="https://scontent.flim1-1.fna.fbcdn.net/v/t1.0-1/p160x160/76652265_3020671151491348_4142212806978043904_n.jpg?_nc_cat=104&_nc_oc=AQkKJ24_lfvVPaUBfwVVyM-AFDe0nfBoBLLwj3jQPbqym-EHnOsnyun-FhqxJai2dYWRs3DydbWsNfjqzM0eCKZa&_nc_ht=scontent.flim1-1.fna&oh=a0c172241527a620b68b54cf8c84c2f1&oe=5E62E90F" /></Link>
+                                            <input type="file" name="file" onChange={fileSelectedHandler} />
+                                            <button type="button" onClick={fileUploadHandler}>Guardar</button>
                                         </div>
                                         <div className="user-name ml-5 mb-4">
                                             <h2>Ana Sanchez</h2>
@@ -48,7 +51,7 @@ function View(props) {
                                                 <span>Actualmente trabajando en </span><strong>Techie</strong>
                                             </div>
                                             <div className="work-user mt-1">
-                                                <span className="">Full-time(40hr/wk)</span><i class="fas fa-check-circle"></i>
+                                                <span className="">Full-time(40hr/wk)</span><i className="fas fa-check-circle"></i>
                                             </div>
                                             {/* <div className="available-user mt-2">
                                     <strong>Disponible: </strong><span>Full Time(40hr/wk)</span>
@@ -70,21 +73,21 @@ function View(props) {
                     <div className="col-lg-6  col-md-6 col-xs-6">
                         <div className="card">
                             <div className="profile">
-                            <div className="img-experience experience-header ml-4 mt-4">
-                                <img src={require('../../public/images/svg/avatar.svg')} />
-                                <h3 className="ml-4">Perfil</h3>
-                            </div>
-                            <div className="profile-content ">
-                                <div className="work-user mt-1">
-                                    <strong className="bold">Edad: </strong><span className="line">25 años</span>
+                                <div className="img-experience experience-header ml-4 mt-4">
+                                    <img src={require('../../public/images/svg/avatar.svg')} />
+                                    <h3 className="ml-4">Perfil</h3>
                                 </div>
-                                <div className="work-user mt-1">
-                                    <strong className="bold">Direccion: </strong><span className="line">Av La Molina 1255 - La Cascada</span>
-                                </div>
-                                {/* <div className="work-user mt-1">
+                                <div className="profile-content ">
+                                    <div className="work-user mt-1">
+                                        <strong className="bold">Edad: </strong><span className="line">25 años</span>
+                                    </div>
+                                    <div className="work-user mt-1">
+                                        <strong className="bold">Direccion: </strong><span className="line">Av La Molina 1255 - La Cascada</span>
+                                    </div>
+                                    {/* <div className="work-user mt-1">
                                     <strong className="bold">Años de experiencia: </strong><span className="line">4 años</span>
                                 </div> */}
-                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +114,7 @@ function View(props) {
                                                     <div className="info-experience">
                                                         <div className="experience-info-content mt-3">
                                                             <span className="bold">{item.position}</span>
-                                                            <br/>
+                                                            <br />
                                                             <strong>{item.company.name}</strong>
                                                             <div className="time-exp mt-1">
                                                                 {item.date_start}
@@ -152,7 +155,7 @@ function View(props) {
                                                     <div className="info-experience">
                                                         <div className="experience-info-content mt-3">
                                                             <span className="bold">{item.university.university}</span>
-                                                            <br/>
+                                                            <br />
                                                             <div className="description">
                                                                 <strong>{item.description}</strong>
                                                             </div>
@@ -214,7 +217,7 @@ function View(props) {
                                                     <div className="info-experience">
                                                         <div className="experience-info-content mt-3">
                                                             <span className="bold">{item.name}</span>
-                                                            <br/>
+                                                            <br />
                                                             <strong>{item.issuing_company}</strong>
                                                             <div className="time-exp mt-1">
                                                                 {item.date_expedition} - {item.date_expiration}

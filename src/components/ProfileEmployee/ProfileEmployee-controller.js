@@ -3,12 +3,13 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser } from '../../redux/actions';
+import { showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import listCertifications from '../../redux/actions/list-certifications';
 import listSkills  from '../../redux/actions/list-skills';
 import { deleteSkill, deleteCertificate, deleteEducation } from '../../redux/actions';
 import Swal from 'sweetalert2';
+import $ from 'jquery'
 
 class ProfileEmployee extends React.Component {
 
@@ -16,7 +17,8 @@ class ProfileEmployee extends React.Component {
         certifications : [],
         experiences: [],
         educations: [],
-        skills: []
+        skills: [],
+        file: null
     }
 
     async componentDidMount() {
@@ -43,6 +45,7 @@ class ProfileEmployee extends React.Component {
         localStorage.setItem('expedition', certificate.expedition);
         localStorage.setItem('expiration', certificate.expiration);
         this.props.getCertificate(certificate);
+        $('#updatecertificate').modal('show')
     }
 
     refreshCertifications = async() =>{
@@ -174,6 +177,23 @@ class ProfileEmployee extends React.Component {
         });
     }
 
+    fileSelectedHandler = event => {
+        let file = event.target.files[0]
+        this.setState({
+            file: file
+        })
+    }
+
+    fileUploadHandler = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        const {file} = this.state
+        formData.append("user_id",localStorage.getItem('id'));
+        formData.append("file",file);
+        const res = await this.props.updateImageUser(formData)
+        console.log('RESPUESTA IMAGEN',res);
+    }
+
     render() {
 
         const {listCertificationsReducer, listSkillsReducer} = this.props;
@@ -187,6 +207,7 @@ class ProfileEmployee extends React.Component {
 
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname')
+
         return (
             <View
                 user={user}
@@ -199,6 +220,8 @@ class ProfileEmployee extends React.Component {
                 handleClickDeleteSkill = {this.handleClickDeleteSkill}
                 handleClickDeleteCertificate = {this.handleClickDeleteCertificate}
                 handleClickDeleteEducation = {this.handleClickDeleteEducation}
+                fileSelectedHandler={this.fileSelectedHandler}
+                fileUploadHandler = {this.fileUploadHandler}
             />
         );
     }
@@ -215,7 +238,8 @@ const mapDispatchToProps = {
     showCertificationByUser,
     getCertificate,
     listCertifications,
-    listSkills
+    listSkills,
+    updateImageUser
 };
 
 

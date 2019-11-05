@@ -65,16 +65,17 @@ export const signIn = data => {
     }
 }
 
-export const updateUser = async (data) => {
-    try {
-        const res = await axios.post(root + 'users/update', data);
-        console.log(res)
-        return res.data;
-    } catch (error) {
-        console.log("Error" + error);
+export const updateUser = data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + 'users/update', data);
+            console.log(res)
+            return res.data;
+        } catch (error) {
+            console.log("Error" + error);
 
+        }
     }
-
 }
 
 export const forgotPassword = async (data) => {
@@ -193,7 +194,7 @@ export const listSkillsAxio = async () => {
 export const deleteSkill = async (data) => {
     try {
         const res = await axios.post(root + 'skills/delete', data);
-        console.log('RES DATA',res);
+        console.log('RES DATA', res);
         return res.data;
     } catch (error) {
         console.log("Error", error);
@@ -282,7 +283,7 @@ export const completeChallenge = async (data) => {
 }
 
 
-export const createExperience =  data => {
+export const createExperience = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `experiences/create`, data)
@@ -293,23 +294,10 @@ export const createExperience =  data => {
     }
 }
 
-export const createEducation =  data => {
+export const createEducation = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `educations/create`, data
-        )
-            return res.data.data
-        } catch (error) {
-            console.log("Error" + error)
-        }
-    }
-}
-
-export const createEducationUpdate =  data => {
-    return async dispatch => {
-        try {
-            const res = await axios.post(
-                root + `educations/update`,data
             )
             return res.data.data
         } catch (error) {
@@ -318,15 +306,28 @@ export const createEducationUpdate =  data => {
     }
 }
 
-export const createCertification =  data => {
+export const createEducationUpdate = data => {
     return async dispatch => {
         try {
             const res = await axios.post(
-                root + `certifications/create`,data,
-                { 
+                root + `educations/update`, data
+            )
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const createCertification = data => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(
+                root + `certifications/create`, data,
+                {
                     headers: {
                         'content-type': 'application/x-www-form-urlencoded;'
-                    } 
+                    }
                 }
             )
             return res.data.data
@@ -336,11 +337,11 @@ export const createCertification =  data => {
     }
 }
 
-export const deleteCertificate =  data => {
+export const deleteCertificate = data => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `certifications/delete`,data)
-            console.log('RES DATA',res);
+            const res = await axios.post(root + `certifications/delete`, data)
+            console.log('RES DATA', res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -348,15 +349,15 @@ export const deleteCertificate =  data => {
     }
 }
 
-export const createCertificationUpdate =  data => {
+export const createCertificationUpdate = data => {
     return async dispatch => {
         try {
             const res = await axios.post(
-                root + `certifications/update`,data,
-                { 
+                root + `certifications/update`, data,
+                {
                     headers: {
                         'content-type': 'application/x-www-form-urlencoded;'
-                    } 
+                    }
                 }
             )
             return res.data.data
@@ -370,7 +371,7 @@ export const createSkills = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `skills/userAddSkill`, data
-        )
+            )
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -396,11 +397,11 @@ export const showEducationByUser = async (id) => {
     }
 }
 
-export const deleteEducation =  data => {
+export const deleteEducation = data => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `educations/delete`,data)
-            console.log('RES DATA',res);
+            const res = await axios.post(root + `educations/delete`, data)
+            console.log('RES DATA', res);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -423,5 +424,23 @@ export const showSkillByUser = async (id) => {
         return res.data.data
     } catch (error) {
         console.log("Error" + error)
+    }
+}
+
+export const updateImageUser = data => {
+    return async dispatch => {
+        try {
+                const res = await axios.post(root + `users/update-image`,data,
+                {
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded;'
+                    }
+                }
+            )
+            console.log("res =",res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
     }
 }
