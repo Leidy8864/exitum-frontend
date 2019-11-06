@@ -14,11 +14,11 @@ import './style.css';
 function View(props) {
 
     const {
-        user,
-        lastname,
+        users,
         certifications,
         idCertificate,
         experiences,
+        experience,
         educations,
         skills,
         idEducation,
@@ -28,69 +28,50 @@ function View(props) {
         fileUploadHandler,
         handleClickDeleteEducation
     } = props
+
+    console.log(experience)
+
+    let name = users.name
+    let lastname = users.lastname
+    let phone = users.phone
+    let experienceActual = experience
+
     return (
         <Fragment>
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <div className="user-content">
-                                <div className="user-profile row">
-                                    <div className="user-img ml-5">
-                                        <div className="img-profile mt-3 mb-3">
-                                            <input type="file" name="file" onChange={fileSelectedHandler} />
-                                            <button type="button" onClick={fileUploadHandler}>Guardar</button>
-                                        </div>
-                                        <div className="user-name ml-5 mb-4">
-                                            <h2>Ana Sanchez</h2>
-                                            <span>Programador Frontend</span>
-                                            {/* <div className="country-user mt-2">
-                                                <span>Peru</span>
-                                            </div> */}
-                                            <div className="work-user mt-1">
-                                                <span>Actualmente trabajando en </span><strong>Techie</strong>
-                                            </div>
-                                            <div className="work-user mt-1">
-                                                <span className="">Full-time(40hr/wk)</span><i className="fas fa-check-circle"></i>
-                                            </div>
-                                            {/* <div className="available-user mt-2">
-                                    <strong>Disponible: </strong><span>Full Time(40hr/wk)</span>
-                                </div> */}
-                                        </div>
+                            <div className="img-profile mt-3 mb-3">
+                                <input type="file" name="file" onChange={fileSelectedHandler} />
+                                <button type="button" onClick={fileUploadHandler}>Guardar</button>
+                            </div>
 
+                            <div className="profile">
+                                <div className="content-data-user">
+                                    <div className="img-experience experience-header ml-4 mt-4">
+                                        <img src={require('../../public/images/svg/avatar.svg')} />
+                                        <h3 className="ml-4">Perfil</h3>
                                     </div>
-
+                                    <div className="data_user mt-3 experience-info-content mb-3">
+                                        <div>
+                                            <h4>{name} {lastname}</h4> 
+                                            <p className="bold">{experienceActual}</p>
+                                        </div>
+                                        <hr/>
+                                        <div>
+                                            <span className="bold">25 años</span>
+                                        </div>
+                                        <div>
+                                            <span className="bold">{phone}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="edit-profile mr-5 mt-4">
+                                <div className="edit-profile mt-4 mr-5">
                                     <a href="#" data-toggle="modal" data-target="#perfil"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
                                 </div>
-                                {/* <div className="edit mt-4">
-                                <p>Disponible</p>
-                            </div> */}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card mt-5">
-                            <div className="profile">
-                                <div className="img-experience experience-header ml-4 mt-4">
-                                    <img src={require('../../public/images/svg/avatar.svg')} />
-                                    <h3 className="ml-4">Perfil</h3>
-                                </div>
-                                <div className="profile-content ">
-                                    <div className="work-user mt-1">
-                                        <strong className="bold">Edad: </strong><span className="line">25 años</span>
-                                    </div>
-                                    <div className="work-user mt-1">
-                                        <strong className="bold">Direccion: </strong><span className="line">Av La Molina 1255 - La Cascada</span>
-                                    </div>
-                                    {/* <div className="work-user mt-1">
-                                    <strong className="bold">Años de experiencia: </strong><span className="line">4 años</span>
-                                </div> */}
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

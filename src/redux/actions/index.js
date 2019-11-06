@@ -82,13 +82,11 @@ export const updateUser = async data => {
 export const updateUserPerfil = data => {
     return async dispatch => {
         try {
-            console.log("data = ", data)
             const res = await axios.post(root + 'users/update', data);
             console.log("res = ", res)
             return res.data;
         } catch (error) {
             console.log("Error" + error);
-    
         }
     }
 }
@@ -96,7 +94,6 @@ export const updateUserPerfil = data => {
 export const showDataByUser = async (id) => {
     try {
         const res = await axios.get(root + `users/show/${id}`);
-        console.log('USUARIO',res)
         return res.data;
 
     } catch (error) {
@@ -219,7 +216,7 @@ export const listAdsByUser = async (data) => {
 }
 export const listAdsBySkills = async (data) => {
 
-    try {   
+    try {
         const res = await axios.get(root + 'ads/listBySkill', {
             params: data
         });
@@ -230,7 +227,7 @@ export const listAdsBySkills = async (data) => {
 }
 export const getAdDetail = async (adId) => {
 
-    try {   
+    try {
         const res = await axios.get(root + `ads/${adId}/detail`);
         return res.data.data;
     } catch (error) {
@@ -241,7 +238,7 @@ export const getAdDetail = async (adId) => {
 //End advertisments
 export const listPostulations = async (data) => {
 
-    try {   
+    try {
         const res = await axios.get(root + 'ads/listByProposal', {
             params: data
         });
@@ -469,6 +466,18 @@ export const showEducationByUser = async (id) => {
     }
 }
 
+export const showSchedulesByUser = (id, body) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `schedules/create/${id}`, body)
+            console.log('RES DATA', res);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
 export const deleteEducation = data => {
     return async dispatch => {
         try {
@@ -502,17 +511,18 @@ export const showSkillByUser = async (id) => {
 export const updateImageUser = data => {
     return async dispatch => {
         try {
-                const res = await axios.post(root + `users/update-image`,data,
+            const res = await axios.post(root + `users/update-image`, data,
                 {
                     headers: {
                         'content-type': 'application/x-www-form-urlencoded;'
                     }
                 }
             )
-            console.log("res =",res.data)
+            console.log("res =", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
         }
     }
 }
+

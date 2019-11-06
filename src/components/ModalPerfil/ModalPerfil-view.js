@@ -8,6 +8,10 @@ function View(props) {
         name,
         lastname,
         phone,
+        from_hour,
+        to_hour,
+        fromHourPerfil,
+        toHourPerfil,
         namePerfil,
         lastnamePerfil,
         phonePerfil,
@@ -74,6 +78,26 @@ function View(props) {
                                         className="form-control"
                                         defaultValue = {position}
                                         onChange={positionPerfil}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-6">
+                                    <label>De:</label>
+                                        <input 
+                                        type="time" 
+                                        className="form-control"
+                                        defaultValue={from_hour}
+                                        onChange = {fromHourPerfil}
+                                        />
+                                    </div>
+                                    <div className="col-md-6">
+                                    <label>Hasta:</label>
+                                        <input 
+                                        type="time" 
+                                        className="form-control"
+                                        defaultValue={to_hour}
+                                        onChange = {toHourPerfil}
                                         />
                                     </div>
                                 </div>

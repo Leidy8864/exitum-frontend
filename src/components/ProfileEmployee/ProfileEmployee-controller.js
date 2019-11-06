@@ -20,6 +20,10 @@ class ProfileEmployee extends React.Component {
         experiences: [],
         educations: [],
         skills: [],
+        experience: '',
+        users: {
+            experience: [],
+        },
         file: null,
     }
 
@@ -31,12 +35,14 @@ class ProfileEmployee extends React.Component {
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id);
             const userShow = await showDataByUser(id);
-            console.log(userShow)
+            const experienceActualy = userShow.data.experience[0].position
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,
                 educations: educationsAll,
                 skills: skillsAll,
+                users: userShow.data,
+                experience: experienceActualy
             })
         } catch (error) {
             console.log(error)
@@ -200,7 +206,6 @@ class ProfileEmployee extends React.Component {
 
     fileSelectedHandler = event => {
         let file = event.target.files[0]
-        console.log('FILE',file);
                 
         this.setState({
             file: file
@@ -232,15 +237,19 @@ class ProfileEmployee extends React.Component {
         }
 
         let user = localStorage.getItem('name');
-        let lastname = localStorage.getItem('lastname')
+        let lastname = localStorage.getItem('lastname');
+
+        // console.log('experience =', this.state.users.experience[0][0])
 
         return (
             <View
                 user={user}
                 lastname={lastname}
                 experiences = {this.state.experiences}
+                experience = {this.state.experience}
                 educations = {this.state.educations}
                 skills = {this.state.skills}
+                users = {this.state.users}
                 certifications = {this.state.certifications}
                 idCertificate = {this.idCertificate}
                 idEducation = {this.idEducation}
@@ -263,6 +272,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     deleteCertificate,
+    deleteEducation,
     showCertificationByUser,
     getCertificate,
     getEducation,
