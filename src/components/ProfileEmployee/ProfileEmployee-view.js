@@ -29,8 +29,6 @@ function View(props) {
         handleClickDeleteEducation
     } = props
 
-    console.log(experience)
-
     let name = users.name
     let lastname = users.lastname
     let phone = users.phone

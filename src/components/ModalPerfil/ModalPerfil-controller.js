@@ -46,7 +46,6 @@ class ModalPerfil extends React.Component {
     }
 
     convertTimes = (time) => {
-        console.log('la hora es:'  + time)
         var regHrs = /^(\d+)/g;
         var regMnts = /:(\d+)/g;
         var hrs = Number(regHrs.exec(time)[1]);
