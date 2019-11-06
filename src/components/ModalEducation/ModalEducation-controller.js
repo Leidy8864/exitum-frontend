@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
 import { createEducation } from '../../redux/actions';
+import listEducations from '../../redux/actions/list-educations';
 import $ from 'jquery'
 
 
@@ -37,6 +38,7 @@ class ModalEducation extends React.Component {
 
         const response = await this.props.createEducation(formData);
         $('#education').modal('hide')
+        this.props.listEducations(1);
     }
 
     onChange = date_expedition => this.setState({ date_expedition })
@@ -58,7 +60,8 @@ class ModalEducation extends React.Component {
 }
 
 const mapDispatchToProps = {
-    createEducation
+    createEducation,
+    listEducations
 }
 
 export default withRouter(

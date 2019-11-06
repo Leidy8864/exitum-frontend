@@ -20,9 +20,8 @@ class ChooseProfile extends React.Component {
             user_id : result.id,
             [e.target.name] : e.target.value,
         }
-
         const respone = await updateUser(data);
-
+        console.log(respone)
         localStorage.setItem('role',respone.data.role);
 
         // this.props.history.push('/dashboard');

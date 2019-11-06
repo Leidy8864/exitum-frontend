@@ -24,7 +24,7 @@ class ModalUpdateEducation extends React.Component {
         e.preventDefault();
         const { EducationUniversity, date_start, date_end, EducationDescription } = this.state;
         // formData.append('user_id',localStorage.getItem('id'));
-        // formData.append('certification_id',$('#CertificateId').val());
+        // formData.append('certification_id',$('#educationId').val());
         // formData.append('name',$('#CertificateName').val());
         // formData.append('issuing_company',$('#CertificateIssuingCompany').val());
         // formData.append('date_expedition', moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
@@ -57,8 +57,10 @@ class ModalUpdateEducation extends React.Component {
     render() {
 
         const {
-            // getEducationReducer
+            getEducationReducer
         } = this.props;
+        console.log("getEducationReducer = ", getEducationReducer);
+        
         let { EducationId, 
                 EducationDescription, 
                 EducationUniversity,
@@ -68,15 +70,23 @@ class ModalUpdateEducation extends React.Component {
                 // changed_date_expiration 
             } = this.state;
 
-        // EducationId = getEducationReducer.id;
-        // EducationDescription = getEducationReducer.description;
-        // EducationUniversity = getEducationReducer.university_name;
-        // if (!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.expedition).add(1, 'days').format('YYYY-MM-DD'));
-        // if (!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.expiration).add(1, 'days').format('YYYY-MM-DD'));
+        
+        EducationId = getEducationReducer.id;
 
-        $('#EducationId').val(EducationId);
-        $('#EducationDescription').val(EducationDescription);
-        $('#EducationUniversity').val(EducationUniversity);
+        // if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
+        // if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
+        
+        // if($('#educationId').val() !== educationId){
+        //     CertificateName = getEducationReducer.name;
+        //     CertificateIssuingCompany = getEducationReducer.issuing_company;
+        //     $('#educationId').val(educationId);
+        //     localStorage.setItem('expedition', new Date(moment(getEducationReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD')));
+        //     localStorage.setItem('expiration', new Date(moment(getEducationReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD')));
+        // }
+
+        // $('#EducationId').val(EducationId);
+        // $('#EducationDescription').val(EducationDescription);
+        // $('#EducationUniversity').val(EducationUniversity);
 
         return (
             <View

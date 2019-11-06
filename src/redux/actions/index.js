@@ -65,17 +65,18 @@ export const signIn = data => {
     }
 }
 
-export const updateUser = data => {
-    return async dispatch => {
-        try {
-            const res = await axios.post(root + 'users/update', data);
-            console.log(res)
-            return res.data;
-        } catch (error) {
-            console.log("Error" + error);
+export const updateUser = async data => {
+    try {
+        console.log("data = ", data)
+        const res = await axios.post(root + 'users/update', data);
+        console.log("res = ", res)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error);
 
-        }
     }
+    // return async dispatch => {
+    // }
 }
 
 export const forgotPassword = async (data) => {

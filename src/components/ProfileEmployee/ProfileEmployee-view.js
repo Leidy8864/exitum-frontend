@@ -171,9 +171,9 @@ function View(props) {
                                                     </div>
 
                                                     <div className="edit-profile mr-5 mt-2">
-                                                        <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                                        <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
 
-                                                        {/* <div className="edit-profile delete-skill mr-5 mt-2">
+                                                        <div className="delete-skill mt-2">
                                                             <a href="#" >
                                                                 <img
                                                                     alt="img"
@@ -183,7 +183,7 @@ function View(props) {
                                                                     onClick={handleClickDeleteEducation}
                                                                 />
                                                             </a>
-                                                        </div> */}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </Fragment>
@@ -211,7 +211,7 @@ function View(props) {
                                 </div>
                             </div>
                             {
-                                certifications.length > 0 ?
+                                certifications && certifications.length > 0 ?
                                     certifications.map(function (item, index) {
                                         return (
                                             <Fragment key={index}>

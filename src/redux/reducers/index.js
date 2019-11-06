@@ -9,7 +9,7 @@ import getIdChallengeReducer from './getIdChallengeReducer'
 import getCertificateReducer from './getCertificateReducer'
 import listCertificationsReducer from './listCertificationsReducer'
 import getEducationReducer from './getEducationReducer'
-import listEducationReducer from './listEducationsReducer'
+import listEducationsReducer from './listEducationsReducer'
 import listSkillsReducer from './listSkillsReducer'
 import openModalReducer from './openModalReducer';
 import getAdStateReducer from './getAdStateReducer';
@@ -29,7 +29,7 @@ export default combineReducers({
     getCertificateReducer:getCertificateReducer,
     listCertificationsReducer:listCertificationsReducer,
     getEducationReducer: getEducationReducer,
-    listEducationReducer: listEducationReducer,
+    listEducationsReducer: listEducationsReducer,
     listSkillsReducer: listSkillsReducer,
     openModalReducer: openModalReducer,
     getAdStateReducer : getAdStateReducer,
