@@ -422,6 +422,7 @@ export const deleteCertificate = data => {
 export const createCertificationUpdate = data => {
     return async dispatch => {
         try {
+            console.log('DATA', data);
             const res = await axios.post(
                 root + `certifications/update`, data,
                 {
@@ -430,6 +431,7 @@ export const createCertificationUpdate = data => {
                     }
                 }
             )
+            console.log('DATA', res.data);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
