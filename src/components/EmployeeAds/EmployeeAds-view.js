@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './style.css';
-import AdCard from '../AdCard/AdCard-view';
+import AdCard from '../AdCard/AdCard-controller';
 import AdDetail from '../AdDetail/AdDetail-controller';
 function View(props) {
 

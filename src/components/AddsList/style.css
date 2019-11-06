@@ -4,7 +4,7 @@
 ul li.nav-item a.active:before {
     background: none !important;
 }
-div.ads-list   {
+div#entrepreneur-ads{
   height: calc(100vh - 230px);
-  overflow-y: scroll;;
+  overflow-y: scroll;
 }

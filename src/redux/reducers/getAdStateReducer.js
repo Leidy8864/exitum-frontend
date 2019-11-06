@@ -1,6 +1,6 @@
 import { type as getAdState } from '../actions/getAdState';
 
-const defaultState = "";
+const defaultState = "active";
 
 function reducer(state = defaultState, { type, payload }) {
     switch (type) {

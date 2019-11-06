@@ -7,78 +7,96 @@ import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import Swal from 'sweetalert2';
 import $ from 'jquery';
+const token = localStorage.getItem('token');
+
+const result = jwt.decode(token);
+
 class AddsList extends React.Component {
 
     state = {
         res_message: '',
         adsList : []
     }
-    async componentDidUpdate(nextProps) {
+    async componentDidMount(){
+        const data = {
+            user_id: result.id,
+            state: 'active',
+            page: 1
+        }
 
+        this.getListAds(data); // Consultar información 
+    }
+    async componentDidUpdate(nextProps) {        
         const {adState} = this.props;
 
         if (nextProps.adState !== adState) {
             if (adState) {
-                
-                const token = localStorage.getItem('token');
-
-                const result = jwt.decode(token);
-                
                 const data = {
                     user_id: result.id,
                     state: adState,
                     page: 1
                 }
-                try {
-                    const adsList = await listAdsByUser(data)
-                    var pages = adsList.status ?  adsList.pages : 1;
-        
-                    this.setState({
-                        pages : pages,
-                        adsList : adsList.status ? adsList.data : []
-                    });
-        
-                    var page = 1;
-                    $('#entrepreneur-ads').on('scroll', async () => {
-                        if ($('#entrepreneur-ads').scrollTop() +
-                            $('#entrepreneur-ads').innerHeight() >=
-                            $('#entrepreneur-ads')[0].scrollHeight) {
-                            
-                            page = page + 1;
-        
-                            console.log("PAGE",page);
-                            
-                            const data = {
-                                user_id: result.id,
-                                state: adState,
-                                page: page
-                            }
-        
-                            if (page <= pages) {                                                        
-                                const adsList = await listAdsByUser(data);
-                                
-                                const arrayList = adsList.data;
-        
-                                if (arrayList.length > 0) {                                                            
-                                    var newArray = Object.assign([], this.state.adsList);
-                                    
-                                    for (let index = 0; index < arrayList.length; index++) {
-                                        newArray.push(arrayList[index]);
-                                    }
-                                    this.setState({
-                                        adsList: newArray
-                                    });
-                                }
-                            }
-        
-                        }
-                    });
-        
-                } catch (error) {
-                    console.error("Error al litar ads");
-                }
+                this.getListAds(data); // Consultar información 
             }
         }
+    }
+
+
+    getListAds = async (data) =>{
+        try {
+            const adsList = await listAdsByUser(data);
+            if (adsList.data.length >= 1) {                
+                const pages = adsList.status ?  adsList.pages : 1;
+                this.paginationAds(data.state,pages); //Función para paginar anuncios            
+                this.setState({
+                    pages : pages,
+                    adsList : adsList.status ? adsList.data : []
+                });
+            }                    
+        } catch (error) {
+            console.error("Error al litar ads");
+        }
+    }
+    paginationAds(adState,pages){        
+        var page = 1;
+        $('#entrepreneur-ads').on('scroll', async () => {
+            if ($('#entrepreneur-ads').scrollTop() +
+                $('#entrepreneur-ads').innerHeight() >=
+                $('#entrepreneur-ads')[0].scrollHeight) {
+                
+                page = page + 1;
+
+                console.log("PAGE",page);
+                
+                const data = {
+                    user_id: result.id,
+                    state: adState,
+                    page: page
+                }
+
+                if (page <= pages) {
+                    try {
+                        const adsList = await listAdsByUser(data);
+                    
+                        const arrayList = adsList.data;
+    
+                        if (arrayList.length > 0) {                                                            
+                            var newArray = Object.assign([], this.state.adsList);
+                            
+                            for (let index = 0; index < arrayList.length; index++) {
+                                newArray.push(arrayList[index]);
+                            }
+                            this.setState({
+                                adsList: newArray
+                            });
+                        }
+                    } catch (error) {
+                        console.error("Error al litar el paginado de ads");
+                    }                                                        
+                }
+
+            }
+        });
     }
 
     deleteAds(index, deleteCount) {

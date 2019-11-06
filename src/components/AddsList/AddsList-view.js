@@ -2,7 +2,7 @@
 import React from 'react';
 import './style.css';
 
-import AdCard from '../AdCard/AdCard-view';
+import AdCard from '../AdCard/AdCard-controller';
 
 function View(props) {
 
@@ -14,7 +14,7 @@ function View(props) {
     } = props
 
     return (
-        <div className="container ads-list" id="entrepreneur-ads">
+        <div className="container" id="entrepreneur-ads">
             <div className="row">
                 {
                     adsList.length > 0 ?
@@ -31,6 +31,7 @@ function View(props) {
                                         handleClickUpdate={handleClickUpdate}
                                         proposals={item.proposals.length}
                                         userRole={userRole}
+                                        slugAd={item.slug}
                                     />
                                 </div>
                             )

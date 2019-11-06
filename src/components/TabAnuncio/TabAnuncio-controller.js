@@ -7,9 +7,7 @@ import getAdState from '../../redux/actions/getAdState';
 import getTypeAds from '../../redux/actions/getTypeAds';
 class TabAnuncio extends React.Component {
     componentDidMount() {
-        if (this.props.userRole === "entrepreneur") {
-            this.props.getAdState("active");
-        } else {
+        if (this.props.userRole === "employee") {
             this.props.getTypeAds("coincidence");
         }
     }

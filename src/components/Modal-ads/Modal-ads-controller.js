@@ -137,6 +137,7 @@ class ModalAds extends React.Component {
         const { title, description, area_id, startup_id, skills } = this.state;
 
         const formData = { title, description, area_id, startup_id, skills }
+        
         if (title && description && area_id && startup_id && skills.length >= 1) {
 
             const response = await createAdvertisement(formData);

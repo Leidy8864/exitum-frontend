@@ -14,7 +14,8 @@ function View(props) {
         startup,
         state,
         userRole,
-        proposals
+        proposals,
+        slugAd
     } = props;
     return (
         <div className="card card-body h-100">
@@ -22,15 +23,14 @@ function View(props) {
                 {
                     userRole === "entrepreneur" ?
                         <div className="row">
-                            <h5 className="text-primary card-title title_add col-sm-9">{title}</h5>
-
+                            <Link to={"/advertisement/" + id + "/" + slugAd} className="text-primary card-title title_add col-sm-9">{title}</Link>
                             <div className="col-sm-3 images-icons">
                                 <span><Link to="#"><img src={state === "active" ? require("../../public/images/svg/pause.svg") : require("../../public/images/svg/play-button.svg")} alt="svg" width="23" id={id} onClick={handleClickUpdate.bind(this, index, state)} /></Link></span>
                                 <span className="pl-2"><Link to="#"><img src={require("../../public/images/svg/delete.svg")} alt="svg" width="23" id={id} onClick={handleClickDelete.bind(this, index)} /></Link></span>
                             </div>
                         </div>
                         :
-                        <Link className="row card-title title_add col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this,id)}>{title}</Link>
+                        <Link className="row card-title title_add col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
 
                 }
             </div>
