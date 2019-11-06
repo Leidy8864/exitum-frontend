@@ -3,6 +3,11 @@
   top: 0;
   height: 100vh;
   background: #EEF1F8;
+  overflow: hidden;
+}
+
+.content-two {
+  overflow-y: scroll !important;
 }
 
 .main-panel>.content {
@@ -17,7 +22,6 @@
   position: relative;
   float: right;
   width: calc(100% - 260px);
-  overflow: hidden;
   transition: all .33s cubic-bezier(.685,.0473,.346,1);
 }
 

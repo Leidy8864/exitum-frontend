@@ -25,7 +25,7 @@ function View(props) {
                                     <Tree />
                                     <Cherry />
                                 </div>
-                                <div className="col-xl-3 col-lg-12">
+                                <div className="col-xl-3 col-lg-12 content-diary">
                                     <Diary />
                                 </div>
                             </div>
