@@ -4,7 +4,19 @@ import './style.css';
 
 function View(props) {
 
-    const {name,lastname,phone,namePerfil,lastnamePerfil,phonePerfil,updatePerfil} = props
+    const {
+        name,
+        lastname,
+        phone,
+        namePerfil,
+        lastnamePerfil,
+        phonePerfil,
+        updatePerfil,
+        birthday,
+        birthdayPerfil,
+        position,
+        positionPerfil
+    } = props
 
     return (
         <div>
@@ -37,8 +49,13 @@ function View(props) {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <label>Direccion</label>
-                                        <input type="text" className="form-control" />
+                                        <label>Fecha de nacimiento</label>
+                                        <input 
+                                        type="date" 
+                                        className="form-control" 
+                                        defaultValue={birthday}
+                                        onChange={birthdayPerfil}
+                                        />
                                     </div>
                                     <div className="col-md-6">
                                         <label>Celular</label>
@@ -52,7 +69,12 @@ function View(props) {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <label>Puesto Actual</label>
-                                        <input type="text" className="form-control" />
+                                        <input 
+                                        type="text" 
+                                        className="form-control"
+                                        defaultValue = {position}
+                                        onChange={positionPerfil}
+                                        />
                                     </div>
                                 </div>
                             </form>

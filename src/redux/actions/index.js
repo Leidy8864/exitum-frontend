@@ -79,6 +79,20 @@ export const updateUser = async data => {
     // }
 }
 
+export const updateUserPerfil = data => {
+    return async dispatch => {
+        try {
+            console.log("data = ", data)
+            const res = await axios.post(root + 'users/update', data);
+            console.log("res = ", res)
+            return res.data;
+        } catch (error) {
+            console.log("Error" + error);
+    
+        }
+    }
+}
+
 export const forgotPassword = async (data) => {
     try {
         const res = await axios.post(root + 'users/forgot', data);
