@@ -10,10 +10,6 @@ function View(props) {
         onChange_,
         educationUpdate,
         EducationId,
-        EducationDescription,
-        EducationUniversity,
-        date_expidition,
-        date_expiration,
         date,
         dateFinal,
     } = props
@@ -32,17 +28,17 @@ function View(props) {
                                 type="hidden"
                                 name="id"
                                 className="form-control"
-                                value={EducationId}
+                                value={EducationId || ''}
                             />
                             <div className="row">
                                 <label>Descripcion</label>
                                 <input
                                     type="text"
                                     id="EducationDescription"
-                                    // onChange={name}
+                                    // onChange={description}
                                     name="name"
                                     className="form-control"
-                                    defaultValue={EducationDescription}
+                                    // defaultValue={EducationDescription}
                                 />
                             </div>
                             <div className="row clocwerk">
@@ -72,10 +68,10 @@ function View(props) {
                                 <input
                                     type="text"
                                     id="EducationUniversity"
-                                    // onChange={name}
+                                    // onChange={university}
                                     name="name"
                                     className="form-control"
-                                    defaultValue={EducationUniversity}
+                                    // defaultValue={EducationUniversity}
                                 />
                             </div>
                             <div className="modal-footer">

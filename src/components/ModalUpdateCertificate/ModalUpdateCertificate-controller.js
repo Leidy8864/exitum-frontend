@@ -64,12 +64,14 @@ class ModalUpdateCertificate extends React.Component {
         CertificateId = getCertificateReducer.id;
 
         
-        if($('#CertificateId').val() !== CertificateId){
+        if(getCertificateReducer.id && $('#CertificateId').val() !== CertificateId){
             if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expiration) date_expiration = new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
-            CertificateName = getCertificateReducer.name;
-            CertificateIssuingCompany = getCertificateReducer.issuing_company;
-            $('#CertificateId').val(CertificateId);
+            if(!changed_date_expedition && !changed_date_expiration){
+                $('#CertificateId').val(CertificateId);
+                $('#CertificateName').val(getCertificateReducer.name);
+                $('#CertificateIssuingCompany').val(getCertificateReducer.issuing_company);
+            }
             localStorage.setItem('expedition', new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD')));
             localStorage.setItem('expiration', new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD')));
         }

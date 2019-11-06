@@ -5,6 +5,7 @@ import { createEducationUpdate } from '../../redux/actions';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import listEducations from '../../redux/actions/list-educations';
+import cleanForm from '../../redux/actions/clean-form'
 import moment from 'moment';
 import $ from 'jquery';
 
@@ -18,39 +19,48 @@ class ModalUpdateEducation extends React.Component {
         date_expiration: new Date(),
         changed_date_expedition: false,
         changed_date_expiration: false,
+        description : '',
+        university : '',
     }
 
     educationUpdate = async e => {
         e.preventDefault();
-        const { EducationUniversity, date_start, date_end, EducationDescription } = this.state;
-        // formData.append('user_id',localStorage.getItem('id'));
-        // formData.append('certification_id',$('#educationId').val());
-        // formData.append('description',$('#EducationDescription').val());
-        // formData.append('university_name',$('#university_name').val());
-        // formData.append('date_expedition', moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
-        // formData.append('date_expiration', moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
-        // formData.append('document',document.querySelector('#choose_file').files[0]);
-        let user_id = localStorage.getItem('id');
-        let EducationId = $('#EducationId').val();
-        const formData = {
-            EducationDescription, EducationUniversity, date_start, date_end, user_id, EducationId
+        let { date_expedition, date_expiration, changed_date_expedition, changed_date_expiration } = this.state;
+        if(!changed_date_expedition){
+            date_expedition = new Date(moment(localStorage.getItem('date_start')).format('YYYY-MM-DD'))
         }
-
-
+        if(!changed_date_expiration){
+            date_expiration = new Date(moment(localStorage.getItem('date_end')).format('YYYY-MM-DD'))
+        }
+        const user_id = localStorage.getItem('id');
+        const formData = {
+            user_id:user_id,
+            education_id:$('#EducationId').val(),
+            date_start: date_expedition,
+            date_end: date_expiration,
+            description: $('#EducationDescription').val(),
+            university_name: $('#EducationUniversity').val(),
+        }
+        
         await this.props.createEducationUpdate(formData);
-        this.props.listCertifications(1);
+        this.setState({ 
+            changed_date_expedition: false,
+            changed_date_expiration: false,
+            EducationId: '',
+            EducationDescription: '',
+            EducationUniversity: '',
+            description: '',
+            university: '',
+        })
+        this.props.listEducations(1);
         this.props.cleanForm("1");
-        this.setState({ changed_date_expedition: false })
-        this.setState({ changed_date_expiration: false })
         $('#updateeducation').modal('hide');
     }
 
     onChange = date_expedition => {
-        localStorage.setItem('date_start', date_expedition);
         this.setState({ date_expedition: date_expedition, changed_date_expedition: true })
     }
     onChange_ = date_expiration => {
-        localStorage.setItem('date_end', date_expiration);
         this.setState({ date_expiration: date_expiration, changed_date_expiration: true })
     }
 
@@ -59,34 +69,27 @@ class ModalUpdateEducation extends React.Component {
         const {
             getEducationReducer
         } = this.props;
-        console.log("getEducationReducer = ", getEducationReducer);
-        
-        let { EducationId, 
-                EducationDescription, 
-                EducationUniversity,
+
+        let { EducationId,
                 date_expedition, 
                 date_expiration, 
                 changed_date_expedition, 
                 changed_date_expiration 
             } = this.state;
 
-        
         EducationId = getEducationReducer.id;
-
-        if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
-        if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
         
-        if($('#educationId').val() !== EducationId){
-            EducationDescription = getEducationReducer.description;
-            EducationUniversity = getEducationReducer.university.university;
-            $('#educationId').val(EducationId);
+        if(getEducationReducer.id && $('#EducationId').val() !== EducationId){
+            if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
+            if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
+            if(!changed_date_expedition && !changed_date_expiration){
+                $('#EducationId').val(EducationId);
+                $('#EducationDescription').val(getEducationReducer.description);
+                $('#EducationUniversity').val(getEducationReducer.university.university);
+            }
             localStorage.setItem('date_start', new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD')));
             localStorage.setItem('date_end', new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD')));
         }
-
-        $('#EducationId').val(EducationId);
-        $('#EducationDescription').val(EducationDescription);
-        $('#EducationUniversity').val(EducationUniversity);
 
         return (
             <View
@@ -94,10 +97,6 @@ class ModalUpdateEducation extends React.Component {
                 onChange_={this.onChange_}
                 educationUpdate={this.educationUpdate}
                 EducationId={EducationId}
-                EducationDescription={EducationDescription}
-                EducationUniversity={EducationUniversity}
-                date_expidition={date_expedition}
-                date_expiration={date_expiration}
                 date={date_expedition}
                 dateFinal={date_expiration}
             />
@@ -111,7 +110,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     createEducationUpdate,
-    listEducations
+    listEducations,
+    cleanForm
 };
 
 export default withRouter(

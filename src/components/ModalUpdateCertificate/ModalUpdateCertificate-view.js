@@ -40,21 +40,21 @@ function View(props){
                                     <input
                                         type="text"
                                         id="CertificateName"
-                                        onChange={name}
+                                        // onChange={name}
                                         name="name"
                                         className="form-control"
-                                        defaultValue={CertificateName}
+                                        // defaultValue={CertificateName}
                                     />
                                 </div>
                                 <div className="row">
                                     <label>Empresa</label>
                                     <input
                                         type="text"
-                                        onChange={company}
+                                        // onChange={company}
                                         id="CertificateIssuingCompany"
                                         name="issuing_company"
                                         className="form-control"
-                                        defaultValue={CertificateIssuingCompany}
+                                        // defaultValue={CertificateIssuingCompany}
                                     />
                                 </div>
                                 <div className="row clocwerk">
