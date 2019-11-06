@@ -3,7 +3,7 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser } from '../../redux/actions';
+import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
 import listCertifications from '../../redux/actions/list-certifications';
@@ -20,7 +20,7 @@ class ProfileEmployee extends React.Component {
         experiences: [],
         educations: [],
         skills: [],
-        file: null
+        file: null,
     }
 
     async componentDidMount() {
@@ -29,12 +29,14 @@ class ProfileEmployee extends React.Component {
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);
-            const skillsAll = await showSkillByUser(id)
+            const skillsAll = await showSkillByUser(id);
+            const userShow = await showDataByUser(id);
+            console.log(userShow)
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,
                 educations: educationsAll,
-                skills: skillsAll
+                skills: skillsAll,
             })
         } catch (error) {
             console.log(error)
@@ -267,12 +269,9 @@ const mapDispatchToProps = {
     listCertifications,
     listSkills,
     listEducations,
-    updateImageUser
+    updateImageUser,
+    showDataByUser
 };
-
-
-
-
 
 export default withRouter(
     connect(mapStateToProps, mapDispatchToProps)(ProfileEmployee)

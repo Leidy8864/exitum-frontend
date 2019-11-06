@@ -93,6 +93,17 @@ export const updateUserPerfil = data => {
     }
 }
 
+export const showDataByUser = async (id) => {
+    try {
+        const res = await axios.get(root + `users/show/${id}`);
+        console.log('USUARIO',res)
+        return res.data;
+
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
 export const forgotPassword = async (data) => {
     try {
         const res = await axios.post(root + 'users/forgot', data);
