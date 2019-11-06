@@ -93,6 +93,17 @@ export const updateUserPerfil = data => {
     }
 }
 
+export const showDataByUser = async (id) => {
+    try {
+        const res = await axios.get(root + `users/show/${id}`);
+        console.log('USUARIO',res)
+        return res.data;
+
+    } catch (error) {
+        console.log("Error" + error);
+    }
+}
+
 export const forgotPassword = async (data) => {
     try {
         const res = await axios.post(root + 'users/forgot', data);
@@ -411,6 +422,7 @@ export const deleteCertificate = data => {
 export const createCertificationUpdate = data => {
     return async dispatch => {
         try {
+            console.log('DATA', data);
             const res = await axios.post(
                 root + `certifications/update`, data,
                 {
@@ -419,6 +431,7 @@ export const createCertificationUpdate = data => {
                     }
                 }
             )
+            console.log('DATA', res.data);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

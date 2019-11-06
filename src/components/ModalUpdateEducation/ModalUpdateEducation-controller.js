@@ -5,8 +5,8 @@ import { createEducationUpdate } from '../../redux/actions';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import listEducations from '../../redux/actions/list-educations';
-// import moment from 'moment'
-import $ from 'jquery'
+import moment from 'moment';
+import $ from 'jquery';
 
 class ModalUpdateEducation extends React.Component {
 
@@ -25,8 +25,8 @@ class ModalUpdateEducation extends React.Component {
         const { EducationUniversity, date_start, date_end, EducationDescription } = this.state;
         // formData.append('user_id',localStorage.getItem('id'));
         // formData.append('certification_id',$('#educationId').val());
-        // formData.append('name',$('#CertificateName').val());
-        // formData.append('issuing_company',$('#CertificateIssuingCompany').val());
+        // formData.append('description',$('#EducationDescription').val());
+        // formData.append('university_name',$('#university_name').val());
         // formData.append('date_expedition', moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
         // formData.append('date_expiration', moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
         // formData.append('document',document.querySelector('#choose_file').files[0]);
@@ -46,11 +46,11 @@ class ModalUpdateEducation extends React.Component {
     }
 
     onChange = date_expedition => {
-        localStorage.setItem('expedition', date_expedition);
+        localStorage.setItem('date_start', date_expedition);
         this.setState({ date_expedition: date_expedition, changed_date_expedition: true })
     }
     onChange_ = date_expiration => {
-        localStorage.setItem('expiration', date_expiration);
+        localStorage.setItem('date_end', date_expiration);
         this.setState({ date_expiration: date_expiration, changed_date_expiration: true })
     }
 
@@ -66,27 +66,27 @@ class ModalUpdateEducation extends React.Component {
                 EducationUniversity,
                 date_expedition, 
                 date_expiration, 
-                // changed_date_expedition, 
-                // changed_date_expiration 
+                changed_date_expedition, 
+                changed_date_expiration 
             } = this.state;
 
         
         EducationId = getEducationReducer.id;
 
-        // if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
-        // if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
+        if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
+        if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
         
-        // if($('#educationId').val() !== educationId){
-        //     CertificateName = getEducationReducer.name;
-        //     CertificateIssuingCompany = getEducationReducer.issuing_company;
-        //     $('#educationId').val(educationId);
-        //     localStorage.setItem('expedition', new Date(moment(getEducationReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD')));
-        //     localStorage.setItem('expiration', new Date(moment(getEducationReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD')));
-        // }
+        if($('#educationId').val() !== EducationId){
+            EducationDescription = getEducationReducer.description;
+            EducationUniversity = getEducationReducer.university.university;
+            $('#educationId').val(EducationId);
+            localStorage.setItem('date_start', new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD')));
+            localStorage.setItem('date_end', new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD')));
+        }
 
-        // $('#EducationId').val(EducationId);
-        // $('#EducationDescription').val(EducationDescription);
-        // $('#EducationUniversity').val(EducationUniversity);
+        $('#EducationId').val(EducationId);
+        $('#EducationDescription').val(EducationDescription);
+        $('#EducationUniversity').val(EducationUniversity);
 
         return (
             <View

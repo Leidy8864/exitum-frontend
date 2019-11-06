@@ -22,13 +22,14 @@ class ModalUpdateCertificate extends React.Component {
 
     certificateUpdate = async e => {
         e.preventDefault();
+        let {date_expedition,date_expiration} = this.state;
         var formData = new FormData();
         formData.append('user_id',localStorage.getItem('id'));
         formData.append('certification_id',$('#CertificateId').val());
         formData.append('name',$('#CertificateName').val());
         formData.append('issuing_company',$('#CertificateIssuingCompany').val());
-        formData.append('date_expedition', moment(localStorage.getItem('expedition')).format('YYYY-MM-DD'));
-        formData.append('date_expiration', moment(localStorage.getItem('expiration')).format('YYYY-MM-DD'));
+        formData.append('date_expedition', moment(date_expedition).format('YYYY-MM-DD'));
+        formData.append('date_expiration', moment(date_expiration).format('YYYY-MM-DD'));
         formData.append('document',document.querySelector('#choose_file').files[0]);
         
         await this.props.createCertificationUpdate(formData);
@@ -43,11 +44,11 @@ class ModalUpdateCertificate extends React.Component {
         this.setState({ name: e.target.value })
     }
 
-    onChange = date_expedition => {
+    onChange = async(date_expedition) => {
         localStorage.setItem('expedition', date_expedition);
         this.setState({ date_expedition: date_expedition, changed_date_expedition: true })
     }
-    onChange_ = date_expiration => {
+    onChange_ = async(date_expiration) => {
         localStorage.setItem('expiration', date_expiration);
         this.setState({ date_expiration: date_expiration, changed_date_expiration: true})
     }
@@ -62,10 +63,10 @@ class ModalUpdateCertificate extends React.Component {
         
         CertificateId = getCertificateReducer.id;
 
-        if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
-        if(!changed_date_expiration) date_expiration = new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
         
         if($('#CertificateId').val() !== CertificateId){
+            if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
+            if(!changed_date_expiration) date_expiration = new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
             CertificateName = getCertificateReducer.name;
             CertificateIssuingCompany = getCertificateReducer.issuing_company;
             $('#CertificateId').val(CertificateId);

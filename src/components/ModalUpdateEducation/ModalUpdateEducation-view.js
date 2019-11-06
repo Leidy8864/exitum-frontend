@@ -6,18 +6,16 @@ import './style.css';
 function View(props) {
 
     const {
-        name,
-        date,
-        // company,
-        // dateFinal,
         onChange,
-        // onChange_,
-        certificateUpdate,
-        CertificateId,
-        CertificateName,
-        // CertificateIssuingCompany,
+        onChange_,
+        educationUpdate,
+        EducationId,
+        EducationDescription,
+        EducationUniversity,
         date_expidition,
-        // date_expiration
+        date_expiration,
+        date,
+        dateFinal,
     } = props
 
     return (
@@ -30,21 +28,21 @@ function View(props) {
                     <div className="modal-body">
                         <form>
                             <input
-                                id="CertificateId"
+                                id="EducationId"
                                 type="hidden"
                                 name="id"
                                 className="form-control"
-                                value={CertificateId}
+                                value={EducationId}
                             />
                             <div className="row">
                                 <label>Descripcion</label>
                                 <input
                                     type="text"
-                                    id="CertificateName"
-                                    onChange={name}
+                                    id="EducationDescription"
+                                    // onChange={name}
                                     name="name"
                                     className="form-control"
-                                    defaultValue={CertificateName}
+                                    defaultValue={EducationDescription}
                                 />
                             </div>
                             <div className="row clocwerk">
@@ -53,7 +51,7 @@ function View(props) {
                                     <DatePicker
                                         onChange={onChange}
                                         value={date}
-                                        selected={date_expidition}
+                                        // selected={date_expidition}
                                         name="date_expidition"
                                     />
                                 </Fragment>
@@ -62,10 +60,10 @@ function View(props) {
                                 <label>Fin de estudios</label>
                                 <Fragment>
                                     <DatePicker
-                                        onChange={onChange}
-                                        value={date}
-                                        selected={date_expidition}
-                                        name="date_expidition"
+                                        onChange={onChange_}
+                                        value={dateFinal}
+                                        // selected={date_expiration}
+                                        name="date_expiration"
                                     />
                                 </Fragment>
                             </div>
@@ -73,15 +71,15 @@ function View(props) {
                                 <label>Universidad</label>
                                 <input
                                     type="text"
-                                    id="CertificateName"
-                                    onChange={name}
+                                    id="EducationUniversity"
+                                    // onChange={name}
                                     name="name"
                                     className="form-control"
-                                    defaultValue={CertificateName}
+                                    defaultValue={EducationUniversity}
                                 />
                             </div>
                             <div className="modal-footer">
-                                <button type="submit" className="btn btn-primary" onClick={certificateUpdate}>Actualizar</button>
+                                <button type="submit" className="btn btn-primary" onClick={educationUpdate}>Actualizar</button>
                             </div>
                         </form>
                     </div>
