@@ -5,21 +5,20 @@ import './style.css';
 function View(props) {
 
     const {
+        isHour,
         name,
         lastname,
         phone,
-        from_hour,
-        to_hour,
-        fromHourPerfil,
-        toHourPerfil,
         namePerfil,
         lastnamePerfil,
         phonePerfil,
         updatePerfil,
         birthday,
         birthdayPerfil,
-        position,
-        positionPerfil
+        hoursOptions,
+        selectHour,
+        selected,
+        selectTypeDiary
     } = props
 
     return (
@@ -35,72 +34,57 @@ function View(props) {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <label>Nombres</label>
-                                        <input 
-                                        type="text"
-                                        defaultValue={name}
-                                        onChange={namePerfil} 
-                                        className="form-control" 
+                                        <input
+                                            type="text"
+                                            defaultValue={name}
+                                            onChange={namePerfil}
+                                            className="form-control"
                                         />
                                     </div>
                                     <div className="col-md-6">
                                         <label>Apellidos</label>
-                                        <input 
-                                        type="text" 
-                                        defaultValue={lastname}
-                                        onChange={lastnamePerfil}
-                                        className="form-control" />
+                                        <input
+                                            type="text"
+                                            defaultValue={lastname}
+                                            onChange={lastnamePerfil}
+                                            className="form-control" />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6">
                                         <label>Fecha de nacimiento</label>
-                                        <input 
-                                        type="date" 
-                                        className="form-control" 
-                                        defaultValue={birthday}
-                                        onChange={birthdayPerfil}
+                                        <input
+                                            type="date"
+                                            className="form-control"
+                                            defaultValue={birthday}
+                                            onChange={birthdayPerfil}
                                         />
                                     </div>
                                     <div className="col-md-6">
                                         <label>Celular</label>
-                                        <input 
-                                        type="text" 
-                                        defaultValue={phone}
-                                        onChange={phonePerfil}
-                                        className="form-control" />
+                                        <input
+                                            type="text"
+                                            defaultValue={phone}
+                                            onChange={phonePerfil}
+                                            className="form-control" />
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <label>Puesto Actual</label>
-                                        <input 
-                                        type="text" 
-                                        className="form-control"
-                                        defaultValue = {position}
-                                        onChange={positionPerfil}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-md-6">
-                                    <label>De:</label>
-                                        <input 
-                                        type="time" 
-                                        className="form-control"
-                                        defaultValue={from_hour}
-                                        onChange = {fromHourPerfil}
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                    <label>Hasta:</label>
-                                        <input 
-                                        type="time" 
-                                        className="form-control"
-                                        defaultValue={to_hour}
-                                        onChange = {toHourPerfil}
-                                        />
-                                    </div>
-                                </div>
+                                {isHour ?
+                                    <div className="form_group_ mt-1">
+                                        <label>Seleccione horas disponibles para reuniones</label>
+                                        {
+                                            hoursOptions.map(dt =>
+                                                <div
+                                                    key={dt}
+                                                    id={dt}
+                                                    className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                    onClick={selectHour}
+                                                >
+                                                    {dt}
+                                                </div>
+                                            )
+                                        }
+                                    </div> : <br />}
                             </form>
                         </div>
                         <div className="modal-footer">

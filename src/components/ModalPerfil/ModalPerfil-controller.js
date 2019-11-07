@@ -3,7 +3,7 @@ import React from 'react';
 import View from './ModalPerfil-view';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUserPerfil,showSchedulesByUser } from '../../redux/actions'
+import { updateUserPerfil, showSchedulesByUser } from '../../redux/actions'
 
 class ModalPerfil extends React.Component {
 
@@ -14,35 +14,46 @@ class ModalPerfil extends React.Component {
         birthday: '',
         position: '',
         fromHour: '',
-        toHour: ''
+        toHour: '',
+        selected : "",
+        hoursOptions: [
+            '7:00 am','8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
+            '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
+            '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm',
+        ],
+        isHour: true
+    }
+
+    handleChange = async (selectedOption) => {
+        this.setState({
+            hoursOptions: [
+                '8:00 am', '9:00 am', '10:00 am', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
+            ]
+        });
+    }
+
+    selectHour = async (e) => {
+        this.setState({ selected: e.target.id });
     }
 
     namePerfil = e => {
-        this.setState({name: e.target.value});
+        this.setState({ name: e.target.value });
     }
 
     lastnamePerfil = e => {
-        this.setState({lastname: e.target.value})
+        this.setState({ lastname: e.target.value })
     }
 
     phonePerfil = e => {
-        this.setState({phone: e.target.value})
+        this.setState({ phone: e.target.value })
     }
 
     birthdayPerfil = e => {
-        this.setState({ birthday: e.target.value});
+        this.setState({ birthday: e.target.value });
     }
 
     positionPerfil = e => {
-        this.setState({ position: e.target.value});
-    }
-
-    fromHourPerfil = e => {
-        this.setState({ fromHour: e.target.value });
-    }
-
-    toHourPerfil = e => {
-        this.setState({ toHour: e.target.value })
+        this.setState({ position: e.target.value });
     }
 
     convertTimes = (time) => {
@@ -51,14 +62,14 @@ class ModalPerfil extends React.Component {
         var hrs = Number(regHrs.exec(time)[1]);
         var mnts = Number(regMnts.exec(time)[1]);
 
-        if (hrs > 24 || hrs < 0 || mnts > 59 || mnts < 0) throw("Opps! formato de hora incorrecto.");
-        if(mnts < 10) mnts = `0${mnts}`
+        if (hrs > 24 || hrs < 0 || mnts > 59 || mnts < 0) throw ("Opps! formato de hora incorrecto.");
+        if (mnts < 10) mnts = `0${mnts}`
 
         if (hrs > 0 && hrs < 12) time = `${hrs}:${mnts} AM`
         if (hrs > 12 && hrs < 24) time = `${hrs - 12}:${mnts} PM`
         if (hrs == 0) time = `12:${mnts} AM`
         if (hrs == 12) time = `12:${mnts} PM`
-        
+
         return time
     }
 
@@ -67,7 +78,7 @@ class ModalPerfil extends React.Component {
 
         let user_id = localStorage.getItem('id')
 
-        const { name,lastname,phone,birthday,position,fromHour,toHour} = this.state
+        const { name, lastname, phone, birthday, position, fromHour, toHour } = this.state
 
         var from_hour = this.convertTimes(fromHour);
         var to_hour = this.convertTimes(toHour)
@@ -75,44 +86,45 @@ class ModalPerfil extends React.Component {
         const ScheduleData = {
             from_hour,
             to_hour
-       }
+        }
 
         const formData = {
-            name,lastname,phone,position,birthday,user_id
+            name, lastname, phone, position, birthday, user_id
         }
 
         const res = await this.props.updateUserPerfil(formData)
-        const resTime = await this.props.showSchedulesByUser(user_id,ScheduleData)
+        const resTime = await this.props.showSchedulesByUser(user_id, ScheduleData)
     }
 
 
     render() {
-        const { name,lastname,phone,birthday,position,to_hour,from_hour } = this.state
+        const { name, lastname, phone, birthday, position, to_hour, from_hour, isHour, hoursOptions } = this.state
         return (
             <View
-                name= {name}
+                name={name}
                 lastname={lastname}
                 phone={phone}
-                birthday = {birthday}
-                position = {position}
-                from_hour = {from_hour}
-                formatAMPM = {this.formatAMPM}
-                to_hour = {to_hour}
+                birthday={birthday}
+                position={position}
+                from_hour={from_hour}
+                formatAMPM={this.formatAMPM}
+                to_hour={to_hour}
                 namePerfil={this.namePerfil}
                 lastnamePerfil={this.lastnamePerfil}
                 phonePerfil={this.phonePerfil}
-                birthdayPerfil ={this.birthdayPerfil}
-                positionPerfil={this.positionPerfil}
-                fromHourPerfil = {this.fromHourPerfil}
-                toHourPerfil = {this.toHourPerfil}
-                updatePerfil = {this.updatePerfil}
+                birthdayPerfil={this.birthdayPerfil}
+                selectHour={this.selectHour}
+                updatePerfil={this.updatePerfil}
+                selectTypeDiary={this.selectTypeDiary}
+                isHour={isHour}
+                hoursOptions={hoursOptions}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    
+    users: state.users
 });
 
 const mapDispatchToProps = {

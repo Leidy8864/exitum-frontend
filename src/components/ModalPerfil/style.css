@@ -1,3 +1,8 @@
 .ModalPerfil{
     display: block;
 }
+
+
+.form_group_ label {
+    width: 100%;
+}

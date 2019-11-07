@@ -466,15 +466,6 @@ export const showEducationByUser = async (id) => {
     }
 }
 
-export const listUniversities = async (id) => {
-    try {
-        const res = await axios.get(root + `universities/all`);
-        return res.data.data
-    } catch (error) {
-        console.log('Error' + error)
-    }
-}
-
 export const showSchedulesByUser = (id, body) => {
     return async dispatch => {
         try {
