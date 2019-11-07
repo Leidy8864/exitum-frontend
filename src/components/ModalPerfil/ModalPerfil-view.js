@@ -10,10 +10,11 @@ function View(props) {
         lastname,
         phone,
         birthday,
+        description,
         hoursOptions,
         selectHour,
         selected,
-        handleSelectChange,
+        handleChange,
         updatePerfil
     } = props
 
@@ -32,8 +33,9 @@ function View(props) {
                                         <label>Nombres</label>
                                         <input
                                             type="text"
+                                            name="name"
                                             defaultValue={name}
-                                            onChange={handleSelectChange}
+                                            onChange={handleChange}
                                             className="form-control"
                                         />
                                     </div>
@@ -41,8 +43,9 @@ function View(props) {
                                         <label>Apellidos</label>
                                         <input
                                             type="text"
+                                            name="lastname"
                                             defaultValue={lastname}
-                                            onChange={handleSelectChange}
+                                            onChange={handleChange}
                                             className="form-control" />
                                     </div>
                                 </div>
@@ -52,37 +55,55 @@ function View(props) {
                                         <input
                                             type="date"
                                             className="form-control"
+                                            name="birthday"
                                             defaultValue={birthday}
-                                            onChange={handleSelectChange}
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className="col-md-6">
                                         <label>Celular</label>
                                         <input
                                             type="text"
+                                            name="phone"
                                             defaultValue={phone}
-                                            onChange={handleSelectChange}
+                                            onChange={handleChange}
                                             className="form-control" />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <label>Descripcion</label>
+                                        <textarea
+                                            type="text"
+                                            className="form-control"
+                                            name="description"
+                                            defaultValue={description}
+                                            onChange={handleChange}
+                                        />
                                     </div>
                                 </div>
                                 {isHour ?
                                     <div className="form_group_ mt-1">
                                         <label>Seleccione horas disponibles para reuniones</label>
+                                        <div className="content-hour">
                                         {
                                             hoursOptions.map(dt =>
-                                                <div>
-                                                <input
-                                                    key={dt}
-                                                    type="checkbox"
-                                                    id={dt}
-                                                    name="no_available"
-                                                    className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                    onClick={selectHour}
-                                                />
-                                                    {dt}
-                                                </div>
+                                                
+                                                    <div className="text-hour">
+                                                        <input
+                                                            key={dt}
+                                                            type="checkbox"
+                                                            value={dt}
+                                                            name="available"
+                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                            onChange={selectHour}
+                                                        />
+                                                        <span class="checkmark"></span>
+                                                        {dt}
+                                                    </div>
                                             )
                                         }
+                                        </div>
                                     </div> : <br />}
                             </form>
                         </div>

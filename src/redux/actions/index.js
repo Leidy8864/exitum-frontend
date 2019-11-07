@@ -512,11 +512,14 @@ export const updateImageUser = data => {
     }
 }
 
-export const notAvailableUser = async (id) => {
-    try {
-        const res = await axios.post(root + `schedules/not-available/${id}`)
-        return res.data.data
-    } catch (error) {
-        console.log("Error" + error)
+export const notAvailableUser = (id, data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `schedules/not-available-multiple/${id}`, data)
+            console.log()
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
     }
 }
