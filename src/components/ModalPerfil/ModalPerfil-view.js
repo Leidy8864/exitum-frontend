@@ -9,16 +9,12 @@ function View(props) {
         name,
         lastname,
         phone,
-        namePerfil,
-        lastnamePerfil,
-        phonePerfil,
-        updatePerfil,
         birthday,
-        birthdayPerfil,
         hoursOptions,
         selectHour,
         selected,
-        selectTypeDiary
+        handleSelectChange,
+        updatePerfil
     } = props
 
     return (
@@ -37,7 +33,7 @@ function View(props) {
                                         <input
                                             type="text"
                                             defaultValue={name}
-                                            onChange={namePerfil}
+                                            onChange={handleSelectChange}
                                             className="form-control"
                                         />
                                     </div>
@@ -46,7 +42,7 @@ function View(props) {
                                         <input
                                             type="text"
                                             defaultValue={lastname}
-                                            onChange={lastnamePerfil}
+                                            onChange={handleSelectChange}
                                             className="form-control" />
                                     </div>
                                 </div>
@@ -57,7 +53,7 @@ function View(props) {
                                             type="date"
                                             className="form-control"
                                             defaultValue={birthday}
-                                            onChange={birthdayPerfil}
+                                            onChange={handleSelectChange}
                                         />
                                     </div>
                                     <div className="col-md-6">
@@ -65,7 +61,7 @@ function View(props) {
                                         <input
                                             type="text"
                                             defaultValue={phone}
-                                            onChange={phonePerfil}
+                                            onChange={handleSelectChange}
                                             className="form-control" />
                                     </div>
                                 </div>
@@ -74,12 +70,15 @@ function View(props) {
                                         <label>Seleccione horas disponibles para reuniones</label>
                                         {
                                             hoursOptions.map(dt =>
-                                                <div
+                                                <div>
+                                                <input
                                                     key={dt}
+                                                    type="checkbox"
                                                     id={dt}
+                                                    name="no_available"
                                                     className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                     onClick={selectHour}
-                                                >
+                                                />
                                                     {dt}
                                                 </div>
                                             )

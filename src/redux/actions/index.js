@@ -289,20 +289,6 @@ export const listAreas = async () => {
     }
 }
 
-
-// export const fetchAlbums = (id) => async dispatch => {
-//     dispatch({ type: "FETCH_ALBUMS_BY_ARTIST"});
-
-//     //'43ZHCT0cAZBISjO8DG9PnE'
-//     spotifyApi.getArtistAlbums(id)
-//       .then((response) => {
-//         dispatch({ type: "FETCH_ALBUMS_BY_ARTIST_FULFILLED", payload: response})
-//       })
-//       .catch((err) => {
-//         dispatch({ type: "FETCH_ALBUMS_BY_ARTIST_REJECTED", payload: err})
-//       });
-//   }
-
 export const actuallyStage = async (id) => {
 
     try {
@@ -526,3 +512,11 @@ export const updateImageUser = data => {
     }
 }
 
+export const notAvailableUser = async (id) => {
+    try {
+        const res = await axios.post(root + `schedules/not-available/${id}`)
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
