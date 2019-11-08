@@ -22,7 +22,7 @@
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button {
   width: 200px;
-  height: auto;
+  height: auto !important;
   margin: 15px 125px;
   color: #ffffff !important;
   background-color: #3369fd !important;

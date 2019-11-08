@@ -34,6 +34,7 @@ function View(props) {
     let phone = users.phone
     let experienceActual = experience
     let photo = users.photo
+    let birthday = users.birthday
 
     return (
         <Fragment>
@@ -60,7 +61,7 @@ function View(props) {
                                         </div>
                                         <hr/>
                                         <div>
-                                            <span className="bold">25 años</span>
+                                            <span className="bold">{birthday}</span>
                                         </div>
                                         <div>
                                             <span className="bold">{phone}</span>
