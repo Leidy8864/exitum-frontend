@@ -10,6 +10,9 @@ class TabAnuncio extends React.Component {
         if (this.props.userRole === "employee") {
             this.props.getTypeAds("coincidence");
         }
+        if (this.props.isDetail) {
+            this.props.getTypeAds("postulation");
+        }
     }
     handleSetState = (state) => {
         this.props.getAdState(state);
@@ -23,13 +26,15 @@ class TabAnuncio extends React.Component {
         const {
             adState,
             userRole,
-            adType
+            adType,
+            isDetail
         } = this.props;
         return (
             <View
                 adState={adState}
                 adType={adType}
                 userRole={userRole}
+                isDetail={isDetail}
                 handleSetAdType={this.handleSetAdType}
                 handleSetState={this.handleSetState}
             />

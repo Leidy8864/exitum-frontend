@@ -234,8 +234,6 @@ export const getAdDetail = async (adId) => {
         console.log("Error" + error);
     }
 }
-
-//End advertisments
 export const listPostulations = async (data) => {
 
     try {
@@ -247,7 +245,22 @@ export const listPostulations = async (data) => {
         console.log("Error" + error);
     }
 }
+//End advertisments
+
 //Proposals and Postulations
+export const listProposalByAdvert = async (data) => {
+    try {
+        const res = await axios.get(root + 'proposals/byAdvertisement',
+            {
+                params : data
+            } 
+        );
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
 
 export const createProposal = async (data) => {
     try {
@@ -259,6 +272,23 @@ export const createProposal = async (data) => {
     }
 }
 //End Proposal
+
+//Recomendations 
+
+export const listRecommendationByAdvert = async (data) => {
+    try {
+        const res = await axios.get(root + 'ads/recomendations',
+            {
+                params : data
+            } 
+        );
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
+
 export const listSkillsAxio = async () => {
 
     try {

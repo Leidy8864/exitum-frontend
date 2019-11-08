@@ -14,7 +14,7 @@ function View(props) {
         <nav className="navbar navbar-expand-lg navbar-light bg-light dashboard-header">
             <div className="container-fluid">
                     <div className="content-user">
-                    <span><img src={photo || "https://www.diariodecuyo.com.ar/export/sites/diariodecuyo/img/2019/08/14/screenshot_10.jpg_522618811.jpg"} alt="svg" /></span>
+                    <span><img src={photo || "http://25.media.tumblr.com/cac78f96a22b28f0278f2ba694b698dd/tumblr_mowvw27hmi1sntwj3o1_500.jpg"} alt="svg" /></span>
                     {name || "Usuario"} {lastname || "Invitado"}
                     </div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
