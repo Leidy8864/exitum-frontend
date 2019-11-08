@@ -33,6 +33,7 @@ function View(props) {
     let lastname = users.lastname
     let phone = users.phone
     let experienceActual = experience
+    let photo = users.photo
 
     return (
         <Fragment>
@@ -41,6 +42,7 @@ function View(props) {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="img-profile mt-3 mb-3">
+                                <img src={photo} alt="img"/>
                                 <input type="file" name="file" onChange={fileSelectedHandler} />
                                 <button type="button" onClick={fileUploadHandler}>Guardar</button>
                             </div>

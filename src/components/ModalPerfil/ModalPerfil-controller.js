@@ -3,57 +3,52 @@ import React from 'react';
 import View from './ModalPerfil-view';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUserPerfil, showSchedulesByUser } from '../../redux/actions'
+import { updateUserPerfil, notAvailableUser,showDataByUser } from '../../redux/actions'
+import $ from 'jquery';
 
 class ModalPerfil extends React.Component {
 
     state = {
-        name: localStorage.getItem('name'),
-        lastname: localStorage.getItem('lastname'),
+        name: '',
+        lastname: '',
         phone: '',
         birthday: '',
         position: '',
+        description: '',
         fromHour: '',
         toHour: '',
         selected : "",
         hoursOptions: [
-            '7:00 am','8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
-            '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
-            '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm',
+            '7:00 AM','8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
+            '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM',
+            '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM',
         ],
+        available : [],
         isHour: true
     }
 
-    handleChange = async (selectedOption) => {
+    async componentDidMount() {
+        try {
+            let id = localStorage.getItem('id')
+            const userShow = await showDataByUser(id);
+            console.log(userShow)
+            this.setState({
+                name: userShow.data.name,
+                lastname: userShow.data.lastname,
+                birthday: userShow.data.birthday,
+                phone: userShow.data.phone,
+                description: userShow.data.description
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    handleChange = (e) => {
+        const value = e.target.value.trim();
         this.setState({
-            hoursOptions: [
-                '8:00 am', '9:00 am', '10:00 am', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
-            ]
+            [e.target.name]: value
         });
-    }
-
-    selectHour = async (e) => {
-        this.setState({ selected: e.target.id });
-    }
-
-    namePerfil = e => {
-        this.setState({ name: e.target.value });
-    }
-
-    lastnamePerfil = e => {
-        this.setState({ lastname: e.target.value })
-    }
-
-    phonePerfil = e => {
-        this.setState({ phone: e.target.value })
-    }
-
-    birthdayPerfil = e => {
-        this.setState({ birthday: e.target.value });
-    }
-
-    positionPerfil = e => {
-        this.setState({ position: e.target.value });
     }
 
     convertTimes = (time) => {
@@ -73,32 +68,49 @@ class ModalPerfil extends React.Component {
         return time
     }
 
+    selectHour = e => {
+        var hours = this.state.available        
+        //this.setState({not_available:e.target.id});  
+        if (e.target.checked) {
+            hours.push(e.target.value)
+        }else{
+            const index = hours.indexOf(e.target.value);
+            hours.splice(index,1)
+        }
+        console.log('array',hours);
+        this.setState({
+            no_available : hours
+        })        
+        // this.state.not_available.filter(x => x.indexOf !== this.state.not_available)
+        // productos: state.productos.filter(producto => producto.id !== action.payload)
+    }
+
     updatePerfil = async (e) => {
         e.preventDefault();
 
         let user_id = localStorage.getItem('id')
 
-        const { name, lastname, phone, birthday, position, fromHour, toHour } = this.state
-
-        var from_hour = this.convertTimes(fromHour);
-        var to_hour = this.convertTimes(toHour)
+        const { name, lastname, phone, birthday, position,available,description } = this.state
 
         const ScheduleData = {
-            from_hour,
-            to_hour
+            available
         }
 
         const formData = {
-            name, lastname, phone, position, birthday, user_id
+            name, lastname, phone, position, birthday, user_id, description
         }
 
+        console.log(formData)
+        console.log(ScheduleData)
+        
         const res = await this.props.updateUserPerfil(formData)
-        const resTime = await this.props.showSchedulesByUser(user_id, ScheduleData)
+        const resTime = await this.props.notAvailableUser(user_id, ScheduleData)
+        $('#perfil').modal('hide');
     }
 
 
     render() {
-        const { name, lastname, phone, birthday, position, to_hour, from_hour, isHour, hoursOptions } = this.state
+        const { name, lastname, phone, birthday, position, to_hour, from_hour, isHour, hoursOptions,available,description } = this.state
         return (
             <View
                 name={name}
@@ -106,30 +118,29 @@ class ModalPerfil extends React.Component {
                 phone={phone}
                 birthday={birthday}
                 position={position}
+                description ={description}
                 from_hour={from_hour}
                 formatAMPM={this.formatAMPM}
                 to_hour={to_hour}
-                namePerfil={this.namePerfil}
-                lastnamePerfil={this.lastnamePerfil}
-                phonePerfil={this.phonePerfil}
-                birthdayPerfil={this.birthdayPerfil}
                 selectHour={this.selectHour}
                 updatePerfil={this.updatePerfil}
                 selectTypeDiary={this.selectTypeDiary}
                 isHour={isHour}
                 hoursOptions={hoursOptions}
+                handleChange={this.handleChange}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    users: state.users
+
 });
 
 const mapDispatchToProps = {
     updateUserPerfil,
-    showSchedulesByUser
+    notAvailableUser,
+    showDataByUser
 };
 
 export default withRouter(
