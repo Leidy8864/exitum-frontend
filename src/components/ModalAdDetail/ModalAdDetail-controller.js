@@ -1,6 +1,6 @@
 
 import React from 'react';
-import View from './AdDetail-view';
+import View from './ModalAdDetail-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createProposal } from '../../redux/actions';

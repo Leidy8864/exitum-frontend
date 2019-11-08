@@ -2,7 +2,7 @@
 import React from 'react';
 import './style.css';
 import AdCard from '../AdCard/AdCard-controller';
-import AdDetail from '../AdDetail/AdDetail-controller';
+import ModalAdDetail from '../ModalAdDetail/ModalAdDetail-controller';
 function View(props) {
 
     const {
@@ -35,7 +35,7 @@ function View(props) {
                         <h4 className="text-center">No se encontraron anuncios</h4>
                 }
             </div>
-            <AdDetail />
+            <ModalAdDetail />
         </div>
     );
 }
