@@ -119,7 +119,7 @@ function View(props) {
                                     {content_message}
 
                                     <div className="form_group_ form_group__">
-                                        <button type="submit" onClick={handleSubmit}>Guardar</button>
+                                        <button className="btn-submit" type="submit" onClick={handleSubmit}>Guardar</button>
                                     </div>
                                 </div>
                             </div>

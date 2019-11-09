@@ -89,15 +89,15 @@ function View(props) {
                                         {
                                             hoursOptions.map(dt =>
                                                 
-                                                    <div className="text-hour">
-                                                        <div
-                                                            key={dt}
+                                                    <div className="text-hour" key={dt}>
+                                                        <input
+                                                            type="checkbox"
                                                             id={dt}
                                                             name="available"
                                                             className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                             onClick={selectHour}
-                                                            >
-                                                            </div>
+                                                            />
+                                                            
                                                         {dt}
                                                     </div>
                                             )
