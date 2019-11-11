@@ -78,7 +78,7 @@
 }
 
 form {
-  padding: 20px 50px;
+  padding: 20px 30px !important;
 }
 
 form input {
@@ -95,7 +95,7 @@ form input {
 }
 
 form.form-signin {
-  padding: 20px 50px;
+  padding: 20px 30px !important;
 }
 
 form.form-signin input {

@@ -6,7 +6,9 @@ import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
 import Driving from '../Driving/Driving-controller'
 import Diary from '../Diary/Diary-controller';
 
-function View() {
+function View(props) {
+
+    const {role, perfilEntrepeneur, perfilImpulsor} = props
 
     return (
         <Fragment>
@@ -18,7 +20,8 @@ function View() {
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-xl-9 col-lg-12">
-                                    <Driving />
+                                    {role === 'entrepreneur' ? perfilEntrepeneur : null }
+                                    {role === 'employee' ? perfilImpulsor : null}
                                 </div>
                                 <div className="col-xl-3 col-lg-12 content-diary">
                                     <Diary />
