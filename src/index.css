@@ -20,10 +20,47 @@ body {
   display: block;
 }
 
+.form_group_ input, textarea {
+  outline: none;
+}
+
+.form-control {
+  border: 1px solid #777 !important;
+  color: #777 !important;
+  box-shadow: none !important;
+}
+
+form input {
+  margin: 0 !important;
+}
+
+.modal-footer {
+  justify-content: center !important;
+}
+
+.modal-footer button {
+  padding: 8px 40px!important;
+  font-size: 17px;
+  background: #3369fd;
+  font-weight: bold;
+}
+
+.modal-footer button:hover {
+  background: #3369fd;
+}
+
 .modal-content {
   border: none !important;
   outline: none;
   font-family: 'Helvetica Neue' !important;
+}
+
+.modal-body form {
+  padding: 20px 30px !important;
+}
+
+.modal-content {
+  background: #EEF1F8;
 }
 
 @media screen and (max-width: 991px) {

@@ -72,17 +72,15 @@ class ModalPerfil extends React.Component {
         var hours = this.state.available        
         //this.setState({not_available:e.target.id});  
         if (e.target.checked) {
-            hours.push(e.target.value)
+            hours.push(e.target.id)
         }else{
-            const index = hours.indexOf(e.target.value);
+            const index = hours.indexOf(e.target.id);
             hours.splice(index,1)
         }
         console.log('array',hours);
         this.setState({
-            no_available : hours
+            available : hours
         })        
-        // this.state.not_available.filter(x => x.indexOf !== this.state.not_available)
-        // productos: state.productos.filter(producto => producto.id !== action.payload)
     }
 
     updatePerfil = async (e) => {
@@ -118,6 +116,7 @@ class ModalPerfil extends React.Component {
                 phone={phone}
                 birthday={birthday}
                 position={position}
+                available={available}
                 description ={description}
                 from_hour={from_hour}
                 formatAMPM={this.formatAMPM}

@@ -71,6 +71,7 @@
     margin: 8px 2px !important;
     width: auto !important;
     height: 30px;
+    background-color: none !important;
 }
 
 .react-calendar__navigation__arrow{

@@ -22,12 +22,19 @@
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button {
   width: 200px;
-  height: auto;
+  height: auto !important;
   margin: 15px 125px;
   color: #ffffff !important;
-  background-color: #3369fd !important;
   border-radius: 10px;
   font-size: 20px;
+}
+
+.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button  {
+  background: #3369fd;
+}
+
+.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button.btn-submit {
+  background-color: #3369fd !important;
 }
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ label {

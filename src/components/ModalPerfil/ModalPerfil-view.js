@@ -24,12 +24,12 @@ function View(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Perfil</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Mi Perfil</h5>
                         </div>
                         <div className="modal-body">
                             <form>
                                 <div className="row">
-                                    <div className="col-md-6">
+                                    <div className="col-md-6 mb-3">
                                         <label>Nombres</label>
                                         <input
                                             type="text"
@@ -39,7 +39,7 @@ function View(props) {
                                             className="form-control"
                                         />
                                     </div>
-                                    <div className="col-md-6">
+                                    <div className="col-md-6 mb-3">
                                         <label>Apellidos</label>
                                         <input
                                             type="text"
@@ -50,7 +50,7 @@ function View(props) {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-6">
+                                    <div className="col-md-6 mb-3">
                                         <label>Fecha de nacimiento</label>
                                         <input
                                             type="date"
@@ -60,7 +60,7 @@ function View(props) {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="col-md-6">
+                                    <div className="col-md-6 mb-3">
                                         <label>Celular</label>
                                         <input
                                             type="text"
@@ -71,7 +71,7 @@ function View(props) {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-12">
+                                    <div className="col-md-12 mb-3 perfils">
                                         <label>Descripcion</label>
                                         <textarea
                                             type="text"
@@ -89,16 +89,15 @@ function View(props) {
                                         {
                                             hoursOptions.map(dt =>
                                                 
-                                                    <div className="text-hour">
+                                                    <div className="text-hour" key={dt}>
                                                         <input
-                                                            key={dt}
                                                             type="checkbox"
-                                                            value={dt}
+                                                            id={dt}
                                                             name="available"
                                                             className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                            onChange={selectHour}
-                                                        />
-                                                        <span class="checkmark"></span>
+                                                            onClick={selectHour}
+                                                            />
+                                                            
                                                         {dt}
                                                     </div>
                                             )

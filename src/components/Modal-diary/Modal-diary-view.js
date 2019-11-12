@@ -98,7 +98,7 @@ function View(props){
                                         <textarea/>
                                     </div>
                                     <div className="form_group_ form_group__">
-                                        <button type="button">Guardar</button>
+                                        <button className="btn-submit" type="button">Guardar</button>
                                     </div>
                                 </div>
                             </div>

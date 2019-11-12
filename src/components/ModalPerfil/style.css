@@ -7,12 +7,29 @@
     width: 100%;
 }
 
+.perfils textarea {
+    height: 150px !important;
+    resize: none;
+}
+
+div.modal-header {
+    background: #3369fd;
+    color: #fff;
+}
+
+h5.modal-title {
+    width: 100%;
+    text-align: center !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 input[type=checkbox].hourModalAds {
     position: absolute !important;
-    left: -25px;
+    left: -20px;
     z-index: 0;
     border: none;
-    top: 0;
+    top: 10px;
 }
 
 div.text-hour {
@@ -25,6 +42,12 @@ div.text-hour {
     border-radius: 6px;
     color: rgb(49, 47, 47);
     font-size: 14px;
+}
+
+label {
+    color: #777;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 div.content-hour {
@@ -42,9 +65,9 @@ input[type=checkbox] {
          position: absolute;
          width: 16px;
          height: 16px;
-         top: 0;
+         top: 0px;
          left: 0;
-         border: 2px solid #3369fd;
+         border: 1px solid #515351;
          border-radius: 3px;
          background-color: white;
 }
