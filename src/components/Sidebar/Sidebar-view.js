@@ -15,7 +15,7 @@ function View(props) {
                     <img src={require('../../public/images/svg/logo-azul.svg')} alt="img"/>
                 </div>
                 <div className="user-sidebar mt-4 text-center">
-                    <img width="100" src="http://25.media.tumblr.com/cac78f96a22b28f0278f2ba694b698dd/tumblr_mowvw27hmi1sntwj3o1_500.jpg" />
+                    <img width="100" src="https://yt3.ggpht.com/a/AGF-l7-m7BOEOMCrDfMvUvHorhg9tT92ALhfDr_u5A=s900-c-k-c0xffffffff-no-rj-mo" />
                     <div className="sidebar-info-user">
                         <h3 className="text-center name-perfil-sidebar mt-3">Ana Sanchez</h3>
                     </div>

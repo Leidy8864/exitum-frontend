@@ -9,7 +9,7 @@ import EmployeesList from '../EmployeesList/EmployeesList-controller';
 
 function View(props) {
     const {
-        adType
+        advertisement
     } = props
     return (
         <div className="dashboard">
@@ -21,53 +21,55 @@ function View(props) {
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
                                 <div className="container justify-content-center">
+                                    <div className="card px-3">
+                                        <div className="card-body">
+                                            <div className="row">
+                                                <h4 className="card-title title_add text-primary col-sm-10">{advertisement.title}</h4>
+                                                <button className="btn btn-primary col-sm-2">EDITAR ANUNCIO</button>
+                                            </div>
+                                            <div className="form-group">
+                                                <strong>Descripción:</strong>
+                                                <p className="text-justify">{advertisement.description}</p>
+                                            </div>
+                                            <div className="row">
+                                                <div className="form-group col-sm-4">
+                                                    <strong>Proyecto : </strong>
+                                                    {advertisement.startup.name}
+                                                </div>
+                                                <div className="form-group col-sm-4">
+                                                    <strong>Area : </strong>
+                                                    {advertisement.area.name}
+                                                </div>
+                                                <div className="form-group col-sm-4">
+                                                    <strong>Estado : </strong>
+                                                    {
+                                                        advertisement.state === 'active' ?
+                                                            "En curso"
+                                                            : "En pausa"
+                                                    }
+                                                </div>
+                                            </div>
+                                            {
+                                                advertisement.skills.length > 0 ?
+                                                    <ul className="tags">
+                                                        {
+                                                            advertisement.skills.map((item, index) =>
+                                                                <li key={index}><a href="#" className="tag">{item.skill}</a></li>
+                                                            )
+                                                        }
+                                                    </ul>
+                                                    : ''
+                                            }
+                                        </div>
+
+                                    </div>
                                     <TabAnuncio
                                         isDetail={true}
                                         userRole="entrepreneur"
                                     />
-                                    {
-                                        adType === "detail" ?
-                                            <div class="card mt-5 px-4">
-                                                <div class="card-body">
-                                                    <div className="row">
-                                                        <h4 class="card-title title_add text-primary col-sm-10">App con bubble.io ó con appery.io ó con Pwa de Google</h4>
-                                                        <button className="btn btn-primary col-sm-2">EDITAR ANUNCIO</button>
-                                                    </div>
-                                                    <div class="form-group mt-3">
-                                                        <strong>Descripción:</strong>
-                                                        <p className="text-justify">With supporting text below as a natural lead-in to additional content.</p>
-                                                    </div>
 
-                                                    <div className="form-group ">
-                                                        <strong>Proyecto : </strong>
-                                                        Proyecto Techie
-                                        </div>
-                                                    <div class="form-group">
-                                                        <strong>Area : </strong>
-                                                        Desarrollo
-                                    </div>
-                                                    <div class="form-group">
-                                                        <strong>Estado : </strong>
-                                                        Activo
-                                    </div>
-                                                    <div class="form-group">
-                                                        <strong>Publicado : </strong>
-                                                        Hace 5 días
-                                    </div>
-                                                    <div className="form-group">
-                                                        <strong>Habilidades : </strong>
-                                                        <ul className="tags">
-                                                            <li><a href="#" class="tag">Responsable</a></li>
-                                                            <li><a href="#" class="tag">Proactivo</a></li>
+                                    <EmployeesList />
 
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            :
-                                            <EmployeesList />
-
-                                    }
                                 </div>
                             </div>
                             <div className="col-xl-3 col-lg-12">

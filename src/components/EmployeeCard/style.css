@@ -2,13 +2,20 @@
     display: block;
 }
 .image-employee{
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    width: 120px;
-    margin-top: 7px;
+    background-size: cover; 
 }
 .price-employe{
     margin: 0px auto;
     width: 150px;
     border-color: blue;
     border-style: dashed;
+}
+.like-button{
+    position: relative;
+    top: 15px;
+    right: 20px;
+    float: right;
 }

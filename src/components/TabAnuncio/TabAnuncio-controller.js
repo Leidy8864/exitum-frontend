@@ -19,6 +19,8 @@ class TabAnuncio extends React.Component {
     }
 
     handleSetAdType = (adType) => {
+        // console.log("ADTYPE",adType);
+        
         this.props.getTypeAds(adType);
     }
     render() {
