@@ -20,7 +20,7 @@ class ProfileEmployee extends React.Component {
         experiences: [],
         educations: [],
         skills: [],
-        photo: localStorage.getItem('photo'),
+        photo: '',
         country: '',
         description: '',
         experience: '',
@@ -42,6 +42,7 @@ class ProfileEmployee extends React.Component {
             const country = userShow.data.country.country
             const photo = userShow.data.photo
             const description = userShow.data.description
+            //localStorage.setItem('photo', photo)
             console.log(photo)
             this.setState({
                 certifications: certificationsAll,
@@ -229,8 +230,10 @@ class ProfileEmployee extends React.Component {
         const {file} = this.state
         formData.append("user_id",localStorage.getItem('id'));
         formData.append("photo",file);
+        console.log(file)
         const res = await this.props.updateImageUser(formData)
         console.log('RESPUESTA IMAGEN',res);
+        localStorage.setItem('photo',res.photo)
         window.location.reload();
     }
 
