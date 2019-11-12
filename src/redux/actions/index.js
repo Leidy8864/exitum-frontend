@@ -14,7 +14,7 @@ export const oauthGoogle = data => {
                 method: "google"
             }
             const res = await axios.post(root + 'users/oauth/google', newData);
-
+            console.log(res)
             return res.data
         } catch (error) {
             console.log(error)

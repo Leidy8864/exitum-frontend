@@ -19,21 +19,24 @@ function View(props) {
         idCertificate,
         experiences,
         experience,
+        description,
         educations,
         skills,
+        photo,
         idEducation,
         handleClickDeleteSkill,
         handleClickDeleteCertificate,
         fileSelectedHandler,
         fileUploadHandler,
-        handleClickDeleteEducation
+        handleClickDeleteEducation,
+        country
     } = props
 
+    console.log(users)
     let name = users.name
     let lastname = users.lastname
     let phone = users.phone
     let experienceActual = experience
-    let photo = users.photo
     let birthday = users.birthday
 
     return (
@@ -43,9 +46,14 @@ function View(props) {
                     <div className="col-md-12">
                         <div className="card">
                             <div className="img-profile mt-3 mb-3">
-                                <img src={photo} alt="img"/>
-                                <input type="file" name="file" onChange={fileSelectedHandler} />
-                                <button type="button" onClick={fileUploadHandler}>Guardar</button>
+                                <div className="photo-perfil">
+                                    <img src={photo} alt="img"/>
+                                    <input type="file" className="inputfile" name="file" onChange={fileSelectedHandler} />
+                                </div>
+                                <div className="description-perfil mt-2">
+                                    <p>{description}</p>
+                                </div>
+                                <button className="btn btn-primary mt-2" type="button" onClick={fileUploadHandler}>Guardar</button>
                             </div>
 
                             <div className="profile">
@@ -59,6 +67,7 @@ function View(props) {
                                             <h4>{name} {lastname}</h4> 
                                             <p className="bold">{experienceActual}</p>
                                         </div>
+                                        <strong>{country}</strong>
                                         <hr/>
                                         <div>
                                             <span className="bold">{birthday}</span>

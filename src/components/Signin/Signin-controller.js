@@ -83,6 +83,7 @@ class Signin extends React.Component {
         if (response.status) {
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('infoChiko', true);
+            localStorage.setItem('photo',response.data.photo)
             localStorage.setItem('token', response.data.accessToken)
             localStorage.setItem('confirmed', response.data.confirmed);
             localStorage.setItem('name', response.data.name);
@@ -105,6 +106,7 @@ class Signin extends React.Component {
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('infoChiko', true);
             localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('photo',response.data.photo)
             localStorage.setItem('confirmed', response.data.confirmed);
             localStorage.setItem('name', response.data.name);
             localStorage.setItem('lastname', response.data.lastname);

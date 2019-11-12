@@ -20,6 +20,9 @@ class ProfileEmployee extends React.Component {
         experiences: [],
         educations: [],
         skills: [],
+        photo: localStorage.getItem('photo'),
+        country: '',
+        description: '',
         experience: '',
         users: {
             experience: [],
@@ -36,13 +39,21 @@ class ProfileEmployee extends React.Component {
             const skillsAll = await showSkillByUser(id);
             const userShow = await showDataByUser(id);
             const experienceActualy = userShow.data.experience[0].position
+            const country = userShow.data.country.country
+            const photo = userShow.data.photo
+            const description = userShow.data.description
+            console.log(photo)
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,
                 educations: educationsAll,
                 skills: skillsAll,
                 users: userShow.data,
-                experience: experienceActualy
+                experience: experienceActualy,
+                country: country,
+                photo: photo,
+                description: description
+
             })
         } catch (error) {
             console.log(error)
@@ -220,6 +231,7 @@ class ProfileEmployee extends React.Component {
         formData.append("photo",file);
         const res = await this.props.updateImageUser(formData)
         console.log('RESPUESTA IMAGEN',res);
+        window.location.reload();
     }
 
     render() {
@@ -239,6 +251,8 @@ class ProfileEmployee extends React.Component {
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname');
 
+        const {file} = this.state
+
         // console.log('experience =', this.state.users.experience[0][0])
 
         return (
@@ -247,9 +261,12 @@ class ProfileEmployee extends React.Component {
                 lastname={lastname}
                 experiences = {this.state.experiences}
                 experience = {this.state.experience}
+                country = {this.state.country}
                 educations = {this.state.educations}
                 skills = {this.state.skills}
                 users = {this.state.users}
+                photo = {this.state.photo}
+                description = {this.state.description}
                 certifications = {this.state.certifications}
                 idCertificate = {this.idCertificate}
                 idEducation = {this.idEducation}

@@ -7,7 +7,8 @@ class HeaderDashboard extends React.Component {
 
     state = {
         name: localStorage.getItem('name'),
-        lastname: localStorage.getItem('lastname')
+        lastname: localStorage.getItem('lastname'),
+        photo: localStorage.getItem('photo')
     }
 
     componentDidMount = () => {
@@ -18,7 +19,9 @@ class HeaderDashboard extends React.Component {
     }
 
     render() {
-        const photo = '';
+
+        const { photo } = this.state
+
         return (
             <View
             name={this.state.name}

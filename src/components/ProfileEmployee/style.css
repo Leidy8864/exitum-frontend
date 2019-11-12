@@ -266,3 +266,35 @@ div ul.experiences {
     padding-bottom: 6px;
     padding-left: 25px;
 }
+
+.photo-perfil {
+    position: relative;
+}
+
+.photo-perfil img {
+    border-radius: 50%;
+    background-size: cover;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+}
+
+input.inputfile{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    width: 180px;
+    left: 35.5%;
+    height: 180px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.description-perfil {
+    margin: 0 auto;
+    width: 400px;
+    color: #777;
+    font-weight: bold;
+}
