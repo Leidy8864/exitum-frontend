@@ -33,7 +33,7 @@ function View(props) {
                                 <a href="#" className={adType === "coincidence" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "coincidence")}>COINCIDENCIAS</a>
                             </li>
                             <li className="nav-item">
-                            <a href="#" className={adType === "detail" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this,"detail")}>ANUNCIO</a>
+                                <a href="#" className={adType === "favorite" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "favorite")}>FAVORITOS</a>
                             </li>
                         </ul>
                     :

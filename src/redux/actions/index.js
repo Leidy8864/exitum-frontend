@@ -271,10 +271,6 @@ export const createProposal = async (data) => {
         console.log("Error", error);
     }
 }
-//End Proposal
-
-//Recomendations 
-
 export const listRecommendationByAdvert = async (data) => {
     try {
         const res = await axios.get(root + 'ads/recomendations',
@@ -288,6 +284,28 @@ export const listRecommendationByAdvert = async (data) => {
         console.log("Error", error);
     }
 }
+export const addFavoriteEmployee = async (data) => {
+    try {
+        const res = await axios.post(root + 'ads/invitation', data);
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
+export const listEmployeesFavorites = async (data) => {
+    try {
+        const res = await axios.get(root + 'ads/favorites', {
+            params : data
+        });
+
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
+//End Proposal and Recomendations 
+
 
 export const listSkillsAxio = async () => {
 

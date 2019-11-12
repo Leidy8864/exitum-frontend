@@ -1,3 +1,7 @@
 .EmployeesList{
     display: block;
 }
+div#list-employees{
+    height: calc(100vh - 400px);
+    overflow-y: scroll;
+  }

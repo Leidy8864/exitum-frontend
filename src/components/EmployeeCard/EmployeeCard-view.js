@@ -3,25 +3,38 @@ import React from 'react';
 import './style.css';
 
 function View(props) {
-    const{
+    const {
         name,
         short_description,
-        price_hour
+        price_hour,
+        starts,
+        saved,
+        user_id,
+        photo,
+        handleLikeEmployee
     } = props
     return (
         <div>
-            <div class="card text-center justify-content-center">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" class="image-employee mx-auto d-block" alt="..."/>
-                <div class="card-body">
-                    <h5 class="card-title font-weight-bold">{name}</h5>
-                    <p class="card-text">{short_description}</p>
-                    <p class="card-text">
-                        <img src={require('../../public/images/svg/estrella.svg')} width="20" className=""/>
-                        <img src={require('../../public/images/svg/estrella.svg')} width="20" className=""/>
-                        <img src={require('../../public/images/svg/estrella.svg')} width="20" className=""/>
-                        <img src={require('../../public/images/svg/estrella.svg')} width="20" className=""/>
-                        <img src={require('../../public/images/svg/estrella.svg')} width="20" className=""/>
+            <div className="card text-center justify-content-center">
+
+                <span>
+                {
+                    saved? 
+                    <img src={require('../../public/images/svg/like-active.svg')} alt="" width="30" className="like-button" onClick={handleLikeEmployee.bind(this,0,user_id)}/>
+                    : 
+                    <img src={require('../../public/images/svg/like.svg')} alt="" width="30" className="like-button" onClick={handleLikeEmployee.bind(this,1,user_id)}/>
+
+                }
+                </span>
+                <img src={photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title font-weight-bold">{name}</h5>
+                    <p className="card-text">{short_description}</p>
+                    
+                    <p className="card-text">
+                        {starts}
                     </p>
+                    
                     <p className="price-employe">Desde S/. {price_hour}</p>
 
                     {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
