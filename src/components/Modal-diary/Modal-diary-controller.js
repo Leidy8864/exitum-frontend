@@ -1,9 +1,18 @@
 
 import React from 'react';
 import View from './Modal-diary-view';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';  
+import { appointmentsUser } from '../../redux/actions'
+import moment from 'moment';
 
 class ModalDiary extends React.Component {
     state = {
+        title: '',
+        date: '',
+        time: '',
+        type: '',
+        description: '',
         isClearable: true,
         isDisabled: false,
         isLoading: false,
@@ -16,22 +25,29 @@ class ModalDiary extends React.Component {
         isHour: false
     };
       
-    handleChange = async(selectedOption) => {
-        this.setState({hoursOptions: [
-            '8:00 am', '9:00 am', '10:00 am', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
-        ]});
+
+    handleChange = (e) => {
+        const value = e.target.value.trim();
+        this.setState({
+            [e.target.name]: value
+        });
     }
 
     selectHour = async (e) =>{
         this.setState({selected: e.target.id});
+        console.log(e.target.id)
     }
 
     selectTypeDiary = async (e) =>{
-        if(e.target.value === 'meet'){
+        if(e.target.value === 'reunion'){
+            this.setState({ type: e.target.value})
+            console.log(e.target.value)
             this.setState({ hoursOptions: [] });
             this.setState({ isMeet: true });
             this.setState({ isHour: true });
         }else{
+            this.setState({ type: e.target.value})
+            console.log(e.target.value)
             this.setState({ isMeet: false });
             this.setState({ isHour: true });
             this.setState({hoursOptions: [
@@ -40,6 +56,24 @@ class ModalDiary extends React.Component {
                 '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm',
             ]});
         }
+    }
+
+    saveDiary = async (e) => {
+        e.preventDefault();
+        console.log('Hola diary')
+        let from_user_id = localStorage.getItem('id')
+        const {title,date,selected,description,type} = this.state
+        console.log(type)
+        let time = selected
+
+        const formData = {
+            title, date,time,description,type,from_user_id
+        }
+
+        const res = await this.props.appointmentsUser(from_user_id,formData);
+        console.log("RESPUESTA RECORDATORIO =>", res)
+
+        console.log(formData)
     }
 
     onChange = date => this.setState({ date })
@@ -57,6 +91,10 @@ class ModalDiary extends React.Component {
     
     render() {
         const {
+            title,
+            date,
+            time,
+            description,
             isClearable,
             isSearchable,
             isDisabled,
@@ -77,6 +115,11 @@ class ModalDiary extends React.Component {
         return (
             <View
                 // value={selectedOption}
+                title = {title}
+                date = {date}
+                time = {time}
+                saveDiary = {this.saveDiary}
+                description = {description}
                 onChange={this.onChange}
                 // options={options}
                 className="basic-single"
@@ -89,7 +132,7 @@ class ModalDiary extends React.Component {
                 isSearchable={isSearchable}
                 contactoName="contacto"
                 contactosOptions={contactosOptions}
-                date={this.state.date}
+                handleChange = {this.handleChange}
                 hoursOptions={hoursOptions}
                 selectHour={this.selectHour}
                 selected={selected}
@@ -101,4 +144,16 @@ class ModalDiary extends React.Component {
         );
     }
 }
-export default ModalDiary;
+
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = {
+    appointmentsUser
+};
+
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(ModalDiary)
+)
+

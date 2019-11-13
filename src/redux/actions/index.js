@@ -571,3 +571,15 @@ export const notAvailableUser = (id, data) => {
         }
     }
 }
+
+export const appointmentsUser = (id,data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `appointments/create/${id}`, data)
+            console.log("RES = ",res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
