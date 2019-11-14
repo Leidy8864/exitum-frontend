@@ -1,13 +1,13 @@
-import { type as getTypeAds } from '../actions/getTypeAds';
+import { type as getAdvert } from '../actions/getAdvert';
 
-const defaultState = "coincidence";
+const defaultState = {};
 
 function reducer(state = defaultState, { type, payload }) {
     switch (type) {
-        case getTypeAds: {
+        case getAdvert: 
+        {
             return payload
         }
-
         default:
             return state;
     }

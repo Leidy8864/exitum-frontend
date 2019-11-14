@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import cleanForm from '../../redux/actions/clean-form'
-import { listStartupsByUser, listSkillsAxio, createAdvertisement, listAreas } from '../../redux/actions';
+import { listStartupsByUser, listSkillsAxio, createAdvertisement, listAreas, updateAdvertisement } from '../../redux/actions';
+import getAdvert from '../../redux/actions/getAdvert';
 import $ from 'jquery';
 
 class ModalAds extends React.Component {
@@ -22,6 +23,7 @@ class ModalAds extends React.Component {
         error_description: '',
         success_message: '',
         error_message: '',
+        advertisement_id : 0,
         title: '',
         description: '',
         area_id: '',
@@ -37,36 +39,65 @@ class ModalAds extends React.Component {
             try {
                 const token = localStorage.getItem('token');
                 const result = jwt.decode(token);
-                
+
                 const startupsData = await listStartupsByUser({
                     id: result.id
                 });
                 const skillsData = await listSkillsAxio();
                 const areasData = await listAreas();
-        
+
                 var startups = [];
                 var skills = [];
                 var areas = [];
-        
+
                 if (startupsData.length >= 1) {
                     startups = startupsData.map(x => ({ label: x.name, value: x.id }));
                 }
-        
+
                 if (skillsData.length >= 1) {
                     skills = skillsData.map(x => ({ label: x.skill, value: x.skill }));
                 }
                 if (areasData.length >= 1) {
                     areas = areasData.map(x => ({ label: x.name, value: x.id }));
                 }
-        
+
                 this.setState({
                     startups: startups,
                     list_skills: skills,
                     areas: areas
                 });
             } catch (error) {
-                console.log("ERROR",error);
-            }   
+                console.log("ERROR", error);
+            }
+        }
+    }
+
+    componentDidUpdate(nextProps) {
+        const { advertisement } = this.props;
+
+        if (nextProps.advertisement !== advertisement) {
+            if (advertisement) {
+                $('#AdsModal').on('hidden.bs.modal', () => {
+                    this.props.getAdvert(null);
+                });
+                const startupSelected = { label: advertisement.startup.name, value: advertisement.startup.id }
+                const areaSelected = { label: advertisement.area.name, value: advertisement.area.id }
+                const skillsSelected = advertisement.skills.map(x => ({ label: x.skill, value: x.skill }));
+                const arraySkills = advertisement.skills.map(x => (x.skill));
+                console.log(arraySkills);
+
+                this.setState({
+                    startup_idSelected: startupSelected,
+                    area_idSelected: areaSelected,
+                    skillsSelected: skillsSelected,
+                    advertisement_id : advertisement.id,
+                    area_id: advertisement.area.id,
+                    startup_id: advertisement.startup.id,
+                    skills: arraySkills,
+                    title: advertisement.title,
+                    description: advertisement.description
+                })
+            }
         }
     }
 
@@ -92,16 +123,6 @@ class ModalAds extends React.Component {
             error_message: '',
         });
     }
-
-    setValue = value => {
-        this.setState(prevState => ({
-            select: {
-                ...prevState.select,
-                value
-            }
-        }));
-    };
-
     handleChange = (e) => {
 
         const value = e.target.value.trim();
@@ -111,18 +132,25 @@ class ModalAds extends React.Component {
     }
     handleSelectChange = (option, action) => {
         var values = [];
-        if (Array.isArray(option)) {
-            for (let index = 0; index < option.length; index++) {
-                values.push(option[index].value)
+        if (option) {
+            var nameSelected = [action.name] + 'Selected';
+
+            if (Array.isArray(option)) {
+                for (let index = 0; index < option.length; index++) {
+                    values.push(option[index].value)
+                }
+                const skillsSelected = option.map(option => ({ label: option.label, value: option.value }));
+                this.setState({
+                    [action.name]: values,
+                    [nameSelected]: skillsSelected
+                });
+            } else {
+                const optionSelected = { label: option.label, value: option.value }
+                this.setState({
+                    [action.name]: option.value,
+                    [nameSelected]: optionSelected
+                });
             }
-            
-            this.setState({
-                [action.name]: values
-            });
-        } else {
-            this.setState({
-                [action.name]: option.value
-            });
         }
     }
 
@@ -134,14 +162,17 @@ class ModalAds extends React.Component {
 
         e.preventDefault();
 
-        const { title, description, area_id, startup_id, skills } = this.state;
+        const { title, description, area_id, startup_id, skills, advertisement_id } = this.state;
 
-        const formData = { title, description, area_id, startup_id, skills }
-        
+        const formData = { title, description, area_id, startup_id, skills,advertisement_id }
+
         if (title && description && area_id && startup_id && skills.length >= 1) {
-
-            const response = await createAdvertisement(formData);
-
+            var response = null;
+            if (advertisement_id) {
+                response = await updateAdvertisement(formData)
+            }else{
+                response = await createAdvertisement(formData);
+            }        
             if (response.status) {
                 this.setState({ success_message: response.message });
                 setTimeout(
@@ -201,7 +232,13 @@ class ModalAds extends React.Component {
             error_description,
             error_skills,
             success_message,
-            error_message
+            error_message,
+            area_idSelected,
+            startup_idSelected,
+            skillsSelected,
+            title,
+            description,
+            advertisement_id
         } = this.state;
 
         const { cleanFormReducer } = this.props;
@@ -213,7 +250,7 @@ class ModalAds extends React.Component {
         let content_error_skills = '';
 
         let content_message = '';
-
+        var defaultSkillOptions = [];
         if (cleanFormReducer) {
             error_title = '';
             error_area = '';
@@ -245,7 +282,6 @@ class ModalAds extends React.Component {
         if (error_message) {
             content_message = <div className="error-message"><p className="text-center">{error_message}</p></div>;
         }
-
         return (
             <View
                 className="basic-single"
@@ -272,12 +308,20 @@ class ModalAds extends React.Component {
                 handleChange={this.handleChange}
                 handleSelectChange={this.handleSelectChange}
                 handleSubmit={this.handleSubmit}
+                defaultSkillOptions={defaultSkillOptions}
+                areaSelected={area_idSelected}
+                startupSelected={startup_idSelected}
+                skillsSelected={skillsSelected}
+                description={description}
+                title={title}
+                advertisement_id={advertisement_id}
             />
         );
     }
 }
 const mapStateToProps = state => ({
-    cleanFormReducer: state.cleanFormReducer
+    cleanFormReducer: state.cleanFormReducer,
+    advertisement: state.getAdvertReducer
 });
 
 const mapDispatchToProps = {
@@ -285,7 +329,8 @@ const mapDispatchToProps = {
     listSkillsAxio,
     createAdvertisement,
     listAreas,
-    cleanForm
+    cleanForm,
+    getAdvert
 };
 
 export default withRouter(

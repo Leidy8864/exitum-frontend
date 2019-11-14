@@ -12,7 +12,6 @@ function View(props){
             {conditionShowChooseProfile ? <ChooseProfile/> : 
                 <AddAds/>
             }
-            <ModalAds/>
         </div>
     );
 }

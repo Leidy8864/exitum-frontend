@@ -11,11 +11,8 @@ function View(props) {
         skillClassNamePrefix,
         isDisabled,
         isLoading,
-        // isClearable,
         isRtl,
         isSearchable,
-        // proyectName,
-        // areaName,
         startupOptions,
         areaOptions,
         skillsOptions,
@@ -28,6 +25,12 @@ function View(props) {
         content_error_description,
         content_error_skills,
         content_message,
+        areaSelected,
+        startupSelected,
+        skillsSelected,
+        description,
+        title,
+        advertisement_id
         
     } = props;
     return (
@@ -39,7 +42,7 @@ function View(props) {
                             <div className="container">
                                 <div className="row justify-content-center">
                                     <div className="title_">
-                                        Nuevo Anuncio
+                                        {advertisement_id ? 'Editar Anuncio' : 'Nuevo Anuncio'}
                                     </div>
                                     <div className="form_group_">
                                         <label>Seleccionar Proyecto</label>
@@ -47,8 +50,7 @@ function View(props) {
                                             <Select
                                                 className={className}
                                                 classNamePrefix={proyectClassNamePrefix}
-                                                // placeholder = "Proyectos..."
-                                                // defaultValue={defaultValue}
+                                                value={startupSelected ? startupSelected : ''}
                                                 isDisabled={isDisabled}
                                                 isLoading={isLoading}
                                                 isRtl={isRtl}
@@ -64,12 +66,10 @@ function View(props) {
                                     </div>
                                     <div className="form_group_">
                                         <label>Seleccionar Area</label>
-                                        <Fragment>
                                             <Select
                                                 className={className}
                                                 classNamePrefix={AreaClassNamePrefix}
-                                                placeholder="Area..."
-                                                // value={defaultValue}
+                                                value={areaSelected ? areaSelected : ''}
                                                 isDisabled={isDisabled}
                                                 isLoading={isLoading}
                                                 isRtl={isRtl}
@@ -78,15 +78,17 @@ function View(props) {
                                                 options={areaOptions}
                                                 onChange={handleSelectChange}
 
+
                                             />
-                                        </Fragment>
                                         <div className="error-message-aux">
                                             {content_error_area}
                                         </div>
                                     </div>
                                     <div className="form_group_">
                                         <label>Titulo del Anuncio</label>
-                                        <input name="title" onChange={handleChange} id="title" />
+                                        <input name="title" onChange={handleChange} id="title" 
+                                        value={title}
+                                        />
                                         <div className="error-message-aux">
                                             {content_error_title}
                                         </div>
@@ -96,6 +98,7 @@ function View(props) {
                                         <Fragment>
                                             <CreatableSelect
                                                 isMulti
+                                                value={skillsSelected ? skillsSelected : ''}
                                                 name="skills"
                                                 options={skillsOptions}
                                                 className="basic-multi-select"
@@ -111,7 +114,11 @@ function View(props) {
                                     </div>
                                     <div className="form_group_">
                                         <label>Descripción del proyecto</label>
-                                        <textarea name="description" onChange={handleChange} id="description" />
+                                        <textarea name="description" onChange={handleChange} id="description"
+                                         value={description} 
+                                         className="basic-multi-select"
+
+                                         />
                                         <div className="error-message-aux">
                                             {content_error_description}
                                         </div>
