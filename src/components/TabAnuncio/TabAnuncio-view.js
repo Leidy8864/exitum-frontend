@@ -13,29 +13,15 @@ function View(props) {
     return (
         <div>
             {
-                userRole === "entrepreneur" ?
-
-                    !isDetail ?
-                        <ul className="nav nav-pills" id="myTab" role="tablist">
-                            <li className="nav-item">
-                                <a className={adState === "active" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "active")}>EN CURSO</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className={adState === "closed" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "closed")}>EN PAUSA</a>
-                            </li>
-                        </ul>
-                        :
-                        <ul className="nav nav-pills" id="myTab" role="tablist">
-                            <li className="nav-item">
-                                <a href="#" className={adType === "postulation" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "postulation")}>POSTULACIONES</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="#" className={adType === "coincidence" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "coincidence")}>COINCIDENCIAS</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="#" className={adType === "favorite" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "favorite")}>FAVORITOS</a>
-                            </li>
-                        </ul>
+                !isDetail && userRole === "entrepreneur" ?
+                    <ul className="nav nav-pills" id="myTab" role="tablist">
+                        <li className="nav-item">
+                            <a className={adState === "active" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "active")}>EN CURSO</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={adState === "closed" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "closed")}>EN PAUSA</a>
+                        </li>
+                    </ul>
                     :
                     <ul className="nav nav-pills" id="myTab" role="tablist">
                         <li className="nav-item">
@@ -44,8 +30,15 @@ function View(props) {
                         <li className="nav-item">
                             <a href="#" className={adType === "postulation" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "postulation")}>POSTULACIONES</a>
                         </li>
-                    </ul>
+                        {
+                            userRole === "entrepreneur" ?
+                                <li className="nav-item">
+                                    <a href="#" className={adType === "favorite" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "favorite")}>FAVORITOS</a>
+                                </li>
+                                : ''
+                        }
 
+                    </ul>
             }
         </div>
     );

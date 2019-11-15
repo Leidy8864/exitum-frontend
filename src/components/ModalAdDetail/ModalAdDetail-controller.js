@@ -17,16 +17,16 @@ class AdDetail extends React.Component {
         }
     }
     async componentDidUpdate(nextProps) {
-        const { adId, adsList,adType } = this.props;        
-        if (nextProps.adId !== adId) {
-            if (adId) {
+        const { advertisement,adType } = this.props;        
+        if (nextProps.advertisement !== advertisement) {
+            if (advertisement) {
                 try {
-                    const advertisement = adsList.find((advertisement) => { return advertisement.id === adId });
+                    // const advertisement = adsList.find((advertisement) => { return advertisement.id === adId });
                     console.log("ADVERT",advertisement);
                     
                     this.setState({
                         advertisement : advertisement,
-                        advertisement_id : adId,
+                        advertisement_id : advertisement.id,
                         adType : adType
                     })
                 } catch (error) {
@@ -99,7 +99,8 @@ class AdDetail extends React.Component {
 const mapStateToProps = state => ({
     adType : state.getTypeAdsReducer,
     adId: state.getAdIdReducer,
-    adsList: state.getListAdsReducer
+    adsList: state.getListAdsReducer,
+    advertisement : state.getAdvertReducer
 });
 export default withRouter(
     connect(mapStateToProps, null)(AdDetail)

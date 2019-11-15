@@ -2,14 +2,18 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar-controller'
 import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
+import { Link } from 'react-router-dom';
+
 import Diary from '../Diary/Diary-controller'
 import './style.css';
 import TabAnuncio from '../TabAnuncio/TabAnuncio-controller';
 import EmployeesList from '../EmployeesList/EmployeesList-controller';
+import ModalAds from '../Modal-ads/Modal-ads-controller';
 
 function View(props) {
     const {
-        advertisement
+        advertisement,
+        handleOpenEditModal
     } = props
     return (
         <div className="dashboard">
@@ -25,7 +29,7 @@ function View(props) {
                                         <div className="card-body">
                                             <div className="row">
                                                 <h4 className="card-title title_add text-primary col-sm-10">{advertisement.title}</h4>
-                                                <button className="btn btn-primary col-sm-2">EDITAR ANUNCIO</button>
+                                                <Link className="btn btn-primary col-sm-2" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}>EDITAR ANUNCIO</Link>
                                             </div>
                                             <div className="form-group">
                                                 <strong>Descripción:</strong>
@@ -69,7 +73,6 @@ function View(props) {
                                     />
 
                                     <EmployeesList />
-
                                 </div>
                             </div>
                             <div className="col-xl-3 col-lg-12">
@@ -79,6 +82,8 @@ function View(props) {
                     </div>
                 </div>
             </main>
+            <ModalAds />
+
         </div>
     );
 }
