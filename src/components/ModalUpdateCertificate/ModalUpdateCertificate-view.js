@@ -2,20 +2,22 @@
 import React,{Fragment} from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
+import CreatableSelect from 'react-select/creatable';
 
 function View(props){
 
     const {
         name,
         date,
-        company,
         dateFinal,
         onChange,
         onChange_,
         certificateUpdate,
         CertificateId,
-        CertificateName,
-        CertificateIssuingCompany,
+        options,
+        handleChange,
+        handleInputChange,
+        company_name
     } = props
 
     return(
@@ -34,13 +36,13 @@ function View(props){
                                     name="id"
                                     className="form-control"
                                     value={CertificateId || ''}
-                                />
+                                    />
                                 <div className="row">
                                     <label>Certificacion</label>
                                     <input
                                         type="text"
                                         id="CertificateName"
-                                        // onChange={name}
+                                        onChange={name}
                                         name="name"
                                         className="form-control"
                                         // defaultValue={CertificateName}
@@ -48,14 +50,18 @@ function View(props){
                                 </div>
                                 <div className="row">
                                     <label>Empresa</label>
-                                    <input
-                                        type="text"
-                                        // onChange={company}
-                                        id="CertificateIssuingCompany"
-                                        name="issuing_company"
-                                        className="form-control"
-                                        // defaultValue={CertificateIssuingCompany}
-                                    />
+                                    <div className="styleCreatableSelect">
+                                        <Fragment>
+                                            <CreatableSelect
+                                                isClearable
+                                                onChange={handleChange}
+                                                onInputChange={handleInputChange}
+                                                options={options}
+                                                className={"styleCreatableSelect_"}
+                                                value={company_name}
+                                            />
+                                        </Fragment>
+                                    </div>
                                 </div>
                                 <div className="row clocwerk">
                                     <label>Fecha de inicio</label>

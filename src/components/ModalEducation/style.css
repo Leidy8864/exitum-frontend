@@ -1,3 +1,16 @@
 .ModalEducation{
     display: block;
 }
+
+.styleCreatableSelect{
+    width: 100%;
+    height: 42px;
+}
+.styleCreatableSelect_{
+    border: 1px solid #3369fd;
+    border-radius: 5px;
+    height: 42px;
+}
+.css-yk16xz-control{
+    height: 40px !important;
+}

@@ -1,16 +1,12 @@
 .content-diary{
-    display: flex;
+    border-radius: 4px;
     height: calc(100vh - 77px);
-    justify-content: center;
-    align-items: center;
+    overflow-y: scroll;
     background: #396afc !important;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
   .Diary {
-    display: flex;
-    justify-content: center;
-    height: auto;
   }
 

@@ -2,6 +2,7 @@ import axios from 'axios'
 // import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
 import { AUTH_ERROR } from './types'
 
+
 // export const root = 'http://127.0.0.1:8081/';
 
 export const root = 'http://35.175.241.103:8081/';
@@ -617,5 +618,35 @@ export const appointmentsUser = (id,data) => {
         } catch (error) {
             console.log("Error" + error)
         }
+    }
+}
+
+export const appointmentsByUser = async id => {
+        try {
+            const res = await axios.get(root + `appointments/list-by-reminder/${id}`)
+            console.log("RES = ",res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+}
+
+export const listUniversities = async (id) => {
+
+    try {
+        const res = await axios.get(root + `universities/all`)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const listCompanies = async (id) => {
+
+    try {
+        const res = await axios.get(root + `companies/all`)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
     }
 }

@@ -3,9 +3,11 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser } from '../../redux/actions';
+import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser, listUniversities, listCompanies } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
+import getUniversities from '../../redux/actions/get-list-universities';
+import getCompanies from '../../redux/actions/get-list-companies';
 import listCertifications from '../../redux/actions/list-certifications';
 import listEducations from '../../redux/actions/list-educations';
 import listSkills  from '../../redux/actions/list-skills';
@@ -38,7 +40,7 @@ class ProfileEmployee extends React.Component {
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id);
             const userShow = await showDataByUser(id);
-            const experienceActualy = userShow.data.experience[0].position
+            const experienceActualy = userShow.data.experience[0] ? userShow.data.experience[0].position : ""
             const country = userShow.data.country.country
             const photo = userShow.data.photo
             const description = userShow.data.description
@@ -56,6 +58,20 @@ class ProfileEmployee extends React.Component {
                 description: description
 
             })
+
+            let listUniversities__ = [];
+            let listUniversities_ = await listUniversities(id);
+            if (listUniversities_ && listUniversities_.length >= 1) {
+                listUniversities__ = listUniversities_.map(x => ({ label: x.university, value: x.university }));
+            }
+            this.props.getUniversities(listUniversities__);
+
+            let listCompanies__ = [];
+            let listCompanies_ = await listCompanies(id);
+            if (listCompanies_ && listCompanies_.length >= 1) {
+                listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
+            }
+            this.props.getCompanies(listCompanies__);
         } catch (error) {
             console.log(error)
         }
@@ -85,6 +101,12 @@ class ProfileEmployee extends React.Component {
             certifications: certificationsAll
         });
         this.props.listCertifications(0);
+        let listCompanies__ = [];
+        let listCompanies_ = await listCompanies(localStorage.getItem('id'));
+        if (listCompanies_ && listCompanies_.length >= 1) {
+            listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
+        }
+        this.props.getCompanies(listCompanies__);
     }
 
     refreshSkills = async() =>{
@@ -101,6 +123,12 @@ class ProfileEmployee extends React.Component {
             educations: educationsAll
         });
         this.props.listEducations(0);
+        let listUniversities__ = [];
+        let listUniversities_ = await listUniversities(localStorage.getItem('id'));
+        if (listUniversities_ && listUniversities_.length >= 1) {
+            listUniversities__ = listUniversities_.map(x => ({ label: x.university, value: x.university }));
+        }
+        this.props.getUniversities(listUniversities__);
     }
 
     handleClickDeleteSkill = async (e) => {
@@ -301,7 +329,9 @@ const mapDispatchToProps = {
     listSkills,
     listEducations,
     updateImageUser,
-    showDataByUser
+    showDataByUser,
+    getUniversities,
+    getCompanies,
 };
 
 export default withRouter(
