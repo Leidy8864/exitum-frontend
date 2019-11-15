@@ -118,8 +118,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, 150px, 10px);
           transform: translate3d(0px, 150px, 10px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .rectangle-1:before {
@@ -143,8 +143,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, 350px, 10px);
           transform: translate3d(0px, 350px, 10px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .circle-1:before {
@@ -168,8 +168,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -150px, -80px);
           transform: translate3d(0px, -150px, -80px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .square-2:before {
@@ -193,8 +193,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -200px, 10px);
           transform: translate3d(0px, -200px, 10px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .rectangle-2:before {
@@ -218,8 +218,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -50px, 10px);
           transform: translate3d(0px, -50px, 10px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .circle-2:before {
@@ -243,8 +243,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -150px, 80px);
           transform: translate3d(0px, -150px, 80px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .square-3:before {
@@ -268,8 +268,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -200px, 10px);
           transform: translate3d(0px, -200px, 10px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .rectangle-3:before {
@@ -293,8 +293,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -50px, 100px);
           transform: translate3d(0px, -50px, 100px);
-  -webkit-animation: levitate 4s ease-in-out infinite alternate;
-          animation: levitate 4s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .circle-3:before {
@@ -315,8 +315,8 @@
 
 @-webkit-keyframes levitate {
   0% {
-    -webkit-transform: translate3d(0, 10%, 10) rotateX(368deg);
-            transform: translate3d(0, 10%, 10) rotateX(368deg);
+    -webkit-transform: translate3d(0, 20%, 10) rotateX(368deg);
+            transform: translate3d(0, 20%, 10) rotateX(368deg);
   }
   100% {
     -webkit-transform: translate3d(0, -42%, 0);
