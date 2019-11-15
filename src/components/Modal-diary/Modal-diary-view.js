@@ -5,7 +5,11 @@ import DatePicker from 'react-date-picker';
 
 function View(props){
     const {
+        title,
+        time,
+        description,
         isHour,
+        saveDiary,
         isMeet,
         onChange,
         onChange_,
@@ -14,6 +18,7 @@ function View(props){
         // contactoPlaceholder,
         contactoName,
         contactosOptions,
+        handleChange,
         isDisabled,
         isLoading,
         isClearable,
@@ -38,14 +43,14 @@ function View(props){
                                         Nueva Agenda
                                     </div>
                                     <div className="form_group_">
-                                        <input type="radio" name="role" id="meet" value="meet" onClick={selectTypeDiary}/>
-                                        <label className="label-radio-modal-diary" htmlFor="meet">Reunion</label>
-                                        <input type="radio" name="role" id="reminder" value="reminder" onClick={selectTypeDiary}/>
-                                        <label className="label-radio-modal-diary" htmlFor="reminder">Recordatorio</label>
+                                        <input type="radio" name="role" id="reunion" value="reunion" onClick={selectTypeDiary}/>
+                                        <label className="label-radio-modal-diary" htmlFor="reunion">Reunion</label>
+                                        <input type="radio" name="role" id="recordatorio" value="recordatorio" onClick={selectTypeDiary}/>
+                                        <label className="label-radio-modal-diary" htmlFor="recordatorio">Recordatorio</label>
                                     </div>
                                     <div className="form_group_">
                                         <label>Titulo</label>
-                                        <input/>
+                                        <input type="text" name="title" onChange={handleChange} />
                                     </div>
                                     {isMeet ? 
                                         <div className="form_group_">
@@ -87,6 +92,7 @@ function View(props){
                                                         id={dt}
                                                         className= {selected === dt ? "hourModalAdsSelected": "hourModalAds"}
                                                         onClick={selectHour}
+                                                        onChange={handleChange}
                                                     >
                                                         {dt}
                                                     </div>
@@ -95,10 +101,10 @@ function View(props){
                                         </div>: <br/>}
                                     <div className="form_group_">
                                         <label>Descripción</label>
-                                        <textarea/>
+                                        <textarea type="text" name="description" onChange={handleChange}/>
                                     </div>
                                     <div className="form_group_ form_group__">
-                                        <button className="btn-submit" type="button">Guardar</button>
+                                        <button onClick={saveDiary} className="btn-submit" type="button">Guardar</button>
                                     </div>
                                 </div>
                             </div>

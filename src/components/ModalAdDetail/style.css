@@ -1,5 +1,5 @@
 .AdDetail{
-    display: block;
+    /* display: block; */
 }
 
 .tags {
@@ -49,3 +49,7 @@
     right: 0;
     top: 0;
   }
+  .adjust-text p{
+    width: 100%;
+    word-wrap: break-word; 
+}

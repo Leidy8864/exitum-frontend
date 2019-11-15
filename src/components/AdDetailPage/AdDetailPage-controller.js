@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import View from './AdDetailPage-view';
 import { getAdDetail } from '../../redux/actions';
+import getAdvert from '../../redux/actions/getAdvert';
+import cleanForm from '../../redux/actions/clean-form';
 
 class AdDetailPage extends React.Component {
 
@@ -26,10 +28,17 @@ class AdDetailPage extends React.Component {
             console.log("Error al ver detalle de anuncio",error);
         }
     }
+
+    handleOpenEditModal = () => {
+        const {advertisement}  = this.state;        
+        this.props.cleanForm("1");
+        this.props.getAdvert(advertisement);
+    }
     render() {
         return (
             <View
             advertisement={this.state.advertisement}
+            handleOpenEditModal={this.handleOpenEditModal}
             />
         );
     }
@@ -37,6 +46,10 @@ class AdDetailPage extends React.Component {
 const mapStateToProps = state => ({
     adType: state.getTypeAdsReducer
 });
+const mapDispatchToProps = {
+    cleanForm,
+    getAdvert
+}
 export default withRouter(
-    connect(mapStateToProps, null)(AdDetailPage)
+    connect(mapStateToProps, mapDispatchToProps)(AdDetailPage)
 )

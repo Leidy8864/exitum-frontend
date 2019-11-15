@@ -29,11 +29,15 @@ class ModalsProjects extends React.Component {
         const {isModalOpen} = this.props;
 
         if (nextProps.isModalOpen !== isModalOpen) {
-            if (isModalOpen) {                
+            console.log("modal open",isModalOpen);
+            
+            if (isModalOpen) {                                
                 try {
-    
+                    console.log("SE ABRIO ESTA VERGA");
+
                     const categorysData = await listCategories();
-        
+                    console.log("CATEGORYS",categorysData);
+
                     const stageData = await listStages();
         
                     console.log("STAGE DATA", stageData);

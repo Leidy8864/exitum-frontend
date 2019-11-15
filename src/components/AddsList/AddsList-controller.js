@@ -23,6 +23,7 @@ class AddsList extends React.Component {
             state: 'active',
             page: 1
         }
+        console.log("didmount");
 
         this.getListAds(data); // Consultar información 
     }
@@ -31,6 +32,8 @@ class AddsList extends React.Component {
 
         if (nextProps.adState !== adState) {
             if (adState) {
+                console.log("adstate",adState);
+                
                 const data = {
                     user_id: result.id,
                     state: adState,
@@ -45,12 +48,14 @@ class AddsList extends React.Component {
     getListAds = async (data) =>{
         try {
             const adsList = await listAdsByUser(data);
-            if (adsList.data.length >= 1) {                
-                const pages = adsList.status ?  adsList.pages : 1;
+            console.log("adslist",adsList.data);
+            
+            if (adsList.status) {                
+                const pages =  adsList.pages;
                 this.paginationAds(data.state,pages); //Función para paginar anuncios            
                 this.setState({
                     pages : pages,
-                    adsList : adsList.status ? adsList.data : []
+                    adsList : adsList.data
                 });
             }                    
         } catch (error) {

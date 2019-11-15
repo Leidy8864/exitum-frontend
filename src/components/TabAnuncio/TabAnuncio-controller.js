@@ -6,14 +6,7 @@ import { withRouter } from 'react-router-dom';
 import getAdState from '../../redux/actions/getAdState';
 import getTypeAds from '../../redux/actions/getTypeAds';
 class TabAnuncio extends React.Component {
-    componentDidMount() {
-        if (this.props.userRole === "employee") {
-            this.props.getTypeAds("coincidence");
-        }
-        if (this.props.isDetail) {
-            this.props.getTypeAds("postulation");
-        }
-    }
+
     handleSetState = (state) => {
         this.props.getAdState(state);
     }

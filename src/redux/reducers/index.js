@@ -16,8 +16,7 @@ import getAdStateReducer from './getAdStateReducer';
 import getTypeAdsReducer from './getTypeAdsReducer';
 import getAdIdReducer from './getAdIdReducer';
 import getListAdsReducer from './getListAdsReducer';
-
-
+import getAdvertReducer from '../reducers/getAdvertReducer';
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -35,5 +34,6 @@ export default combineReducers({
     getAdStateReducer : getAdStateReducer,
     getTypeAdsReducer : getTypeAdsReducer,
     getAdIdReducer : getAdIdReducer,
-    getListAdsReducer : getListAdsReducer
+    getListAdsReducer : getListAdsReducer,
+    getAdvertReducer :getAdvertReducer
 });

@@ -230,8 +230,9 @@ class ProfileEmployee extends React.Component {
         const {file} = this.state
         formData.append("user_id",localStorage.getItem('id'));
         formData.append("photo",file);
-        console.log(file)
-        const res = await this.props.updateImageUser(formData)
+
+        const res = await this.props.updateImageUser(formData) 
+
         console.log('RESPUESTA IMAGEN',res);
         localStorage.setItem('photo',res.photo)
         window.location.reload();

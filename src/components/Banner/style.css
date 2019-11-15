@@ -95,8 +95,8 @@
   display: inline-block;
   -webkit-transform: translate3d(0px, -250px, 80px);
           transform: translate3d(0px, -250px, 80px);
-  -webkit-animation: levitate 8s ease-in-out infinite alternate;
-          animation: levitate 8s ease-in-out infinite alternate;
+  -webkit-animation: levitate 2s ease-in-out infinite alternate;
+          animation: levitate 2s ease-in-out infinite alternate;
 }
 
 .square-1:before {

@@ -45,15 +45,15 @@ function View(props) {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
-                            <div className="img-profile mt-3 mb-3">
-                                <div className="photo-perfil">
+                            <div className="img-profile mb-3">
+                                <div className="photo-perfil mt-3">
                                     <img src={photo} alt="img"/>
                                     <input type="file" className="inputfile" name="file" onChange={fileSelectedHandler} />
                                 </div>
                                 <div className="description-perfil mt-2">
                                     <p>{description}</p>
                                 </div>
-                                <button className="btn btn-primary mt-2" type="button" onClick={fileUploadHandler}>Guardar</button>
+                                <button className="btn-save-img mt-2 mb-4" type="button" onClick={fileUploadHandler}>Guardar</button>
                             </div>
 
                             <div className="profile">

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import TabAnuncio from '../TabAnuncio/TabAnuncio-controller'
 import AddsList from '../AddsList/AddsList-controller'
 import EmployeeAds from '../EmployeeAds/EmployeeAds-controller';
+import ModalAds from '../Modal-ads/Modal-ads-controller';
 function View(props) {
     const {
         cleanForm,
@@ -28,6 +29,7 @@ function View(props) {
                                         Agregar anuncio
                                 </div>
                                 </Link>
+                                <ModalAds />
                             </div>
                             : ""
                     }
