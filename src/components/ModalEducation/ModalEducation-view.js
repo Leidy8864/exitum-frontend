@@ -1,7 +1,7 @@
-
 import React,{Fragment} from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
+import CreatableSelect from 'react-select/creatable';
 
 function View(props) {
 
@@ -12,6 +12,9 @@ function View(props) {
         dateFinal,
         onChange,
         onChange_,
+        options,
+        handleChange,
+        handleInputChange,
         university_name
     } = props
 
@@ -29,6 +32,7 @@ function View(props) {
                                     <label>Descripcion</label>
                                     <input 
                                      type="text"
+                                     id="nombreDescripcion"
                                      className="form-control"
                                      name="description"
                                      onChange={description}
@@ -56,12 +60,18 @@ function View(props) {
                                 </div>
                                 <div className="row">
                                     <label>Universidad</label>
-                                    <input 
-                                    type="text" 
-                                    className="form-control"
-                                    name="university_name"
-                                    onChange={university_name}
-                                    />
+                                    <div className="styleCreatableSelect">
+                                        <Fragment>
+                                            <CreatableSelect
+                                                isClearable
+                                                onChange={handleChange}
+                                                onInputChange={handleInputChange}
+                                                options={options}
+                                                className={"styleCreatableSelect_"}
+                                                value={university_name}
+                                            />
+                                        </Fragment>
+                                    </div>
                                 </div>
                                 <div className="modal-footer">
                                     <button type="submit" className="btn btn-primary">Guardar</button>

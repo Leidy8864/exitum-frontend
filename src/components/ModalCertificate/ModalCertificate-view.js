@@ -1,18 +1,21 @@
-
 import React, { Fragment } from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
+import CreatableSelect from 'react-select/creatable';
 
 function View(props) {
 
     const {
         name,
         date,
-        company,
         dateFinal,
         onChange,
         onChange_,
-        certificate
+        certificate,
+        options,
+        handleChange,
+        handleInputChange,
+        company_name
     } = props
 
     return (
@@ -31,17 +34,24 @@ function View(props) {
                                         type="text"
                                         onChange={name}
                                         name="name"
+                                        id="nombreCertificado"
                                         className="form-control"
                                     />
                                 </div>
                                 <div className="row">
                                     <label>Empresa</label>
-                                    <input
-                                        type="text"
-                                        onChange={company}
-                                        name="issuing_company"
-                                        className="form-control"
-                                    />
+                                    <div className="styleCreatableSelect">
+                                        <Fragment>
+                                            <CreatableSelect
+                                                isClearable
+                                                onChange={handleChange}
+                                                onInputChange={handleInputChange}
+                                                options={options}
+                                                className={"styleCreatableSelect_"}
+                                                value={company_name}
+                                            />
+                                        </Fragment>
+                                    </div>
                                 </div>
                                 <div className="row clocwerk">
                                     <label>Fecha de inicio</label>

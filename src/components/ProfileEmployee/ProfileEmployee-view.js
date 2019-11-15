@@ -99,7 +99,7 @@ function View(props) {
                                 </div>
                             </div>
                             {
-                                experiences.length > 0 ?
+                                experiences && experiences.length > 0 ?
                                     experiences.map(function (item, index) {
                                         return (
                                             <Fragment key={index}>
@@ -140,7 +140,7 @@ function View(props) {
                                 </div>
                             </div>
                             {
-                                educations.length > 0 ?
+                                educations && educations.length > 0 ?
                                     educations.map(function (item, index) {
                                         return (
                                             <Fragment key={index}>

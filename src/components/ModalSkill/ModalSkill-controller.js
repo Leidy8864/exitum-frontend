@@ -17,7 +17,7 @@ class ModalSkill extends React.Component {
     async componentDidMount() {
         let skills = [];
         const skillsData = await listSkillsAxio();
-        if (skillsData.length >= 1) {
+        if (skillsData && skillsData.length >= 1) {
             skills = skillsData.map(x => ({ label: x.skill, value: x.id }));
         }
         this.setState({

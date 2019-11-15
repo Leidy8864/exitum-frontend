@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import DatePicker from 'react-date-picker';
 import './style.css';
+import CreatableSelect from 'react-select/creatable';
 
 function View(props) {
 
@@ -12,6 +13,10 @@ function View(props) {
         EducationId,
         date,
         dateFinal,
+        handleChange,
+        handleInputChange,
+        university,
+        options
     } = props
 
     return (
@@ -65,14 +70,19 @@ function View(props) {
                             </div>
                             <div className="row">
                                 <label>Universidad</label>
-                                <input
-                                    type="text"
-                                    id="EducationUniversity"
-                                    // onChange={university}
-                                    name="name"
-                                    className="form-control"
-                                    // defaultValue={EducationUniversity}
-                                />
+                                <div className="styleCreatableSelect">
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={handleChange}
+                                            onInputChange={handleInputChange}
+                                            options={options}
+                                            // defaultValue={university}
+                                            value={university}
+                                            className={"styleCreatableSelect_"}
+                                        />
+                                    </Fragment>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="submit" className="btn btn-primary" onClick={educationUpdate}>Actualizar</button>

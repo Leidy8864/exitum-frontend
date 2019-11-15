@@ -594,3 +594,23 @@ export const appointmentsByUser = async id => {
             console.log("Error" + error)
         }
 }
+
+export const listUniversities = async (id) => {
+
+    try {
+        const res = await axios.get(root + `universities/all`)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const listCompanies = async (id) => {
+
+    try {
+        const res = await axios.get(root + `companies/all`)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}

@@ -22,10 +22,6 @@ class ModalEducation extends React.Component {
         this.setState({ description: e.target.value })
     }
 
-    university_name = e => {
-        this.setState({ university_name: e.target.value })
-    }
-
     education = async e => {
         e.preventDefault();
         let user_id = localStorage.getItem('id');
@@ -33,31 +29,60 @@ class ModalEducation extends React.Component {
         let date_start = moment(date_expedition).format('YYYY-MM-DD');
         let date_end = moment(date_expiration).format('YYYY-MM-DD');
         const formData = {
-            user_id, date_start, date_end,description,university_name
+            user_id, date_start, date_end,description,university_name:university_name.value
         }
 
         const response = await this.props.createEducation(formData);
-        $('#education').modal('hide')
+        $('#education').modal('hide');
+        $('#certificate').modal('hide')
+        $('#nombreDescripcion').val('')
+        this.setState({ 
+            description: '',
+            university_name:'', 
+            date_expedition: new Date(),  
+            date_expiration: new Date()
+        });
         this.props.listEducations(1);
     }
 
     onChange = date_expedition => this.setState({ date_expedition })
     onChange_ = date_expiration => this.setState({ date_expiration})
 
+    handleChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ university_name: {label: newValue.value, value: newValue.value}  })
+        }
+    };
+
+    handleInputChange = (inputValue, actionMeta) => {
+
+    };
+
     render() {
+        const {
+            listUniversitiesReducer
+        } = this.props;
+        // console.log("listUniversitiesReducer = ", listUniversitiesReducer);
         return (
             <View
                 education = {this.education}
                 onChange={this.onChange}
                 description = {this.description}
-                university_name = {this.university_name}
                 onChange_= {this.onChange_}
                 date={this.state.date_expedition}
                 dateFinal = {this.state.date_expiration}
+                options = {listUniversitiesReducer}
+                handleChange={this.handleChange}
+                handleInputChange={this.handleInputChange}
+                university_name={this.state.university_name}
             />
         );
     }
 }
+
+const mapStateToProps = (state) => ({    
+    listUniversitiesReducer: state.listUniversitiesReducer
+});
 
 const mapDispatchToProps = {
     createEducation,
@@ -65,5 +90,5 @@ const mapDispatchToProps = {
 }
 
 export default withRouter(
-    connect(null,mapDispatchToProps)(ModalEducation)
+    connect(mapStateToProps,mapDispatchToProps)(ModalEducation)
 )
