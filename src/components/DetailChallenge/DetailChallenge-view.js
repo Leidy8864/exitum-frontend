@@ -9,7 +9,9 @@ function View(props) {
         handleChange,
         content_message,
         handleDownload,
-        content_error_reply
+        content_error_reply,
+        handledDeleteFile,
+        reply
     } = props
     return (
         <div className="Modal-ads">
@@ -35,10 +37,10 @@ function View(props) {
                                     <div className="tab-content content_challenge" id="myTabContent">
                                         <div className="tab-pane fade show active" id="reto" role="tabpanel" aria-labelledby="active-tab">
                                             <div className="row_detail">
-                                                <div className="subtitle_">
+                                                <div className="subtitle_ mt-5">
                                                     Descripción del reto
                                                 </div>
-                                                <div className="description_ text-justify">
+                                                <div className="description_">
                                                     {challenge.description}
                                                 </div>
                                                 {
@@ -47,15 +49,17 @@ function View(props) {
 
                                                             <div className="subtitle_">
                                                                 Archivos para descargar
-                                                    </div>
+                                                        </div>
                                                             <div className="downloads_container">
                                                                 {
 
                                                                     challenge.files.map((item, index) =>
-                                                                        <div key={index}>
-                                                                            <a className="downloads_" name={item.name} href="#" onClick={handleDownload}>{item.name}</a><img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
-                                                                            <br />
-                                                                            <br />
+                                                                        <div key={index} className="downloads_ mb-4">
+
+                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.name)}>
+                                                                                {item.name}
+                                                                            </a>
+                                                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} onClick={handleDownload.bind(this, item.name)} />
                                                                         </div>
                                                                     )
                                                                 }
@@ -69,24 +73,57 @@ function View(props) {
                                                     Respuesta al reto planteado
                                                 </div>
                                                 <div className="response_1 ">
-                                                    <textarea name="reply" onChange={handleChange}></textarea>
+                                                    <textarea name="reply" onChange={handleChange} value={reply ? reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>
                                                     <div className="error-message-aux">
                                                         {content_error_reply}
                                                     </div>
                                                 </div>
-                                                <div className="subtitle_">
-                                                    Subir archivos
-                                                </div>
-                                                <div className="">
-                                                    {/* <label id="texto" htmlFor="choose_files">Subir archivos</label> */}
-                                                    {/* <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} /> */}
-                                                    <input id="choose_files" type="file" name="file" onChange={handleInputFileChange} />
-                                                </div>
-                                                {content_message}
+                                                {
+                                                    challenge.uploaded_files.length >= 1 ?
+                                                        <div>
 
-                                                <div className="form_group_ form_group__">
-                                                    <button type="button" onClick={handleClick}>Completar reto</button>
-                                                </div>
+                                                            <div className="subtitle_">
+                                                                Archivos subidos
+                                                        </div>
+                                                            <div className="downloads_container">
+                                                                {challenge.uploaded_files.map((item, index) =>
+                                                                    <div key={index} className="my-files">
+                                                                        <div className="downloads_">
+
+                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.name)} key={index}>
+                                                                                {item.name}
+                                                                            </a>
+                                                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
+                                                                        </div>
+                                                                        {
+                                                                            challenge.status !== "Verificado" ?
+                                                                                <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} onClick={handledDeleteFile.bind(this, item.key_s3)} /> : ''
+                                                                        }
+
+                                                                    </div>
+                                                                )
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                        : ''
+                                                }
+                                                {
+                                                    challenge.status !== "Verificado" ?
+                                                        <div>
+
+                                                            <div className="subtitle_">
+                                                                Subir archivos
+                                                            </div>
+                                                            <div className="">
+                                                                <input id="choose_files" type="file" name="file" onChange={handleInputFileChange} />
+                                                            </div>
+                                                            {content_message}
+                                                            <div className="form_group_ form_group__">
+                                                                <button type="button" onClick={handleClick}>Completar reto</button>
+                                                            </div>
+                                                        </div>
+                                                        : ''
+                                                }
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="closed-tab">

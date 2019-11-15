@@ -9,6 +9,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getIdProject from '../../redux/actions/get-id-project';
 
+
+const role = localStorage.getItem('role');
+
 class AddProyect extends React.Component {
     state = {
         blockProjects: [],
@@ -28,30 +31,34 @@ class AddProyect extends React.Component {
     async componentDidMount() {
         
         try {
-            let proyectos = [];
-            const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
-            if (listaProyectos.length >= 1) {
-                proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
-                localStorage.setItem('idProject', listaProyectos[0].id.toString());
-                this.props.getIdProject(listaProyectos[0].id);
-                
+            if (role === "entrepreneur") {  
+                console.log("paso");
+                              
+                let proyectos = [];
+                const listaProyectos = await listStartupsByUser({id:localStorage.getItem('id')});
+                if (listaProyectos.length >= 1) {
+                    proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
+                    localStorage.setItem('idProject', listaProyectos[0].id.toString());
+                    this.props.getIdProject(listaProyectos[0].id);
+                    
+                    this.setState({
+                        selected: listaProyectos[0].id,
+                        show_add_proyect_empty: false
+                    });
+                }else{
+                    this.setState({
+                        // selected: listaProyectos[0].id,
+                        show_add_proyect_empty: true,
+                    });
+                }
+    
                 this.setState({
-                    selected: listaProyectos[0].id,
-                    show_add_proyect_empty: false
-                });
-            }else{
-                this.setState({
-                    // selected: listaProyectos[0].id,
-                    show_add_proyect_empty: true,
+                    blockProjects: proyectos
                 });
             }
 
-            this.setState({
-                blockProjects: proyectos
-            });
-
         } catch (error) {
-            console.log("ERROR");
+            console.log("ERROR",error);
         }
 
     }
@@ -73,6 +80,7 @@ class AddProyect extends React.Component {
             selectProject={this.selectProject}
             selected={this.state.selected}
             show_add_proyect_empty={this.state.show_add_proyect_empty}
+            role={role}
             />
         );
     }

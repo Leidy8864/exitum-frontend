@@ -4,38 +4,42 @@ import View from './DetailChallenge-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import cleanForm from '../../redux/actions/clean-form';
-import { datailChallenge, completeChallenge, root } from '../../redux/actions';
+import { datailChallenge, completeChallenge, root, deleteFileReplyy } from '../../redux/actions';
 import $ from 'jquery';
 class DetailChallenge extends React.Component {
 
     state = {
         file: null,
         reply: '',
-        challengeId: '',
+        challenge_id: '',
         success_message: '',
         error_message: '',
         error_reply: '',
         challenge: {
-            challengeId : '',
-            files: []
+            challenge_id: '',
+            files: [],
+            uploaded_files: []
         }
     }
     async componentDidUpdate(nextProps) {
-        const { challengeId, challenges } = this.props;
-        if (nextProps.challengeId !== challengeId) {
-            if (challengeId) {
-                const challenge = challenges.find((challenge) => { return challenge.id === challengeId });
+        const { challenge_id, challenges } = this.props;
+        if (nextProps.challenge_id !== challenge_id) {
+            if (challenge_id) {
+                const challenge = challenges.find((challenge) => { return challenge.id === challenge_id });
+
+                console.log("CHALLEENGE FOUND", challenge);
 
                 this.setState({
                     challenge: challenge,
-                    challengeId: challenge.challengeId
+                    challenge_id: challenge.challenge_id,
+                    reply: challenge.reply
                 });
             }
         }
     }
 
-    handleDownload = async (e) => {
-        const fileName = e.target.name;
+    handleDownload = async (name) => {
+        const fileName = name;
 
         var a = document.createElement("a");
         a.href = root + 'challenges/download/' + fileName;
@@ -55,16 +59,43 @@ class DetailChallenge extends React.Component {
             file: file
         });
     }
+    handledDeleteFile = async (key_s3) => {
+        console.log("KEY", key_s3);
+
+        try {
+            const { challenge, challenge_id } = this.state;
+
+            // const challenge_id = challenge_id
+            const formData = {
+                key_s3,
+                challenge_id
+            }
+
+            const response = await deleteFileReplyy(formData);
+
+            console.log("REPONSE", response);
+
+            if (response.status) {
+                const index = challenge.uploaded_files.findIndex((file) => { return file.key_s3 === key_s3 })
+                const files = challenge.uploaded_files.splice(index, 1);
+                this.setState({
+                    [challenge.uploaded_files]: files
+                })
+            }
+        } catch (error) {
+
+        }
+    }
     handleClick = async (e) => {
         this.props.cleanForm("0");
         this.setState({
             error_reply: ''
         })
-        const { reply, file, challengeId } = this.state;
+        const { reply, file, challenge_id } = this.state;
         let formData = new FormData();
         formData.append("file", file);
         formData.append("reply", reply)
-        formData.append("challenge_id", challengeId);
+        formData.append("challenge_id", challenge_id);
 
 
         if (reply) {
@@ -78,20 +109,20 @@ class DetailChallenge extends React.Component {
                             $('#detailCHallengeModal').modal('hide');
                             window.location.reload();
                         },
-                        1000
+                        1200
                     );
                 } else {
                     this.setState({ error_message: response.message });
-                    setTimeout(
-                        () => {
-                            $('#detailCHallengeModal').modal('hide');
-                            window.location.reload();
-                        },
-                        1000
-                    );
+                    // setTimeout(
+                    //     () => {
+                    //         $('#detailCHallengeModal').modal('hide');
+                    //         window.location.reload();
+                    //     },
+                    //     1000
+                    // );
                 }
             } catch (error) {
-                console.log("ERROR COMPLETANDO PROYECTO"+ error);
+                console.log("ERROR COMPLETANDO PROYECTO" + error);
 
             }
         } else {
@@ -109,6 +140,7 @@ class DetailChallenge extends React.Component {
         let content_error_reply = '';
         let content_message = '';
 
+        const { reply } = this.state;
         if (cleanFormReducer) {
             error_reply = '';
             success_message = '';
@@ -132,6 +164,8 @@ class DetailChallenge extends React.Component {
                 handleDownload={this.handleDownload}
                 content_error_reply={content_error_reply}
                 content_message={content_message}
+                handledDeleteFile={this.handledDeleteFile}
+                reply={reply}
 
             />
         );
@@ -140,7 +174,7 @@ class DetailChallenge extends React.Component {
 
 const mapStateToProps = state => ({
     cleanFormReducer: state.cleanFormReducer,
-    challengeId: state.getIdChallengeReducer,
+    challenge_id: state.getIdChallengeReducer,
     challenges: state.getListChallengesReducer,
 
 });

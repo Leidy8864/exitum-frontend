@@ -1,7 +1,7 @@
 
 import React from 'react';
 import View from './Challenges-view';
-import { challengeByStep } from '../../redux/actions';
+import { challengeByStep, challengeByEmployee } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form';
 import getIdChallenge from '../../redux/actions/getIdChallenge';
 import getListChallenges from '../../redux/actions/getListChallenges';
@@ -11,6 +11,7 @@ import { withRouter } from 'react-router-dom';
 
 import $ from 'jquery';
 
+const role = localStorage.getItem('role');
 class Challenges extends React.Component {
     
     state = {
@@ -24,20 +25,38 @@ class Challenges extends React.Component {
                 
                 var retos = [];
                 try {
-                    const data = {
-                        step_id : levelId,
-                        startup_id : projectId
-                    };
-                    const response = await challengeByStep(data);
+
+
+                    console.log("LEVEL ID",levelId);
+                    var response = null;
+                    if (role === "entrepreneur") {
+                        const data = {
+                            step_id : levelId,
+                            startup_id : projectId
+                        };
+                        response = await challengeByStep(data);
+                    }else{
+                        const user_id = localStorage.getItem('id');
+                        const data = {
+                            step_id : levelId,
+                            user_id : user_id
+                        };
+                        response = await challengeByEmployee(data);
+                    }
+
+                    console.log("challenges",response);
+                    
 
                     const listChallenges = response.challenges;
                     
                     if (listChallenges.length >= 1) {
                         retos = listChallenges.map(x => ({ key: x.tip.id,
-                            challengeId : x.id,
+                            challenge_id : x.id,
                             id: x.tip.id, title: x.tip.tip, 
                             description : x.tip.description,
                             files : x.tip.file_tips,
+                            reply : x.reply,
+                            uploaded_files : x.files,
                             status: x.status }));                        
                         this.props.getListChallenges(retos);              
 

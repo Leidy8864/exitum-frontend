@@ -349,10 +349,33 @@ export const actuallyStage = async (id) => {
     }
 }
 
+export const actuallyStageEmployee = async (id) => {
+
+    try {
+        const res = await axios.get(root + `challenges/listStageEmp/${id}`);
+
+
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
 export const challengeByStep = async (data) => {
 
     try {
         const res = await axios.get(root + `challenges/listStep`, {
+            params: data
+        })
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const challengeByEmployee = async (data) => {
+
+    try {
+        const res = await axios.get(root + `challenges/listStepEmp`, {
             params: data
         })
         return res.data.data;
@@ -376,6 +399,19 @@ export const completeChallenge = async (data) => {
 
     try {
         const res = await axios.post(root + `challenges/reply/`, data)
+
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+
+
+export const deleteFileReplyy = async (data) => {
+
+    try {
+        const res = await axios.post(root + `challenges/deleteFileReply/`, data)
 
         return res.data;
     } catch (error) {
