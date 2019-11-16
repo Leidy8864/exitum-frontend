@@ -32,7 +32,6 @@ function View(props) {
         country
     } = props
 
-    console.log(users)
     let name = users.name
     let lastname = users.lastname
     let phone = users.phone

@@ -253,8 +253,8 @@ export const listProposalByAdvert = async (data) => {
     try {
         const res = await axios.get(root + 'proposals/byAdvertisement',
             {
-                params : data
-            } 
+                params: data
+            }
         );
 
         return res.data;
@@ -276,8 +276,8 @@ export const listRecommendationByAdvert = async (data) => {
     try {
         const res = await axios.get(root + 'ads/recomendations',
             {
-                params : data
-            } 
+                params: data
+            }
         );
 
         return res.data;
@@ -297,7 +297,7 @@ export const addFavoriteEmployee = async (data) => {
 export const listEmployeesFavorites = async (data) => {
     try {
         const res = await axios.get(root + 'ads/favorites', {
-            params : data
+            params: data
         });
 
         return res.data;
@@ -573,11 +573,11 @@ export const notAvailableUser = (id, data) => {
     }
 }
 
-export const appointmentsUser = (id,data) => {
+export const appointmentsUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/create/${id}`, data)
-            console.log("RES = ",res.data)
+            console.log("RES = ", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -586,11 +586,35 @@ export const appointmentsUser = (id,data) => {
 }
 
 export const appointmentsByUser = async id => {
+    try {
+        const res = await axios.get(root + `appointments/list-by-reminder/${id}`)
+        console.log("RES = ", res.data)
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const appointmentsUpdate =  (id, data) => {
+    return async dispatch => {
         try {
-            const res = await axios.get(root + `appointments/list-by-reminder/${id}`)
-            console.log("RES = ",res.data)
+            const res = await axios.post(root + `appointments/update/${id}`, data)
+            console.log("RES = ", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
         }
+    }
+}
+
+export const appointmentsDelete = (id, data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `appointments/cancel/${id}`, data)
+            console.log("RES = ", res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
 }
