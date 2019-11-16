@@ -640,6 +640,19 @@ export const appointmentsUpdate =  (id, data) => {
         } catch (error) {
             console.log("Error" + error)
         }
+    }
+}
+
+export const appointmentsDelete = (id, data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `appointments/cancel/${id}`, data)
+            console.log("RES = ", res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
 }
 
 export const listUniversities = async (id) => {
