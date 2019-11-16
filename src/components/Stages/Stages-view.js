@@ -11,6 +11,7 @@ function View(props) {
         // lstStage,
         // getIdProjectReducer,
         // stage
+        role
     } = props
 
     return (
@@ -24,9 +25,8 @@ function View(props) {
                         listSteps.map(function(item,index){
                             return(
                                 <div key={index} className="">
-                                    {/* <p>{item.step}</p> */}
                                     <div className={`img` + index} onClick={selectStage}>
-                                        <img  src={item.startup_steps[0].icon_count_tip} id={item.id} alt="img" />
+                                        <img  src={role === "entrepreneur" ? item.startup_steps[0].icon_count_tip : item.employee_steps[0].icon_count_tip} id={item.id} alt="img" />
                                     </div>
                                     <div className={`icon`+ index}>
                                         <img className="" src={item.icon} alt="img"/>

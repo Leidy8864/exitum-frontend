@@ -17,7 +17,13 @@ import getTypeAdsReducer from './getTypeAdsReducer';
 import getAdIdReducer from './getAdIdReducer';
 import getListAdsReducer from './getListAdsReducer';
 import getAdvertReducer from '../reducers/getAdvertReducer';
+<<<<<<< HEAD
 import getReminderReducer from '../reducers/getReminderReducer'
+=======
+import listUniversitiesReducer from './listUniversitiesReducer';
+import listCompaniesReducer from './listCompaniesReducer';
+
+>>>>>>> d4e0e9a62ef50577dd3ff0f5262ed3e42abea69a
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -37,5 +43,10 @@ export default combineReducers({
     getAdIdReducer : getAdIdReducer,
     getListAdsReducer : getListAdsReducer,
     getAdvertReducer :getAdvertReducer,
+<<<<<<< HEAD
     getReminderReducer : getReminderReducer
+=======
+    listUniversitiesReducer : listUniversitiesReducer,
+    listCompaniesReducer : listCompaniesReducer,
+>>>>>>> d4e0e9a62ef50577dd3ff0f5262ed3e42abea69a
 });

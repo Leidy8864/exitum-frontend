@@ -7,16 +7,17 @@ import './style.css';
 
 function View(props) {
 
-    const  {
+    const {
         cleanForm,
         blockProjects,
         selectProject,
         selected,
-        show_add_proyect_empty
+        show_add_proyect_empty,
+        role
     } = props
     return (
         <div className="add-proyect-container">
-            {show_add_proyect_empty ? 
+            {show_add_proyect_empty ?
                 <div>
                     <div className="proyects-list"></div>
                     <div className="add-proyect">
@@ -26,17 +27,17 @@ function View(props) {
                                 Agregar un proyecto
                             </div>
                         </Link>
-                    </div> 
+                    </div>
                 </div>
-                : 
+                :
                 <div >
                     <div className="proyects-list-aux">
                         {
                             blockProjects.map((dt) =>
-                                <div 
-                                    key={"project"+dt.id}
+                                <div
+                                    key={"project" + dt.id}
                                     id={dt.id}
-                                    className= {selected.toString() === dt.id.toString() ? "projectblockSelected": "projectblock"}
+                                    className={selected.toString() === dt.id.toString() ? "projectblockSelected" : "projectblock"}
                                     // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
                                     onClick={selectProject}
                                 >
@@ -46,17 +47,20 @@ function View(props) {
                             )
                         }
                     </div>
-
-                    <div className="add-proyect-aux">
-                        <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                            <div className="Ads-plusito">
-                                <span> + </span>
-                                Agregar un proyecto
+                    {
+                        role === "entrepreneur" ?
+                            <div className="add-proyect-aux">
+                                <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
+                                    <div className="Ads-plusito">
+                                        <span> + </span>
+                                        Agregar un proyecto
+                                </div>
+                                </Link>
                             </div>
-                        </Link>
-                    </div>
+                            : ""
+                    }
                 </div>
-                
+
             }
             <ModalProjects />
         </div>

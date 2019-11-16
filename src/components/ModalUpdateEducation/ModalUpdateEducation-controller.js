@@ -9,6 +9,7 @@ import cleanForm from '../../redux/actions/clean-form'
 import moment from 'moment';
 import $ from 'jquery';
 
+
 class ModalUpdateEducation extends React.Component {
 
     state = {
@@ -25,7 +26,7 @@ class ModalUpdateEducation extends React.Component {
 
     educationUpdate = async e => {
         e.preventDefault();
-        let { date_expedition, date_expiration, changed_date_expedition, changed_date_expiration } = this.state;
+        let { date_expedition, date_expiration, changed_date_expedition, changed_date_expiration, university_name } = this.state;
         if(!changed_date_expedition){
             date_expedition = new Date(moment(localStorage.getItem('date_start')).format('YYYY-MM-DD'))
         }
@@ -39,9 +40,9 @@ class ModalUpdateEducation extends React.Component {
             date_start: date_expedition,
             date_end: date_expiration,
             description: $('#EducationDescription').val(),
-            university_name: $('#EducationUniversity').val(),
+            university_name: university_name,
         }
-        
+        console.log("formData = ", formData)
         await this.props.createEducationUpdate(formData);
         this.setState({ 
             changed_date_expedition: false,
@@ -64,22 +65,39 @@ class ModalUpdateEducation extends React.Component {
         this.setState({ date_expiration: date_expiration, changed_date_expiration: true })
     }
 
+    handleChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ 
+                university_name: newValue.value,
+                university: {label: newValue.label, value: newValue.value} 
+            })
+        }
+    };
+
+    handleInputChange = (inputValue, actionMeta) => {
+
+    };
+
     render() {
 
         const {
-            getEducationReducer
+            getEducationReducer, listUniversitiesReducer
         } = this.props;
 
         let { EducationId,
                 date_expedition, 
                 date_expiration, 
                 changed_date_expedition, 
-                changed_date_expiration 
+                changed_date_expiration,
+                university
             } = this.state;
 
         EducationId = getEducationReducer.id;
         
         if(getEducationReducer.id && $('#EducationId').val() !== EducationId){
+            university = this.state.university === '' ? 
+                            {label: getEducationReducer.university.university, value: getEducationReducer.university.university}
+                        : this.state.university
             if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expedition && !changed_date_expiration){
@@ -99,6 +117,10 @@ class ModalUpdateEducation extends React.Component {
                 EducationId={EducationId}
                 date={date_expedition}
                 dateFinal={date_expiration}
+                options = {listUniversitiesReducer}
+                handleChange={this.handleChange}
+                university={university}
+                handleInputChange={this.handleInputChange}
             />
         );
     }
@@ -106,6 +128,7 @@ class ModalUpdateEducation extends React.Component {
 
 const mapStateToProps = (state) => ({    
     getEducationReducer: state.getEducationReducer,
+    listUniversitiesReducer: state.listUniversitiesReducer
 });
 
 const mapDispatchToProps = {

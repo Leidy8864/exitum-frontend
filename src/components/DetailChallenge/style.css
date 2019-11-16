@@ -20,10 +20,12 @@
     padding-left: 10%;
 }
 .description_{
+    width: 100%;
     color: #3369fd !important;
     margin-bottom: 20px;
     margin-top: 20px;
-    /* width: calc(100% - 60px); */
+    text-align: justify;
+    word-wrap: break-word;
 }
 .subtitle_{
     color: #2d2d2d !important;
@@ -31,18 +33,34 @@
     margin-bottom: 20px;
     display: block;
 }
-.downloads_{
-    margin: 0px;
-    margin-bottom: 20px;
+.downloads_ {
+    /* margin-bottom: 20px; */
+    width: 13em;
+    display: flex;
+    align-items: stretch;
     background: #ffffff;
     border: 1px solid #3369fd;
     border-radius: 10px;
-    padding: 10px 30px;
+    padding: 10px;
+}
+.my-files {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 8px;
+}
+.text-file{
+    width: 10em;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+
+
 .downloads_container img {
-    width: 24px !important;
-    margin-left: 20px;
+    width: 17px !important;
+    margin-left: 8px;
     cursor: pointer;
 }
 
@@ -67,7 +85,7 @@ input[type=”file”] {
     }
 
 .downloads_container{
-    margin: 0 10px;
+    /* margin: 0 10px; */
     margin-bottom: 20px;
     display: block;
     justify-content: space-between;

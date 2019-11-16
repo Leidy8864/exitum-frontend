@@ -11,6 +11,7 @@ import cleanForm from '../../redux/actions/clean-form'
 class ModalUpdateCertificate extends React.Component {
     state = {
         name: '',
+        company_name: '',
         CertificateId: '',
         CertificateName: '',
         CertificateIssuingCompany: '',
@@ -22,12 +23,12 @@ class ModalUpdateCertificate extends React.Component {
 
     certificateUpdate = async e => {
         e.preventDefault();
-        let {date_expedition,date_expiration} = this.state;
+        let {date_expedition,date_expiration,name, company_name} = this.state;
         var formData = new FormData();
         formData.append('user_id',localStorage.getItem('id'));
         formData.append('certification_id',$('#CertificateId').val());
         formData.append('name',$('#CertificateName').val());
-        formData.append('issuing_company',$('#CertificateIssuingCompany').val());
+        formData.append('issuing_company',company_name.value);
         formData.append('date_expedition', moment(date_expedition).format('YYYY-MM-DD'));
         formData.append('date_expiration', moment(date_expiration).format('YYYY-MM-DD'));
         formData.append('document',document.querySelector('#choose_file').files[0]);
@@ -48,33 +49,52 @@ class ModalUpdateCertificate extends React.Component {
         localStorage.setItem('expedition', date_expedition);
         this.setState({ date_expedition: date_expedition, changed_date_expedition: true })
     }
+
     onChange_ = async(date_expiration) => {
         localStorage.setItem('expiration', date_expiration);
         this.setState({ date_expiration: date_expiration, changed_date_expiration: true})
     }
 
+    handleChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ company_name: {label: newValue.value, value: newValue.value}  })
+        }
+    };
+    
+    handleInputChange = (inputValue, actionMeta) => {};
+
 
     render() {
         const {
-            getCertificateReducer
+            getCertificateReducer,
+            listCompaniesReducer
         } = this.props;
-        let {CertificateId,CertificateName,CertificateIssuingCompany,
+        let {CertificateId,CertificateName,CertificateIssuingCompany,company_name,name,
             date_expedition,date_expiration,changed_date_expedition,changed_date_expiration} = this.state;
         
         CertificateId = getCertificateReducer.id;
+<<<<<<< HEAD
         console.log(getCertificateReducer)
         
+=======
+
+>>>>>>> d4e0e9a62ef50577dd3ff0f5262ed3e42abea69a
         if(getCertificateReducer.id && $('#CertificateId').val() !== CertificateId){
             if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expiration) date_expiration = new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expedition && !changed_date_expiration){
                 $('#CertificateId').val(CertificateId);
-                $('#CertificateName').val(getCertificateReducer.name);
-                $('#CertificateIssuingCompany').val(getCertificateReducer.issuing_company);
             }
             localStorage.setItem('expedition', new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD')));
             localStorage.setItem('expiration', new Date(moment(getCertificateReducer.date_expiration).add(1, 'days').format('YYYY-MM-DD')));
         }
+        
+        $('#CertificateName').val(this.state.name === '' ? getCertificateReducer.name : this.state.name);
+        
+        if(company_name === ''){
+            company_name = {label: getCertificateReducer.issuing_company, value: getCertificateReducer.issuing_company};
+        }
+
 
         return (
             <View
@@ -89,6 +109,10 @@ class ModalUpdateCertificate extends React.Component {
                 date_expiration={date_expiration}
                 date={date_expedition}
                 dateFinal={date_expiration}
+                options = {listCompaniesReducer}
+                handleChange={this.handleChange}
+                handleInputChange={this.handleInputChange}
+                company_name={company_name}
             />
         );
     }
@@ -96,6 +120,7 @@ class ModalUpdateCertificate extends React.Component {
 
 const mapStateToProps = (state) => ({    
     getCertificateReducer: state.getCertificateReducer,
+    listCompaniesReducer: state.listCompaniesReducer,
 });
 
 const mapDispatchToProps = {
