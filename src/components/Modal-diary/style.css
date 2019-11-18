@@ -4,6 +4,7 @@
 .label-radio-modal-diary{
     color: #3369fd !important;
     width: 43% !important;
+    font-size: 15px !important;
 }
 .label-radio-modal-diary::before{
     content: '' !important;
@@ -48,11 +49,12 @@
     width: 75%;
     float: left;
     display: block !important;
+    margin-left: 4px;
 }
 .react-date-picker__button{
     float: left;
     width: 30px !important;
-    margin: 8px 15px !important;
+    margin: 8px 4px !important;
     background: #fff !important;
 }
 
@@ -80,6 +82,23 @@
 
 .react-calendar__navigation__label{
     font-size: 14px !important;
+}
+
+.datepicker .react-date-picker__wrapper {
+    display: flex !important;
+}
+
+.datepicker .react-date-picker {
+    width: 100% !important;
+    margin: 0px !important;
+}
+
+.modal-body.diary {
+    padding: 30px;
+}
+
+.diary-label label {
+    font-size: 12px !important;
 }
 
 .customDatePickerWidth, 

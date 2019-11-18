@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
 import Select from 'react-select';
 import DatePicker from 'react-date-picker';
 
-function View(props){
+function View(props) {
     const {
         isHour,
         saveReminder,
@@ -28,36 +28,42 @@ function View(props){
         selected,
         selectTypeDiary
     } = props;
-    
-    return(
+
+    return (
         <div className="Modal-ads">
             <Fragment>
                 <div className="modal fade" id="newdiary" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="title_">
-                                        Nueva Agenda
-                                    </div>
-                                    <div className="form_group_">
-                                        <input type="radio" name="role" id="reunion" value="reunion" onClick={selectTypeDiary}/>
+                            <div className="modal-header">
+                                <h6 className="modal-title" id="exampleModalLabel">Nueva Agenda</h6>
+                            </div>
+                            <div className="modal-body diary">
+                                <div className="row mt-3">
+                                    <div className="col-md-6">
+                                        <input type="radio" name="role" id="reunion" value="reunion" onClick={selectTypeDiary} />
                                         <label className="label-radio-modal-diary" htmlFor="reunion">Reunion</label>
-                                        <input type="radio" name="role" id="recordatorio" value="recordatorio" onClick={selectTypeDiary}/>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <input type="radio" name="role" id="recordatorio" value="recordatorio" onClick={selectTypeDiary} />
                                         <label className="label-radio-modal-diary" htmlFor="recordatorio">Recordatorio</label>
                                     </div>
-                                    <div className="form_group_">
-                                        <label>Titulo</label>
-                                        <input type="text" name="title" onChange={handleChange} />
+                                </div>
+                                <div className="row mt-3">
+                                    <div className="col-md-12">
+                                        <label>Titulo</label><br />
+                                        <input type="text" name="title" className="form-control" onChange={handleChange} />
                                     </div>
-                                    {isMeet ? 
-                                        <div className="form_group_">
+                                </div>
+                                {isMeet ?
+                                    <div className="row mt-3">
+                                        <div className="col-md-6">
                                             <label>Contacto</label>
                                             <Fragment>
                                                 <Select
                                                     className={className}
                                                     classNamePrefix={contactoClassNamePrefix}
-                                                    placeholder = ""
+                                                    placeholder=""
                                                     // defaultValue={defaultValue}
                                                     isDisabled={isDisabled}
                                                     isLoading={isLoading}
@@ -69,8 +75,10 @@ function View(props){
                                                     onChange={onChange_}
                                                 />
                                             </Fragment>
-                                        </div>: <br/>}
-                                    <div className="form_group_">
+                                        </div>
+                                    </div> : <br />}
+                                <div className="row">
+                                    <div className="col-md-12 datepicker">
                                         <label>Fecha del evento</label>
                                         <Fragment>
                                             <DatePicker
@@ -80,31 +88,36 @@ function View(props){
                                             />
                                         </Fragment>
                                     </div>
-                                    {isHour ? 
-                                        <div className="form_group_">
-                                            <label>Hora del evento</label>
-                                            {
-                                                hoursOptions.map(dt =>
-                                                    <div 
-                                                        key={dt}
-                                                        id={dt}
-                                                        className= {selected === dt ? "hourModalAdsSelected": "hourModalAds"}
-                                                        onClick={selectHour}
-                                                        onChange={handleChange}
-                                                    >
-                                                        {dt}
-                                                    </div>
-                                                )
-                                            }
-                                        </div>: <br/>}
-                                    <div className="form_group_">
-                                        <label>Descripción</label>
-                                        <textarea type="text" name="description" onChange={handleChange}/>
-                                    </div>
-                                    <div className="form_group_ form_group__">
-                                        <button onClick={saveReminder} className="btn-submit" type="button">Guardar</button>
-                                    </div>
                                 </div>
+                                {isHour ?
+                                    <div className="row mt-3">
+                                        <div className="col-md-12">
+                                        <label>Hora del evento</label>
+                                        <br/>
+                                        {
+                                            hoursOptions.map(dt =>
+                                                <div
+                                                    key={dt}
+                                                    id={dt}
+                                                    className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                    onClick={selectHour}
+                                                    onChange={handleChange}
+                                                >
+                                                    {dt}
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                    </div> : <br />}
+                            <div className="row">
+                            <div className="col-md-12 form_group_">
+                                    <label>Descripción</label>
+                                    <textarea type="text" name="description" className="form-control" onChange={handleChange} />
+                                </div>
+                            </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button onClick={saveReminder} className="btn btn-primary" type="button">Guardar</button>
                             </div>
                         </div>
                     </div>

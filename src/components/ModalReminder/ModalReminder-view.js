@@ -24,7 +24,7 @@ function View(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Recordatorio</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Recordatorio</h6>
                         </div>
                         <div className="modal-body">
                             <form>
@@ -32,11 +32,11 @@ function View(props) {
                                     <label>Titulo</label>
                                     <input type="text" className="form-control" name="title" onChange={handleChange} defaultValue={title} />
                                 </div>
-                                <div className="">
+                                <div className="mt-3">
                                     <label>Fecha del evento</label>
                                     <input type="date" className="form-control" name="date" onChange={handleChange} defaultValue={date} />
                                 </div>
-                                    <div className="form_group_">
+                                    <div className="form_group_ mt-3">
                                         <label>Hora del evento</label>
                                         {
                                             hoursOptions.map(dt =>
@@ -53,12 +53,12 @@ function View(props) {
                                             )
                                         }
                                     </div>
-                                <div className="form_group_">
+                                <div className="form_group_ mt-3">
                                         <label>Descripción</label>
                                         <textarea className="form-control" type="text" name="description" onChange={handleChange} defaultValue={description}/>
                                     </div>
-                                <div className="form_group_ form_group__">
-                                    <button onClick={updateReminder} className="btn-submit" type="button">Guardar</button>
+                                <div className="modal-footer mt-3">
+                                    <button onClick={updateReminder} className="btn btn-primary" type="button">Guardar</button>
                                 </div>
                             </form>
                         </div>

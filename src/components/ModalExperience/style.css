@@ -7,16 +7,18 @@
 }
 
 .clocwerk .react-date-picker{
-    margin: 7px 4px !important;
-    width: 98% !important;
+    margin: 7px 0px!important;
+    width: 100% !important;
     color: #3369fd; 
-    border: 1px solid #3369fd;
+    border: 1px solid #ced4da;
     border-radius: 7px;
 }
 .clocwerk .react-date-picker__wrapper{
     display: flex !important;
     width: 100%;
-    color: #3369fd;
+    padding: 2px;
+    border-radius: 2px !important;
+    color: #34363d;
     border: none !important;
 }
 .clocwerk .react-date-picker__inputGroup{
@@ -35,24 +37,24 @@
     border: none !important;
     padding: 0px !important;
     margin-top: 0px !important;
-    color: #3369fd;
+    color: #626570 !important;
 }
 .clocwerk .react-date-picker__inputGroup__month{
     border: none !important;
     padding: 0px !important;
     margin-top: 0px !important;
-    color: #3369fd;
+    color: #626570 !important;
 }
 .clocwerk .react-date-picker__inputGroup__year{
     border: none !important;
     padding: 0px !important;
     margin-top: 0px !important;
-    color: #3369fd;
+    color: #626570 !important;
 }
 
 .react-date-picker__button svg {
     display: inherit;
-    stroke: #3369fd;
+    stroke: #656870;
 }
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button{

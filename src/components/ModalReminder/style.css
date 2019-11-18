@@ -1,3 +1,8 @@
 .ModalReminder{
     display: block;
 }
+
+.form_group_ textarea {
+    resize: none;
+    height: 100px !important;
+}

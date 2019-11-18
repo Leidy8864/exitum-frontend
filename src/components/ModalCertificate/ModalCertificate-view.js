@@ -24,23 +24,25 @@ function View(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Certificacion</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Certificacion</h6>
                         </div>
                         <div className="modal-body">
                             <form>
-                                <div className="row">
-                                    <label>Certificacion</label>
-                                    <input
-                                        type="text"
-                                        onChange={name}
-                                        name="name"
-                                        id="nombreCertificado"
-                                        className="form-control"
-                                    />
+                                <div className="row mt-3">
+                                    <div className="col-md-12">
+                                        <label>Certificacion</label>
+                                        <input
+                                            type="text"
+                                            onChange={name}
+                                            name="name"
+                                            id="nombreCertificado"
+                                            className="form-control"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="row">
-                                    <label>Empresa</label>
-                                    <div className="styleCreatableSelect">
+                                <div className="row mt-3">
+                                    <div className="col-md-12">
+                                        <label>Empresa</label>
                                         <Fragment>
                                             <CreatableSelect
                                                 isClearable
@@ -53,31 +55,36 @@ function View(props) {
                                         </Fragment>
                                     </div>
                                 </div>
-                                <div className="row clocwerk">
-                                    <label>Fecha de inicio</label>
-                                    <Fragment>
-                                        <DatePicker
-                                            onChange={onChange}
-                                            value={date}
-                                            name="date_expidition"
-                                        />
-                                    </Fragment>
+                                <div className="row clocwerk mt-3">
+                                    <div className="col-md-12">
+                                        <label>Fecha de inicio</label>
+                                        <Fragment>
+                                            <DatePicker
+                                                onChange={onChange}
+                                                value={date}
+                                                name="date_expidition"
+                                            />
+                                        </Fragment>
+                                    </div>
                                 </div>
-                                <div className="row clocwerk">
-                                    <label>Fecha final</label>
-                                    <Fragment>
-                                        <DatePicker
-                                            onChange={onChange_}
-                                            value={dateFinal}
-                                            name="date_expiration"
-                                        />
-                                    </Fragment>
+                                <div className="row clocwerk mt-3">
+                                    <div className="col-md-12">
+                                        <label>Fecha final</label>
+                                        <Fragment>
+                                            <DatePicker
+                                                onChange={onChange_}
+                                                value={dateFinal}
+                                                name="date_expiration"
+                                            />
+                                        </Fragment>
+                                    </div>
                                 </div>
                                 <div className="response_file mt-3">
                                     <p id="texto">Subir Cerfiticado</p>
                                     <input id="choose_file" type="file" name="document" />
                                 </div>
                                 <div className="modal-footer">
+
                                     <button type="submit" className="btn btn-primary" onClick={certificate}>Guardar</button>
                                 </div>
                             </form>

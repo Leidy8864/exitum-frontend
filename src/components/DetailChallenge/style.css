@@ -112,7 +112,7 @@ input#choose_file {
     height: auto;
     margin: 0 0 0px;
     padding: 3px 10px;
-    border-radius: 5px;
+    border-radius: 25px;
     background: #3369fd;
 }
 
