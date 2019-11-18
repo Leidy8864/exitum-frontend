@@ -4,13 +4,18 @@ import './style.css';
 
 function View(props) {
 
-    const { 
+    const {
         handleChange,
         title,
         description,
         time,
         date,
+        selectHour,
+        selected,
+        hoursOptions,
         updateReminder,
+        selectTypeDiary,
+        isHour,
     } = props
 
     return (
@@ -25,20 +30,33 @@ function View(props) {
                             <form>
                                 <div className="">
                                     <label>Titulo</label>
-                                    <input type="text" name="title" onChange={handleChange} defaultValue={title} />
+                                    <input type="text" className="form-control" name="title" onChange={handleChange} defaultValue={title} />
                                 </div>
                                 <div className="">
                                     <label>Fecha del evento</label>
-                                    <input type="date" name="date" onChange={handleChange} defaultValue={date} />
-                                </div>
-                                <div className="">
-                                    <label>Hora del evento</label>
-                                    <input type="time" name="time" onChange={handleChange} defaultValue={time} />
+                                    <input type="date" className="form-control" name="date" onChange={handleChange} defaultValue={date} />
                                 </div>
                                     <div className="form_group_">
-                                    <label>Descripción</label>
-                                    <textarea type="text" name="description" onChange={handleChange} defaultValue={description} />
-                                </div>
+                                        <label>Hora del evento</label>
+                                        {
+                                            hoursOptions.map(dt =>
+                                                <div
+                                                    key={dt}
+                                                    id={dt}
+                                                    className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                    onClick={selectHour}
+                                                    onChange={handleChange}
+                                                    defaultValue={time}
+                                                >
+                                                    {dt}
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                <div className="form_group_">
+                                        <label>Descripción</label>
+                                        <textarea className="form-control" type="text" name="description" onChange={handleChange} defaultValue={description}/>
+                                    </div>
                                 <div className="form_group_ form_group__">
                                     <button onClick={updateReminder} className="btn-submit" type="button">Guardar</button>
                                 </div>

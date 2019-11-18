@@ -4,7 +4,9 @@ import View from './Modal-diary-view';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';  
 import { appointmentsUser } from '../../redux/actions'
+import listReminders from '../../redux/actions/list-reminders'
 import moment from 'moment';
+import $ from 'jquery'
 
 class ModalDiary extends React.Component {
     state = {
@@ -57,9 +59,8 @@ class ModalDiary extends React.Component {
         }
     }
 
-    saveDiary = async (e) => {
+    saveReminder = async (e) => {
         e.preventDefault();
-        console.log('Hola diary')
         let from_user_id = localStorage.getItem('id')
         const {title,date,selected,description,type} = this.state
         console.log(type)
@@ -70,8 +71,23 @@ class ModalDiary extends React.Component {
 
         const res = await this.props.appointmentsUser(from_user_id,formData);
         console.log("RESPUESTA RECORDATORIO =>", res)
+        $('#newdiary').modal('hide')
+        this.props.listReminders(1)
+        console.log(formData)
+    }
+
+    saveMeeting = async (e) => {
+        e.preventDefault();
+        console.log('Hola');
+        
+        const { title,description } = this.state
+
+        const formData = {
+            title, description 
+        }
 
         console.log(formData)
+
     }
 
     onChange = date => this.setState({ date })
@@ -116,7 +132,7 @@ class ModalDiary extends React.Component {
                 title = {title}
                 date = {date}
                 time = {time}
-                saveDiary = {this.saveDiary}
+                saveReminder = {this.saveReminder}
                 description = {description}
                 onChange={this.onChange}
                 // options={options}
@@ -138,17 +154,19 @@ class ModalDiary extends React.Component {
                 selectTypeDiary = {this.selectTypeDiary}
                 isMeet={isMeet}
                 isHour={isHour}
+                saveMeeting={this.saveMeeting}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-
+    listRemindersReducer: state.listRemindersReducer
 });
 
 const mapDispatchToProps = {
-    appointmentsUser
+    appointmentsUser,
+    listReminders
 };
 
 export default withRouter(

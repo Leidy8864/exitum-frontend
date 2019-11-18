@@ -23,16 +23,16 @@ function View(props) {
                                 <Fragment key={index}>
                                     <div className="reminders mb-3">
                                         <div className="date-reminder">
-                                            <strong><i class="far fa-calendar-alt mr-2"></i>Fecha:</strong><p>{item.date}</p>
+                                            <strong><i className="far fa-calendar-alt mr-2"></i>Fecha:</strong><p>{item.date}</p>
                                         </div>
                                         <div className="title-reminder">
-                                            <strong><i class="far fa-bell mr-2"></i>Titulo:</strong><p>Programacion Web</p>
+                                            <strong><i className="far fa-bell mr-2"></i>Titulo:</strong><p>{item.title}</p>
                                         </div>
                                         <div className="description-reminder">
-                                            <strong><i class="far fa-clock mr-2"></i>Hora:</strong><p>{item.time}</p>
+                                            <strong><i className="far fa-clock mr-2"></i>Hora:</strong><p>{item.time}</p>
                                         </div>
                                         <div className="description-reminder">
-                                            <strong><i class="far fa-newspaper mr-2"></i>Descripcion:</strong><p>{item.description}</p>
+                                            <strong><i className="far fa-newspaper mr-2"></i>Descripcion:</strong><p>{item.description}</p>
                                         </div>
                                         <div className="edit-profile d-flex mr-5 mt-2">
                                             <a href="#"

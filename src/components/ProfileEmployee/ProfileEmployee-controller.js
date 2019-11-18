@@ -45,7 +45,7 @@ class ProfileEmployee extends React.Component {
             const photo = userShow.data.photo
             const description = userShow.data.description
             //localStorage.setItem('photo', photo)
-            console.log(photo)
+
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,

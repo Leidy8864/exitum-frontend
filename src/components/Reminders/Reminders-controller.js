@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import getReminder from '../../redux/actions/get-reminder'
 import { appointmentsByUser,appointmentsDelete } from '../../redux/actions';
+import listReminders from '../../redux/actions/list-reminders'
 import Swal from 'sweetalert2'
 import $ from 'jquery'
 
@@ -25,6 +26,14 @@ class Reminders extends React.Component {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    refreshReminder = async() => {
+        const appointments = await appointmentsByUser(localStorage.getItem('id'));
+        this.setState({
+            appointments
+        })
+        this.props.listReminders(0);
     }
 
     idReminder = async (e) => {
@@ -63,7 +72,7 @@ class Reminders extends React.Component {
                             res_message: response.message
                         });
                     }
-                    // this.props.listEducations(1);
+                    this.props.listReminders(1);
                 } catch (error) {
                     console.log("error", error);
                 }
@@ -72,6 +81,12 @@ class Reminders extends React.Component {
     }
 
     render() {
+
+        const { listRemindersReducer } = this.props;
+
+        if(listRemindersReducer === 1) {
+            this.refreshReminder();
+        }
 
         const { appointments } = this.state
         return (
@@ -85,12 +100,13 @@ class Reminders extends React.Component {
 }
 
 const mapStateToProps = (state) => ({    
-
+    listRemindersReducer: state.listRemindersReducer
 });
 
 const mapDispatchToProps = {
     getReminder,
     appointmentsByUser,
+    listReminders,
     appointmentsDelete,
 };
 

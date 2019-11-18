@@ -5,11 +5,8 @@ import DatePicker from 'react-date-picker';
 
 function View(props){
     const {
-        title,
-        time,
-        description,
         isHour,
-        saveDiary,
+        saveReminder,
         isMeet,
         onChange,
         onChange_,
@@ -25,6 +22,7 @@ function View(props){
         isRtl,
         isSearchable,
         date,
+        saveMeeting,
         hoursOptions,
         selectHour,
         selected,
@@ -104,7 +102,7 @@ function View(props){
                                         <textarea type="text" name="description" onChange={handleChange}/>
                                     </div>
                                     <div className="form_group_ form_group__">
-                                        <button onClick={saveDiary} className="btn-submit" type="button">Guardar</button>
+                                        <button onClick={saveReminder} onClick={saveMeeting} className="btn-submit" type="button">Guardar</button>
                                     </div>
                                 </div>
                             </div>
