@@ -14,7 +14,7 @@ nav .container-fluid a {
   font-size: 40px;
   -webkit-transition: 1s;
   transition: 1s;
-  font-family: 'Helvetica Neue';
+  font-family: 'Proxima Nova';
 }
 
 nav .container-fluid a:hover {

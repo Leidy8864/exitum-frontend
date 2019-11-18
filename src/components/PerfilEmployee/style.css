@@ -4,7 +4,7 @@
 .count_title {
     display: flex;
     justify-content: space-between;
-    font-family: 'Helvetica Neue';
+    font-family: 'Proxima Nova';
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -17,7 +17,7 @@
     background: #EFEFEF !important;
     outline: none !important;
     border: none !important;
-    font-family: 'Helvetica Neue';
+    font-family: 'Proxima Nova';
 }
 
 .form-control:focus {

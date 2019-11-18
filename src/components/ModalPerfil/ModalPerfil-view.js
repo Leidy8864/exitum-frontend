@@ -24,7 +24,7 @@ function View(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Mi Perfil</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Mi Perfil</h6>
                         </div>
                         <div className="modal-body">
                             <form>

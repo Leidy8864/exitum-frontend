@@ -43,7 +43,7 @@
   position: relative;
   z-index: 10;
   color: #615d5d;
-  font-family: 'Helvetica Neue' !important;
+  font-family: 'Proxima Nova' !important;
   font-weight: 200 !important;
   font-size: 1.2rem;
 }
@@ -79,7 +79,7 @@ ul {
 
 
 ul li a {
-  font-family: 'Helvetica Neue' !important;
+  font-family: 'Proxima Nova' !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

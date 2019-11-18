@@ -10,7 +10,7 @@
   align-items: center;
   color: #ffffff;
   font-size: 24px;
-  font-family: 'Helvetica Neue' !important;
+  font-family: 'Proxima Nova' !important;
 }
 
 .Diary .start-diary button.add-diary {
@@ -26,7 +26,7 @@
   border: none;
   color: #3369FD;
   outline: none;
-  font-family: 'Helvetica Neue' !important;
+  font-family: 'Proxima Nova' !important;
   font-size: 50px;
   font-weight: bold;
   text-transform: capitalize;

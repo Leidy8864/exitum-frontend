@@ -12,16 +12,20 @@
     resize: none;
 }
 
-div.modal-header {
-    background: #3369fd;
+.modal-header {
+    background: #396afc !important;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fff;
 }
 
-h5.modal-title {
-    width: 100%;
-    text-align: center !important;
+.modal-header h6 {
     font-weight: bold;
-    font-size: 20px;
+    margin-left: 10px;
+}
+
+.modal-backdrop {
+    opacity: 0.1 !important;
 }
 
 input[type=checkbox].hourModalAds {

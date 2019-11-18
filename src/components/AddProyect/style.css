@@ -13,7 +13,7 @@
     height: 80px;
     display: flex;
     overflow-x: auto;
-    font-family: 'Helvetica Neue' !important;
+    font-family: 'Proxima Nova' !important;
 }
 .add-proyect-aux{
     text-decoration: none !important;
@@ -69,7 +69,7 @@
     width: 20%;
     cursor: pointer;
     flex-shrink: 0;
-    font-family: 'Helvetica Neue' !important;
+    font-family: 'Proxima Nova' !important;
 }
 
 .projectblock>span, .projectblockSelected>span {
@@ -97,7 +97,7 @@
     width: 20%;
     cursor: pointer;
     flex-shrink: 0;
-    font-family: 'Helvetica Neue' !important;
+    font-family: 'Proxima Nova' !important;
 }
 
 .add-proyect{
@@ -121,11 +121,11 @@
 }
 
 .Ads-plusito {
-    font-family: 'Helvetica Neue' !important;
+    font-family: 'Proxima Nova' !important;
 }
 
 .Ads-plusito span{
-    font-family: 'Helvetica Neue' !important;
+    font-family: 'Proxima Nova' !important;
     padding: 10px 10px 10px 17px;
     margin: 12px;
     /* background: #fff;

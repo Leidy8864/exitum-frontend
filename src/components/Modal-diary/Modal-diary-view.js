@@ -102,7 +102,7 @@ function View(props){
                                         <textarea type="text" name="description" onChange={handleChange}/>
                                     </div>
                                     <div className="form_group_ form_group__">
-                                        <button onClick={saveReminder} onClick={saveMeeting} className="btn-submit" type="button">Guardar</button>
+                                        <button onClick={saveReminder} className="btn-submit" type="button">Guardar</button>
                                     </div>
                                 </div>
                             </div>
