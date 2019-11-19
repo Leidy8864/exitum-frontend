@@ -2,15 +2,23 @@
 import React, { Fragment } from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
+import CreatableSelect from 'react-select/creatable';
 
 function View(props) {
 
     const {
         position,
-        company_name,
+        // company_name,
         experience,
         date,
         onChange,
+        dateFinal,
+        onChange_,
+        selectCurrentJob,
+        options,
+        handleChange,
+        handleInputChange,
+        company_name
     } = props
 
     return (
@@ -29,17 +37,22 @@ function View(props) {
                                         type="text"
                                         onChange={position}
                                         name="position"
+                                        id="nombrePosition"
                                         className="form-control"
                                     />
                                 </div>
                                 <div className="row">
                                     <label>Empresa</label>
-                                    <input
-                                        type="text"
-                                        onChange={company_name}
-                                        name="company_name"
-                                        className="form-control"
-                                    />
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={handleChange}
+                                            onInputChange={handleInputChange}
+                                            options={options}
+                                            className={"styleCreatableSelect_"}
+                                            value={company_name}
+                                        />
+                                    </Fragment>
                                 </div>
                                 <div className="row clocwerk">
                                     <label>Fecha de inicio</label>
@@ -53,7 +66,22 @@ function View(props) {
                                 </div>
                                 <div className="row mt-1">
                                     <label>Actualmente trabajando</label>
-                                    <input className="radio-work" type="radio" name="radio" value="false" />
+                                </div>
+                                <div className="row mt-1">
+                                    <input type="radio" name="role" id="true" value="true" onClick={selectCurrentJob}/>
+                                    <label className="label-radio-modal-experience" htmlFor="true">Si</label>
+                                    <input type="radio" name="role" id="false" value="false" onClick={selectCurrentJob}/>
+                                    <label className="label-radio-modal-experience" htmlFor="false">No</label>
+                                </div>
+                                <div className="row clocwerk" id="endDateModal">
+                                    <label>Fecha Fin</label>
+                                    <Fragment>
+                                            <DatePicker
+                                                onChange={onChange_}
+                                                value={dateFinal}
+                                                name="date_start"
+                                            />
+                                    </Fragment>
                                 </div>
                                 <div className="modal-footer">
                                     <button type="submit" className="btn btn-primary">Guardar</button>

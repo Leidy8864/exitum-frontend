@@ -6,12 +6,14 @@ import { connect } from 'react-redux'
 import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser, listUniversities, listCompanies } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
+import getExperience from '../../redux/actions/get-experience';
 import getUniversities from '../../redux/actions/get-list-universities';
 import getCompanies from '../../redux/actions/get-list-companies';
 import listCertifications from '../../redux/actions/list-certifications';
 import listEducations from '../../redux/actions/list-educations';
+import listExperiences from '../../redux/actions/list-experiences';
 import listSkills  from '../../redux/actions/list-skills';
-import { deleteSkill, deleteCertificate, deleteEducation } from '../../redux/actions';
+import { deleteSkill, deleteCertificate, deleteEducation, deleteExperience } from '../../redux/actions';
 import Swal from 'sweetalert2';
 import $ from 'jquery'
 
@@ -95,6 +97,15 @@ class ProfileEmployee extends React.Component {
         $('#updateeducation').modal('show')
     }
 
+    idExperience = async (e) => {
+        e.preventDefault();
+        const education = this.state.educations[e.target.id];
+        localStorage.setItem('date_start', education.date_start);
+        localStorage.setItem('date_end', education.date_end);
+        this.props.getExperience(education);
+        $('#updateexperience').modal('show')
+    }
+
     refreshCertifications = async() =>{
         const certificationsAll = await showCertificationByUser(localStorage.getItem('id'));
         this.setState({
@@ -107,6 +118,14 @@ class ProfileEmployee extends React.Component {
             listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
         }
         this.props.getCompanies(listCompanies__);
+    }
+
+    refreshExperience = async() =>{
+        const certificationsAll = await showExperienceByUser(localStorage.getItem('id'));
+        this.setState({
+            experiences: certificationsAll
+        });
+        this.props.listExperiences(0);
     }
 
     refreshSkills = async() =>{
@@ -170,8 +189,6 @@ class ProfileEmployee extends React.Component {
     handleClickDeleteCertificate = async (e) => {
         e.preventDefault();
         const certification_id = e.target.id;
-        console.log(certification_id)
-        var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
             text: "Si eliminas este certificado, ya no podrás deshacer esta acción.",
@@ -188,11 +205,8 @@ class ProfileEmployee extends React.Component {
                         user_id: parseInt(localStorage.getItem('id')),
                         certification_id: parseInt(certification_id)
                     }
-                    console.log("response delete certificate data = ", data)
                     const response = await this.props.deleteCertificate(data);
-                    console.log("response delete certificate = ", response.status)
                     if (response.status) {
-                        console.log('Hola')
                     } else {
                         this.setState({
                             res_message: response.message
@@ -209,10 +223,9 @@ class ProfileEmployee extends React.Component {
     handleClickDeleteEducation = async (e) => {
         e.preventDefault();
         const education_id = e.target.id;
-        var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "Si eliminas este certificado, ya no podrás deshacer esta acción.",
+            text: "Si eliminas esta esducación, ya no podrás deshacer esta acción.",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -226,9 +239,7 @@ class ProfileEmployee extends React.Component {
                         user_id: localStorage.getItem('id'),
                         education_id: education_id
                     }
-                    console.log("response delete Education data = ", data)
                     const response = await this.props.deleteEducation(data);
-                    console.log("response delete certificate = ", response)
                     if (response.status) {
 
                     } else {
@@ -237,6 +248,41 @@ class ProfileEmployee extends React.Component {
                         });
                     }
                     this.props.listEducations(1);
+                } catch (error) {
+                    console.log("error", error);
+                }
+            }
+        });
+    }
+
+    handleClickDeleteExperience = async (e) => {
+        e.preventDefault();
+        const experience_id = e.target.id;
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Si eliminas esta experiencia, ya no podrás deshacer esta acción.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.value) {
+                try {
+                    const data = {
+                        user_id: localStorage.getItem('id'),
+                        experience_id: experience_id
+                    }
+                    const response = await this.props.deleteExperience(data);
+                    if (response.status) {
+
+                    } else {
+                        this.setState({
+                            res_message: response.message
+                        });
+                    }
+                    this.props.listExperiences(1);
                 } catch (error) {
                     console.log("error", error);
                 }
@@ -258,18 +304,17 @@ class ProfileEmployee extends React.Component {
         const {file} = this.state
         formData.append("user_id",localStorage.getItem('id'));
         formData.append("photo",file);
-
         const res = await this.props.updateImageUser(formData) 
-
-        console.log('RESPUESTA IMAGEN',res);
         localStorage.setItem('photo',res.photo)
         window.location.reload();
     }
 
     render() {
 
-        const {listCertificationsReducer, listSkillsReducer, listEducationsReducer} = this.props;
-
+        const {listCertificationsReducer, listSkillsReducer, listEducationsReducer, listExperiencesReducer} = this.props;
+        if(listExperiencesReducer === 1){
+            this.refreshExperience();
+        }
         if(listCertificationsReducer === 1){
             this.refreshCertifications();
         }
@@ -279,14 +324,9 @@ class ProfileEmployee extends React.Component {
         if(listEducationsReducer === 1){
             this.refreshEducation();
         }
-
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname');
-
         const {file} = this.state
-
-        // console.log('experience =', this.state.users.experience[0][0])
-
         return (
             <View
                 user={user}
@@ -302,9 +342,11 @@ class ProfileEmployee extends React.Component {
                 certifications = {this.state.certifications}
                 idCertificate = {this.idCertificate}
                 idEducation = {this.idEducation}
+                idExperience = {this.idExperience}
                 handleClickDeleteSkill = {this.handleClickDeleteSkill}
                 handleClickDeleteCertificate = {this.handleClickDeleteCertificate}
                 handleClickDeleteEducation = {this.handleClickDeleteEducation}
+                handleClickDeleteExperience = {this.handleClickDeleteExperience}
                 fileSelectedHandler={this.fileSelectedHandler}
                 fileUploadHandler = {this.fileUploadHandler}
             />
@@ -317,17 +359,21 @@ const mapStateToProps = (state) => ({
     listCertificationsReducer: state.listCertificationsReducer,
     listSkillsReducer: state.listSkillsReducer,
     listEducationsReducer: state.listEducationsReducer,
+    listExperiencesReducer: state.listExperiencesReducer,
 });
 
 const mapDispatchToProps = {
     deleteCertificate,
     deleteEducation,
+    deleteExperience,
     showCertificationByUser,
     getCertificate,
     getEducation,
+    getExperience,
     listCertifications,
     listSkills,
     listEducations,
+    listExperiences,
     updateImageUser,
     showDataByUser,
     getUniversities,

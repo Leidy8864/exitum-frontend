@@ -24,7 +24,8 @@ class ModalDiary extends React.Component {
         selected : "",
         hoursOptions: [],
         isMeet: false,
-        isHour: false
+        isHour: false,
+        selectedOption: null,
     };
       
     async componentDidMount() {
@@ -45,29 +46,23 @@ class ModalDiary extends React.Component {
         }
     }
 
-
-    handleChange = users => {
-        this.setState({
-            users
-        })    
-        console.log("user=>",users)
+    handleChange = selectedOption => {
+        this.setState({ selectedOption });
+        console.log(`Option selected:`, selectedOption);
     };
 
     selectHour = async (e) =>{
         this.setState({selected: e.target.id});
-        console.log(e.target.id)
     }
 
     selectTypeDiary = async (e) =>{
         if(e.target.value === 'reunion'){
             this.setState({ type: e.target.value})
-            console.log(e.target.value)
             this.setState({ hoursOptions: [] });
             this.setState({ isMeet: true });
             this.setState({ isHour: true });
         }else{
             this.setState({ type: e.target.value})
-            console.log(e.target.value)
             this.setState({ isMeet: false });
             this.setState({ isHour: true });
             this.setState({hoursOptions: [
@@ -82,14 +77,12 @@ class ModalDiary extends React.Component {
         e.preventDefault();
         let from_user_id = localStorage.getItem('id')
         const {title,date,selected,description,type} = this.state
-        console.log(type)
         let time = selected
         const formData = {
             title: title, date: moment(date).format('YYYY-MM-DD'),time: time,description: description,type: type,from_user_id: from_user_id
         }
 
         const res = await this.props.appointmentsUser(from_user_id,formData);
-        console.log("RESPUESTA RECORDATORIO =>", res)
         $('#newdiary').modal('hide')
         this.props.listReminders(1)
         console.log(formData)
@@ -97,16 +90,10 @@ class ModalDiary extends React.Component {
 
     saveMeeting = async (e) => {
         e.preventDefault();
-        console.log('Hola');
-        
         const { title,description } = this.state
-
         const formData = {
             title, description 
         }
-
-        console.log(formData)
-
     }
 
     onChange = date => this.setState({ date })
@@ -141,11 +128,12 @@ class ModalDiary extends React.Component {
             isMeet,
             isHour,
             users,
+            selectedOption,
         } = this.state;
 
         return (
             <View
-                // value={selectedOption}
+                selectedOption={selectedOption}
                 title = {title}
                 date = {date}
                 time = {time}

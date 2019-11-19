@@ -24,8 +24,10 @@ function View(props) {
         skills,
         photo,
         idEducation,
+        idExperience,
         handleClickDeleteSkill,
         handleClickDeleteCertificate,
+        handleClickDeleteExperience,
         fileSelectedHandler,
         fileUploadHandler,
         handleClickDeleteEducation,
@@ -103,21 +105,47 @@ function View(props) {
                                         return (
                                             <Fragment key={index}>
                                                 <div className="experience-info">
-                                                    <div className="info-experience">
-                                                        <div className="experience-info-content mt-3">
-                                                            <span className="bold">{item.position}</span>
+                                                    <div className="info-experience col-md-12">
+                                                        <div className="experience-info-content col-md-11">
+                                                            <strong>EMPRESA: {item.company_name}</strong>
+                                                            <span className="bold"> - {item.time_total}</span>
                                                             <br />
-                                                            <strong>{item.company.name}</strong>
-                                                            <div className="time-exp mt-1">
-                                                                {item.date_start}
-                                                            </div>
-                                                            <div className="description mb-4">
-                                                                {/* Descripcion */}
-                                                            </div>
+                                                            {
+                                                                item.detail.map(function (item_, index_) {
+                                                                    return (
+                                                                        <Fragment key={index_}>
+                                                                            <div className="experience-info col-md-11">
+                                                                                <div className="info-experience col-md-12">
+                                                                                    <div className="experience-info-content col-md-10">
+                                                                                        <div>POSICIÓN: {item_.position}</div>
+                                                                                        <div>DESDE: {item_.date_start}</div>
+                                                                                        <div>HASTA: {item_.date_end ? item_.date_end: "actualidad"}</div>
+                                                                                        <div>DESCRIPCIÓN: {item_.description ? item_.description: ""}</div>
+                                                                                        <br />
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="edit-profile mr-5 mt-2">
+                                                                                    <Link to="" onClick={idExperience} id={item_.id} data-toggle="modal" data-target="#updateexperience"><img alt="img" className="img" id={index_} src={require('../../public/images/svg/lapiz.svg')} /></Link>
+        
+                                                                                    <div className="delete-skill mt-2">
+                                                                                        <a href="#" >
+                                                                                            <img
+                                                                                                alt="img"
+                                                                                                className="img"
+                                                                                                id={item_.id}
+                                                                                                src={require('../../public/images/svg/delete_.svg')}
+                                                                                                onClick={handleClickDeleteExperience}
+                                                                                            />
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </Fragment>
+                                                                    )
+                                                                })
+                                                            }
                                                         </div>
-                                                    </div>
-                                                    <div className="edit-profile mr-5 mt-2">
-                                                        <a href="#"><img className="img" alt="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
                                                     </div>
                                                 </div>
                                             </Fragment>

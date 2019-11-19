@@ -9,24 +9,25 @@ function View(props) {
         saveReminder,
         isMeet,
         onChange,
-        onChange_,
-        className,
         options,
-        contactoClassNamePrefix,
-        // contactoPlaceholder,
-        handleInputChange,
         handleChange,
-        isDisabled,
-        isLoading,
-        isClearable,
-        isRtl,
-        isSearchable,
         date,
-        saveMeeting,
+        // onChange_,
+        // className,
+        // contactoClassNamePrefix,
+        // contactoPlaceholder,
+        // handleInputChange,
+        // isDisabled,
+        // isLoading,
+        // isClearable,
+        // isRtl,
+        // isSearchable,
+        // saveMeeting,
         hoursOptions,
         selectHour,
         selected,
-        selectTypeDiary
+        selectTypeDiary,
+        selectedOption,
     } = props;
 
     return (
@@ -64,17 +65,20 @@ function View(props) {
                                                     className={"styleCreatableSelect_"}
                                                     // classNamePrefix={contactoClassNamePrefix}
                                                     // placeholder=""
-                                                    // defaultValue={defaultValue}
+                                                    // value={selectedOption}
                                                     // isDisabled={isDisabled}
                                                     // isLoading={isLoading}
                                                     // isClearable={isClearable}
                                                     // isRtl={isRtl}
-                                                    isSearchable={isSearchable}
-                                                    isMulti={true}
-                                                    onInputChange={handleInputChange}
-                                                    isClearable
-                                                    options={options}
+                                                    // isSearchable={isSearchable}
+                                                    // isMulti={true}
+                                                    // onInputChange={handleInputChange}
+                                                    // isClearable
+                                                    // options={options}
+                                                    // onChange={handleChange}
+                                                    value={selectedOption}
                                                     onChange={handleChange}
+                                                    options={options}
                                                 />
                                             </Fragment>
                                         </div>
