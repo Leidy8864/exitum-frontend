@@ -70,8 +70,6 @@ class AddsList extends React.Component {
                 $('#entrepreneur-ads')[0].scrollHeight) {
                 
                 page = page + 1;
-
-                console.log("PAGE",page);
                 
                 const data = {
                     user_id: result.id,
@@ -173,9 +171,7 @@ class AddsList extends React.Component {
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar'
         }).then(async (result) => {
-            if (result.value) {
-                console.log("paso");
-                
+            if (result.value) {                
                 try {
 
                     const data = {
@@ -184,10 +180,8 @@ class AddsList extends React.Component {
                     }                    
                     const response = await updatAdvertState(data);
 
-                    console.log("response",response);
                     
                     if (response.status) {
-                        // updateFunc;
                         this.deleteAds(index, 1);
                     } else {
                         this.setState({
