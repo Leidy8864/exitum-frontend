@@ -50,6 +50,7 @@
     float: left;
     display: block !important;
     margin-left: 4px;
+    color: #969292 !important;
 }
 .react-date-picker__button{
     float: left;
@@ -61,12 +62,15 @@
 
 .react-date-picker__inputGroup__day{
     border: none !important;
+    color: #969292;
 }
 .react-date-picker__inputGroup__month{
     border: none !important;
+    color: #969292;
 }
 .react-date-picker__inputGroup__year{
     border: none !important;
+    color: #969292;
 }
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button{
@@ -91,6 +95,11 @@
 .datepicker .react-date-picker {
     width: 100% !important;
     margin: 0px !important;
+}
+
+.datepicker.datepicker .react-date-picker {
+    border: 1px solid #dad5d5 !important;
+    color: #dad5d5;
 }
 
 .modal-body.diary {

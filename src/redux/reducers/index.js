@@ -21,6 +21,7 @@ import listUniversitiesReducer from './listUniversitiesReducer';
 import listCompaniesReducer from './listCompaniesReducer';
 import getReminderReducer from './getReminderReducer'
 import listRemindersReducer from './listRemindersReducer'
+import listUsersReducer from './listUsersReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -44,5 +45,6 @@ export default combineReducers({
     getReminderReducer: getReminderReducer,
     listUniversitiesReducer : listUniversitiesReducer,
     listCompaniesReducer : listCompaniesReducer,
-    listRemindersReducer: listRemindersReducer
+    listRemindersReducer: listRemindersReducer,
+    listUsersReducer: listUsersReducer
 });

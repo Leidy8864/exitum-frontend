@@ -40,6 +40,7 @@ form input {
 }
 
 .modal-footer {
+  padding-right: 30px !important;
   justify-content: flex-end !important;
 }
 

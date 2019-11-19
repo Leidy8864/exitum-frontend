@@ -3,7 +3,7 @@ import React from 'react';
 import View from './Modal-diary-view';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';  
-import { appointmentsUser } from '../../redux/actions'
+import { appointmentsUser, listUsers } from '../../redux/actions'
 import listReminders from '../../redux/actions/list-reminders'
 import moment from 'moment';
 import $ from 'jquery'
@@ -13,6 +13,7 @@ class ModalDiary extends React.Component {
         title: '',
         time: '',
         type: '',
+        users: [],
         description: '',
         isClearable: true,
         isDisabled: false,
@@ -26,13 +27,31 @@ class ModalDiary extends React.Component {
         isHour: false
     };
       
-
-    handleChange = (e) => {
-        const value = e.target.value.trim();
-        this.setState({
-            [e.target.name]: value
-        });
+    async componentDidMount() {
+        try {
+            // const advert_id = this.props.match.params.id;
+            let usuarios = [];
+            let users = await listUsers(localStorage.getItem('id'))
+            if (users && users.length >= 1) {
+                usuarios = users.map(x => ({ label: x.fullname, value: x.fullname }));
+                console.log(usuarios)
+            }
+            console.log("users",users);
+            this.setState({
+                users: usuarios
+            });
+        } catch (error) {
+            console.log("Error al ver detalle de anuncio",error);
+        }
     }
+
+
+    handleChange = users => {
+        this.setState({
+            users
+        })    
+        console.log("user=>",users)
+    };
 
     selectHour = async (e) =>{
         this.setState({selected: e.target.id});
@@ -102,7 +121,10 @@ class ModalDiary extends React.Component {
     toggleSearchable = () =>
         this.setState(state => ({ isSearchable: !state.isSearchable }));
 
-    
+    handleInputChange = async (inputValue, actionMeta) => {
+
+    };
+
     render() {
         const {
             title,
@@ -117,14 +139,9 @@ class ModalDiary extends React.Component {
             selected,
             hoursOptions,
             isMeet,
-            isHour
+            isHour,
+            users,
         } = this.state;
-
-        const contactosOptions = [
-            { value: 'contacto1', label: 'contacto1' },
-            { value: 'contacto2', label: 'contacto2' },
-            { value: 'contacto3', label: 'contacto3' },
-        ];
 
         return (
             <View
@@ -135,7 +152,6 @@ class ModalDiary extends React.Component {
                 saveReminder = {this.saveReminder}
                 description = {description}
                 onChange={this.onChange}
-                // options={options}
                 className="basic-single"
                 contactoClassNamePrefix="contacto"
                 contactoPlaceholder = "contacto ..."
@@ -144,13 +160,13 @@ class ModalDiary extends React.Component {
                 isClearable={isClearable}
                 isRtl={isRtl}
                 isSearchable={isSearchable}
-                contactoName="contacto"
-                contactosOptions={contactosOptions}
                 handleChange = {this.handleChange}
                 hoursOptions={hoursOptions}
                 selectHour={this.selectHour}
+                options = {users}
                 selected={selected}
-                onChange_={this.handleChange}
+                // onChange_={this.handleChange}
+                handleInputChange= {this.handleInputChange}
                 selectTypeDiary = {this.selectTypeDiary}
                 isMeet={isMeet}
                 isHour={isHour}
@@ -161,12 +177,14 @@ class ModalDiary extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    listRemindersReducer: state.listRemindersReducer
+    listRemindersReducer: state.listRemindersReducer,
+    listUsersReducer: state.listUsersReducer
 });
 
 const mapDispatchToProps = {
     appointmentsUser,
-    listReminders
+    listUsers,
+    listReminders,
 };
 
 export default withRouter(

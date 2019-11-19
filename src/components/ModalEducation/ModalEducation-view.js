@@ -24,11 +24,12 @@ function View(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Educacion</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Educacion</h6>
                         </div>
                         <div className="modal-body">
                             <form onSubmit={education}>
                                 <div className="row">
+                                    <div className="col-md-12">
                                     <label>Descripcion</label>
                                     <input 
                                      type="text"
@@ -37,8 +38,10 @@ function View(props) {
                                      name="description"
                                      onChange={description}
                                      />
+                                    </div>
                                 </div>
-                                <div className="row clocwerk">
+                                <div className="row clocwerk mt-3">
+                                    <div className="col-md-12">
                                     <label>Inicio de estudios</label>
                                     <Fragment>
                                         <DatePicker
@@ -47,8 +50,10 @@ function View(props) {
                                             name="date_start"
                                         />
                                     </Fragment>
+                                    </div>
                                 </div>
-                                <div className="row clocwerk">
+                                <div className="row clocwerk mt-3">
+                                    <div className="col-md-12">
                                     <label>Fin de estudios</label>
                                     <Fragment>
                                         <DatePicker
@@ -57,10 +62,11 @@ function View(props) {
                                             name="date_end"
                                         />
                                     </Fragment>
+                                    </div>
                                 </div>
-                                <div className="row">
+                                <div className="row mt-3">
+                                    <div className="col-md-12">
                                     <label>Universidad</label>
-                                    <div className="styleCreatableSelect">
                                         <Fragment>
                                             <CreatableSelect
                                                 isClearable
@@ -73,7 +79,7 @@ function View(props) {
                                         </Fragment>
                                     </div>
                                 </div>
-                                <div className="modal-footer">
+                                <div className="modal-footer mt-3">
                                     <button type="submit" className="btn btn-primary">Guardar</button>
                                 </div>
                             </form>

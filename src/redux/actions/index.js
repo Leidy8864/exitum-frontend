@@ -674,3 +674,13 @@ export const listCompanies = async (id) => {
         console.log("Error" + error)
     }
 }
+
+export const listUsers = async (id) => {
+    try {
+        const res = await axios.get(root + `users/all-user`)
+        console.log("res users =", res.data)
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
