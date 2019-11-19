@@ -20,7 +20,7 @@ function View(props){
                                 className={dt.status === "completado" ? "challenge_complete" : "challenge"}
                                 
                                 id={dt.id}
-                                onClick={handleClick.bind(this,dt.id)}
+                                onClick={handleClick.bind(this,dt.tip_id)}
                             >
                                 <p>{dt.title}</p>
                                 <span>{dt.status}</span>

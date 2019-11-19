@@ -1,10 +1,10 @@
-import  { type as getIdChallenge  } from '../actions/getIdChallenge';
+import  { type as getTipId  } from '../actions/getTipId';
 
 const defaultState = 0;
 
 function reducer(state = defaultState, { type, payload }) {
     switch (type) {
-        case getIdChallenge: {
+        case getTipId: {
             return payload;
         }
         default:

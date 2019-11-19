@@ -4,7 +4,7 @@ import View from './DetailChallenge-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import cleanForm from '../../redux/actions/clean-form';
-import { datailChallenge, completeChallenge, root, deleteFileReplyy } from '../../redux/actions';
+import { datailChallenge, completeChallenge, root, deleteFileReplyy, getSummaryChallenge } from '../../redux/actions';
 import $ from 'jquery';
 class DetailChallenge extends React.Component {
 
@@ -15,24 +15,88 @@ class DetailChallenge extends React.Component {
         success_message: '',
         error_message: '',
         error_reply: '',
+        summary: [],
         challenge: {
             challenge_id: '',
             files: [],
             uploaded_files: []
         }
     }
+
     async componentDidUpdate(nextProps) {
-        const { challenge_id, challenges } = this.props;
-        if (nextProps.challenge_id !== challenge_id) {
-            if (challenge_id) {
-                const challenge = challenges.find((challenge) => { return challenge.id === challenge_id });
+        const { tip_id, challenges } = this.props;
+        if (nextProps.tip_id !== tip_id) {
+            if (tip_id) {
+                console.log("CHALLENGE ID", tip_id);
+
+                const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });
+                const data = {
+                    user_id: localStorage.getItem('id'),
+                    tip_id: challenge.tip_id
+                }
+
+                const summary = await getSummaryChallenge(data);
+
+                console.log("RESPONSE", summary);
 
                 console.log("CHALLEENGE FOUND", challenge);
+
+                // const summary = [
+                //     {
+                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
+                //         user: {
+                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
+                //             name: 'Pepe Lucho',
+                //             lastname: 'Rodriguez'
+                //         }
+                //     },
+                //     {
+                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
+                //         user: {
+                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
+                //             name: 'Javier',
+                //             lastname: 'Lecca'
+                //         }
+                //     },
+                //     {
+                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
+                //         user: {
+                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
+                //             name: 'Miya San',
+                //             lastname: 'Vilchez'
+                //         }
+                //     },
+                //     {
+                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
+                //         user: {
+                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
+                //             name: 'Leidy Paula',
+                //             lastname: 'Callupe'
+                //         }
+                //     },
+                //     {
+                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
+                //         user: {
+                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
+                //             name: 'Diego Diego',
+                //             lastname: 'Alvites'
+                //         }
+                //     },
+                //     {
+                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
+                //         user: {
+                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
+                //             name: 'Angeles',
+                //             lastname: 'Martinez'
+                //         }
+                //     }
+                // ]
 
                 this.setState({
                     challenge: challenge,
                     challenge_id: challenge.challenge_id,
-                    reply: challenge.reply
+                    reply: challenge.reply,
+                    summary: summary
                 });
             }
         }
@@ -140,7 +204,7 @@ class DetailChallenge extends React.Component {
         let content_error_reply = '';
         let content_message = '';
 
-        const { reply } = this.state;
+        const { reply, summary } = this.state;
         if (cleanFormReducer) {
             error_reply = '';
             success_message = '';
@@ -166,6 +230,7 @@ class DetailChallenge extends React.Component {
                 content_message={content_message}
                 handledDeleteFile={this.handledDeleteFile}
                 reply={reply}
+                summary={summary}
 
             />
         );
@@ -174,7 +239,7 @@ class DetailChallenge extends React.Component {
 
 const mapStateToProps = state => ({
     cleanFormReducer: state.cleanFormReducer,
-    challenge_id: state.getIdChallengeReducer,
+    tip_id: state.getTipIdReducer,
     challenges: state.getListChallengesReducer,
 
 });

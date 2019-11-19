@@ -10,7 +10,7 @@ function View(props) {
         handleClickDelete,
         handleClickUpdate,
         adsList,
-        userRole
+        userRole,html
     } = props
 
     return (
@@ -36,9 +36,12 @@ function View(props) {
                                 </div>
                             )
                         })
+                        
                         :
                         <h4 className="text-center">No se encontraron anuncios</h4>
                 }
+                                                    <div id="content-test" className="col-sm-12">
+                                                    </div>
             </div>
         </div>
 

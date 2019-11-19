@@ -1,7 +1,7 @@
 
 import React from 'react';
 import View from './AddsList-view';
-import { listAdsByUser, updateAdvertisement } from '../../redux/actions';
+import { listAdsByUser, updatAdvertState } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
@@ -130,12 +130,12 @@ class AddsList extends React.Component {
             cancelButtonText: 'Cancelar'
         }).then(async (result) => {
             if (result.value) {
-                try {
+                try {                
                     const data = {
                         advertisement_id: id,
                         state: 'archived'
                     }
-                    const response = await updateAdvertisement(data);
+                    const response = await updatAdvertState(data);
 
                     if (response.status) {
                         this.deleteAds(index,1);
@@ -174,14 +174,18 @@ class AddsList extends React.Component {
             cancelButtonText: 'Cancelar'
         }).then(async (result) => {
             if (result.value) {
-
+                console.log("paso");
+                
                 try {
+
                     const data = {
                         advertisement_id: id,
                         state: state
-                    }
-                    const response = await updateAdvertisement(data);
+                    }                    
+                    const response = await updatAdvertState(data);
 
+                    console.log("response",response);
+                    
                     if (response.status) {
                         // updateFunc;
                         this.deleteAds(index, 1);
