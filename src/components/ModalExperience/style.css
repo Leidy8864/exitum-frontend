@@ -94,3 +94,12 @@
 #endDateModal{
     display: none;
 }
+
+.row{
+    margin-bottom: 15px;
+}
+
+.textarea {
+    resize: none;
+    height: 150px !important;
+}
