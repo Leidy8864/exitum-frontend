@@ -8,16 +8,7 @@ import Ads from '../Ads/Ads-controller'
 import Diary from '../Diary/Diary-controller'
 function View() {
     return (
-        // <div className="Dashboard">
-        //     <HeaderDashboard/>
-        //     <div className="content-dashboard">
-        //         <Menu 
-        //             selected = 'empleo'
-        //         />
-        //         <Ads/>
-        //         <Diary/>
-        //     </div>
-        // </div>
+
         <div className="dashboard">
             <Sidebar />
             <main className="main-panel">
@@ -28,7 +19,7 @@ function View() {
                             <div className="col-xl-9 col-lg-12">
                                 <Ads />
                             </div>
-                            <div className="col-xl-3 col-lg-12">
+                            <div className="col-xl-3 col-lg-12 content-diary">
                                 <Diary />
                             </div>
                         </div>

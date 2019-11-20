@@ -4,7 +4,7 @@ import View from './Reminders-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import getReminder from '../../redux/actions/get-reminder'
-import { appointmentsByUser,appointmentsDelete } from '../../redux/actions';
+import { appointmentsByUser,appointmentsDelete, meetingByUser } from '../../redux/actions';
 import listReminders from '../../redux/actions/list-reminders'
 import Swal from 'sweetalert2'
 import $ from 'jquery'
@@ -13,15 +13,19 @@ class Reminders extends React.Component {
 
     state = {
         appointments: [],
+        meetings: [],
     }
 
     async componentDidMount() {
         try {
             let id = localStorage.getItem('id')
-            
+            console.log(id)
             const appointments = await appointmentsByUser(id);
+            const meetings = await meetingByUser(id)
+            console.log(meetings)
             this.setState({
-                appointments
+                appointments,
+                meetings
             })
         } catch (error) {
             console.log(error)
@@ -36,17 +40,24 @@ class Reminders extends React.Component {
         this.props.listReminders(0);
     }
 
+    // refreshMeet = async() => {
+    //     const meetings = await meetingByUser(localStorage.getItem('id'));
+    //     this.setState({
+    //         meetings
+    //     })
+    // }
+
     idReminder = async (e) => {
         e.preventDefault();
         const reminder = this.state.appointments[e.target.id];
         this.props.getReminder(reminder);
-        console.log(reminder)
         $('#updateReminder').modal('show')
     }
 
     handleClickDeleteReminder = async (e) => {
         e.preventDefault();
         const reminder_id = e.target.id;
+        console.log(reminder_id)
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
@@ -65,6 +76,7 @@ class Reminders extends React.Component {
                         to_user_id: localStorage.getItem('id')
                     }
                     const response = await this.props.appointmentsDelete(reminder_id,data);
+                    console.log(response)
                     if (response.status) {
 
                     } else {
@@ -88,10 +100,11 @@ class Reminders extends React.Component {
             this.refreshReminder();
         }
 
-        const { appointments } = this.state
+        const { appointments, meetings } = this.state
         return (
             <View
                 appointments = {appointments}
+                meetings = {meetings}
                 handleClickDeleteReminder = {this.handleClickDeleteReminder}
                 idReminder = {this.idReminder}
             />
@@ -107,6 +120,7 @@ const mapDispatchToProps = {
     getReminder,
     appointmentsByUser,
     listReminders,
+    meetingByUser,
     appointmentsDelete,
 };
 

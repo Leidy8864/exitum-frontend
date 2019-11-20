@@ -572,6 +572,7 @@ export const appointmentsUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/create/${id}`, data)
+            console.log("GUARDANDO REUNION O RECORDATORIO",res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -588,10 +589,21 @@ export const appointmentsByUser = async id => {
     }
 }
 
+export const meetingByUser = async id => {
+    try {
+        const res = await axios.get(root + `appointments/list-by-meeting/${id}`)
+        console.log("metting",res.data)
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
 export const appointmentsUpdate =  (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/update/${id}`, data)
+            console.log("RESPUESTA REMINDER=>", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -603,6 +615,7 @@ export const appointmentsDelete = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/cancel/${id}`, data)
+            console.log("eliminando recordatorio",res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -643,6 +656,17 @@ export const deleteExperience = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `experiences/delete`, data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const hourAvailables = (id,data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `schedules/schedule/${id}`,data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

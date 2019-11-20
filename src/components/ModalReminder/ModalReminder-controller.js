@@ -74,6 +74,7 @@ class ModalReminder extends React.Component {
         console.log(data)
 
          const res = await this.props.appointmentsUpdate(id,data)
+         console.log(res)
          this.props.listReminders(1)
          $('#updateReminder').modal('hide')
          console.log(res)

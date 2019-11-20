@@ -11,6 +11,11 @@ function View(props) {
         onChange,
         options,
         handleChange,
+        isReminder,
+        handleChangeForm,
+        saveMeet,
+        hourAvailables,
+        onChange_,
         date,
         // onChange_,
         // className,
@@ -53,7 +58,7 @@ function View(props) {
                                 <div className="row mt-3">
                                     <div className="col-md-12">
                                         <label>Titulo</label><br />
-                                        <input type="text" name="title" className="form-control" onChange={handleChange} />
+                                        <input type="text" name="title" className="form-control" onChange={handleChangeForm} />
                                     </div>
                                 </div>
                                 {isMeet ?
@@ -63,19 +68,7 @@ function View(props) {
                                             <Fragment>
                                                 <Select
                                                     className={"styleCreatableSelect_"}
-                                                    // classNamePrefix={contactoClassNamePrefix}
-                                                    // placeholder=""
-                                                    // value={selectedOption}
-                                                    // isDisabled={isDisabled}
-                                                    // isLoading={isLoading}
-                                                    // isClearable={isClearable}
-                                                    // isRtl={isRtl}
-                                                    // isSearchable={isSearchable}
-                                                    // isMulti={true}
-                                                    // onInputChange={handleInputChange}
-                                                    // isClearable
-                                                    // options={options}
-                                                    // onChange={handleChange}
+                                                    placeholder={'Selecciona un contacto'}
                                                     value={selectedOption}
                                                     onChange={handleChange}
                                                     options={options}
@@ -83,25 +76,36 @@ function View(props) {
                                             </Fragment>
                                         </div>
                                     </div> : <br />}
-                                <div className="row mt-3">
-                                    <div className="col-md-12 datepicker">
-                                        <label>Fecha del evento</label>
+                                {isMeet ? <div className="row mt-3">
+                                    <div id="datepickereu" className="col-md-12 datepicker">
+                                        <label>Fecha de la reunion</label>
                                         <Fragment>
                                             <DatePicker
+                                                
                                                 onChange={onChange}
                                                 value={date}
-                                                minDate={date}
                                             />
                                         </Fragment>
                                     </div>
-                                </div>
-                                {isHour ?
+                                </div> :
+                                    <div className="row mt-3">
+                                        <div className="col-md-12 datepicker">
+                                            <label>Fecha de recordatorio</label>
+                                            <Fragment>
+                                                <DatePicker
+                                                    onChange={onChange}
+                                                    value={date}
+                                                />
+                                            </Fragment>
+                                        </div>
+                                    </div>}
+                                {isMeet ?
                                     <div className="row mt-3">
                                         <div className="col-md-12">
-                                            <label>Hora del evento</label>
+                                            <label>Horas disponibles del contacto</label>
                                             <br />
                                             {
-                                                hoursOptions.map(dt =>
+                                                hourAvailables.map(dt =>
                                                     <div
                                                         key={dt}
                                                         id={dt}
@@ -114,17 +118,56 @@ function View(props) {
                                                 )
                                             }
                                         </div>
-                                    </div> : <br />}
+                                    </div> :
+                                    <div className="row mt-3">
+                                        <div className="col-md-12">
+                                            <label>Hora del evento</label>
+                                            <br />
+                                            {
+                                                hoursOptions && hoursOptions.length > 0 ?
+                                                hoursOptions.map(dt =>
+                                                    <div
+                                                        key={dt}
+                                                        id={dt}
+                                                        className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                        onClick={selectHour}
+                                                        onChange={handleChange}
+                                                    >
+                                                        {dt}
+                                                    </div>
+                                                ) : null
+                                            } 
+                                        </div>
+                                    </div>
+                                }
                                 <div className="row">
                                     <div className="col-md-12 form_group_">
                                         <label>Descripción</label>
-                                        <textarea type="text" name="description" className="form-control" onChange={handleChange} />
+                                        <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} />
                                     </div>
                                 </div>
                             </div>
-                            <div className="modal-footer">
-                                <button onClick={saveReminder} className="btn btn-primary" type="button">Guardar</button>
-                            </div>
+
+                            {
+                                isReminder ?
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <div className="modal-footer">
+                                                <button onClick={saveReminder} className="btn btn-primary" type="button">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div> : null
+                            }
+                            {
+                                isMeet ?
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <div className="modal-footer">
+                                                <button onClick={saveMeet} className="btn btn-primary" type="button">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div> : null
+                            }
                         </div>
                     </div>
                 </div>

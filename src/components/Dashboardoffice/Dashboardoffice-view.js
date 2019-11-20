@@ -31,8 +31,6 @@ function View(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="opacity-panel">
-                    </div>
                 </main>
             </div>
         </Fragment>

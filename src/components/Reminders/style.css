@@ -4,8 +4,7 @@
 
 .reminders {
     background: #D4DFFD;
-    padding: 10px;
-    color: #8190B7;
+    color: #fff;
     border-radius: 4px;
 }
 
@@ -13,4 +12,46 @@
     color: rgb(255, 255, 255);
     margin-bottom: 20px;
     font-weight: 300;
+}
+
+.header-reminder {
+    background: #44BCE8;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.body-reminder {
+    padding: 20px;
+    background: #fff;
+    color: #777;
+}
+
+.footer-reminder {
+    background: #fff !important;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.header-meeting {
+    background: #FD565A;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.body-meeting {
+    padding: 20px;
+    background: #fff;
+    color: #777;
+}
+
+.footer-meeting {
+    background: #fff !important;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }

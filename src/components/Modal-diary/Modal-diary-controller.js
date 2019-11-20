@@ -3,16 +3,18 @@ import React from 'react';
 import View from './Modal-diary-view';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';  
-import { appointmentsUser, listUsers } from '../../redux/actions'
+import { appointmentsUser, listUsers, hourAvailables } from '../../redux/actions'
 import listReminders from '../../redux/actions/list-reminders'
 import moment from 'moment';
 import $ from 'jquery'
+import DatePicker from 'react-date-picker';
 
 class ModalDiary extends React.Component {
     state = {
         title: '',
         time: '',
         type: '',
+        dateMeet: '',
         users: [],
         description: '',
         isClearable: true,
@@ -24,8 +26,11 @@ class ModalDiary extends React.Component {
         selected : "",
         hoursOptions: [],
         isMeet: false,
+        isReminder: false,
         isHour: false,
         selectedOption: null,
+        to_user_id: '',
+        hourAvailables: [],
     };
       
     async componentDidMount() {
@@ -34,10 +39,8 @@ class ModalDiary extends React.Component {
             let usuarios = [];
             let users = await listUsers(localStorage.getItem('id'))
             if (users && users.length >= 1) {
-                usuarios = users.map(x => ({ label: x.fullname, value: x.fullname }));
-                console.log(usuarios)
+                usuarios = users.map(x => ({ label: x.fullname, value: x.id }));
             }
-            console.log("users",users);
             this.setState({
                 users: usuarios
             });
@@ -46,10 +49,27 @@ class ModalDiary extends React.Component {
         }
     }
 
-    handleChange = selectedOption => {
-        this.setState({ selectedOption });
-        console.log(`Option selected:`, selectedOption);
+    handleChange = async (selectedOption) => {
+        this.setState({ selectedOption})
+        console.log(selectedOption)
+        
+        const data = {
+            date: moment(this.state.date).format('YYYY-MM-DD')
+        }
+        var ddd = document.getElementById('datepickereu')
+        console.log(ddd)
+        
+        const hourAvailables = await this.props.hourAvailables(selectedOption.value,data);
+        this.setState({hourAvailables})
+        this.setState({to_user_id: selectedOption.value})
     };
+
+    handleChangeForm = (e) => {
+        const value = e.target.value.trim();
+        this.setState({
+            [e.target.name]: value
+        });
+    }
 
     selectHour = async (e) =>{
         this.setState({selected: e.target.id});
@@ -61,9 +81,11 @@ class ModalDiary extends React.Component {
             this.setState({ hoursOptions: [] });
             this.setState({ isMeet: true });
             this.setState({ isHour: true });
+            this.setState({isReminder: false})
         }else{
             this.setState({ type: e.target.value})
             this.setState({ isMeet: false });
+            this.setState({ isReminder:true})
             this.setState({ isHour: true });
             this.setState({hoursOptions: [
                 '6:00 am','7:00 am','8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
@@ -82,21 +104,40 @@ class ModalDiary extends React.Component {
             title: title, date: moment(date).format('YYYY-MM-DD'),time: time,description: description,type: type,from_user_id: from_user_id
         }
 
+        console.log(formData)
+
         const res = await this.props.appointmentsUser(from_user_id,formData);
+        console.log(res)
         $('#newdiary').modal('hide')
         this.props.listReminders(1)
         console.log(formData)
     }
 
-    saveMeeting = async (e) => {
+    saveMeet = async (e) => {
         e.preventDefault();
-        const { title,description } = this.state
-        const formData = {
-            title, description 
+        
+        let from_user_id = localStorage.getItem('id')
+        const { title,description,date,to_user_id,selected,type } = this.state
+        let time = selected
+        console.log(to_user_id)
+        const formMeet = {
+            title: title, description: description, from_user_id: from_user_id, time: time, type: type, date: moment(date).format('YYYY-MM-DD')
         }
+
+        const data = {
+            date: moment(date).format('YYYY-MM-DD')
+        }
+
+        await this.props.hourAvailables(to_user_id,data);
+        await this.props.appointmentsUser(to_user_id,formMeet);
+        $('#newdiary').modal('hide')
     }
 
-    onChange = date => this.setState({ date })
+    onChange = async date => {
+        this.setState({ date })
+        const hourAvailables = await this.props.hourAvailables(this.state.to_user_id,{ date:moment(date).format('YYYY-MM-DD') });
+        this.setState({hourAvailables})
+    }
 
     toggleClearable = () =>
         this.setState(state => ({ isClearable: !state.isClearable }));
@@ -127,16 +168,20 @@ class ModalDiary extends React.Component {
             hoursOptions,
             isMeet,
             isHour,
+            isReminder,
             users,
             selectedOption,
+            hourAvailables
         } = this.state;
-
+        console.log("hourAvailables =", hourAvailables)
         return (
             <View
                 selectedOption={selectedOption}
                 title = {title}
                 date = {date}
                 time = {time}
+                hourAvailables = {hourAvailables}
+                isReminder = {isReminder}
                 saveReminder = {this.saveReminder}
                 description = {description}
                 onChange={this.onChange}
@@ -153,12 +198,15 @@ class ModalDiary extends React.Component {
                 selectHour={this.selectHour}
                 options = {users}
                 selected={selected}
+                onChange_ = {this.onChange_}
+                saveMeet = {this.saveMeet}
                 // onChange_={this.handleChange}
                 handleInputChange= {this.handleInputChange}
                 selectTypeDiary = {this.selectTypeDiary}
                 isMeet={isMeet}
                 isHour={isHour}
                 saveMeeting={this.saveMeeting}
+                handleChangeForm ={this.handleChangeForm}
             />
         );
     }
@@ -173,6 +221,7 @@ const mapDispatchToProps = {
     appointmentsUser,
     listUsers,
     listReminders,
+    hourAvailables
 };
 
 export default withRouter(
