@@ -74,7 +74,7 @@ class Challenges extends React.Component {
     }
 
     mapChallenges = async (listChallenges) => {
-        if (listChallenges.length >= 1) {
+        if (listChallenges && listChallenges.length >= 1) {
             const retos = listChallenges.map(x => ({ key: x.tip.id,
                 challenge_id : x.id,
                 tip_id: x.tip.id, 

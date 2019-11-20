@@ -34,7 +34,6 @@ class Stages extends React.Component {
                     listStages = await actuallyStage(projectId);
                 }
             }
-    
             const steps = listStages.steps;
             if (steps.length >= 1) {
                 localStorage.setItem('level_id',steps[0].id)
