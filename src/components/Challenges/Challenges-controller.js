@@ -21,25 +21,28 @@ class Challenges extends React.Component {
 
     async componentDidMount(){
         var response = null;
-        const step_id = localStorage.getItem('level_id');
-        const startup_id = localStorage.getItem('idProject');
-        if (role === "entrepreneur") {
-            const data = {
-                step_id : step_id,
-                startup_id : startup_id
-            };
-            response = await challengeByStep(data);
-        }else{
-            const data = {
-                step_id : step_id,
-                user_id : user_id
-            };
-            response = await challengeByEmployee(data);
+        try {
+            const step_id = localStorage.getItem('level_id');
+            const startup_id = localStorage.getItem('idProject');
+            if (role === "entrepreneur") {
+                const data = {
+                    step_id : step_id,
+                    startup_id : startup_id
+                };
+                response = await challengeByStep(data);
+            }else{
+                const data = {
+                    step_id : step_id,
+                    user_id : user_id
+                };
+                response = await challengeByEmployee(data);
+            }
+    
+            this.mapChallenges(response.challenges)   
+        } catch (error) {
+            console.log("Error",error);
+            
         }
-
-        this.mapChallenges(response.challenges)
-
-
     }
     async componentDidUpdate(nextProps){        
         const {levelId,projectId} = this.props;

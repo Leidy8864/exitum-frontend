@@ -21,26 +21,31 @@ class Stages extends React.Component {
     async componentDidMount() {
         var listStages = null;
 
-        if (role === "employee") {
-            const user_id = localStorage.getItem('id');
-            listStages = await actuallyStageEmployee(user_id);
-
-            console.log("lista stages in did mount", listStages);
-
-        }else{
-            const projectId = localStorage.getItem('idProject');
-            if (projectId) {
-                listStages = await actuallyStage(projectId);
+        try {
+            if (role === "employee") {
+                const user_id = localStorage.getItem('id');
+                listStages = await actuallyStageEmployee(user_id);
+    
+                console.log("lista stages in did mount", listStages);
+    
+            }else{
+                const projectId = localStorage.getItem('idProject');
+                if (projectId) {
+                    listStages = await actuallyStage(projectId);
+                }
             }
-        }
-
-        const steps = listStages.steps;
-        if (steps.length >= 1) {
-            localStorage.setItem('level_id',steps[0].id)
-            this.props.getIdActualStage(steps[0].id);
-            this.setState({
-                listSteps: steps
-            });
+    
+            const steps = listStages.steps;
+            if (steps.length >= 1) {
+                localStorage.setItem('level_id',steps[0].id)
+                this.props.getIdActualStage(steps[0].id);
+                this.setState({
+                    listSteps: steps
+                });
+            }   
+        } catch (error) {
+            console.log("ERROR",error);
+            
         }
     }
 
