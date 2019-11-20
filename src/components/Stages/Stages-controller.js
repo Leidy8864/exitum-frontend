@@ -34,7 +34,7 @@ class Stages extends React.Component {
             }
         }
 
-        const steps = listStages.steps;
+        const steps = listStages ? listStages.steps: [];
         if (steps.length >= 1) {
             localStorage.setItem('level_id',steps[0].id)
             this.props.getIdActualStage(steps[0].id);

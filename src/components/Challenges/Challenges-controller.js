@@ -37,7 +37,7 @@ class Challenges extends React.Component {
             response = await challengeByEmployee(data);
         }
 
-        this.mapChallenges(response.challenges)
+        this.mapChallenges(response ? response.challenges: null)
 
 
     }
@@ -71,7 +71,7 @@ class Challenges extends React.Component {
     }
 
     mapChallenges = async (listChallenges) => {
-        if (listChallenges.length >= 1) {
+        if (listChallenges && listChallenges.length >= 1) {
             const retos = listChallenges.map(x => ({ key: x.tip.id,
                 challenge_id : x.id,
                 tip_id: x.tip.id, 
