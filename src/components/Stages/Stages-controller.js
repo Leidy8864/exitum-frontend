@@ -42,8 +42,6 @@ class Stages extends React.Component {
                 listSteps: steps
             });
         }
-
-
     }
 
     //Función que detecta los cambios en el componente para modificar el state

@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: #5a5353;
   font-size: 24px;
   font-family: 'Proxima Nova' !important;
 }
@@ -16,15 +16,17 @@
 .Diary .start-diary button.add-diary {
   display: inline;
   position: relative;
-  top: -4px;
+  top: 0px;
   width: 50px;
   height: 50px;
   margin: 5px 20px 5px -10px;
-  background: #ffffff;
+  background: #396afc !important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   /* fallback for old browsers */
-  border-radius: 7px;
+  border-radius: 50%;
   border: none;
-  color: #3369FD;
+  color: rgb(253, 253, 253);
   outline: none;
   font-family: 'Proxima Nova' !important;
   font-size: 50px;
@@ -37,7 +39,7 @@
 .Diary .start-diary button.add-diary span {
   position: absolute;
   font-size: 50px;
-  margin-top: -42px;
+  margin-top: -40px;
   margin-left: -13px;
 }
 

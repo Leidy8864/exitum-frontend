@@ -36,27 +36,27 @@ function View(props) {
                                     <label>Fecha del evento</label>
                                     <input type="date" className="form-control" name="date" onChange={handleChange} defaultValue={date} />
                                 </div>
-                                    <div className="form_group_ mt-3">
-                                        <label>Hora del evento</label>
-                                        {
-                                            hoursOptions.map(dt =>
-                                                <div
-                                                    key={dt}
-                                                    id={dt}
-                                                    className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                    onClick={selectHour}
-                                                    onChange={handleChange}
-                                                    defaultValue={time}
-                                                >
-                                                    {dt}
-                                                </div>
-                                            )
-                                        }
-                                    </div>
                                 <div className="form_group_ mt-3">
-                                        <label>Descripción</label>
-                                        <textarea className="form-control" type="text" name="description" onChange={handleChange} defaultValue={description}/>
-                                    </div>
+                                    <label>Hora del evento</label>
+                                    {
+                                        hoursOptions.map(dt =>
+                                            <div
+                                                key={dt}
+                                                id={dt}
+                                                className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                onClick={selectHour}
+                                                onChange={handleChange}
+                                                defaultValue={time}
+                                            >
+                                                {dt}
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                                <div className="form_group_ mt-3">
+                                    <label>Descripción</label>
+                                    <textarea className="form-control" type="text" name="description" onChange={handleChange} defaultValue={description} />
+                                </div>
                                 <div className="modal-footer mt-3">
                                     <button onClick={updateReminder} className="btn btn-primary" type="button">Guardar</button>
                                 </div>

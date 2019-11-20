@@ -15,7 +15,7 @@ function View(props) {
                     employeesList.length > 0 ?
                         employeesList.map(function (item, index) {
                             return (
-                                <div className="col-sm-4 py-2" key={index}>
+                                <div className="col-sm-3 py-3" key={index}>
                                     <EmployeeCard
                                         name={item.name}
                                         short_description={item.short_description}

@@ -5,19 +5,20 @@
 .reminders {
     background: #D4DFFD;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 20px;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,.14), 0 7px 2px -8px rgba(141, 138, 138, 0.4);
 }
 
 .appointments h4{
-    color: rgb(255, 255, 255);
+    color: #5a5353;
     margin-bottom: 20px;
     font-weight: 300;
 }
 
 .header-reminder {
-    background: #44BCE8;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    background: #FEC03A;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -31,14 +32,14 @@
 
 .footer-reminder {
     background: #fff !important;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .header-meeting {
-    background: #FD565A;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    background: #875AC8;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -52,6 +53,6 @@
 
 .footer-meeting {
     background: #fff !important;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

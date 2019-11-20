@@ -14,7 +14,7 @@ function View(props) {
         <div>
             {
                 !isDetail && userRole === "entrepreneur" ?
-                    <ul className="nav nav-pills" id="myTab" role="tablist">
+                    <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                         <li className="nav-item">
                             <a className={adState === "active" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleSetState.bind(this, "active")}>EN CURSO</a>
                         </li>
@@ -23,7 +23,7 @@ function View(props) {
                         </li>
                     </ul>
                     :
-                    <ul className="nav nav-pills" id="myTab" role="tablist">
+                    <ul className="nav nav-pills add-tabs anuncios" id="myTab" role="tablist">
                         <li className="nav-item">
                             <a href="#" className={adType === "coincidence" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "coincidence")}>COINCIDENCIAS</a>
                         </li>

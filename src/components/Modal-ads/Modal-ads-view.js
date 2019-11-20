@@ -31,20 +31,20 @@ function View(props) {
         description,
         title,
         advertisement_id
-        
-    } = props;    
+
+    } = props;
     return (
         <div className="Modal-ads">
             <Fragment>
                 <div className="modal fade" id="AdsModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="title_">
-                                        {advertisement_id ? 'Editar Anuncio' : 'Nuevo Anuncio'}
-                                    </div>
-                                    <div className="form_group_">
+                            <div className="modal-header adds">
+                                <h6 className="modal-title">{advertisement_id ? 'Editar Anuncio' : 'Nuevo Anuncio'}</h6>
+                            </div>
+                            <div className="modal-body">
+                                <form>
+                                    <div className="mt-3">
                                         <label>Seleccionar Proyecto</label>
                                         <Fragment>
                                             <Select
@@ -64,36 +64,35 @@ function View(props) {
                                             {content_error_startup}
                                         </div>
                                     </div>
-                                    <div className="form_group_">
+
+                                    <div className="form_group_ mt-3">
                                         <label>Seleccionar Area</label>
-                                            <Select
-                                                className={className}
-                                                classNamePrefix={AreaClassNamePrefix}
-                                                value={areaSelected ? areaSelected : ''}
-                                                isDisabled={isDisabled}
-                                                isLoading={isLoading}
-                                                isRtl={isRtl}
-                                                isSearchable={isSearchable}
-                                                name="area_id"
-                                                options={areaOptions}
-                                                onChange={handleSelectChange}
-
-
-                                            />
+                                        <Select
+                                            className={className}
+                                            classNamePrefix={AreaClassNamePrefix}
+                                            value={areaSelected ? areaSelected : ''}
+                                            isDisabled={isDisabled}
+                                            isLoading={isLoading}
+                                            isRtl={isRtl}
+                                            isSearchable={isSearchable}
+                                            name="area_id"
+                                            options={areaOptions}
+                                            onChange={handleSelectChange}
+                                        />
                                         <div className="error-message-aux">
                                             {content_error_area}
                                         </div>
                                     </div>
-                                    <div className="form_group_">
+                                    <div className="form_group_ mt-3">
                                         <label>Titulo del Anuncio</label>
-                                        <input name="title" onChange={handleChange} id="title" 
-                                        value={title}
+                                        <input name="title" className="form-control" onChange={handleChange} id="title"
+                                            value={title}
                                         />
                                         <div className="error-message-aux">
                                             {content_error_title}
                                         </div>
                                     </div>
-                                    <div className="form_group_">
+                                    <div className="form_group_ mt-3">
                                         <label>Aptitudes del perfil</label>
                                         <Fragment>
                                             <CreatableSelect
@@ -112,23 +111,22 @@ function View(props) {
                                             {content_error_skills}
                                         </div>
                                     </div>
-                                    <div className="form_group_">
+                                    <div className="form_group_ mt-3">
                                         <label>Descripción del proyecto</label>
-                                        <textarea name="description" onChange={handleChange} id="description"
-                                         value={description} 
-                                         className="basic-multi-select"
+                                        <textarea type="text" name="description" onChange={handleChange} id="description"
+                                            value={description}
+                                            className="form-control"
 
-                                         />
+                                        />
                                         <div className="error-message-aux">
                                             {content_error_description}
                                         </div>
                                     </div>
                                     {content_message}
-
-                                    <div className="form_group_ form_group__">
-                                        <button className="btn-submit" type="submit" onClick={handleSubmit}>Guardar</button>
+                                    <div className="modal-footer adds mt-3">
+                                        <button className="adds" type="submit" onClick={handleSubmit}>Guardar</button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

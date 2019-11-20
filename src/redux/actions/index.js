@@ -665,7 +665,7 @@ export const listCompanies = async (id) => {
 
 export const listUsers = async (id) => {
     try {
-        const res = await axios.get(root + `users/all-user`)
+        const res = await axios.get(root + `users/all-user/${id}`)
         return res.data.data;
     } catch (error) {
         console.log("Error" + error)

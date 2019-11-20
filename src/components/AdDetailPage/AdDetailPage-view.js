@@ -24,56 +24,58 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
-                                <div className="container justify-content-center">
-                                    <div className="card px-3">
+                                <div className="container">
+                                    <div className="card mb-4">
                                         <div className="card-body">
-                                            <div className="row">
-                                                <h4 className="card-title title_add text-primary col-sm-10">{advertisement.title}</h4>
-                                                <Link className="btn btn-primary col-sm-2" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}>EDITAR ANUNCIO</Link>
-                                            </div>
-                                            <div className="form-group">
-                                                <strong>Descripción:</strong>
-                                                <p className="text-justify">{advertisement.description}</p>
-                                            </div>
-                                            <div className="row">
-                                                <div className="form-group col-sm-4">
-                                                    <strong>Proyecto : </strong>
-                                                    {advertisement.startup.name}
+                                            <div className="container-detail">
+                                                <div className="form-group d-flex justify-content-between">
+                                                    <h4 className="bold-title">{advertisement.title}</h4>
+                                                    <Link className="edit-profile detail" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></Link>
                                                 </div>
-                                                <div className="form-group col-sm-4">
-                                                    <strong>Area : </strong>
-                                                    {advertisement.area.name}
+                                                <div className="form-group d-flex">
+                                                    <span className="bold detail">Descripción:</span>
+                                                    <span className="bold">{advertisement.description}</span>
                                                 </div>
-                                                <div className="form-group col-sm-4">
-                                                    <strong>Estado : </strong>
-                                                    {
-                                                        advertisement.state === 'active' ?
-                                                            "En curso"
-                                                            : "En pausa"
-                                                    }
+                                                <div className="form-group d-flex">
+                                                    <span className="bold detail">Proyecto:</span>
+                                                    <span className="bold">{advertisement.startup.name}</span>
                                                 </div>
-                                            </div>
-                                            {
-                                                advertisement.skills.length > 0 ?
-                                                    <ul className="tags">
+                                                <div className="form-group d-flex">
+                                                    <span className="bold detail">Area:</span>
+                                                    <span className="bold">{advertisement.area.name}</span>
+                                                </div>
+                                                <div className="form-group d-flex">
+                                                    <span className="bold detail">Estado:</span>
+                                                    <span className="bold">
                                                         {
-                                                            advertisement.skills.map((item, index) =>
-                                                                <li key={index}><a href="#" className="tag">{item.skill}</a></li>
-                                                            )
+                                                            advertisement.state === 'active' ?
+                                                                "En curso"
+                                                                : "En pausa"
                                                         }
-                                                    </ul>
-                                                    : ''
-                                            }
+                                                    </span>
+                                                </div>
+                                                {
+                                                    advertisement.skills.length > 0 ?
+                                                        <ul className="tags">
+                                                            {
+                                                                advertisement.skills.map((item, index) =>
+                                                                    <li key={index}><a href="#" className="tag">{item.skill}</a></li>
+                                                                )
+                                                            }
+                                                        </ul>
+                                                        : ''
+                                                }
+                                            </div>
                                         </div>
 
                                     </div>
-                                    <TabAnuncio
-                                        isDetail={true}
-                                        userRole="entrepreneur"
-                                    />
-
-                                    <EmployeesList />
                                 </div>
+                                <TabAnuncio
+                                    isDetail={true}
+                                    userRole="entrepreneur"
+                                />
+
+                                <EmployeesList />
                             </div>
                             <div className="col-xl-3 col-lg-12">
                                 <Diary />

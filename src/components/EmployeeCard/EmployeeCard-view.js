@@ -15,7 +15,7 @@ function View(props) {
     } = props
     return (
         <div>
-            <div className="card text-center justify-content-center">
+            <div className="card employees text-center justify-content-center">
 
                 <span>
                 {
@@ -27,17 +27,16 @@ function View(props) {
                 }
                 </span>
                 <img src={photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title font-weight-bold">{name}</h5>
+                <div className="card-body ">
+                    <h5 className="card-title">{name}</h5>
                     <p className="card-text">{short_description}</p>
                     
                     <p className="card-text">
                         {starts}
                     </p>
-                    
+                </div>
+                <div className="card-footer">
                     <p className="price-employe">Desde S/. {price_hour}</p>
-
-                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
                 </div>
             </div>
         </div>

@@ -75,6 +75,10 @@
     border-top: none !important;
 }
 
+.modal-footer.adds {
+    padding-right: 0px !important;
+}
+
 .label-radio-modal-experience{
     color: #777 !important;
     width: 43% !important;
@@ -93,10 +97,6 @@
 }
 #endDateModal{
     display: none;
-}
-
-.row{
-    margin-bottom: 15px;
 }
 
 .textarea {

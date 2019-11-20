@@ -14,15 +14,15 @@ function View(props) {
     return (
         <div>
             <div className="container">
-                <div className="row mt-5">
-                    <div className="col-md-9 mt-1">
+                <div className="row mt-4">
+                    <div className="col-md-8 mt-1">
                         <TabAnuncio
                             userRole={userRole}
                         />
                     </div>
                     {
                         userRole === "entrepreneur" ?
-                            <div className="col-md-3 mt-5">
+                            <div className="col-md-4 mt-2">
                                 <Link className="signin" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
                                     <div className="Ads-plus">
                                         <span> + </span>
@@ -35,7 +35,7 @@ function View(props) {
                     }
 
                 </div>
-                <div className="row">
+                <div className="row mt-4">
                     <div className="col-md-12">
                         {
 

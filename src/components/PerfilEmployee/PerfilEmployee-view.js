@@ -8,7 +8,7 @@ function View() {
             <div className="container">
                 <div className="count_title">
                     <h2>Perfil</h2>
-                    <a href="#"><img src={require('../../public/images/svg/lapiz.svg')} /></a>
+                    <a href="#"><img src={require('../../public/images/svg/editar.svg')} /></a>
                 </div>
                 <div className="perfil-change-form">
                     <form>

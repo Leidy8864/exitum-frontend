@@ -12,7 +12,7 @@ function View(props) {
     } = props
 
     return (
-        <div className="container employee-ads-class mt-3" id="employee-ads">
+        <div className="container employee-ads-class" id="employee-ads">
             <div className="row">
                 {
                     adsList.length > 0 ?

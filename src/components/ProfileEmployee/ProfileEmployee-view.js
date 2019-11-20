@@ -50,10 +50,10 @@ function View(props) {
                         <div className="card">
                             <div className="img-profile mb-3">
                                 <div className="photo-perfil mt-3">
-                                    <img src={photo} alt="img"/>
+                                    <img src={photo} alt="img" />
                                     <input type="file" className="inputfile" name="file" onChange={fileSelectedHandler} />
                                 </div>
-                                <div className="description-perfil mt-2">
+                                <div className="description-perfil mt-3">
                                     <p>{description}</p>
                                 </div>
                                 <button className="btn-save-img mt-2 mb-4" type="button" onClick={fileUploadHandler}>Guardar</button>
@@ -67,11 +67,11 @@ function View(props) {
                                     </div>
                                     <div className="data_user mt-3 experience-info-content mb-3">
                                         <div>
-                                            <h4>{name} {lastname}</h4> 
+                                            <h4>{name} {lastname}</h4>
                                             <p className="bold">{experienceActual}</p>
                                         </div>
                                         <strong>{country}</strong>
-                                        <hr/>
+                                        <hr />
                                         <div>
                                             <span className="bold">{birthday}</span>
                                         </div>
@@ -81,7 +81,7 @@ function View(props) {
                                     </div>
                                 </div>
                                 <div className="edit-profile mt-4 mr-5">
-                                    <a href="#" data-toggle="modal" data-target="#perfil"><img alt="img" className="img" src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                    <a href="#" className="reminder-edit" data-toggle="modal" data-target="#perfil"><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></a>
                                 </div>
                             </div>
 
@@ -98,7 +98,7 @@ function View(props) {
                                     <h3 className="ml-4">Experiencia</h3>
                                 </div>
                                 <div className="experience-edit">
-                                    <a href="#" data-toggle="modal" data-target="#experience"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                    <a href="#" data-toggle="modal" data-target="#experience"><img alt="img" className="mr-5" src={require('../../public/images/svg/anadir.svg')} /></a>
                                 </div>
                             </div>
                             {
@@ -106,43 +106,42 @@ function View(props) {
                                     experiences.map(function (item, index) {
                                         return (
                                             <Fragment key={index}>
-                                                <div className="experience-info">
-                                                    <div className="info-experience col-md-12">
-                                                        <div className="experience-info-content col-md-11">
-                                                            <strong>EMPRESA: {item.company_name}</strong>
+                                                <div className="experience-info w-100 mb-4">
+                                                    <div className="info-experience w-100">
+                                                        <div className="experience-info-content w-100 mt-3">
+                                                            <span className="bold title">Empresa:</span><span className=""><strong>{item.company_name}</strong></span>
                                                             <span className="bold"> - {item.time_total}</span>
                                                             <br />
                                                             {
                                                                 item.detail.map(function (item_, index_) {
                                                                     return (
                                                                         <Fragment key={index_}>
-                                                                            <div className="experience-info col-md-11">
-                                                                                <div className="info-experience col-md-12">
-                                                                                    <div className="experience-info-content col-md-10">
-                                                                                        <div>POSICIÓN: {item_.position}</div>
-                                                                                        <div>DESDE: {item_.date_start}</div>
-                                                                                        <div>HASTA: {item_.date_end ? item_.date_end: "actualidad"}</div>
-                                                                                        <div>DESCRIPCIÓN: {item_.description ? item_.description:""}</div>
+                                                                            <div className="experience-info">
+                                                                                <div className="info-experience">
+                                                                                    <div className="data_user_detail">
+                                                                                        <div><span className="bold title">Posisión:</span><span className="bold">{item_.position}</span></div>
+                                                                                        <div><span className="bold title">Desde:</span><span className="bold">{item_.date_start}</span></div>
+                                                                                        <div><span className="bold title">Hasta:</span><span className="bold">{item_.date_end ? item_.date_end : "actualidad"}</span></div>
+                                                                                        <div><span className="bold title">Descripción:</span><span className="bold">{item_.description ? item_.description : ""}</span></div>
                                                                                         <br />
-                                                                                        
                                                                                     </div>
                                                                                 </div>
-                                                                                <div className="edit-profile mr-5 mt-2">
-                                                                                    <Link to="" onClick={idExperience} id={item_.id} data-toggle="modal" data-target="#updateexperience"><img alt="img" className="img" id={item_.id} src={require('../../public/images/svg/lapiz.svg')} /></Link>
-        
-                                                                                    <div className="delete-skill mt-2">
+                                                                                <div className="edit-profile mr-5">
+                                                                                    <Link to="" className="reminder-edit" onClick={idExperience} id={item_.id} data-toggle="modal" data-target="#updateexperience"><img alt="img" className="img-edit" id={item_.id} src={require('../../public/images/svg/editar.svg')} /></Link>
+                                                                                    <div className="delete-skill mt-3">
                                                                                         <a href="#" >
                                                                                             <img
                                                                                                 alt="img"
                                                                                                 className="img"
                                                                                                 id={item_.id}
-                                                                                                src={require('../../public/images/svg/delete_.svg')}
+                                                                                                src={require('../../public/images/svg/basura.svg')}
                                                                                                 onClick={handleClickDeleteExperience}
                                                                                             />
                                                                                         </a>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+
                                                                         </Fragment>
                                                                     )
                                                                 })
@@ -154,9 +153,10 @@ function View(props) {
                                         )
                                     }) : null
                             }
-
                         </div>
                     </div>
+                </div>
+                <div className="row">
                     <div className="col-md-12">
                         <div className="card mt-5">
                             <div className="experience mt-3">
@@ -165,7 +165,7 @@ function View(props) {
                                     <h3 className="ml-4">Educación</h3>
                                 </div>
                                 <div className="experience-edit">
-                                    <a href="#" data-toggle="modal" data-target="#education"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                    <a href="#" data-toggle="modal" data-target="#education"><img alt="img" className="mr-5" src={require('../../public/images/svg/anadir.svg')} /></a>
                                 </div>
                             </div>
                             {
@@ -191,15 +191,15 @@ function View(props) {
                                                     </div>
 
                                                     <div className="edit-profile mr-5 mt-2">
-                                                        <Link to="" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                                        <Link to="" className="reminder-edit" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></Link>
 
-                                                        <div className="delete-skill mt-2">
+                                                        <div className="delete-skill mt-3">
                                                             <a href="#" >
                                                                 <img
                                                                     alt="img"
                                                                     className="img"
                                                                     id={item.id}
-                                                                    src={require('../../public/images/svg/delete_.svg')}
+                                                                    src={require('../../public/images/svg/basura.svg')}
                                                                     onClick={handleClickDeleteEducation}
                                                                 />
                                                             </a>
@@ -227,7 +227,7 @@ function View(props) {
                                     <h3 className="ml-4">Certificado</h3>
                                 </div>
                                 <div className="experience-edit">
-                                    <a href="#" data-toggle="modal" data-target="#certificate"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                    <a href="#" data-toggle="modal" data-target="#certificate"><img alt="img" className="mr-5" src={require('../../public/images/svg/anadir.svg')} /></a>
                                 </div>
                             </div>
                             {
@@ -250,14 +250,14 @@ function View(props) {
                                                         </div>
                                                     </div>
                                                     <div className="edit-profile mr-5 mt-2">
-                                                        <Link to="" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></Link>
-                                                        <div className="delete-skill mt-2">
+                                                        <Link to="" className="reminder-edit" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></Link>
+                                                        <div className="delete-skill mt-3">
                                                             <a href="#" >
                                                                 <img
                                                                     alt="img"
                                                                     className="img"
                                                                     id={item.id}
-                                                                    src={require('../../public/images/svg/delete_.svg')}
+                                                                    src={require('../../public/images/svg/basura.svg')}
                                                                     onClick={handleClickDeleteCertificate}
                                                                 />
                                                             </a>
@@ -270,6 +270,8 @@ function View(props) {
                             }
                         </div>
                     </div>
+                </div>
+                <div className="row">
                     <div className="col-md-12">
                         <div className="card mt-5 mb-5">
                             <div className="experience mt-3">
@@ -278,15 +280,15 @@ function View(props) {
                                     <h3 className="ml-4">Aptitudes</h3>
                                 </div>
                                 <div className="experience-edit">
-                                    <a href="#" data-toggle="modal" data-target="#skill"><img alt="img" className="mr-5" src={require('../../public/images/svg/agregar-boton.svg')} /></a>
+                                    <a href="#" data-toggle="modal" data-target="#skill"><img alt="img" className="mr-5" src={require('../../public/images/svg/anadir.svg')} /></a>
                                 </div>
                             </div>
                             {
                                 skills && skills.length > 0 ?
                                     skills.map(function (item, index) {
                                         return (
-                                            <div className="experience-info-skill mb-2" key={index}>
-                                                <div className="info-experience ml-5">
+                                            <div className="experience-info-skill mb-2 mt-3" key={index}>
+                                                <div className="info-experience ml-2">
                                                     <ul className="">
                                                         <li className="skill-list"><strong>{item.skill}</strong></li>
                                                     </ul>
@@ -297,7 +299,7 @@ function View(props) {
                                                             alt="img"
                                                             className="img"
                                                             id={item.id}
-                                                            src={require('../../public/images/svg/delete_.svg')}
+                                                            src={require('../../public/images/svg/basura.svg')}
                                                             onClick={handleClickDeleteSkill}
                                                         />
                                                     </a>

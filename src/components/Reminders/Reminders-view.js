@@ -19,7 +19,6 @@ function View(props) {
         <Fragment>
 
             <div className="appointments">
-                <h4>Recordatorios</h4>
                 {
                     appointments && appointments.length > 0 ?
                         appointments.map(function (item, index) {
@@ -43,20 +42,20 @@ function View(props) {
                                             </div>
                                         </div>
                                         <div className="footer-reminder d-flex justify-content-end pb-2">
-                                            <div className="edit-profile d-flex mr-3 mt-2">
+                                            <div className="edit-profile d-flex mr-3">
                                                 <a href="#"
-                                                    className="mr-2"
+                                                    className="mr-2 reminder-edit"
                                                     onClick={idReminder}
                                                     id={item.id}
                                                     data-toggle="modal" data-target="#updateReminder"
-                                                ><img alt="img" className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></a>
-                                                <div className="delete-skill">
+                                                ><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></a>
+                                                <div className="delete-skill icon">
                                                     <a href="#" >
                                                         <img
                                                             alt="img"
                                                             className="img"
                                                             id={item.id}
-                                                            src={require('../../public/images/svg/delete_.svg')}
+                                                            src={require('../../public/images/svg/basura.svg')}
                                                             onClick={handleClickDeleteReminder}
                                                         />
                                                     </a>
@@ -73,7 +72,6 @@ function View(props) {
             </div>
 
             <div className="appointments">
-                <h4>Reuniones</h4>
                 {
                     meetings && meetings.length > 0 ?
                         meetings.map(function (item, index) {
@@ -99,18 +97,18 @@ function View(props) {
                                         <div className="footer-meeting d-flex justify-content-end pb-2">
                                             <div className="edit-profile d-flex mr-3 mt-2">
                                                 <a href="#"
-                                                    className="mr-2"
+                                                    className="mr-2 reminder-edit"
                                                     // onClick={idReminder}
                                                     // id={item.id}
                                                     data-toggle="modal" data-target="#updateReminder"
-                                                ><img alt="img" className="img" id={index} src={require('../../public/images/svg/lapiz.svg')} /></a>
+                                                ><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></a>
                                                 <div className="delete-skill">
                                                     <a href="#" >
                                                         <img
                                                             alt="img"
-                                                            className="img"
+                                                            className=""
                                                             id={item.id}
-                                                            src={require('../../public/images/svg/delete_.svg')}
+                                                            src={require('../../public/images/svg/basura.svg')}
                                                             // onClick={handleClickDeleteReminder}
                                                         />
                                                     </a>

@@ -14,11 +14,11 @@
   margin-top: 77px;
   padding: 0px !important;
   min-height: calc(100vh - 123px);
-  background: #EEF1F8;
+  background: #E9EDF2;
 }
 
 .main-panel {
-  background: #EEF1F8;
+  background: #E9EDF2;
   position: relative;
   float: right;
   width: calc(100% - 260px);
@@ -26,7 +26,7 @@
 }
 
 .content .container-fluid {
-  background: #EEF1F8;
+  background: #E9EDF2;
 }
 
 @media screen and (max-width: 991px) {

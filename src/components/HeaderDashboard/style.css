@@ -11,7 +11,8 @@ nav.dashboard-header {
   width: 100%;
   z-index: 1000;
   position: fixed !important;
-  background: #EEF1F8 !important;
+  background: #FFF !important;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.14), 0 7px 2px -8px rgba(141, 138, 138, 0.4);
 }
 
 .content-user {

@@ -1,3 +1,22 @@
 .AdDetailPage{
     display: block;
 }
+
+span.bold.detail {
+    width: 120px;
+}
+
+.edit-profile.detail {
+    background: royalblue;
+    border-radius: 50%;
+    padding: 3px 5px;
+}
+
+h4.bold-title {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.container-detail {
+    padding-left: 20px;
+}
