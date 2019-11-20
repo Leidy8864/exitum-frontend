@@ -3,7 +3,7 @@ import React from 'react';
 import View from './Challenges-view';
 import { challengeByStep, challengeByEmployee } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form';
-import getIdChallenge from '../../redux/actions/getIdChallenge';
+import getTipId from '../../redux/actions/getTipId';
 import getListChallenges from '../../redux/actions/getListChallenges';
 
 import { connect } from 'react-redux';
@@ -12,22 +12,40 @@ import { withRouter } from 'react-router-dom';
 import $ from 'jquery';
 
 const role = localStorage.getItem('role');
+const user_id = localStorage.getItem('id');
 class Challenges extends React.Component {
     
     state = {
         blockChallenge: []
     }
 
+    async componentDidMount(){
+        var response = null;
+        const step_id = localStorage.getItem('level_id');
+        const startup_id = localStorage.getItem('idProject');
+        if (role === "entrepreneur") {
+            const data = {
+                step_id : step_id,
+                startup_id : startup_id
+            };
+            response = await challengeByStep(data);
+        }else{
+            const data = {
+                step_id : step_id,
+                user_id : user_id
+            };
+            response = await challengeByEmployee(data);
+        }
+
+        this.mapChallenges(response.challenges)
+
+
+    }
     async componentDidUpdate(nextProps){        
         const {levelId,projectId} = this.props;
         if (nextProps.levelId !== levelId) {           
             if (levelId) {
-                
-                var retos = [];
                 try {
-
-
-                    console.log("LEVEL ID",levelId);
                     var response = null;
                     if (role === "entrepreneur") {
                         const data = {
@@ -36,34 +54,14 @@ class Challenges extends React.Component {
                         };
                         response = await challengeByStep(data);
                     }else{
-                        const user_id = localStorage.getItem('id');
                         const data = {
                             step_id : levelId,
                             user_id : user_id
                         };
                         response = await challengeByEmployee(data);
                     }
-
-                    console.log("challenges",response);
-                    
-
-                    const listChallenges = response.challenges;
-                    
-                    if (listChallenges.length >= 1) {
-                        retos = listChallenges.map(x => ({ key: x.tip.id,
-                            challenge_id : x.id,
-                            id: x.tip.id, title: x.tip.tip, 
-                            description : x.tip.description,
-                            files : x.tip.file_tips,
-                            reply : x.reply,
-                            uploaded_files : x.files,
-                            status: x.status }));                        
-                        this.props.getListChallenges(retos);              
-
-                        this.setState({
-                            blockChallenge: retos
-                        });
-                    }
+            
+                    this.mapChallenges(response.challenges)
                 } catch (error) {
                     console.log("Error al traer challenges");
                 } 
@@ -72,11 +70,29 @@ class Challenges extends React.Component {
           } 
     }
 
+    mapChallenges = async (listChallenges) => {
+        if (listChallenges.length >= 1) {
+            const retos = listChallenges.map(x => ({ key: x.tip.id,
+                challenge_id : x.id,
+                tip_id: x.tip.id, 
+                title: x.tip.tip, 
+                description : x.tip.description,
+                files : x.tip.file_tips,
+                reply : x.reply,
+                uploaded_files : x.files,
+                status: x.status }));                        
+            this.props.getListChallenges(retos);              
+
+            this.setState({
+                blockChallenge: retos
+            });
+        }
+    }
     handleClick = (id) => {
-        this.props.getIdChallenge(id);
         $('#title').val('');
         $('#description').val('');
-        this.props.cleanForm("1");
+        this.props.cleanForm("1");        
+        this.props.getTipId(id);
     }
 
     render() {
@@ -97,7 +113,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     challengeByStep,
     cleanForm,
-    getIdChallenge,
+    getTipId,
     getListChallenges
 };
 

@@ -99,10 +99,8 @@ class ProfileEmployee extends React.Component {
 
     idExperience = async (e) => {
         e.preventDefault();
-        const education = this.state.educations[e.target.id];
-        localStorage.setItem('date_start', education.date_start);
-        localStorage.setItem('date_end', education.date_end);
-        this.props.getExperience(education);
+        const experience = this.state.experiences[e.target.id];
+        this.props.getExperience(experience);
         $('#updateexperience').modal('show')
     }
 
@@ -326,7 +324,7 @@ class ProfileEmployee extends React.Component {
         }
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname');
-        const {file} = this.state
+        const {file} = this.state;
         return (
             <View
                 user={user}

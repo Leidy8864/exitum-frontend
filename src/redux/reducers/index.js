@@ -5,7 +5,7 @@ import cleanFormReducer from './cleanFormReducer';
 import getIdProjectReducer from './getIdProjectReducer';
 import getIdStageReducer from './getIdStageReducer';
 import getListChallengesReducer from './getListChallengesReducer'
-import getIdChallengeReducer from './getIdChallengeReducer'
+import getTipIdReducer from './getTipIdReducer'
 import getCertificateReducer from './getCertificateReducer'
 import listCertificationsReducer from './listCertificationsReducer'
 import getEducationReducer from './getEducationReducer'
@@ -32,7 +32,7 @@ export default combineReducers({
     getIdProjectReducer: getIdProjectReducer,
     getIdStageReducer: getIdStageReducer,
     getListChallengesReducer:getListChallengesReducer,
-    getIdChallengeReducer:getIdChallengeReducer,
+    getTipIdReducer:getTipIdReducer,
     getCertificateReducer:getCertificateReducer,
     listCertificationsReducer:listCertificationsReducer,
     getEducationReducer: getEducationReducer,

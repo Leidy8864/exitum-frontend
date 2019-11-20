@@ -189,6 +189,14 @@ export const updateAdvertisement = async (data) => {
         console.log("Error", error);
     }
 }
+export const updatAdvertState = async (data) => {
+    try {
+        const res = await axios.post(root + 'ads/updateState', data);
+        return res.data;
+    } catch (error) {
+        console.log("Error", error);
+    }
+}
 export const listAdsByUser = async (data) => {
     try {
         const res = await axios.get(root + 'ads/listByEntrepreneur', {
@@ -372,6 +380,18 @@ export const completeChallenge = async (data) => {
         console.log("Error" + error)
     }
 }
+
+export const getSummaryChallenge = async (data) => {
+    try {
+        const res = await axios.get(root + `challenges/summaryTips/`,{
+            params : data
+        })
+        return res.data.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
 
 
 

@@ -6,6 +6,7 @@ import ModalSkill from '../ModalSkill/ModalSkill-controller'
 import ModalCertificate from '../ModalCertificate/ModalCertificate-controller'
 import ModalUpdateCertificate from '../ModalUpdateCertificate/ModalUpdateCertificate-controller'
 import ModalUpdateEducation from '../ModalUpdateEducation/ModalUpdateEducation-controller'
+import ModalUpdateExperience from '../ModalUpdateExperience/ModalUpdateExperience-controller'
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
 import { Link } from 'react-router-dom'
 import './style.css';
@@ -40,6 +41,7 @@ function View(props) {
     let experienceActual = experience
     let birthday = users.birthday
 
+    console.log("experiences = ", experiences)
     return (
         <Fragment>
             <div className="container-fluid">
@@ -120,13 +122,13 @@ function View(props) {
                                                                                         <div>POSICIÓN: {item_.position}</div>
                                                                                         <div>DESDE: {item_.date_start}</div>
                                                                                         <div>HASTA: {item_.date_end ? item_.date_end: "actualidad"}</div>
-                                                                                        <div>DESCRIPCIÓN: {item_.description ? item_.description: ""}</div>
+                                                                                        <div>DESCRIPCIÓN: {item_.description ? item_.description:""}</div>
                                                                                         <br />
                                                                                         
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="edit-profile mr-5 mt-2">
-                                                                                    <Link to="" onClick={idExperience} id={item_.id} data-toggle="modal" data-target="#updateexperience"><img alt="img" className="img" id={index_} src={require('../../public/images/svg/lapiz.svg')} /></Link>
+                                                                                    <Link to="" onClick={idExperience} id={item_.id} data-toggle="modal" data-target="#updateexperience"><img alt="img" className="img" id={item_.id} src={require('../../public/images/svg/lapiz.svg')} /></Link>
         
                                                                                     <div className="delete-skill mt-2">
                                                                                         <a href="#" >
@@ -312,6 +314,7 @@ function View(props) {
                 <ModalCertificate />
                 <ModalUpdateCertificate />
                 <ModalUpdateEducation />
+                <ModalUpdateExperience />
             </div>
         </Fragment >
     );

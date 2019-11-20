@@ -32,7 +32,7 @@ function View(props) {
         title,
         advertisement_id
         
-    } = props;
+    } = props;    
     return (
         <div className="Modal-ads">
             <Fragment>

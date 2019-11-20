@@ -1,7 +1,7 @@
 
 import React from 'react';
 import View from './AddsList-view';
-import { listAdsByUser, updateAdvertisement } from '../../redux/actions';
+import { listAdsByUser, updatAdvertState } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
@@ -70,8 +70,6 @@ class AddsList extends React.Component {
                 $('#entrepreneur-ads')[0].scrollHeight) {
                 
                 page = page + 1;
-
-                console.log("PAGE",page);
                 
                 const data = {
                     user_id: result.id,
@@ -130,12 +128,12 @@ class AddsList extends React.Component {
             cancelButtonText: 'Cancelar'
         }).then(async (result) => {
             if (result.value) {
-                try {
+                try {                
                     const data = {
                         advertisement_id: id,
                         state: 'archived'
                     }
-                    const response = await updateAdvertisement(data);
+                    const response = await updatAdvertState(data);
 
                     if (response.status) {
                         this.deleteAds(index,1);
@@ -173,17 +171,17 @@ class AddsList extends React.Component {
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar'
         }).then(async (result) => {
-            if (result.value) {
-
+            if (result.value) {                
                 try {
+
                     const data = {
                         advertisement_id: id,
                         state: state
-                    }
-                    const response = await updateAdvertisement(data);
+                    }                    
+                    const response = await updatAdvertState(data);
 
+                    
                     if (response.status) {
-                        // updateFunc;
                         this.deleteAds(index, 1);
                     } else {
                         this.setState({

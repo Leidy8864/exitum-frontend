@@ -1,6 +1,5 @@
-
 import React from 'react';
-import View from './ModalExperience-view';
+import View from './ModalUpdateExperience-view';
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
@@ -8,9 +7,10 @@ import { createExperience } from '../../redux/actions';
 import listExperiences from '../../redux/actions/list-experiences';
 import $ from 'jquery'
 
-class ModalExperience extends React.Component {
+class ModalUpdateExperience extends React.Component {
 
     state = {
+        certification_id:'',
         position: '',
         description: '',
         company_name: '',
@@ -19,8 +19,6 @@ class ModalExperience extends React.Component {
         isCurrentJob : true
         
     }
-
-    
 
     async componentDidMount(){
         let radiobtn = document.getElementById("true");
@@ -98,24 +96,42 @@ class ModalExperience extends React.Component {
     
     render() {
         const {
-            listCompaniesReducer
+            listCompaniesReducer,
+            getExperienceReducer,
         } = this.props;
+        // console.log("getExperienceReducer = ", getExperienceReducer)
+
+        // if(getEducationReducer.id && $('#EducationId').val() !== EducationId){
+        //     university = this.state.university === '' ? 
+        //                     {label: getEducationReducer.university.university, value: getEducationReducer.university.university}
+        //                 : this.state.university
+        //     if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
+        //     if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
+        //     if(!changed_date_expedition && !changed_date_expiration){
+        //         $('#EducationId').val(EducationId);
+        //         $('#EducationDescription').val(getEducationReducer.description);
+        //         $('#EducationUniversity').val(getEducationReducer.university.university);
+        //     }
+        //     localStorage.setItem('date_start', new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD')));
+        //     localStorage.setItem('date_end', new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD')));
+        // }
+
         return (
             <View
-                position = {this.position}
-                description = {this.description}
-                description_ = {this.state.description}
-                // company_name = {this.company_name}
-                experience = {this.experience}
-                onChange={this.onChange}
-                onChange_={this.onChange_}
-                selectCurrentJob={this.selectCurrentJob}
-                date={this.state.date_expedition}
-                dateFinal={this.state.date_expiration}
-                options = {listCompaniesReducer}
-                handleChange={this.handleChange}
-                handleInputChange={this.handleInputChange}
-                company_name={this.state.company_name}
+                // position = {this.position}
+                // description = {this.description}
+                // description_ = {this.state.description}
+                // // company_name = {this.company_name}
+                // experience = {this.experience}
+                // onChange={this.onChange}
+                // onChange_={this.onChange_}
+                // selectCurrentJob={this.selectCurrentJob}
+                // date={this.state.date_expedition}
+                // dateFinal={this.state.date_expiration}
+                // options = {listCompaniesReducer}
+                // handleChange={this.handleChange}
+                // handleInputChange={this.handleInputChange}
+                // company_name={this.state.company_name}
             />
         );
     }
@@ -128,8 +144,9 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => ({    
     listCompaniesReducer: state.listCompaniesReducer,
+    getExperienceReducer: state.getExperienceReducer,
 });
 
 export default withRouter(
-    connect(mapStateToProps,mapDispatchToProps)(ModalExperience)
+    connect(mapStateToProps,mapDispatchToProps)(ModalUpdateExperience)
 )

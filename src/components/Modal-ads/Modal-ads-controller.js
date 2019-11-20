@@ -125,9 +125,9 @@ class ModalAds extends React.Component {
     }
     handleChange = (e) => {
 
-        const value = e.target.value.trim();
+        // const value = e.target.value.trim();
         this.setState({
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         });
     }
     handleSelectChange = (option, action) => {
@@ -283,7 +283,7 @@ class ModalAds extends React.Component {
             content_message = <div className="error-message"><p className="text-center">{error_message}</p></div>;
         }
         return (
-            <View
+        <View
                 className="basic-single"
                 proyectClassNamePrefix="proyecto"
                 AreaClassNamePrefix="area"

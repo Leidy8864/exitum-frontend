@@ -25,7 +25,7 @@ function View(props) {
 
     return (
         <div>
-            <div className="modal fade" id="experience" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="updateexperience" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -90,7 +90,6 @@ function View(props) {
                                     <textarea 
                                         name="description" 
                                         onChange={description} 
-                                        onKeyPress={description} 
                                         id="nombreDescripcion"
                                         value={description_} 
                                         className="form-control textarea"

@@ -14,7 +14,8 @@ class Stages extends React.Component {
     state = {
         listSteps: [
         ],
-        selected: ''
+        selected: '',
+        projectId : 0
     }
 
     async componentDidMount() {
@@ -24,15 +25,22 @@ class Stages extends React.Component {
             const user_id = localStorage.getItem('id');
             listStages = await actuallyStageEmployee(user_id);
 
-            console.log("lista stages", listStages);
+            console.log("lista stages in did mount", listStages);
 
-            const steps = listStages.steps;
-            if (steps.length >= 1) {
-                this.props.getIdActualStage(steps[0].id);
-                this.setState({
-                    listSteps: steps
-                });
+        }else{
+            const projectId = localStorage.getItem('idProject');
+            if (projectId) {
+                listStages = await actuallyStage(projectId);
             }
+        }
+
+        const steps = listStages.steps;
+        if (steps.length >= 1) {
+            localStorage.setItem('level_id',steps[0].id)
+            this.props.getIdActualStage(steps[0].id);
+            this.setState({
+                listSteps: steps
+            });
         }
 
 

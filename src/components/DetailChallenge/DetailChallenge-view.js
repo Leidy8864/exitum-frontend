@@ -11,7 +11,8 @@ function View(props) {
         handleDownload,
         content_error_reply,
         handledDeleteFile,
-        reply
+        reply,
+        summary
     } = props
     return (
         <div className="Modal-ads">
@@ -127,8 +128,27 @@ function View(props) {
                                             </div>
                                         </div>
                                         <div className="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="closed-tab">
-                                            <div className="row_detail">
-                                                how to
+                                            <div className="summary-list">
+
+                                            {
+                                                summary.length > 0 ?
+
+                                                summary.map((item, index) =>
+                                                    <div className="row_detail mt-4" key={index}>
+                                                        <div className="card mb-3">
+                                                            <div className="media">
+                                                                <img src={item.user.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
+                                                                <h5 className="mt-0 font-weight-bold">{item.user.name + ' ' + item.user.lastname}</h5>
+                                                            </div>
+                                                            <div className="description_">
+                                                                {item.reply}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )
+                                                : 
+                                                <p className="text-center mt-5">No se encontraron resultados</p>
+                                            }
                                             </div>
                                         </div>
                                     </div>
