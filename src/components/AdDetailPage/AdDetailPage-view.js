@@ -24,9 +24,12 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
-                                <div className="container">
+                                <div className="container mt-2">
                                     <div className="card mb-4">
-                                        <div className="card-body">
+                                        <div className="card-body ml-3">
+                                            <Link to='/advertisement' className="mt-2">
+                                                <img src={require("../../public/images/svg/left-arrow.svg")} alt="" className="button-back" />
+                                            </Link>
                                             <div className="container-detail">
                                                 <div className="form-group d-flex justify-content-between">
                                                     <h4 className="bold-title">{advertisement.title}</h4>

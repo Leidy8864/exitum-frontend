@@ -37,7 +37,7 @@ function View(props) {
 
                         :
 
-                        <p>Seleccione un proyecto</p>
+                        'No se encontraron resultados'
                     }
                 </div>
             </div>

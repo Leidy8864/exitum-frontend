@@ -12,7 +12,9 @@ function View(props) {
         content_error_reply,
         handledDeleteFile,
         reply,
-        summary
+        handleGetSummary,
+        summary,
+        active
     } = props
     return (
         <div className="Modal-ads">
@@ -28,15 +30,15 @@ function View(props) {
                                     <div className="container_challenge_tabs">
                                         <ul className="nav nav-pills" id="myTab" role="tablist">
                                             <li className="nav-item">
-                                                <a className="nav-link px-4 active" id="active-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="active" aria-selected="true">RETO</a>
+                                                <a className={active ? 'nav-link px-4 active' : 'nav-link px-4'} id="active-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="active" aria-selected="true">RETO</a>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link px-4" id="closed-tab" data-toggle="tab" href="#howto" role="tab" aria-controls="closed" aria-selected="false">COMO LO HICIERON</a>
+                                                <a className={!active ? 'nav-link px-4 active' : 'nav-link px-4'} id="closed-tab" data-toggle="tab" href="#howto" role="tab" aria-controls="closed" aria-selected="false" onClick={handleGetSummary}>COMO LO HICIERON</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div className="tab-content content_challenge" id="myTabContent">
-                                        <div className="tab-pane fade show active" id="reto" role="tabpanel" aria-labelledby="active-tab">
+                                        <div className={active ? 'tab-pane fade show active' : 'tab-pane fade show'} id="reto" role="tabpanel" aria-labelledby="active-tab">
                                             <div className="row_detail">
                                                 <div className="subtitle_ mt-5">
                                                     Descripción del reto
@@ -127,7 +129,7 @@ function View(props) {
                                                 }
                                             </div>
                                         </div>
-                                        <div className="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="closed-tab">
+                                        <div className="tab-pane fade" className={!active ? 'tab-pane fade show active' : 'tab-pane fade'} id="howto" role="tabpanel" aria-labelledby="closed-tab" >
                                             <div className="summary-list">
 
                                             {
@@ -135,7 +137,7 @@ function View(props) {
 
                                                 summary.map((item, index) =>
                                                     <div className="row_detail mt-4" key={index}>
-                                                        <div className="card mb-3">
+                                                        <div className="mb-3">
                                                             <div className="media">
                                                                 <img src={item.user.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
                                                                 <h5 className="mt-0 font-weight-bold">{item.user.name + ' ' + item.user.lastname}</h5>

@@ -11,6 +11,19 @@ const token = localStorage.getItem('token');
 
 const result = jwt.decode(token);
 
+var data = {};
+try {    
+    data = {
+        user_id : result.id,
+        state : '',
+        page : 1
+    
+    }    
+} catch (error) {
+    console.log("ERROR");
+    
+}
+
 class AddsList extends React.Component {
 
     state = {
@@ -18,11 +31,13 @@ class AddsList extends React.Component {
         adsList : []
     }
     async componentDidMount(){
-        const data = {
-            user_id: result.id,
-            state: 'active',
-            page: 1
-        }
+        // const data = {
+        //     user_id: result.id,
+        //     state: 'active',
+        //     page: 1
+        // }
+
+        data.state = 'active'
         console.log("didmount");
 
         this.getListAds(data); // Consultar información 
@@ -34,11 +49,12 @@ class AddsList extends React.Component {
             if (adState) {
                 console.log("adstate",adState);
                 
-                const data = {
-                    user_id: result.id,
-                    state: adState,
-                    page: 1
-                }
+                // const data = {
+                //     user_id: result.id,
+                //     state: adState,
+                //     page: 1
+                // }
+                data.state = adState;
                 this.getListAds(data); // Consultar información 
             }
         }

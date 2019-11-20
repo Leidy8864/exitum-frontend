@@ -36,7 +36,7 @@ function View(props) {
             <div className="row margin_botton_15">
                 <span className="bold col-sm-12">{startup.name}</span>
             </div>
-            {
+            {/* {
                 userRole === "entrepreneur" ?
                     <div className="row margin_botton_15">
                         <div className="col-sm-6">
@@ -47,7 +47,7 @@ function View(props) {
                         </div>
                     </div>
                     : ""
-            }
+            } */}
         </div>
     );
 }

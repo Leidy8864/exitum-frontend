@@ -20,3 +20,8 @@ h4.bold-title {
 .container-detail {
     padding-left: 20px;
 }
+.button-back{
+    width: 30px;
+    position: absolute;
+    left: 12px;
+}

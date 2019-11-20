@@ -7,13 +7,16 @@ import getAdState from '../../redux/actions/getAdState';
 import getTypeAds from '../../redux/actions/getTypeAds';
 class TabAnuncio extends React.Component {
 
+    
+    componentDidMount(){        
+        this.props.getAdState('active');
+        this.props.getTypeAds('coincidence');
+    }
     handleSetState = (state) => {
         this.props.getAdState(state);
     }
 
-    handleSetAdType = (adType) => {
-        // console.log("ADTYPE",adType);
-        
+    handleSetAdType = (adType) => {        
         this.props.getTypeAds(adType);
     }
     render() {

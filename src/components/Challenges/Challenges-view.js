@@ -29,7 +29,7 @@ function View(props){
                     )
                     :
 
-                    <p>Seleccione un nivel</p>
+                    'No se encontraron resultados'
 
                 }
             </div>

@@ -20,9 +20,13 @@ class DetailChallenge extends React.Component {
             challenge_id: '',
             files: [],
             uploaded_files: []
-        }
+        },
+        active : true
     }
 
+    componentDidMount(){
+        console.log("IN DID MOUNT");
+    }
     async componentDidUpdate(nextProps) {
         const { tip_id, challenges } = this.props;
         if (nextProps.tip_id !== tip_id) {
@@ -30,78 +34,34 @@ class DetailChallenge extends React.Component {
                 console.log("CHALLENGE ID", tip_id);
 
                 const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });
-                const data = {
-                    user_id: localStorage.getItem('id'),
-                    tip_id: challenge.tip_id
-                }
-
-                const summary = await getSummaryChallenge(data);
-
-                console.log("RESPONSE", summary);
-
-                console.log("CHALLEENGE FOUND", challenge);
-
-                // const summary = [
-                //     {
-                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
-                //         user: {
-                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
-                //             name: 'Pepe Lucho',
-                //             lastname: 'Rodriguez'
-                //         }
-                //     },
-                //     {
-                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
-                //         user: {
-                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
-                //             name: 'Javier',
-                //             lastname: 'Lecca'
-                //         }
-                //     },
-                //     {
-                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
-                //         user: {
-                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
-                //             name: 'Miya San',
-                //             lastname: 'Vilchez'
-                //         }
-                //     },
-                //     {
-                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
-                //         user: {
-                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
-                //             name: 'Leidy Paula',
-                //             lastname: 'Callupe'
-                //         }
-                //     },
-                //     {
-                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
-                //         user: {
-                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
-                //             name: 'Diego Diego',
-                //             lastname: 'Alvites'
-                //         }
-                //     },
-                //     {
-                //         reply: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt velit doloremque eius labore illum aspernatur dolor animi eos doloribus consequuntur, nesciunt atque corporis sit praesentium quia exercitationem fugit architecto nostrum!',
-                //         user: {
-                //             photo: 'https://www.w3schools.com/howto/img_avatar.png',
-                //             name: 'Angeles',
-                //             lastname: 'Martinez'
-                //         }
-                //     }
-                // ]
-
                 this.setState({
                     challenge: challenge,
                     challenge_id: challenge.challenge_id,
                     reply: challenge.reply,
-                    summary: summary
+                    active : true
                 });
             }
         }
     }
 
+    handleGetSummary = async () =>{
+                
+        const {challenge} = this.state;
+        
+        const data = {
+            user_id: localStorage.getItem('id'),
+            tip_id: challenge.tip_id
+        }
+
+        const summary = await getSummaryChallenge(data);
+
+        console.log("RESPONSE", summary);
+        this.setState({
+            summary : summary,
+            active : false
+        })
+
+    }
     handleDownload = async (name) => {
         const fileName = name;
 
@@ -204,7 +164,7 @@ class DetailChallenge extends React.Component {
         let content_error_reply = '';
         let content_message = '';
 
-        const { reply, summary } = this.state;
+        const { reply, summary,active } = this.state;
         if (cleanFormReducer) {
             error_reply = '';
             success_message = '';
@@ -230,8 +190,9 @@ class DetailChallenge extends React.Component {
                 content_message={content_message}
                 handledDeleteFile={this.handledDeleteFile}
                 reply={reply}
+                handleGetSummary={this.handleGetSummary}
                 summary={summary}
-
+                active={active}
             />
         );
     }
