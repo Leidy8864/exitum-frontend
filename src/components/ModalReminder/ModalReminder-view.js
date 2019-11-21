@@ -14,9 +14,11 @@ function View(props) {
         selected,
         hoursOptions,
         updateReminder,
-        selectTypeDiary,
+        timePaint,
         isHour,
     } = props
+
+    console.log(time)
 
     return (
         <div>
@@ -43,10 +45,17 @@ function View(props) {
                                             <div
                                                 key={dt}
                                                 id={dt}
-                                                className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                className=
+                                                { 
+
+                                                    // selected === dt  ? "hourModalAdsSelected" : "hourModalAds"
+                                                    selected === dt ? "hourModalAdsSelected" : "hourModalAds" 
+                                                    && time === dt ? "hourModalAdsSelected" : "hourModalAds" 
+                                                    
+                                                }
                                                 onClick={selectHour}
                                                 onChange={handleChange}
-                                                defaultValue={time}
+                                                
                                             >
                                                 {dt}
                                             </div>
@@ -58,7 +67,7 @@ function View(props) {
                                     <textarea className="form-control" type="text" name="description" onChange={handleChange} defaultValue={description} />
                                 </div>
                                 <div className="modal-footer mt-3">
-                                    <button onClick={updateReminder} className="btn btn-primary" type="button">Guardar</button>
+                                    <button onClick={updateReminder} className="btn btn-primary" type="button">Actualizar</button>
                                 </div>
                             </form>
                         </div>

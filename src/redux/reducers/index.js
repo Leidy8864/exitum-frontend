@@ -24,6 +24,8 @@ import listRemindersReducer from './listRemindersReducer';
 import listUsersReducer from './listUsersReducer';
 import getExperienceReducer from './getExperienceReducer';
 import listExperiencesReducer from './listExperiencesReducer';
+import listMeetsReducer from './listMeetsReducer'
+import getMeetReducer from './getMeetReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -51,4 +53,6 @@ export default combineReducers({
     listUsersReducer: listUsersReducer,
     getExperienceReducer: getExperienceReducer,
     listExperiencesReducer: listExperiencesReducer,
+    listMeetsReducer: listMeetsReducer,
+    getMeetReducer: getMeetReducer,
 });

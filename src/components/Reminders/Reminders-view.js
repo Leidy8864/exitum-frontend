@@ -1,6 +1,7 @@
 
 import React, { Fragment } from 'react';
 import ModalReminder from '../ModalReminder/ModalReminder-controller'
+import ModalMeet from '../ModalMeet/ModalMeet-controller'
 import './style.css';
 
 function View(props) {
@@ -8,8 +9,10 @@ function View(props) {
     const {
         appointments,
         idReminder,
+        idMeet,
         meetings,
-        handleClickDeleteReminder
+        handleClickDeleteReminder,
+        handleClickDeleteMeet
     } = props
 
 
@@ -45,7 +48,7 @@ function View(props) {
                                             <div className="edit-profile d-flex mr-3">
                                                 <a href="#"
                                                     className="mr-2 reminder-edit"
-                                                    onClick={idReminder}
+                                                    onClick={idReminder.bind(this,item.id)}
                                                     id={item.id}
                                                     data-toggle="modal" data-target="#updateReminder"
                                                 ><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></a>
@@ -64,7 +67,6 @@ function View(props) {
                                         </div>
                                     </div>
                                     <ModalReminder />
-
                                 </Fragment>
                             )
                         }) : null
@@ -98,9 +100,9 @@ function View(props) {
                                             <div className="edit-profile d-flex mr-3 mt-2">
                                                 <a href="#"
                                                     className="mr-2 reminder-edit"
-                                                    // onClick={idReminder}
-                                                    // id={item.id}
-                                                    data-toggle="modal" data-target="#updateReminder"
+                                                    onClick={idMeet.bind(this,item.id)}
+                                                    id={item.id}
+                                                    data-toggle="modal" data-target="#updatemeet"
                                                 ><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></a>
                                                 <div className="delete-skill">
                                                     <a href="#" >
@@ -109,14 +111,14 @@ function View(props) {
                                                             className=""
                                                             id={item.id}
                                                             src={require('../../public/images/svg/basura.svg')}
-                                                            // onClick={handleClickDeleteReminder}
+                                                            onClick={handleClickDeleteMeet}
                                                         />
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <ModalReminder />
+                                    <ModalMeet />
 
                                 </Fragment>
                             )

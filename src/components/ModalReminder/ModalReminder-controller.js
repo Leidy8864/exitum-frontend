@@ -17,12 +17,13 @@ class ModalReminder extends React.Component {
         date: '',
         title: '',
         time: '',
+        timePaint : '',
         description: '',
         selected : "",
         hoursOptions: [
-            '6:00 am','7:00 am','8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm',
-            '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm',
-            '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm','11:00 pm','12:00 am',
+            '06:00 AM','07:00 AM','08:00 AM', '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
+            '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM',
+            '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM','11:00 PM','12:00 AM',
         ],
         isHour: false
     }
@@ -36,7 +37,7 @@ class ModalReminder extends React.Component {
 
     componentWillReceiveProps(nextProps, nextState){
 
-        const {id,from_user_id,to_user_id, date,title,time,description} = nextProps.getReminderReducer;
+        const {id,from_user_id,to_user_id, date,title,time,description} = nextProps.reminders;
 
         this.setState({
             id,
@@ -51,7 +52,7 @@ class ModalReminder extends React.Component {
      }
 
      selectHour = async (e) =>{
-        this.setState({selected: e.target.id});
+        this.setState({selected: e.target.id,time :e.target.id });
         console.log(e.target.id)
     }
 
@@ -70,20 +71,22 @@ class ModalReminder extends React.Component {
             title,
             time
         }
+        console.log(time)
+        console.log("REMINDER DATA",data)
 
-        console.log(data)
-
-         const res = await this.props.appointmentsUpdate(id,data)
-         console.log(res)
-         this.props.listReminders(1)
-         $('#updateReminder').modal('hide')
-         console.log(res)
+        //  const res = await this.props.appointmentsUpdate(id,data)
+        //  console.log(res)
+        //  this.props.listReminders(1)
+        //  $('#updateReminder').modal('hide')
+        //  console.log(res)
 
     }
 
     render() {
 
-        const { date,description,time, title,hoursOptions,selected,isHour } = this.state 
+        const { date,description,time,timePaint, title,hoursOptions,selected,isHour } = this.state 
+        const { reminders } = this.props
+        console.log(reminders)
 
         return (
             <View
@@ -94,6 +97,7 @@ class ModalReminder extends React.Component {
                 description = {description}
                 time= {time}
                 title= {title}
+                timePaint = {timePaint}
                 hoursOptions ={hoursOptions}
                 selectTypeDiary ={ this.selectTypeDiary } 
                 selectHour = {this.selectHour}
@@ -104,7 +108,7 @@ class ModalReminder extends React.Component {
 }
 
 const mapStateToProps = (state) => ({    
-    getReminderReducer: state.getReminderReducer,
+    reminders: state.getReminderReducer,
 });
 
 
