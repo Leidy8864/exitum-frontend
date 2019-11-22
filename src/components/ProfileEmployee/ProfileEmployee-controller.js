@@ -3,7 +3,7 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser, listUniversities, listCompanies } from '../../redux/actions';
+import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser, listUniversities, listCompanies,getOneExperience } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
 import getExperience from '../../redux/actions/get-experience';
@@ -99,7 +99,12 @@ class ProfileEmployee extends React.Component {
 
     idExperience = async (e) => {
         e.preventDefault();
-        const experience = this.state.experiences[e.target.id];
+        let experience = await getOneExperience(e.target.id);
+        console.log("experience before = ", experience);
+        if(experience.date_end === null){
+            experience.date_end  = new Date();
+        }
+        console.log("experience after = ", experience);
         this.props.getExperience(experience);
         $('#updateexperience').modal('show')
     }

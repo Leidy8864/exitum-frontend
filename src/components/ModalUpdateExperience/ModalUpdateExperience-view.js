@@ -7,10 +7,10 @@ import CreatableSelect from 'react-select/creatable';
 function View(props) {
 
     const {
+        experience_id,
         position,
         description,
         description_,
-        // company_name,
         experience,
         date,
         onChange,
@@ -20,7 +20,8 @@ function View(props) {
         options,
         handleChange,
         handleInputChange,
-        company_name
+        company_name,
+        updateExperience
     } = props
 
     return (
@@ -32,14 +33,21 @@ function View(props) {
                             <h5 className="modal-title" id="exampleModalLabel">Experiencia</h5>
                         </div>
                         <div className="modal-body">
-                            <form onSubmit={experience}>
+                            <input
+                                id="experience_id"
+                                type="hidden"
+                                name="id"
+                                className="form-control"
+                                value={experience_id || ''}
+                            />
+                            <form onSubmit={updateExperience}>
                                 <div className="row">
                                     <label>Posisión</label>
                                     <input
                                         type="text"
+                                        id="positionName"
                                         onChange={position}
                                         name="position"
-                                        id="nombrePosition"
                                         className="form-control"
                                     />
                                 </div>
@@ -70,12 +78,12 @@ function View(props) {
                                     <label>Actualmente trabajando</label>
                                 </div>
                                 <div className="row mt-1">
-                                    <input type="radio" name="role" id="true" value="true" onClick={selectCurrentJob}/>
-                                    <label className="label-radio-modal-experience" htmlFor="true">Si</label>
-                                    <input type="radio" name="role" id="false" value="false" onClick={selectCurrentJob}/>
-                                    <label className="label-radio-modal-experience" htmlFor="false">No</label>
+                                    <input type="radio" name="role" id="true_" value="true_" onClick={selectCurrentJob}/>
+                                    <label className="label-radio-modal-experience" htmlFor="true_">Si</label>
+                                    <input type="radio" name="role" id="false_" value="false_" onClick={selectCurrentJob}/>
+                                    <label className="label-radio-modal-experience" htmlFor="false_">No</label>
                                 </div>
-                                <div className="row clocwerk" id="endDateModal">
+                                <div className="row clocwerk" id="endDateModal_">
                                     <label>Fecha Fin</label>
                                     <Fragment>
                                             <DatePicker
@@ -90,6 +98,7 @@ function View(props) {
                                     <textarea 
                                         name="description" 
                                         onChange={description} 
+                                        onKeyPress={description} 
                                         id="nombreDescripcion"
                                         value={description_} 
                                         className="form-control textarea"

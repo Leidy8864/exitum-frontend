@@ -418,6 +418,29 @@ export const createExperience = data => {
     }
 }
 
+export const updateExperience = data => {
+    return async dispatch => {
+        try {
+            console.log("data = ", data);
+            const res = await axios.post(root + `experiences/update`, data)
+            console.log("res.data.data = ", res.data.data);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+
+export const getOneExperience = async(id) => {
+    try {
+        const res = await axios.get(root + `experiences/show/${id}`)
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
 export const createEducation = data => {
     return async dispatch => {
         try {

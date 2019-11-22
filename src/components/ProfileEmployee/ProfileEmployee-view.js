@@ -41,7 +41,6 @@ function View(props) {
     let experienceActual = experience
     let birthday = users.birthday
 
-    console.log("experiences = ", experiences)
     return (
         <Fragment>
             <div className="container-fluid">
