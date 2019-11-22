@@ -51,7 +51,7 @@ class ModalReminder extends React.Component {
 
      }
 
-     selectHour = async (e) =>{
+    selectHour = async (e) =>{
         this.setState({selected: e.target.id,time :e.target.id });
         console.log(e.target.id)
     }
@@ -74,11 +74,11 @@ class ModalReminder extends React.Component {
         console.log(time)
         console.log("REMINDER DATA",data)
 
-        //  const res = await this.props.appointmentsUpdate(id,data)
-        //  console.log(res)
-        //  this.props.listReminders(1)
-        //  $('#updateReminder').modal('hide')
-        //  console.log(res)
+         const res = await this.props.appointmentsUpdate(id,data)
+         console.log(res)
+         this.props.listReminders(1)
+         $('#updateReminder').modal('hide')
+         console.log(res)
 
     }
 

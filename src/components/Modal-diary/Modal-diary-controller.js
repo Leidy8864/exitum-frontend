@@ -57,8 +57,7 @@ class ModalDiary extends React.Component {
         const data = {
             date: moment(this.state.date).format('YYYY-MM-DD')
         }
-        var ddd = document.getElementById('datepickereu')
-        console.log(ddd)
+
         
         const hourAvailables = await this.props.hourAvailables(selectedOption.value,data);
         this.setState({hourAvailables})

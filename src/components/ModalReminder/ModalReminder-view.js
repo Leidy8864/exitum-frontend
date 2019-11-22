@@ -47,8 +47,6 @@ function View(props) {
                                                 id={dt}
                                                 className=
                                                 { 
-
-                                                    // selected === dt  ? "hourModalAdsSelected" : "hourModalAds"
                                                     selected === dt ? "hourModalAdsSelected" : "hourModalAds" 
                                                     && time === dt ? "hourModalAdsSelected" : "hourModalAds" 
                                                     

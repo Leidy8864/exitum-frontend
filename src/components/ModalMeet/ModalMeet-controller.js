@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import View from './ModalMeet-view';
 import getMeet from '../../redux/actions/get-meet'
-import { appointmentsUser, listUsers, hourAvailables } from '../../redux/actions'
+import { listUsers, hourAvailables } from '../../redux/actions'
 import moment from 'moment'
 import $ from 'jquery'
 
@@ -20,6 +20,7 @@ class ModalMeet extends React.Component {
         description: '',
         isMeet: true,
         users: [],
+        contact: '',
         hoursOptions: [],
         hourAvailables: [],
     }
@@ -29,6 +30,7 @@ class ModalMeet extends React.Component {
             // const advert_id = this.props.match.params.id;
             let usuarios = [];
             let users = await listUsers(localStorage.getItem('id'))
+            
             if (users && users.length >= 1) {
                 usuarios = users.map(x => ({ label: x.fullname, value: x.id }));
             }
@@ -49,7 +51,7 @@ class ModalMeet extends React.Component {
 
     handleChange = async (selectedOption) => {
         this.setState({ selectedOption})
-        
+        console.log(selectedOption)
         const data = {
             date: moment(this.state.date).format('YYYY-MM-DD')
         }
@@ -57,34 +59,68 @@ class ModalMeet extends React.Component {
         const hourAvailables = await this.props.hourAvailables(selectedOption.value,data);
         this.setState({hourAvailables})
         this.setState({to_user_id: selectedOption.value})
+        this.setState({contact: selectedOption})
     };
 
-    componentDidUpdate(nextProps){
+    async componentDidUpdate(nextProps){
 
         const  { meeting } = this.props
-
+        console.log(meeting)
         if(nextProps.meeting !== meeting){
             if(meeting) {
                 $('#updatemeet').on('hidden.bs.modal', () => {
                     this.props.getMeet(null)
                 });
 
+                const hourAvailables = await this.props.hourAvailables(meeting.toAppointmentUser.id,{ date: meeting.date })
+                
                 this.setState ({
                     id: meeting.id,
                     title : meeting.title,
                     description:  meeting.description,
                     date: meeting.date,
-                    time : meeting.time
+                    time : meeting.time,
+                    from_user_id: meeting.from_user_id,
+                    selectedOption: { label: meeting.toAppointmentUser.fullname, value: meeting.toAppointmentUser.id},
+                    to_user_id: meeting.to_user_id,
+                    hourAvailables : hourAvailables
                 })
-
             }
         }
      }
 
-    render() {
+     selectHour = async (e) =>{
+        this.setState({selected: e.target.id,time :e.target.id });
+        console.log(e.target.id)
+    }
 
-        const { meeting } = this.props
-        console.log(meeting)
+     updateMeet = async e => {
+         e.preventDefault();
+
+         const { from_user_id,to_user_id,id,description,date,title,selected } = this.state 
+
+         let time = selected
+
+        const data = {
+            from_user_id,
+            to_user_id,
+            description,
+            date,
+            title,
+            time
+        }
+            console.log(time)
+            console.log("REMINDER DATA",data)
+
+            // const res = await this.props.appointmentsUpdate(id,data)
+            // console.log(res)
+            // // this.props.listReminders(1)
+            // $('#updateMeet').modal('hide')
+            // console.log(res)
+     }
+
+
+    render() {
 
         var {
             title,
@@ -94,9 +130,10 @@ class ModalMeet extends React.Component {
             isMeet,
             users,
             hourAvailables,
+            to_user_id,
+            contact,
+            selectedOption
         } = this.state
-
-        console.log(description)
 
         return (
             <View
@@ -107,8 +144,13 @@ class ModalMeet extends React.Component {
                 date = {date}
                 time = {time}
                 description = {description}
+                to_user_id = {to_user_id}
+                contact = {contact}
                 options = {users}
                 hourAvailables = {hourAvailables}
+                updateMeet = {this.updateMeet}
+                selectedOption={selectedOption}
+                onChange={this.onChange}
             />
         );
     }

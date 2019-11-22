@@ -17,8 +17,12 @@ function View(props) {
         selectHour,
         selected,
         hourAvailables,
+        contact,
+        updateMeet,
+        onChange,
     } = props
-
+        console.log(contact.fullname)
+        console.log(contact.id)
     return (
         <div>
             <div className="modal fade" id="updatemeet" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -43,7 +47,6 @@ function View(props) {
                                             <Fragment>
                                                 <Select
                                                     className={"styleCreatableSelect_"}
-                                                    placeholder={'Selecciona un contacto'}
                                                     value={selectedOption}
                                                     onChange={handleChange}
                                                     options={options}
@@ -53,7 +56,7 @@ function View(props) {
                                     </div> : <br />}
                                 <div className="mt-3">
                                     <label>Fecha del evento</label>
-                                    <input type="date" className="form-control" name="date"
+                                    <input type="date" className="form-control" name="date" 
                                         defaultValue={date}
                                     />
                                 </div>
@@ -65,10 +68,14 @@ function View(props) {
                                             <div
                                                 key={dt}
                                                 id={dt}
-                                                className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                 onClick={selectHour}
                                                 onChange={handleChange}
-                                                defaultValue={time}
+                                                className=
+                                                { 
+                                                    selected === dt ? "hourModalAdsSelected" : "hourModalAds" 
+                                                    && time === dt ? "hourModalAdsSelected" : "hourModalAds" 
+                                                    
+                                                }
                                             >
                                                 {dt}
                                             </div>
@@ -84,7 +91,7 @@ function View(props) {
                                 </div>
                                 <div className="modal-footer mt-3">
                                     <button
-                                        // onClick={updateReminder} 
+                                        onClick={updateMeet} 
                                         className="btn btn-primary"
                                         type="button">Actualizar</button>
                                 </div>

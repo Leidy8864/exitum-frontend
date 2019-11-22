@@ -98,12 +98,6 @@ function View(props) {
                                         </div>
                                         <div className="footer-meeting d-flex justify-content-end pb-2">
                                             <div className="edit-profile d-flex mr-3 mt-2">
-                                                <a href="#"
-                                                    className="mr-2 reminder-edit"
-                                                    onClick={idMeet.bind(this,item.id)}
-                                                    id={item.id}
-                                                    data-toggle="modal" data-target="#updatemeet"
-                                                ><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></a>
                                                 <div className="delete-skill">
                                                     <a href="#" >
                                                         <img

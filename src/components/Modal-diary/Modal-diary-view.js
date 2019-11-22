@@ -66,11 +66,10 @@ function View(props) {
                                         </div>
                                     </div> : <br />}
                                 {isMeet ? <div className="row mt-3">
-                                    <div id="datepickereu" className="col-md-12 datepicker">
+                                    <div className="col-md-12 datepicker">
                                         <label>Fecha de la reunion</label>
                                         <Fragment>
-                                            <DatePicker
-                                                
+                                            <DatePicker  
                                                 onChange={onChange}
                                                 value={date}
                                             />
