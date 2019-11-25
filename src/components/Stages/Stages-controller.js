@@ -57,8 +57,6 @@ class Stages extends React.Component {
                     var listStages = null;
                     if (role === "entrepreneur") {
                         listStages = await actuallyStage(projectId);
-                        console.log("lista stages", listStages);
-
                         const steps = listStages.steps;
                         if (steps.length >= 1) {
                             this.props.getIdActualStage(steps[0].id);

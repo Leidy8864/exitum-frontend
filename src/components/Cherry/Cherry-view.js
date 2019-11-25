@@ -5,7 +5,17 @@ import { Link } from 'react-router-dom'
 
 function View(props) {
 
-    const { role,chikoinfo, cherry, changeCherry, clickCherry, clickChiko, show_info } = props
+    const { 
+        role,
+        chikoinfo, 
+        cherry, 
+        changeCherry, 
+        clickCherry, 
+        clickChiko, 
+        show_info, 
+        textInfo 
+    } = props;
+
     return (
         <Fragment>
             <div className="Cherry">
@@ -18,15 +28,18 @@ function View(props) {
                 <div className="modal-message">
                     <div className="message-content">
                     <header className="container-message text-center">
-                        <img src={require('../../public/img/chikorita.png')} alt="Informacion" />
+                        <img src={
+                            role === 'entrepreneur' ? 
+                                require('../../public/img/chikorita.png')
+                            : 
+                                require('../../public/img/fresita_.png')
+                        } alt="Informacion" />
                     </header>
                     <div className="container-message">
-                        <p>Hola soy tu asistente personal, Listo para ayudarte en todo lo que necesites, recuerda postular a varios anuncios
-                            para tener mas oportunidades de cojer un proyecto
-                        </p>
+                        <p>{textInfo}</p>
                     </div>
                     <div className="closecherry">
-                            <a href="/" className="closebtn" onClick={changeCherry}>Entendido</a>
+                            <Link to="#" className="closebtn" onClick={changeCherry}>Entendido</Link>
                         </div>
                     </div>
                 </div>

@@ -17,10 +17,6 @@ function View(props) {
         id
     } = props
 
-
-    console.log("TODOS LOS METTINGS", meetings)
-    console.log(id)
-
     return (
         <Fragment>
 
