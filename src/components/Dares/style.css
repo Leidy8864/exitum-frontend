@@ -1,0 +1,11 @@
+.Dares{
+    display: block;
+}
+
+.card-body textarea {
+    resize: none !important;
+}
+
+.card-body i {
+    color: rgba(48, 47, 47, 0.925);
+}

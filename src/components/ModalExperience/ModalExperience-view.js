@@ -29,11 +29,11 @@ function View(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Experiencia</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Experiencia</h6>
                         </div>
                         <div className="modal-body">
-                            <form onSubmit={experience}>
-                                <div className="row">
+                            <form onSubmit={experience} className="p-3">
+                                <div className="form_group_ mt-3">
                                     <label>Posisión</label>
                                     <input
                                         type="text"
@@ -43,7 +43,7 @@ function View(props) {
                                         className="form-control"
                                     />
                                 </div>
-                                <div className="row">
+                                <div className="form_group_ mt-3">
                                     <label>Empresa</label>
                                     <Fragment>
                                         <CreatableSelect
@@ -51,12 +51,11 @@ function View(props) {
                                             onChange={handleChange}
                                             onInputChange={handleInputChange}
                                             options={options}
-                                            className={"styleCreatableSelect_"}
                                             value={company_name}
                                         />
                                     </Fragment>
                                 </div>
-                                <div className="row clocwerk">
+                                <div className="form_group_ mt-3 clocwerk">
                                     <label>Fecha de inicio</label>
                                     <Fragment>
                                         <DatePicker
@@ -66,16 +65,16 @@ function View(props) {
                                         />
                                     </Fragment>
                                 </div>
-                                <div className="row mt-1">
+                                <div className="form_group_ mt-3 ">
                                     <label>Actualmente trabajando</label>
                                 </div>
-                                <div className="row mt-1">
+                                <div className="form_group_ mt-3">
                                     <input type="radio" name="role" id="true" value="true" onClick={selectCurrentJob}/>
                                     <label className="label-radio-modal-experience" htmlFor="true">Si</label>
                                     <input type="radio" name="role" id="false" value="false" onClick={selectCurrentJob}/>
                                     <label className="label-radio-modal-experience" htmlFor="false">No</label>
                                 </div>
-                                <div className="row clocwerk" id="endDateModal">
+                                <div className="form_group_ mt-3 clocwerk" id="endDateModal">
                                     <label>Fecha Fin</label>
                                     <Fragment>
                                             <DatePicker
@@ -85,7 +84,7 @@ function View(props) {
                                             />
                                     </Fragment>
                                 </div>
-                                <div className="row">
+                                <div className="form_group_ mt-3">
                                     <label>Descripción del puesto(Describa un resumen de sus funciones)</label>
                                     <textarea 
                                         name="description" 
@@ -97,7 +96,7 @@ function View(props) {
 
                                     />
                                 </div>
-                                <div className="modal-footer">
+                                <div className="modal-footer mt-3">
                                     <button type="submit" className="btn btn-primary">Guardar</button>
                                 </div>
                             </form>

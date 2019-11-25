@@ -17,7 +17,7 @@ function View(props){
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Aptitudes</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Aptitudes</h6>
                         </div>
                         <div className="modal-body">
                             <Fragment>
@@ -27,7 +27,7 @@ function View(props){
                                     options={options}
                                 />
                             </Fragment>
-                            <div className="modal-footer">
+                            <div className="modal-footer mt-3">
                                 <button type="submit" className="btn btn-primary" onClick={saveSkills}>Guardar</button>
                             </div>
                         </div>
