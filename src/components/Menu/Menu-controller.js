@@ -25,12 +25,19 @@ class Menu extends React.Component {
         $('#link-1').addClass('active')
         this.props.history.push('/advertisement')
     }
+    selectThree = e => {
+        e.preventDefault()
+        $('#link').removeClass('active')
+        $('#link-1').addClass('active')
+        this.props.history.push('/events')
+    }
 
     render() {
         return (
             <View
              selectOne = {this.selectOne}
              selectTwo = {this.selectTwo}
+             selectThree = {this.selectThree}
             />
         );
     }

@@ -6,7 +6,8 @@ import './style.css';
 function View(props) {
     const {
         selectOne,
-        selectTwo
+        selectTwo,
+        selectThree
     } = props;
 
     return (
@@ -23,6 +24,12 @@ function View(props) {
                     <NavLink to="/advertisement" id="link-1" onClick={selectTwo}>
                         <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
                         <span>Anuncios</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/events" id="link-1" onClick={selectThree}>
+                        <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
+                        <span>Eventos</span>
                     </NavLink>
                 </li>
             </ul>
