@@ -9,14 +9,17 @@ function View(props) {
     const {
         appointments,
         idReminder,
-        idMeet,
+        confirmMeetNotification,
         meetings,
         handleClickDeleteReminder,
-        handleClickDeleteMeet
+        handleClickDeleteMeet,
+        handleClickDeleteMeetNotification,
+        id
     } = props
 
 
-    console.log("TODOS LOS METTINGS",meetings)
+    console.log("TODOS LOS METTINGS", meetings)
+    console.log(id)
 
     return (
         <Fragment>
@@ -41,14 +44,14 @@ function View(props) {
                                                 <i className="far fa-bell mr-2 mt-1"></i><p className="ml-2">{item.title}</p>
                                             </div>
                                             <div className="description-reminder d-flex">
-                                                <i className="far fa-newspaper mr-2 mt-1"></i><p className="ml-2">{item.description}</p>
+                                                <i className="far fa-newspaper mr-1 mt-1"></i><p className="ml-2">{item.description}</p>
                                             </div>
                                         </div>
                                         <div className="footer-reminder d-flex justify-content-end pb-2">
                                             <div className="edit-profile d-flex mr-3">
                                                 <a href="#"
                                                     className="mr-2 reminder-edit"
-                                                    onClick={idReminder.bind(this,item.id)}
+                                                    onClick={idReminder.bind(this, item.id)}
                                                     id={item.id}
                                                     data-toggle="modal" data-target="#updateReminder"
                                                 ><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></a>
@@ -92,25 +95,41 @@ function View(props) {
                                             <div className="title-reminder d-flex">
                                                 <i className="far fa-bell mr-2 mt-1"></i><p className="ml-2">{item.title}</p>
                                             </div>
-                                            <div className="description-reminder d-flex">
-                                                <i className="far fa-newspaper mr-2 mt-1"></i><p className="ml-2">{item.description}</p>
-                                            </div>
-                                        </div>
-                                        <div className="footer-meeting d-flex justify-content-end pb-2">
-                                            <div className="edit-profile d-flex mr-3 mt-2">
-                                                <div className="delete-skill">
-                                                    <a href="#" >
-                                                        <img
-                                                            alt="img"
-                                                            className=""
-                                                            id={item.id}
-                                                            src={require('../../public/images/svg/basura.svg')}
-                                                            onClick={handleClickDeleteMeet}
-                                                        />
-                                                    </a>
+                                            {
+                                                id == item.fromAppointmentUser.id ? 
+                                                <div className="description-reminder d-flex">
+                                                <i className="far fa-address-book mr-2 mt-1"></i><p className="ml-2">{item.toAppointmentUser.fullname}</p>
+                                                </div> : 
+                                                <div className="description-reminder d-flex">
+                                                <i className="far fa-address-book mr-2 mt-1"></i><p className="ml-2">{item.fromAppointmentUser.fullname}</p>
                                                 </div>
+                                            }
+                                            <div className="description-reminder d-flex">
+                                                <i className="far fa-newspaper mr-1 mt-1"></i><p className="ml-2">{item.description}</p>
                                             </div>
                                         </div>
+                                        {
+                                            id ==  item.fromAppointmentUser.id ?
+                                                <div className="footer-meeting d-flex justify-content-end pb-2">
+                                                    <div className="edit-profile d-flex mr-3">
+                                                        <div className="delete-skill">
+                                                            <a href="#" >
+                                                                <img
+                                                                    alt="img"
+                                                                    className=""
+                                                                    id={item.id}
+                                                                    src={require('../../public/images/svg/basura.svg')}
+                                                                    onClick={handleClickDeleteMeet}
+                                                                />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div> : 
+                                                <div className="footer-meeting d-flex pb-2">
+                                                    <button id={item.id} onClick={confirmMeetNotification} className="btn btn-success ml-4">Aceptar</button>
+                                                    <button id={item.id} onClick={handleClickDeleteMeetNotification} className="btn btn-danger ml-2">Cancelar</button>
+                                            </div>
+                                        }
                                     </div>
                                     <ModalMeet />
 

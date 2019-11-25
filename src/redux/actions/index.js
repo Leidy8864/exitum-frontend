@@ -66,10 +66,10 @@ export const signIn = data => {
 export const updateUser = async data => {
     try {
         const res = await axios.post(root + 'users/update', data);
+        console.log("RESPUESTA ROLE",res.data)
         return res.data;
     } catch (error) {
         console.log("Error" + error);
-
     }
 }
 
@@ -659,6 +659,18 @@ export const appointmentsDelete = (id, data) => {
         try {
             const res = await axios.post(root + `appointments/cancel/${id}`, data)
             console.log("eliminando recordatorio",res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const appointmentsConfirm = (id,data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `appointments/confirmation/${id}`, data)
+            console.log("reunion confirmado",res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

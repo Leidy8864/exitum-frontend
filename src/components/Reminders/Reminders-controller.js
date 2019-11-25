@@ -5,17 +5,18 @@ import {withRouter} from 'react-router-dom'
 import { connect } from 'react-redux'
 import getReminder from '../../redux/actions/get-reminder'
 import getMeet from '../../redux/actions/get-meet'
-import { appointmentsByUser,appointmentsDelete, meetingByUser } from '../../redux/actions';
+import { appointmentsByUser,appointmentsDelete, meetingByUser, appointmentsConfirm } from '../../redux/actions';
 import listReminders from '../../redux/actions/list-reminders'
 import listMeets from '../../redux/actions/list-meets'
 import Swal from 'sweetalert2'
-import $ from 'jquery'
 
 class Reminders extends React.Component {
 
     state = {
+        id: '',
         appointments: [],
         meetings: [],
+        status: false,
     }
 
     async componentDidMount() {
@@ -24,11 +25,14 @@ class Reminders extends React.Component {
             console.log(id)
             const appointments = await appointmentsByUser(id);
             const meetings = await meetingByUser(id)
+            console.log(appointments)
             console.log(meetings)
             this.setState({
                 appointments,
-                meetings
+                meetings,
+                id,
             })
+            console.log(this.state.id)
         } catch (error) {
             console.log(error)
         }
@@ -139,6 +143,89 @@ class Reminders extends React.Component {
         });
     }
 
+    confirmMeetNotification = async (e) => {
+        e.preventDefault();
+        const meet_notification_confirm_id = e.target.id;
+        console.log(meet_notification_confirm_id)
+
+        this.setState({
+            status: true
+        })
+
+        const { status } = this.state
+        console.log(status)
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Si aceptas esta reunion, confirmaras una reunion.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.value) {
+                try {
+                    const data = {
+                        status
+                    }
+                    const response = await this.props.appointmentsConfirm(meet_notification_confirm_id,data);
+                    console.log(response)
+                    if (response.status) {
+
+                    } else {
+                        this.setState({
+                            res_message: response.message
+                        });
+                    }
+                    this.props.listMeets(1);
+                } catch (error) {
+                    console.log("error", error);
+                }
+            }
+        });
+    }
+
+    handleClickDeleteMeetNotification = async (e) => {
+        e.preventDefault();
+        const meet_notification_id = e.target.id;
+        console.log(meet_notification_id)
+
+        const { status } = this.state
+        console.log(status)
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Si eliminas esta reunion, ya no podrás deshacer esta acción.",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.value) {
+                try {
+                    const data = {
+                        status
+                    }
+                    console.log(data)
+                    const response = await this.props.appointmentsDelete(meet_notification_id,data);
+                    console.log(response)
+                    if (response.status) {
+
+                    } else {
+                        this.setState({
+                            res_message: response.message
+                        });
+                    }
+                    this.props.listMeets(1);
+                } catch (error) {
+                    console.log("error", error);
+                }
+            }
+        });
+    }
+
     render() {
 
         const { listRemindersReducer, listMeetsReducer } = this.props;
@@ -152,15 +239,18 @@ class Reminders extends React.Component {
         }
 
 
-        const { appointments, meetings } = this.state
+        const { appointments, meetings,id } = this.state
         return (
             <View
                 appointments = {appointments}
                 meetings = {meetings}
                 handleClickDeleteReminder = {this.handleClickDeleteReminder}
                 handleClickDeleteMeet = {this.handleClickDeleteMeet}
+                handleClickDeleteMeetNotification = {this.handleClickDeleteMeetNotification}
+                confirmMeetNotification = {this.confirmMeetNotification}
                 idReminder = {this.idReminder}
                 idMeet = {this.idMeet}
+                id = {id}
             />
         );
     }
@@ -179,6 +269,7 @@ const mapDispatchToProps = {
     meetingByUser,
     appointmentsDelete,
     listMeets,
+    appointmentsConfirm
 };
 
 export default withRouter(
