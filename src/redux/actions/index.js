@@ -383,8 +383,8 @@ export const completeChallenge = async (data) => {
 
 export const getSummaryChallenge = async (data) => {
     try {
-        const res = await axios.get(root + `challenges/summaryTips/`,{
-            params : data
+        const res = await axios.get(root + `challenges/summaryTips/`, {
+            params: data
         })
         return res.data.data;
     } catch (error) {
@@ -592,7 +592,7 @@ export const appointmentsUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/create/${id}`, data)
-            console.log("GUARDANDO REUNION O RECORDATORIO",res.data)
+            console.log("GUARDANDO REUNION O RECORDATORIO", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -612,14 +612,14 @@ export const appointmentsByUser = async id => {
 export const meetingByUser = async id => {
     try {
         const res = await axios.get(root + `appointments/list-by-meeting/${id}`)
-        console.log("metting",res.data)
+        console.log("metting", res.data)
         return res.data.data
     } catch (error) {
         console.log("Error" + error)
     }
 }
 
-export const appointmentsUpdate =  (id, data) => {
+export const appointmentsUpdate = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/update/${id}`, data)
@@ -635,7 +635,7 @@ export const appointmentsDelete = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/cancel/${id}`, data)
-            console.log("eliminando recordatorio",res.data)
+            console.log("eliminando recordatorio", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -683,10 +683,10 @@ export const deleteExperience = data => {
     }
 }
 
-export const hourAvailables = (id,data) => {
+export const hourAvailables = (id, data) => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `schedules/schedule/${id}`,data)
+            const res = await axios.post(root + `schedules/schedule/${id}`, data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

@@ -6,88 +6,52 @@ import { withRouter } from 'react-router-dom'
 import getIdActualStage from '../../redux/actions/get-id-actual-stage';
 import { actuallyStage, actuallyStageEmployee } from '../../redux/actions'
 
+import getIdProject from '../../redux/actions/get-id-project';
 
 const role = localStorage.getItem('role');
-
+const user_id = localStorage.getItem('id');
 class Stages extends React.Component {
 
     state = {
         listSteps: [
         ],
         selected: '',
-        projectId : 0
+        projectId: 0
     }
-
-    async componentDidMount() {
-        var listStages = null;
-
-        try {
-            if (role === "employee") {
-                const user_id = localStorage.getItem('id');
-                listStages = await actuallyStageEmployee(user_id);
-    
-                console.log("lista stages in did mount", listStages);
-    
-            }else{
-                const projectId = localStorage.getItem('idProject');
-                if (projectId) {
-                    listStages = await actuallyStage(projectId);
+    //Función que detecta los cambios en el componente para modificar el state
+    componentDidUpdate(nextProps) {
+        const { projectId } = this.props;
+        if (nextProps.projectId !== projectId) {
+            if (projectId) {                
+                const data = {
+                    projectId,
+                    user_id
                 }
+                this.getListStages(data);
             }
-            const steps = listStages.steps;
+        }
+    }
+    async getListStages(data) {
+        var listStages = null;
+        try {
+            if (role === "entrepreneur") {
+                listStages = await actuallyStage(data.projectId);
+            } else {
+                listStages = await actuallyStage(data.user_id);
+            }
+            const steps = listStages ? listStages.steps : [];
             if (steps.length >= 1) {
-                localStorage.setItem('level_id',steps[0].id)
                 this.props.getIdActualStage(steps[0].id);
                 this.setState({
                     listSteps: steps
                 });
-            }   
-        } catch (error) {
-            console.log("ERROR",error);
-            
-        }
-    }
-
-    //Función que detecta los cambios en el componente para modificar el state
-    async componentDidUpdate(nextProps) {
-        const { projectId } = this.props;
-        if (nextProps.projectId !== projectId) {
-            if (projectId) {
-                try {
-                    var listStages = null;
-                    if (role === "entrepreneur") {
-                        listStages = await actuallyStage(projectId);
-                        console.log("lista stages", listStages);
-
-                        const steps = listStages.steps;
-                        if (steps.length >= 1) {
-                            this.props.getIdActualStage(steps[0].id);
-                            this.setState({
-                                listSteps: steps
-                            });
-                        }
-                    }
-
-                } catch (error) {
-                    console.log("Error al listar Stages");
-                }
             }
-        }
-    }
-    async lstStage() {
-        try {
-            const listaStages = await actuallyStage(this.props.getIdProjectReducer);
-            this.setState({
-                listSteps: listaStages.step
-            })
-
         } catch (error) {
-            console.log(error)
+            console.log("Error al listar Stages", error)
         }
     }
 
     selectStage = async (e) => {
-
         this.props.getIdActualStage(e.target.id);
 
         this.setState({ selected: e.target.id });
@@ -115,7 +79,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    getIdActualStage
+    getIdActualStage,
+    getIdProject
 };
 
 export default withRouter(

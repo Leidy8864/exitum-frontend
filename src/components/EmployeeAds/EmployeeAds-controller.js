@@ -7,6 +7,8 @@ import { listAdsBySkills, listPostulations } from '../../redux/actions';
 import getListAds from '../../redux/actions/getListAds';
 import $ from 'jquery';
 import getAdvert from '../../redux/actions/getAdvert';
+import reloadPage from '../../redux/actions/reloadPage';
+
 const data = {
     user_id: localStorage.getItem('id')
 };
@@ -15,44 +17,43 @@ class EmployeeAds extends React.Component {
         adsList: []
     }
 
-    async componentDidMount() {
+    componentDidMount() {        
+        this.getEmployeeAds("coincidence");
+    }
+    componentDidUpdate(nextProps) {
+
+        const { adType, reload } = this.props;
+        if (nextProps.adType !== adType) {
+            if (adType) {
+                this.getEmployeeAds(adType)
+            }
+        }
+        if (nextProps.reload !== reload) {
+            console.log("reloading in employees");
+            
+            if (reload) {
+                this.getEmployeeAds(adType)
+                this.props.reloadPage(0);
+            }
+        }
+    }
+
+    async getEmployeeAds(adType){
         try {
-            const response = await listAdsBySkills(data);
-            this.props.getListAds(response.data); //Guarda la lista de anuncios en redux
+            var response = "";
+            if (adType === "coincidence") {
+                response = await listAdsBySkills(data);
+            } else {
+                response = await listPostulations(data);
+            }
             const pages = response.status ? response.pages : 1;
-            this.paginationData("coincidence", pages); //Permite la paginacion por scroll
+            this.paginationData(adType, pages); //Permite la paginacion por scroll
             this.setState({
                 pages: pages,
                 adsList: response.status ? response.data : []
-            });
+            });   
         } catch (error) {
-            console.error("Error al litar ads", error);
-
-        }
-
-    }
-    async componentDidUpdate(nextProps) {
-
-        const { adType } = this.props;
-        if (nextProps.adType !== adType) {
-            if (adType) {
-                try {
-                    var response = "";
-                    if (adType === "coincidence") {
-                        response = await listAdsBySkills(data);
-                    } else {
-                        response = await listPostulations(data);
-                    }
-                    const pages = response.status ? response.pages : 1;
-                    this.paginationData(adType, pages); //Permite la paginacion por scroll
-                    this.setState({
-                        pages: pages,
-                        adsList: response.status ? response.data : []
-                    });
-                } catch (error) {
-                    console.error("Error al litar ads", error);
-                }
-            }
+            console.error("Error al litar ads for employees", error);
         }
     }
     paginationData(adType, pages) {
@@ -101,8 +102,8 @@ class EmployeeAds extends React.Component {
     handleSetAdId = (id) => {
         console.log("AD ID", id);
 
-        const {adsList} = this.state;
-        const advert = adsList.find(advert => {return advert.id === id});
+        const { adsList } = this.state;
+        const advert = adsList.find(advert => { return advert.id === id });
         this.props.getAdvert(advert); //Guarda el objeto de anuncio en redux
     }
     render() {
@@ -116,11 +117,13 @@ class EmployeeAds extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    adType: state.getTypeAdsReducer
+    adType: state.getTypeAdsReducer,
+    reload: state.reloadPageReducer
 });
 const mapDispatchToProps = {
     getAdvert,
-    getListAds
+    getListAds,
+    reloadPage
 };
 
 

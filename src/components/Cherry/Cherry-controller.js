@@ -1,6 +1,10 @@
 
 import React from 'react';
 import View from './Cherry-view';
+import { getAdvices, listCategories } from '../../redux/actions';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { decodeToken } from '../../libs/helper';
 
 class Cherry extends React.Component {
 
@@ -64,4 +68,6 @@ class Cherry extends React.Component {
         );
     }
 }
-export default Cherry;
+export default withRouter(
+    connect(null, null)(Cherry)
+)

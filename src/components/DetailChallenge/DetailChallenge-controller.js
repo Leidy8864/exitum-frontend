@@ -24,9 +24,9 @@ class DetailChallenge extends React.Component {
         active : true
     }
 
-    componentDidMount(){
-        console.log("IN DID MOUNT");
-    }
+    // componentDidMount(){
+    //     console.log("IN DID MOUNT");
+    // }
     async componentDidUpdate(nextProps) {
         const { tip_id, challenges } = this.props;
         if (nextProps.tip_id !== tip_id) {

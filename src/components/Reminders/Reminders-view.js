@@ -11,10 +11,6 @@ function View(props) {
         meetings,
         handleClickDeleteReminder
     } = props
-
-
-    console.log("TODOS LOS METTINGS",meetings)
-
     return (
         <Fragment>
 

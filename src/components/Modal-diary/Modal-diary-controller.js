@@ -173,7 +173,6 @@ class ModalDiary extends React.Component {
             selectedOption,
             hourAvailables
         } = this.state;
-        console.log("hourAvailables =", hourAvailables)
         return (
             <View
                 selectedOption={selectedOption}

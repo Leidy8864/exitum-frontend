@@ -24,7 +24,7 @@ import listRemindersReducer from './listRemindersReducer';
 import listUsersReducer from './listUsersReducer';
 import getExperienceReducer from './getExperienceReducer';
 import listExperiencesReducer from './listExperiencesReducer';
-
+import reloadPageReducer from './reloadPageReducer';
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -51,4 +51,5 @@ export default combineReducers({
     listUsersReducer: listUsersReducer,
     getExperienceReducer: getExperienceReducer,
     listExperiencesReducer: listExperiencesReducer,
+    reloadPageReducer: reloadPageReducer
 });

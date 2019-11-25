@@ -19,10 +19,10 @@ class Reminders extends React.Component {
     async componentDidMount() {
         try {
             let id = localStorage.getItem('id')
-            console.log(id)
+            // console.log(id)
             const appointments = await appointmentsByUser(id);
             const meetings = await meetingByUser(id)
-            console.log(meetings)
+            // console.log(meetings)
             this.setState({
                 appointments,
                 meetings
