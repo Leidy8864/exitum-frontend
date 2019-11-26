@@ -132,6 +132,30 @@ button.btn-confirmar:hover {
   }
 }
 
+.react-calendar {
+  font-family: 'Proxima Nova' !important;
+  border-radius: 5px;
+  margin-top: 4px;
+  border: 1px solid rgb(226, 221, 221) !important;
+}
+
+.react-calendar__navigation {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
+}
+
+.form_group_ textarea {
+  font-size: 14px;
+}
+
+.react-calendar__navigation button {
+  background: #3369fd !important;
+  color: #fff;
+}
+
+.react-calendar__month-view__weekdays {
+  color: #777;
+}
+
 @media screen and (max-width: 991px) {
   .nav-open .main-panel{
     left: 0;

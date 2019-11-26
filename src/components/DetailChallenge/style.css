@@ -145,10 +145,6 @@ p#texto {
     resize: none;
   }
 
-.form_group_ button {
-    border-radius: 6px !important;
-    border: none;
-}
 .image-user{
     width: 30px;
     height: 30px;
