@@ -17,6 +17,10 @@ nav .container-fluid a {
   font-family: 'Proxima Nova';
 }
 
+.img-logo-blanco {
+  width: 200px;
+}
+
 nav .container-fluid a:hover {
   color: #77FAB3;
   -webkit-transition: 1s;
