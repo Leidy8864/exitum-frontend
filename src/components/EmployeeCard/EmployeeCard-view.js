@@ -28,7 +28,7 @@ function View(props) {
                 </span>
                 <img src={photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block" alt="..."/>
                 <div className="card-body ">
-                    <h5 className="card-title">{name}</h5>
+                    <h6 className="card-title">{name}</h6>
                     <p className="card-text">{short_description}</p>
                     
                     <p className="card-text">

@@ -97,13 +97,13 @@ input[type=”file”] {
     align-items: center;
 }
 
-input#choose_file {
+/* input#choose_file {
     position: absolute;
     top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
-    width: 100%;
+    width: 1px;
     opacity: 0;
 }
 
@@ -116,10 +116,10 @@ input#choose_file {
     position: relative;
     height: auto;
     margin: 0 0 0px;
-    padding: 3px 10px;
+    padding: 1px 10px;
     border-radius: 25px;
     background: #3369fd;
-}
+} */
 
 p#texto {
     text-align: center;
@@ -145,10 +145,6 @@ p#texto {
     resize: none;
   }
 
-.form_group_ button {
-    border-radius: 6px !important;
-    border: none;
-}
 .image-user{
     width: 30px;
     height: 30px;

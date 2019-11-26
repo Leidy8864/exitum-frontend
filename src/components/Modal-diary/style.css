@@ -124,7 +124,12 @@
     /* border-radius: 100% !important; */
     max-width: 13% !important;
     padding: 12px !important;
-    border:1px solid #3369fd !important; 
+    border-radius: 50%;
+}
+
+.react-calendar__tile--active {
+    background: #3369fd !important;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
 }
 
 .hourModalAds{
