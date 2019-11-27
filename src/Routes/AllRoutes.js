@@ -9,6 +9,7 @@ import Advertisement from '../components/Advertisement/Advertisement-controller'
 import AdDetailPage from '../components/AdDetailPage/AdDetailPage-controller';
 import Events from '../components/Events/Events-controller';
 import Dare from '../components/Dare/Dare-controller';
+import Calendar from '../components/Calendar/Calendar-controller'
 
 import Profile from '../components/Profile/Profile-controller';
 import NotFound from '../components/NotFound/NotFound-controller';
@@ -33,6 +34,7 @@ class AllRoutes extends React.Component {
             <ProtectedRoute exact path="/events" component={Events} />
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute exact path="/challenges" component={Dare} />
+            <ProtectedRoute exact path="/calendar" component={Calendar} />
             <Route exact path="/users/reset" component={ResetPassword}/>
             <Route exact path="/users/" component={ResetPassword}/>
             <Route path="*" component={NotFound}/>    

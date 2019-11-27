@@ -731,3 +731,24 @@ export const searchTip = async (id,type) => {
         console.log("Error" + error)
     }
 }
+
+export const listChallengeToVerify = async (id,page) => {
+    try {
+        const res = await axios.get(root + `challenges/toVerify?user_id=${id}&page=${page}`);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const verifyChallenge = (data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `challenges/verify`,data)
+            console.log(res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}

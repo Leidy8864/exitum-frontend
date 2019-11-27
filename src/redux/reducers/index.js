@@ -26,6 +26,8 @@ import getExperienceReducer from './getExperienceReducer';
 import listExperiencesReducer from './listExperiencesReducer';
 import listMeetsReducer from './listMeetsReducer'
 import getMeetReducer from './getMeetReducer'
+import getChallengeReducer from './getChallengeReducer'
+import listChallengeReducer from './listChallengesReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -55,4 +57,6 @@ export default combineReducers({
     listExperiencesReducer: listExperiencesReducer,
     listMeetsReducer: listMeetsReducer,
     getMeetReducer: getMeetReducer,
+    getChallengeReducer: getChallengeReducer,
+    listChallengeReducer: listChallengeReducer
 });

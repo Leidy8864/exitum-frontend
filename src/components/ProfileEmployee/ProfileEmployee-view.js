@@ -67,7 +67,7 @@ function View(props) {
                                     <div className="data_user mt-3 experience-info-content mb-3">
                                         <div>
                                             <h4>{name} {lastname}</h4>
-                                            <p className="bold">{experienceActual}</p>
+                                            {/* <p className="bold">{experienceActual}</p> */}
                                         </div>
                                         <strong>{country}</strong>
                                         <hr />
@@ -150,7 +150,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un experiencia</span>
                             }
                         </div>
                     </div>
@@ -207,7 +207,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue una educación</span>
                             }
                         </div>
                     </div>
@@ -265,7 +265,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un certificación</span>
                             }
                         </div>
                     </div>
@@ -305,7 +305,7 @@ function View(props) {
                                                 </div>
                                             </div>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un skill</span>
                             }
                         </div>
                     </div>

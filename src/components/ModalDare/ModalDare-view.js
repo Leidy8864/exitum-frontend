@@ -2,7 +2,16 @@
 import React from 'react';
 import './style.css';
 
-function View() {
+function View(props) {
+
+    const { 
+        tip,
+        description,
+        reply,
+        confirmChallenge,
+        handleChange
+     } = props
+
     return (
         <div className="modal fade" id="modaldare" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -14,23 +23,22 @@ function View() {
                         <form>
                             <div className="row card-body">
                                 <label className="w-100">Titulo:</label>
-                                <span className="">Reto de Techie</span>
+                                <span className="">{tip}</span>
                             </div>
                             <div className="row card-body">
                                 <label>Descripcion:</label><br/>
-                                <span className="">En este reto vamos a salir a completar todo lo acontecido,En este reto vamos a salir a completar todo lo acontecido
-                                ,En este reto vamos a salir a completar todo lo acontecido,En este reto vamos a salir a completar todo lo acontecido</span>
+                                <span className="">{description}</span>
                             </div>
                             <div className="row card-body">
-                                <label>Respuesta:</label><br/>
-                                <span className="">En este reto vamos a salir a completar todo lo acontecido,En este reto vamos a salir a completar todo lo acontecido,En este reto vamos a salir a completar todo lo acontecido,En este reto vamos a salir a completar todo lo acontecido</span>
+                                <label className="w-100">Respuesta:</label><br/>
+                                <span className="">{reply}</span>
                             </div>
                             <div className="row card-body">
-                                <label>Escribe aqui tus observaciones:</label><br/>
-                                <textarea className="form-control" />
+                                <label className="w-100">Escribe aqui tus observaciones:</label>
+                                <textarea className="form-control" onChange={handleChange} name="comment" />
                             </div>
                             <div className="justify-content-between d-flex">
-                                <button type="submit" className="btn btn-observar">Confirmar</button>
+                                <button type="submit" onClick={confirmChallenge} className="btn btn-observar">Confirmar</button>
                                 <button type="submit" className="btn btn-confirmar">Observar</button>
                             </div>
                         </form>

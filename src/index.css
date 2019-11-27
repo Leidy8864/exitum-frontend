@@ -126,7 +126,7 @@ button.btn-confirmar:hover {
   border-top-left-radius: 25px !important;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1024px) {
   html {
     overflow-x: hidden;
   }
@@ -156,7 +156,11 @@ button.btn-confirmar:hover {
   color: #777;
 }
 
-@media screen and (max-width: 991px) {
+.react-date-picker__button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1024px) {
   .nav-open .main-panel{
     left: 0;
     transform: translate3d(260px,0,0);
