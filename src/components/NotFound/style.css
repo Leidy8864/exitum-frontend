@@ -2,4 +2,107 @@
 .NotFound{
     display: block;
 }
-  
+
+.not-found {
+    overflow: hidden;
+    position: relative;
+    background-size: cover !important;
+    background-image: url('../../public/img/404\ web.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.capsula-not-found {
+    position: absolute;
+    z-index: 1000;
+    background-repeat: no-repeat;
+    bottom: 100px;
+    left: 420px;
+    -webkit-transform: translate3d(10px, 0px, 100px) !important;
+    transform: translate3d(0px, 0px, 20px);
+    -webkit-transform: matrix(0.19, 1, -0.1, 0.7, 6, 1) !important;
+    transform: matrix(1, 1, -1, 0.8, 20, 0) !important;
+}
+
+.satelite-not-found {
+    position: absolute;
+    z-index: 1002;
+    right: 160px;
+    top: 0;
+    -webkit-transform: translate3d(0px, 350px, 180px) !important;
+    transform: translate3d(0px, 350px, 180px);
+}
+
+.img-capsule {
+    width: 300px;
+    height: 300px;
+    -webkit-animation: capsule 10s ease-in-out infinite alternate;
+    animation: capsule 10s ease-in-out infinite alternate;
+}
+
+.img-satelite {
+    width: 100px;
+    height: auto;
+    -webkit-animation: satelite 2s ease-in-out infinite alternate;
+    animation: satelite 2s ease-in-out infinite alternate;
+}
+
+@media screen and (max-width: 1024px) {
+    .not-found {
+        background-image: url('../../public/img/404\ ipad.png');
+    }
+    .capsula-not-found {
+        bottom: 0px;
+        left: 420px;
+        -webkit-transform: matrix(0.19, 1, -0.1, 0.7, 6, 1) !important;
+        transform: matrix(1, 0, 0, 1, 10, 0) !important;
+    }
+    .img-capsule {
+        width: 500px;
+        height: 500px;
+    }
+  }
+
+  @media screen and (max-width: 432px) {
+    .not-found {
+        background-image: url('../../public/img/404\ mobile.png');
+        height: 100vh;
+    }
+    .img-capsule {
+        width: 200px;
+        height: 200px;
+    }
+    .capsula-not-found {
+        bottom: 100px;
+        left: 170px;
+        -webkit-transform: matrix(0.19, 1, -0.1, 0.7, 6, 1) !important;
+        transform: matrix(1, 0, 0, 1, 10, 0) !important;
+    }
+  }
+
+@-webkit-keyframes satelite {
+    0% {
+      -webkit-transform: translate3d(0, 20%, 10) rotateX(368deg);
+              transform: translate3d(0, 20%, 10) rotateX(368deg);
+    }
+    100% {
+      -webkit-transform: translate3d(0, -42%, 0);
+              transform: translate3d(0, -42%, 0);
+    }
+}
+
+@-webkit-keyframes capsule {
+    0% {
+      -webkit-transform: translate3d(0, 20%, 10) rotateX(10deg);
+              transform: translate3d(0, 20%, 10) rotateX(10deg);
+    }
+    10% {
+        -webkit-transform: translate3d(0, 32%, 0);
+                transform: translate3d(0, 32%, 0);
+    }
+    50% {
+        -webkit-transform: translate3d(0, -500%, 0);
+                transform: translate3d(0, -500%, 0);
+    }
+}

@@ -25,7 +25,7 @@ class Capsula extends Component {
                         <stop offset="1" stopColor="#1c3a8a" stopOpacity="0.439" />
                     </linearGradient>
                     <clipPath id="clip-path">
-                        <rect width="186" height="13" fill="none" />
+                      ``
                     </clipPath>
                 </defs>
                 <g id="Group_882" data-name="Group 882" transform="translate(-328.025 -241.883)">

@@ -1,85 +1,120 @@
 
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getChallenge from '../../redux/actions/get-challenge'
-import { verifyChallenge } from '../../redux/actions'
+import { verifyChallenge,root } from '../../redux/actions'
 import View from './ModalDare-view';
 import $ from 'jquery'
 
 class ModalDare extends React.Component {
 
     state = {
+        challenges: [],
         tip: '',
         description: '',
         reply: '',
         comment: '',
         reply: '',
-        status: '',
+        statusVerify: 'Verificado',
+        statusObser: 'Con observaciones',
+        file_tips: []
     }
 
-    async componentDidUpdate(nextProps){
+    async componentDidUpdate(nextProps) {
 
-        const  { challenges } = this.props
-        if(nextProps.challenges !== challenges){
-            if(challenges) {
+        const { challenges } = this.props
+        if (nextProps.challenges !== challenges) {
+            if (challenges) {
                 $('#modaldare').on('hidden.bs.modal', () => {
                     this.props.getChallenge(null)
                 });
-                
-                this.setState ({
-                    id: challenges.id,
+
+                this.setState({
+                    challenge_id: challenges.id,
                     tip: challenges.tip.tip,
                     description: challenges.tip.description,
-                    reply: challenges.reply
+                    reply: challenges.reply,
+                    challenges: challenges,
+                    file_tips: challenges.tip.file_tips
                 })
             }
         }
-     }
+    }
 
-     handleChange = (e) => {
+    handleDownload = async (name) => {
+        const fileName = name;
+
+        var a = document.createElement("a");
+        a.href = root + 'challenges/download/' + fileName;
+        a.target = "_blank";
+        a.click()
+    }
+
+    handleChange = (e) => {
         const value = e.target.value.trim();
         this.setState({
             [e.target.name]: value
         });
     }
 
-     confirmChallenge = async (e) => {
+    confirmChallenge = async (e) => {
         e.preventDefault()
-        this.setState({
-            status: 'Con observaciones'
-        })
-        const { id,comment,status } = this.state
+        const { challenge_id, statusVerify } = this.state
+        let status = statusVerify
         const data = {
-            id,comment,status
+            challenge_id, status
         }
 
         console.log(data)
         const res = await this.props.verifyChallenge(data)
-        console.log(res)
-     }
+        $('#modaldare').modal('hide')
+    }
+
+    observerChallenge = async (e) => {
+        e.preventDefault()
+        const { challenge_id, comment, statusObser } = this.state
+        let status = statusObser
+        const data = {
+            challenge_id, comment, status
+        }
+
+        console.log(data)
+        const res = await this.props.verifyChallenge(data)
+        $('#modaldare').modal('hide')
+    }
 
     render() {
 
-        var { 
+        var {
             tip,
             description,
             reply,
+            files,
+            challenges,
+            file_tips
         } = this.state
+
+        console.log(file_tips)
 
         return (
             <View
-                tip = {tip}
-                description = {description}
-                reply = {reply}
-                confirmChallenge = {this.confirmChallenge}
-                handleChange = {this.handleChange}
+                tip={tip}
+                description={description}
+                reply={reply}
+                confirmChallenge={this.confirmChallenge}
+                handleChange={this.handleChange}
+                observerChallenge={this.observerChallenge}
+                files = {files}
+                challenges = {challenges}
+                handleDownload = { this.handleDownload }
+                file_tips = { file_tips }
             />
         );
     }
 }
 
-const mapStateToProps = (state) => ({    
+const mapStateToProps = (state) => ({
     challenges: state.getChallengeReducer,
 });
 

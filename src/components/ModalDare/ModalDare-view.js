@@ -4,13 +4,19 @@ import './style.css';
 
 function View(props) {
 
-    const { 
+    const {
         tip,
         description,
         reply,
         confirmChallenge,
-        handleChange
-     } = props
+        observerChallenge,
+        handleChange,
+        challenges,
+        handleDownload,
+        file_tips
+    } = props
+
+    console.log(file_tips)
 
     return (
         <div className="modal fade" id="modaldare" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -21,25 +27,65 @@ function View(props) {
                     </div>
                     <div className="modal-body">
                         <form>
-                            <div className="row card-body">
+                            <div className="mt-4">
                                 <label className="w-100">Titulo:</label>
-                                <span className="">{tip}</span>
+                                <span className="bold">{tip}</span>
                             </div>
-                            <div className="row card-body">
-                                <label>Descripcion:</label><br/>
-                                <span className="">{description}</span>
+                            <div className="mt-4">
+                                <label>Descripcion:</label><br />
+                                <span className="bold">{description}</span>
                             </div>
-                            <div className="row card-body">
-                                <label className="w-100">Respuesta:</label><br/>
-                                <span className="">{reply}</span>
+                            <div className="mt-4">
+                                <label className="w-100">Respuesta:</label><br />
+                                <span className="bold">{reply}</span>
                             </div>
-                            <div className="row card-body">
+                            <div className="mt-4">
+                                <label className="w-100">Archivos:</label><br />
+                                <div className="downloads_container">
+                                {   
+                                    challenges.files && challenges.files.length > 0 ?
+                                    challenges.files.map((item, index) =>
+                                        <div key={index} className="downloads_ mb-2">
+                                            <a className="text-file" name={item.name} href="#" 
+                                            onClick={handleDownload.bind(this, item.name)}
+                                            >
+                                                {item.name}
+                                            </a>
+                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')}
+                                            onClick={handleDownload.bind(this, item.name)} 
+                                            />
+                                        </div>
+                                    ) : <span className="bold">No hay archivos</span>
+                                } 
+                                </div>
+                            </div>
+                            <div className=" mt-4">
+                                <label className="w-100">Archivos:</label><br />
+                                <div className="downloads_container">
+                                {   
+                                    file_tips && file_tips.length > 0 ?
+                                    file_tips.map((item, index) =>
+                                        <div key={index} className="downloads_ mb-2">
+                                            <a className="text-file" name={item.name} href="#" 
+                                            onClick={handleDownload.bind(this, item.name)}
+                                            >
+                                                {item.name}
+                                            </a>
+                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')}
+                                            onClick={handleDownload.bind(this, item.name)} 
+                                            />
+                                        </div>
+                                    ) : <span className="bold">No hay archivos</span>
+                                } 
+                                </div>
+                            </div>
+                            <div className="mt-4">
                                 <label className="w-100">Escribe aqui tus observaciones:</label>
                                 <textarea className="form-control" onChange={handleChange} name="comment" />
                             </div>
-                            <div className="justify-content-between d-flex">
-                                <button type="submit" onClick={confirmChallenge} className="btn btn-observar">Confirmar</button>
-                                <button type="submit" className="btn btn-confirmar">Observar</button>
+                            <div className="mt-4 justify-content-between d-flex">
+                                <button type="submit" onClick={confirmChallenge} className="btn btn-observar">Verificar</button>
+                                <button type="submit" onClick={observerChallenge} className="btn btn-confirmar">Observar</button>
                             </div>
                         </form>
                     </div>

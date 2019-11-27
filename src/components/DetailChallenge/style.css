@@ -75,7 +75,7 @@
 
 .downloads_:hover{
     background: #3369fd;
-    color: #fff;
+    color: #fff !important;
     transition: all ease 1s;
     text-decoration: none;
 }
