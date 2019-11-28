@@ -12,6 +12,10 @@
     resize: none;
 }
 
+.text-hour {
+
+}
+
 .modal-header {
     background: #396afc !important;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
@@ -44,6 +48,7 @@ input[type=checkbox].hourModalAds {
 }
 
 div.text-hour {
+    margin-left: 10px !important;
     position: relative;
     left: 28px;
     z-index: 2;
@@ -51,7 +56,8 @@ div.text-hour {
     width: 80px;
     margin: 10px 12px 10px 0px;
     border-radius: 6px;
-    color: rgb(49, 47, 47);
+    color: rgb(141, 137, 137);
+    font-weight: 400;
     font-size: 14px;
 }
 
@@ -78,7 +84,7 @@ input[type=checkbox] {
          height: 16px;
          top: 0px;
          left: 0;
-         border: 1px solid #515351;
+         border: 1px solid rgb(141, 137, 137);
          border-radius: 3px;
          background-color: white;
 }

@@ -24,8 +24,8 @@ span.no-data {
 
 .btn-save-img {
     padding: 8px 28px;
-    background: #4e4e50 !important;
-    color: #fff;
+    background: #fff !important;
+    color: rgb(85, 84, 84);
     text-transform: uppercase;
     border: 1px solid #ffffff;
     border-radius: 20px;

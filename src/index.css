@@ -25,10 +25,42 @@ body {
   color: #777 !important;
   box-shadow: none !important;
   position: relative;
+  font-size: 1rem !important;
 }
 
 .form-control:focus {
   box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4);
+}
+
+.swal2-container.swal2-shown {
+  background-color: rgba(0,0,0,.1) !important;
+}
+
+.swal2-styled.swal2-confirm {
+  border: none !important;
+  background: #2FD566 !important;  /* fallback for old browsers */
+  border-radius: 20px !important;
+}
+
+.swal2-popup {
+  font-family: 'Proxima Nova' !important;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(116, 111, 111, 0.4);
+}
+
+
+
+.swal2-styled.swal2-cancel {
+  background: #F0607D !important;
+  border-radius: 20px !important;
+}
+
+.swal2-styled.swal2-cancel:focus {
+  border: none !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #F0607D !important;
+  color: #F0607D !important;
 }
 
 form input {

@@ -16,14 +16,16 @@ function View(props) {
         handleClickDeleteMeetNotification,
         id
     } = props
+    
+    console.log(appointments)
 
     return (
         <Fragment>
 
             <div className="appointments">
                 {
-                    appointments && appointments.length > 0 ?
-                        appointments.map(function (item, index) {
+                    appointments.data && appointments.data.length > 0 ?
+                        appointments.data.map(function (item, index) {
                             return (
                                 <Fragment key={index}>
                                     <div className="reminders mb-3">
@@ -68,7 +70,7 @@ function View(props) {
                                     <ModalReminder />
                                 </Fragment>
                             )
-                        }) : null
+                        }) : <p className="recordatorio-reu">Agrega un recordatorio</p>
                 }
             </div>
 
@@ -131,7 +133,7 @@ function View(props) {
 
                                 </Fragment>
                             )
-                        }) : null
+                        }) : <p className="recordatorio-reu">Agrega una reunión</p>
                 }
             </div>
         </Fragment>

@@ -106,8 +106,12 @@ function View(props) {
                                     </div> : <br />}
                             </form>
                         </div>
-                        <div className="modal-footer">
-                            <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
+                        <div className="row">
+                            <div className="col-md-11">
+                            <div className="modal-footer">
+                                <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>

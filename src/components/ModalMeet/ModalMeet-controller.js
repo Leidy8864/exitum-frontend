@@ -7,6 +7,8 @@ import getMeet from '../../redux/actions/get-meet'
 import { listUsers, hourAvailables } from '../../redux/actions'
 import moment from 'moment'
 import $ from 'jquery'
+import Swal from 'sweetalert2'
+
 
 class ModalMeet extends React.Component {
 
@@ -111,12 +113,21 @@ class ModalMeet extends React.Component {
         }
             console.log(time)
             console.log("REMINDER DATA",data)
+            
+            const res = await this.props.appointmentsUpdate(id,data)
 
-            // const res = await this.props.appointmentsUpdate(id,data)
-            // console.log(res)
-            // // this.props.listReminders(1)
-            // $('#updateMeet').modal('hide')
-            // console.log(res)
+            if(res.status == true) {
+                Swal.fire(
+                    'Buen trabajo',
+                    'Actualizado correctamente',
+                    'success'
+                )
+            } else {
+                Swal.fire({
+                    type: 'error',
+                    text: 'Ya hay una hora reservada para esta reunión, elije una hora disponible',
+                })
+            }
      }
 
 

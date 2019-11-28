@@ -45,11 +45,11 @@ function View(props) {
         <Fragment>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-6">
                         <div className="card">
                             <div className="img-profile mb-3">
                                 <div className="photo-perfil mt-3">
-                                    <img src={photo} alt="img" />
+                                    <img src={photo || "https://yt3.ggpht.com/a/AGF-l7-m7BOEOMCrDfMvUvHorhg9tT92ALhfDr_u5A=s900-c-k-c0xffffffff-no-rj-mo"} alt="img" />
                                     <input type="file" className="inputfile" name="file" onChange={fileSelectedHandler} />
                                 </div>
                                 <div className="description-perfil mt-3">

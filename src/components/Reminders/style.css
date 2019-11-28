@@ -24,6 +24,14 @@
     padding-right: 20px;
 }
 
+.recordatorio-reu {
+    color: #5a5353;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Proxima Nova';
+}
+
 .body-reminder {
     padding: 20px;
     background: #fff;

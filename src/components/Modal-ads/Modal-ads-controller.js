@@ -184,15 +184,7 @@ class ModalAds extends React.Component {
                 );
             }
             else {
-                console.log("error = ", response)
                 this.setState({ error_message: response.message });
-                // setTimeout(
-                //     () => {
-                //         $('#AdsModal').modal('hide');
-                //         window.location.reload();
-                //     },
-                //     900
-                // );
             }
 
         } else {
