@@ -40,9 +40,12 @@ class ModalUpdateEducation extends React.Component {
             date_start: date_expedition,
             date_end: date_expiration,
             description: $('#EducationDescription').val(),
-            university_name: university_name,
         }
-        console.log("formData = ", formData)
+
+        if(university_name){
+            formData.university_name = university_name;
+        }
+
         await this.props.createEducationUpdate(formData);
         this.setState({ 
             changed_date_expedition: false,
