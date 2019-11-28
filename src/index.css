@@ -20,10 +20,6 @@ body {
   outline: none;
 }
 
-.form_group_ input {
-  
-}
-
 .form-control {
   padding-left: 7px !important;
   color: #777 !important;
@@ -41,8 +37,6 @@ form input {
 
 .modal-footer {
   padding-top: 0px !important;
-  padding-right: 30px !important;
-  justify-content: flex-end !important;
 }
 
 /* .css-6q0nyr-Svg {
@@ -75,11 +69,37 @@ form input {
 
 
 .modal-footer button {
-  padding: 11px 40px!important;
-  font-size: 17px;
+  padding: 11px 30px!important;
+  font-size: 14px;
   border-radius: 25px;
   background: #3369fd;
   font-weight: bold;
+}
+
+button.btn-observar {
+  padding: 11px 30px!important;
+  font-size: 14px;
+  border-radius: 25px;
+  background: #3369fd;
+  font-weight: bold;
+  color: #fff;
+}
+
+button.btn-observar:hover {
+  color: #fff;
+}
+
+button.btn-confirmar {
+  padding: 11px 30px!important;
+  font-size: 14px;
+  border-radius: 25px;
+  background: #3369fd;
+  font-weight: bold;
+  color: #fff;
+}
+
+button.btn-confirmar:hover {
+  color: #fff;
 }
 
 .modal-footer button:hover {
@@ -106,13 +126,41 @@ form input {
   border-top-left-radius: 25px !important;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1024px) {
   html {
     overflow-x: hidden;
   }
 }
 
-@media screen and (max-width: 991px) {
+.react-calendar {
+  font-family: 'Proxima Nova' !important;
+  border-radius: 5px;
+  margin-top: 4px;
+  border: 1px solid rgb(226, 221, 221) !important;
+}
+
+.react-calendar__navigation {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
+}
+
+.form_group_ textarea {
+  font-size: 14px;
+}
+
+.react-calendar__navigation button {
+  background: #3369fd !important;
+  color: #fff;
+}
+
+.react-calendar__month-view__weekdays {
+  color: #777;
+}
+
+.react-date-picker__button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1024px) {
   .nav-open .main-panel{
     left: 0;
     transform: translate3d(260px,0,0);

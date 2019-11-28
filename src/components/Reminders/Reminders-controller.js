@@ -22,16 +22,13 @@ class Reminders extends React.Component {
     async componentDidMount() {
         try {
             let id = localStorage.getItem('id')
-            // console.log(id)
             const appointments = await appointmentsByUser(id);
             const meetings = await meetingByUser(id)
-            // console.log(meetings)
             this.setState({
                 appointments,
                 meetings,
                 id,
             })
-            console.log(this.state.id)
         } catch (error) {
             console.log(error)
         }
@@ -39,7 +36,6 @@ class Reminders extends React.Component {
 
     refreshReminder = async() => {
         const appointments = await appointmentsByUser(localStorage.getItem('id'));
-        console.log(appointments)
         this.setState({
             appointments
         })
@@ -48,7 +44,6 @@ class Reminders extends React.Component {
 
     refreshMeet = async() => {
         const meetings = await meetingByUser(localStorage.getItem('id'));
-        console.log(meetings)
         this.setState({
             meetings
         })
@@ -70,7 +65,6 @@ class Reminders extends React.Component {
     handleClickDeleteReminder = async (e) => {
         e.preventDefault();
         const reminder_id = e.target.id;
-        console.log(reminder_id)
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
@@ -89,7 +83,6 @@ class Reminders extends React.Component {
                         to_user_id: localStorage.getItem('id')
                     }
                     const response = await this.props.appointmentsDelete(reminder_id,data);
-                    console.log(response)
                     if (response.status) {
 
                     } else {
@@ -108,7 +101,6 @@ class Reminders extends React.Component {
     handleClickDeleteMeet = async (e) => {
         e.preventDefault();
         const meet_id = e.target.id;
-        console.log(meet_id)
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
@@ -126,7 +118,6 @@ class Reminders extends React.Component {
                         from_user_id: localStorage.getItem('id')
                     }
                     const response = await this.props.appointmentsDelete(meet_id,data);
-                    console.log(response)
                     if (response.status) {
 
                     } else {
@@ -145,14 +136,11 @@ class Reminders extends React.Component {
     confirmMeetNotification = async (e) => {
         e.preventDefault();
         const meet_notification_confirm_id = e.target.id;
-        console.log(meet_notification_confirm_id)
-
         this.setState({
             status: true
         })
 
         const { status } = this.state
-        console.log(status)
         Swal.fire({
             title: '¿Estás seguro?',
             text: "Si aceptas esta reunion, confirmaras una reunion.",
@@ -169,7 +157,6 @@ class Reminders extends React.Component {
                         status
                     }
                     const response = await this.props.appointmentsConfirm(meet_notification_confirm_id,data);
-                    console.log(response)
                     if (response.status) {
 
                     } else {
@@ -188,10 +175,7 @@ class Reminders extends React.Component {
     handleClickDeleteMeetNotification = async (e) => {
         e.preventDefault();
         const meet_notification_id = e.target.id;
-        console.log(meet_notification_id)
-
         const { status } = this.state
-        console.log(status)
         Swal.fire({
             title: '¿Estás seguro?',
             text: "Si eliminas esta reunion, ya no podrás deshacer esta acción.",
@@ -207,9 +191,7 @@ class Reminders extends React.Component {
                     const data = {
                         status
                     }
-                    console.log(data)
                     const response = await this.props.appointmentsDelete(meet_notification_id,data);
-                    console.log(response)
                     if (response.status) {
 
                     } else {

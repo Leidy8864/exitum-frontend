@@ -47,6 +47,16 @@ class Sidebar extends React.Component {
         this.props.history.push('/events')
     }
 
+    goChallenges = e => {
+        e.preventDefault();
+        this.props.history.push('/challenges')
+    }
+
+    goDairy = e => {
+        e.preventDefault();
+        this.props.history.push('/calendar')
+    }
+
     render() {
         
         this.chooseProfile();
@@ -70,14 +80,26 @@ class Sidebar extends React.Component {
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" data-toggle="pill" to="/events" onClick={this.goEvents}>
-                            <i className="far fa-address-card"></i>
+                            <i className="far fa-calendar-alt"></i>
                             <p>Eventos</p>
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" data-toggle="pill" to="/challenges" onClick={this.goChallenges}>
+                            <i className="far fa-snowflake"></i>
+                            <p>Retos</p>
                         </NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" data-toggle="pill" to="/profile" onClick={this.goProfile}>
                             <i className="far fa-user"></i>
                             <p>Perfil</p>
+                        </NavLink>
+                    </li>
+                    <li className="nav-item calendar">
+                        <NavLink className="nav-link" data-toggle="pill" to="/calendar" onClick={this.goDairy}>
+                            <i className="far fa-calendar"></i>
+                            <p>Agenda</p>
                         </NavLink>
                     </li>
                 </ul>

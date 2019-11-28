@@ -26,7 +26,7 @@ function View(props){
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Certificacion</h5>
+                            <h6 className="modal-title" id="exampleModalLabel">Certificacion</h6>
                         </div>
                         <div className="modal-body">
                             <form>
@@ -37,7 +37,7 @@ function View(props){
                                     className="form-control"
                                     value={CertificateId || ''}
                                     />
-                                <div className="row">
+                                <div className="form_group_ mt-3">
                                     <label>Certificacion</label>
                                     <input
                                         type="text"
@@ -48,7 +48,7 @@ function View(props){
                                         // defaultValue={CertificateName}
                                     />
                                 </div>
-                                <div className="row">
+                                <div className="form_group_ mt-3">
                                     <label>Empresa</label>
                                     <div className="styleCreatableSelect">
                                         <Fragment>
@@ -63,7 +63,7 @@ function View(props){
                                         </Fragment>
                                     </div>
                                 </div>
-                                <div className="row clocwerk">
+                                <div className="form_group_ mt-3 clocwerk">
                                     <label>Fecha de inicio</label>
                                     <Fragment>
                                         <DatePicker
@@ -74,7 +74,7 @@ function View(props){
                                         />
                                     </Fragment>
                                 </div>
-                                <div className="row clocwerk">
+                                <div className="form_group_ mt-3 clocwerk">
                                     <label>Fecha final</label>
                                     <Fragment>
                                         <DatePicker
@@ -86,10 +86,11 @@ function View(props){
                                     </Fragment>
                                 </div>
                                 <div className="response_file mt-3">
-                                    <p id="texto">Subir Cerfiticado</p>
-                                    <input id="choose_file_" type="file" name="document" />
+                                    {/* <p id="texto">Subir Cerfiticado</p> */}
+                                    <label>Sube un certificado</label>
+                                    <input id="choose_file" type="file" name="document" className="form-control" />
                                 </div>
-                                <div className="modal-footer">
+                                <div className="modal-footer mt-3">
                                     <button type="submit" className="btn btn-primary" onClick={certificateUpdate}>Actualizar</button>
                                 </div>
                             </form>

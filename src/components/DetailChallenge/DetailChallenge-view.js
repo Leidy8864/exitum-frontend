@@ -140,7 +140,7 @@ function View(props) {
                                                         <div className="mb-3">
                                                             <div className="media">
                                                                 <img src={item.user.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
-                                                                <h5 className="mt-0 font-weight-bold">{item.user.name + ' ' + item.user.lastname}</h5>
+                                                                <h6 className="mt-0 font-weight-bold">{item.user.name + ' ' + item.user.lastname}</h6>
                                                             </div>
                                                             <div className="description_">
                                                                 {item.reply}

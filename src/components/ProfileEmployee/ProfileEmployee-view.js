@@ -67,7 +67,7 @@ function View(props) {
                                     <div className="data_user mt-3 experience-info-content mb-3">
                                         <div>
                                             <h4>{name} {lastname}</h4>
-                                            <p className="bold">{experienceActual}</p>
+                                            {/* <p className="bold">{experienceActual}</p> */}
                                         </div>
                                         <strong>{country}</strong>
                                         <hr />
@@ -150,7 +150,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un experiencia</span>
                             }
                         </div>
                     </div>
@@ -190,7 +190,7 @@ function View(props) {
                                                     </div>
 
                                                     <div className="edit-profile mr-5 mt-2">
-                                                        <Link to="" className="reminder-edit" onClick={idEducation} id={item.id} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></Link>
+                                                        <Link to="" className="reminder-edit" onClick={idEducation} id={index} data-toggle="modal" data-target="#updateeducation"><img alt="img" className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></Link>
 
                                                         <div className="delete-skill mt-3">
                                                             <a href="#" >
@@ -207,7 +207,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue una educación</span>
                             }
                         </div>
                     </div>
@@ -249,7 +249,7 @@ function View(props) {
                                                         </div>
                                                     </div>
                                                     <div className="edit-profile mr-5 mt-2">
-                                                        <Link to="" className="reminder-edit" onClick={idCertificate} id={item.id} data-toggle="modal" data-target="#updatecertificate"><img className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></Link>
+                                                        <Link to="" className="reminder-edit" onClick={idCertificate} id={index} data-toggle="modal" data-target="#updatecertificate"><img className="img-edit" id={index} src={require('../../public/images/svg/editar.svg')} /></Link>
                                                         <div className="delete-skill mt-3">
                                                             <a href="#" >
                                                                 <img
@@ -265,7 +265,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un certificación</span>
                             }
                         </div>
                     </div>
@@ -305,7 +305,7 @@ function View(props) {
                                                 </div>
                                             </div>
                                         )
-                                    }) : null
+                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un skill</span>
                             }
                         </div>
                     </div>

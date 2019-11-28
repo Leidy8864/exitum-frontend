@@ -28,47 +28,40 @@ function View(props) {
                         </div>
                         <div className="modal-body">
                             <form>
-                                <div className="row mt-3">
-                                    <div className="col-md-12">
-                                        <label>Certificacion</label>
-                                        <input
-                                            type="text"
-                                            onChange={name}
-                                            name="name"
-                                            id="nombreCertificado"
-                                            className="form-control"
+                                <div className="form_group_ mt-3">
+                                    <label>Certificacion</label>
+                                    <input
+                                        type="text"
+                                        onChange={name}
+                                        name="name"
+                                        id="nombreCertificado"
+                                        className="form-control"
+                                    />
+                                </div>
+                                <div className="form_group_ mt-3">
+                                    <label>Empresa</label>
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={handleChange}
+                                            onInputChange={handleInputChange}
+                                            options={options}
+                                            className={"styleCreatableSelect_"}
+                                            value={company_name}
                                         />
-                                    </div>
+                                    </Fragment>
                                 </div>
-                                <div className="row mt-3">
-                                    <div className="col-md-12">
-                                        <label>Empresa</label>
-                                        <Fragment>
-                                            <CreatableSelect
-                                                isClearable
-                                                onChange={handleChange}
-                                                onInputChange={handleInputChange}
-                                                options={options}
-                                                className={"styleCreatableSelect_"}
-                                                value={company_name}
-                                            />
-                                        </Fragment>
-                                    </div>
+                                <div className="form_group_ clocwerk mt-4">
+                                    <label>Fecha de inicio</label>
+                                    <Fragment>
+                                        <DatePicker
+                                            onChange={onChange}
+                                            value={date}
+                                            name="date_expidition"
+                                        />
+                                    </Fragment>
                                 </div>
-                                <div className="row clocwerk mt-3">
-                                    <div className="col-md-12">
-                                        <label>Fecha de inicio</label>
-                                        <Fragment>
-                                            <DatePicker
-                                                onChange={onChange}
-                                                value={date}
-                                                name="date_expidition"
-                                            />
-                                        </Fragment>
-                                    </div>
-                                </div>
-                                <div className="row clocwerk mt-3">
-                                    <div className="col-md-12">
+                                <div className="form_group_ clocwerk mt-3">
                                         <label>Fecha final</label>
                                         <Fragment>
                                             <DatePicker
@@ -77,14 +70,13 @@ function View(props) {
                                                 name="date_expiration"
                                             />
                                         </Fragment>
-                                    </div>
                                 </div>
                                 <div className="response_file mt-3">
-                                    <p id="texto">Subir Cerfiticado</p>
-                                    <input id="choose_file" type="file" name="document" />
+                                    {/* <p id="texto">Subir Cerfiticado</p> */}
+                                    <label>Sube un certificado</label>
+                                    <input id="choose_file" type="file" name="document" className="form-control" />
                                 </div>
-                                <div className="modal-footer">
-
+                                <div className="modal-footer mt-3">
                                     <button type="submit" className="btn btn-primary" onClick={certificate}>Guardar</button>
                                 </div>
                             </form>

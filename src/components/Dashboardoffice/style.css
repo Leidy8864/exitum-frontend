@@ -29,7 +29,7 @@
   background: #E9EDF2;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1024px) {
   .main-panel {
     width: 100%;
   }

@@ -12,7 +12,7 @@ function View(props) {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            <span><img src={require("../../public/images/svg/logo-blanco.svg")} alt="svg" /></span>
+            <span><img className="img-logo-blanco" src={require("../../public/images/svg/logo-blanco.svg")} alt="svg" /></span>
           </Link>
           <div className="mr-signin" id="navbarNav">
             <ul className="navbar-nav ml-auto">

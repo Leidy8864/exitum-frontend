@@ -90,11 +90,13 @@ nav.dashboard-header {
 }
 
 /*# sourceMappingURL=style.css.map */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1024px) {
   nav.dashboard-header {
     left: 0;
   }
-
+  .navbar-expand-lg .navbar-toggler {
+    display: block !important;
+  }
   .content-user {
     right: 20px;
   }

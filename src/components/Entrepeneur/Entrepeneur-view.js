@@ -18,7 +18,7 @@ function View() {
                     <div className="col-xl-7 col-lg-12">
                         <Challenges />
                     </div>
-                    <Cherry />
+                    {/* <Cherry /> */}
                 </div>
             </div>
         </Fragment>

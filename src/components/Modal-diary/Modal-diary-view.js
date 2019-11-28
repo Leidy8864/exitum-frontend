@@ -44,40 +44,36 @@ function View(props) {
                                         <label className="label-radio-modal-diary" htmlFor="recordatorio">Recordatorio</label>
                                     </div>
                                 </div>
-                                <div className="row mt-3">
-                                    <div className="col-md-12">
-                                        <label>Titulo</label><br />
-                                        <input type="text" name="title" className="form-control" onChange={handleChangeForm} />
-                                    </div>
+                                <div className="form_group_ mt-3">
+                                    <label>Titulo</label><br />
+                                    <input type="text" name="title" className="form-control" onChange={handleChangeForm} />
                                 </div>
                                 {isMeet ?
-                                    <div className="row mt-3">
-                                        <div className="col-md-12">
-                                            <label>Contacto</label>
-                                            <Fragment>
-                                                <Select
-                                                    className={"styleCreatableSelect_"}
-                                                    placeholder={'Selecciona un contacto'}
-                                                    value={selectedOption}
-                                                    onChange={handleChange}
-                                                    options={options}
-                                                />
-                                            </Fragment>
-                                        </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Contacto</label>
+                                        <Fragment>
+                                            <Select
+                                                className={"styleCreatableSelect_"}
+                                                placeholder={'Selecciona un contacto'}
+                                                value={selectedOption}
+                                                onChange={handleChange}
+                                                options={options}
+                                            />
+                                        </Fragment>
                                     </div> : <br />}
-                                {isMeet ? <div className="row mt-3">
-                                    <div className="col-md-12 datepicker">
+                                {isMeet ? <div className="form_group_ mt-3">
+                                    <div className="datepicker">
                                         <label>Fecha de la reunion</label>
                                         <Fragment>
-                                            <DatePicker  
+                                            <DatePicker
                                                 onChange={onChange}
                                                 value={date}
                                             />
                                         </Fragment>
                                     </div>
                                 </div> :
-                                    <div className="row mt-3">
-                                        <div className="col-md-12 datepicker">
+                                    <div className="form_group_ mt-3">
+                                        <div className="datepicker">
                                             <label>Fecha de recordatorio</label>
                                             <Fragment>
                                                 <DatePicker
@@ -88,72 +84,62 @@ function View(props) {
                                         </div>
                                     </div>}
                                 {isMeet ?
-                                    <div className="row mt-3">
-                                        <div className="col-md-12">
-                                            <label>Horas disponibles del contacto</label>
-                                            <br />
-                                            {
-                                                hourAvailables.map(dt =>
-                                                    <div
-                                                        key={dt}
-                                                        id={dt}
-                                                        className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                        onClick={selectHour}
-                                                        onChange={handleChange}
-                                                    >
-                                                        {dt}
-                                                    </div>
-                                                )
-                                            }
-                                        </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Horas disponibles del contacto</label>
+                                        <br />
+                                        {
+                                            hourAvailables.map(dt =>
+                                                <div
+                                                    key={dt}
+                                                    id={dt}
+                                                    className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                    onClick={selectHour}
+                                                    onChange={handleChange}
+                                                >
+                                                    {dt}
+                                                </div>
+                                            )
+                                        }
                                     </div> :
-                                    <div className="row mt-3">
-                                        <div className="col-md-12">
+                                    <div className="form_group_ mt-3">
                                             <label>Hora del evento</label>
                                             <br />
                                             {
                                                 hoursOptions && hoursOptions.length > 0 ?
-                                                hoursOptions.map(dt =>
-                                                    <div
-                                                        key={dt}
-                                                        id={dt}
-                                                        className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                        onClick={selectHour}
-                                                        onChange={handleChange}
-                                                    >
-                                                        {dt}
-                                                    </div>
-                                                ) : null
-                                            } 
-                                        </div>
+                                                    hoursOptions.map(dt =>
+                                                        <div
+                                                            key={dt}
+                                                            id={dt}
+                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                            onClick={selectHour}
+                                                            onChange={handleChange}
+                                                        >
+                                                            {dt}
+                                                        </div>
+                                                    ) : null
+                                            }
                                     </div>
                                 }
-                                <div className="row">
-                                    <div className="col-md-12 form_group_">
-                                        <label>Descripción</label>
-                                        <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} />
-                                    </div>
+                                <div className="form_group_">
+                                    <label>Descripción</label>
+                                    <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} />
                                 </div>
                             </div>
 
                             {
                                 isReminder ?
-                                    <div className="row">
-                                        <div className="col-md-12">
+                                    <div className="form_group_">
                                             <div className="modal-footer">
                                                 <button onClick={saveReminder} className="btn btn-primary" type="button">Guardar</button>
                                             </div>
-                                        </div>
                                     </div> : null
                             }
                             {
                                 isMeet ?
-                                    <div className="row">
-                                        <div className="col-md-12">
+                                    <div className="form_group_">
                                             <div className="modal-footer">
                                                 <button onClick={saveMeet} className="btn btn-primary" type="button">Guardar</button>
                                             </div>
-                                        </div>
                                     </div> : null
                             }
                         </div>

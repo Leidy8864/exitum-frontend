@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
 import CreatableSelect from 'react-select/creatable';
@@ -28,20 +28,17 @@ function View(props) {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={education}>
-                                <div className="row">
-                                    <div className="col-md-12">
+                                <div className="form_group_">
                                     <label>Descripcion</label>
-                                    <input 
-                                     type="text"
-                                     id="nombreDescripcion"
-                                     className="form-control"
-                                     name="description"
-                                     onChange={description}
-                                     />
-                                    </div>
+                                    <input
+                                        type="text"
+                                        id="nombreDescripcion"
+                                        className="form-control"
+                                        name="description"
+                                        onChange={description}
+                                    />
                                 </div>
-                                <div className="row clocwerk mt-3">
-                                    <div className="col-md-12">
+                                <div className="form_group_ clocwerk mt-3">
                                     <label>Inicio de estudios</label>
                                     <Fragment>
                                         <DatePicker
@@ -50,10 +47,8 @@ function View(props) {
                                             name="date_start"
                                         />
                                     </Fragment>
-                                    </div>
                                 </div>
-                                <div className="row clocwerk mt-3">
-                                    <div className="col-md-12">
+                                <div className="form_group_ clocwerk mt-3">
                                     <label>Fin de estudios</label>
                                     <Fragment>
                                         <DatePicker
@@ -62,24 +57,21 @@ function View(props) {
                                             name="date_end"
                                         />
                                     </Fragment>
-                                    </div>
                                 </div>
-                                <div className="row mt-3">
-                                    <div className="col-md-12">
+                                <div className="form_group_ mt-3">
                                     <label>Universidad</label>
-                                        <Fragment>
-                                            <CreatableSelect
-                                                isClearable
-                                                onChange={handleChange}
-                                                onInputChange={handleInputChange}
-                                                options={options}
-                                                className={"styleCreatableSelect_"}
-                                                value={university_name}
-                                            />
-                                        </Fragment>
-                                    </div>
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={handleChange}
+                                            onInputChange={handleInputChange}
+                                            options={options}
+                                            className={"styleCreatableSelect_"}
+                                            value={university_name}
+                                        />
+                                    </Fragment>
                                 </div>
-                                <div className="modal-footer mt-3">
+                                <div className="modal-footer mt-5">
                                     <button type="submit" className="btn btn-primary">Guardar</button>
                                 </div>
                             </form>

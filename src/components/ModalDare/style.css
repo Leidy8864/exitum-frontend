@@ -1,0 +1,11 @@
+.ModalDare{
+    display: block;
+}
+
+textarea.form-control {
+    resize: none !important;
+}
+
+.downloads_container {
+    display: flex;
+}

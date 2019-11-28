@@ -204,7 +204,11 @@ ul li a {
   border-radius: 50%;
 }
 
-@media screen and (max-width: 991px) {
+.nav-item.calendar {
+  display: none !important;
+}
+
+@media screen and (max-width: 1024px) {
   .sidebar {
     position: fixed;
     display: block;
@@ -222,6 +226,18 @@ ul li a {
     padding-left: 0;
     transform: translate3d(-260px,0,0);
     transition: all .33s
+  }
+  .navbar-toggler {
+    margin-left: 20px !important;
+  }
+  .nav-item.calendar {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-toggler {
+    margin-left: 0px !important;
   }
 }
 

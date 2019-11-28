@@ -66,7 +66,6 @@ export const signIn = data => {
 export const updateUser = async data => {
     try {
         const res = await axios.post(root + 'users/update', data);
-        console.log("RESPUESTA ROLE",res.data)
         return res.data;
     } catch (error) {
         console.log("Error" + error);
@@ -88,7 +87,6 @@ export const showDataByUser = async (id) => {
     try {
         const res = await axios.get(root + `users/show/${id}`);
         return res.data;
-
     } catch (error) {
         console.log("Error" + error);
     }
@@ -304,7 +302,6 @@ export const listSkillsAxio = async () => {
 export const deleteSkill = async (data) => {
     try {
         const res = await axios.post(root + 'skills/delete', data);
-        console.log('RES DATA', res);
         return res.data;
     } catch (error) {
         console.log("Error", error);
@@ -332,8 +329,6 @@ export const actuallyStage = async (id) => {
 export const actuallyStageEmployee = async (id) => {
     try {
         const res = await axios.get(root + `challenges/listStageEmp/${id}`);
-
-
         return res.data.data;
     } catch (error) {
         console.log("Error" + error)
@@ -372,7 +367,6 @@ export const datailChallenge = async (id) => {
 
 
 export const completeChallenge = async (data) => {
-
     try {
         const res = await axios.post(root + `challenges/reply/`, data)
         return res.data;
@@ -396,10 +390,8 @@ export const getSummaryChallenge = async (data) => {
 
 
 export const deleteFileReplyy = async (data) => {
-
     try {
         const res = await axios.post(root + `challenges/deleteFileReply/`, data)
-
         return res.data;
     } catch (error) {
         console.log("Error" + error)
@@ -421,9 +413,7 @@ export const createExperience = data => {
 export const updateExperience = data => {
     return async dispatch => {
         try {
-            console.log("data = ", data);
             const res = await axios.post(root + `experiences/update`, data)
-            console.log("res.data.data = ", res.data.data);
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -431,8 +421,7 @@ export const updateExperience = data => {
     }
 }
 
-
-export const getOneExperience = async(id) => {
+export const getOneExperience = async (id) => {
     try {
         const res = await axios.get(root + `experiences/show/${id}`)
         return res.data.data
@@ -615,7 +604,6 @@ export const appointmentsUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/create/${id}`, data)
-            console.log("GUARDANDO REUNION O RECORDATORIO", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -635,7 +623,6 @@ export const appointmentsByUser = async id => {
 export const meetingByUser = async id => {
     try {
         const res = await axios.get(root + `appointments/list-by-meeting/${id}`)
-        console.log("metting", res.data)
         return res.data.data
     } catch (error) {
         console.log("Error" + error)
@@ -646,7 +633,6 @@ export const appointmentsUpdate = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/update/${id}`, data)
-            console.log("RESPUESTA REMINDER=>", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -658,7 +644,6 @@ export const appointmentsDelete = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/cancel/${id}`, data)
-            console.log("eliminando recordatorio", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -666,11 +651,10 @@ export const appointmentsDelete = (id, data) => {
     }
 }
 
-export const appointmentsConfirm = (id,data) => {
+export const appointmentsConfirm = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/confirmation/${id}`, data)
-            console.log("reunion confirmado",res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -679,7 +663,6 @@ export const appointmentsConfirm = (id,data) => {
 }
 
 export const listUniversities = async (id) => {
-
     try {
         const res = await axios.get(root + `universities/all`)
         return res.data.data;
@@ -689,7 +672,6 @@ export const listUniversities = async (id) => {
 }
 
 export const listCompanies = async (id) => {
-
     try {
         const res = await axios.get(root + `companies/all`)
         return res.data.data;
@@ -735,38 +717,38 @@ export const hourAvailables = (id, data) => {
 
 export const listEvents = async (data) => {
     try {
-        const res = await axios.get(root + `events/list-all/`,{
-            params : data
+        const res = await axios.get(root + `events/list-all/`, {
+            params: data
         })
         return res.data;
     } catch (error) {
         console.log("Error" + error)
     }
 }
-export const listMyEvents = async (id,data) => {
+export const listMyEvents = async (id, data) => {
     try {
-        const res = await axios.get(root + `events/list-by-user/${id}`,{
-            params : data
+        const res = await axios.get(root + `events/list-by-user/${id}`, {
+            params: data
         });
         return res.data;
     } catch (error) {
         console.log("Error" + error)
-     }
+    }
 }
-export const listEventsAssist = async (id,data) => {
+export const listEventsAssist = async (id, data) => {
     try {
-        const res = await axios.get(root + `events/participating/${id}`,{
-            params : data
+        const res = await axios.get(root + `events/participating/${id}`, {
+            params: data
         });
         return res.data;
     } catch (error) {
         console.log("Error" + error)
-     }
+    }
 }
 
 export const createEvent = async (data) => {
     try {
-        const res = await axios.post(root + `events/create/`,data)
+        const res = await axios.post(root + `events/create/`, data)
         return res.data;
     } catch (error) {
         console.log("Error" + error)
@@ -783,7 +765,7 @@ export const deleteEvent = async (id) => {
 }
 export const assistEvent = async (data) => {
     try {
-        const res = await axios.post(root + `events/take-part/`,data)
+        const res = await axios.post(root + `events/take-part/`, data)
         return res.data;
     } catch (error) {
         console.log("Error" + error)
@@ -791,3 +773,47 @@ export const assistEvent = async (data) => {
 }
 
 //End Events
+
+export const validadeTip = (data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `advices/check`, data);
+            console.log("res.data = ", res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+export const searchTip = async (id, type) => {
+    try {
+        const res = await axios.get(root + `advices/show?user_id=${id}&type=${type}`)
+        return res.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const verifyChallenge = (data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `challenges/verify`, data)
+            console.log(res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+export const listChallengeToVerify = async (id, page) => {
+    try {
+        const res = await axios.get(root + `challenges/toVerify?user_id=${id}&page=${page}`);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+
+
