@@ -3,9 +3,13 @@
     height: calc(100vh - 77px);
     overflow-y: auto;
     background: #E9EDF2 !important;  /* fallback for old browsers */
-    padding-right: 30px !important;
+    padding-right: 10px !important;
+    padding-left: 0 !important;
   }
 
   .Diary {
+    margin-top: 23px !important;
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 6px;
   }
-

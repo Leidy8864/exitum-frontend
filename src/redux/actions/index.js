@@ -594,6 +594,7 @@ export const notAvailableUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `schedules/not-available-multiple/${id}`, data)
+            console.log(res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

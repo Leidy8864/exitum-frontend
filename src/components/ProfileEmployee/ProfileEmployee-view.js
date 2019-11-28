@@ -67,7 +67,6 @@ function View(props) {
                                     <div className="data_user mt-3 experience-info-content mb-3">
                                         <div>
                                             <h4>{name} {lastname}</h4>
-                                            {/* <p className="bold">{experienceActual}</p> */}
                                         </div>
                                         <strong>{country}</strong>
                                         <hr />
@@ -80,7 +79,7 @@ function View(props) {
                                     </div>
                                 </div>
                                 <div className="edit-profile mt-4 mr-5">
-                                    <a href="#" className="reminder-edit" data-toggle="modal" data-target="#perfil"><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></a>
+                                    <a href="#" className="reminder-edit" data-toggle="modal" data-target="#perfilusuario"><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></a>
                                 </div>
                             </div>
 

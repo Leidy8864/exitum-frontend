@@ -29,12 +29,12 @@ span a img svg {
   
   .card.card-body {
     border: none;
-    border-radius: 20px !important;
+    border-radius: 3px !important;
     transition: all ease-in-out 0.6s;
   }
 
   .card.card-body:hover {
-    box-shadow: 0px 2px 20px -12px #666;
+    box-shadow: 0px 2px 1px -12px #666;
   }
   
   .images-icons {

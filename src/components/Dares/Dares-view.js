@@ -13,12 +13,12 @@ function View(props) {
     console.log(challenges)
     return (
         <Fragment>
-            <div className="row ml-1">
+            <div className="row pl-3 pr-3">
                 {challenges && challenges.length > 0 ?
                     challenges.map(function (item, index) {
                         return (
                             <Fragment key={index}>
-                                <div className="col-md-3">
+                                <div className="col-md-4">
                                     <div className="card mb-4">
                                         <div className="card-body">
                                             <a to="#" 

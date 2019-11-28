@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateUserPerfil, notAvailableUser,showDataByUser } from '../../redux/actions'
 import $ from 'jquery';
+import Swal from 'sweetalert2'
 
 class ModalPerfil extends React.Component {
 
@@ -94,16 +95,32 @@ class ModalPerfil extends React.Component {
             available
         }
 
+        console.log(ScheduleData)
+
         const formData = {
             name, lastname, phone, position, birthday, user_id, description
         }
 
         console.log(formData)
-        console.log(ScheduleData)
         
         const res = await this.props.updateUserPerfil(formData)
         const resTime = await this.props.notAvailableUser(user_id, ScheduleData)
-        $('#perfil').modal('hide');
+            Swal.fire(
+                'Buen trabajo',
+                'Se ha guardado tu perfil correctamente',
+                'success',
+            )
+            // this.props.listMeets(1)
+            $('#perfilusuario').modal('hide');
+            // } else {
+            //     Swal.fire({
+            //         type: 'error',
+            //         text: 'Ya hay una hora reservada para esta reunión, elije una hora disponible',
+            //         showConfirmButton: false
+            //     })
+            //     // this.props.listMeets(1)
+            //     $('#perfilusuario').modal('hide')
+            // }
     }
 
 

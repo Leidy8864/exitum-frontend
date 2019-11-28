@@ -25,7 +25,7 @@ function View(props) {
                         appointments.data.map(function (item, index) {
                             return (
                                 <Fragment key={index}>
-                                    <div className="reminders mb-3">
+                                    <div className="reminders mb-4">
                                         <div className="d-flex justify-content-between header-reminder">
                                             <div className="date-reminder d-flex">
                                                 <i className="far fa-calendar-alt mr-2 mt-1"></i><p className="ml-2">{item.date}</p>
