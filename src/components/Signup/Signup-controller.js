@@ -2,7 +2,7 @@ import React from 'react';
 import View from './Signup-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {oauthGoogle,oauthFacebook,signUp,signIn,updateUser} from '../../redux/actions';
+import { oauthGoogle, oauthFacebook, signUp, signIn, updateUser } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form'
 import $ from 'jquery';
 
@@ -18,7 +18,7 @@ class Signup extends React.Component {
         error_email: '',
         error_password: '',
         error_registro: '',
-        exito_registro:'',
+        exito_registro: '',
     }
 
     name = e => {
@@ -47,53 +47,54 @@ class Signup extends React.Component {
         this.setState({ exito_registro: '' });
 
         e.preventDefault();
-        const {name,lastname,email, password} = this.state
+        const { name, lastname, email, password } = this.state
         const formData = {
             name,
             lastname,
             email,
             password
         }
-        
-        if(name && lastname && email && password && password.length >= 8){
+
+        if (name && lastname && email && password && password.length >= 8) {
             const response = await this.props.signUp(formData);
-            if(response.status){
+            if (response.status) {
                 localStorage.setItem('id', response.data.id);
                 localStorage.setItem('infoChiko', true);
-                localStorage.setItem('token',response.data.accessToken);
-                localStorage.setItem('confirmed',response.data.confirmed);
-                localStorage.setItem('lastname',response.data.lastname);
-                localStorage.setItem('name',response.data.name);
-                localStorage.setItem('email',response.data.email);
-                localStorage.setItem('role',response.data.role);
-                
+                localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('confirmed', response.data.confirmed);
+                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role);
+
                 $('.modal-backdrop').remove();
                 $('body').removeClass('modal-open');
 
                 this.setState({ exito_registro: 'Se te ha enviado un correo para validar tu registro.' })
-                this.props.history.push('/dashboard');
-            }else{
+                window.location.replace('/dashboard');
+
+            } else {
                 console.log("error = ", response.message)
                 this.setState({ error_registro: response.message })
             }
-        }else{
-            if(!name){
+        } else {
+            if (!name) {
                 this.setState({ error_name: 'Debes ingresar un nombre' })
             }
-            if(!lastname){
+            if (!lastname) {
                 this.setState({ error_lastname: 'Debes ingresar un apellido' })
             }
-            if(!email){
+            if (!email) {
                 this.setState({ error_email: 'Debes ingresar un email' })
             }
-            if(!password){
+            if (!password) {
                 this.setState({ error_password: 'Debes ingresar una clave' })
-            }else{
-                if(password.length < 8){
+            } else {
+                if (password.length < 8) {
                     this.setState({ error_password: 'La clave debe tener mínimo 8 caracteres' })
                 }
             }
-            
+
         }
     }
 
@@ -101,22 +102,23 @@ class Signup extends React.Component {
     responseGoogle = async (res) => {
         this.props.cleanForm("0");
         const response = await this.props.oauthGoogle(res.accessToken);
-        if(response.status) {
+        if (response.status) {
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('infoChiko', true);
-            localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('photo',response.data.photo);
-            localStorage.setItem('confirmed',response.data.confirmed);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role);
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('photo', response.data.photo);
+            localStorage.setItem('confirmed', response.data.confirmed);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role);
 
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
 
-            this.props.history.push('/dashboard');
-        } else{
+            window.location.replace('/dashboard');
+
+        } else {
             console.log("error = ", response.message)
             this.setState({ error_registro: response.message })
         }
@@ -124,22 +126,23 @@ class Signup extends React.Component {
 
     responseFacebook = async (res) => {
         this.props.cleanForm("0");
-        const response =  await this.props.oauthFacebook(res.accessToken)
-        if(response.status) {
+        const response = await this.props.oauthFacebook(res.accessToken)
+        if (response.status) {
             localStorage.setItem('id', response.data.id);
             localStorage.setItem('infoChiko', true);
-            localStorage.setItem('token',response.data.accessToken)
-            localStorage.setItem('photo',response.data.photo);
-            localStorage.setItem('confirmed',response.data.confirmed);
-            localStorage.setItem('lastname',response.data.lastname);
-            localStorage.setItem('name',response.data.name);
-            localStorage.setItem('email',response.data.email);
-            localStorage.setItem('role',response.data.role);
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('photo', response.data.photo);
+            localStorage.setItem('confirmed', response.data.confirmed);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role);
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
 
-            this.props.history.push('/dashboard');
-        } else{
+            window.location.replace('/dashboard');
+
+        } else {
             console.log("error = ", response.message)
             this.setState({ error_registro: response.message })
         }
@@ -162,7 +165,7 @@ class Signup extends React.Component {
         let content_error_registro = '';
         let content_exito_registro = '';
 
-        if(cleanFormReducer){
+        if (cleanFormReducer) {
             error_name = '';
             error_lastname = '';
             error_email = '';
@@ -171,22 +174,22 @@ class Signup extends React.Component {
             exito_registro = '';
         }
 
-        if(error_name){
+        if (error_name) {
             content_error_name = <p>{error_name}</p>;
         }
-        if(error_lastname){
+        if (error_lastname) {
             content_error_lastname = <p>{error_lastname}</p>;
         }
-        if(error_email){
+        if (error_email) {
             content_error_email = <p>{error_email}</p>;
         }
-        if(error_password){
+        if (error_password) {
             content_error_password = <p>{error_password}</p>;
         }
-        if(error_registro){
+        if (error_registro) {
             content_error_registro = <div className="error-message"><p>{error_registro}</p></div>;
         }
-        if(exito_registro){
+        if (exito_registro) {
             content_exito_registro = <div className="exito-message"><p>{exito_registro}</p></div>;
         }
 
@@ -199,12 +202,12 @@ class Signup extends React.Component {
                 lastname={this.lastname}
                 email={this.email}
                 password={this.password}
-                content_error_name = {content_error_name}
-                content_error_lastname = {content_error_lastname}
-                content_error_email = {content_error_email}
-                content_error_password = {content_error_password}
-                content_error_registro = {content_error_registro}
-                content_exito_registro = {content_exito_registro}
+                content_error_name={content_error_name}
+                content_error_lastname={content_error_lastname}
+                content_error_email={content_error_email}
+                content_error_password={content_error_password}
+                content_error_registro={content_error_registro}
+                content_exito_registro={content_exito_registro}
             />
         );
     }

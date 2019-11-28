@@ -24,8 +24,10 @@ import listRemindersReducer from './listRemindersReducer';
 import listUsersReducer from './listUsersReducer';
 import getExperienceReducer from './getExperienceReducer';
 import listExperiencesReducer from './listExperiencesReducer';
+import reloadPageReducer from './reloadPageReducer';
 import listMeetsReducer from './listMeetsReducer'
 import getMeetReducer from './getMeetReducer'
+import getEventTypeReducer from './getEventTypeReducer'
 import getChallengeReducer from './getChallengeReducer'
 import listChallengeReducer from './listChallengesReducer'
 
@@ -55,8 +57,10 @@ export default combineReducers({
     listUsersReducer: listUsersReducer,
     getExperienceReducer: getExperienceReducer,
     listExperiencesReducer: listExperiencesReducer,
+    reloadPageReducer: reloadPageReducer,
     listMeetsReducer: listMeetsReducer,
     getMeetReducer: getMeetReducer,
+    getEventTypeReducer : getEventTypeReducer,
     getChallengeReducer: getChallengeReducer,
     listChallengeReducer: listChallengeReducer
 });

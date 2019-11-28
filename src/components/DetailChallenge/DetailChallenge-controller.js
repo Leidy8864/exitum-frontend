@@ -24,9 +24,9 @@ class DetailChallenge extends React.Component {
         active : true
     }
 
-    componentDidMount(){
-        console.log("IN DID MOUNT");
-    }
+    // componentDidMount(){
+    //     console.log("IN DID MOUNT");
+    // }
     async componentDidUpdate(nextProps) {
         const { tip_id, challenges } = this.props;
         if (nextProps.tip_id !== tip_id) {
@@ -62,8 +62,8 @@ class DetailChallenge extends React.Component {
         })
 
     }
-    handleDownload = async (name) => {
-        const fileName = name;
+    handleDownload = async (key_s3) => {
+        const fileName = key_s3;
 
         var a = document.createElement("a");
         a.href = root + 'challenges/download/' + fileName;

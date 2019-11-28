@@ -378,8 +378,8 @@ export const completeChallenge = async (data) => {
 
 export const getSummaryChallenge = async (data) => {
     try {
-        const res = await axios.get(root + `challenges/summaryTips/`,{
-            params : data
+        const res = await axios.get(root + `challenges/summaryTips/`, {
+            params: data
         })
         return res.data.data;
     } catch (error) {
@@ -422,7 +422,7 @@ export const updateExperience = data => {
     }
 }
 
-export const getOneExperience = async(id) => {
+export const getOneExperience = async (id) => {
     try {
         const res = await axios.get(root + `experiences/show/${id}`)
         return res.data.data
@@ -631,7 +631,7 @@ export const meetingByUser = async id => {
     }
 }
 
-export const appointmentsUpdate =  (id, data) => {
+export const appointmentsUpdate = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/update/${id}`, data)
@@ -654,7 +654,7 @@ export const appointmentsDelete = (id, data) => {
     }
 }
 
-export const appointmentsConfirm = (id,data) => {
+export const appointmentsConfirm = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/confirmation/${id}`, data)
@@ -703,7 +703,7 @@ export const deleteExperience = data => {
     }
 }
 
-export const hourAvailables = (id,data) => {
+export const hourAvailables = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `schedules/schedule/${id}`,data)
@@ -715,10 +715,73 @@ export const hourAvailables = (id,data) => {
     }
 }
 
+
+
+//Events 
+
+export const listEvents = async (data) => {
+    try {
+        const res = await axios.get(root + `events/list-all/`, {
+            params: data
+        })
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const listMyEvents = async (id, data) => {
+    try {
+        const res = await axios.get(root + `events/list-by-user/${id}`, {
+            params: data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const listEventsAssist = async (id, data) => {
+    try {
+        const res = await axios.get(root + `events/participating/${id}`, {
+            params: data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const createEvent = async (data) => {
+    try {
+        const res = await axios.post(root + `events/create/`, data)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const deleteEvent = async (id) => {
+    try {
+        const res = await axios.post(root + `events/delete/${id}`)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const assistEvent = async (data) => {
+    try {
+        const res = await axios.post(root + `events/take-part/`, data)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+//End Events
+
 export const validadeTip = (data) => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `advices/check`,data);
+            const res = await axios.post(root + `advices/check`, data);
             console.log("res.data = ", res.data)
             return res.data.data
         } catch (error) {
@@ -727,7 +790,7 @@ export const validadeTip = (data) => {
     }
 }
 
-export const searchTip = async (id,type) => {
+export const searchTip = async (id, type) => {
     try {
         const res = await axios.get(root + `advices/show?user_id=${id}&type=${type}`)
         return res.data
@@ -736,7 +799,18 @@ export const searchTip = async (id,type) => {
     }
 }
 
-export const listChallengeToVerify = async (id,page) => {
+export const verifyChallenge = (data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `challenges/verify`, data)
+            console.log(res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+export const listChallengeToVerify = async (id, page) => {
     try {
         const res = await axios.get(root + `challenges/toVerify?user_id=${id}&page=${page}`);
         return res.data.data
@@ -745,14 +819,5 @@ export const listChallengeToVerify = async (id,page) => {
     }
 }
 
-export const verifyChallenge = (data) => {
-    return async dispatch => {
-        try {
-            const res = await axios.post(root + `challenges/verify`,data)
-            console.log(res.data)
-            return res.data.data
-        } catch (error) {
-            console.log("Error" + error)
-        }
-    }
-}
+
+

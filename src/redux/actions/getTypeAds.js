@@ -1,8 +1,8 @@
 export const type = 'GET_TYPE_ADS';
 
-const openModal = (text) => ({
+const getTypeAds = (text) => ({
     type,
     payload: text,
 });
 
-export default openModal;
+export default getTypeAds;

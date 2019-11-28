@@ -59,10 +59,10 @@ function View(props) {
                                                                     challenge.files.map((item, index) =>
                                                                         <div key={index} className="downloads_ mb-4">
 
-                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.name)}>
+                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)}>
                                                                                 {item.name}
                                                                             </a>
-                                                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} onClick={handleDownload.bind(this, item.name)} />
+                                                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
                                                                         </div>
                                                                     )
                                                                 }
@@ -93,7 +93,7 @@ function View(props) {
                                                                     <div key={index} className="my-files">
                                                                         <div className="downloads_">
 
-                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.name)} key={index}>
+                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)} key={index}>
                                                                                 {item.name}
                                                                             </a>
                                                                             <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />

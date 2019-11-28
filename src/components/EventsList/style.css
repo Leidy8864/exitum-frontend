@@ -1,0 +1,7 @@
+.EventsList{
+    display: block;
+}
+div#events-list{
+    height: calc(100vh - 230px);
+    overflow-y: auto;
+  }

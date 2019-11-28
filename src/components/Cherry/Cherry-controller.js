@@ -49,9 +49,10 @@ class Cherry extends React.Component {
             this.setState({
                 textInfo:tip.data.description,
                 advice_id:tip.data.id,
-                infoCherry: true})
+                infoCherry: true,
+                infoChiko:true})
         }else{
-            this.setState({infoCherry: false})
+            this.setState({infoCherry: false, infoChiko: false})
         }
 
     }

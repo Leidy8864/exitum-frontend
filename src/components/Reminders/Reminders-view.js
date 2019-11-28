@@ -16,9 +16,6 @@ function View(props) {
         handleClickDeleteMeetNotification,
         id
     } = props
-    
-    console.log(appointments)
-
     return (
         <Fragment>
 

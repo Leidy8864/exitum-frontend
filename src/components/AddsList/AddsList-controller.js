@@ -30,30 +30,15 @@ class AddsList extends React.Component {
         res_message: '',
         adsList : []
     }
-    async componentDidMount(){
-        // const data = {
-        //     user_id: result.id,
-        //     state: 'active',
-        //     page: 1
-        // }
-
+    componentDidMount(){
         data.state = 'active'
-        console.log("didmount");
-
-        this.getListAds(data); // Consultar información 
+        this.getListAds(data); // Consultar información        
     }
-    async componentDidUpdate(nextProps) {        
+    componentDidUpdate(nextProps) {        
         const {adState} = this.props;
 
         if (nextProps.adState !== adState) {
             if (adState) {
-                console.log("adstate",adState);
-                
-                // const data = {
-                //     user_id: result.id,
-                //     state: adState,
-                //     page: 1
-                // }
                 data.state = adState;
                 this.getListAds(data); // Consultar información 
             }
@@ -64,7 +49,7 @@ class AddsList extends React.Component {
     getListAds = async (data) =>{
         try {
             const adsList = await listAdsByUser(data);
-            console.log("adslist",adsList.data);
+            // console.log("adslist",adsList.data);
             
             if (adsList.status) {                
                 const pages =  adsList.pages;

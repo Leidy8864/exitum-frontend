@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createProposal } from '../../redux/actions';
 import $ from 'jquery';
+import reloadPage from '../../redux/actions/reloadPage';
 class AdDetail extends React.Component {
     state = {
         advertisement_id : 0,
@@ -43,16 +44,19 @@ class AdDetail extends React.Component {
                 advertisement_id : advertisement_id,
                 id : user_id
             }
+            $('#adDetail').modal('hide');
+            this.props.reloadPage(1);
+
             const response = await createProposal(formData);
             console.log("RESPONSE PROPSAL",response);
             if (response.status) {
                 this.setState({
                     success_message : response.message
-                });
+                });            
                 setTimeout(
                     () => {
                         $('#adDetail').modal('hide');
-                        window.location.reload();
+                        this.props.reloadPage(1);  
                     },
                     1200
                 );
@@ -69,7 +73,7 @@ class AdDetail extends React.Component {
                 );
             }  
         } catch (error) {
-            console.log("ERROR POSTULANDO A UN ANUNCIO");
+            console.log("ERROR POSTULANDO A UN ANUNCIO",error);
             
         }
         
@@ -102,6 +106,9 @@ const mapStateToProps = state => ({
     adsList: state.getListAdsReducer,
     advertisement : state.getAdvertReducer
 });
+const mapDispatchToProps = {
+   reloadPage
+}
 export default withRouter(
-    connect(mapStateToProps, null)(AdDetail)
+    connect(mapStateToProps, mapDispatchToProps)(AdDetail)
 )

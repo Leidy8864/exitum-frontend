@@ -33,7 +33,7 @@ class EmployeesList extends React.Component {
 
         const { adType } = this.props;
         if (nextProps.adType !== adType) {
-            if (adType) {
+            if (adType) {                
                 try {
                     const { advertisement_id } = this.state;
                     const data = {

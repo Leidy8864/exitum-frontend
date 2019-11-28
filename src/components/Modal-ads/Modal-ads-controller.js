@@ -76,7 +76,7 @@ class ModalAds extends React.Component {
         const { advertisement } = this.props;
 
         if (nextProps.advertisement !== advertisement) {
-            if (advertisement) {
+            if (advertisement) {                
                 $('#AdsModal').on('hidden.bs.modal', () => {
                     this.props.getAdvert(null);
                 });
