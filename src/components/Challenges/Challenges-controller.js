@@ -29,7 +29,7 @@ class Challenges extends React.Component {
                     step_id,
                     startup_id,
                     user_id
-                }
+                }                
                 this.getChallenges(data);
                 /*
                 Función permite saber cuando se la ruta ha cambiado para resetar el valor del ID  de proyecto 
@@ -56,6 +56,8 @@ class Challenges extends React.Component {
             }
             const listChallenges = response.challenges;
 
+            console.log("LISTA CHALLENGES",listChallenges);
+            
             if (listChallenges && listChallenges.length >= 1) {
                 const challenges = listChallenges.map(x => ({
                     key: x.tip.id,

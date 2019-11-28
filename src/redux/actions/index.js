@@ -66,10 +66,10 @@ export const signIn = data => {
 export const updateUser = async data => {
     try {
         const res = await axios.post(root + 'users/update', data);
+        console.log("RESPUESTA ROLE",res.data)
         return res.data;
     } catch (error) {
         console.log("Error" + error);
-
     }
 }
 
@@ -418,6 +418,29 @@ export const createExperience = data => {
     }
 }
 
+export const updateExperience = data => {
+    return async dispatch => {
+        try {
+            console.log("data = ", data);
+            const res = await axios.post(root + `experiences/update`, data)
+            console.log("res.data.data = ", res.data.data);
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
+
+export const getOneExperience = async(id) => {
+    try {
+        const res = await axios.get(root + `experiences/show/${id}`)
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
 export const createEducation = data => {
     return async dispatch => {
         try {
@@ -643,6 +666,18 @@ export const appointmentsDelete = (id, data) => {
     }
 }
 
+export const appointmentsConfirm = (id,data) => {
+    return async dispatch => {
+        try {
+            const res = await axios.post(root + `appointments/confirmation/${id}`, data)
+            console.log("reunion confirmado",res.data)
+            return res.data.data
+        } catch (error) {
+            console.log("Error" + error)
+        }
+    }
+}
+
 export const listUniversities = async (id) => {
 
     try {
@@ -693,3 +728,66 @@ export const hourAvailables = (id, data) => {
         }
     }
 }
+
+
+
+//Events 
+
+export const listEvents = async (data) => {
+    try {
+        const res = await axios.get(root + `events/list-all/`,{
+            params : data
+        })
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const listMyEvents = async (id,data) => {
+    try {
+        const res = await axios.get(root + `events/list-by-user/${id}`,{
+            params : data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+     }
+}
+export const listEventsAssist = async (id,data) => {
+    try {
+        const res = await axios.get(root + `events/participating/${id}`,{
+            params : data
+        });
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+     }
+}
+
+export const createEvent = async (data) => {
+    try {
+        const res = await axios.post(root + `events/create/`,data)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const deleteEvent = async (id) => {
+    try {
+        const res = await axios.post(root + `events/delete/${id}`)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const assistEvent = async (data) => {
+    try {
+        const res = await axios.post(root + `events/take-part/`,data)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+//End Events

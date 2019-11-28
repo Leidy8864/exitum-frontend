@@ -5,9 +5,10 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';  
 import { appointmentsUser, listUsers, hourAvailables } from '../../redux/actions'
 import listReminders from '../../redux/actions/list-reminders'
+import listMeets from '../../redux/actions/list-meets'
 import moment from 'moment';
 import $ from 'jquery'
-import DatePicker from 'react-date-picker';
+
 
 class ModalDiary extends React.Component {
     state = {
@@ -56,8 +57,7 @@ class ModalDiary extends React.Component {
         const data = {
             date: moment(this.state.date).format('YYYY-MM-DD')
         }
-        var ddd = document.getElementById('datepickereu')
-        console.log(ddd)
+
         
         const hourAvailables = await this.props.hourAvailables(selectedOption.value,data);
         this.setState({hourAvailables})
@@ -131,6 +131,7 @@ class ModalDiary extends React.Component {
         await this.props.hourAvailables(to_user_id,data);
         await this.props.appointmentsUser(to_user_id,formMeet);
         $('#newdiary').modal('hide')
+        this.props.listMeets(1)
     }
 
     onChange = async date => {
@@ -220,6 +221,7 @@ const mapDispatchToProps = {
     appointmentsUser,
     listUsers,
     listReminders,
+    listMeets,
     hourAvailables
 };
 

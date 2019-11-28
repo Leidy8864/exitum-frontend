@@ -62,8 +62,8 @@ class DetailChallenge extends React.Component {
         })
 
     }
-    handleDownload = async (name) => {
-        const fileName = name;
+    handleDownload = async (key_s3) => {
+        const fileName = key_s3;
 
         var a = document.createElement("a");
         a.href = root + 'challenges/download/' + fileName;

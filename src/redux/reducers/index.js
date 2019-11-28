@@ -25,6 +25,10 @@ import listUsersReducer from './listUsersReducer';
 import getExperienceReducer from './getExperienceReducer';
 import listExperiencesReducer from './listExperiencesReducer';
 import reloadPageReducer from './reloadPageReducer';
+import listMeetsReducer from './listMeetsReducer'
+import getMeetReducer from './getMeetReducer'
+import getEventTypeReducer from './getEventTypeReducer'
+
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -51,5 +55,8 @@ export default combineReducers({
     listUsersReducer: listUsersReducer,
     getExperienceReducer: getExperienceReducer,
     listExperiencesReducer: listExperiencesReducer,
-    reloadPageReducer: reloadPageReducer
+    reloadPageReducer: reloadPageReducer,
+    listMeetsReducer: listMeetsReducer,
+    getMeetReducer: getMeetReducer,
+    getEventTypeReducer : getEventTypeReducer
 });

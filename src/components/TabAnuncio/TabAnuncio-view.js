@@ -8,7 +8,8 @@ function View(props) {
         adType,
         userRole,
         handleSetAdType,
-        isDetail
+        isDetail,
+        forEvents
     } = props;
     return (
         <div>

@@ -3,26 +3,27 @@ import View from './ModalUpdateExperience-view';
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
-import { createExperience } from '../../redux/actions';
+import { updateExperience } from '../../redux/actions';
 import listExperiences from '../../redux/actions/list-experiences';
 import $ from 'jquery'
 
 class ModalUpdateExperience extends React.Component {
 
     state = {
-        certification_id:'',
+
+        experience_id:'',
         position: '',
         description: '',
         company_name: '',
         date_expedition: new Date(),
         date_expiration: new Date(),
-        isCurrentJob : true
+        isCurrentJob : true,
+        isCompanynameChanged: false,
+        isSelected: false,
+        isDescriptionChanged:false,
+        changed_date_expedition:false,
+        changed_date_expiration:false,
         
-    }
-
-    async componentDidMount(){
-        let radiobtn = document.getElementById("true");
-        radiobtn.checked = true;
     }
 
     position = e => {
@@ -33,31 +34,49 @@ class ModalUpdateExperience extends React.Component {
             e.preventDefault();
             return false;
         }
-        this.setState({ description: e.target.value })
+        this.setState({ description: e.target.value , isDescriptionChanged: true})
     }
 
-    company_name = e => {
-        this.setState({ company_name: e.target.value })
-    }
-
-    experience = async e => {
+    updateExperience = async e => {
         e.preventDefault();
         let user_id = localStorage.getItem('id')
-        const {position,company_name,date_expedition, date_expiration, isCurrentJob, description} = this.state
-        // let description_ = description.split("\n").join('<br>')
-        let description_ = description
+        let {
+            description, company_name, date_expedition, date_expiration, 
+            isDescriptionChanged, changed_date_expedition, changed_date_expiration
+        } = this.state;
 
-        let date_start = moment(date_expedition).format('YYYY-MM-DD');
+        if(!isDescriptionChanged){
+            description = $('#nombreDescripcion').val()
+        }
+        if(!changed_date_expedition){
+            date_expedition = moment(localStorage.getItem('date_start_')).add(1, 'days').format('YYYY-MM-DD')
+        }
+        if(!changed_date_expiration){
+            date_expiration = moment(localStorage.getItem('date_end_')).add(1, 'days').format('YYYY-MM-DD')
+        }
         let date_end = null;
+
+        let isCurrentJob = document.getElementById('true_').checked?true:false;
+
         if(!isCurrentJob){
-            date_end = moment(date_expiration).format('YYYY-MM-DD');
+            date_end = new Date(moment(date_expiration).format('YYYY-MM-DD'));
         }
+ 
         const formData = {
-            user_id,position,company_name: company_name.value,date_start,date_end, description: description_
+            user_id: user_id,
+            experience_id:$('#experience_id').val(),
+            position: $('#positionName').val(),
+            date_start: new Date(moment(date_expedition).format('YYYY-MM-DD')),
+            date_end: date_end, 
+            description: description
+        }
+        if(company_name){
+            formData.company_name = company_name.value;
         }
 
-        await this.props.createExperience(formData);
-        $('#experience').modal('hide');
+        await this.props.updateExperience(formData);
+
+        $('#updateexperience').modal('hide');
         $('#nombreDescripcion').val('')
         $('#nombrePosition').val('')
         this.setState({ 
@@ -72,21 +91,21 @@ class ModalUpdateExperience extends React.Component {
     }
 
     selectCurrentJob = async (e) =>{
-        if(e.target.value === 'true'){
-            this.setState({isCurrentJob: true})
-            $('#endDateModal').css("display", "none");
+        if(e.target.value === 'true_'){
+            this.setState({isCurrentJob: true, isSelected:true})
+            $('#endDateModal_').css("display", "none");
         }else{
-            this.setState({isCurrentJob: false})
-            $('#endDateModal').css("display", "block");
+            this.setState({isCurrentJob: false, isSelected:true})
+            $('#endDateModal_').css("display", "block");
         }
     }
     
-    onChange = date_expedition => this.setState({ date_expedition })
-    onChange_ = date_expiration => this.setState({ date_expiration})
+    onChange = date_expedition => {this.setState({ date_expedition: date_expedition, changed_date_expedition:true})}
+    onChange_ = date_expiration => this.setState({ date_expiration: date_expiration,changed_date_expiration: true})
 
     handleChange = (newValue, actionMeta) => {
         if(newValue){
-            this.setState({ company_name: {label: newValue.value, value: newValue.value}  })
+            this.setState({ company_name: newValue, isCompanynameChanged:true  })
         }
     };
     
@@ -99,46 +118,73 @@ class ModalUpdateExperience extends React.Component {
             listCompaniesReducer,
             getExperienceReducer,
         } = this.props;
-        // console.log("getExperienceReducer = ", getExperienceReducer)
 
-        // if(getEducationReducer.id && $('#EducationId').val() !== EducationId){
-        //     university = this.state.university === '' ? 
-        //                     {label: getEducationReducer.university.university, value: getEducationReducer.university.university}
-        //                 : this.state.university
-        //     if(!changed_date_expedition) date_expedition = new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
-        //     if(!changed_date_expiration) date_expiration = new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
-        //     if(!changed_date_expedition && !changed_date_expiration){
-        //         $('#EducationId').val(EducationId);
-        //         $('#EducationDescription').val(getEducationReducer.description);
-        //         $('#EducationUniversity').val(getEducationReducer.university.university);
-        //     }
-        //     localStorage.setItem('date_start', new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD')));
-        //     localStorage.setItem('date_end', new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD')));
-        // }
+        let {
+            experience_id,
+            description,
+            company_name,
+            date_expedition,
+            date_expiration,
+            changed_date_expedition,
+            changed_date_expiration,
+            isCompanynameChanged,
+            isDescriptionChanged,
+            isSelected
+        } = this.state;
+
+        experience_id = getExperienceReducer.id;
+        if(getExperienceReducer.id && $('#experience_id').val() !== experience_id){
+            if(!isCompanynameChanged)   company_name= {label: getExperienceReducer.company_name, value: getExperienceReducer.company_name}
+            if(!changed_date_expedition) date_expedition = new Date(moment(getExperienceReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
+            if(!changed_date_expiration) date_expiration = new Date(moment(getExperienceReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
+            if(!changed_date_expedition && !changed_date_expiration && !isCompanynameChanged && !isSelected && !isDescriptionChanged){
+                $('#experience_id').val(experience_id);
+                $('#positionName').val(getExperienceReducer.position);
+            }
+
+            if(!isDescriptionChanged){
+                description = getExperienceReducer.description
+                $('#nombreDescripcion').val(getExperienceReducer.description)
+            }
+
+            localStorage.setItem('date_start_', moment(getExperienceReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
+            localStorage.setItem('date_end_', moment(getExperienceReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
+
+            if(!isSelected){
+                if(getExperienceReducer.current_job === 0){
+                    $('#endDateModal_').css("display", "block");
+                    let radiobtn = document.getElementById("false_");
+                    radiobtn.checked = true;
+                }else{
+                    let radiobtn = document.getElementById("true_");
+                    radiobtn.checked = true;
+                    $('#endDateModal_').css("display", "none");
+                }
+            }
+        }
 
         return (
             <View
-                // position = {this.position}
-                // description = {this.description}
-                // description_ = {this.state.description}
-                // // company_name = {this.company_name}
-                // experience = {this.experience}
-                // onChange={this.onChange}
-                // onChange_={this.onChange_}
-                // selectCurrentJob={this.selectCurrentJob}
-                // date={this.state.date_expedition}
-                // dateFinal={this.state.date_expiration}
-                // options = {listCompaniesReducer}
-                // handleChange={this.handleChange}
-                // handleInputChange={this.handleInputChange}
-                // company_name={this.state.company_name}
+                experience_id = {experience_id}
+                description = {this.description}
+                description_ = {description}
+                date = {date_expedition}
+                onChange = {this.onChange}
+                onChange_ = {this.onChange_}
+                dateFinal = {date_expiration}
+                options = {listCompaniesReducer}
+                handleChange={this.handleChange}
+                handleInputChange={this.handleInputChange}
+                company_name={company_name}
+                selectCurrentJob={this.selectCurrentJob}
+                updateExperience={this.updateExperience}
             />
         );
     }
 }
 
 const mapDispatchToProps = {
-    createExperience,
+    updateExperience,
     listExperiences
 }
 

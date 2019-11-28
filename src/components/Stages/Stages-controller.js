@@ -18,6 +18,14 @@ class Stages extends React.Component {
         selected: '',
         projectId: 0
     }
+    componentDidMount(){
+        if (role === "employee") {
+            const data = {
+                user_id
+            }
+            this.getListStages(data);
+        }
+    }
     //Función que detecta los cambios en el componente para modificar el state
     componentDidUpdate(nextProps) {
         const { projectId } = this.props;
@@ -37,8 +45,8 @@ class Stages extends React.Component {
             if (role === "entrepreneur") {
                 listStages = await actuallyStage(data.projectId);
             } else {
-                listStages = await actuallyStage(data.user_id);
-            }
+                listStages = await actuallyStageEmployee(data.user_id);
+            }            
             const steps = listStages ? listStages.steps : [];
             if (steps.length >= 1) {
                 this.props.getIdActualStage(steps[0].id);

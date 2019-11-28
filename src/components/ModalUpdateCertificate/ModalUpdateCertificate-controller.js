@@ -73,7 +73,6 @@ class ModalUpdateCertificate extends React.Component {
             date_expedition,date_expiration,changed_date_expedition,changed_date_expiration} = this.state;
         
         CertificateId = getCertificateReducer.id;
-        console.log(getCertificateReducer)
         
         if(getCertificateReducer.id && $('#CertificateId').val() !== CertificateId){
             if(!changed_date_expedition) date_expedition = new Date(moment(getCertificateReducer.date_expedition).add(1, 'days').format('YYYY-MM-DD'));
