@@ -8,6 +8,7 @@ import ModalUpdateCertificate from '../ModalUpdateCertificate/ModalUpdateCertifi
 import ModalUpdateEducation from '../ModalUpdateEducation/ModalUpdateEducation-controller'
 import ModalUpdateExperience from '../ModalUpdateExperience/ModalUpdateExperience-controller'
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
+import moment from 'moment'
 import { Link } from 'react-router-dom'
 import './style.css';
 // import { SlowBuffer } from 'buffer';
@@ -45,15 +46,16 @@ function View(props) {
         <Fragment>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <div className="card">
                             <div className="img-profile mb-3">
-                                <div className="photo-perfil mt-3">
+                                <div className="photo-perfil mt-5">
                                     <img src={photo || "https://yt3.ggpht.com/a/AGF-l7-m7BOEOMCrDfMvUvHorhg9tT92ALhfDr_u5A=s900-c-k-c0xffffffff-no-rj-mo"} alt="img" />
+                                    <div className="">
+                                        <h4 className="text-white mt-4">{name} {lastname}</h4>
+                                    </div>
+                                    <p className="text-white">{experience}</p>
                                     <input type="file" className="inputfile" name="file" onChange={fileSelectedHandler} />
-                                </div>
-                                <div className="description-perfil mt-3">
-                                    <p>{description}</p>
                                 </div>
                                 <button className="btn-save-img mt-2 mb-4" type="button" onClick={fileUploadHandler}>Guardar</button>
                             </div>
@@ -65,16 +67,17 @@ function View(props) {
                                         <h3 className="ml-4">Perfil</h3>
                                     </div>
                                     <div className="data_user mt-3 experience-info-content mb-3">
-                                        <div>
-                                            <h4>{name} {lastname}</h4>
+                                        <div className="description-perfil mt-3">
+                                            <strong className="w-100">Sobre mi ...</strong><br/>
+                                            <span className="gray">{description}</span>
                                         </div>
-                                        <strong>{country}</strong>
                                         <hr />
+                                        <strong>{country}</strong>
                                         <div>
-                                            <span className="bold">{birthday}</span>
+                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday}</span>
                                         </div>
                                         <div>
-                                            <span className="bold">{phone}</span>
+                                            <span className="gray title">Celular:</span><span className="gray">{phone}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -107,8 +110,8 @@ function View(props) {
                                                 <div className="experience-info w-100 mb-4">
                                                     <div className="info-experience w-100">
                                                         <div className="experience-info-content w-100 mt-3">
-                                                            <span className="bold title">Empresa:</span><span className=""><strong>{item.company_name}</strong></span>
-                                                            <span className="bold"> - {item.time_total}</span>
+                                                            <span className="gray title">Empresa:</span><span className=""><strong>{item.company_name}</strong></span>
+                                                            <span className="gray"> - {item.time_total}</span>
                                                             <br />
                                                             {
                                                                 item.detail.map(function (item_, index_) {
@@ -117,10 +120,10 @@ function View(props) {
                                                                             <div className="experience-info">
                                                                                 <div className="info-experience">
                                                                                     <div className="data_user_detail">
-                                                                                        <div><span className="bold title">Posisión:</span><span className="bold">{item_.position}</span></div>
-                                                                                        <div><span className="bold title">Desde:</span><span className="bold">{item_.date_start}</span></div>
-                                                                                        <div><span className="bold title">Hasta:</span><span className="bold">{item_.date_end ? item_.date_end : "actualidad"}</span></div>
-                                                                                        <div><span className="bold title">Descripción:</span><span className="bold">{item_.description ? item_.description : ""}</span></div>
+                                                                                        <div><span className="gray title">Posisión:</span><span className="gray">{item_.position}</span></div>
+                                                                                        <div><span className="gray title">Desde:</span><span className="gray">{moment(item_.date_start).format('DD-MM-YYYY')}</span></div>
+                                                                                        <div><span className="gray title">Hasta:</span><span className="gray">{moment(item_.date_end).format('DD-MM-YYYY') ? moment(item_.date_end).format('DD-MM-YYYY') : "actualidad"}</span></div>
+                                                                                        <div><span className="gray title">Descripción:</span><span className="gray">{moment(item_.description).format('DD-MM-YYYY') ? moment(item_.description).format('DD-MM-YYYY') : ""}</span></div>
                                                                                         <br />
                                                                                     </div>
                                                                                 </div>
@@ -149,7 +152,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un experiencia</span>
+                                    }) : <span className="no-data gray">Aún no ha guardado ningun dato, agregue un experiencia</span>
                             }
                         </div>
                     </div>
@@ -174,13 +177,13 @@ function View(props) {
                                                 <div className="experience-info">
                                                     <div className="info-experience">
                                                         <div className="experience-info-content mt-3">
-                                                            <span className="bold">{item.university.university}</span>
+                                                            <span className="gray">{item.university.university}</span>
                                                             <br />
                                                             <div className="description">
                                                                 <strong>{item.description}</strong>
                                                             </div>
                                                             <div className="time-exp mt-1">
-                                                                {item.date_start} - {item.date_end}
+                                                                <span className="gray">{moment(item.date_start).format('DD-MM-YYYY')} - {moment(item.date_end).format('DD-MM-YYYY')}</span>
                                                             </div>
                                                             <div className="description mb-4">
                                                                 {/* Descripcion */}
@@ -206,7 +209,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue una educación</span>
+                                    }) : <span className="no-data gray">Aún no ha guardado ningun dato, agregue una educación</span>
                             }
                         </div>
                     </div>
@@ -236,11 +239,11 @@ function View(props) {
                                                 <div className="experience-info">
                                                     <div className="info-experience">
                                                         <div className="experience-info-content mt-3">
-                                                            <span className="bold">{item.name}</span>
+                                                            <span className="gray">{item.name}</span>
                                                             <br />
                                                             <strong>{item.issuing_company}</strong>
                                                             <div className="time-exp mt-1">
-                                                                {item.date_expedition} - {item.date_expiration}
+                                                                <span className="gray">{moment(item.date_expedition).format('DD-MM-YYYY')} - {moment(item.date_expiration).format('DD-MM-YYYY')}</span>
                                                             </div>
                                                             <div className="description mt-1 mb-4">
                                                                 <Link to="#">{item.url}</Link>
@@ -264,7 +267,7 @@ function View(props) {
                                                 </div>
                                             </Fragment>
                                         )
-                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un certificación</span>
+                                    }) : <span className="no-data gray">Aún no ha guardado ningun dato, agregue un certificación</span>
                             }
                         </div>
                     </div>
@@ -285,13 +288,13 @@ function View(props) {
                                 skills && skills.length > 0 ?
                                     skills.map(function (item, index) {
                                         return (
-                                            <div className="experience-info-skill mb-2 mt-3" key={index}>
+                                            <div className="experience-info-skill mb-2 mt-2" key={index}>
                                                 <div className="info-experience ml-2">
                                                     <ul className="">
-                                                        <li className="skill-list"><strong>{item.skill}</strong></li>
+                                                        <li className="skill-list"><span className="gray">{item.skill}</span></li>
                                                     </ul>
                                                 </div>
-                                                <div className="edit-profile delete-skill mr-5 mt-2">
+                                                <div className="edit-profile delete-skill mr-5">
                                                     <a href="#" >
                                                         <img
                                                             alt="img"
@@ -304,7 +307,7 @@ function View(props) {
                                                 </div>
                                             </div>
                                         )
-                                    }) : <span className="no-data bold">Aún no ha guardado ningun dato, agregue un skill</span>
+                                    }) : <span className="no-data gray">Aún no ha guardado ningun dato, agregue un skill</span>
                             }
                         </div>
                     </div>

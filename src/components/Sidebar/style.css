@@ -156,21 +156,15 @@ ul li a {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  background: #396afc !important;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #4C7DFA !important;  /* fallback for old browsers */
   border-radius: 20px;
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
   transition: all .15s ease-in;
 }
 
 .nav-pills.anuncios .nav-link.active, .nav-pills .show>.nav-link {
-  background: #396afc !important;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #30DB74 !important;  /* fallback for old browsers */
   border-radius: 20px;
   padding: 10px;
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
   transition: all .15s ease-in;
 }
 

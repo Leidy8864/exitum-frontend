@@ -22,8 +22,8 @@ span a img svg {
     margin-bottom: 15px;
   }
 
-  span.bold {
-    color: rgb(153, 148, 148);
+  span.gray {
+    color: #777;
     font-weight: 400;
   }
   

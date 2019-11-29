@@ -25,6 +25,10 @@
     padding-right: 20px;
 }
 
+a#menos {
+    display: none;
+}
+
 .recordatorio-reu {
     color: #5a5353;
     margin-bottom: 20px;
@@ -50,14 +54,30 @@
     padding-right: 20px;
 }
 
+.description-meet {
+    height: 62px !important;
+}
+
+.reminder-description {
+    height: 62px !important;
+}
+
+.description-size {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .body-meeting {
     padding: 20px;
     background: #fff;
     color: #777;
 }
 
-.footer-meeting {
-    background: #fff !important;
+.body-meeting {
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px; 
+}
+
+.see-more {
+    text-align: center;
 }

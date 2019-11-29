@@ -20,13 +20,14 @@ function View(props) {
                             <Fragment key={index}>
                                 <div className="col-md-4">
                                     <div className="card mb-4">
-                                        <div className="card-body">
+                                        <div className="card-body challenges">
                                             <a to="#" 
                                             onClick={idChallengues.bind(this,item.id)}
                                             id={item.id} 
-                                            data-toggle="modal" data-target="#modaldare" className="title-body d-flex"><i className="far fa-snowflake mt-1"></i><h6 className="card-title ml-2">{item.tip.tip}</h6></a>
-                                            <div className="contact-body d-flex">
-                                                <i className="far fa-address-book mt-1"></i><p className="ml-2">{item.user.name} {item.user.lastname}</p>
+                                            data-toggle="modal" data-target="#modaldare" className="title-body mb-3">
+                                                <i className="fa-2x far fa-snowflake mt-1 ml-1"></i><span className="card-title ml-3 mt-2">{item.tip.tip}</span></a>
+                                            <div className="contact-body">
+                                               <img alt="" width="40px" height="40px" className="img-challenge" src={item.user.photo} /><span className="gray ml-2">{item.user.name} {item.user.lastname}</span>
                                             </div>
                                         </div>
                                     </div>

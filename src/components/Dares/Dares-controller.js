@@ -16,6 +16,7 @@ class Dares extends React.Component {
     async componentDidMount () {
         const id = localStorage.getItem('id')
         const challenges = await listChallengeToVerify(id,1)
+        console.log(challenges)
         this.setState({
             challenges: challenges
         });

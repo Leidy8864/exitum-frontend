@@ -34,6 +34,34 @@ class Reminders extends React.Component {
         }
     }
 
+    // changeSee = e => {
+    //     e.preventDefault()
+    //     if(e.target.id == "mas"){
+    //         document.getElementById("menos").style.display="block";
+    //         document.getElementById("big").style.height="auto"   
+    //         document.getElementById("mas").style.display="none"; 
+    //     }else{
+    //         document.getElementById("big").style.display="block";   
+    //         document.getElementById("mas").style.display="block"; 
+    //         document.getElementById("big").style.height="58px"
+    //         document.getElementById("menos").style.display="none";
+    //     }
+    // }
+
+    changeSeeReminder = (e,index) => {
+        e.preventDefault()
+        if(e.target.id == (index + "mas") ){
+            document.getElementById("menoss").style.display="block";
+            document.getElementById("bigs").style.height="auto"   
+            document.getElementById("mass").style.display="none"; 
+        }else{
+            document.getElementById("bigs").style.display="block";   
+            document.getElementById("mass").style.display="block"; 
+            document.getElementById("bigs").style.height="58px"
+            document.getElementById("menoss").style.display="none";
+        }
+    }
+
     refreshReminder = async () => {
         const appointments = await appointmentsByUser(localStorage.getItem('id'));
         this.setState({
@@ -228,6 +256,8 @@ class Reminders extends React.Component {
                 idReminder={this.idReminder}
                 idMeet={this.idMeet}
                 id={id}
+                changeSeeMeet = {this.changeSeeMeet}
+                changeSeeReminder = {this.changeSeeReminder}
             />
         );
     }
