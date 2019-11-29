@@ -140,6 +140,11 @@ h3 {
     transition: 0.6s;
 }
 
+img.img {
+    width: 20px !important;
+    height: 20px !important;
+}
+
 .delete-skill:hover{
     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(204, 23, 98, 0.4);
     transition: 0.6s;

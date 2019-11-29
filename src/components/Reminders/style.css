@@ -6,6 +6,7 @@
     background: #D4DFFD;
     color: #fff;
     border-radius: 10px;
+    font-family: 'Proxima Nova' !important;
     box-shadow: 0 1px 20px 0 rgba(0,0,0,.14), 0 1px 2px -2px rgba(141, 138, 138, 0.4);
 }
 
@@ -16,12 +17,10 @@
 }
 
 .header-reminder {
-    background: rgb(243, 91, 64) !important;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F0607D, rgb(243, 91, 64)) !important;  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, r #F0607D, rgb(243, 91, 64)) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #57D680 !important;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding-top: 10px;
+    padding-top: 8px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -35,21 +34,15 @@
 }
 
 .body-reminder {
-    padding: 20px;
+    padding: 13px 20px 0px 20px;
     background: #fff;
     color: #777;
-}
-
-.footer-reminder {
-    background: #fff !important;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .header-meeting {
-    background: rgb(173, 40, 185) !important;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #875AC8, rgb(173, 40, 185)) !important;  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #875AC8, rgb(173, 40, 185)) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #59AAFA !important;  /* fallback for old browsers */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-top: 10px;
