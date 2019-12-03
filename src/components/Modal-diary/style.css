@@ -2,7 +2,7 @@
     display: block;
 }
 .label-radio-modal-diary{
-    color: #3369fd !important;
+    color: #157FFB !important;
     width: 43% !important;
     font-size: 15px !important;
 }
@@ -13,20 +13,20 @@
     top: 0 !important;
     width: 18px !important;
     height: 18px !important;
-    border: 1px solid #3369fd !important;
+    border: 1px solid #157FFB !important;
     border-radius: 100% !important;
     background: #fff !important;
 }
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #3369fd; 
+    color: #157FFB; 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #3369fd; 
+    color: #157FFB; 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #3369fd; 
+    color: #157FFB; 
 }
 .date{
     float: left;
@@ -35,14 +35,18 @@
 .react-date-picker{
     margin: 0px 15px !important;
     width: 93% !important;
-    color: #3369fd; 
-    border: 1px solid #3369fd;
+    color: #157FFB; 
+    border: 1px solid #157FFB;
     border-radius: 7px;
 }
+.react-calendar__navigation {
+    background: #157FFB !important;
+}
+
 .react-date-picker__wrapper{
     display: block !important;
     width: 100%;
-    color: #3369fd;
+    color: #157FFB;
     border: none !important;
 }
 .react-date-picker__inputGroup{
@@ -128,14 +132,14 @@
 }
 
 .react-calendar__tile--active {
-    background: #3369fd !important;
+    background: #157FFB !important;
     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
 }
 
 .hourModalAds{
     background-color: #fff;
-    color: #3369fd;
-    border: 1px solid #3369fd;
+    color: #157FFB;
+    border: 1px solid #157FFB;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
@@ -148,9 +152,9 @@
 }
 
 .hourModalAdsSelected{
-    background-color: #3369fd;
+    background-color: #157FFB;
     color: #fff;
-    border: 1px solid #3369fd;
+    border: 1px solid #157FFB;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;

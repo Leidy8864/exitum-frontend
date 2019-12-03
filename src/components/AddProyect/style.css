@@ -3,9 +3,9 @@
 }
 .add-proyect-container{
     width: 100%;
-    height: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    border-radius: 4px;
+    margin-top: 60px;
+    margin-bottom: 35px;
 }
 .proyects-list{
     float: left;
@@ -17,59 +17,48 @@
 }
 .add-proyect-aux{
     text-decoration: none !important;
-    color: #3369fd;
+    color: #157FFB;
     font-size: 17px;
     font-weight: bolder;
     position: absolute;
-    bottom: 10px;
+    top: 20px;
+    width: 300px;
+    left: 40px;
 }
 
 .add-proyect-aux a:hover {
     text-decoration: none !important;
-    /* /* cursor: unset; */
-    color: #3369fd;
-    /* color: #fff;
-    background-color: #3369fd; */
+    color: #157FFB;
 }
-/* .add-proyect-aux .Ads-plusito span:hover {
-    cursor: pointer;
-    text-decoration: none !important;
-    color: #fff;
-    background-color: #3369fd;
-    transition: all ease-in 0.4s;
-} */
 
 .add-proyect-aux .Ads-plusito span{
-    /* padding: 0px 14px 4px 14px; */
     margin: 12px;
-    /* background: #fff; */
-    /* border-radius: 50%; */
-    /* border: 1px solid #3369fd; */
     transition: all ease-out 0.4s;
 }
-
 
 .proyects-list-aux{
     float: left;
     width: 100%;
     height: 80px;
     display: flex;
+    overflow-y: hidden;
     overflow-x: auto;
 }
 .projectblock{
-    background-color: #fff;
-    color: #3369fd;
-    border: 1px solid #3369fd;
-    border-radius: 10px;
-    margin: 10px 10px 20px;
-    padding: 10px;
+    color: #607CFB;
+    border: 1px solid #607CFB;
+    border-radius: 4px;
+    margin: 10px 10px;
+    padding: 5px;
     font-size: 16px;
     text-align: center;
     float: left;
-    width: 20%;
+    width: 22%;
+    height: 41px;
     cursor: pointer;
     flex-shrink: 0;
     font-family: 'Proxima Nova' !important;
+    transition: all ease 0.5s;
 }
 
 .projectblock>span, .projectblockSelected>span {
@@ -78,27 +67,36 @@
     line-height:normal;
     text-align: center;
     position: relative;
-    top: 45%;
+    top: 35%;
     -ms-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
 .projectblockSelected{
-    background-color: #3369fd;
+    background-color: #157FFB;
     color: #fff;
-    border: 1px solid #3369fd;
-    border-radius: 10px;
+    border: 1px solid #157FFB;
+    border-radius: 4px;
     margin: 10px 10px 20px;
-    padding: 10px;
+    padding: 5px;
+    height: 41px;
     font-size: 16px;
     text-align: center;
     float: left;
-    width: 20%;
+    width: 22%;
     cursor: pointer;
+    transition: all ease 0.5s;
     flex-shrink: 0;
     font-family: 'Proxima Nova' !important;
 }
+
+.projectblockSelected:hover{
+    transform: translate3d(0,-3px,0) !important;
+    transition: all ease 0.5s;
+    box-shadow: 1px 2px 7px rgb(220, 224, 224) !important;
+}
+
 
 .add-proyect{
     padding-top: 20px;
@@ -107,13 +105,13 @@
     z-index: 10;
     display: flex;
     font-size: 27px;
-    color: #3369fd;
+    color: #157FFB;
     float: left;
 }
 
 .add-proyect a:hover {
     text-decoration: none !important;
-    /* color: #3369fd; */
+    /* color: #157FFB; */
 }
 
 .add-proyect a {
@@ -122,17 +120,22 @@
 
 .Ads-plusito {
     font-family: 'Proxima Nova' !important;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+}
+
+.Ads-plusito {
+    background: #57D680;
+    padding: 8px 22px;
+    color: #fff;
+    border-radius: 4px;
 }
 
 .Ads-plusito span{
     font-family: 'Proxima Nova' !important;
-    padding: 10px 10px 10px 17px;
     margin: 12px;
-    /* background: #fff;
-    border-radius: 50%;
-    -webkit-box-shadow: 3px 14px 34px -18px rgba(219,219,219,1);
-    -moz-box-shadow: 3px 14px 34px -18px rgba(219,219,219,1);
-    box-shadow: 3px 14px 34px -18px rgba(219,219,219,1); */
+    color: #fff;
 }
 
 @media screen and (max-width: 1440px) {

@@ -23,15 +23,14 @@ function View(props) {
                 <div className="modal fade" id="NewProjectModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="title_">
-                                        Nuevo Proyecto
-                                    </div>
-
+                            <div className="modal-header adds">
+                                <h6 className="modal-title" id="exampleModalLabel">Nuevo Proyecto</h6>
+                            </div>
+                            <div className="modal-body">
+                                <form>
                                     <div className="form_group_">
                                         <label>Nombre del Proyecto</label>
-                                        <input name="name" onChange={handleChange} id="name_project" />
+                                        <input name="name" className="form-control" onChange={handleChange} id="name_project" />
                                         <div className="error-message-aux">
                                             {content_error_name}
                                         </div>
@@ -68,28 +67,28 @@ function View(props) {
                                         <div className="error-message-aux">
                                             {
                                                 stageDescription ?
-                                                <div>
-                                                    <span><img className="idea-img" src={require("../../public/images/svg/idea.svg")} alt="svg" width="30"/></span>
-                                                    <h6 className="text-secondary">{stageDescription}</h6>
-                                                </div>
-                                                : ''
+                                                    <div>
+                                                        <span><img className="idea-img" src={require("../../public/images/svg/idea.svg")} alt="svg" width="30" /></span>
+                                                        <h6 className="text-secondary">{stageDescription}</h6>
+                                                    </div>
+                                                    : ''
                                             }
                                             {content_error_stage}
                                         </div>
                                     </div>
                                     <div className="form_group_">
                                         <label>Descripción del proyecto</label>
-                                        <textarea name="description" onChange={handleChange}  id="description"/>
+                                        <textarea name="description" className="form-control" onChange={handleChange} id="description" />
                                         <div className="error-message-aux">
                                             {content_error_description}
                                         </div>
                                     </div>
                                     {content_message}
 
-                                    <div className="form_group_ form_group__">
-                                        <button className="btn-submit" type="button" onClick={handleSubmit}>Guardar</button>
+                                    <div className="modal-footer adds mt-4">
+                                        <button className="adds" type="button" onClick={handleSubmit}>Guardar</button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

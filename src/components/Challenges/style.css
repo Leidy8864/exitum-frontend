@@ -8,10 +8,9 @@
 }
 
 .container-chellenges {
-    margin-top: 10px;
-    background: #fff;
+    margin-top: 0px;
+    background: #5C73BF;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px -10px #E0E0E0;
     padding: 2px 40px 40px;
     width: 85%;
     font-family: 'Proxima Nova';
@@ -21,14 +20,34 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    box-shadow: 0 2px 10px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(8, 93, 252, 0.4);
     margin-top: 40px;
     border-radius: 6px;
     font-size: 15px;
+    background: #fff;
+    transition: 0.5s;
 }
+
+.challenge:hover span{
+    color: #fff !important;
+}
+
+.challenge:hover {
+    transition: 0.5s;
+    background: #157FFB;
+    transition: 0.5s;
+}
+
+.challenge_complete:hover span {
+    color: #fff !important;
+}
+
+.challenge:hover p {
+    color: #fff !important;
+}
+
 .challenge_complete {
     display: flex;
-    background-color: #3369fd;
+    background-color: #157FFB;
     opacity: 0.8;
     justify-content: space-between;
     align-items: flex-end;
@@ -40,23 +59,23 @@
 
 .challenge p {
     margin: 30px;
-    color: #918e8e;
+    color: #777 !important;
 }
 
 .challenge_complete p {
     margin: 30px;
-    color: #fff;
+    color: #777 !important;
 }
 
 .challenge span{
-    color: #9e9a9a;
+    color: #777 !important;
     font-size: 15px;
     margin-right: 15px;
     margin-bottom: 6px;
 }
 
 .challenge_complete span {
-    color: #fff;
+    color: #777;
     font-size: 15px;
     margin-right: 15px;
     margin-bottom: 6px;

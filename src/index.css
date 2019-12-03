@@ -103,16 +103,17 @@ form input {
 .modal-footer button {
   padding: 11px 30px!important;
   font-size: 14px;
-  border-radius: 25px;
-  background: #3369fd;
+  border-radius: 4px;
+  margin-right: 13px;
   font-weight: bold;
+  border: none !important;
 }
 
 button.btn-observar {
   padding: 11px 30px!important;
   font-size: 14px;
   border-radius: 25px;
-  background: #3369fd;
+  background: #59AAFA;
   font-weight: bold;
   color: #fff;
 }
@@ -125,7 +126,7 @@ button.btn-confirmar {
   padding: 11px 30px!important;
   font-size: 14px;
   border-radius: 25px;
-  background: #3369fd;
+  background: #59AAFA;
   font-weight: bold;
   color: #fff;
 }
@@ -149,13 +150,13 @@ button.btn-confirmar:hover {
 }
 
 .modal-content {
-  border-radius: 25px !important;
+  border-radius: 2px !important;
   background: #EEF1F8;
 }
 
 .modal-header {
-  border-top-right-radius: 25px !important;
-  border-top-left-radius: 25px !important;
+  border-top-right-radius: 2px !important;
+  border-top-left-radius: 2px !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -180,15 +181,25 @@ button.btn-confirmar:hover {
 }
 
 .react-calendar__navigation button {
-  background: #3369fd !important;
+  background: #157FFB !important;
   color: #fff;
+  outline: none;
+}
+
+.modal-content {
+  overflow-y: auto !important;
 }
 
 .react-calendar__month-view__weekdays {
   color: #777;
+  outline: none;
 }
 
 .react-date-picker__button:focus {
+  outline: none;
+}
+
+.react-calendar button:focus {
   outline: none;
 }
 

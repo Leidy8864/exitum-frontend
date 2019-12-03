@@ -57,7 +57,7 @@ function View(props) {
                                             {error_description}
                                         </div>
                                     </div>
-                                    <div className="form_group_ mt-3">
+                                    <div className="form_group_ clocwerk mt-3">
                                         <label>Fecha</label>
                                         <Fragment>
                                             <DatePicker

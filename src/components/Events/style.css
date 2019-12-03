@@ -1,3 +1,7 @@
 .Events{
     display: block;
 }
+
+.events-list {
+    padding-left: 0px !important;
+}

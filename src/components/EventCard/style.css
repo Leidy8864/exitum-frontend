@@ -17,7 +17,114 @@
     padding: 10px 15px!important;
     font-size: 14px;
     border-radius: 25px;
-    background: #dc3545;
+    background: #59AAFA;
     font-weight: bold;
     border-style: none;
+}
+
+div.events-card {
+    transition: 0.5s;
+}
+
+div.events-card .title_add {
+    color: #777;
+}
+
+div.card i {
+    color: #777 !important;
+}
+
+div.events-card:hover {
+    transition: 0.5s;
+    background: #FF416C;  /* fallback for old browsers */
+    transform: translate3d(0,-3px,0) !important;
+    transition: all ease 0.5s;
+    box-shadow: 1px 2px 7px rgb(172, 169, 172) !important;
+}
+
+div.events-card:hover span.gray {
+    color: #fff !important;
+}
+
+div.events-card:hover .title_add {
+    color: #fff !important;
+}
+
+div.events-card:hover i.fa-trash-alt {
+    color: #fff !important;
+    cursor: pointer !important;
+}
+
+div.events-card-2:hover {
+    background: #5C73BF !important;
+    transform: translate3d(0,-3px,0) !important;
+    transition: all ease 0.5s;
+    box-shadow: 1px 2px 7px rgb(172, 169, 172) !important;
+}
+
+div.events-card-2:hover span.gray {
+    color: #fff !important;
+}
+
+div.events-card-2:hover .title_add {
+    color: #fff !important;
+}
+
+div.events-card-2:hover i.fa-clipboard-check {
+    color: #fff !important;
+    cursor: pointer !important;
+}
+
+div.events-card-2 i.fa-clipboard-check {
+    color: #777 !important;
+    cursor: pointer !important;
+}
+
+div.events-card-2 i.fa-clipboard-check {
+    color: #777;
+}
+
+div.events-card-2 .title_add{
+    color: #777;
+}
+
+div.card i {
+    font-size: 24px;
+}
+
+div.events-card-3:hover {
+    background: #8F81E3 !important;
+    transform: translate3d(0,-3px,0) !important;
+    transition: all ease 0.5s;
+    box-shadow: 1px 2px 7px rgb(172, 169, 172) !important;
+}
+
+div.events-card-3:hover span.gray {
+    color: #fff !important;
+}
+
+div.events-card-3:hover .title_add {
+    color: #fff !important;
+}
+
+div.events-card-3:hover i.fa-clipboard-check {
+    color: #fff !important;
+    cursor: pointer !important;
+}
+
+div.events-card-3:hover i.fa-calendar-times {
+    color: #fff !important;
+    cursor: pointer !important;
+}
+
+div.events-card-3 i.fa-calendar-times {
+    color: #8F81E3;
+}
+
+div.events-card-3 .title_add{
+    color: #777;
+}
+
+div.card.events-card:hover {
+
 }

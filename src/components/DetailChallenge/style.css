@@ -97,30 +97,6 @@ input[type=”file”] {
     align-items: center;
 }
 
-/* input#choose_file {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 1px;
-    opacity: 0;
-}
-
-.response_1 {
-    height: auto;
-    margin: 0 0 15px;
-}
-
-.response_file{
-    position: relative;
-    height: auto;
-    margin: 0 0 0px;
-    padding: 1px 10px;
-    border-radius: 25px;
-    background: #3369fd;
-} */
-
 p#texto {
     text-align: center;
     color: #fff;

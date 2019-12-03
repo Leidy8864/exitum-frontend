@@ -17,17 +17,16 @@
 }
 
 .modal-header {
-    background: #396afc !important;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #fff;
 }
 
 .modal-header.adds {
-    background: #444957 !important;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8f9099, #737781) !important;  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #61636d, #3d3f44) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #57D680 !important;  /* fallback for old browsers */
     color: #fff;
+}
+
+.btn-save-add {
+    background: #57D680 !important;
 }
 
 .modal-header h6 {
@@ -105,7 +104,5 @@ input[type=checkbox] {
 
 .modal-footer button.adds {
     color: #fff;
-    background: #444957 !important;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8f9099, #737781) !important;  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #61636d, #3d3f44) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #57D680 !important;  /* fallback for old browsers */
 }

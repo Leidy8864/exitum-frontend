@@ -8,16 +8,20 @@ span a img svg {
 
 
 .title_add{
-    font-size: 16px;
+    font-size: 24px;
     font-weight: bold;
     text-decoration: none !important;
-    color: rgb(71, 61, 61);
+    color: #FF416C;
   }
 
   .title_add:hover{
-    color: rebeccapurple;
+    color: #fff;
   }
   
+  i.fa-trash-alt {
+    color: #FF416C!important;
+  }
+
   .margin_botton_15{
     margin-bottom: 15px;
   }
@@ -49,7 +53,7 @@ span a img svg {
   }
 
   .images-icons a.trash-bg {
-    background: #FD565A;
+    background: #F74946;
     border-radius: 50%;
     padding: 4px 7px;
   }

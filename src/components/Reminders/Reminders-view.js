@@ -77,7 +77,7 @@ function View(props) {
                                     <ModalReminder />
                                 </Fragment>
                             )
-                        }) : <p className="recordatorio-reu">Agrega un recordatorio</p>
+                        }) : null
                 }
             </div>
 
@@ -145,7 +145,7 @@ function View(props) {
 
                                 </Fragment>
                             )
-                        }) : <p className="recordatorio-reu">Agrega una reunión</p>
+                        }) : null
                 }
             </div>
         </Fragment>

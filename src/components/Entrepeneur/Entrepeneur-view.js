@@ -10,13 +10,13 @@ function View() {
     return (
         <Fragment>
             <div className="container">
-                <div className="row">
+                <div className="row arbol">
                     <AddProyect />
-                    <div className="col-xl-5 col-lg-12">
-                        <Stages />
-                    </div>
                     <div className="col-xl-7 col-lg-12">
                         <Challenges />
+                    </div>
+                    <div className="col-xl-5 col-lg-12">
+                        <Stages />
                     </div>
                     {/* <Cherry /> */}
                 </div>
