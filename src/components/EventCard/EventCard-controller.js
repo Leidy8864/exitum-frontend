@@ -12,23 +12,20 @@ class EventCard extends React.Component {
             hour_start,
             eventType,
             handleDeleteEvent,
-            handleAssistEvent,
-            participants
+            handleAssistEvent
         } = this.props;
 
-            // if (participants) {
-            //     const state = participants.find(user => user.id === 12);
-
-            //     console.log("STATE",state);
-                
-            // }
-            
+        var isPart = true;
+        if (eventType !== "my_events" && eventType === "events") {
+            isPart = false
+        }
         return (
             <View
                 id={id}
                 title={title}
                 description={description}
                 day={day}
+                isPart={isPart}
                 hour_start={hour_start}
                 eventType={eventType}
                 handleDeleteEvent={handleDeleteEvent}

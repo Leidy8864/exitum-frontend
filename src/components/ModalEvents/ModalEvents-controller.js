@@ -3,11 +3,13 @@ import React from 'react';
 import View from './ModalEvents-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { listCategories, createEvent } from '../../redux/actions';
+import { listCategories, createEvent, editEvent } from '../../redux/actions';
 import moment from 'moment';
 import { decodeToken } from '../../libs/helper';
 import reloadPage from '../../redux/actions/reloadPage';
+import getEvent from '../../redux/actions/getEvent';
 import $ from 'jquery';
+
 
 class ModalEvents extends React.Component {
     state = {
@@ -17,8 +19,8 @@ class ModalEvents extends React.Component {
         hour_start: '',
         categoryOptions: [],
         categories: [],
-        day:
-            new Date()
+        day: new Date(),
+        event_id : 0
     }
     async componentDidMount() {
         const categoriesData = await listCategories();
@@ -31,6 +33,27 @@ class ModalEvents extends React.Component {
         this.setState({
             categoryOptions: categories
         });
+    }
+    componentDidUpdate(nextProps) {
+        const { event } = this.props;
+        if (nextProps.event !== event) {
+            if (event) {
+                $('#EventsModal').on('hidden.bs.modal', () => {
+                    this.props.getEvent(null);
+                });
+                const categories = event.toWorkshopCategories.map(x => ({ label: x.name, value: x.id }));
+                this.setState({
+                    event_id : event.id,
+                    title: event.title,
+                    description: event.description,
+                    place: event.place,
+                    hour_start: event.hour_start,
+                    day: new Date(event.day),
+                    categories: categories
+                });
+
+            }
+        }
     }
     cleanErrors = () => {
         this.setState({
@@ -68,17 +91,22 @@ class ModalEvents extends React.Component {
         e.preventDefault();
 
         try {
-            const { title, description, day, hour_start, place, categories } = this.state;
+            const { title, description, day, hour_start, place, categories, event_id} = this.state;
             var values = [];
-    
+
             for (let index = 0; index < categories.length; index++) {
                 values.push(categories[index].label)
             }
             const result = decodeToken();
             const date_event = moment(day).format('YYYY-MM-DD');
-            const formData = { user_id: result.id, title, description, day: date_event, hour_start, place, categories: values };
+            const formData = { user_id: result.id, title, description, day: date_event, hour_start, place, categories: values, event_id };
             if (title && description && day && hour_start && place && categories.length > 0) {
-                var response = await createEvent(formData);
+                var response = null
+                if (event_id) {
+                    response = await editEvent(formData);
+                }else{
+                    response = await createEvent(formData);
+                }
                 // console.log("RESPONSE", response);
                 if (response.status) {
                     this.setState({ success_message: response.message });
@@ -109,7 +137,7 @@ class ModalEvents extends React.Component {
                 !hour_start ? this.setState({ error_hour_start: 'Debes elegir una hora' }) : ''
                 !place ? this.setState({ error_place: 'Debes ingresar el lugar' }) : ''
                 !categories.length > 0 ? this.setState({ error_categories: 'Debes elegir al menos una categoria' }) : ''
-            }   
+            }
         } catch (error) {
             console.log("Erorr intentado crear evento");
         }
@@ -136,15 +164,15 @@ class ModalEvents extends React.Component {
         let content_message = '';
 
         if (success_message) {
-            content_message = <div className="success-message"><p className="text-center">{success_message}</p></div>;
+            content_message = <div className="success-message mt-4"><p className="text-center">{success_message}</p></div>;
         }
         if (error_message) {
-            content_message = <div className="error-message"><p className="text-center">{error_message}</p></div>;
+            content_message = <div className="error-message mt-4"><p className="text-center">{error_message}</p></div>;
         }
 
-            // $('#EventsModal').on('hidden.bs.modal', () => {
-            //     this.cleanErrors()
-            // });
+        // $('#EventsModal').on('hidden.bs.modal', () => {
+        //     this.cleanErrors()
+        // });
         return (
             <View
                 handleTimeChange={this.handleTimeChange}
@@ -171,15 +199,13 @@ class ModalEvents extends React.Component {
         );
     }
 }
-// const mapStateToProps = state => ({
-//     adType : state.getTypeAdsReducer,
-//     adId: state.getAdIdReducer,
-//     adsList: state.getListAdsReducer,
-//     advertisement : state.getAdvertReducer
-// });
+const mapStateToProps = state => ({
+    event: state.getEventReducer
+});
 const mapDispatchToProps = {
+    getEvent,
     reloadPage
 }
 export default withRouter(
-    connect(null, mapDispatchToProps)(ModalEvents)
+    connect(mapStateToProps, mapDispatchToProps)(ModalEvents)
 )

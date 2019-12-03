@@ -1,9 +1,9 @@
 
 import React from 'react';
 import View from './ProfileEmployee-view';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showDataByUser,showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser,updateImageUser, listUniversities, listCompanies,getOneExperience } from '../../redux/actions';
+import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
 import getExperience from '../../redux/actions/get-experience';
@@ -12,7 +12,7 @@ import getCompanies from '../../redux/actions/get-list-companies';
 import listCertifications from '../../redux/actions/list-certifications';
 import listEducations from '../../redux/actions/list-educations';
 import listExperiences from '../../redux/actions/list-experiences';
-import listSkills  from '../../redux/actions/list-skills';
+import listSkills from '../../redux/actions/list-skills';
 import { deleteSkill, deleteCertificate, deleteEducation, deleteExperience } from '../../redux/actions';
 import Swal from 'sweetalert2';
 import $ from 'jquery'
@@ -20,7 +20,7 @@ import $ from 'jquery'
 class ProfileEmployee extends React.Component {
 
     state = {
-        certifications : [],
+        certifications: [],
         experiences: [],
         educations: [],
         skills: [],
@@ -32,22 +32,34 @@ class ProfileEmployee extends React.Component {
             experience: [],
         },
         file: null,
+        isMyProfile: true
     }
 
     async componentDidMount() {
         try {
-            let id = localStorage.getItem('id')
+            var id = localStorage.getItem('id');
+            var isMyProfile = true;
+            const routePath = this.props.location.pathname;
+            if (routePath.includes("/profile/")) { //Evalua si la ruta es como /profile/:id
+                id = this.props.match.params.id
+                console.log("Asdsadsadsadsadsad");
+                
+                id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
+                    this.props.history.push('/my-profile')
+                    : isMyProfile = false;
+            }
+            const userShow = await showDataByUser(id);
+            Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id);
-            const userShow = await showDataByUser(id);
+
             const experienceActualy = userShow.data.experience[0] ? userShow.data.experience[0].position : ""
             const country = userShow.data.country.country
             const photo = userShow.data.photo
             const description = userShow.data.description
-            //localStorage.setItem('photo', photo)
-
+            //localStorage.setItem('photo', photo)           
             this.setState({
                 certifications: certificationsAll,
                 experiences: experiencesAll,
@@ -57,8 +69,8 @@ class ProfileEmployee extends React.Component {
                 experience: experienceActualy,
                 country: country,
                 photo: photo,
-                description: description
-
+                description: description,
+                isMyProfile: isMyProfile
             })
 
             let listUniversities__ = [];
@@ -101,15 +113,15 @@ class ProfileEmployee extends React.Component {
         e.preventDefault();
         let experience = await getOneExperience(e.target.id);
         console.log("experience before = ", experience);
-        if(experience.date_end === null){
-            experience.date_end  = new Date();
+        if (experience.date_end === null) {
+            experience.date_end = new Date();
         }
         console.log("experience after = ", experience);
         this.props.getExperience(experience);
         $('#updateexperience').modal('show')
     }
 
-    refreshCertifications = async() =>{
+    refreshCertifications = async () => {
         const certificationsAll = await showCertificationByUser(localStorage.getItem('id'));
         this.setState({
             certifications: certificationsAll
@@ -123,7 +135,7 @@ class ProfileEmployee extends React.Component {
         this.props.getCompanies(listCompanies__);
     }
 
-    refreshExperience = async() =>{
+    refreshExperience = async () => {
         const certificationsAll = await showExperienceByUser(localStorage.getItem('id'));
         this.setState({
             experiences: certificationsAll
@@ -131,7 +143,7 @@ class ProfileEmployee extends React.Component {
         this.props.listExperiences(0);
     }
 
-    refreshSkills = async() =>{
+    refreshSkills = async () => {
         const skillsAll = await showSkillByUser(localStorage.getItem('id'));
         this.setState({
             skills: skillsAll
@@ -139,7 +151,7 @@ class ProfileEmployee extends React.Component {
         this.props.listSkills(0);
     }
 
-    refreshEducation = async() =>{
+    refreshEducation = async () => {
         const educationsAll = await showEducationByUser(localStorage.getItem('id'));
         this.setState({
             educations: educationsAll
@@ -295,7 +307,7 @@ class ProfileEmployee extends React.Component {
 
     fileSelectedHandler = event => {
         let file = event.target.files[0]
-                
+
         this.setState({
             file: file
         })
@@ -304,61 +316,62 @@ class ProfileEmployee extends React.Component {
     fileUploadHandler = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        const {file} = this.state
-        formData.append("user_id",localStorage.getItem('id'));
-        formData.append("photo",file);
-        const res = await this.props.updateImageUser(formData) 
-        localStorage.setItem('photo',res.photo)
+        const { file } = this.state
+        formData.append("user_id", localStorage.getItem('id'));
+        formData.append("photo", file);
+        const res = await this.props.updateImageUser(formData)
+        localStorage.setItem('photo', res.photo)
         window.location.reload();
     }
 
     render() {
 
-        const {listCertificationsReducer, listSkillsReducer, listEducationsReducer, listExperiencesReducer} = this.props;
-        if(listExperiencesReducer === 1){
+        const { listCertificationsReducer, listSkillsReducer, listEducationsReducer, listExperiencesReducer } = this.props;
+        if (listExperiencesReducer === 1) {
             this.refreshExperience();
         }
-        if(listCertificationsReducer === 1){
+        if (listCertificationsReducer === 1) {
             this.refreshCertifications();
         }
-        if(listSkillsReducer === 1){
+        if (listSkillsReducer === 1) {
             this.refreshSkills();
         }
-        if(listEducationsReducer === 1){
+        if (listEducationsReducer === 1) {
             this.refreshEducation();
         }
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname');
-        const {file} = this.state;
+        const { file } = this.state;
         return (
             <View
                 user={user}
                 lastname={lastname}
-                experiences = {this.state.experiences}
-                experience = {this.state.experience}
-                country = {this.state.country}
-                educations = {this.state.educations}
-                skills = {this.state.skills}
-                users = {this.state.users}
-                photo = {this.state.photo}
-                description = {this.state.description}
-                certifications = {this.state.certifications}
-                idCertificate = {this.idCertificate}
-                idEducation = {this.idEducation}
-                idExperience = {this.idExperience}
-                handleClickDeleteSkill = {this.handleClickDeleteSkill}
-                handleClickDeleteCertificate = {this.handleClickDeleteCertificate}
-                handleClickDeleteEducation = {this.handleClickDeleteEducation}
-                handleClickDeleteExperience = {this.handleClickDeleteExperience}
+                experiences={this.state.experiences}
+                experience={this.state.experience}
+                country={this.state.country}
+                educations={this.state.educations}
+                skills={this.state.skills}
+                users={this.state.users}
+                photo={this.state.photo}
+                description={this.state.description}
+                certifications={this.state.certifications}
+                isMyProfile={this.state.isMyProfile}
+                idCertificate={this.idCertificate}
+                idEducation={this.idEducation}
+                idExperience={this.idExperience}
+                handleClickDeleteSkill={this.handleClickDeleteSkill}
+                handleClickDeleteCertificate={this.handleClickDeleteCertificate}
+                handleClickDeleteEducation={this.handleClickDeleteEducation}
+                handleClickDeleteExperience={this.handleClickDeleteExperience}
                 fileSelectedHandler={this.fileSelectedHandler}
-                fileUploadHandler = {this.fileUploadHandler}
+                fileUploadHandler={this.fileUploadHandler}
             />
         );
     }
 }
 
 
-const mapStateToProps = (state) => ({    
+const mapStateToProps = (state) => ({
     listCertificationsReducer: state.listCertificationsReducer,
     listSkillsReducer: state.listSkillsReducer,
     listEducationsReducer: state.listEducationsReducer,

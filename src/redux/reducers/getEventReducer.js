@@ -1,13 +1,13 @@
-import { type as getEventType } from '../actions/getEventType';
+import { type as getEvent } from '../actions/getEvent';
 
-const defaultState = "events";
+const defaultState = {};
 
 function reducer(state = defaultState, { type, payload }) {
     switch (type) {
-        case getEventType: {
+        case getEvent: 
+        {
             return payload
         }
-
         default:
             return state;
     }

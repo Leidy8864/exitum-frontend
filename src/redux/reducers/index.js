@@ -30,6 +30,7 @@ import getMeetReducer from './getMeetReducer'
 import getEventTypeReducer from './getEventTypeReducer'
 import getChallengeReducer from './getChallengeReducer'
 import listChallengeReducer from './listChallengesReducer'
+import getEventReducer from './getEventReducer'
 
 export default combineReducers({
     form: formReducer,
@@ -62,5 +63,6 @@ export default combineReducers({
     getMeetReducer: getMeetReducer,
     getEventTypeReducer : getEventTypeReducer,
     getChallengeReducer: getChallengeReducer,
-    listChallengeReducer: listChallengeReducer
+    listChallengeReducer: listChallengeReducer,
+    getEventReducer : getEventReducer
 });

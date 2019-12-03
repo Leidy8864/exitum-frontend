@@ -8,8 +8,7 @@ function View(props) {
     const {
         eventsList,
         eventType,
-        handleDeleteEvent,
-        handleAssistEvent
+        handleDeleteEvent
     } = props
     return (
         <div className="container" id="events-list">
@@ -26,9 +25,7 @@ function View(props) {
                                         day={item.day}
                                         hour_start={item.hour_start}
                                         eventType={eventType}
-                                        handleAssistEvent={handleAssistEvent}
                                         handleDeleteEvent={handleDeleteEvent}
-                                        participants={item.toWorkshopUsers}
                                     />
                                 </div>
                             )

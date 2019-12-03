@@ -1,4 +1,3 @@
-
 import React from 'react';
 import View from './EmployeesList-view';
 import { connect } from 'react-redux';
@@ -22,10 +21,10 @@ class EmployeesList extends React.Component {
         const data = {
             advertisement_id: advert_id
         }
-        const response = await this.getListEmployees(listAdTypes[0], data) //Llama a la funcion que consulta los empleados;
+        const response = await this.getListEmployees(this.props.adType, data) //Llama a la funcion que consulta los empleados;
 
         if (response) {
-            this.paginationData(listAdTypes[0], response.pages); //Permite la paginacion por scroll
+            this.paginationData(this.props.adType, response.pages); //Permite la paginacion por scroll
             this.setDataInState(response, advert_id) // Guarda la informacio en el state
         }
     }
@@ -33,12 +32,12 @@ class EmployeesList extends React.Component {
 
         const { adType } = this.props;
         if (nextProps.adType !== adType) {
-            if (adType) {                
+            if (adType) {                                
                 try {
                     const { advertisement_id } = this.state;
                     const data = {
                         advertisement_id: advertisement_id
-                    }
+                    }                    
                     const response = await this.getListEmployees(adType, data);  //Llama a la funcion que consulta los empleados;
                     if (response) {
                         this.paginationData(adType, response.pages); //Permite la paginacion por scroll
@@ -57,8 +56,8 @@ class EmployeesList extends React.Component {
             var employeesList = [];
 
             switch (adType) {
-                case listAdTypes[0]:
-                    response = await listRecommendationByAdvert(data);
+                case listAdTypes[0]:                    
+                    response = await listRecommendationByAdvert(data);                    
                     employeesList = response.data.map(user => ({
                         user_id: user.id,
                         short_description: user.employee.short_description,
@@ -96,7 +95,7 @@ class EmployeesList extends React.Component {
                     break;
                 default:
                     break;
-            }
+            }            
             const pages = response.status ? response.pages : 1;
 
             return { pages, employeesList };

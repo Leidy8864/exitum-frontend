@@ -2,6 +2,8 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+import moment from 'moment';
+import AssistButton from '../AssistButton/AssistButton-controller';
 
 function View(props) {
     const {
@@ -12,83 +14,30 @@ function View(props) {
         hour_start,
         eventType,
         handleDeleteEvent,
-        handleAssistEvent
+        isPart
     } = props;
     return (
-        <Fragment>
-            {eventType === "my_events" ?
-                <div className="card events-card h-100 p-4">
-                    <div className="row">
-                        <Link to="" className="title_add col-sm-9">{title}</Link>
-                        <div className="col-sm-3 images-icons">
-                            <i className="far fa-trash-alt" onClick={handleDeleteEvent.bind(this, id)}></i>
-                        </div>
-                    </div>
-                    <div className="row margin_botton_15">
-                        <span className="gray col-sm-12 d-inline-block mt-3">{description}</span>
-                    </div>
-                    <div className="row">
-                        <span className="col-sm-6 gray">Fecha : {day}</span>
-                        <span className="col-sm-6 gray">Hora : {hour_start}</span>
-                    </div>
-                </div> : null
-            }
-            {eventType === "events" ?
-                <div className="card card-body events-card-2 h-100">
-                    <div className="row">
-                        <Link to="" className="title_add col-sm-9">{title}</Link>
-                        <div className="col-sm-3 images-icons">
-                            <i className="fas fa-clipboard-check" onClick={handleAssistEvent.bind(this, id)}></i>
-                        </div>
-                    </div>
-                    <div className="row margin_botton_15">
-                        <span className="gray col-sm-12 d-inline-block mt-3">{description}</span>
-                    </div>
-                    <div className="row">
-                        <span className="col-sm-6 gray">Fecha : {day}</span>
-                        <span className="col-sm-6 gray">Hora : {hour_start}</span>
-                    </div>
-                </div> : null 
-            }
-            {eventType === "events_assist" ?
-                <div className="card card-body events-card-3 h-100">
-                    <div className="row">
-                        <Link to="" className="title_add col-sm-9">{title}</Link>
-                        <div className="col-sm-3 images-icons">
-                            <i className="far fa-calendar-times" onClick={handleAssistEvent.bind(this, id)}></i>
-                        </div>
-                    </div>
-                    <div className="row margin_botton_15">
-                        <span className="gray col-sm-12 d-inline-block mt-3">{description}</span>
-                    </div>
-                    <div className="row">
-                        <span className="col-sm-6 gray">Fecha : {day}</span>
-                        <span className="col-sm-6 gray">Hora : {hour_start}</span>
-                    </div>
-                </div> : null 
-            }
-        </Fragment>
-        // <div className="card card-body events-card h-100">
-        //     <div className="row">
-        //         <Link to="" className="title_add col-sm-9">{title}</Link>
-        //         <div className="col-sm-3 images-icons">
-        //             {eventType === "my_events" ? <i className="far fa-trash-alt" onClick={handleDeleteEvent.bind(this, id)}></i>
-        //                 :
-        //                 eventType === "events" ?
-        //                     <button className="btn-assist" onClick={handleAssistEvent.bind(this, id)}>Asistiré</button>
-        //                     : <button className="btn-no-assist" onClick={handleAssistEvent.bind(this, id)}>Cancelar</button>
-        //             }
-        //         </div>
-        //     </div>
-        //     {/* <Link className="row  col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, item.id)}>{title}</Link> */}
-        //     <div className="row margin_botton_15">
-        //         <span className="gray col-sm-12 d-inline-block mt-3">{description}</span>
-        //     </div>
-        //     <div className="row">
-        //         <span className="col-sm-6 gray">Fecha : {day}</span>
-        //         <span className="col-sm-6 gray">Hora : {hour_start}</span>
-        //     </div>
-        // </div>
+        <div className="card card-body h-100">
+            <div className="row">
+                <Link to={"/events/" + id} className="title_add col-sm-9">{title}</Link>
+                <div className="col-sm-3 images-icons">
+                    {eventType === "my_events" ? <span className="ml-2"><Link className="trash-bg" to="#"><img className="trash-btn" src={require("../../public/images/svg/basura.svg")} alt="svg" width="23" id={id} onClick={handleDeleteEvent.bind(this, id)} /></Link></span>
+                        :
+                        <AssistButton
+                            event_id={id}
+                            isPart={isPart}
+                        />
+                    }
+                </div>
+            </div>
+            <div className="row margin_botton_15">
+                <span className="bold col-sm-12 d-inline-block text-truncate">{description}</span>
+            </div>
+            <div className="row">
+                <span className="col-sm-6 bold">Fecha : {moment(day).format('DD/MM/YYYY')}</span>
+                <span className="col-sm-6 bold">Hora : {hour_start}</span>
+            </div>
+        </div>
     );
 }
 export default View;

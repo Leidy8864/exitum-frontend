@@ -10,7 +10,7 @@ class TabAnuncio extends React.Component {
     
     componentDidMount(){        
         this.props.getAdState('active');
-        this.props.getTypeAds('coincidence');
+        // this.props.getTypeAds('coincidence');
     }
     handleSetState = (state) => {
         this.props.getAdState(state);

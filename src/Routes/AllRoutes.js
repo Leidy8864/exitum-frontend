@@ -19,6 +19,7 @@ import ChooseProfileRoute from './ChooseProfileRoute';
 import ProtectedRoute from './ProtectedRoute';
 import ResetPassword from '../components/ResetPassword/ResetPassword-controller';
 import HomeRoute from './HomeRoute';
+import EventDetailPage from '../components/EventDetailPage/EventDetailPage-controller';
 
 class AllRoutes extends React.Component {
   render() {
@@ -32,9 +33,12 @@ class AllRoutes extends React.Component {
             <ProtectedRoute exact path="/advertisement" component={Advertisement} />
             <ProtectedRoute exact path="/advertisement/:id/:title" component={AdDetailPage} />
             <ProtectedRoute exact path="/events" component={Events} />
-            <ProtectedRoute exact path="/profile" component={Profile} />
+            <ProtectedRoute exact path="/my-profile/" component={Profile} />
+            <ProtectedRoute exact path="/profile/:id" component={Profile} />
             <ProtectedRoute exact path="/challenges" component={Dare} />
             <ProtectedRoute exact path="/calendar" component={Calendar} />
+            <ProtectedRoute exact path="/events/:id" component={EventDetailPage} />
+
             <Route exact path="/users/reset" component={ResetPassword}/>
             <Route exact path="/users/" component={ResetPassword}/>
             <Route path="*" component={NotFound}/>    
