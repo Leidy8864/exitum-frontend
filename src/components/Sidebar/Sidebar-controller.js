@@ -102,6 +102,12 @@ class Sidebar extends React.Component {
                             <p>Agenda</p>
                         </NavLink>
                     </li>
+                    <li className="exit-dashboard">
+                        <NavLink to="/" onClick={this.logOut}>
+                            <i className="far fa-arrow-alt-circle-left"></i>
+                            <p>Salir</p>
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
 
@@ -128,7 +134,7 @@ class Sidebar extends React.Component {
                 selectOne={this.selectOne}
                 selectTwo={this.selectTwo}
                 menu={menu}
-                logOut={this.logOut}
+                // logOut={this.logOut}
             />
         );
     }

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import View from './Profile-view';
-import Driving from '../Driving/Driving-controller'
+import ProfileEmployee from '../ProfileEmployee/ProfileEmployee-controller'
 import EntrepeneurProfile from '../EntrepeneurProfile/EntrepeneurProfile-controller'
 
 class Profile extends React.Component {
@@ -22,7 +22,7 @@ class Profile extends React.Component {
         }
 
         if(role === 'employee'){
-            perfilImpulsor = <Driving />
+            perfilImpulsor = <ProfileEmployee />
         }
 
         return (

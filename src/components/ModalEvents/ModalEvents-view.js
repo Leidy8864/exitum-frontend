@@ -104,8 +104,10 @@ function View(props) {
                                         </div>
                                     </div>
                                     {content_message}
-                                    <div className="modal-footer adds mt-3">
-                                        <button className="adds" type="submit" onClick={handleSubmit}>Guardar</button>
+                                    <div className="form_group_">
+                                        <div className="d-flex justify-content-end mb-3">
+                                            <button className="btn btn-primary event" type="button" onClick={handleSubmit}>Guardar</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

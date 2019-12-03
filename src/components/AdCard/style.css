@@ -11,7 +11,7 @@ span a img svg {
     font-size: 24px;
     font-weight: bold;
     text-decoration: none !important;
-    color: #FF416C;
+    color: #157FFB;
   }
 
   .title_add:hover{
@@ -19,7 +19,7 @@ span a img svg {
   }
   
   i.fa-trash-alt {
-    color: #FF416C!important;
+    color: #157FFB!important;
   }
 
   .margin_botton_15{
@@ -53,7 +53,7 @@ span a img svg {
   }
 
   .images-icons a.trash-bg {
-    background: #F74946;
+    background: #157FFB;
     border-radius: 50%;
     padding: 4px 7px;
   }

@@ -131,9 +131,7 @@ ul li a {
 }
 
 .exit-dashboard {
-  position: absolute;
-  top: 820px;
-  left: 40px;
+  position: relative;
   z-index: 2000;
 }
 
@@ -257,7 +255,7 @@ ul li a {
     transition: all .33s
   }
   .navbar-toggler {
-    margin-left: 20px !important;
+    margin-left: 0px !important;
   }
   .nav-item.calendar {
     display: block !important;

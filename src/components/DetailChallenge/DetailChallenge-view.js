@@ -22,118 +22,108 @@ function View(props) {
                 <div className="modal fade" id="detailCHallengeModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="title_">
-                                        {challenge.title}
+                            <div className="modal-header adds">
+                                <h6 className="modal-title" id="exampleModalLabel">{challenge.title}</h6>
+                            </div>
+                            <div className="d-flex justify-content-between mt-4 pl-4">
+                                <ul className="nav nav-pills" id="myTab" role="tablist">
+                                    <li className="nav-item">
+                                        <a className={active ? 'nav-link px-3 active' : 'nav-link px-3'} id="active-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="active" aria-selected="true">Reto</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className={!active ? 'nav-link px-3 active' : 'nav-link px-3'} id="closed-tab" data-toggle="tab" href="#howto" role="tab" aria-controls="closed" aria-selected="false" onClick={handleGetSummary}>Como lo hicieron</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="tab-content modal-body pl-4 pr-4 pb-4 mt-2" id="myTabContent">
+                                <div className={active ? 'tab-pane fade show active' : 'tab-pane fade show'} id="reto" role="tabpanel" aria-labelledby="active-tab">
+                                    <div className="form_group_ ">
+                                        <label>Descripción del reto</label>
+                                        <span className="gray">{challenge.description}</span>
                                     </div>
-                                    <div className="container_challenge_tabs">
-                                        <ul className="nav nav-pills" id="myTab" role="tablist">
-                                            <li className="nav-item">
-                                                <a className={active ? 'nav-link px-4 active' : 'nav-link px-4'} id="active-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="active" aria-selected="true">RETO</a>
-                                            </li>
-                                            <li className="nav-item">
-                                                <a className={!active ? 'nav-link px-4 active' : 'nav-link px-4'} id="closed-tab" data-toggle="tab" href="#howto" role="tab" aria-controls="closed" aria-selected="false" onClick={handleGetSummary}>COMO LO HICIERON</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="tab-content content_challenge" id="myTabContent">
-                                        <div className={active ? 'tab-pane fade show active' : 'tab-pane fade show'} id="reto" role="tabpanel" aria-labelledby="active-tab">
-                                            <div className="row_detail">
-                                                <div className="subtitle_ mt-5">
-                                                    Descripción del reto
+                                    {
+                                        challenge.files.length >= 1 ?
+                                            <div>
+                                                <div className="form_group_">
+                                                    <label>Archivos para descargar</label>
                                                 </div>
-                                                <div className="description_">
-                                                    {challenge.description}
-                                                </div>
-                                                {
-                                                    challenge.files.length >= 1 ?
-                                                        <div>
+                                                <div className="downloads_container">
+                                                    {
 
-                                                            <div className="subtitle_">
-                                                                Archivos para descargar
-                                                        </div>
-                                                            <div className="downloads_container">
-                                                                {
+                                                        challenge.files.map((item, index) =>
+                                                            <div key={index} className="downloads_ mb-4">
 
-                                                                    challenge.files.map((item, index) =>
-                                                                        <div key={index} className="downloads_ mb-4">
-
-                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)}>
-                                                                                {item.name}
-                                                                            </a>
-                                                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
-                                                                        </div>
-                                                                    )
-                                                                }
-
+                                                                <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)}>
+                                                                    {item.name}
+                                                                </a>
+                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
                                                             </div>
-                                                        </div>
-                                                        : ''
-                                                }
+                                                        )
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            : ''
+                                    }
+
+                                    <div className="form_group_ mt-3">
+                                        <label>Respuesta al reto planteado</label>
+                                        <textarea name="reply" className="form-control" onChange={handleChange} value={reply ? reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>
+                                        <div className="error-message-aux">
+                                            {content_error_reply}
+                                        </div>
+                                    </div>
+                                    {
+                                        challenge.uploaded_files.length >= 1 ?
+                                            <div>
 
                                                 <div className="subtitle_">
-                                                    Respuesta al reto planteado
+                                                    Archivos subidos
+                                                        </div>
+                                                <div className="downloads_container">
+                                                    {challenge.uploaded_files.map((item, index) =>
+                                                        <div key={index} className="my-files">
+                                                            <div className="downloads_">
+
+                                                                <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)} key={index}>
+                                                                    {item.name}
+                                                                </a>
+                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
+                                                            </div>
+                                                            {
+                                                                challenge.status !== "Verificado" ?
+                                                                    <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} onClick={handledDeleteFile.bind(this, item.key_s3)} /> : ''
+                                                            }
+
+                                                        </div>
+                                                    )
+                                                    }
                                                 </div>
-                                                <div className="response_1 ">
-                                                    <textarea name="reply" onChange={handleChange} value={reply ? reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>
-                                                    <div className="error-message-aux">
-                                                        {content_error_reply}
+                                            </div>
+                                            : ''
+                                    }
+                                    {
+                                        challenge.status !== "Verificado" ?
+                                            <div>
+
+                                                <div className="form_group_">
+                                                    <label>Subir archivos</label>
+                                                    <input id="choose_files" className="form-control" type="file" name="file" onChange={handleInputFileChange} />
+                                                </div>
+                                                {content_message}
+                                                <div className="form_group_ mt-4">
+                                                    <div className="d-flex justify-content-end">
+                                                        <button type="button" className="btn btn-primary" onClick={handleClick}>Completar reto</button>
                                                     </div>
                                                 </div>
-                                                {
-                                                    challenge.uploaded_files.length >= 1 ?
-                                                        <div>
-
-                                                            <div className="subtitle_">
-                                                                Archivos subidos
-                                                        </div>
-                                                            <div className="downloads_container">
-                                                                {challenge.uploaded_files.map((item, index) =>
-                                                                    <div key={index} className="my-files">
-                                                                        <div className="downloads_">
-
-                                                                            <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)} key={index}>
-                                                                                {item.name}
-                                                                            </a>
-                                                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
-                                                                        </div>
-                                                                        {
-                                                                            challenge.status !== "Verificado" ?
-                                                                                <img src={require('../../public/images/svg/boton-de-eliminacion-del-contenedor-de-basura.svg')} onClick={handledDeleteFile.bind(this, item.key_s3)} /> : ''
-                                                                        }
-
-                                                                    </div>
-                                                                )
-                                                                }
-                                                            </div>
-                                                        </div>
-                                                        : ''
-                                                }
-                                                {
-                                                    challenge.status !== "Verificado" ?
-                                                        <div>
-
-                                                            <div className="subtitle_">
-                                                                Subir archivos
-                                                            </div>
-                                                            <div className="">
-                                                                <input id="choose_files" type="file" name="file" onChange={handleInputFileChange} />
-                                                            </div>
-                                                            {content_message}
-                                                            <div className="form_group_ form_group__">
-                                                                <button type="button" onClick={handleClick}>Completar reto</button>
-                                                            </div>
-                                                        </div>
-                                                        : ''
-                                                }
                                             </div>
-                                        </div>
-                                        <div className="tab-pane fade" className={!active ? 'tab-pane fade show active' : 'tab-pane fade'} id="howto" role="tabpanel" aria-labelledby="closed-tab" >
-                                            <div className="summary-list">
-
-                                            {
-                                                summary.length > 0 ?
+                                            : ''
+                                    }
+                                </div>
+                                <div className="tab-pane fade" className={!active ? 'tab-pane fade show active' : 'tab-pane fade'} id="howto" role="tabpanel" aria-labelledby="closed-tab" >
+                                    <div className="summary-list">
+                                        {
+                                            summary.length > 0 ?
 
                                                 summary.map((item, index) =>
                                                     <div className="row_detail mt-4" key={index}>
@@ -148,11 +138,9 @@ function View(props) {
                                                         </div>
                                                     </div>
                                                 )
-                                                : 
-                                                <p className="text-center mt-5">No se encontraron resultados</p>
-                                            }
-                                            </div>
-                                        </div>
+                                                :
+                                                <span className="text-center gray mt-5">No se encontraron resultados</span>
+                                        }
                                     </div>
                                 </div>
                             </div>

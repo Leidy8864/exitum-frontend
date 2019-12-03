@@ -112,8 +112,8 @@ form input {
 button.btn-observar {
   padding: 11px 30px!important;
   font-size: 14px;
-  border-radius: 25px;
-  background: #59AAFA;
+  border-radius: 4px;
+  background: #157FFB;
   font-weight: bold;
   color: #fff;
 }
@@ -125,8 +125,8 @@ button.btn-observar:hover {
 button.btn-confirmar {
   padding: 11px 30px!important;
   font-size: 14px;
-  border-radius: 25px;
-  background: #59AAFA;
+  border-radius: 4px;
+  background: #157FFB;
   font-weight: bold;
   color: #fff;
 }
@@ -184,10 +184,6 @@ button.btn-confirmar:hover {
   background: #157FFB !important;
   color: #fff;
   outline: none;
-}
-
-.modal-content {
-  overflow-y: auto !important;
 }
 
 .react-calendar__month-view__weekdays {

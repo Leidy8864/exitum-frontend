@@ -3,6 +3,6 @@
 }
 
 .content-challenge {
-    height: 93vh;
+    height: calc(100vh - 77px);
     overflow-y: auto;
 }

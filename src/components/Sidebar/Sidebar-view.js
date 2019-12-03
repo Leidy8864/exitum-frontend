@@ -17,9 +17,6 @@ function View(props) {
                 </div>
             </div>
             {menu}
-            <div className="exit-dashboard">
-                <Link to="/" onClick={logOut}><i className="far fa-arrow-alt-circle-left"></i></Link>
-            </div>
         </div>
     );
 }

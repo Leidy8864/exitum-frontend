@@ -1,3 +1,11 @@
 .ModalEvents{
     display: block;
 }
+
+.btn-primary.event {
+    margin-top: 20px;
+    margin-left: 0px !important;
+    font-weight: 600;
+    padding: 10px 25px;
+    font-size: 14px;
+}

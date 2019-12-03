@@ -44,8 +44,8 @@
     display: flex;
     align-items: stretch;
     background: #ffffff;
-    border: 1px solid #3369fd;
-    border-radius: 10px;
+    border: 1px solid #157FFB;
+    border-radius: 4px;
     padding: 10px;
 }
 .my-files {
@@ -74,10 +74,23 @@
 }
 
 .downloads_:hover{
-    background: #3369fd;
-    color: #fff !important;
+    background: #157FFB;
     transition: all ease 1s;
     text-decoration: none;
+}
+
+.downloads_:hover a.text-file {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.downloads_ i {
+    color: #157FFB !important;
+    font-size: 22px;
+}
+
+.downloads_:hover i {
+    color: #fff !important;
 }
 
 input[type=”file”] {
@@ -129,6 +142,4 @@ p#texto {
 }
 
 .summary-list{
-    height: calc(100vh - 300px);
-    overflow-y: scroll;
 }

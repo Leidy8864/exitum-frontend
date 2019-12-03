@@ -19,7 +19,7 @@ function View(props) {
                     <div className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-xl-9 col-lg-12 mt-4">
+                                <div className="col-xl-9 col-lg-12 mt-4 content-challenge">
                                     {role === 'entrepreneur' ? perfilEntrepeneur : null }
                                     {role === 'employee' ? perfilImpulsor : null}
                                 </div>

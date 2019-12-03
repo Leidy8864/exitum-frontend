@@ -44,7 +44,7 @@ function View(props) {
 
     return (
         <Fragment>
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
@@ -288,7 +288,7 @@ function View(props) {
                                 skills && skills.length > 0 ?
                                     skills.map(function (item, index) {
                                         return (
-                                            <div className="experience-info-skill mb-2 mt-2" key={index}>
+                                            <div className="experience-info-skill mb-1 mt-2" key={index}>
                                                 <div className="info-experience ml-2">
                                                     <ul className="">
                                                         <li className="skill-list"><span className="gray">{item.skill}</span></li>

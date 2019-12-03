@@ -71,9 +71,9 @@ function View(props) {
                                             >
                                                 {item.name}
                                             </a>
-                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')}
+                                            <i className="far fa-arrow-alt-circle-down"
                                             onClick={handleDownload.bind(this, item.name)} 
-                                            />
+                                            ></i>
                                         </div>
                                     ) : <span className="gray">No hay archivos</span>
                                 } 

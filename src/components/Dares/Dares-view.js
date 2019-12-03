@@ -13,7 +13,7 @@ function View(props) {
     console.log(challenges)
     return (
         <Fragment>
-            <div className="container-fluid content-challenge">
+            <div className="container-fluid">
             <div className="content-help">
                 <h4>Emprendedores al rescate</h4>
                 <p><strong>Verifica</strong> y <strong>Observa</strong> retos para conseguir más oportunidades de ser mejor</p>
