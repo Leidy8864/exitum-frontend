@@ -31,7 +31,7 @@ function View(props) {
                             )
                         })
                         :
-                        <h4 className="text-center">No se encontraron eventos</h4>
+                        <h4 className="text-center no-events ml-3">No se encontraron eventos</h4>
                 }
             </div>
         </div>

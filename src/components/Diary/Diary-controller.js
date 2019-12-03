@@ -9,7 +9,7 @@ class Diary extends React.Component {
 
     render() {
         let blockDiary =
-            <div className="start-diary">
+            <div className="start-diary ">
                 <button type="submit" className="add-diary" data-toggle="modal" data-target="#newdiary"><span>+</span></button>
                 <span>Empieza una agenda</span>
             </div>

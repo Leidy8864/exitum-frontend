@@ -3,4 +3,12 @@
 }
 .Ads-plus{
     font-family: 'Proxima Nova' !important;
+    float: right;
+    background: #57D680;
+    padding: 8px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+
+    text-transform: uppercase;
 }

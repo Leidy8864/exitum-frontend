@@ -23,7 +23,7 @@ function View(props) {
                 <div className="content">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-xl-9 col-lg-12">
+                            <div className="col-xl-8 col-lg-12">
                                 <div className="container mt-2">
                                     <div className="card mb-4">
                                         <div className="card-body ml-3">
@@ -80,7 +80,7 @@ function View(props) {
 
                                 <EmployeesList />
                             </div>
-                            <div className="col-xl-3 col-lg-12">
+                            <div className="col-xl-4 col-lg-12">
                                 <Diary />
                             </div>
                         </div>

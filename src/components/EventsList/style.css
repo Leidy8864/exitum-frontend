@@ -2,6 +2,12 @@
     display: block;
 }
 div#events-list{
-    height: calc(100vh - 230px);
+    margin-top: 20px;
+    height: calc(100vh);
     overflow-y: auto;
   }
+
+.no-events {
+    font-family: 'Proxima Nova';
+    color: #777;
+}

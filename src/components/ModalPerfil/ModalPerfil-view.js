@@ -20,7 +20,7 @@ function View(props) {
 
     return (
         <div>
-            <div className="modal fade" id="perfil" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="perfilusuario" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -96,8 +96,7 @@ function View(props) {
                                                             name="available"
                                                             className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                             onClick={selectHour}
-                                                            />
-                                                            
+                                                            />   
                                                         {dt}
                                                     </div>
                                             )
@@ -106,8 +105,12 @@ function View(props) {
                                     </div> : <br />}
                             </form>
                         </div>
-                        <div className="modal-footer">
-                            <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
+                        <div className="row">
+                            <div className="col-md-11">
+                            <div className="modal-footer">
+                                <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>

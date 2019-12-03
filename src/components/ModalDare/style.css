@@ -9,3 +9,7 @@ textarea.form-control {
 .downloads_container {
     display: flex;
 }
+
+.modal-header.dare {
+    background: #59AAFA !important;
+}

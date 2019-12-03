@@ -2,7 +2,6 @@
   position: relative;
   top: 0;
   height: 100vh;
-  background: #EEF1F8;
   overflow: hidden;
 }
 
@@ -14,11 +13,10 @@
   margin-top: 77px;
   padding: 0px !important;
   min-height: calc(100vh - 123px);
-  background: #E9EDF2;
+  background: #EFF3F8;
 }
 
 .main-panel {
-  background: #E9EDF2;
   position: relative;
   float: right;
   width: calc(100% - 260px);
@@ -26,7 +24,6 @@
 }
 
 .content .container-fluid {
-  background: #E9EDF2;
 }
 
 @media screen and (max-width: 1024px) {

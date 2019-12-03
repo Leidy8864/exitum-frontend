@@ -30,7 +30,7 @@ function View(props) {
                 <div className="modal fade" id="newdiary" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
-                            <div className="modal-header">
+                            <div className="modal-header bg-primary">
                                 <h6 className="modal-title" id="exampleModalLabel">Nueva Agenda</h6>
                             </div>
                             <div className="modal-body diary">

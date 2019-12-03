@@ -26,10 +26,10 @@ function View(props) {
                                         <div className="col-md-8 mt-1">
                                             <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                                                 <li className="nav-item">   
-                                                    <a className={eventType === "events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'events')}>EVENTOS</a>
+                                                    <a className={eventType === "events" ? "nav-link-yellow px-4 active" : "nav-link-yellow px-4"} href="#" onClick={handleClick.bind(this, 'events')}>EVENTOS</a>
                                                 </li>
                                                 <li className="nav-item">
-                                                    <a className={eventType === "events_assist" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}>ASISTIRÉ</a>
+                                                    <a className={eventType === "events_assist" ? "nav-link-morado px-4 active" : "nav-link-morado px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}>ASISTIRÉ</a>
                                                 </li>
                                                 <li className="nav-item">
                                                     <a className={eventType === "my_events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}>ORGANIZADOS POR MÍ</a>
@@ -47,7 +47,7 @@ function View(props) {
                                         </div>
                                     </div>
                                     <div className="row mt-4">
-                                        <div className="col-md-12">
+                                        <div className="col-md-12 events-list">
                                             <EventsList />
                                         </div>
                                     </div>

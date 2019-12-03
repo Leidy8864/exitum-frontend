@@ -16,7 +16,7 @@
   max-height: calc(100% + 0px);
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  box-shadow: 0 16px 8px -12px rgba(0,0,0,.56), 0 4px 20px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+  border-right: 1px solid #DEE0E2;
   z-index: 1024;
 }
 
@@ -74,9 +74,45 @@
 
 ul.nav-pills.add-tabs {
   margin-top: 0px !important;
-  padding-left: 60px !important;
+  padding-left: 0px !important;
 }
 
+ul.nav-pills.add-tabs li.nav-item a {
+  margin-right: 40px;
+  padding: 8px 40px !important;
+}
+
+ul.nav-pills.add-tabs li.nav-item a.nav-link {
+  background: #FF416C;
+  border-radius: none !important;
+  color: #fff;
+}
+
+ul.nav-pills.add-tabs li.nav-item a.nav-link.active {
+  border-radius: none !important;
+}
+
+ul.nav-pills.add-tabs li.nav-item a.nav-link-yellow.active {
+  background: #5C73BF;
+}
+
+ul.nav-pills.add-tabs li.nav-item a.nav-link-yellow{
+  background: #5C73BF;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+ul.nav-pills.add-tabs li.nav-item a.nav-link-morado.active {
+  background: #8F81E3;
+}
+
+ul.nav-pills.add-tabs li.nav-item a.nav-link-morado{
+  background: #8F81E3;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 8px;
+}
 
 ul li a {
   font-family: 'Proxima Nova' !important;
@@ -152,25 +188,18 @@ ul li a {
 }
 
 .card {
-  border-radius: 10px !important;
+  border-radius: 6px !important;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  background: #396afc !important;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 20px;
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {  /* fallback for old browsers */
+  border-radius: 3px;
   transition: all .15s ease-in;
 }
 
 .nav-pills.anuncios .nav-link.active, .nav-pills .show>.nav-link {
-  background: #396afc !important;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2948ff, #396afc) !important;  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2948ff, #396afc) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 20px;
+  background: #157FFB !important;  /* fallback for old browsers */
+  border-radius: 4px;
   padding: 10px;
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
   transition: all .15s ease-in;
 }
 

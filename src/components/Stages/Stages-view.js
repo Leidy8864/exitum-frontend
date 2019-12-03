@@ -8,9 +8,6 @@ function View(props) {
     const {
         listSteps,
         selectStage,
-        // lstStage,
-        // getIdProjectReducer,
-        // stage
         role
     } = props
 
@@ -19,7 +16,7 @@ function View(props) {
             <div className="stage">
                 <div className="container-stage">
 
-                    {
+                    {/* {
                         listSteps.length >= 1 ?
 
                         listSteps.map(function(item,index){
@@ -38,7 +35,7 @@ function View(props) {
                         :
 
                         'No se encontraron resultados'
-                    }
+                    } */}
                 </div>
             </div>
         </div>

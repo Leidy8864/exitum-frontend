@@ -22,22 +22,22 @@ function View(props) {
         <div className="modal fade" id="modaldare" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
-                    <div className="modal-header">
+                    <div className="modal-header dare">
                         <h6 className="modal-title" id="exampleModalLabel">Reto</h6>
                     </div>
                     <div className="modal-body">
                         <form>
                             <div className="mt-4">
                                 <label className="w-100">Titulo:</label>
-                                <span className="bold">{tip}</span>
+                                <span className="gray">{tip}</span>
                             </div>
                             <div className="mt-4">
                                 <label>Descripcion:</label><br />
-                                <span className="bold">{description}</span>
+                                <span className="gray">{description}</span>
                             </div>
                             <div className="mt-4">
                                 <label className="w-100">Respuesta:</label><br />
-                                <span className="bold">{reply}</span>
+                                <span className="gray">{reply}</span>
                             </div>
                             <div className="mt-4">
                                 <label className="w-100">Archivos:</label><br />
@@ -55,7 +55,7 @@ function View(props) {
                                             onClick={handleDownload.bind(this, item.name)} 
                                             />
                                         </div>
-                                    ) : <span className="bold">No hay archivos</span>
+                                    ) : <span className="gray">No hay archivos</span>
                                 } 
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ function View(props) {
                                             onClick={handleDownload.bind(this, item.name)} 
                                             />
                                         </div>
-                                    ) : <span className="bold">No hay archivos</span>
+                                    ) : <span className="gray">No hay archivos</span>
                                 } 
                                 </div>
                             </div>

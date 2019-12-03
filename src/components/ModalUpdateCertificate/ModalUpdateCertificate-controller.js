@@ -28,10 +28,16 @@ class ModalUpdateCertificate extends React.Component {
         formData.append('user_id',localStorage.getItem('id'));
         formData.append('certification_id',$('#CertificateId').val());
         formData.append('name',$('#CertificateName').val());
-        formData.append('issuing_company',company_name.value);
+        // formData.append('issuing_company',company_name.value);
         formData.append('date_expedition', moment(date_expedition).format('YYYY-MM-DD'));
         formData.append('date_expiration', moment(date_expiration).format('YYYY-MM-DD'));
         formData.append('document',document.querySelector('#choose_file').files[0]);
+
+        console.log("company_name.value = ", company_name.value)
+
+        if(company_name.value){
+            formData.append('issuing_company',company_name.value);
+        }
         
         await this.props.createCertificationUpdate(formData);
         this.props.listCertifications(1);

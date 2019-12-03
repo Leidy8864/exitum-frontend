@@ -76,6 +76,7 @@ export const updateUserPerfil = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + 'users/update', data);
+            console.log(res.data)
             return res.data;
         } catch (error) {
             console.log("Error" + error);
@@ -593,6 +594,7 @@ export const notAvailableUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `schedules/not-available-multiple/${id}`, data)
+            console.log(res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -604,7 +606,8 @@ export const appointmentsUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/create/${id}`, data)
-            return res.data.data
+            console.log(res.data)
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -614,7 +617,7 @@ export const appointmentsUser = (id, data) => {
 export const appointmentsByUser = async id => {
     try {
         const res = await axios.get(root + `appointments/list-by-reminder/${id}`)
-        return res.data.data
+        return res.data
     } catch (error) {
         console.log("Error" + error)
     }
@@ -633,7 +636,7 @@ export const appointmentsUpdate = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/update/${id}`, data)
-            return res.data.data
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -644,7 +647,8 @@ export const appointmentsDelete = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/cancel/${id}`, data)
-            return res.data.data
+            console.log(res.data)
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -703,7 +707,8 @@ export const deleteExperience = data => {
 export const hourAvailables = (id, data) => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `schedules/schedule/${id}`, data)
+            const res = await axios.post(root + `schedules/schedule/${id}`,data)
+            console.log(res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

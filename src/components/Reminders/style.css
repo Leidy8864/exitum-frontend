@@ -5,8 +5,9 @@
 .reminders {
     background: #D4DFFD;
     color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 1px 10px 0 rgba(0,0,0,.14), 0 7px 2px -8px rgba(141, 138, 138, 0.4);
+    border-radius: 10px;
+    font-family: 'Proxima Nova' !important;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,.14), 0 1px 2px -2px rgba(141, 138, 138, 0.4);
 }
 
 .appointments h4{
@@ -16,33 +17,54 @@
 }
 
 .header-reminder {
-    background: #FEC03A;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    padding-top: 10px;
+    background: #57D680 !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 8px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+a#menos {
+    display: none;
+}
+
+.recordatorio-reu {
+    color: #5a5353;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Proxima Nova';
 }
 
 .body-reminder {
-    padding: 20px;
+    padding: 13px 20px 0px 20px;
     background: #fff;
     color: #777;
-}
-
-.footer-reminder {
-    background: #fff !important;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .header-meeting {
-    background: #875AC8;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    background: #59AAFA !important;  /* fallback for old browsers */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.description-meet {
+    height: 62px !important;
+}
+
+.reminder-description {
+    height: 62px !important;
+}
+
+.description-size {
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .body-meeting {
@@ -51,8 +73,11 @@
     color: #777;
 }
 
-.footer-meeting {
-    background: #fff !important;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+.body-meeting {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+}
+
+.see-more {
+    text-align: center;
 }

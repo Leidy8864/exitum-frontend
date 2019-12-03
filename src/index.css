@@ -25,10 +25,42 @@ body {
   color: #777 !important;
   box-shadow: none !important;
   position: relative;
+  font-size: 1rem !important;
 }
 
 .form-control:focus {
   box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4);
+}
+
+.swal2-container.swal2-shown {
+  background-color: rgba(0,0,0,.1) !important;
+}
+
+.swal2-styled.swal2-confirm {
+  border: none !important;
+  background: #2FD566 !important;  /* fallback for old browsers */
+  border-radius: 20px !important;
+}
+
+.swal2-popup {
+  font-family: 'Proxima Nova' !important;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(116, 111, 111, 0.4);
+}
+
+
+
+.swal2-styled.swal2-cancel {
+  background: #F0607D !important;
+  border-radius: 20px !important;
+}
+
+.swal2-styled.swal2-cancel:focus {
+  border: none !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #F0607D !important;
+  color: #F0607D !important;
 }
 
 form input {
@@ -71,16 +103,17 @@ form input {
 .modal-footer button {
   padding: 11px 30px!important;
   font-size: 14px;
-  border-radius: 25px;
-  background: #3369fd;
+  border-radius: 4px;
+  margin-right: 13px;
   font-weight: bold;
+  border: none !important;
 }
 
 button.btn-observar {
   padding: 11px 30px!important;
   font-size: 14px;
   border-radius: 25px;
-  background: #3369fd;
+  background: #59AAFA;
   font-weight: bold;
   color: #fff;
 }
@@ -93,7 +126,7 @@ button.btn-confirmar {
   padding: 11px 30px!important;
   font-size: 14px;
   border-radius: 25px;
-  background: #3369fd;
+  background: #59AAFA;
   font-weight: bold;
   color: #fff;
 }
@@ -117,13 +150,13 @@ button.btn-confirmar:hover {
 }
 
 .modal-content {
-  border-radius: 25px !important;
+  border-radius: 2px !important;
   background: #EEF1F8;
 }
 
 .modal-header {
-  border-top-right-radius: 25px !important;
-  border-top-left-radius: 25px !important;
+  border-top-right-radius: 2px !important;
+  border-top-left-radius: 2px !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -148,15 +181,25 @@ button.btn-confirmar:hover {
 }
 
 .react-calendar__navigation button {
-  background: #3369fd !important;
+  background: #157FFB !important;
   color: #fff;
+  outline: none;
+}
+
+.modal-content {
+  overflow-y: auto !important;
 }
 
 .react-calendar__month-view__weekdays {
   color: #777;
+  outline: none;
 }
 
 .react-date-picker__button:focus {
+  outline: none;
+}
+
+.react-calendar button:focus {
   outline: none;
 }
 
