@@ -25,14 +25,14 @@ function View(props) {
                                     <div className="row mt-4">
                                         <div className="col-md-8 mt-1">
                                             <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
-                                                <li className="nav-item">
-                                                    <a className={eventType === "my_events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}>ORGANIZADOS POR MÍ</a>
-                                                </li>
                                                 <li className="nav-item">   
                                                     <a className={eventType === "events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'events')}>EVENTOS</a>
                                                 </li>
                                                 <li className="nav-item">
                                                     <a className={eventType === "events_assist" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}>ASISTIRÉ</a>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <a className={eventType === "my_events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}>ORGANIZADOS POR MÍ</a>
                                                 </li>
                                             </ul>
                                         </div>

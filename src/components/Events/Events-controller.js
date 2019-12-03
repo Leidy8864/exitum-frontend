@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getEventType from '../../redux/actions/getEventType';
 class Events extends React.Component {
-
-    componentDidMount(){
-        this.props.getEventType('my_events')
-    }
     handleClick = (type) => {
         this.props.getEventType(type)
     }

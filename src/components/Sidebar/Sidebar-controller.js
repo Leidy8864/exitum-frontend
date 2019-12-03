@@ -39,7 +39,7 @@ class Sidebar extends React.Component {
 
     goProfile = e => {
         e.preventDefault();
-        this.props.history.push('/profile')
+        this.props.history.push('/my-profile')
     }
 
     goEvents = e => {
@@ -91,7 +91,7 @@ class Sidebar extends React.Component {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" data-toggle="pill" to="/profile" onClick={this.goProfile}>
+                        <NavLink className="nav-link" data-toggle="pill" to="/my-profile" onClick={this.goProfile}>
                             <i className="far fa-user"></i>
                             <p>Perfil</p>
                         </NavLink>

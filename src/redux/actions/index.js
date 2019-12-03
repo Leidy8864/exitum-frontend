@@ -771,6 +771,33 @@ export const assistEvent = async (data) => {
         console.log("Error" + error)
     }
 }
+export const showEvent = async (id) => {
+    try {
+        const res = await axios.get(root + `events/show/${id}`)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const editEvent = async (data) => {
+    try {
+        const res = await axios.post(root + `events/update/`,data)
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const getListParticipants = async (id,data) => {
+    try {
+        const res = await axios.get(root + `events/participating-event/${id}`,{
+            params: data
+        })
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
 
 //End Events
 

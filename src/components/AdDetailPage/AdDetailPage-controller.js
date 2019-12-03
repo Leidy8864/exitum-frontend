@@ -43,13 +43,10 @@ class AdDetailPage extends React.Component {
         );
     }
 }
-const mapStateToProps = state => ({
-    adType: state.getTypeAdsReducer
-});
 const mapDispatchToProps = {
     cleanForm,
     getAdvert
 }
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(AdDetailPage)
+    connect(null, mapDispatchToProps)(AdDetailPage)
 )

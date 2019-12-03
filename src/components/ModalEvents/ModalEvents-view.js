@@ -64,6 +64,7 @@ function View(props) {
                                                 onChange={handleDateChange}
                                                 value={day}
                                                 name="day"
+                                                minDate={new Date()}
                                             />
                                         </Fragment>
                                         <div className="error-message-aux">
