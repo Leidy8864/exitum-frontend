@@ -74,44 +74,22 @@
 
 ul.nav-pills.add-tabs {
   margin-top: 0px !important;
-  padding-left: 0px !important;
+  padding-left: 15px !important;
 }
 
 ul.nav-pills.add-tabs li.nav-item a {
   margin-right: 40px;
+  font-size: 18px;
   padding: 8px 40px !important;
 }
 
 ul.nav-pills.add-tabs li.nav-item a.nav-link {
-  background: #FF416C;
-  border-radius: none !important;
-  color: #fff;
+  
 }
 
 ul.nav-pills.add-tabs li.nav-item a.nav-link.active {
   border-radius: none !important;
-}
-
-ul.nav-pills.add-tabs li.nav-item a.nav-link-yellow.active {
-  background: #5C73BF;
-}
-
-ul.nav-pills.add-tabs li.nav-item a.nav-link-yellow{
-  background: #5C73BF;
-  color: #FFF;
-  border-radius: 4px;
-  padding: 8px;
-}
-
-ul.nav-pills.add-tabs li.nav-item a.nav-link-morado.active {
-  background: #8F81E3;
-}
-
-ul.nav-pills.add-tabs li.nav-item a.nav-link-morado{
-  background: #8F81E3;
-  color: #FFF;
-  border-radius: 4px;
-  padding: 8px;
+  background: #157FFB !important;
 }
 
 ul li a {
@@ -260,11 +238,35 @@ ul li a {
   .nav-item.calendar {
     display: block !important;
   }
+  ul.nav-pills.add-tabs {
+    width: 100%;
+    display: block !important;
+    padding-left: 0px !important;
+  }
+  .pills-event {
+    padding-right: 0px !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .navbar-toggler {
     margin-left: 0px !important;
+  }
+
+  .container-tabs {
+    flex-direction: column-reverse;
+  }
+  .pills-event {
+    margin: 0 auto !important;
+  }
+  .events-list .container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .pluss-padding {
+  }
+
+  .Add-plus {
   }
 }
 

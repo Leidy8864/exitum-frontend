@@ -8,10 +8,10 @@ span a img svg {
 
 
 .title_add{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     text-decoration: none !important;
-    color: #157FFB;
+    color: #fff;
   }
 
   .title_add:hover{
@@ -31,10 +31,27 @@ span a img svg {
     font-weight: 400;
   }
   
-  .card.card-body {
-    border: none;
+  .card.all-card {
+    box-shadow: 0px 1px 10px -3px rgba(116, 114, 114, 0.47);
     border-radius: 3px !important;
     transition: all ease-in-out 0.6s;
+  }
+
+  .card.all-card:hover {
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(51, 136, 233, 0.4);
+    transform: translate3d(0,-3px,0);
+  }
+
+  .card.all-card:hover  .card-header {
+    background: #157FFB !important;
+    transition: 0.5s;
+  }
+
+  .card-header {
+    background: #157FFB !important;
+    color: #fff !important;
+    border: none !important;
+    transition: 0.5s;
   }
 
   .card.card-body:hover {
@@ -52,16 +69,14 @@ span a img svg {
     padding: 4px 7px;
   }
 
-  .images-icons a.trash-bg {
-    background: #157FFB;
-    border-radius: 50%;
-    padding: 4px 7px;
-  }
-
   a img.pause-btn {
     width: 18px;
     height: 18px;
     margin-bottom: 2px;
+  }
+
+  .images-icons .edit-icon i{
+    color: #fff !important;
   }
 
   a img.trash-btn {

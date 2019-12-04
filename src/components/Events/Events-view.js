@@ -20,33 +20,33 @@ function View(props) {
                 <div className="content">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-xl-9 col-lg-12">
-                                <div className="container">
-                                    <div className="row mt-4">
-                                        <div className="col-md-8 mt-1">
+                            <div className="col-xl-9 col-lg-12 events-fluid">
+                                <div className="container-fluid bg-white events-scroll mt-4">
+                                    <div className="row mt-4 container-tabs">
+                                        <div className="col-md-8 mt-1 pr-5 pills-event">
                                             <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                                                 <li className="nav-item">   
-                                                    <a className={eventType === "events" ? "nav-link-yellow px-4 active" : "nav-link-yellow px-4"} href="#" onClick={handleClick.bind(this, 'events')}>EVENTOS</a>
+                                                    <a className={eventType === "events" ? "nav-link px-4 active" : "nav-link-yellow px-4"} href="#" onClick={handleClick.bind(this, 'events')}>Eventos</a>
                                                 </li>
                                                 <li className="nav-item">
-                                                    <a className={eventType === "events_assist" ? "nav-link-morado px-4 active" : "nav-link-morado px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}>ASISTIRÉ</a>
+                                                    <a className={eventType === "events_assist" ? "nav-link px-4 active" : "nav-link-morado px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}>Asistiré</a>
                                                 </li>
                                                 <li className="nav-item">
-                                                    <a className={eventType === "my_events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}>ORGANIZADOS POR MÍ</a>
+                                                    <a className={eventType === "my_events" ? "nav-link px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}>Organizados por mí</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="col-md-4 mt-1">
-                                            <Link className="signin" to="" data-toggle="modal" data-target="#EventsModal">
+                                        <div className="col-md-4 mt-1 plus-padding">
+                                            <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#EventsModal">
                                                 <div className="Ads-plus">
-                                                    <span> + </span>
+                                                    <i className="fas fa-plus mr-2"></i>
                                                     Agregar evento
                                                     </div>
                                             </Link>
                                             <ModalEvents />
                                         </div>
                                     </div>
-                                    <div className="row mt-4">
+                                    <div className="row mt-5">
                                         <div className="col-md-12 events-list">
                                             <EventsList />
                                         </div>

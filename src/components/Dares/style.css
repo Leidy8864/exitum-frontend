@@ -93,3 +93,12 @@ span.contact {
 span.card-title-challenge {
     color: #6C7478;
 }
+
+@media screen and (max-width: 1024px) {
+    .content-challenges {
+        padding: 0 20px !important;
+    }
+    .content-help {
+        padding: 0px 20px 40px;
+    }
+}

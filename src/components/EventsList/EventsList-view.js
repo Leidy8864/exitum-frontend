@@ -11,13 +11,13 @@ function View(props) {
         handleDeleteEvent
     } = props
     return (
-        <div className="container" id="events-list">
+        <div className="container">
             <div className="row">
                 {
                     eventsList.length > 0 ?
                         eventsList.map(function (item) {
                             return (
-                                <div className="col-sm-6 py-2" key={item.id}>
+                                <div className="col-sm-6 md-py-2 mb-4 lg-mb-3 md-mb-3" key={item.id}>
                                     <EventCard
                                         id={item.id}
                                         title={item.title}

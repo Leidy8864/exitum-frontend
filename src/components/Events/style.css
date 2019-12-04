@@ -3,5 +3,22 @@
 }
 
 .events-list {
-    padding-left: 0px !important;
+    padding-left: 15px !important;
+}
+
+.events-fluid {
+    padding-left: 30px !important;
+}
+
+.events-scroll {
+    overflow-y: auto !important;
+    height: calc(100vh - 100px);
+}
+
+.pills-event {
+    padding-left: 30px !important;
+}
+
+.plus-padding {
+    padding-right: 45px !important;
 }

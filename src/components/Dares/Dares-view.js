@@ -22,13 +22,13 @@ function View(props) {
                     <li>Manda una verificación de los pasos a seguir en cada reto.</li>
                 </div>
             </div>
-            <div className="row content-challenges">
+            <div className="row content-challenges mb-4">
                 
                 {challenges && challenges.length > 0 ?
                     challenges.map(function (item, index) {
                         return (
                             <Fragment key={index}>
-                                <div className="col-lg-6 col-xl-4">
+                                <div className="col-md-6 col-xl-6">
                                     <div className="card card-challenge mb-3">
                                         <div className="contact-body">
                                             <div className="header-challenge text-center w-100 mt-3">

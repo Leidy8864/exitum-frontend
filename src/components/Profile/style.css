@@ -1,7 +1,7 @@
 .Diary {
     margin-top: 23px !important;
     background: #FFFFFF;
-    padding: 15px;
+    padding: 20px;
     border-radius: 6px;
     margin-bottom: 20px;
     height: calc(100vh - 120px);
@@ -9,5 +9,6 @@
   }
 
   .content-diary {
-
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }

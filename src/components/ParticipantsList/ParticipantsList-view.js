@@ -9,7 +9,7 @@ function View(props) {
         user_id
     } = props
     return (
-        <div className="container mt-3" id="list-participants">
+        <div className="container mt-5" id="list-participants">
 
             <div className="row">
                 {

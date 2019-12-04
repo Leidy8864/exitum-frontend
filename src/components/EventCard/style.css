@@ -3,23 +3,13 @@
 }
 
 .btn-assist{
-    color: #fff;
-    padding: 10px 15px!important;
-    font-size: 14px;
-    border-radius: 25px;
-    background: #3369fd;
-    font-weight: bold;
-    border-style: none;
+    background: transparent;
+    border: none
 }
 
 .btn-no-assist{
-    color: #fff;
-    padding: 10px 15px!important;
-    font-size: 14px;
-    border-radius: 25px;
-    background: #59AAFA;
-    font-weight: bold;
-    border-style: none;
+    background: transparent;
+    border: none
 }
 
 div.events-card {
