@@ -16,8 +16,6 @@ function View(props) {
         handleClickDeleteReminder,
         handleClickDeleteMeet,
         handleClickDeleteMeetNotification,
-        changeSeeMeet,
-        changeSeeReminder,
         id
     } = props
     return (
@@ -61,7 +59,7 @@ function View(props) {
                                                         <i className="far fa-bell mr-2 mt-1"></i><p className="ml-2">{item.title}</p>
                                                     </div>
                                                     <div id="bigs" className="description-meet d-flex">
-                                                        <i className="far fa-newspaper mr-1 mt-1"></i><p className="ml-2 description-size">{item.description}</p>
+                                                        <i className="far fa-newspaper mr-1 mt-1"></i><p className="ml-2 description-text">{item.description}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,8 +92,8 @@ function View(props) {
                                                             id == item.fromAppointmentUser.id ?
 
                                                                 <div className="delete-reminder icon">
-                                                                    <a href="#"  className="icon-edit">
-                                                                    <i id={item.id} onClick={handleClickDeleteMeet} className="fas fa-trash"></i>
+                                                                    <a href="#" className="icon-edit">
+                                                                        <i id={item.id} onClick={handleClickDeleteMeet} className="fas fa-trash"></i>
                                                                     </a>
 
                                                                 </div> :
@@ -124,7 +122,10 @@ function View(props) {
                                                             </div>
                                                     }
                                                     <div id="big" className="description-meet d-flex">
-                                                        <i className="far fa-newspaper mr-1 mt-1"></i><p className="description-size ml-2">{item.description}</p>
+                                                        <i className="far fa-newspaper mr-1 mt-1"></i>
+                                                        <p className="ml-2 description-text">
+                                                            {item.description}
+                                                        </p>
                                                     </div>
                                                     {/* <div className="see-more mt-1">
                                                 <a onClick={changeSeeMeet} id="mas" href="#big" className="">... Ver mas</a>

@@ -22,6 +22,8 @@ function View(props) {
         selected,
         selectTypeDiary,
         selectedOption,
+        description,
+        title
     } = props;
 
     return (
@@ -46,7 +48,7 @@ function View(props) {
                                 </div>
                                 <div className="form_group_ mt-3">
                                     <label>Titulo</label><br />
-                                    <input type="text" name="title" className="form-control" onChange={handleChangeForm} />
+                                    <input type="text" name="title" className="form-control" onChange={handleChangeForm}  value={title}/>
                                 </div>
                                 {isMeet ?
                                     <div className="form_group_ mt-3">
@@ -122,7 +124,7 @@ function View(props) {
                                 }
                                 <div className="form_group_">
                                     <label>Descripción</label>
-                                    <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} />
+                                    <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} value={description}/>
                                 </div>
                             </div>
 
