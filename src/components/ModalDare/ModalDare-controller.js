@@ -63,10 +63,11 @@ class ModalDare extends React.Component {
 
     confirmChallenge = async (e) => {
         e.preventDefault()
+        let verifying_user = localStorage.getItem('id');
         const { challenge_id, statusVerify } = this.state
         let status = statusVerify
         const data = {
-            challenge_id, status
+            challenge_id, status,verifying_user
         }
 
         Swal.fire(
@@ -81,10 +82,11 @@ class ModalDare extends React.Component {
 
     observerChallenge = async (e) => {
         e.preventDefault()
+        let verifying_user = localStorage.getItem('id');
         const { challenge_id, comment, statusObser } = this.state
         let status = statusObser
         const data = {
-            challenge_id, comment, status
+            challenge_id, comment, status,verifying_user
         }
 
         if(comment === "") {
