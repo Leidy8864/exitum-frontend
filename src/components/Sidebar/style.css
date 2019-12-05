@@ -168,8 +168,9 @@ ul li a {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {  /* fallback for old browsers */
-  border-radius: 3px;
+  border-radius: 20px;
   transition: all .15s ease-in;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(51, 181, 233, 0.4);
 }
 
 .nav-pills.anuncios .nav-link.active, .nav-pills .show>.nav-link {

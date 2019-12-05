@@ -4,19 +4,22 @@
     display: block;
   }
 .challenges {
-    margin-left: 35px;
     position: relative;
 }
 
 .container-chellenges {
     margin-top: 30px;
-    background: #2183F8;
+    background: #EEF5FF;
     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(28, 115, 228, 0.4);
     transition: 0.5s;
     border-radius: 10px;
     padding: 2px 40px 40px;
     width: 85%;
     font-family: 'Proxima Nova';
+}
+
+.challenges-hc {
+    margin-left: 30px;
 }
 
 .challenge {
@@ -37,9 +40,9 @@
 
 .challenge:hover {
     transition: 0.5s;
-    background: #366CF7;
+    background: #4157F2;
     transform: translate3d(0,-3px,0);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(130, 51, 233, 0.4);
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(81, 79, 230, 0.4);
     transition: 0.5s;
 }
 

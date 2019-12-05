@@ -116,27 +116,42 @@ h3 {
 }
 
 .delete-perfil i {
-    color: #fff !important;
-    background: #157FFB;
+    color: #4157F2 !important;
+    background: #EEF5FF;
     padding: 13px 14px !important;
     border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(66, 175, 248, 0.7);
+    transition: all ease 0.5s;
+}
+
+.delete-perfil i:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(42, 52, 189, 0.7);
 }
 
 .plus-perfil i {
-    color: #fff !important;
-    background: #157FFB;
+    color: #4157F2 !important;
+    background: #EEF5FF;
     padding: 12px 14px !important;
     border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(66, 175, 248, 0.7);
+    transition: all ease 0.5s;
+}
+
+.plus-perfil i:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(42, 52, 189, 0.7);
 }
 
 .edit-perfil i {
-    color: #fff !important;
-    background: #157FFB;
+    transition: all ease 0.5s;
+    color: #4157F2 !important;
+    background: #EEF5FF;
     padding: 12px;
     border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(66, 175, 248, 0.7);
+}
+
+.edit-perfil i:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(42, 52, 189, 0.7);
 }
 
 img.img {

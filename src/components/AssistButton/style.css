@@ -2,21 +2,17 @@
     display: block;
 }
 
-button.btn-assist i{
-    color: #fff !important;
-}
-
 button.btn-no-assist i{
     color: #fff !important;
 }
 
 .container-detail button.btn-no-assist i{
-    color: #fff;
-    background: rgb(245, 122, 151);
+    color: #FD42A6 !important;
+    background: #FEF6FB;
     font-size: 20px;
     padding: 15px 17px;
     border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(248, 72, 66, 0.7);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(207, 100, 166, 0.7);
 }
 
 .container-detail button:focus{

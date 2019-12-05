@@ -32,3 +32,25 @@
 .container-tabs-pauses {
     padding-left: 38px !important;
 }
+
+.nav-link-person {
+    background: #FEF6FB;
+    border-radius: 20px;
+    color: #FD42A6  
+}
+
+.nav-link-person:hover {
+    color: #FD42A6  
+}
+
+a.nav-link-morado, a.nav-link-yellow, a.nav-link {
+    color: #4C5161;
+}
+
+a.nav-link-morado:hover, a.nav-link-yellow:hover, a.nav-link:hover {
+    color: #FD42A6;  
+}
+
+a.nav-link-morado:focus, a.nav-link-yellow:focus, a.nav-link:focus {
+    color: #FD42A6;  
+}

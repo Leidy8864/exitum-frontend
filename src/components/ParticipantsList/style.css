@@ -17,12 +17,39 @@ div#list-participants{
     transition: all ease 0.5s;
     box-shadow: 0 7px 12px #D4E0F6 !important;
     transform: translate3d(0,3px,0) !important;
+    background: #2183F8;
+}
+
+.list-persons:hover .see-perfil{
+    text-decoration: none !important;
+    background: #fff;
+    padding: 10px 15px;
+    color: rgb(66, 66, 66);
+    border-radius: 20px;
+    box-shadow: none !important;
+}
+
+.list-persons:hover .card-title{
+    color: #fff !important
+}
+
+.card.list-persons {
+    transition: all ease 0.5s;
+    height: 250px;
+}
+
+.card {
+    border: 1px solid #E9ECEF !important;
 }
 
 .see-perfil {
+    text-decoration: none !important;
     background: #2183F8;
     padding: 10px 15px;
     color: #fff;
     border-radius: 20px;
     box-shadow: 0 7px 12px #D4E0F6 !important;
+}
+.see-perfil:hover {
+    color: #fff;
 }

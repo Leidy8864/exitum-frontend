@@ -11,11 +11,19 @@ span a img svg {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none !important;
-    color: #fff;
+    color: #4C5161;
   }
 
+  button.btn-no-assist i.fa-calendar-times {
+    color: #4C5161 !important; 
+  }
+  
+  button.btn-assist i{
+    color: #4C5161 !important;
+}
+
   .title_add:hover{
-    color: #fff;
+    color: #4C5161;
   }
   
   i.fa-trash-alt {
@@ -32,25 +40,25 @@ span a img svg {
   }
   
   .card.all-card {
-    box-shadow: 0px 1px 10px -3px rgba(116, 114, 114, 0.47);
-    border-radius: 3px !important;
+    border-radius: 10px !important;
     transition: all ease-in-out 0.6s;
   }
 
   .card.all-card:hover {
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(51, 136, 233, 0.4);
+    box-shadow: 0 4px 10px 0 rgba(126, 123, 123, 0.14), 0 7px 2px -5px rgba(255, 255, 255, 1);
     transform: translate3d(0,-3px,0);
   }
 
   .card.all-card:hover  .card-header {
-    background: #157FFB !important;
+    background: #EEF5FF !important;
     transition: 0.5s;
   }
 
   .card-header {
-    background: #157FFB !important;
+    background: #EEF5FF !important;
     color: #fff !important;
-    border: none !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
     transition: 0.5s;
   }
 
@@ -84,7 +92,7 @@ span a img svg {
   }
 
   .images-icons .edit-icon i{
-    color: #fff !important;
+    color: #4C5161 !important;
   }
 
   a img.trash-btn {

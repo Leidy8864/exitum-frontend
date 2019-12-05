@@ -150,13 +150,13 @@ button.btn-confirmar:hover {
 }
 
 .modal-content {
-  border-radius: 2px !important;
+  border-radius: 10px !important;
   background: #EEF1F8;
 }
 
 .modal-header {
-  border-top-right-radius: 2px !important;
-  border-top-left-radius: 2px !important;
+  border-top-right-radius: 10px !important;
+  border-top-left-radius: 10px !important;
 }
 
 .bg-whites {

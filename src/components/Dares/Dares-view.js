@@ -38,8 +38,8 @@ function View(props) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="challenges text-center w-100">
-                                            <span className="card-title-challenge mt-4 w-100">{item.tip.tip}</span>
+                                        <div className="challenges text-center">
+                                            <span className="card-title-challenge mt-4">{item.tip.tip}</span>
                                         </div>
                                         <div className="btn-go-challenge mt-4 mb-3">
                                             <button 

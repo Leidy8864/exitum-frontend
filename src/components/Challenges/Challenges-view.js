@@ -9,7 +9,7 @@ function View(props){
         handleClick
     } = props
     return(
-        <div className="challenges">
+        <div className="challenges-hc">
             <div className="container-chellenges">
                 {   
                     blockChallenge.length >= 1 ?

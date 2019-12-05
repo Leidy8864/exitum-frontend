@@ -13,8 +13,9 @@
 }
 
 .Ads-plus i{
-    color: #fff;
-    background: #157FFB;
+    color: #4157F2 !important;
+    background: #EEF5FF;
+    font-size: 20px;
     padding: 15px 17px;
     border-radius: 50%;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(66, 175, 248, 0.7);

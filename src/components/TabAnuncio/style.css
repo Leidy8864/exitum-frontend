@@ -5,3 +5,17 @@
 .card {
     font-family: 'Proxima Nova' !important;
 }
+
+.nav-link-curse {
+    background: #EEF5FF;
+    border-radius: 20px;
+    color: #4157F2  
+}
+
+.nav-link-curses:hover {
+    color: #4157F2 !important  
+}
+
+.nav-link-curses {
+   color: #4C5161 !important  
+}

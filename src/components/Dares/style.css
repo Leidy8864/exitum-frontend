@@ -58,9 +58,18 @@ span.contact {
 }
 
 .card-challenge:hover {
+    background: #EEF5FF;
     transition: all ease 0.5s;
-    box-shadow: 0 7px 12px #D4E0F6;
+    box-shadow: 0 7px 12px rgb(210, 231, 248);
     transform: translate3d(0,-3px,0);
+}
+
+.card-challenge:hover span.card-title-challenge {
+    color: rgb(141, 143, 158);
+}
+
+.card-challenge:hover span.contact {
+    color: #4157F2;
 }
 
 .content-help strong {
