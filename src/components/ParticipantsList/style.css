@@ -5,3 +5,24 @@ div#list-participants{
     height: calc(100vh - 177px);
     overflow-y: auto;
   }
+
+.none-persons {
+    margin-left: 20px;
+    color: #4C5161;
+    font-family: 'Proxima Nova';
+    font-weight: 700;
+}
+
+.list-persons:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 7px 12px #D4E0F6 !important;
+    transform: translate3d(0,3px,0) !important;
+}
+
+.see-perfil {
+    background: #2183F8;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 7px 12px #D4E0F6 !important;
+}

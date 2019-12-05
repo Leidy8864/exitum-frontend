@@ -93,19 +93,35 @@ function View(props) {
 
                                                                 <div className="delete-reminder icon">
                                                                     <a href="#" className="icon-edit">
-                                                                        <i id={item.id} onClick={handleClickDeleteMeet} className="fas fa-trash"></i>
+                                                                        <i id={item.id} onClick={handleClickDeleteMeet} className="fas fa-trash mt-1"></i>
                                                                     </a>
 
                                                                 </div> :
                                                                 <div className="footer-meeting d-flex pb-2">
-                                                                    <button id={item.id} onClick={confirmMeetNotification} className="btn btn-success ml-4">Aceptar</button>
-                                                                    <button id={item.id} onClick={handleClickDeleteMeetNotification} className="btn btn-danger ml-2">Cancelar</button>
+                                                                    <i className="far fa-calendar-check mt-1" id={item.id} onClick={confirmMeetNotification}></i>
                                                                 </div>
+
                                                         }
                                                     </div>
-                                                    <div className="description-reminder d-flex">
-                                                        <i className="far fa-clock mr-2 mt-1"></i><p className="ml-2">{item.time}</p>
-                                                    </div>
+                                                    {
+
+                                                        id == item.fromAppointmentUser.id ?
+
+                                                            <div className="description-reminder d-flex">
+                                                                <i className="far fa-clock mr-2 mt-1"></i><p className="ml-2">{item.time}</p>
+                                                            </div> :
+                                                            <div className="d-flex justify-content-between">
+                                                                <div className="description-reminder d-flex">
+                                                                    <i className="far fa-clock mr-2 mt-1"></i><p className="ml-2">{item.time}</p>
+                                                                </div>
+                                                                <div className="footer-meeting d-flex pb-2">
+                                                                    <i className="far fa-calendar-times" id={item.id} onClick={handleClickDeleteMeetNotification}></i>
+                                                                </div>
+                                                            </div>
+
+
+                                                    }
+
                                                 </div>
 
                                                 <div className="body-meeting">

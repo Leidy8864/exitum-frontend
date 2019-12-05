@@ -32,10 +32,30 @@ class ProfileEmployee extends React.Component {
             experience: [],
         },
         file: null,
-        isMyProfile: true
+        isMyProfile: true,
     }
 
     async componentDidMount() {
+        // $('#file-input').change(function (e) {
+        //     addImage(e);
+        // });
+
+        // function addImage(e) {
+        //     var file = e.target.files[0],
+        //         imageType = /image.*/;
+
+        //     if (!file.type.match(imageType))
+        //         return;
+
+        //     var reader = new FileReader();
+        //     reader.onload = fileOnload;
+        //     reader.readAsDataURL(file);
+        // }
+
+        // function fileOnload(e) {
+        //     var result = e.target.result;
+        //     $('#imgSalida').attr("src", result);
+        // }
         try {
             var id = localStorage.getItem('id');
             var isMyProfile = true;
@@ -43,7 +63,7 @@ class ProfileEmployee extends React.Component {
             if (routePath.includes("/profile/")) { //Evalua si la ruta es como /profile/:id
                 id = this.props.match.params.id
                 console.log("Asdsadsadsadsadsad");
-                
+
                 id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
                     this.props.history.push('/my-profile')
                     : isMyProfile = false;
@@ -70,7 +90,8 @@ class ProfileEmployee extends React.Component {
                 country: country,
                 photo: photo,
                 description: description,
-                isMyProfile: isMyProfile
+                isMyProfile: isMyProfile,
+
             })
 
             let listUniversities__ = [];
@@ -307,7 +328,6 @@ class ProfileEmployee extends React.Component {
 
     fileSelectedHandler = event => {
         let file = event.target.files[0]
-
         this.setState({
             file: file
         })

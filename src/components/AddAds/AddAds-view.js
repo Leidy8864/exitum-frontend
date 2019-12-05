@@ -15,7 +15,7 @@ function View(props) {
         <div>
             <div className="container-fluid bg-whites adds-scroll mt-4">
                 <div className="row mt-4">
-                    <div className="col-md-8 mt-1">
+                    <div className="col-md-8 mt-1 container-tabs-pauses">
                         <TabAnuncio
                             userRole={userRole}
                         />

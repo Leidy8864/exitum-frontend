@@ -83,9 +83,7 @@ a#menos {
 a {
 	color: #0254EB
 }
-a:visited {
-	color: #0254EB
-}
+
 a.morelink {
 	text-decoration:none;
 	outline: none;

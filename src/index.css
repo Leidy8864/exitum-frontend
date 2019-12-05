@@ -38,7 +38,7 @@ body {
 
 .swal2-styled.swal2-confirm {
   border: none !important;
-  background: #2FD566 !important;  /* fallback for old browsers */
+  background: rgb(112, 219, 148) !important;  /* fallback for old browsers */
   border-radius: 20px !important;
 }
 

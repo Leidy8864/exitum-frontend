@@ -105,7 +105,7 @@ function View(props) {
 
                                     />
                                 </div>
-                                <div className="modal-footer mt-3">
+                                <div className="d-flex justify-content-end mt-3">
                                     <button type="submit" className="btn btn-primary">Guardar</button>
                                 </div>
                             </form>

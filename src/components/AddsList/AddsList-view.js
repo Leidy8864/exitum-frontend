@@ -20,7 +20,7 @@ function View(props) {
                     adsList.length > 0 ?
                         adsList.map(function (item, index) {
                             return (
-                                <div className="col-sm-6 py-2" key={item.id}>
+                                <div className="col-sm-6" key={item.id}>
                                     <AdCard
                                         title={item.title}
                                         id={item.id}
@@ -38,7 +38,7 @@ function View(props) {
                         })
                         
                         :
-                        <h4 className="text-center">No se encontraron anuncios</h4>
+                        <h5 className="text-center none-persons">No se encontraron anuncios</h5>
                 }
             </div>
         </div>

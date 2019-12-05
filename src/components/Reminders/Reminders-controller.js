@@ -16,7 +16,8 @@ class Reminders extends React.Component {
         id: '',
         appointments: [],
         meetings: [],
-        status: false,
+        statusFalse: false,
+        statusTrue: true
     }
 
     async componentDidMount() {
@@ -165,14 +166,14 @@ class Reminders extends React.Component {
     confirmMeetNotification = async (e) => {
         e.preventDefault();
         const meet_notification_confirm_id = e.target.id;
-        this.setState({
-            status: true
-        })
 
-        const { status } = this.state
+        const { statusTrue } = this.state 
+
+        let status = statusTrue
+
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "Si aceptas esta reunion, confirmaras una reunion.",
+            text: "Aceptaras la reunion para establecer un acuerdo con el contacto",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -204,7 +205,12 @@ class Reminders extends React.Component {
     handleClickDeleteMeetNotification = async (e) => {
         e.preventDefault();
         const meet_notification_id = e.target.id;
-        const { status } = this.state
+        
+
+        const { statusFalse } = this.state 
+
+        let status = statusFalse
+
         Swal.fire({
             title: '¿Estás seguro?',
             text: "Si eliminas esta reunion, ya no podrás deshacer esta acción.",

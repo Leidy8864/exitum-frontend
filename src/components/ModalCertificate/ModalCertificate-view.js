@@ -76,7 +76,7 @@ function View(props) {
                                     <label>Sube un certificado</label>
                                     <input id="choose_file" type="file" name="document" className="form-control" />
                                 </div>
-                                <div className="modal-footer mt-3">
+                                <div className="d-flex justify-content-end mt-3">
                                     <button type="submit" className="btn btn-primary" onClick={certificate}>Guardar</button>
                                 </div>
                             </form>

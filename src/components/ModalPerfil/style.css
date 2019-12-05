@@ -17,6 +17,7 @@
 }
 
 .modal-header {
+    background: #157FFB !important;
     color: #fff;
 }
 
@@ -104,5 +105,5 @@ input[type=checkbox] {
 
 .modal-footer button.adds {
     color: #fff;
-    background: #57D680 !important;  /* fallback for old browsers */
+    background: #2183F8 !important;  /* fallback for old browsers */
 }

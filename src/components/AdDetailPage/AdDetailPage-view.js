@@ -33,7 +33,9 @@ function View(props) {
                                             <div className="container-detail">
                                                 <div className="form-group d-flex justify-content-between">
                                                     <h4 className="bold-title">{advertisement.title}</h4>
-                                                    <Link className="edit-profile detail" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></Link>
+                                                    <Link className="edit-profile" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}>
+                                                        <i className="fas fa-marker"></i>
+                                                    </Link>
                                                 </div>
                                                 <div className="form-group">
                                                     <span className="bold ">Descripción:</span>

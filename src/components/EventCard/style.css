@@ -21,7 +21,7 @@ div.events-card .title_add {
 }
 
 div.card i {
-    color: #157FFB !important;
+
 }
 
 div.events-card:hover {
@@ -76,10 +76,6 @@ div.events-card-2 i.fa-clipboard-check {
 
 div.events-card-2 .title_add{
     color: #157FFB;
-}
-
-div.card i {
-    font-size: 24px;
 }
 
 div.events-card-3:hover {

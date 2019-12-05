@@ -84,7 +84,7 @@ function View(props) {
                                     </Fragment>
                                 </div>
                             </div>
-                            <div className="modal-footer mt-4">
+                            <div className="modal-footer mt-2">
                                 <button type="submit" className="btn btn-primary" onClick={educationUpdate}>Actualizar</button>
                             </div>
                         </form>

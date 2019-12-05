@@ -23,7 +23,7 @@ function View(props) {
             <div className="modal fade" id="perfilusuario" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                        <div className="modal-header">
+                        <div className="modal-header adds">
                             <h6 className="modal-title" id="exampleModalLabel">Mi Perfil</h6>
                         </div>
                         <div className="modal-body">
@@ -86,9 +86,9 @@ function View(props) {
                                     <div className="form_group_ mt-1">
                                         <label>Seleccione horas disponibles para reuniones</label>
                                         <div className="content-hour">
-                                        {
-                                            hoursOptions.map(dt =>
-                                                
+                                            {
+                                                hoursOptions.map(dt =>
+
                                                     <div className="text-hour" key={dt}>
                                                         <input
                                                             type="checkbox"
@@ -96,21 +96,17 @@ function View(props) {
                                                             name="available"
                                                             className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                             onClick={selectHour}
-                                                            />   
+                                                        />
                                                         {dt}
                                                     </div>
-                                            )
-                                        }
+                                                )
+                                            }
                                         </div>
                                     </div> : <br />}
                             </form>
                         </div>
-                        <div className="row">
-                            <div className="col-md-11">
-                            <div className="modal-footer">
-                                <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
-                            </div>
-                            </div>
+                        <div className="d-flex justify-content-end mt-3 mb-3 mr-4">
+                            <button type="submit" onClick={updatePerfil} className="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>

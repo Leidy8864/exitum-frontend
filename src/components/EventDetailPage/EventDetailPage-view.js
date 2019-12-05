@@ -34,7 +34,7 @@ function View(props) {
                                                 <i className="fas fa-arrow-left"></i>
                                             </Link>
                                             <div className="container-detail mt-2">
-                                                <div className="">
+                                                <div className="w-100">
                                                     <div className="form-group d-flex justify-content-between">
                                                         <h4 className="bold-title">{event.title}</h4>
                                                     </div>
