@@ -65,7 +65,13 @@ function View(props) {
                                             </div>
                                             : ''
                                     }
-
+                                    {
+                                        challenge.comment ?
+                                            <div className="form_group_ ">
+                                                <label>Última observación recibida</label>
+                                                <span className="gray">{challenge.comment}</span>
+                                            </div> : ''
+                                    }
                                     <div className="form_group_ mt-3">
                                         <label>Respuesta al reto planteado</label>
                                         <textarea name="reply" className="form-control" onChange={handleChange} value={reply ? reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>

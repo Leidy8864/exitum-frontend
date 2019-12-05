@@ -245,7 +245,6 @@ class Reminders extends React.Component {
             var lesstext = "Ver menos";
             $('.description-text').each(function () {
                 var content = $(this).html();                
-                console.log("content length",content.length);
                 if (content.length > showChar) {
 
                     var c = content.substr(0, showChar);
@@ -287,7 +286,6 @@ class Reminders extends React.Component {
 
 
         const { appointments, meetings, id } = this.state
-        console.log(appointments)
         return (
             <View
                 appointments={appointments}

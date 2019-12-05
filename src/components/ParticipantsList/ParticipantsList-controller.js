@@ -7,9 +7,12 @@ import { getListParticipants } from '../../redux/actions';
 import reloadPage from '../../redux/actions/reloadPage';
 import $ from 'jquery';
 import { decodeToken } from '../../libs/helper';
+import activeBackButton from '../../redux/actions/activeBackButton';
 class ParticipantsList extends React.Component {
     state = {
-        participants: [],
+        participants: [{
+            user_workshop : {}
+        }],
         pages: 1,
         event_id: 0
     }
@@ -19,7 +22,7 @@ class ParticipantsList extends React.Component {
     }
     async getDataParticipants(event_id) {
         try {
-            const response = await getListParticipants(event_id);  //Llama a la funcion que consulta los participantes;
+            const response = await getListParticipants(event_id);  //Llama a la funcion que consulta los participantes;            
             this.paginationData(response.pages);
             this.setState({
                 participants: response.status ? response.data : [],
@@ -79,12 +82,16 @@ class ParticipantsList extends React.Component {
             }
         });
     }
+    redirectProfile = () => {
+        this.props.activeBackButton(1)
+    }
     render() {
         const result = decodeToken();
         return (
             <View
                 participants={this.state.participants}
                 user_id={result.id}
+                redirectProfile={this.redirectProfile}
             />
         );
     }
@@ -93,7 +100,8 @@ const mapStateToProps = state => ({
     reload: state.reloadPageReducer
 });
 const mapDispatchToProps = {
-    reloadPage
+    reloadPage,
+    activeBackButton
 }
 export default withRouter(
     connect(mapStateToProps, mapDispatchToProps)(ParticipantsList)

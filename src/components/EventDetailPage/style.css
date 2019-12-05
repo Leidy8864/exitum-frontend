@@ -1,25 +1,6 @@
 .EventDetailPage{
     display: block;
 }
-
-.atras-arrow i.fa-arrow-left {
-    color: #4157F2 !important;
-    background: #EEF5FF;
-    font-size: 20px;
-    padding: 15px 17px;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(66, 175, 248, 0.7);
-}
-
-.atras-arrow i.fa-marker {
-    color: #fff !important;
-    background: #5DD583;
-    font-size: 20px;
-    padding: 15px 17px;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(97, 228, 118, 0.7);
-}
-
 .container-detail .btn-assist i.fa-hands-helping {
     color: #22CCCC !important;
     background: #E5FBF8;

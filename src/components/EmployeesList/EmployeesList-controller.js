@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { listProposalByAdvert, listRecommendationByAdvert, addFavoriteEmployee, listEmployeesFavorites } from '../../redux/actions';
 import $ from 'jquery';
+import activeBackButton from '../../redux/actions/activeBackButton';
 
 
 const listAdTypes = ["coincidence", "postulation", "favorite"];
@@ -179,6 +180,9 @@ class EmployeesList extends React.Component {
 
         }
     }
+    redirectProfile = () => {
+        this.props.activeBackButton(1)
+    }
     render() {
 
         const {
@@ -188,6 +192,7 @@ class EmployeesList extends React.Component {
             <View
                 employeesList={employeesList}
                 handleLikeEmployee={this.handleLikeEmployee}
+                redirectProfile={this.redirectProfile}
             />
         );
     }
@@ -196,7 +201,9 @@ class EmployeesList extends React.Component {
 const mapStateToProps = state => ({
     adType: state.getTypeAdsReducer
 });
-
+const mapDispatchToProps = {
+    activeBackButton
+};
 export default withRouter(
-    connect(mapStateToProps, null)(EmployeesList)
+    connect(mapStateToProps, mapDispatchToProps)(EmployeesList)
 )

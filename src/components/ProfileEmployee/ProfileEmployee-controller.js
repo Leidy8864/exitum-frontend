@@ -343,7 +343,6 @@ class ProfileEmployee extends React.Component {
         localStorage.setItem('photo', res.photo)
         window.location.reload();
     }
-
     render() {
 
         const { listCertificationsReducer, listSkillsReducer, listEducationsReducer, listExperiencesReducer } = this.props;
@@ -385,6 +384,7 @@ class ProfileEmployee extends React.Component {
                 handleClickDeleteExperience={this.handleClickDeleteExperience}
                 fileSelectedHandler={this.fileSelectedHandler}
                 fileUploadHandler={this.fileUploadHandler}
+                activeBackButton={this.props.activeBackButton}
             />
         );
     }
@@ -396,6 +396,7 @@ const mapStateToProps = (state) => ({
     listSkillsReducer: state.listSkillsReducer,
     listEducationsReducer: state.listEducationsReducer,
     listExperiencesReducer: state.listExperiencesReducer,
+    activeBackButton: state.activeBackButtonReducer,
 });
 
 const mapDispatchToProps = {

@@ -31,9 +31,7 @@ class DetailChallenge extends React.Component {
         const { tip_id, challenges } = this.props;
         if (nextProps.tip_id !== tip_id) {
             if (tip_id) {
-                console.log("CHALLENGE ID", tip_id);
-
-                const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });
+                const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });                
                 this.setState({
                     challenge: challenge,
                     challenge_id: challenge.challenge_id,

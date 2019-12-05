@@ -12,7 +12,8 @@ class EmployeeCard extends React.Component {
             saved,
             user_id,
             photo,
-            handleLikeEmployee
+            handleLikeEmployee,
+            redirectProfile
         } = this.props;
         let starts = [];
         if (avg_rating > 0) {
@@ -30,6 +31,7 @@ class EmployeeCard extends React.Component {
             saved={saved}
             user_id={user_id}
             photo={photo}
+            redirectProfile={redirectProfile}
             />
         );
     }

@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import ModalEvents from '../ModalEvents/ModalEvents-controller';
 import ParticipantsList from '../ParticipantsList/ParticipantsList-controller';
 import AssistButton from '../AssistButton/AssistButton-controller';
+import BackButton from '../BackButton/BackButton-controller'
+
 import moment from 'moment';
 import './style.css';
 
@@ -30,9 +32,7 @@ function View(props) {
                                 <div className="container-fluid mt-4">
                                     <div className="card mb-4">
                                         <div className="card-body d-flex justify-content-start ml-3">
-                                            <Link to='/events' className="atras-arrow">
-                                                <i className="fas fa-arrow-left"></i>
-                                            </Link>
+                                        <BackButton />
                                             <div className="container-detail mt-2">
                                                 <div className="w-100">
                                                     <div className="form-group d-flex justify-content-between">

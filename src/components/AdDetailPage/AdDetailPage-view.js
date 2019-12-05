@@ -3,6 +3,7 @@ import React from 'react';
 import Sidebar from '../Sidebar/Sidebar-controller'
 import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
 import { Link } from 'react-router-dom';
+import BackButton from '../BackButton/BackButton-controller'
 
 import Diary from '../Diary/Diary-controller'
 import './style.css';
@@ -27,9 +28,12 @@ function View(props) {
                                 <div className="container mt-2">
                                     <div className="card mb-4">
                                         <div className="card-body ml-3">
+                                            <BackButton
+                                            />
+                                            {/* 
                                             <Link to='/advertisement' className="mt-2">
                                                 <img src={require("../../public/images/svg/left-arrow.svg")} alt="" className="button-back" />
-                                            </Link>
+                                            </Link> */}
                                             <div className="container-detail">
                                                 <div className="form-group d-flex justify-content-between">
                                                     <h4 className="bold-title">{advertisement.title}</h4>

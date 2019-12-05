@@ -55,8 +55,6 @@ class Challenges extends React.Component {
                 response = await challengeByEmployee(data);
             }
             const listChallenges = response.challenges;
-
-            console.log("LISTA CHALLENGES",listChallenges);
             
             if (listChallenges && listChallenges.length >= 1) {
                 const challenges = listChallenges.map(x => ({
@@ -66,6 +64,7 @@ class Challenges extends React.Component {
                     title: x.tip.tip,
                     description: x.tip.description,
                     files: x.tip.file_tips,
+                    comment : x.comment,
                     reply: x.reply,
                     uploaded_files: x.files,
                     status: x.status

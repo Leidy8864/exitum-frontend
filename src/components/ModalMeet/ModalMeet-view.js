@@ -21,8 +21,6 @@ function View(props) {
         updateMeet,
         onChange,
     } = props
-        console.log(contact.fullname)
-        console.log(contact.id)
     return (
         <div>
             <div className="modal fade" id="updatemeet" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

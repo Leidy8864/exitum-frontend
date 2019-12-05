@@ -67,7 +67,6 @@ class ModalMeet extends React.Component {
     async componentDidUpdate(nextProps){
 
         const  { meeting } = this.props
-        console.log(meeting)
         if(nextProps.meeting !== meeting){
             if(meeting) {
                 $('#updatemeet').on('hidden.bs.modal', () => {
@@ -93,7 +92,6 @@ class ModalMeet extends React.Component {
 
      selectHour = async (e) =>{
         this.setState({selected: e.target.id,time :e.target.id });
-        console.log(e.target.id)
     }
 
      updateMeet = async e => {

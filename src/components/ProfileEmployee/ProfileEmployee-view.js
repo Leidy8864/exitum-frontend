@@ -8,6 +8,8 @@ import ModalUpdateCertificate from '../ModalUpdateCertificate/ModalUpdateCertifi
 import ModalUpdateEducation from '../ModalUpdateEducation/ModalUpdateEducation-controller'
 import ModalUpdateExperience from '../ModalUpdateExperience/ModalUpdateExperience-controller'
 import ModalPerfil from '../ModalPerfil/ModalPerfil-controller'
+import BackButton from '../BackButton/BackButton-controller'
+
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import './style.css';
@@ -34,7 +36,8 @@ function View(props) {
         fileUploadHandler,
         handleClickDeleteEducation,
         country,
-        isMyProfile
+        isMyProfile,
+        activeBackButton
     } = props
 
     let name = users.name
@@ -48,6 +51,12 @@ function View(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
+                        <div id="back-button">
+                            {
+                                activeBackButton ?
+                                    <BackButton /> : ''
+                            }
+                        </div>
                         <div className="card">
                             <div className="img-profile mb-3">
                                 <div className="photo-perfil mt-5">

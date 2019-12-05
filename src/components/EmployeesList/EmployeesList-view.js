@@ -6,7 +6,8 @@ import EmployeeCard from '../EmployeeCard/EmployeeCard-controller';
 function View(props) {
     const {
         employeesList,
-        handleLikeEmployee
+        handleLikeEmployee,
+        redirectProfile
     } = props
     return (
         <div className="container mt-3" id="list-employees">
@@ -25,6 +26,7 @@ function View(props) {
                                         user_id={item.user_id}
                                         photo={item.photo}
                                         handleLikeEmployee={handleLikeEmployee}
+                                        redirectProfile={redirectProfile}
                                     />
                                 </div>
                             )
