@@ -1,7 +1,6 @@
 .Reminders{
     display: block;
 }
-
 .reminders {
     color: #fff;
     border-radius: 4px;
@@ -58,18 +57,48 @@ a#menos {
 }
 
 .description-meet {
-    height: 62px !important;
+    position: relative;
+    /* height: 62px !important; */
 }
 
 .reminder-description {
     height: 62px !important;
 }
-
+/* 
 .description-size {
     text-overflow: ellipsis;
     overflow: hidden;
-}
+} */
+.btn-hide {
+    border-radius: 1.5em;
+    left: 20%;
+    text-decoration: none;
+    width: 60%;
+  }
 
+  .description-text{
+    width: 100%;
+    text-align: justify;
+}
+a {
+	color: #0254EB
+}
+a:visited {
+	color: #0254EB
+}
+a.morelink {
+	text-decoration:none;
+	outline: none;
+}
+.morecontent span {
+	display: none;
+}
+.description-size{
+    position: relative;
+    width: 100%;
+    max-height: 50px;
+    overflow: hidden;
+}
 .body-meeting {
     padding: 20px;
     background: #fff;

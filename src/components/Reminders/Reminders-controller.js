@@ -9,7 +9,7 @@ import { appointmentsByUser, appointmentsDelete, meetingByUser, appointmentsConf
 import listReminders from '../../redux/actions/list-reminders'
 import listMeets from '../../redux/actions/list-meets'
 import Swal from 'sweetalert2'
-
+import $ from 'jquery';
 class Reminders extends React.Component {
 
     state = {
@@ -23,7 +23,8 @@ class Reminders extends React.Component {
         try {
             let id = localStorage.getItem('id')
             const appointments = await appointmentsByUser(id);
-            const meetings = await meetingByUser(id)
+            const meetings = await meetingByUser(id);
+            this.showMoreOrLessText();
             this.setState({
                 appointments,
                 meetings,
@@ -48,17 +49,17 @@ class Reminders extends React.Component {
     //     }
     // }
 
-    changeSeeReminder = (e,index) => {
+    changeSeeReminder = (e, index) => {
         e.preventDefault()
-        if(e.target.id == (index + "mas") ){
-            document.getElementById("menoss").style.display="block";
-            document.getElementById("bigs").style.height="auto"   
-            document.getElementById("mass").style.display="none"; 
-        }else{
-            document.getElementById("bigs").style.display="block";   
-            document.getElementById("mass").style.display="block"; 
-            document.getElementById("bigs").style.height="58px"
-            document.getElementById("menoss").style.display="none";
+        if (e.target.id == (index + "mas")) {
+            document.getElementById("menoss").style.display = "block";
+            document.getElementById("bigs").style.height = "auto"
+            document.getElementById("mass").style.display = "none";
+        } else {
+            document.getElementById("bigs").style.display = "block";
+            document.getElementById("mass").style.display = "block";
+            document.getElementById("bigs").style.height = "58px"
+            document.getElementById("menoss").style.display = "none";
         }
     }
 
@@ -213,25 +214,61 @@ class Reminders extends React.Component {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar'
-            }).then(async(result) => {
-                if (result.value) {
-                    const data = {
-                        status
-                    }
-                    await this.props.appointmentsDelete(meet_notification_id, data);
-                    this.props.listMeets(1);
-                    Swal.fire(
-                        'Eliminado',
-                        'El recordatorio ha sido eliminado correctamente',
-                        'success'
-                    )
+        }).then(async (result) => {
+            if (result.value) {
+                const data = {
+                    status
                 }
+                await this.props.appointmentsDelete(meet_notification_id, data);
+                this.props.listMeets(1);
+                Swal.fire(
+                    'Eliminado',
+                    'El recordatorio ha sido eliminado correctamente',
+                    'success'
+                )
             }
+        }
         );
     }
 
-    render() {
+    showMoreOrLessText = () => {
+        $(document).ready(function () {
+            var showChar = 50;
+            var ellipsestext = "...";
+            var moretext = "Ver más";
+            var lesstext = "Ver menos";
+            $('.description-text').each(function () {
+                var content = $(this).html();                
+                console.log("content length",content.length);
+                if (content.length > showChar) {
 
+                    var c = content.substr(0, showChar);
+                    var h = content.substr(showChar - 1, content.length - showChar);
+
+                    var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+                    $(this).html(html);
+                }
+
+            });
+
+            $(".morelink").click(function () {
+                if ($(this).hasClass("less")) {
+                    $(this).removeClass("less");
+                    $(this).html(moretext);
+                } else {
+                    $(this).addClass("less");
+                    $(this).html(lesstext);
+                }
+                $(this).parent().prev().toggle();
+                $(this).prev().toggle();
+                return false;
+            });
+        });
+
+    }
+
+    render() {
         const { listRemindersReducer, listMeetsReducer } = this.props;
 
         if (listRemindersReducer === 1) {
@@ -256,8 +293,8 @@ class Reminders extends React.Component {
                 idReminder={this.idReminder}
                 idMeet={this.idMeet}
                 id={id}
-                changeSeeMeet = {this.changeSeeMeet}
-                changeSeeReminder = {this.changeSeeReminder}
+                changeSeeMeet={this.changeSeeMeet}
+                changeSeeReminder={this.changeSeeReminder}
             />
         );
     }

@@ -66,9 +66,8 @@ class ModalDiary extends React.Component {
     };
 
     handleChangeForm = (e) => {
-        const value = e.target.value.trim();
         this.setState({
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         });
     }
 
@@ -116,14 +115,16 @@ class ModalDiary extends React.Component {
             )
             this.props.listReminders(1)
             $('#newdiary').modal('hide')
+            this.cleanState();
         } else {
             Swal.fire({
                 type: 'error',
                 text: 'Ya hay una hora reservada para esta recordatorio, elije una hora disponible',
                 showConfirmButton: false
             })
-            this.props.listReminders(1)
-            $('#newdiary').modal('hide')
+            this.props.listReminders(1);
+            $('#newdiary').modal('hide');
+            this.cleanState();
         }
     }
 
@@ -152,6 +153,7 @@ class ModalDiary extends React.Component {
             )
             this.props.listMeets(1)
             $('#newdiary').modal('hide')
+            this.cleanState();
         } else {
             Swal.fire({
                 type: 'error',
@@ -160,6 +162,7 @@ class ModalDiary extends React.Component {
             })
             this.props.listMeets(1)
             $('#newdiary').modal('hide')
+            this.cleanState();
         }
     }
 
@@ -182,6 +185,16 @@ class ModalDiary extends React.Component {
     handleInputChange = async (inputValue, actionMeta) => {
 
     };
+
+    cleanState = () => {
+        this.setState({
+            title : '',
+            description : '',
+            date : new Date(),
+            hourAvailables : [],
+            selectedOption : null
+        });
+    }
 
     render() {
         const {
