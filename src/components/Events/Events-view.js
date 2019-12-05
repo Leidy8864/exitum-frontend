@@ -21,9 +21,9 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12 events-fluid">
-                                <div className="container-fluid bg-whites events-scroll mt-4">
+                                <div className="container-fluid bg-whites">
                                     <div className="row mt-4 container-tabs">
-                                        <div className="col-md-8 mt-1 pr-5 pills-event">
+                                        <div className="col-md-8 pr-5 pills-event">
                                             <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                                                 <li className="nav-item">   
                                                     <a className={eventType === "events" ? "nav-link-person px-4 active" : "nav-link-yellow px-4"} href="#" onClick={handleClick.bind(this, 'events')}>Eventos</a>
@@ -36,7 +36,7 @@ function View(props) {
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="col-md-4 mt-1 plus-padding">
+                                        <div className="col-md-4 plus-padding">
                                             <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#EventsModal">
                                                 <div className="Ads-plus">
                                                     <i className="fas fa-plus mr-2"></i>
@@ -46,8 +46,8 @@ function View(props) {
                                             <ModalEvents />
                                         </div>
                                     </div>
-                                    <div className="row mt-5">
-                                        <div className="col-md-12 events-list">
+                                    <div className="row lista-eventos">
+                                        <div className="col-md-12">
                                             <EventsList />
                                         </div>
                                     </div>

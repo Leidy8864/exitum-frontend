@@ -115,6 +115,13 @@ h3 {
     font-weight: 800;
 }
 
+.back-profile {
+    position: relative;
+    top: 20px;
+    right: 25px;
+    z-index: 2000;
+}
+
 .delete-perfil i {
     color: #4157F2 !important;
     background: #EEF5FF;

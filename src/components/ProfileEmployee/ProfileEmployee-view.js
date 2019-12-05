@@ -52,10 +52,12 @@ function View(props) {
                 <div className="row">
                     <div className="col-md-12">
                         <div id="back-button">
-                            {
-                                activeBackButton ?
-                                    <BackButton /> : ''
-                            }
+                            <div className="back-profile">
+                                {
+                                    activeBackButton ?
+                                        <BackButton /> : ''
+                                }
+                            </div>
                         </div>
                         <div className="card">
                             <div className="img-profile mb-3">

@@ -9,15 +9,13 @@
 .events-fluid {
 }
 
-.events-scroll {
-    overflow-y: auto !important;
-    height: calc(100vh - 120px);
+.bg-whites {
+    height: calc(100vh - 120px) !important;
     border-radius: 10px;
 }
 
 .adds-scroll {
     overflow-y: auto !important;
-    height: calc(100vh - 120px);
     border-radius: 10px;
 }
 
@@ -38,6 +36,17 @@
     border-radius: 20px;
     color: #FD42A6  
 }
+.plus-padding {
+    margin-top: 30px;
+}
+
+.pills-event {
+    margin-top: 36px;
+}
+
+.lista-eventos {
+    margin-top: 30px;
+}
 
 .nav-link-person:hover {
     color: #FD42A6  
@@ -47,7 +56,7 @@ a.nav-link-morado, a.nav-link-yellow, a.nav-link {
     color: #4C5161;
 }
 
-a.nav-link-morado:hover, a.nav-link-yellow:hover, a.nav-link:hover {
+a.nav-link-morado:hover, a.nav-link-yellow:hover {
     color: #FD42A6;  
 }
 

@@ -11,7 +11,7 @@ function View(props) {
         handleDeleteEvent
     } = props
     return (
-        <div className="container">
+        <div className="container" id="events-list">
             <div className="row">
                 {
                     eventsList.length > 0 ?

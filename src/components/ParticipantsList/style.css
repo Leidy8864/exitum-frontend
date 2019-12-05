@@ -1,8 +1,9 @@
 .ParticipantsList{
     display: block;
 }
+
 div#list-participants{
-    height: calc(100vh - 177px);
+    height: calc(100vh - 430px);
     overflow-y: auto;
   }
 
@@ -17,20 +18,19 @@ div#list-participants{
     transition: all ease 0.5s;
     box-shadow: 0 7px 12px #D4E0F6 !important;
     transform: translate3d(0,3px,0) !important;
-    background: #2183F8;
 }
 
 .list-persons:hover .see-perfil{
-    text-decoration: none !important;
+    /* text-decoration: none !important;
     background: #fff;
     padding: 10px 15px;
     color: rgb(66, 66, 66);
     border-radius: 20px;
-    box-shadow: none !important;
+    box-shadow: none !important; */
 }
 
 .list-persons:hover .card-title{
-    color: #fff !important
+   
 }
 
 .card.list-persons {
@@ -42,14 +42,33 @@ div#list-participants{
     border: 1px solid #E9ECEF !important;
 }
 
-.see-perfil {
-    text-decoration: none !important;
-    background: #2183F8;
-    padding: 10px 15px;
-    color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 7px 12px #D4E0F6 !important;
+.scroll-participants {
+    
 }
-.see-perfil:hover {
-    color: #fff;
+
+.accept-wait {
+    position: absolute;
+    bottom: 45%;
+    right: 30%;
+    z-index: 1000;
+}
+
+.accept-wait i.fa-check {
+    color: #E5FBF8 !important;
+    background: #77DC68;
+    padding: 13px 14px !important;
+    border-radius: 50%;
+    transition: all ease 0.5s;
+    font-size: 10px;
+}
+
+a.see-perfil{
+    text-decoration: none !important;
+    color: #1B9FFB;
+    background: #ECF1FF !important;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 900px !important;
+    text-transform: uppercase;
 }

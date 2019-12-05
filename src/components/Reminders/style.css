@@ -15,7 +15,7 @@
 }
 
 .header-reminder {
-    background: #157FFB !important;
+    background: #157FFB;  /* fallback for old browsers */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-top: 8px;
@@ -48,7 +48,7 @@ a#menos {
 }
 
 .header-meeting {
-    background: #157FFB !important;  /* fallback for old browsers */
+    background: #00c6ff;  /* fallback for old browsers */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-top: 10px;
@@ -84,9 +84,14 @@ a {
 	color: #0254EB
 }
 
-a.morelink {
+a.morelink:hover {
 	text-decoration:none;
-	outline: none;
+    outline: none;
+    color: #32b4d4;
+}
+
+a.morelink {
+	color: #777;
 }
 .morecontent span {
 	display: none;

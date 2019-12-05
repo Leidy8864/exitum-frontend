@@ -18,7 +18,7 @@ function View(props) {
         slugAd
     } = props;
     return (
-        <div className="card pauses-play">
+        <div className="card pauses-play mt-4">
             <div>
                 {
                     userRole === "entrepreneur" ?
