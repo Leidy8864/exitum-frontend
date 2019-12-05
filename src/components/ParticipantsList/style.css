@@ -2,6 +2,6 @@
     display: block;
 }
 div#list-participants{
-    height: calc(100vh - 500px);
+    height: calc(100vh - 177px);
     overflow-y: auto;
   }

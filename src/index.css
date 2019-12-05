@@ -159,6 +159,10 @@ button.btn-confirmar:hover {
   border-top-left-radius: 2px !important;
 }
 
+.bg-whites {
+  background: #fff !important;
+}
+
 @media screen and (max-width: 1024px) {
   html {
     overflow-x: hidden;
@@ -207,5 +211,15 @@ button.btn-confirmar:hover {
   }
   .nav-open .sidebar {
     transform: translateX(0px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bg-whites {
+      background-color: #EFF3F8 !important;
+  }
+  .proyects-list-aux {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
   }
 }

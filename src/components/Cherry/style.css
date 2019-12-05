@@ -1,8 +1,8 @@
 .Cherry{
     position: absolute;
     right: 0;
-    bottom: 30px;
-    z-index: 2;
+    bottom: 8px;
+    z-index: 2000;
 }
 
 /* Display the modal when targeted */

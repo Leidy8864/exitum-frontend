@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import './style.css';
 import Sidebar from '../Sidebar/Sidebar-controller'
-import { Link } from 'react-router-dom'
 import HeaderDashboard from '../HeaderDashboard/HeaderDashboard-controller'
-import Driving from '../Driving/Driving-controller'
 import Diary from '../Diary/Diary-controller';
 
 function View(props) {

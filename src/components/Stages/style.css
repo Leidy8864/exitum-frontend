@@ -1,13 +1,27 @@
 .Stages{
     display: block;
 }
+
+.stages {
+    position: relative;
+}
+
 .scroll-stage {
     overflow-y: scroll;
 }
 
+.title-proyect {
+    margin-left: 50px;
+}
+
 .container-stage {
     position: relative; 
-    margin-top: 30px; 
+    margin-top: 30px;
+    height: 550px; 
+}
+
+.stages-imgs {
+    position: relative !important;
 }
 
 .img0,.img1, .img2, .img3,.img4 {
@@ -18,29 +32,29 @@
 
 .img0 {
     top: 0px;
-    right: 147px;
+    right: 217px;
 }
 
 .img1 {
     transform: rotate(90deg);
     top: 116px;
-    right: 45px;
+    right: 135px
 }
 
 .img2{
     top: 231px;
-    right: 147px;
+    right: 217px;
 }
 
 .img3 {
     transform: rotate(90deg);
     top: 349px;
-    right: 45px;
+    right: 135px;
 }
 
 .img4 {
     top: 468px;
-    right: 147px;
+    right: 247px;
 }
 
 .icon0 img {
@@ -69,37 +83,80 @@
 
 .icon0 {
     top: 30px;
-    right: 205px;
+    right: 275px;
 }
 
 .icon1 {
     top: 145px;
-    right: 90px;
+    right: 185px;
 }
 
 .icon2 {
     top: 255px;
-    right: 205px;
+    right: 275px;
 }
 
 .icon3 {
     top: 375px;
-    right: 90px;
+    right: 185px;
 }
 
 .icon4 {
     top: 500px;
-    right: 205px;
+    right: 305px;
 }
 
 @media screen and (max-width: 1440px) {
     .container-stage {
         margin-top: 10px;
     }
+    .img0 {
+        right: 165px
+    }
+    
+    .img1 {
+        right: 75px
+    }
+    
+    .img2{
+        right: 165px
+    }
+    
+    .img3 {
+        right: 75px;
+    }
+    
+    .img4 {
+        right: 165px
+    }
+    
+    .icon0 {
+        right: 225px;
+    }
+    
+    .icon1 {
+        right: 115px;
+    }
+    
+    .icon2 {
+        right: 225px;
+    }
+    
+    .icon3 {
+        right: 115px;
+    }
+    
+    .icon4 {
+        right: 305px;
+    }
 }
 
 
 @media screen and (max-width: 1200px) {
+    .stages-challenges {
+        display: block;
+        flex-direction: column-reverse;
+    }
     .container-stage {
         margin-top: 10px;
     }
@@ -109,10 +166,158 @@
     .container-stage {
         margin-top: 10px;
     }
+    .img0 {
+        right: 405px
+    }
+    
+    .img1 {
+        right: 305px
+    }
+    
+    .img2{
+        right: 405px
+    }
+    
+    .img3 {
+        right: 305px;
+    }
+    
+    .img4 {
+        right: 405px
+    }
+    
+    .icon0 {
+        right: 465px;
+    }
+    
+    .icon1 {
+        right: 345px;
+    }
+    
+    .icon2 {
+        right: 465px;
+    }
+    
+    .icon3 {
+        right: 345px;
+    }
+    
+    .icon4 {
+        right: 305px;
+    }
 }
+
+@media screen and (max-width: 768px) {
+    .img0 {
+        right: 155px
+    }
+    
+    .img1 {
+        right: 65px
+    }
+    
+    .img2{
+        right: 155px
+    }
+    
+    .img3 {
+        right: 65px
+    }
+    
+    .img4 {
+        right: 405px
+    }
+    
+    .icon0 {
+        right: 215px;
+    }
+    
+    .icon1 {
+        right: 110px;
+    }
+    
+    .icon2 {
+        right: 215px;
+    }
+    
+    .icon3 {
+        right: 110px;
+    }
+    
+    .icon4 {
+        right: 305px;
+    }
+    .title-proyect {
+        margin-left: 10px;
+    }
+    .container-stage {
+        
+    }
+    .container-chellenges {
+        margin-top: 20px !important;
+        padding: 0px !important;
+        background: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+    .events-fluid {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .Ads-plus {
+        float: none !important;
+    }
+    .challenges {
+        margin-top: 100px !important;
+        margin-left: 0px !important;
+    }
+  }
+
 
 @media screen and (max-width: 420px) {
     .container-stage {
-        margin-top: 10px;
+        margin-top: -25px;
+    }
+    .img0 {
+        right: 115px
+    }
+    
+    .img1 {
+        right: 25px
+    }
+    
+    .img2{
+        right: 115px
+    }
+    
+    .img3 {
+        right: 25px
+    }
+    
+    .img4 {
+        right: 405px
+    }
+    
+    .icon0 {
+        right: 175px;
+    }
+    
+    .icon1 {
+        right: 70px;
+    }
+    
+    .icon2 {
+        right: 175px;
+    }
+    
+    .icon3 {
+        right: 70px;
+    }
+    
+    .icon4 {
+        right: 305px;
+    }
+    .container-stage {
+        
     }
   }

@@ -35,20 +35,20 @@ function View(props) {
                                                     <h4 className="bold-title">{advertisement.title}</h4>
                                                     <Link className="edit-profile detail" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></Link>
                                                 </div>
-                                                <div className="form-group d-flex">
-                                                    <span className="bold detail">Descripción:</span>
+                                                <div className="form-group">
+                                                    <span className="bold ">Descripción:</span>
                                                     <span className="bold">{advertisement.description}</span>
                                                 </div>
-                                                <div className="form-group d-flex">
-                                                    <span className="bold detail">Proyecto:</span>
+                                                <div className="form-group">
+                                                    <span className="bold">Proyecto:</span>
                                                     <span className="bold">{advertisement.startup.name}</span>
                                                 </div>
-                                                <div className="form-group d-flex">
-                                                    <span className="bold detail">Area:</span>
+                                                <div className="form-group">
+                                                    <span className="bold">Area:</span>
                                                     <span className="bold">{advertisement.area.name}</span>
                                                 </div>
-                                                <div className="form-group d-flex">
-                                                    <span className="bold detail">Estado:</span>
+                                                <div className="form-group">
+                                                    <span className="bold">Estado:</span>
                                                     <span className="bold">
                                                         {
                                                             advertisement.state === 'active' ?

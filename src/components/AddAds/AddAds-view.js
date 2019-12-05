@@ -13,7 +13,7 @@ function View(props) {
     } = props
     return (
         <div>
-            <div className="container">
+            <div className="container-fluid bg-whites adds-scroll mt-4">
                 <div className="row mt-4">
                     <div className="col-md-8 mt-1">
                         <TabAnuncio
@@ -22,10 +22,10 @@ function View(props) {
                     </div>
                     {
                         userRole === "entrepreneur" ?
-                            <div className="col-md-4 mt-2">
+                            <div className="col-md-4 mt-1 plus-padding">
                                 <Link className="signin" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
                                     <div className="Ads-plus">
-                                        <span> + </span>
+                                    <i className="fas fa-plus mr-2"></i>
                                         Agregar anuncio
                                 </div>
                                 </Link>

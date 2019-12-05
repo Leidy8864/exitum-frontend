@@ -8,7 +8,7 @@ import AddAds from '../AddAds/AddAds-controller'
 function View(props){
     const {conditionShowChooseProfile} = props
     return(
-        <div className="Ads"> 
+        <div className=""> 
             {conditionShowChooseProfile ? <ChooseProfile/> : 
                 <AddAds/>
             }

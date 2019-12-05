@@ -22,8 +22,8 @@ function View(props) {
                     <div className="proyects-list"></div>
                     <div className="add-proyect">
                         <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                            <div className="Ads-plusito">
-                                <span> + </span>
+                            <div className="Ads-plus">
+                                <i className="fas fa-plus mr-2"></i>
                                 Agregar un proyecto
                             </div>
                         </Link>
@@ -31,33 +31,40 @@ function View(props) {
                 </div>
                 :
                 <div >
+                    <div className="title-proyect">
+                        <h4>Mis proyectos</h4>
+                    </div>
                     <div className="proyects-list-aux">
-                        {
-                            blockProjects.map((dt) =>
-                                <div
-                                    key={"project" + dt.id}
-                                    id={dt.id}
-                                    className={selected.toString() === dt.id.toString() ? "projectblockSelected" : "projectblock"}
-                                    // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
-                                    onClick={selectProject}
-                                >
-                                    {dt.name}
+                        <div className="container">
+                            <div className="row">
+                                {
+                                    blockProjects.map((dt) =>
+                                        <div
+                                            key={"project" + dt.id}
+                                            id={dt.id}
+                                            className={selected.toString() === dt.id.toString() ? "projectblockSelected" : "projectblock"}
+                                            // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
+                                            onClick={selectProject}
+                                        >
+                                            {dt.name}
 
-                                </div>
-                            )
-                        }
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
                     </div>
                     {
                         role === "entrepreneur" ?
-                            <div className="add-proyect-aux">
+                            <div className="add-proyect-aux mt-4">
                                 <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                                    <div className="Ads-plusito">
-                                        <span> + </span>
+                                    <div className="Ads-plus">
+                                        <i className="fas fa-plus mr-2"></i>
                                         Agregar un proyecto
                                 </div>
                                 </Link>
                             </div>
-                            : ""
+                            : "No hay ningun proyecto tuyo, create uno"
                     }
                 </div>
 

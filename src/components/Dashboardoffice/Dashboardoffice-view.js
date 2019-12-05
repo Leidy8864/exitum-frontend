@@ -21,7 +21,7 @@ function View(props) {
                     <div className="content">
                         <div className="container-fluid">
                             <div className="row">
-                                <div className="col-xl-9 col-lg-12">
+                                <div className="col-xl-9 col-lg-12 events-fluid">
                                     <Tree />
                                     <Cherry />
                                 </div>

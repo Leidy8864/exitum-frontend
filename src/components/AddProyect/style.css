@@ -2,17 +2,14 @@
     display: block;
 }
 .add-proyect-container{
+    display: inline-block;
     width: 100%;
     border-radius: 4px;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 35px;
 }
 .proyects-list{
-    float: left;
-    width: 70%;
-    height: 80px;
     display: flex;
-    overflow-x: auto;
     font-family: 'Proxima Nova' !important;
 }
 .add-proyect-aux{
@@ -20,10 +17,17 @@
     color: #157FFB;
     font-size: 17px;
     font-weight: bolder;
-    position: absolute;
-    top: 20px;
+    top: 50px;
     width: 300px;
     left: 40px;
+}
+
+.title-proyect {
+    margin-bottom: 15px;
+}
+
+.title-proyect h4 {
+    color: #4C5161;
 }
 
 .add-proyect-aux a:hover {
@@ -37,12 +41,10 @@
 }
 
 .proyects-list-aux{
-    float: left;
-    width: 100%;
-    height: 80px;
+    margin-left: 40px;
+    margin-right: 40px;
+    overflow-y: auto;
     display: flex;
-    overflow-y: hidden;
-    overflow-x: auto;
 }
 .projectblock{
     color: #607CFB;
@@ -59,18 +61,6 @@
     flex-shrink: 0;
     font-family: 'Proxima Nova' !important;
     transition: all ease 0.5s;
-}
-
-.projectblock>span, .projectblockSelected>span {
-    display:inline-block;
-    vertical-align:middle;
-    line-height:normal;
-    text-align: center;
-    position: relative;
-    top: 35%;
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 .projectblockSelected{
@@ -90,6 +80,20 @@
     flex-shrink: 0;
     font-family: 'Proxima Nova' !important;
 }
+
+.projectblock>span, .projectblockSelected>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+    text-align: center;
+    position: relative;
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
 
 .projectblockSelected:hover{
     transform: translate3d(0,-3px,0) !important;
@@ -156,6 +160,10 @@
     .add-proyect{
         right: 10px;
         font-size: 25px;
+    }
+    .retos {
+        padding-top: 40px;
+        margin-bottom: 20px;
     }
 }
 

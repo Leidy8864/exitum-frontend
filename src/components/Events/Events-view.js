@@ -21,7 +21,7 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12 events-fluid">
-                                <div className="container-fluid bg-white events-scroll mt-4">
+                                <div className="container-fluid bg-whites events-scroll mt-4">
                                     <div className="row mt-4 container-tabs">
                                         <div className="col-md-8 mt-1 pr-5 pills-event">
                                             <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">

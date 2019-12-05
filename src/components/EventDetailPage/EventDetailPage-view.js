@@ -30,29 +30,31 @@ function View(props) {
                                 <div className="container-fluid mt-4">
                                     <div className="card mb-4">
                                         <div className="card-body d-flex justify-content-start ml-3">
-                                            <Link to='/events' className="mt-2 atras-arrow">
+                                            <Link to='/events' className="atras-arrow">
                                                 <i className="fas fa-arrow-left"></i>
                                             </Link>
-                                            <div className="container-detail mt-3">
+                                            <div className="container-detail mt-2">
                                                 <div className="">
                                                     <div className="form-group d-flex justify-content-between">
                                                         <h4 className="bold-title">{event.title}</h4>
                                                     </div>
-                                                    <div className="form-group d-flex">
-                                                        <span className="bold detail">Descripción:</span>
+                                                    <div className="form-group container-events">
+                                                        <span className="bold detail">Descripción:</span><br/>
                                                         <span className="gray">{event.description}</span>
                                                     </div>
-                                                    <div className="form-group d-flex">
-                                                        <span className="bold detail">Lugar:</span>
-                                                        <span className="gray">{event.place}</span>
-                                                    </div>
-                                                    <div className="form-group d-flex">
-                                                        <span className="bold detail">Fecha:</span>
-                                                        <span className="gray">{moment(event.day).format('DD/MM/YYYY')}</span>
-                                                    </div>
-                                                    <div className="form-group d-flex">
-                                                        <span className="bold detail">Hora:</span>
-                                                        <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
+                                                    <div className="d-flex justify-content-between container-events">
+                                                        <div className="form-group">
+                                                            <span className="bold detail">Lugar:</span><br/>
+                                                            <span className="gray">{event.place}</span>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <span className="bold detail">Fecha:</span><br/>
+                                                            <span className="gray">{moment(event.day).format('DD/MM/YYYY')}</span>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <span className="bold detail">Hora:</span><br/>
+                                                            <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
+                                                        </div>
                                                     </div>
                                                     {
                                                         event.toWorkshopCategories.length > 0 ?
@@ -68,7 +70,7 @@ function View(props) {
                                                 </div>
                                                 {
                                                     user_id === event.user_id ?
-                                                        <Link className="" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><img alt="img" className="img-edit" src={require('../../public/images/svg/editar.svg')} /></Link>
+                                                        <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
                                                         :
                                                         <AssistButton
                                                             isPart={isPart}

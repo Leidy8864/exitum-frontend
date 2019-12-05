@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import getChallenge from '../../redux/actions/get-challenge'
 import { verifyChallenge,root } from '../../redux/actions'
 import View from './ModalDare-view';
+import Swal from 'sweetalert2'
 import $ from 'jquery'
+import { runInThisContext } from 'vm';
 
 class ModalDare extends React.Component {
 
@@ -18,7 +20,8 @@ class ModalDare extends React.Component {
         reply: '',
         statusVerify: 'Verificado',
         statusObser: 'Con observaciones',
-        file_tips: []
+        file_tips: [],
+        error: false,
     }
 
     async componentDidUpdate(nextProps) {
@@ -66,7 +69,12 @@ class ModalDare extends React.Component {
             challenge_id, status
         }
 
-        console.log(data)
+        Swal.fire(
+            'Buen trabajo',
+            'Verificado correctamente',
+            'success'
+        )
+
         const res = await this.props.verifyChallenge(data)
         $('#modaldare').modal('hide')
     }
@@ -79,7 +87,25 @@ class ModalDare extends React.Component {
             challenge_id, comment, status
         }
 
-        console.log(data)
+        if(comment === "") {
+            this.setState({
+                error: Swal.fire({
+                    type: 'info',
+                    text: 'Debes agregar una observacion',
+                    showConfirmButton: false
+                })
+            })
+            return
+        }
+
+        this.setState({error: false})
+
+        Swal.fire(
+            'Buen trabajo',
+            'Se han enviado tus observaciones',
+            'success'
+        )
+
         const res = await this.props.verifyChallenge(data)
         $('#modaldare').modal('hide')
     }
@@ -95,7 +121,6 @@ class ModalDare extends React.Component {
             file_tips
         } = this.state
 
-        console.log(file_tips)
 
         return (
             <View

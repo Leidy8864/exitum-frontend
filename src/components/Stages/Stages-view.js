@@ -16,12 +16,12 @@ function View(props) {
             <div className="stage">
                 <div className="container-stage">
 
-                    {/* {
+                    {
                         listSteps.length >= 1 ?
 
                         listSteps.map(function(item,index){
                             return(
-                                <div key={index} className="">
+                                <div key={index} className="stages-imgs">
                                     <div className={`img` + index} onClick={selectStage}>
                                         <img  src={role === "entrepreneur" ? item.startup_steps[0].icon_count_tip : item.employee_steps[0].icon_count_tip} id={item.id} alt="img" />
                                     </div>
@@ -35,7 +35,7 @@ function View(props) {
                         :
 
                         'No se encontraron resultados'
-                    } */}
+                    }
                 </div>
             </div>
         </div>
