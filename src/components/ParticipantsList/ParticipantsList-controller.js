@@ -82,16 +82,12 @@ class ParticipantsList extends React.Component {
             }
         });
     }
-    redirectProfile = () => {
-        this.props.activeBackButton(1)
-    }
     render() {
         const result = decodeToken();
         return (
             <View
                 participants={this.state.participants}
                 user_id={result.id}
-                redirectProfile={this.redirectProfile}
             />
         );
     }
@@ -100,8 +96,7 @@ const mapStateToProps = state => ({
     reload: state.reloadPageReducer
 });
 const mapDispatchToProps = {
-    reloadPage,
-    activeBackButton
+    reloadPage
 }
 export default withRouter(
     connect(mapStateToProps, mapDispatchToProps)(ParticipantsList)

@@ -16,7 +16,6 @@ import listSkills from '../../redux/actions/list-skills';
 import { deleteSkill, deleteCertificate, deleteEducation, deleteExperience } from '../../redux/actions';
 import Swal from 'sweetalert2';
 import $ from 'jquery'
-
 class ProfileEmployee extends React.Component {
 
     state = {
@@ -59,10 +58,13 @@ class ProfileEmployee extends React.Component {
         try {
             var id = localStorage.getItem('id');
             var isMyProfile = true;
+            var activeBackButton = false;
             const routePath = this.props.location.pathname;
+
+
             if (routePath.includes("/profile/")) { //Evalua si la ruta es como /profile/:id
                 id = this.props.match.params.id
-                console.log("Asdsadsadsadsadsad");
+                activeBackButton = true;
 
                 id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
                     this.props.history.push('/my-profile')
@@ -91,6 +93,7 @@ class ProfileEmployee extends React.Component {
                 photo: photo,
                 description: description,
                 isMyProfile: isMyProfile,
+                activeBackButton : activeBackButton
 
             })
 
@@ -111,7 +114,6 @@ class ProfileEmployee extends React.Component {
             console.log(error)
         }
     }
-
     idCertificate = async (e) => {
         e.preventDefault();
         const certificate = this.state.certifications[e.target.id];
@@ -384,7 +386,7 @@ class ProfileEmployee extends React.Component {
                 handleClickDeleteExperience={this.handleClickDeleteExperience}
                 fileSelectedHandler={this.fileSelectedHandler}
                 fileUploadHandler={this.fileUploadHandler}
-                activeBackButton={this.props.activeBackButton}
+                activeBackButton={this.state.activeBackButton}
             />
         );
     }
@@ -396,7 +398,6 @@ const mapStateToProps = (state) => ({
     listSkillsReducer: state.listSkillsReducer,
     listEducationsReducer: state.listEducationsReducer,
     listExperiencesReducer: state.listExperiencesReducer,
-    activeBackButton: state.activeBackButtonReducer,
 });
 
 const mapDispatchToProps = {
@@ -414,7 +415,7 @@ const mapDispatchToProps = {
     updateImageUser,
     showDataByUser,
     getUniversities,
-    getCompanies,
+    getCompanies
 };
 
 export default withRouter(

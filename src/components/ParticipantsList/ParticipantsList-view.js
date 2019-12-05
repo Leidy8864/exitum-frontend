@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom'
 function View(props) {
     const {
         participants,
-        user_id,
-        redirectProfile
+        user_id
     } = props
     return (
         <div className="container-fluid" id="list-participants">
@@ -23,7 +22,7 @@ function View(props) {
                                         <div className="card-body text-center">
                                             <h6 className="card-title">{item.fullname}</h6>
                                             <div className="mt-4 mb-2">
-                                                <Link to={user_id === item.id ? "/my-profile" : "/profile/" + item.id} className="see-perfil" onClick={redirectProfile}>Ver perfil</Link>
+                                                <Link to={user_id === item.id ? "/my-profile" : "/profile/" + item.id} className="see-perfil">Ver perfil</Link>
                                                 <p>{item.user_workshop.status === "ACCEPTED" ? "Aceptado" : item.user_workshop.status === "PENDING" ? "En lista de espera" : "Rechazado"}</p>
                                             </div>
                                         </div>
