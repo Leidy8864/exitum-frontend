@@ -180,9 +180,6 @@ class EmployeesList extends React.Component {
 
         }
     }
-    redirectProfile = () => {
-        this.props.activeBackButton(1)
-    }
     render() {
 
         const {
@@ -192,7 +189,6 @@ class EmployeesList extends React.Component {
             <View
                 employeesList={employeesList}
                 handleLikeEmployee={this.handleLikeEmployee}
-                redirectProfile={this.redirectProfile}
             />
         );
     }
@@ -201,9 +197,6 @@ class EmployeesList extends React.Component {
 const mapStateToProps = state => ({
     adType: state.getTypeAdsReducer
 });
-const mapDispatchToProps = {
-    activeBackButton
-};
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(EmployeesList)
+    connect(mapStateToProps, null)(EmployeesList)
 )

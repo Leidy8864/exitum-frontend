@@ -9,7 +9,6 @@ class BackButton extends React.Component {
     goBack = (e) => {
         e.preventDefault();
         this.props.history.goBack();
-        this.props.activeBackButton(0)
     }
 
     render() {
@@ -20,10 +19,6 @@ class BackButton extends React.Component {
         );
     }
 }
-const mapDispatchToProps = {
-    activeBackButton
-};
-
 export default withRouter(
-    connect(null, mapDispatchToProps)(BackButton)
+    connect(null, null)(BackButton)
 )
