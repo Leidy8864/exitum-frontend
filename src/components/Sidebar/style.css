@@ -149,13 +149,13 @@ ul li a {
   line-height: 30px;
   width: 30px;
   text-align: center;
-  color: #777;
+  color: #4C5161;
 }
 
 .sidebar .nav li .dropdown-menu a, .sidebar .nav li a {
   margin: 10px 20px 0;
   border-radius: 3px;
-  color: #777;
+  color: #4C5161;
   padding-left: 10px;
   padding-right: 10px;
   text-transform: capitalize;

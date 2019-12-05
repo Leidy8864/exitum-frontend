@@ -110,11 +110,12 @@ class ModalPerfil extends React.Component {
         console.log(res)
 
         $('#perfilusuario').modal('hide');
-        // Swal.fire(
-        //     'Buen trabajo',
-        //     'Se ha guardado tu perfil correctamente',
-        //     'success',
-        // )
+        window.location.reload();
+        Swal.fire(
+            'Buen trabajo',
+            'Se ha guardado tu perfil correctamente',
+            'success',
+        )
         // this.props.listMeets(1)
         
         // } else {

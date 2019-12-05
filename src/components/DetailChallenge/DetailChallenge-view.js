@@ -135,8 +135,8 @@ function View(props) {
                                                     <div className="row_detail mt-4" key={index}>
                                                         <div className="mb-3">
                                                             <div className="media">
-                                                                <img src={item.user.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
-                                                                <h6 className="mt-0 font-weight-bold">{item.user.name + ' ' + item.user.lastname}</h6>
+                                                                <img src={item.ownerChallenge.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
+                                                                <h6 className="mt-0 font-weight-bold">{item.ownerChallenge.name + ' ' + item.ownerChallenge.lastname}</h6>
                                                             </div>
                                                             <div className="description_">
                                                                 {item.reply}

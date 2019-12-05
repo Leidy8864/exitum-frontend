@@ -32,9 +32,9 @@ function View(props) {
                                     <div className="card card-challenge mb-3">
                                         <div className="contact-body">
                                             <div className="header-challenge text-center w-100 mt-3">
-                                                <img alt="" width="100px" height="100px" className="img-challenge" src={item.user.photo} />
+                                                <img alt="" width="100px" height="100px" className="img-challenge" src={item.ownerChallenge.photo} />
                                                 <div className="name-contact mt-3">
-                                                    <span className="contact ml-2">{item.user.name} {item.user.lastname}</span>
+                                                    <span className="contact ml-2">{item.ownerChallenge.name} {item.ownerChallenge.lastname}</span>
                                                 </div>
                                             </div>
                                         </div>

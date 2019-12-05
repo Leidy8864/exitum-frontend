@@ -841,6 +841,7 @@ export const verifyChallenge = (data) => {
 export const listChallengeToVerify = async (id, page) => {
     try {
         const res = await axios.get(root + `challenges/toVerify?user_id=${id}&page=${page}`);
+        console.log(res.data)
         return res.data.data
     } catch (error) {
         console.log("Error" + error)

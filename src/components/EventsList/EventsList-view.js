@@ -21,6 +21,7 @@ function View(props) {
                                     <EventCard
                                         id={item.id}
                                         title={item.title}
+                                        key={item.id}
                                         description={item.description}
                                         day={item.day}
                                         hour_start={item.hour_start}
