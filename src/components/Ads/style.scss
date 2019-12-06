@@ -11,8 +11,10 @@
         cursor: pointer;
         span{
             font-size: 40px;
-            margin: 5px;
+            margin: -20px -30px;
+            padding-top: 5px;
             font-weight: bold;
+            position: absolute;
         }
     }
     .Ads-plus:hover{

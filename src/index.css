@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'ubuntu';
-  src: url('./public/font/Ubuntu-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url('./public/font/Ubuntu-Regular.ttf')  format('truetype');/* Safari, Android, iOS */
 }
 body {
   margin: 0;
