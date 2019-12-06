@@ -2,11 +2,10 @@
   display: block;
 }
 .banner {
-  position: relative;
-  background: #093CC3;
+  background-image: url('../../public/img/banner-exitum.png');
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: auto;
 }
 
 .banner .container {
@@ -47,12 +46,11 @@
 }
 
 .banner .container .container-banner .info-banner .btn-register button.btn-signup {
-  padding: 22px 25px;
-  background: transparent -webkit-gradient(linear, left top, left bottom, from(#FFFF00), to(#cece2f)) 0% 0% no-repeat padding-box;
-  background: transparent linear-gradient(180deg, #FFFF00 0%, #cece2f 100%) 0% 0% no-repeat padding-box;
+  padding: 15px 25px;
   border-radius: 42px;
+  background: #9DBDF9;
   border: none;
-  color: #777474;
+  color: #fff;
   outline: none;
   font-family: 'Proxima Nova';
   font-size: 22px;
