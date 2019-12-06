@@ -1,0 +1,13 @@
+.EventsList{
+    display: block;
+}
+div#events-list{
+    margin-top: 20px;
+    height: calc(100vh - 270px);
+    overflow-y: auto !important;
+  }
+
+.no-events {
+    font-family: 'Proxima Nova';
+    color: #777;
+}

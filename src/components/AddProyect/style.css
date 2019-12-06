@@ -1,0 +1,176 @@
+.AddProyect{
+    display: block;
+}
+.add-proyect-container{
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+.proyects-list{
+    display: flex;
+    font-family: 'Proxima Nova' !important;
+}
+.add-proyect-aux{
+    text-decoration: none !important;
+    color: #157FFB;
+    font-size: 17px;
+    font-weight: bolder;
+    top: 50px;
+    width: 300px;
+    left: 40px;
+}
+
+.title-proyect {
+    margin-bottom: 15px;
+}
+
+.title-proyect h4 {
+    color: #4C5161;
+}
+
+.add-proyect-aux a:hover {
+    text-decoration: none !important;
+    color: #157FFB;
+}
+
+.add-proyect-aux .Ads-plusito span{
+    margin: 12px;
+    transition: all ease-out 0.4s;
+}
+
+.proyects-list-aux{
+    margin-left: 40px;
+    margin-right: 40px;
+    overflow-y: auto;
+    display: flex;
+}
+.projectblock{
+    background-color: #EEF5FF;
+    color: #4157F2;
+    font-weight: 600;
+    border-radius: 20px;
+    margin: 10px 10px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    float: left;
+    width: 22%;
+    height: 44px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: 'Proxima Nova' !important;
+    transition: all ease 0.5s;
+}
+
+.projectblockSelected{
+    background-color: #4157F2;
+    color: #EEF5FF;
+    font-weight: 600;
+    border-radius: 20px;
+    margin: 10px 10px 20px;
+    padding: 5px;
+    height: 44px;
+    font-size: 16px;
+    text-align: center;
+    float: left;
+    width: 22%;
+    cursor: pointer;
+    transition: all ease 0.5s;
+    flex-shrink: 0;
+    font-family: 'Proxima Nova' !important;
+}
+
+.projectblock>span, .projectblockSelected>span {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:normal;
+    text-align: center;
+    position: relative;
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+.projectblock:hover{
+    transform: translate3d(0,-3px,0) !important;
+    transition: all ease 0.5s;
+}
+
+
+.add-proyect{
+    padding-top: 20px;
+    top: 100px;
+    right: 60px;
+    z-index: 10;
+    display: flex;
+    font-size: 27px;
+    color: #157FFB;
+    float: left;
+}
+
+.add-proyect a:hover {
+    text-decoration: none !important;
+    /* color: #157FFB; */
+}
+
+.add-proyect a {
+    font-size: 22px;
+}
+
+.Ads-plusito {
+    font-family: 'Proxima Nova' !important;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+}
+
+.Ads-plusito {
+    background: #57D680;
+    padding: 8px 22px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.Ads-plusito span{
+    font-family: 'Proxima Nova' !important;
+    margin: 12px;
+    color: #fff;
+}
+
+@media screen and (max-width: 1440px) {
+    .add-proyect{
+        top: 30px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .add-proyect{
+        top: 30px;
+        right: 90px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .add-proyect{
+        right: 10px;
+        font-size: 25px;
+    }
+    .retos {
+        padding-top: 40px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .add-proyect{
+        top: 20px;
+        right: 75px;
+        font-size: 20px;
+    }
+  }

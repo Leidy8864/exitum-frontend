@@ -1,0 +1,14 @@
+.Entrepeneur{
+    display: block;
+}
+
+.arbol {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.retos {
+    height: 500px !important;
+    width: 100%;
+}

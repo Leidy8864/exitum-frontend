@@ -1,0 +1,37 @@
+.dashboard {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content-two {
+  overflow-y: scroll !important;
+}
+
+.main-panel>.content {
+  margin-top: 77px;
+  padding: 0px !important;
+  min-height: calc(100vh - 123px);
+  background: #EFF3F8;
+}
+
+.main-panel {
+  position: relative;
+  float: right;
+  width: calc(100% - 260px);
+  transition: all .33s cubic-bezier(.685,.0473,.346,1);
+}
+
+@media screen and (max-width: 1024px) {
+  .main-panel {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-panel {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

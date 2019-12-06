@@ -3,7 +3,7 @@ import './style.css';
 
 function View(props){
 
-    const { sendEmail } = props
+    const { handleSubmit,handleChange,content_messsage,content_error_email } = props
 
     return(
         <div className="modal fade" id="forgetpass" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -13,20 +13,27 @@ function View(props){
                         <div className="row">
                             <div className="col-md-12 pt-4 info-signup">
                                 <div className="welcome-ex">
-                                    <span><img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/></span>
+                                    <div className="logo">
+                                    <img src={require("../../public/images/svg/logo-azul.svg")} alt="svg"/>
+                                    </div>
                                     <span className="text-forget">Ingresa tu email y te enviaremos un mensaje para que puedas recuperar tu contraseña</span> 
                                 </div>
-                                <form className="form-signin">
+                                <form className="form-signin justify-content-center" onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <input
                                             name="email"
                                             type="email"
+                                            onChange={handleChange}
                                             placeholder="Email"
+                                            id = "email"
                                         />
+                                        {content_error_email}
+
                                     </div>
+                                    {content_messsage}
 
                                     <div className="send-submit">
-                                        <button data-dismiss="modal" aria-label="Close" onClick={sendEmail} type="submit" className="submit-signin">Iniciar Sesión</button>
+                                        <button type="submit" className="submit-signin">Recuperar contraseña</button>
                                     </div>
                                 </form>
                             </div>

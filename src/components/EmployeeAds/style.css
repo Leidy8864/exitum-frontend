@@ -1,0 +1,8 @@
+.EmployeeAds{
+    display: block;
+}
+div.employee-ads-class   {
+height: calc(100vh - 230px);
+overflow-y: auto;
+padding-left: 0px;
+}

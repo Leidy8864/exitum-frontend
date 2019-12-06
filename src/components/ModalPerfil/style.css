@@ -1,0 +1,113 @@
+.ModalPerfil{
+    display: block;
+}
+
+
+.form_group_ label {
+    width: 100%;
+}
+
+.perfils textarea {
+    height: 150px !important;
+    resize: none;
+}
+
+.text-hour {
+
+}
+
+.modal-header {
+    background: #157FFB !important;
+    color: #fff;
+}
+
+.modal-header.adds {
+    background: #157FFB !important;  /* fallback for old browsers */
+    color: #fff;
+}
+
+.btn-save-add {
+    background: #157FFB !important;
+}
+
+.modal-header h6 {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.modal-backdrop {
+    opacity: 0 !important;
+}
+
+.modal-content {
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,.14), 0 7px 2px -5px rgba(255, 255, 255, 0.4);
+}
+
+input[type=checkbox].hourModalAds {
+    position: absolute !important;
+    left: -20px;
+    z-index: 0;
+    border: none;
+    top: 10px;
+}
+
+div.text-hour {
+    margin-left: 10px !important;
+    position: relative;
+    left: 28px;
+    z-index: 2;
+    padding: 6px 6px;
+    width: 80px;
+    margin: 10px 12px 10px 0px;
+    border-radius: 6px;
+    color: rgb(141, 137, 137);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+label {
+    color: #777;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+div.content-hour {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+input[type=checkbox] {
+         position: relative;
+	       cursor: pointer;
+    }
+    input[type=checkbox]:before {
+         content: "";
+         display: block;
+         position: absolute;
+         width: 16px;
+         height: 16px;
+         top: 0px;
+         left: 0;
+         border: 1px solid rgb(141, 137, 137);
+         border-radius: 3px;
+         background-color: white;
+}
+    input[type=checkbox]:checked:after {
+         content: "";
+         display: block;
+         width: 5px;
+         height: 10px;
+         border: solid rgb(27, 109, 233);
+         border-width: 0 2px 2px 0;
+         -webkit-transform: rotate(45deg);
+         -ms-transform: rotate(45deg);
+         transform: rotate(45deg);
+         position: absolute;
+         top: 2px;
+         left: 6px;
+}
+
+.modal-footer button.adds {
+    color: #fff;
+    background: #2183F8 !important;  /* fallback for old browsers */
+}

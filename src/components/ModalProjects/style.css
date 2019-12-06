@@ -1,0 +1,46 @@
+.ModalProjects{
+    display: block;
+}
+
+input#name_project, textarea#description {
+    font-weight: 400 !important;
+    outline: none !important;
+}
+
+div.title_ {
+    font-size: 28px !important;
+    font-weight: 500 !important;
+    color: #157FFB !important;
+}
+
+.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container {
+    font-size: 15px;
+    font-weight: 500 !important;
+    color: #3369fd;
+}
+
+.form_group_.form_group__ button {
+    outline: none;
+    font-size: 18px !important;
+    padding: 10px 50px;
+}
+
+.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container .css-bg1rzq-control .css-dvua67-singleValue {
+    font-weight: 400 !important;
+}
+
+.idea-img {
+    margin-top: 10px;
+}
+
+.css-1hwfws3 {
+    font-weight: 400 !important;
+}
+
+.text-secondary {
+    color: #777!important;
+    font-family: 'Proxima Nova';
+    font-size: 16px;
+    margin-top: 10px;
+    border: none !important;
+}

@@ -1,0 +1,10 @@
+.AddsList{
+  display: block;
+}
+ul li.nav-item a.active:before {
+    background: none !important;
+}
+div.Ads{
+  height: calc(100vh);
+  overflow-y: auto;
+}

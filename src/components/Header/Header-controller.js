@@ -7,7 +7,9 @@ class Header extends React.Component {
 
     modalLogin = e => {
         e.preventDefault();
-        $('body').addClass('bn-login')
+        $('input[name=email').val('');
+        $('input[name=password').val('');
+        $('.error-message').html('');
     }
 
     componentDidMount = () => {

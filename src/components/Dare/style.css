@@ -1,0 +1,8 @@
+.Dare{
+    display: block;
+}
+
+.content-challenge {
+    height: calc(100vh - 77px);
+    overflow-y: auto;
+}

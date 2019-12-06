@@ -1,0 +1,17 @@
+/* No CSS *//*# sourceMappingURL=style.css.map */
+.ResetPassword{
+    display: block;
+}
+
+.container-form{
+    margin: 10%;
+}
+
+.reset-form{
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.success-message{
+    color: #13c837;
+}

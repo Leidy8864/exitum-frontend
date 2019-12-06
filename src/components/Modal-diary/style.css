@@ -1,0 +1,173 @@
+.Modal-diary{
+    display: block;
+}
+.label-radio-modal-diary{
+    color: #157FFB !important;
+    width: 43% !important;
+    font-size: 15px !important;
+}
+.label-radio-modal-diary::before{
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid #157FFB !important;
+    border-radius: 100% !important;
+    background: #fff !important;
+}
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #157FFB; 
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #157FFB; 
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #157FFB; 
+}
+.date{
+    float: left;
+    width: 33% !important;
+}
+.react-date-picker{
+    margin: 0px 15px !important;
+    width: 93% !important;
+    color: #157FFB; 
+    border: 1px solid #157FFB;
+    border-radius: 7px;
+}
+.react-calendar__navigation {
+    background: #157FFB !important;
+}
+
+.react-date-picker__wrapper{
+    display: block !important;
+    width: 100%;
+    color: #157FFB;
+    border: none !important;
+}
+.react-date-picker__inputGroup{
+    width: 75%;
+    float: left;
+    display: block !important;
+    margin-left: 4px;
+    color: #969292 !important;
+}
+.react-date-picker__button{
+    float: left;
+    width: 30px !important;
+    margin: 8px 4px !important;
+    background: #fff !important;
+}
+
+
+.react-date-picker__inputGroup__day{
+    border: none !important;
+    color: #969292;
+}
+.react-date-picker__inputGroup__month{
+    border: none !important;
+    color: #969292;
+}
+.react-date-picker__inputGroup__year{
+    border: none !important;
+    color: #969292;
+}
+
+.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button{
+    margin: 8px 2px !important;
+    width: auto !important;
+    height: 30px;
+    background-color: none !important;
+}
+
+.react-calendar__navigation__arrow{
+    padding: 0px !important;
+}
+
+.react-calendar__navigation__label{
+    font-size: 14px !important;
+}
+
+.datepicker .react-date-picker__wrapper {
+    display: flex !important;
+}
+
+.datepicker .react-date-picker {
+    width: 100% !important;
+    margin: 0px !important;
+}
+
+.datepicker.datepicker .react-date-picker {
+    border: 1px solid #dad5d5 !important;
+    color: #dad5d5;
+}
+
+.modal-body.diary {
+    padding: 30px;
+}
+
+.diary-label label {
+    font-size: 12px !important;
+}
+
+.customDatePickerWidth, 
+.customDatePickerWidth > div.react-datepicker-wrapper, 
+.customDatePickerWidth > div > div.react-datepicker__input-container
+.customDatePickerWidth > div > div.react-datepicker__input-container input {
+   width: 100%;
+}
+
+.react-calendar__month-view__days__day{
+    padding: 1px !important;
+    font-size: 14px !important;
+    margin: 2px !important;
+    /* border-radius: 100% !important; */
+    max-width: 13% !important;
+    padding: 12px !important;
+    border-radius: 50%;
+}
+
+.react-calendar__tile--active {
+    background: #157FFB !important;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
+}
+
+.hourModalAds{
+    background-color: #fff;
+    color: #157FFB;
+    border: 1px solid #157FFB;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    width: 20%;
+    cursor: pointer;
+
+}
+
+.hourModalAdsSelected{
+    background-color: #157FFB;
+    color: #fff;
+    border: 1px solid #157FFB;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    width: 20%;
+    cursor: pointer;
+}
+
+.form_group__{
+    text-align: center;
+}
+.form_group__ button{
+    padding: 5px 15px;
+}

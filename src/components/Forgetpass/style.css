@@ -1,6 +1,19 @@
-span.text-forget {
-  font-size: 16px !important;
+.Forgetpass{
+  display: block;
+}
+.welcome-ex {
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.welcome-ex .logo {
+  margin-bottom: 10px;
+}
+
+.welcome-ex span.text-forget {
+  font-size: 14px !important;
   text-transform: none !important;
   color: #a09696;
+  font-family: 'Proxima Nova' !important;
 }
 /*# sourceMappingURL=style.css.map */

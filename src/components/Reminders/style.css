@@ -1,0 +1,118 @@
+.Reminders{
+    display: block;
+}
+.reminders {
+    color: #fff;
+    border: 1px solid #E9ECEF !important;
+    border-radius: 10px;
+    font-family: 'Proxima Nova' !important;
+}
+
+.appointments h4{
+    color: #5a5353;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.header-reminder {
+    background: #157FFB;  /* fallback for old browsers */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.icon-edit i {
+    color: #fff;
+}
+
+a#menos {
+    display: none;
+}
+
+.recordatorio-reu {
+    color: #5a5353;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 10px;
+    font-family: 'Proxima Nova';
+}
+
+.body-reminder {
+    padding: 13px 10px 0px 10px;
+    background: #fff;
+    color: #777;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.header-meeting {
+    background: #00c6ff;  /* fallback for old browsers */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.description-meet {
+    position: relative;
+    /* height: 62px !important; */
+}
+
+.reminder-description {
+    height: 62px !important;
+}
+/* 
+.description-size {
+    text-overflow: ellipsis;
+    overflow: hidden;
+} */
+.btn-hide {
+    border-radius: 1.5em;
+    left: 20%;
+    text-decoration: none;
+    width: 60%;
+  }
+
+  .description-text{
+    width: 100%;
+    text-align: justify;
+}
+a {
+	color: #0254EB
+}
+
+a.morelink:hover {
+	text-decoration:none;
+    outline: none;
+    color: #32b4d4;
+}
+
+a.morelink {
+	color: #777;
+}
+.morecontent span {
+	display: none;
+}
+.description-size{
+    position: relative;
+    width: 100%;
+    max-height: 50px;
+    overflow: hidden;
+}
+.body-meeting {
+    padding: 10px;
+    background: #fff;
+    color: #777;
+}
+
+.body-meeting {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+}
+
+.see-more {
+    text-align: center;
+}

@@ -1,10 +1,22 @@
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
+import ChooseProfile from '../ChooseProfile/ChooseProfile-controller'
+import Entrepeneur from '../Entrepeneur/Entrepeneur-controller';
+import Capsula from '../../public/img/Capsula';
 
-function View(){
-    return(
-        <div className="Tree"> Say hi!</div>
+function View(props) {
+    const { blockTree, conditionShowChooseProfile,conditionShowCapsule, showTreeContainer, conditionShowTreeContainer } = props
+    return (
+        <Fragment>
+                {conditionShowChooseProfile ? <ChooseProfile /> : blockTree}
+
+                {conditionShowTreeContainer ? <Entrepeneur /> : 
+                    conditionShowCapsule ? <div className="Tree">
+                        <Capsula showTreeContainer={showTreeContainer}/>
+                    </div>: <br/>
+                }
+        </Fragment>
     );
 }
 export default View;

@@ -1,0 +1,145 @@
+.DetailChallenge{
+    display: block;
+}
+.container_challenge_tabs{
+    width: 100%;
+    padding-left: 15%;
+}
+.content_challenge{
+    width: 100%;
+    /* padding-left: 15%; */
+}
+
+.container_challenge_tabs {
+    width: 100%;
+    padding-left: 15%;
+}
+
+.row_detail{
+    width: calc(100% - 10%);
+    padding-left: 10%;
+}
+.description_{
+    width: 100%;
+    /* color: #3369fd !important; */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: justify;
+    word-wrap: break-word;
+}
+.reply-text{
+    width: 70%;
+    text-align: justify;
+    word-wrap: break-word;
+}
+.subtitle_{
+    color: #2d2d2d !important;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    display: block;
+}
+.downloads_ {
+    /* margin-bottom: 20px; */
+    width: 13em;
+    display: flex;
+    align-items: stretch;
+    background: #ffffff;
+    border: 1px solid #157FFB;
+    border-radius: 4px;
+    padding: 10px;
+}
+.my-files {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 8px;
+}
+.text-file{
+    width: 10em;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.downloads_container img {
+    width: 17px !important;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.downloads_container img.left-img {
+    margin-left: 44px !important;
+}
+
+.downloads_:hover{
+    background: #157FFB;
+    transition: all ease 1s;
+    text-decoration: none;
+}
+
+.downloads_:hover a.text-file {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.downloads_ i {
+    color: #157FFB !important;
+    font-size: 22px;
+}
+
+.downloads_:hover i {
+    color: #fff !important;
+}
+
+input[type=”file”] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -1;
+    }
+
+.downloads_container{
+    /* margin: 0 10px; */
+    margin-bottom: 20px;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p#texto {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: 6px;
+    font-size: 19px;
+}
+
+.response_ img {
+    width: 27px;
+}
+.response_1 textarea {
+    outline: none;
+    width: calc(100% - 30px);
+    height: 100px;
+    font-size: 15px;
+    font-weight: 800;
+    border: 1px solid #3369fd;
+    color: #3369fd !important;
+    font-weight: 100 !important;
+    border-radius: 10px;
+    resize: none;
+  }
+
+.image-user{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover; 
+}
+
+.summary-list{
+}

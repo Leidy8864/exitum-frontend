@@ -1,0 +1,376 @@
+.user-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-content {
+    padding: 30px;
+}
+
+.img-profile {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: center;
+    background-image: url('../../public/img/bg-usuario.jpg');
+    height: 50vh;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+
+}
+
+span.no-data {
+    margin-left: 100px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.btn-save-img {
+    padding: 8px 28px;
+    background: #fff !important;
+    color: rgb(85, 84, 84);
+    text-transform: uppercase;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all ease 0.4s;
+}
+
+.btn-save-img:hover {
+    background: #ffffff !important;
+    color: #5b5b5c;
+}
+
+.profile {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.work-user .bold {
+    color: rgb(53, 52, 52);
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+    width: 160px;
+}
+
+.work-user .line {
+    color: rgb(145, 145, 145);
+    font-size: 16px;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Proxima Nova';
+}
+
+.work-user i {
+    color: #1ed16f;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.experience-info-content .bold {
+    color: rgb(145, 145, 145);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user-img {
+    display: flex;
+    align-items: center;
+}
+
+.img-profile {
+    position: relative;
+}
+
+.card {
+    border: none !important;
+}
+
+.user-name h2{
+    margin-top: 10px;
+    color: rgb(53, 52, 52);
+}
+
+.work-user {
+    justify-content: space-between;
+}
+
+.user-name span{
+    color: rgb(145, 145, 145);
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Proxima Nova';
+}
+
+.work-user strong {
+    font-size: 20px;
+    color: #3369fd;
+}
+
+
+h3 {
+    color: #3369fd;
+    font-weight: 800;
+}
+
+.back-profile {
+    position: relative;
+    top: 20px;
+    right: 25px;
+    z-index: 2000;
+}
+
+.delete-perfil i {
+    color: #4157F2 !important;
+    background: #EEF5FF;
+    padding: 13px 14px !important;
+    border-radius: 50%;
+    transition: all ease 0.5s;
+}
+
+.delete-perfil i:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(42, 52, 189, 0.7);
+}
+
+.plus-perfil i {
+    color: #4157F2 !important;
+    background: #EEF5FF;
+    padding: 12px 14px !important;
+    border-radius: 50%;
+    transition: all ease 0.5s;
+}
+
+.plus-perfil i:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(42, 52, 189, 0.7);
+}
+
+.edit-perfil i {
+    transition: all ease 0.5s;
+    color: #4157F2 !important;
+    background: #EEF5FF;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.edit-perfil i:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(42, 52, 189, 0.7);
+}
+
+img.img {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.user-bg {
+    width: 100%;
+    position: relative;
+    background: #3369fd;
+    background-size: cover;
+    height: 25vh;
+}
+
+.img {
+    border-radius: 50%;
+    width: 160px;
+}
+
+.experience-study,.experience-work {
+    display: flex;
+    align-items: center;
+    padding: 10px !important;
+}
+
+.content-two {
+    overflow-x: hidden;
+}
+
+.experience-work a img, .experience-study a img{
+    width: 24px;
+}
+
+.experience-work span, .experience-study span{
+    margin-left: 10px;
+    color: #777;
+}
+
+div ul.experiences {
+    margin-top: 0px !important;
+}
+
+.experience {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-info {
+    margin: 0px !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-header  {
+    display: flex;
+    align-items: center;
+}
+
+.experience-header h3 {
+    font-size: 32px;
+    color: #4C5161;
+}
+
+.experience-edit a img {
+    background: #4E4E50 !important;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a3b3a, #4E4E50) !important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4E4E50, #4E4E50) !important;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.experience-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-info-skill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.experience-info h4 {
+    font-size: 20px;
+}
+
+.info-experience {
+    display: flex;
+}
+
+.experience-info-content span.title {
+    float: left;
+    width: 140px;
+}
+
+.profile {
+    display: block;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.experience-info-content {
+    margin-left: 95px;
+}
+
+.skill-list {
+    list-style: none;
+    margin-left: 50px;
+    color: rgb(145, 145, 145);
+}
+
+.experience-info-content h4 {
+    color: rgb(145, 145, 145);
+}
+
+.experience-info-content strong {
+    color: #3369fd;
+}
+
+.time-exp {
+    color: rgb(145, 145, 145);
+    font-size: 16px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Proxima Nova';
+}
+
+.img-experience  img {
+    width: 50px;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+}
+
+.education-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.education-info {
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-education {
+    display: flex;
+}
+
+.img-education a img {
+    width: 70px;
+}
+
+.aptitud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777;
+}
+
+.aptitud-header a img {
+    background: #3369fd;
+    width: 35px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.info-aptitud ul li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
+}
+
+.photo-perfil {
+    position: relative;
+}
+
+.photo-perfil img {
+    border-radius: 50%;
+    background-size: cover;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+}
+
+input.inputfile{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    width: 180px;
+    right: 42%;
+    height: 180px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.description-perfil {
+    margin: 0 auto;
+    width: 400px;
+}
+
+#ga{
+    right: 500px;
+}

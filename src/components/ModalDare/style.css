@@ -1,0 +1,20 @@
+.ModalDare{
+    display: block;
+}
+
+textarea.form-control {
+    resize: none !important;
+}
+
+.downloads_container {
+    display: flex;
+}
+
+.modal-header.dare {
+    background: #157FFB !important;
+}
+
+.swal2-icon.swal2-info {
+    color: #F46580;
+    border-color: #F46580;
+}

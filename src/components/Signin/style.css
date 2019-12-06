@@ -1,59 +1,69 @@
-.modal {
-  background-size: cover;
-  width: 100%;
-  height: auto;
+.Signin{
+  display: block;
 }
-
-.modal .modal-dialog {
+.background-login .modal-dialog {
   margin-top: 100px;
   max-width: auto;
 }
 
-.modal .modal-dialog .modal-content {
+.modal-backdrop.verify-email {
+  opacity: 1 !important;
+  background-size: cover !important;
+  background-position: center center;
+  background: #093CC3;
+}
+
+.background-login .modal-dialog .modal-content {
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 20px 0 rgba(131, 118, 118, 0.14), 0 7px 10px -5px rgba(94, 40, 189, 0.4);
           box-shadow: 0 4px 20px 0 rgba(131, 118, 118, 0.14), 0 7px 10px -5px rgba(94, 40, 189, 0.4);
 }
 
-.modal .modal-dialog .modal-content .welcome-ex {
+.background-login .modal-dialog .modal-content .welcome-ex {
   text-align: center;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex span {
-  font-family: 'Nunito';
+.background-login .modal-dialog .modal-content .welcome-ex span {
+  font-family: 'Proxima Nova';
   text-transform: uppercase;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex h2 {
-  font-family: 'Poppins';
-  font-size: 50px;
+.background-login .modal-dialog .modal-content .welcome-ex span img{
+  width: 200px;
+  height: auto;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex p {
-  font-family: 'Nunito';
+
+.background-login .modal-dialog .modal-content .welcome-ex h2 {
+  font-family: 'Proxima Nova';
+  font-size: 30px;
+}
+
+.background-login .modal-dialog .modal-content .welcome-ex p {
+  font-family: 'Proxima Nova';
   color: #8f8a8a;
   font-weight: 100;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex .div-margin-30px {
+.background-login .modal-dialog .modal-content .welcome-ex .div-margin-30px {
   margin: 30px;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex .error-message {
+.background-login .modal-dialog .modal-content .welcome-ex .error-message {
   color: #c81313;
   background-color: #FF9DA2;
   padding: 19px 5% 2px;
   border-radius: 5px;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex .exito-message {
+.background-login .modal-dialog .modal-content .welcome-ex .exito-message {
   color: #13c837;
   background-color: #c8ffbc;
   padding: 19px 5% 2px;
   border-radius: 5px;
 }
 
-.modal .modal-dialog .modal-content .welcome-ex .error-message-aux {
+.background-login .modal-dialog .modal-content .welcome-ex .error-message-aux {
   color: #c81313;
   padding-left: 15px;
   margin-bottom: 30px;
@@ -82,16 +92,12 @@ form input {
   padding: 20px;
   border-radius: 26px;
   border: none;
-  font-family: 'Poppins';
-  font-size: 12px;
+  font-family: 'Proxima Nova' !important;
+  font-size: 14px !important;
   font-weight: 200;
   outline: none;
   background: #F8F8FA 0% 0% no-repeat padding-box;
   margin: 5px;
-}
-
-form.form-signin {
-  padding: 20px 50px;
 }
 
 form.form-signin input {
@@ -99,8 +105,8 @@ form.form-signin input {
   padding: 20px;
   border-radius: 26px;
   border: none;
-  font-family: 'Poppins';
-  font-size: 12px;
+  font-family: 'Proxima Nova' !important;
+  font-size: 14px !important;
   font-weight: 200;
   outline: none;
   background: #F8F8FA 0% 0% no-repeat padding-box;
@@ -149,7 +155,7 @@ form.form-signin .error-message-aux {
   border: none;
   color: #fff;
   outline: none;
-  font-family: 'Poppins';
+  font-family: 'Proxima Nova' !important;
   font-size: 15px;
   font-weight: 100;
   text-transform: capitalize;
@@ -158,9 +164,9 @@ form.form-signin .error-message-aux {
 }
 
 .send-submit button.submit-signup {
-  margin-left: 14px;
+  margin-left: 10px;
   margin-top: 10px;
-  width: 93%;
+  width: 90%;
   padding: 20px;
   background: #3369FD;
   /* fallback for old browsers */
@@ -168,7 +174,7 @@ form.form-signin .error-message-aux {
   border: none;
   color: #fff;
   outline: none;
-  font-family: 'Poppins';
+  font-family: 'Proxima Nova' !important;
   font-size: 15px;
   font-weight: 100;
   text-transform: capitalize;
@@ -183,7 +189,7 @@ form.form-signin .error-message-aux {
 
 .border-space .to {
   text-align: center;
-  font-family: 'Poppins';
+  font-family: 'Proxima Nova' !important;
   color: #afacac;
 }
 
@@ -196,13 +202,14 @@ form.form-signin .error-message-aux {
 .socials .kep-login-facebook {
   padding: 10px 15px;
   border-radius: 50% !important;
-  font-family: 'Poppins';
+  font-family: 'Proxima Nova';
   font-weight: 400;
   text-transform: capitalize;
 }
 
 .socials .fab {
   color: #FFF;
+  border: none;
   background: #3369FD;
   font-size: 24px;
   padding: 15px 22px !important;
@@ -241,5 +248,15 @@ form.form-signin .error-message-aux {
 
 .socials button div svg g path:nth-last-child(n+2) {
   fill: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  form {
+    padding: 20px 30px !important;
+  }
+  form input {
+    border-radius: 17px !important;
+    padding: 15px !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,14 +1,19 @@
 
+// import React, { Fragment } from 'react';
 import React from 'react';
 import './style.css';
-
-function View(){
-    return(
+// import NewDiary from '../NewDiary/NewDiary-controller';
+import ModalDiary from '../Modal-diary/Modal-diary-controller';
+import Reminders from '../Reminders/Reminders-controller'
+function View(props) {
+    const { blockDiary } = props;
+    return (
         <div className="Diary">
-            <div className="start-diary">
-                <button type="submit" className="add-diary"><span>+</span></button>
-                Empieza una agenda
+            {blockDiary}
+            <div className="reminder mt-4">
+                <Reminders />
             </div>
+            <ModalDiary/>
         </div>
     );
 }

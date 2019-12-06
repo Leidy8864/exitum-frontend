@@ -21,7 +21,7 @@ function View(props) {
 
     return (
         <Fragment>
-        <div className="modal fade" id="signin" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade background-login" id="signin" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="container">
@@ -50,17 +50,12 @@ function View(props) {
                                             placeholder="Contraseña"
                                         />
                                     </div>
-                                    <div>
                                         {contentErrorPass}
-                                    </div>
-                                    
                                     <div className="send-submit">
                                         <button type="submit" className="submit-signin">Iniciar Sesión</button>
                                     </div>
                                 </form>
-                                <div className="div-margin-30px">
-                                        {contentError}
-                                </div>
+                                    {contentError}
                                 <div className="forget-password">  
                                     <Link onClick={forgetPass} data-toggle="modal" data-target="#forgetpass" to="/"><p>¿Olvidaste tu contraseña?</p></Link>
                                 </div>
@@ -78,6 +73,7 @@ function View(props) {
                                         fields="name,email,picture"
                                         callback={responseFacebook}
                                         cssClass="fab fa-facebook-f"
+                                        icon={true}
                                     />
                                     <GoogleLogin
                                         clientId="990260099345-jh6kjumka8s2a2a796nur9tf64u26tir.apps.googleusercontent.com"
@@ -94,7 +90,7 @@ function View(props) {
                 </div>
             </div>
         </div>
-        <Forgetpass/>
+        <Forgetpass clear={true}/>
         </Fragment>
     );
 }

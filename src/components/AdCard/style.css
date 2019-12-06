@@ -1,0 +1,115 @@
+.AdCard{
+}
+
+span a img svg {
+    fill: tomato !important;
+    opacity: 0;
+}
+
+
+.title_add{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none !important;
+    color: #4C5161;
+  }
+
+  button.btn-no-assist i.fa-calendar-times {
+    color: #4C5161 !important; 
+  }
+  
+  button.btn-assist i{
+    color: #4C5161 !important;
+}
+
+  .title_add:hover{
+    color: #4C5161;
+  }
+  
+  i.fa-trash-alt {
+    color: #157FFB!important;
+  }
+
+  .margin_botton_15{
+    margin-bottom: 15px;
+  }
+
+  span.gray {
+    color: #777;
+    font-weight: 400;
+  }
+  
+  .card.all-card {
+    border-radius: 10px !important;
+    transition: all ease-in-out 0.6s;
+  }
+
+  .card.all-card:hover {
+    box-shadow: 0 4px 10px 0 rgba(126, 123, 123, 0.14), 0 7px 2px -5px rgba(255, 255, 255, 1);
+    transform: translate3d(0,3px,0);
+  }
+
+  .card.all-card:hover  .card-header {
+    background: #EEF5FF !important;
+    transition: 0.5s;
+  }
+
+  .card-header {
+    background: #EEF5FF !important;
+    color: #fff !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    transition: 0.5s;
+  }
+
+  .card.pauses-play .card-header{
+    background: #E5FBF8 !important;
+  }
+
+  .card.card-body:hover {
+    
+  }
+  
+  .images-icons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .images-icons a.pause-bg i{
+    color: #4C5161;
+    font-size: 27px;
+  }
+
+  .images-icons a.trash-bg i{
+    color: #4C5161 !important;
+    font-size: 24px;
+  }
+
+  a img.pause-btn {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 2px;
+  }
+
+  .images-icons .edit-icon i{
+    color: #4C5161 !important;
+  }
+
+  a img.trash-btn {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 2px;
+  }
+
+  a.text-primary {
+    text-decoration: none !important;
+  }
+
+  .card.pauses-play:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 10px 0 rgba(126, 123, 123, 0.14), 0 7px 2px -5px rgba(255, 255, 255, 1);
+  }
+
+  .card.pauses-play {
+    transition: all ease 0.5s;
+  }

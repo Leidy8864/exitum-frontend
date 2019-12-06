@@ -1,0 +1,105 @@
+.ModalExperience{
+    display: block;
+}
+.radio-work {
+    position: relative !important;
+    left: 0 !important;
+}
+
+.clocwerk .react-date-picker{
+    margin: 7px 0px!important;
+    width: 100% !important;
+    color: #3369fd; 
+    border: 1px solid #ced4da;
+    border-radius: 7px;
+}
+.clocwerk .react-date-picker__wrapper{
+    display: flex !important;
+    width: 100%;
+    padding: 2px;
+    border-radius: 2px !important;
+    color: #34363d;
+    border: none !important;
+}
+.clocwerk .react-date-picker__inputGroup{
+    width: 100%;
+    float: left;
+    display: block !important;
+}
+.clocwerk .react-date-picker__button{
+    float: left;
+    width: 30px !important;
+    padding: 0px;
+    background: #fff !important;
+}
+
+.clocwerk .react-date-picker__inputGroup__day{
+    border: none !important;
+    padding: 0px !important;
+    margin-top: 0px !important;
+    color: #626570 !important;
+}
+.clocwerk .react-date-picker__inputGroup__month{
+    border: none !important;
+    padding: 0px !important;
+    margin-top: 0px !important;
+    color: #626570 !important;
+}
+.clocwerk .react-date-picker__inputGroup__year{
+    border: none !important;
+    padding: 0px !important;
+    margin-top: 0px !important;
+    color: #626570 !important;
+}
+
+.react-date-picker__button svg {
+    display: inherit;
+    stroke: #656870;
+}
+
+.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ button{
+    margin: 8px 2px !important;
+    width: auto !important;
+    height: 30px;
+}
+
+.clocwerk .react-calendar__navigation__arrow{
+    padding: 0px !important;
+}
+
+.clocwerk .react-calendar__navigation__label{
+    font-size: 14px !important;
+}
+
+.modal-footer {
+    border-top: none !important;
+}
+
+.modal-footer.adds {
+    padding-right: 0px !important;
+}
+
+.label-radio-modal-experience{
+    color: #777 !important;
+    width: 43% !important;
+}
+
+.label-radio-modal-experience::before{
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid #3369fd !important;
+    border-radius: 100% !important;
+    background: #fff !important;
+}
+#endDateModal{
+    display: none;
+}
+
+.textarea {
+    resize: none;
+    height: 150px !important;
+}

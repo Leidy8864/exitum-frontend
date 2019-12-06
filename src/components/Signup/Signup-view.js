@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss'
+import './style.css'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
 
@@ -39,7 +39,7 @@ function View(props) {
                                         type="text"
                                         placeholder="Nombre"
                                     />
-                                    <div>
+                                    <div className="error-message-aux">
                                         {content_error_name}
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@ function View(props) {
                                         type="text"
                                         placeholder="Apellidos"
                                     />
-                                    <div>
+                                    <div className="error-message-aux">
                                         {content_error_lastname}
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ function View(props) {
                                         type="email"
                                         placeholder="Email"
                                     />
-                                    <div>
+                                    <div className="error-message-aux">
                                         {content_error_email}
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@ function View(props) {
                                         type="password"
                                         placeholder="Contraseña"
                                     />
-                                    <div>
+                                    <div className="error-message-aux">
                                         {content_error_password}
                                     </div>
                                 </div>
@@ -82,16 +82,8 @@ function View(props) {
                                 </div>
                             </div>
                         </form>
-                        <div className="col-md-12">
-                            <div className="div-margin-30px">
-                                {content_error_registro}
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="div-margin-30px">
-                                {content_exito_registro}
-                            </div>
-                        </div>
+                            {content_error_registro}
+                            {content_exito_registro}
                         <div className="border-space">
                             <hr />
                             <div className="to">

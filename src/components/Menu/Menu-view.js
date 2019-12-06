@@ -1,26 +1,38 @@
 
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import './style.css';
 
-function View(props){
+function View(props) {
     const {
-        obtenerIdseleccionado,
-        classInicio,
-        classEmpleo,
+        selectOne,
+        selectTwo,
+        selectThree
     } = props;
 
-    return(
-        <div className="Menu"> 
-            <div className={classInicio} id="inicio_element" onClick ={obtenerIdseleccionado}>
-                <span id="inicio"><img  src={require("../../public/images/svg/proyecto.svg")} alt="svg"/></span>
-                <span id="inicio_"><img  src={require("../../public/images/svg/proyecto_.svg")} alt="svg"/></span>
-                Inicio
-            </div>
-            <div className={classEmpleo} id="empleo_element" onClick ={obtenerIdseleccionado}>
-                <span id="empleo"><img  src={require("../../public/images/svg/empleo.svg")} alt="svg"/></span>
-                <span id="empleo_"><img  src={require("../../public/images/svg/empleo_.svg")} alt="svg"/></span>
-                Anuncios
-            </div>
+    return (
+        <div className="Menu">
+            <ul>
+                <li>
+                    <NavLink to="/dashboard" id="link" onClick={selectOne}>
+                        <img className="rocket" src={require("../../public/images/svg/proyecto.svg")} alt="svg" />
+                        <span className="home">Inicio</span>
+                    </NavLink>
+                </li>
+                
+                <li>
+                    <NavLink to="/advertisement" id="link-1" onClick={selectTwo}>
+                        <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
+                        <span>Anuncios</span>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/events" id="link-1" onClick={selectThree}>
+                        <img src={require("../../public/images/svg/empleo.svg")} alt="svg" />
+                        <span>Eventos</span>
+                    </NavLink>
+                </li>
+            </ul>
         </div>
     );
 }

@@ -1,0 +1,28 @@
+.AdDetailPage{
+    display: block;
+}
+
+span.bold.detail {
+    width: 120px;
+    color: #4C5161;
+    font-weight: 600;
+}
+
+h4.bold-title {
+    color: #4C5161;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.container-detail {
+    display: flex;
+    width: 100%;
+    justify-content: space-between !important;
+    padding-left: 20px;
+    align-items: flex-start;
+}
+.button-back{
+    width: 30px;
+    position: absolute;
+    left: 12px;
+}

@@ -1,61 +1,72 @@
 .Menu {
   float: left;
-  width: 10%;
+  width: 15%;
   height: calc(100vh - 91px);
   margin-top: 1px;
   background-color: #ffffff;
+  border-right: 1px solid #e9e5e5;
 }
 
-.Menu .element {
-  width: 180px;
-  height: 60px;
-  margin: 10px;
-  padding: 10px;
-  color: #c2c2c2;
-  font-weight: 800;
-  cursor: pointer;
+.Menu ul {
+  padding: 0px;
+  margin-top: 20px;
 }
 
-.Menu .element span img {
-  margin: 5px 10px 10px;
+.Menu ul li {
+  position: relative;
+  display: block;
+  list-style: none;
+  padding: 20px;
+  z-index: 1024;
 }
 
-.Menu .element #inicio {
-  display: none;
+.Menu ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.Menu .element #empleo {
-  display: none;
+.Menu ul li a img.rocket {
+  width: 17px;
+  margin-left: 25px;
 }
 
-.Menu .selected {
-  color: #3369fd;
-  border-left: 5px solid #3369fd;
+.Menu ul li a span.home {
+  margin-left: 13px;
 }
 
-.Menu .selected {
-  color: #3369fd;
-  border-left: 5px solid #3369fd;
+.Menu ul li a img {
+  margin-left: 20px;
 }
 
-.Menu .selected #empleo_ {
-  display: none;
+.Menu ul li a span {
+  margin-left: 10px;
+  font-size: 18px;
 }
 
-.Menu .selected #empleo {
-  display: inline;
+.Menu ul li a.active:before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #3369FD;
+  left: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.Menu .selected {
-  color: #3369fd;
-  border-left: 5px solid #3369fd;
-}
-
-.Menu .selected #inicio_ {
-  display: none;
-}
-
-.Menu .selected #inicio {
-  display: inline;
+@media screen and (max-width: 1280px) {
+  .Menu {
+    width: 5% !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

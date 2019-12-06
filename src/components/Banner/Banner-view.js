@@ -9,7 +9,10 @@ import circleSmall from '../../public/images/svg/circle-small.svg'
 import Signup from '../Signup/Signup-controller'
 import './style.css';
 
-function View() {
+function View(props) {
+    const {
+        cleanForm,
+    } = props
     return (
         <Fragment>
             <div className="container-fluid">
@@ -41,7 +44,7 @@ function View() {
                                 en nuestras manos</h2>
                             </div>
                             <div className="btn-register">
-                                <button type="button" className="btn-signup" data-toggle="modal" data-target="#signup">
+                                <button onClick={cleanForm} type="button" className="btn-signup" data-toggle="modal" data-target="#signup" >
                                     Registrarme
                                 </button>
                             </div>
@@ -52,7 +55,7 @@ function View() {
                     </div>
                 </div>
             </div>
-            <Signup/>
+            <Signup clear={true}/>
         </Fragment>
     );
 }

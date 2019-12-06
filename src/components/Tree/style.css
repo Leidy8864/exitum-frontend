@@ -1,6 +1,191 @@
-.Tree {
-  float: left;
-  width: 65%;
-  height: calc(100vh - 90px);
+.Tree{
+  display: block;
 }
-/*# sourceMappingURL=style.css.map */
+.Tree-plus {
+  position: absolute;
+  z-index: 2000;
+  top: 25%;
+  width: 500px;
+  border-radius: 10px;
+  left: 40%;
+  color: rgb(233, 229, 229);
+  padding: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Proxima Nova';
+  letter-spacing: 0.5px;
+  background:#263238;  /* fallback for old browsers */
+  box-shadow: 2px 2px 67px -26px rgba(0,0,0,0.75);
+}
+
+.container-message img{
+  width: 150px;
+}
+
+.img-verify img {
+  width: 130px;
+  display: inline-block;
+  -webkit-transform: translate3d(0px, -50px, 10px);
+          transform: translate3d(0px, -50px, 10px);
+  -webkit-animation: levitate 1s ease-in-out infinite alternate;
+          animation: levitate 1s ease-in-out infinite alternate;
+}
+
+.Tree {
+  text-align: center;
+  padding-top: 150px;
+}
+
+
+.Tree svg:hover g#Ellipse_392{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg {
+  transition: all ease 2s !important;
+  -webkit-transform: translate3d(0px, 20px, 10px);
+  transform: translate3d(0px, 20px, 10px);
+  -webkit-animation: levitate 3s ease-in-out infinite alternate;
+  animation: levitate 3s ease-in-out infinite alternate;
+}
+
+
+.Tree svg:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all ease 2s !important;
+  -webkit-transform: translate3d(0px, 20px, 10px);
+  transform: translate3d(0px, 20px, 10px);
+  -webkit-animation: levitate 3s ease-in-out infinite alternate;
+  animation: levitate 3s ease-in-out infinite alternate;
+}
+
+.Tree svg:hover g#Ellipse_392-2{
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-3{
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-4{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-5{
+  cursor: pointer;
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover g#Ellipse_392-6{
+  fill: #ECDC33;
+  transition: all ease 2s !important;
+  opacity: 0.6;
+}
+
+.Tree svg:hover path#Path_401{
+  cursor: pointer;
+  fill: rgb(252, 252, 252) !important;
+  opacity: 1;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Path_402{
+  cursor: pointer;
+  fill: rgb(255, 255, 255) !important;
+  opacity: 0.6;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Path_417{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Path_410{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover path#Intersection_2{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover g g path#Path_419{
+  cursor: pointer;
+  fill: rgb(0, 38, 255);
+  opacity: 0.9;
+  transition: all ease 2s !important;
+}
+
+.Tree svg:hover g g path#Path_238{
+  cursor: pointer;
+  fill: rgb(87, 93, 95);
+  transition: all ease 2s !important;
+}
+
+@-webkit-keyframes levitate {
+  0% {
+    -webkit-transform: translate3d(0, 0%, 10);
+            transform: translate3d(0, 0%, 10);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -22%, 0);
+            transform: translate3d(0, -22%, 0);
+  }
+}
+
+@keyframes levitate {
+  0% {
+    -webkit-transform: translate3d(0, 10%, 10) ;
+            transform: translate3d(0, 10%, 10) ;
+  }
+  100% {
+    -webkit-transform: translate3d(0, -22%, 0);
+            transform: translate3d(0, -22%, 0);
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .container-tree .Tree {
+    padding-top: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Tree {
+    padding-top: 10px;
+  }
+  .Tree img {
+    width: 270px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .Tree {
+    padding-top: 10px;
+  }
+  .Tree img {
+    width: 245px;
+  }
+}
+

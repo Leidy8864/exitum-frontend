@@ -1,28 +1,225 @@
 @font-face {
-  font-family: 'ubuntu';
-  src: url('./public/font/Ubuntu-Regular.ttf')  format('truetype');/* Safari, Android, iOS */
+  font-family: 'Proxima Nova';
+  src: url('./public/font/Proxima\ Nova.ttf');
 }
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   height: 100%;
   width: 100%;
   background: #fff;
-  font-family: ubuntu !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container-exlg {
-  width: 93%;
-  display: flex;
-  margin: 0 auto;
+.message {
+  display: block;
 }
 
-.container-ex {
-  width: 1400px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+.form_group_ input, textarea {
+  outline: none;
+}
+
+.form-control {
+  padding-left: 7px !important;
+  color: #777 !important;
+  box-shadow: none !important;
+  position: relative;
+  font-size: 1rem !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4);
+}
+
+.swal2-container.swal2-shown {
+  background-color: rgba(0,0,0,.1) !important;
+}
+
+.swal2-styled.swal2-confirm {
+  border: none !important;
+  background: rgb(112, 219, 148) !important;  /* fallback for old browsers */
+  border-radius: 20px !important;
+}
+
+.swal2-popup {
+  font-family: 'Proxima Nova' !important;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(116, 111, 111, 0.4);
+}
+
+
+
+.swal2-styled.swal2-cancel {
+  background: #F0607D !important;
+  border-radius: 20px !important;
+}
+
+.swal2-styled.swal2-cancel:focus {
+  border: none !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #F0607D !important;
+  color: #F0607D !important;
+}
+
+form input {
+  margin: 0px !important;
+}
+
+.modal-footer {
+  padding-top: 0px !important;
+}
+
+/* .css-6q0nyr-Svg {
+  background: #3369fd;
+  border-radius: 4px;
+} */
+
+.css-6q0nyr-Svg {
+  padding: 1px !important;
+  margin: 0px;
+}
+
+.css-yk16xz-control {
+  padding: 0px;
+  width: 100%;
+  min-height: 40px !important;
+}
+
+.css-1hwfws3 {
+  font-weight: 400 !important;
+  padding: 0px !important;
+  margin-left: 4px !important;
+}
+
+.css-2b097c-container { 
+  width: 100% !important;
+  border-radius: 7px;
+  margin: 0 auto;
+} 
+
+
+.modal-footer button {
+  padding: 11px 30px!important;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-right: 13px;
+  font-weight: bold;
+  border: none !important;
+}
+
+button.btn-observar {
+  padding: 11px 30px!important;
+  font-size: 14px;
+  border-radius: 4px;
+  background: #157FFB;
+  font-weight: bold;
+  color: #fff;
+}
+
+button.btn-observar:hover {
+  color: #fff;
+}
+
+button.btn-confirmar {
+  padding: 11px 30px!important;
+  font-size: 14px;
+  border-radius: 4px;
+  background: #157FFB;
+  font-weight: bold;
+  color: #fff;
+}
+
+button.btn-confirmar:hover {
+  color: #fff;
+}
+
+.modal-footer button:hover {
+  background: #3369fd;
+}
+
+.modal-content {
+  border: none !important;
+  outline: none;
+  font-family: 'Proxima Nova' !important;
+}
+
+.modal-body form {
+  padding: 0px 10px !important;
+}
+
+.modal-content {
+  border-radius: 10px !important;
+  background: #EEF1F8;
+}
+
+.modal-header {
+  border-top-right-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+}
+
+.bg-whites {
+  background: #fff !important;
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    overflow-x: hidden;
+  }
+}
+
+.react-calendar {
+  font-family: 'Proxima Nova' !important;
+  border-radius: 5px;
+  margin-top: 4px;
+  border: 1px solid rgb(226, 221, 221) !important;
+}
+
+.react-calendar__navigation {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(17, 68, 116, 0.4);
+}
+
+.form_group_ textarea {
+  font-size: 14px;
+}
+
+.react-calendar__navigation button {
+  background: #157FFB !important;
+  color: #fff;
+  outline: none;
+}
+
+.react-calendar__month-view__weekdays {
+  color: #777;
+  outline: none;
+}
+
+.react-date-picker__button:focus {
+  outline: none;
+}
+
+.react-calendar button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-open .main-panel{
+    left: 0;
+    transform: translate3d(260px,0,0);
+    transition: all .33s cubic-bezier(.685,.0473,.346,1);
+  }
+  .nav-open .sidebar {
+    transform: translateX(0px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bg-whites {
+      background-color: #EFF3F8 !important;
+  }
+  .proyects-list-aux {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
 }

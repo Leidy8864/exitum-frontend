@@ -2,7 +2,9 @@ import React from 'react';
 import View from './Signin-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import * as actions  from '../../redux/actions'
+import { oauthGoogle, oauthFacebook, signIn } from '../../redux/actions';
+import cleanForm from '../../redux/actions/clean-form'
+
 import $ from 'jquery'
 
 class Signin extends React.Component {
@@ -26,7 +28,11 @@ class Signin extends React.Component {
 
     forgetPass = e => {
         e.preventDefault(e);
-        this.setState({ error_login: '' })
+        $('#signin').modal('hide');
+        this.setState({ error_login: '' });
+        $('#email').val(''); //Limpiamos el campo de email del forget password form
+        this.props.cleanForm("1");
+
     }
 
     logged = async e => {
@@ -36,30 +42,36 @@ class Signin extends React.Component {
         this.setState({ error_user: '' });
         this.setState({ error_pass: '' });
 
-        const {email, password} = this.state
+        const { email, password } = this.state
         const formData = {
             email,
             password
         }
-        if(email && password){
+        if (email && password) {
             const response = await this.props.signIn(formData);
-            if(response.status){
-                localStorage.setItem('token',response.data.accessToken)
-                localStorage.setItem('name',response.data.name)
-                localStorage.setItem('lastname',response.data.lastname)
-                this.props.history.push('/dashboard');
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
-            }else{
-                console.log("error = ", response.message)
+            if (response.status) {
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('infoChiko', true);
+                localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('confirmed', response.data.confirmed);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role);
+                localStorage.setItem('photo', response.data.photo)
+
+                // $('.modal-backdrop').addClass('verify-email')
+                $('#signin').modal('hide');
+                window.location.replace('/dashboard');
+            } else {
                 this.setState({ error_login: response.message })
             }
-        }else{
-            if(!email){
+        } else {
+            if (!email) {
                 this.setState({ error_user: 'Debes ingresar un usuario' })
             }
-    
-            if(!password){
+
+            if (!password) {
                 this.setState({ error_pass: 'Debes ingresar una clave' })
             }
         }
@@ -68,41 +80,63 @@ class Signin extends React.Component {
 
 
     responseGoogle = async (res) => {
-        console.log('responseGoggle', res);
-        console.log('typeof res', typeof res)
-        await this.props.oauthGoogle(res.accessToken)
-        // if (!this.props.errorMessage) {
-        //     this.props.history.push('/dashboard');
-        //     $('body').removeClass('modal-open');
-        //     $('#signin').removeClass('show');
-        //     $('.modal-backdrop').remove();
-        // }
+        const response = await this.props.oauthGoogle(res.accessToken)
+        if (response.status) {
+            localStorage.setItem('id', response.data.id);
+            localStorage.setItem('infoChiko', true);
+            localStorage.setItem('photo', response.data.photo)
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('confirmed', response.data.confirmed);
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role)
+
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+            window.location.replace('/dashboard');
+        } else {
+            this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
+
+        }
     }
 
-    async responseFacebook(res) {
-        console.log('responseFacebook', res);
-        await this.props.oauthFacebook(res.accessToken)
-        if (!this.props.errorMessage) {
-            this.props.history.push('/dashboard');
-            $('body').removeClass('modal-open');
+    responseFacebook = async (res) => {
+        const response = await this.props.oauthFacebook(res.accessToken)
+        if (response.status) {
+            localStorage.setItem('id', response.data.id);
+            localStorage.setItem('infoChiko', true);
+            localStorage.setItem('token', response.data.accessToken)
+            localStorage.setItem('photo', response.data.photo)
+            localStorage.setItem('confirmed', response.data.confirmed);
+            localStorage.setItem('name', response.data.name);
+            localStorage.setItem('lastname', response.data.lastname);
+            localStorage.setItem('email', response.data.email);
+            localStorage.setItem('role', response.data.role);
+
             $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+
+            window.location.replace('/dashboard');
+        } else {
+            this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
         }
     }
 
     render() {
         let error_login = this.state.error_login;
-        let contentError=<br/>;
+        let contentError = '';
         let error_user = this.state.error_user;
-        let contentErrorUser=<br/>;
+        let contentErrorUser = '';
         let error_pass = this.state.error_pass;
-        let contentErrorPass=<br/>;
-        if(error_login){
+        let contentErrorPass = '';
+        if (error_login) {
             contentError = <div className="error-message"><p>{error_login}</p></div>;
         }
-        if(error_user){
+        if (error_user) {
             contentErrorUser = <div className="error-message-aux"><p>{error_user}</p></div>;
         }
-        if(error_pass){
+        if (error_pass) {
             contentErrorPass = <div className="error-message-aux"><p>{error_pass}</p></div>;
         }
         return (
@@ -121,7 +155,15 @@ class Signin extends React.Component {
     }
 }
 
+
+const mapDispatchToProps = {
+    cleanForm,
+    oauthGoogle,
+    oauthFacebook,
+    signIn
+};
+
 export default withRouter(
-    connect(null, actions)(Signin)
+    connect(null, mapDispatchToProps)(Signin)
 )
 

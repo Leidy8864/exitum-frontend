@@ -1,0 +1,22 @@
+.ModalEvents{
+    display: block;
+}
+
+.btn-primary.event {
+    margin-top: 20px;
+    margin-left: 0px !important;
+    font-weight: 600;
+    padding: 10px 25px;
+    font-size: 14px;
+}
+
+.btn-primary {
+    border-radius: 20px !important;
+    padding: 10px 15px !important;
+    border: none !important
+}
+
+.btn-primary:hover {
+    background: #157FFB !important;
+    border: none !important
+}
