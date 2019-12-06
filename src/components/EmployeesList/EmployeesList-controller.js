@@ -184,7 +184,7 @@ class EmployeesList extends React.Component {
 
         const {
             employeesList
-        } = this.state;
+        } = this.state;        
         return (
             <View
                 employeesList={employeesList}
