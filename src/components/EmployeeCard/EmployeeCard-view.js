@@ -26,7 +26,7 @@ function View(props) {
                 }
                 <img src={photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block" alt="..." />
                 <div className="card-body ">
-                    <h6 className="card-title"><Link to={"/profile/" + user_id}>{name}</Link></h6>
+                    <h6 className="card-title name-employee"><Link to={"/profile/" + user_id}>{name}</Link></h6>
                     <p className="card-text">{short_description}</p>
 
                     <p className="card-text">

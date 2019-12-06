@@ -29,7 +29,7 @@ class EmployeeCard extends React.Component {
             handleLikeEmployee={handleLikeEmployee}
             saved={saved}
             user_id={user_id}
-            photo={photo}
+            photo={photo}c
             />
         );
     }

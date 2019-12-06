@@ -24,17 +24,17 @@ function View(props) {
                         </li>
                     </ul>
                     :
-                    <ul className="nav nav-pills add-tabs anuncios" id="myTab" role="tablist">
+                    <ul className="nav nav-pills add-tabs anuncios bg-white p-4" id="myTab" role="tablist">
                         <li className="nav-item">
-                            <a href="#" className={adType === "coincidence" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "coincidence")}>Coincidencias</a>
+                            <a href="#" className={adType === "coincidence" ? "nav-link-person px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "coincidence")}>Coincidencias</a>
                         </li>
                         <li className="nav-item">
-                            <a href="#" className={adType === "postulation" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "postulation")}>Postulaciones</a>
+                            <a href="#" className={adType === "postulation" ? "nav-link-person px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "postulation")}>Postulaciones</a>
                         </li>
                         {
                             userRole === "entrepreneur" ?
                                 <li className="nav-item">
-                                    <a href="#" className={adType === "favorite" ? "nav-link px-4 active" : "nav-link px-4"} onClick={handleSetAdType.bind(this, "favorite")}>Favoritos</a>
+                                    <a href="#" className={adType === "favorite" ? "nav-link-person px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}>Favoritos</a>
                                 </li>
                                 : ''
                         }

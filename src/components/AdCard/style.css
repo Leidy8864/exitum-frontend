@@ -46,7 +46,7 @@ span a img svg {
 
   .card.all-card:hover {
     box-shadow: 0 4px 10px 0 rgba(126, 123, 123, 0.14), 0 7px 2px -5px rgba(255, 255, 255, 1);
-    transform: translate3d(0,-3px,0);
+    transform: translate3d(0,3px,0);
   }
 
   .card.all-card:hover  .card-header {
@@ -62,8 +62,8 @@ span a img svg {
     transition: 0.5s;
   }
 
-  .card.pauses-play {
-    box-shadow: 0px 2px 1px -12px #666 !important;
+  .card.pauses-play .card-header{
+    background: #E5FBF8 !important;
   }
 
   .card.card-body:hover {
@@ -76,12 +76,12 @@ span a img svg {
   }
 
   .images-icons a.pause-bg i{
-    color: #fff;
+    color: #4C5161;
     font-size: 27px;
   }
 
   .images-icons a.trash-bg i{
-    color: #fff !important;
+    color: #4C5161 !important;
     font-size: 24px;
   }
 
@@ -105,6 +105,11 @@ span a img svg {
     text-decoration: none !important;
   }
 
+  .card.pauses-play:hover {
+    transition: all ease 0.5s;
+    box-shadow: 0 4px 10px 0 rgba(126, 123, 123, 0.14), 0 7px 2px -5px rgba(255, 255, 255, 1);
+  }
+
   .card.pauses-play {
-    box-shadow: 0px 1px 10px -3px rgba(116, 114, 114, 0.47) !important;
+    transition: all ease 0.5s;
   }

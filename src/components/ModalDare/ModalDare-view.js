@@ -16,8 +16,6 @@ function View(props) {
         file_tips
     } = props
 
-    console.log(file_tips)
-
     return (
         <div className="modal fade" id="modaldare" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">

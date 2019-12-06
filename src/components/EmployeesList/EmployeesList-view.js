@@ -9,7 +9,7 @@ function View(props) {
         handleLikeEmployee
     } = props
     return (
-        <div className="container mt-3" id="list-employees">
+        <div className="container-fluid mt-3" id="list-employees">
             <div className="row">
                 {
                     employeesList.length > 0 ?

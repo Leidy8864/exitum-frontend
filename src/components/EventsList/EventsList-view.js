@@ -11,7 +11,7 @@ function View(props) {
         handleDeleteEvent
     } = props
     return (
-        <div className="container">
+        <div className="container" id="events-list">
             <div className="row">
                 {
                     eventsList.length > 0 ?
@@ -21,6 +21,7 @@ function View(props) {
                                     <EventCard
                                         id={item.id}
                                         title={item.title}
+                                        key={item.id}
                                         description={item.description}
                                         day={item.day}
                                         hour_start={item.hour_start}
