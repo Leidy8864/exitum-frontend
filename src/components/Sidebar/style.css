@@ -83,10 +83,6 @@ ul.nav-pills.add-tabs li.nav-item a {
   padding: 8px 40px !important;
 }
 
-ul.nav-pills.add-tabs li.nav-item a.nav-link {
-  
-}
-
 ul.nav-pills.add-tabs li.nav-item a.nav-link.active {
   border-radius: none !important;
   background: #157FFB !important;
@@ -262,11 +258,6 @@ ul li a {
   .events-list .container {
     padding-left: 0px !important;
     padding-right: 0px !important;
-  }
-  .pluss-padding {
-  }
-
-  .Add-plus {
   }
 }
 
