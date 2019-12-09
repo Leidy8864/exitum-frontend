@@ -1,6 +1,8 @@
 
 import React from 'react';
 import View from './HeaderDashboard-view';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import $ from 'jquery'
 
 class HeaderDashboard extends React.Component {
@@ -17,6 +19,16 @@ class HeaderDashboard extends React.Component {
             $('.opacity-panel').toggleClass('close-layer visible')
         })
     }
+    componentDidUpdate(nextProps){
+        const {imageProfile} = this.props;
+        if (nextProps.imageProfile !== imageProfile) {
+            if (imageProfile) {                
+                this.setState({
+                    photo : imageProfile
+                });
+            }
+        }
+    }
 
     render() {
 
@@ -31,4 +43,9 @@ class HeaderDashboard extends React.Component {
         );
     }
 }
-export default HeaderDashboard;
+const mapStateToProps = (state) => ({
+    imageProfile : state.setImageReducer
+});
+export default withRouter(
+    connect(mapStateToProps, null)(HeaderDashboard)
+)

@@ -583,7 +583,7 @@ export const updateImageUser = data => {
                     }
                 }
             )
-            return res.data.data
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }

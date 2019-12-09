@@ -16,6 +16,7 @@ import listSkills from '../../redux/actions/list-skills';
 import { deleteSkill, deleteCertificate, deleteEducation, deleteExperience } from '../../redux/actions';
 import Swal from 'sweetalert2';
 import $ from 'jquery'
+import setImage from '../../redux/actions/setImage';
 class ProfileEmployee extends React.Component {
 
     state = {
@@ -35,26 +36,31 @@ class ProfileEmployee extends React.Component {
     }
 
     async componentDidMount() {
-        // $('#file-input').change(function (e) {
-        //     addImage(e);
-        // });
+        $('#file-input').change(function (e) {
+            addImage(e);
+        });
 
-        // function addImage(e) {
-        //     var file = e.target.files[0],
-        //         imageType = /image.*/;
+        function addImage(e) {
+            try {
+                var file = e.target.files[0],
+                    imageType = /image.*/;
+                if (file) {
+                    if (!file.type.match(imageType))
+                        return;
+                }
 
-        //     if (!file.type.match(imageType))
-        //         return;
+                var reader = new FileReader();
+                reader.onload = fileOnload;
+                reader.readAsDataURL(file);
+            } catch (error) {
+                console.log("Error recuperar imagen");
+            }
+        }
 
-        //     var reader = new FileReader();
-        //     reader.onload = fileOnload;
-        //     reader.readAsDataURL(file);
-        // }
-
-        // function fileOnload(e) {
-        //     var result = e.target.result;
-        //     $('#imgSalida').attr("src", result);
-        // }
+        function fileOnload(e) {
+            var result = e.target.result;
+            $('#imgSalida').attr("src", result);
+        }
         try {
             var id = localStorage.getItem('id');
             var isMyProfile = true;
@@ -93,7 +99,7 @@ class ProfileEmployee extends React.Component {
                 photo: photo,
                 description: description,
                 isMyProfile: isMyProfile,
-                activeBackButton : activeBackButton
+                activeBackButton: activeBackButton
 
             })
 
@@ -339,11 +345,32 @@ class ProfileEmployee extends React.Component {
         e.preventDefault();
         const formData = new FormData();
         const { file } = this.state
-        formData.append("user_id", localStorage.getItem('id'));
-        formData.append("photo", file);
-        const res = await this.props.updateImageUser(formData)
-        localStorage.setItem('photo', res.photo)
-        window.location.reload();
+        try {
+            if (file) {
+
+                formData.append("user_id", localStorage.getItem('id'));
+                formData.append("photo", file);
+                const res = await this.props.updateImageUser(formData)
+                if (res.status) {
+                    localStorage.setItem('photo', res.data.photo)
+                    this.props.setImage(res.data.photo)
+                    Swal.fire({
+                        title: 'Buen trabajo',
+                        text: "Su foto de perfil ha sido actualizada correctamente",
+                        type: 'success',
+                    });
+                }
+            } else {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: "Debes elegir una imagen de perfil",
+                    type: 'warning',
+                });
+            }
+        } catch (error) {
+            console.log("Error al actualizar imagen");
+
+        }
     }
     render() {
 
@@ -415,7 +442,8 @@ const mapDispatchToProps = {
     updateImageUser,
     showDataByUser,
     getUniversities,
-    getCompanies
+    getCompanies,
+    setImage
 };
 
 export default withRouter(

@@ -67,7 +67,7 @@ function View(props) {
                                         <h4 className="text-white mt-4">{name} {lastname}</h4>
                                     </div>
                                     <p className="text-white">{experience}</p>
-                                    {isMyProfile ? <input type="file" className="inputfile" id="file-input" name="file" onChange={fileSelectedHandler} /> : ''}
+                                    {isMyProfile ? <input type="file" className="inputfile" id="file-input" name="file" accept="image/*" onChange={fileSelectedHandler} /> : ''}
                                 </div>
                                 {isMyProfile ? <button className="btn-save-img mt-2 mb-4" type="button" onClick={fileUploadHandler}>Guardar</button> : ''}
                             </div>
