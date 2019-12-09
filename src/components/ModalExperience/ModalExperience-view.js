@@ -3,14 +3,17 @@ import React, { Fragment } from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
 import CreatableSelect from 'react-select/creatable';
+import Select from 'react-select';
 
 function View(props) {
 
     const {
+        categories,
+        handleSelectChange,
+        className,
         position,
         description,
         description_,
-        // company_name,
         experience,
         date,
         onChange,
@@ -52,6 +55,19 @@ function View(props) {
                                             onInputChange={handleInputChange}
                                             options={options}
                                             value={company_name}
+                                        />
+                                    </Fragment>
+                                </div>
+                                <div className="form_group_ mt-3">
+                                    <label>Seleccionar el rubro de la empresa</label>
+                                    <Fragment>
+                                        <Select
+                                            className={className}
+                                            name="category_id"
+                                            options={categories}
+                                            onChange={handleSelectChange}
+                                            placeholder="Rubro..."
+                                            id="category_id"
                                         />
                                     </Fragment>
                                 </div>

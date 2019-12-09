@@ -4,7 +4,7 @@ import View from './ModalExperience-view';
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
-import { createExperience } from '../../redux/actions';
+import { createExperience, listCategories } from '../../redux/actions';
 import listExperiences from '../../redux/actions/list-experiences';
 import $ from 'jquery'
 
@@ -16,7 +16,8 @@ class ModalExperience extends React.Component {
         company_name: '',
         date_expedition: new Date(),
         date_expiration: new Date(),
-        isCurrentJob : true
+        isCurrentJob : true,
+        categories:[]
         
     }
 
@@ -25,6 +26,16 @@ class ModalExperience extends React.Component {
     async componentDidMount(){
         let radiobtn = document.getElementById("true");
         radiobtn.checked = true;
+        const categorysData = await listCategories();
+        console.log("CATEGORYS",categorysData);
+
+        var categories = [];
+        if (categorysData.length >= 1) {
+            categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+        }
+        this.setState({
+            categories: categories
+        })
     }
 
     position = e => {
@@ -95,6 +106,11 @@ class ModalExperience extends React.Component {
     handleInputChange = (inputValue, actionMeta) => {
         
     };
+
+    handleSelectChange = (option, action) => {
+
+        console.log("option.value = ", option.value)
+    }
     
     render() {
         const {
@@ -102,6 +118,9 @@ class ModalExperience extends React.Component {
         } = this.props;
         return (
             <View
+                className="basic-single"
+                categories = {this.state.categories}
+                handleSelectChange={this.handleSelectChange}
                 position = {this.position}
                 description = {this.description}
                 description_ = {this.state.description}
@@ -123,7 +142,8 @@ class ModalExperience extends React.Component {
 
 const mapDispatchToProps = {
     createExperience,
-    listExperiences
+    listExperiences,
+    listCategories
 }
 
 const mapStateToProps = (state) => ({    
