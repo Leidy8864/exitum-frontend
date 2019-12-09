@@ -30,7 +30,7 @@ function View(props) {
                             )
                         })
                         :
-                        <h6 className="text-center">No se encontraron impulsores</h6>
+                        <h5 className="text-center none-persons mt-2">No se encontraron impulsores</h5>
                 }
             </div>
         </div>

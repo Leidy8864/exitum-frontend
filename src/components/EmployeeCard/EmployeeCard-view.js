@@ -17,14 +17,17 @@ function View(props) {
     return (
         <div>
             <div className="card employees text-center justify-content-center">
-                
-                {
-                        saved ?
-                            <img src={require('../../public/images/svg/like-active.svg')} alt="" width="30" className="like-button" onClick={handleLikeEmployee.bind(this, 0, user_id)} />
-                            :
-                            <img src={require('../../public/images/svg/like.svg')} alt="" width="30" className="like-button" onClick={handleLikeEmployee.bind(this, 1, user_id)} />
-                }
-                <img src={photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block" alt="..." />
+                <div className="img-photo">
+                    <img src={photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block" alt="..." />
+                    <div className="heart">
+                        {
+                            saved ?
+                                <i className="fas fa-thumbs-up" onClick={handleLikeEmployee.bind(this, 0, user_id)}></i>
+                                :
+                                <i className="far fa-thumbs-up" onClick={handleLikeEmployee.bind(this, 1, user_id)}></i>
+                        }
+                    </div>
+                </div>
                 <div className="card-body ">
                     <h6 className="card-title name-employee"><Link to={"/profile/" + user_id}>{name}</Link></h6>
                     <p className="card-text">{short_description}</p>
@@ -33,13 +36,6 @@ function View(props) {
                         {starts}
                     </p>
                 </div>
-                {
-                    price_hour ?
-                        <div className="card-footer">
-                            <p className="price-employe">Desde S/. {price_hour}</p>
-                        </div> : ''
-
-                }
             </div>
         </div>
     );

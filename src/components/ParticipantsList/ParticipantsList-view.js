@@ -26,8 +26,8 @@ function View(props) {
                                         <img src={item.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-employee mx-auto d-block mt-2" alt="..." />
                                         <div className="card-body text-center">
                                             <h6 className="card-title">{item.fullname}</h6>
-                                            <div className="mt-4 mb-2">
-                                                <Link to={user_id === item.id ? "/my-profile" : "/profile/" + item.id} className="see-perfil">Ver perfil</Link>
+                                            <div className="mt-4">
+                                                <Link to={user_id === item.id ? "/profile/" + item.id : "/profile/" + item.id} className="see-perfil">Ver perfil</Link>
                                             </div>
                                         </div>
                                     </div>

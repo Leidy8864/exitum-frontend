@@ -72,12 +72,13 @@ class ProfileEmployee extends React.Component {
                 id = this.props.match.params.id
                 activeBackButton = true;
 
-                id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
-                    this.props.history.push('/my-profile')
-                    : isMyProfile = false;
+                // id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
+                //     this.props.history.push('/my-profile')
+                //     : isMyProfile = false;
             }
             const userShow = await showDataByUser(id);
-            Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
+            console.log('user show',userShow)
+            // Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);

@@ -15,6 +15,30 @@
     border-color: #4C5161;
 }
 
+.heart i {
+    position: absolute;
+    right: 90px;
+    top: 100px;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 499;
+}
+
+.heart i.fas.fa-thumbs-up {
+    background-color: #2FD566;
+    color: #fff;
+} 
+
+.heart i.far.fa-heart {
+    background-color: rgb(21, 251, 21);
+    color: #fff;
+} 
+
+.heart i.fa-thumbs-up {
+    background: #157FFB;
+    color: #fff;
+} 
+
 .name-employee a {
     color: #4C5161;
 }
