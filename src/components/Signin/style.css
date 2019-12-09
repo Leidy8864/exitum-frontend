@@ -159,8 +159,7 @@ form.form-signin .error-message-aux {
   font-size: 15px;
   font-weight: 100;
   text-transform: capitalize;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
-          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(185, 184, 185, 0.4);
 }
 
 .send-submit button.submit-signup {
@@ -169,7 +168,6 @@ form.form-signin .error-message-aux {
   width: 90%;
   padding: 20px;
   background: #3369FD;
-  /* fallback for old browsers */
   border-radius: 26px;
   border: none;
   color: #fff;
@@ -178,8 +176,7 @@ form.form-signin .error-message-aux {
   font-size: 15px;
   font-weight: 100;
   text-transform: capitalize;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
-          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
 }
 
 .border-space {
@@ -215,16 +212,20 @@ form.form-signin .error-message-aux {
   padding: 15px 22px !important;
   border-radius: 50%;
   margin-right: 40px;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
-          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4);
+}
+
+.socials .fab:hover {
+  background: #4A79F3 !important;
 }
 
 .socials button {
   background: #3369FD !important;
   padding: 0px !important;
   border-radius: 50% !important;
-  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4) !important;
-          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(44, 9, 105, 0.4) !important;
+}
+
+.socials button:hover {
+  background: #3369FD !important;
 }
 
 .socials button div {
