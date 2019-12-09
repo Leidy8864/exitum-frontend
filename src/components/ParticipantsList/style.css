@@ -20,19 +20,6 @@ div#list-participants{
     transform: translate3d(0,3px,0) !important;
 }
 
-.list-persons:hover .see-perfil{
-    /* text-decoration: none !important;
-    background: #fff;
-    padding: 10px 15px;
-    color: rgb(66, 66, 66);
-    border-radius: 20px;
-    box-shadow: none !important; */
-}
-
-.list-persons:hover .card-title{
-   
-}
-
 .card.list-persons {
     transition: all ease 0.5s;
     height: 250px;
@@ -40,10 +27,6 @@ div#list-participants{
 
 .card {
     border: 1px solid #E9ECEF !important;
-}
-
-.scroll-participants {
-    
 }
 
 .accept-wait {

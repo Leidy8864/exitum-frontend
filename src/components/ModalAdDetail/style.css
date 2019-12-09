@@ -1,16 +1,9 @@
-.AdDetail{
-    /* display: block; */
-}
 
 .tags {
     list-style: none;
     justify-content: start;
     padding-left: 0px !important;
     display: flex;
-  }
-  
-  .tags li {
-
   }
   
   .tag {
