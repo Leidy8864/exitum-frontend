@@ -20,9 +20,6 @@ div.events-card .title_add {
     color: #157FFB;
 }
 
-div.card i {
-
-}
 
 div.events-card:hover {
     transition: 0.5s;
@@ -109,8 +106,4 @@ div.events-card-3 i.fa-calendar-times {
 
 div.events-card-3 .title_add{
     color: #157FFB;
-}
-
-div.card.events-card:hover {
-
 }
