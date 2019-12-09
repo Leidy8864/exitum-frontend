@@ -85,3 +85,15 @@ a.see-perfil{
 a.see-perfil:hover {
     color: #fff;
 }
+
+@media screen and (max-width: 728px) {
+    .accept-wait {
+        right: 32%;
+    }
+}
+
+@media screen and (max-width: 728px) {
+    .accept-wait {
+        right: 32%;
+    }
+}
