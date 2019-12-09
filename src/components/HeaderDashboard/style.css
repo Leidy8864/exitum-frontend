@@ -18,8 +18,23 @@ nav.dashboard-header {
 .content-user {
   position: absolute;
   right: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Proxima Nova';
 }
+
+.content-user img {
+  position: relative;
+  left: -10px;
+  border-radius: 50%;
+}
+
+img.img-usuario {
+  width: 40px;
+  height: 40px;
+}
+
 .menu-profile{
   background-color: #2d2d2d !important;
   color: #fff !important;
@@ -41,12 +56,7 @@ nav.dashboard-header {
   outline:0px !important;
 }
 
-.content-user span img {
-  width: 40px;
-  margin-right: 13px;
-  height: 40px;
-  border-radius: 50%;
-}
+
 
 .navbar-light .navbar-toggler {
   color: rgba(0,0,0,.5);

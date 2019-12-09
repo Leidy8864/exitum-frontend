@@ -96,7 +96,7 @@ class Signin extends React.Component {
             $('body').removeClass('modal-open');
             window.location.replace('/dashboard');
         } else {
-            this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
+            this.setState({ error_login: "Credenciales incorrectas o verifique su cuenta, por favor intentelo nuevamente." });
 
         }
     }

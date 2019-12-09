@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { oauthGoogle, oauthFacebook, signUp, signIn, updateUser } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form'
 import $ from 'jquery';
+import Swal from 'sweetalert2'
 
 class Signup extends React.Component {
 
@@ -70,9 +71,17 @@ class Signup extends React.Component {
                 $('.modal-backdrop').remove();
                 $('body').removeClass('modal-open');
 
-                this.setState({ exito_registro: 'Se te ha enviado un correo para validar tu registro.' })
-                window.location.replace('/dashboard');
-
+                Swal.fire(
+                    'Felicidades se ha creado tu cuenta correctamente',
+                    'Se te ha enviado un correo de verificación a tu cuenta para poder acceder a EXITUM',
+                    'success'
+                )
+                setTimeout(
+                    () => {
+                        $('#signup').modal('hide')
+                    },
+                    5000
+                );
             } else {
                 console.log("error = ", response.message)
                 this.setState({ error_registro: response.message })

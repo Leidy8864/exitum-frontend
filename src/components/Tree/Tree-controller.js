@@ -2,6 +2,7 @@ import React from 'react';
 import View from './Tree-view';
 import {authToken} from '../../redux/actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom';
 
 class Tree extends React.Component {
@@ -12,6 +13,12 @@ class Tree extends React.Component {
         conditionShowChooseProfile: false,
         conditionShowCapsule: false,
         conditionShowTreeContainer: localStorage.getItem('conditionShowTreeContainer') || false,
+    }
+
+    salir = e => {
+        e.preventDefault()
+        localStorage.clear();
+        this.props.history.push('/');
     }
 
     async componentDidMount() {
@@ -57,6 +64,7 @@ class Tree extends React.Component {
                     <img alt="img" src={require('../../public/images/svg/verify.png')} />
                     </div>
                     Por favor de verificar su correo electronico, para que puedas acceder a tu cuenta!</div>
+                    <Link onClick={this.salir} to="/">Salir de la web</Link>
                 </div>;
         }
         if(this.state.isConfirmed === "true" && (this.state.role === "employee" || this.state.role === "entrepreneur")){

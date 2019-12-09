@@ -4,6 +4,7 @@
     position: absolute;
     top: 25%;
     left: 21%;
+    z-index: 3000;
     height: 400px;
     color: #fff;
     background-color: #3369fd;

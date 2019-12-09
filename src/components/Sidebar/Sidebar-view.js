@@ -1,13 +1,10 @@
 
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom'
 
 function View(props) {
     const {
         menu,
-        logOut,
-        photo
     } = props;
     return (
         <div className="sidebar">

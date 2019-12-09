@@ -64,7 +64,7 @@ function View(props) {
                                 </div>
                                 </Link>
                             </div>
-                            : "No hay ningun proyecto tuyo, create uno"
+                            : <h5 className="text-center none-persons">"No hay ningun proyecto tuyo, create uno"</h5>
                     }
                 </div>
 

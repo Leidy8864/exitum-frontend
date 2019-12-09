@@ -29,7 +29,7 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
-                                <div className="container-fluid mt-4">
+                                <div className="container-fluid mt-4 events-scroll">
                                     <div className="card mb-4">
                                         <div className="card-body d-flex justify-content-start ml-3">
                                         <BackButton />
@@ -81,8 +81,8 @@ function View(props) {
                                         </div>
 
                                     </div>
+                                    <ParticipantsList />
                                 </div>
-                                <ParticipantsList />
                             </div>
                             <div className="col-xl-3 col-lg-12">
                                 <Diary />

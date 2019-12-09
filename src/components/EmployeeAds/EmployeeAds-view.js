@@ -32,7 +32,7 @@ function View(props) {
                             )
                         })
                         :
-                        <h4 className="text-center">No se encontraron anuncios</h4>
+                        <h5 className="text-center none-persons pl-3">No se encontraron anuncios</h5>
                 }
             </div>
             <ModalAdDetail />

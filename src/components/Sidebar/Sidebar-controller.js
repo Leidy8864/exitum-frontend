@@ -12,7 +12,6 @@ class Sidebar extends React.Component {
     state = {
         isConfirmed: localStorage.getItem('confirmed') || false,
         role: localStorage.getItem('role') || '',
-        photo: localStorage.getItem('photo')
     }
 
     logOut = e => {
@@ -125,16 +124,10 @@ class Sidebar extends React.Component {
             </div>
         }
 
-        const { photo } = this.state
-
         return (
 
             <View
-                photo = {photo}
-                selectOne={this.selectOne}
-                selectTwo={this.selectTwo}
                 menu={menu}
-                // logOut={this.logOut}
             />
         );
     }
