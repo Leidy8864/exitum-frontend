@@ -21,35 +21,32 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12 events-fluid">
-                                <div className="container-fluid bg-whites">
-                                    <div className="row mt-4 container-tabs">
-                                        <div className="col-md-8 pr-5 pills-event">
+                                <div className="container-fluid">
+                                    <div className="row mt-4 container-options">
+                                        <div className="col-md-8 ">
                                             <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                                                 <li className="nav-item">   
-                                                    <a className={eventType === "events" ? "nav-link-person px-4 active" : "nav-link-yellow px-4"} href="#" onClick={handleClick.bind(this, 'events')}>Eventos</a>
+                                                    <a className={eventType === "events" ? "nav-link-person px-4 active" : "nav-link-yellow px-4"} href="#" onClick={handleClick.bind(this, 'events')}><i className="fas fa-calendar-day" data-toggle="tooltip" data-placement="top" title="Eventos"></i></a>
                                                 </li>
                                                 <li className="nav-item">
-                                                    <a className={eventType === "events_assist" ? "nav-link-person px-4 active" : "nav-link-morado px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}>Asistiré</a>
+                                                    <a className={eventType === "events_assist" ? "nav-link-person px-4 active" : "nav-link-morado px-4"} href="#" onClick={handleClick.bind(this, 'events_assist')}><i className="fas fa-calendar-check" data-toggle="tooltip" data-placement="top" title="Eventos para asistir"></i></a>
                                                 </li>
                                                 <li className="nav-item">
-                                                    <a className={eventType === "my_events" ? "nav-link-person px-4 active" : "nav-link px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}>Organizados por mí</a>
+                                                    <a className={eventType === "my_events" ? "nav-link-person px-4 active" : "nav-link-morado px-4"} href="#" onClick={handleClick.bind(this, 'my_events')}><i className="fas fa-clipboard-list" data-toggle="tooltip" data-placement="top" title="Eventos organizados por mi"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="col-md-4 plus-padding">
+                                        <div className="col-md-4">
                                             <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#EventsModal">
                                                 <div className="Ads-plus">
-                                                    <i className="fas fa-plus mr-2"></i>
-                                                    Agregar evento
+                                                    <i data-toggle="tooltip" data-placement="top" title="Agregar un evento" className="fas fa-plus mr-2"></i>
                                                     </div>
                                             </Link>
                                             <ModalEvents />
                                         </div>
                                     </div>
-                                    <div className="row lista-eventos">
-                                        <div className="col-md-12">
+                                    <div className="row mt-4 scroll-anuncios">
                                             <EventsList />
-                                        </div>
                                     </div>
                                 </div>
                                 </div>

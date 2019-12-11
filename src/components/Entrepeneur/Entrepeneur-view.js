@@ -8,9 +8,11 @@ import './style.css';
 function View() {
     return (
         <Fragment>
-            <div className="container-fluid bg-whites adds-scroll">
+            <div className="container-fluid">
                 <div className="row stages-challenges">
+                    <div className="col-md-12">
                     <AddProyect />
+                    </div>
                     <div className="col-xl-7 col-lg-12 col-md-12">
                         <Challenges />
                     </div>

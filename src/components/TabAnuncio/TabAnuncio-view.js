@@ -17,10 +17,10 @@ function View(props) {
                 !isDetail && userRole === "entrepreneur" ?
                     <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                         <li className="nav-item">
-                            <a className={adState === "active" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" onClick={handleSetState.bind(this, "active")}>En curso</a>
+                            <a className={adState === "active" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" onClick={handleSetState.bind(this, "active")}><i data-toggle="tooltip" data-placement="top" title="Anuncios en actividad"  className="far fa-play-circle"></i></a>
                         </li>
                         <li className="nav-item">
-                            <a className={adState === "closed" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" onClick={handleSetState.bind(this, "closed")}>En pausa</a>
+                            <a className={adState === "closed" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" onClick={handleSetState.bind(this, "closed")}><i data-toggle="tooltip" data-placement="top" title="Anuncios en pausa" className="far fa-pause-circle"></i></a>
                         </li>
                     </ul>
                     :

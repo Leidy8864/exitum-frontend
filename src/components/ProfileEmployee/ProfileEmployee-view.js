@@ -45,6 +45,7 @@ function View(props) {
     let phone = users.phone
     let experienceActual = experience
     let birthday = users.birthday
+    let email =users.email
 
     return (
         <Fragment>
@@ -59,10 +60,10 @@ function View(props) {
                                 }
                             </div>
                         </div>
-                        <div className="card">
+                        <div className="card profiles">
                             <div className="img-profile mb-3">
                                 <div className="photo-perfil mt-5">
-                                    <img id="imgSalida" src={photo || ""} alt="img" />
+                                    <img id="imgSalida" src={photo || require('../../public/img/fresita_.png')} alt="img" />
                                     <div className="">
                                         <h4 className="text-white mt-4">{name} {lastname}</h4>
                                     </div>
@@ -73,7 +74,7 @@ function View(props) {
                             </div>
 
                             <div className="profile">
-                                <div className="content-data-user">
+                                <div className="content-data-user mb-4">
                                     <div className="img-experience experience-header ml-4 mt-4">
                                         <img src={require('../../public/images/svg/avatar.svg')} />
                                         <h3 className="ml-4">Perfil</h3>
@@ -86,7 +87,10 @@ function View(props) {
                                         <hr />
                                         <strong>{country}</strong>
                                         <div>
-                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday}</span>
+                                            <span className="gray title">Email:</span><span className="gray">{email}</span>
+                                        </div>
+                                        <div>
+                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday}</span><br/>
                                         </div>
                                         <div>
                                             <span className="gray title">Celular:</span><span className="gray">{phone}</span>
@@ -108,7 +112,7 @@ function View(props) {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card mt-5">
+                        <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
                                     <img src={require('../../public/images/svg/experience.svg')} />
@@ -179,7 +183,7 @@ function View(props) {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card mt-5">
+                        <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
                                     <img src={require('../../public/images/svg/birrete.svg')} />
@@ -245,7 +249,7 @@ function View(props) {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card mt-5">
+                        <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
                                     <img src={require('../../public/images/svg/rollo-de-diploma.svg')} />
@@ -304,7 +308,7 @@ function View(props) {
                 </div>
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card mt-5 mb-5">
+                        <div className="card profiles mt-3 mb-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
                                     <img src={require('../../public/images/svg/hombre-que-corre.svg')} />

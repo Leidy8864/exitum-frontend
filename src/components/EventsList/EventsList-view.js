@@ -10,20 +10,23 @@ function View(props) {
         eventType,
         handleDeleteEvent
     } = props
+
+    console.log(eventsList)
+
     return (
-        <div className="container" id="events-list">
-            <div className="row">
+        <div className="w-100 events-list mt-4" id="events-list">
                 {
                     eventsList.length > 0 ?
                         eventsList.map(function (item) {
                             return (
-                                <div className="col-sm-6 md-py-2 mb-4 lg-mb-3 md-mb-3" key={item.id}>
+                                <div className="col-md-4 mb-3 events-padding" key={item.id}>
                                     <EventCard
                                         id={item.id}
                                         title={item.title}
                                         key={item.id}
                                         description={item.description}
                                         day={item.day}
+                                        place= {item.place}
                                         hour_start={item.hour_start}
                                         eventType={eventType}
                                         handleDeleteEvent={handleDeleteEvent}
@@ -35,7 +38,6 @@ function View(props) {
                         <h4 className="text-center no-events ml-3">No se encontraron eventos</h4>
                 }
             </div>
-        </div>
     );
 }
 export default View;

@@ -21,6 +21,14 @@ class Reminders extends React.Component {
     }
 
     async componentDidMount() {
+        $('.events-diary .appointments:first').show()
+        $('.choose-calendar a').on('click',function(){
+            $('.ocultar').hide()
+            var enlace = $(this).attr('href');
+            $(enlace).fadeIn(1000)
+
+            return false
+        })
         try {
             let id = localStorage.getItem('id')
             const appointments = await appointmentsByUser(id);
@@ -36,33 +44,6 @@ class Reminders extends React.Component {
         }
     }
 
-    // changeSee = e => {
-    //     e.preventDefault()
-    //     if(e.target.id == "mas"){
-    //         document.getElementById("menos").style.display="block";
-    //         document.getElementById("big").style.height="auto"   
-    //         document.getElementById("mas").style.display="none"; 
-    //     }else{
-    //         document.getElementById("big").style.display="block";   
-    //         document.getElementById("mas").style.display="block"; 
-    //         document.getElementById("big").style.height="58px"
-    //         document.getElementById("menos").style.display="none";
-    //     }
-    // }
-
-    changeSeeReminder = (e, index) => {
-        e.preventDefault()
-        if (e.target.id == (index + "mas")) {
-            document.getElementById("menoss").style.display = "block";
-            document.getElementById("bigs").style.height = "auto"
-            document.getElementById("mass").style.display = "none";
-        } else {
-            document.getElementById("bigs").style.display = "block";
-            document.getElementById("mass").style.display = "block";
-            document.getElementById("bigs").style.height = "58px"
-            document.getElementById("menoss").style.display = "none";
-        }
-    }
 
     refreshReminder = async () => {
         const appointments = await appointmentsByUser(localStorage.getItem('id'));

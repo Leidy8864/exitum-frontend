@@ -5,7 +5,6 @@
     display: inline-block;
     width: 100%;
     border-radius: 4px;
-    margin-top: 30px;
     margin-bottom: 35px;
 }
 .proyects-list{
@@ -23,6 +22,8 @@
 }
 
 .title-proyect {
+    position: relative;
+    left: -35px;
     margin-bottom: 15px;
 }
 
@@ -40,19 +41,27 @@
     transition: all ease-out 0.4s;
 }
 
+.Ads-plus-proyect {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+}
+ 
 .proyects-list-aux{
+    margin-top: 60px;
     margin-left: 40px;
     margin-right: 40px;
     overflow-y: auto;
     display: flex;
 }
 .projectblock{
+    position: relative;
     background-color: #EEF5FF;
     color: #4157F2;
     font-weight: 600;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px 10px;
-    padding: 5px;
+    padding: 8px;
     font-size: 16px;
     text-align: center;
     float: left;
@@ -68,9 +77,9 @@
     background-color: #4157F2;
     color: #EEF5FF;
     font-weight: 600;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px 10px 20px;
-    padding: 5px;
+    padding: 8px;
     height: 44px;
     font-size: 16px;
     text-align: center;

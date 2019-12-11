@@ -3,9 +3,13 @@
 }
 .reminders {
     color: #fff;
-    border: 1px solid #E9ECEF !important;
+    margin-bottom: 20px;
     border-radius: 10px;
     font-family: 'Proxima Nova' !important;
+}
+
+.space-reminder {
+    margin-bottom: 100px;
 }
 
 .appointments h4{
@@ -15,12 +19,54 @@
 }
 
 .header-reminder {
-    background: #157FFB;  /* fallback for old browsers */
+    background: #FF416C;  /* fallback for old browsers */    
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding-top: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+    color: #fff;
+}
+
+nav.choose-calendar {
+    top: 0px;
+    border: 2px solid #E9EAED;
+    left: 10px;
+    background: #fff;
+    padding: 10px;
+    width: 93%;
+    border-radius: 10px;
+}
+
+.choose-calendar i.fa-handshake{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 0px;
+    border-radius: 50%;
+    background: #2FDAA7;
+    padding: 15px 13px;
+}
+.choose-calendar i.fa-bell {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #FD456F;
+    padding: 15px 17px;
+}
+
+div.ocultar {
+    display: none;
+}
+
+.choose-calendar a{
+    color: #fff;
+    font-family: 'Proxima Nova';
+}
+
+.choose-calendar a:hover{
+    color: #fff;
+    text-decoration: none;
 }
 
 .icon-edit i {
@@ -40,20 +86,23 @@ a#menos {
 }
 
 .body-reminder {
-    padding: 13px 10px 0px 10px;
+    padding-top: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-top: none;
     background: #fff;
-    color: #777;
+    color: #777B8E;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .header-meeting {
-    background: #00c6ff;  /* fallback for old browsers */
+    background: #1BDBA6;  /* fallback for old browsers */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 
 .description-meet {
@@ -103,12 +152,15 @@ a.morelink {
     overflow: hidden;
 }
 .body-meeting {
-    padding: 10px;
+    padding-top: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
     background: #fff;
-    color: #777;
+    color: #777B8E;
 }
 
 .body-meeting {
+    border-top: none;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px; 
 }

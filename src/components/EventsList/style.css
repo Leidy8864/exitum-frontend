@@ -11,3 +11,8 @@ div#events-list{
     font-family: 'Proxima Nova';
     color: #777;
 }
+
+.events-list {
+    display: flex ;
+    flex-wrap: wrap;
+}

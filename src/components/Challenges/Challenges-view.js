@@ -10,7 +10,7 @@ function View(props){
     } = props
     return(
         <div className="challenges-hc">
-            <div className="container-chellenges">
+            <div className="">
                 {   
                     blockChallenge.length >= 1 ?
                     blockChallenge.map((dt,index) =>

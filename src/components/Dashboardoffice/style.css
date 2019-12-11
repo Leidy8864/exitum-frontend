@@ -12,8 +12,8 @@
 .main-panel>.content {
   margin-top: 77px;
   padding: 0px !important;
-  min-height: calc(100vh - 123px);
-  background: #EFF3F8;
+  min-height: calc(100vh - 77px);
+  background: #F6F5FA;
 }
 
 .main-panel {

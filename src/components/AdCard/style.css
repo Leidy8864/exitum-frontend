@@ -7,20 +7,29 @@ span a img svg {
     opacity: 0;
 }
 
+span.title-company {
+  color: #4C5161;
+  font-weight: 600;
+}
+
 
 .title_add{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-decoration: none !important;
-    color: #4C5161;
+    color: #777;
   }
 
   button.btn-no-assist i.fa-calendar-times {
     color: #4C5161 !important; 
   }
   
-  button.btn-assist i{
-    color: #4C5161 !important;
+  button.btn-assist {
+    color: #fff;
+}
+
+.card-body {
+  border-top: none !important;
 }
 
   .title_add:hover{
@@ -56,11 +65,7 @@ span a img svg {
   }
 
   .card-header {
-    background: #EEF5FF !important;
-    color: #fff !important;
-    border-top-left-radius: 10px !important;
-    border-top-right-radius: 10px !important;
-    transition: 0.5s;
+    border: none !important
   }
 
   .card.pauses-play .card-header{
@@ -104,9 +109,10 @@ span a img svg {
 
   .card.pauses-play:hover {
     transition: all ease 0.5s;
-    box-shadow: 0 4px 10px 0 rgba(126, 123, 123, 0.14), 0 7px 2px -5px rgba(255, 255, 255, 1);
   }
 
   .card.pauses-play {
     transition: all ease 0.5s;
+    border: 2px solid #E4E3EA !important;
+    border-radius: 10px;
   }

@@ -22,7 +22,7 @@
 span.no-data {
     margin-left: 100px;
     margin-bottom: 15px;
-    font-weight: 800;
+    font-weight: 400;
 }
 
 .btn-save-img {
@@ -84,9 +84,6 @@ span.no-data {
     position: relative;
 }
 
-.card {
-    border: none !important;
-}
 
 .user-name h2{
     margin-top: 10px;
@@ -221,7 +218,7 @@ div ul.experiences {
 
 .experience-header h3 {
     font-size: 32px;
-    color: #4C5161;
+    color: #3E3960;
 }
 
 .experience-edit a img {
@@ -278,7 +275,7 @@ div ul.experiences {
 }
 
 .experience-info-content strong {
-    color: #3369fd;
+    color: #1BDBA6;
 }
 
 .time-exp {

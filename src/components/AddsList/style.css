@@ -8,3 +8,13 @@ div.Ads{
   height: calc(100vh);
   overflow-y: auto;
 }
+
+.card-header img {
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.events-padding {
+  padding-right: 0px !important;
+}

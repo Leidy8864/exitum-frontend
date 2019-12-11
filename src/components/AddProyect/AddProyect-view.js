@@ -16,27 +16,26 @@ function View(props) {
         role
     } = props
     return (
-        <div className="add-proyect-container">
+        <div className="add-proyect-container container-options">
             {show_add_proyect_empty ?
                 <div>
                     <div className="proyects-list"></div>
                     <div className="add-proyect">
                         <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                            <div className="Ads-plus">
+                            <div className="Ads-plus-proyect">
                                 <i className="fas fa-plus mr-2"></i>
-                                Agregar un proyecto
                             </div>
                         </Link>
                     </div>
                 </div>
                 :
                 <div >
-                    <div className="title-proyect">
-                        <h4>Mis proyectos</h4>
-                    </div>
                     <div className="proyects-list-aux">
                         <div className="container">
                             <div className="row">
+                            <div className="w-100 title-proyect">
+                                <h4>Mis proyectos</h4>
+                            </div>
                                 {
                                     blockProjects.map((dt) =>
                                         <div
@@ -58,9 +57,8 @@ function View(props) {
                         role === "entrepreneur" ?
                             <div className="add-proyect-aux mt-4">
                                 <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-                                    <div className="Ads-plus">
+                                    <div className="Ads-plus-proyect">
                                         <i className="fas fa-plus mr-2"></i>
-                                        Agregar un proyecto
                                 </div>
                                 </Link>
                             </div>

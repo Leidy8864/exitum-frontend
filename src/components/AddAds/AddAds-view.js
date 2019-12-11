@@ -13,20 +13,20 @@ function View(props) {
     } = props
     return (
         <div>
-            <div className="container-fluid bg-whites adds-scroll mt-4">
-                <div className="row mt-4">
-                    <div className="col-md-8 mt-1 container-tabs-pauses">
+            <div className="container-fluid adds-scroll">
+                <div className="row mt-4 container-options">
+                    <div className="col-md-8 container-tabs-pauses">
                         <TabAnuncio
                             userRole={userRole}
                         />
                     </div>
                     {
                         userRole === "entrepreneur" ?
-                            <div className="col-md-4 mt-1 plus-padding">
-                                <Link className="signin" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
+                            <div className="col-md-4 plus-padding">
+                                <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
                                     <div className="Ads-plus">
-                                    <i className="fas fa-plus mr-2"></i>
-                                        Agregar anuncio
+                                    <i data-toggle="tooltip" data-placement="top" title="Agregar un anuncio"  className="fas fa-plus mr-2"></i>
+                                        
                                 </div>
                                 </Link>
                                 <ModalAds />
@@ -35,8 +35,7 @@ function View(props) {
                     }
 
                 </div>
-                <div className="row mt-4">
-                    <div className="col-md-12">
+                <div className="row mt-4  scroll-anuncios">
                         {
 
                             userRole === "entrepreneur" ?
@@ -47,8 +46,6 @@ function View(props) {
                                 <EmployeeAds userRole={userRole} />
 
                         }
-                    </div>
-
                 </div>
             </div>
         </div>

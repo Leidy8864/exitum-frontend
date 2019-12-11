@@ -12,8 +12,8 @@ function View(props) {
         <button className={!isPart ? 'btn-assist' : 'btn-no-assist'} onClick={handleAssistEvent.bind(this,event_id)}>
             {
                 !isPart ?
-                    <i className="fas fa-hands-helping"></i>
-                    : <i className="far fa-calendar-times"></i>
+                    "Me interesa"
+                    : "Ya no me interesa"
             }
         </button>
     );

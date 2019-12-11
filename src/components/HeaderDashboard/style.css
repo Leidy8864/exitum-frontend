@@ -11,8 +11,8 @@ nav.dashboard-header {
   width: 100%;
   z-index: 1000;
   position: fixed !important;
-  background: #FFF !important;
-  border-bottom: 1px solid #DEE0E2;
+  background: #fff !important;
+
 }
 
 .content-user {
@@ -22,7 +22,54 @@ nav.dashboard-header {
   justify-content: center;
   align-items: center;
   font-family: 'Proxima Nova';
+  color: #777;
 }
+
+.content-user span{
+  margin-right: 18px;
+}
+
+.perfil-pick {
+  background: transparent;
+  border: none !important;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.perfil-pick:focus {
+  outline: none;
+}
+
+.dropdown-menu a.dropdown-item{
+  font-size: 14px;
+  color: #777;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  background: #fff !important;
+}
+
+.dropdown-menu {
+  background: #fff !important;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  z-index: 9999;
+}
+
+.dropdown-menu a.dropdown-item i{
+  width: 20px;
+  top: 5px;
+  left: -5px;
+  font-size: 20px;
+  position: relative;
+}
+
+.dropdown-menu a.dropdown-item p{
+  top: 3px;
+  left: 2px;
+  font-size: 16px;
+  position: relative;
+}
+
 
 .content-user img {
   position: relative;

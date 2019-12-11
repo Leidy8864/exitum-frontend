@@ -2,6 +2,7 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
+import moment from 'moment'
 
 function View(props) {
     const {
@@ -18,24 +19,26 @@ function View(props) {
         slugAd
     } = props;
     return (
-        <div className="card pauses-play mt-4">
+        <div className="card p-3 pauses-play mb-3">
             <div>
                 {
                     userRole === "entrepreneur" ?
-                        <div className="card-header d-flex">
+                        <li className="d-flex">
                             <Link to={"/advertisement/" + id + "/" + slugAd} className="title_add col-sm-9">{title}</Link>
                             <div className="col-sm-3 images-icons">
                                 <span><Link className="pause-bg" to="#">
-                                    {state === "active" ? <i className="far fa-pause-circle" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i> : <i className="far fa-play-circle" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i>}</Link></span>
-                                <span className="ml-2"><Link className="trash-bg" to="#"><i className="far fa-trash-alt" id={id} onClick={handleClickDelete.bind(this, index)} ></i></Link></span>
+                                    {state === "active" ? <i data-toggle="tooltip" data-placement="top" title="Pausar anuncio" className="far fa-pause-circle" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i> : <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Reanudar anuncio" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i>}</Link></span>
+                                <span className="ml-2"><Link className="trash-bg" to="#"><i data-toggle="tooltip" data-placement="top" title="Eliminar anuncio" className="far fa-pause-circle" className="far fa-trash-alt" id={id} onClick={handleClickDelete.bind(this, index)} ></i></Link></span>
                             </div>
-                        </div>
+                        </li>
                         :
-                        <Link className="row  col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
+                        <Link className="row col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
                 }
             </div>
-            <div className="card-body margin_botton_15">
-                <span className="bold col-sm-12">{startup.name}</span>
+            <div className="">
+                <span className="title-company col-sm-12">{startup.name}</span><br />
+                <span className="bold col-sm-12">{startup.description}</span><br />
+                <span className="bold col-sm-12">{moment(startup.created_at).fromNow()}</span><br />
             </div>
             {/* {
                 userRole === "entrepreneur" ?

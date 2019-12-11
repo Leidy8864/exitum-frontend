@@ -12,33 +12,42 @@ function View(props) {
         description,
         day,
         hour_start,
+        place,
         eventType,
         handleDeleteEvent,
         isPart
     } = props;
     return (
-        <div className="card all-card h-100">
-            <div className="card-header d-flex">
-                <Link to={"/events/" + id} className="title_add col-sm-9">{title}</Link>
-                <div className="col-sm-3 images-icons">
-                    {eventType === "my_events" ? <Link className="edit-icon" to="#"><i className="mt-1 fas fa-trash" id={id} onClick={handleDeleteEvent.bind(this, id)}></i></Link>
-                        :
-                        <AssistButton
-                            event_id={id}
-                            isPart={isPart}
-                        />
-                    }
+        <div className="card events mb-1">
+            <div className="card-header">
+                <img className="w-100" src="https://www.expertosdecomputadoras.com/wp-content/uploads/2012/03/como%20hacer%20una%20copia%20de%20seguridad%20en%20mac%20sin%20usar%20time%20machine1.jpg" />
+            </div>
+            <div className="card-body events">
+                <div className="d-flex header-events">
+                    <Link to={"/events/" + id} className="title_add col-sm-8">{title}
+                    </Link>
+                    <div className="">
+                        <span className="gray">{moment(day).format('ll')}</span>
+                    </div>
                 </div>
+                <div className="mt-2">
+                    <span className="gray col-sm-12 d-inline-block text-truncate">{description}</span>
+                </div>
+
+                <i className="ml-3 fas fa-map-marker-alt"></i><span className="col-sm-12 gray">{place}</span>
             </div>
-            <div className="card-body">
-            <div className="margin_botton_15">
-                <span className="gray col-sm-12 d-inline-block text-truncate">{description}</span>
-            </div>
-            <div className="">
-                <span className="col-sm-6 gray">Fecha : {moment(day).format('DD/MM/YYYY')}</span>
-                <span className="col-sm-6 gray">Hora : {hour_start}</span>
-            </div>
-            </div>
+            {eventType === "my_events" ?
+                <div className="card-body events-footer-delete text-center">
+                    <Link className="edit-icon" to="#" id={id} onClick={handleDeleteEvent.bind(this, id)}>Eliminar evento</Link>
+
+                </div> :
+                <div className="card-body events-footer text-center">
+                    <AssistButton
+                        event_id={id}
+                        isPart={isPart}
+                    />
+                </div>
+            }
         </div>
     );
 }

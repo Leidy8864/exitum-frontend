@@ -26,7 +26,13 @@ div#list-participants{
 }
 
 .card {
-    border: 1px solid #E9ECEF !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    border: none !important;
+}
+
+.card.profiles {
+    border: 2px solid #E9EAED !important;
 }
 
 .accept-wait {

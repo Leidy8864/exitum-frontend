@@ -3,7 +3,7 @@
 }
 
 .events-list {
-    padding-left: 15px !important;
+    
 }
 
 .bg-whites {
@@ -16,29 +16,10 @@
     border-radius: 10px;
 }
 
-.pills-event {
-    padding-left: 30px !important;
-}
-
-.plus-padding {
-    padding-right: 45px !important;
-}
-
-.container-tabs-pauses {
-    padding-left: 38px !important;
-}
-
 .nav-link-person {
     background: #FEF6FB;
     border-radius: 20px;
     color: #FD42A6  
-}
-.plus-padding {
-    margin-top: 30px;
-}
-
-.pills-event {
-    margin-top: 36px;
 }
 
 .lista-eventos {

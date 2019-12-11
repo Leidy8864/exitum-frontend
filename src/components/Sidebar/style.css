@@ -16,12 +16,11 @@
   max-height: calc(100% + 0px);
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  border-right: 1px solid #DEE0E2;
   z-index: 1024;
 }
 
 .sidebar .img-sidebar {
-  background: #ffffff !important;
+  background: #777777 !important;
   /* fallback for old browsers */
   top: 0;
   left: 0;
@@ -42,7 +41,7 @@
   display: block;
   position: relative;
   z-index: 10;
-  color: #615d5d;
+  color: #777;
   font-family: 'Proxima Nova' !important;
   font-weight: 200 !important;
   font-size: 1.2rem;
@@ -78,14 +77,24 @@ ul.nav-pills.add-tabs {
 }
 
 ul.nav-pills.add-tabs li.nav-item a {
-  margin-right: 40px;
+  position: relative;
+  top: 0px;
+  margin-right: 20px;
   font-size: 18px;
-  padding: 8px 40px !important;
+  padding: 8px 10px !important;
+}
+
+ul.nav-pills.add-tabs li.nav-item a i {
+  font-size: 28px;
 }
 
 ul.nav-pills.add-tabs li.nav-item a.nav-link.active {
   border-radius: none !important;
-  background: #157FFB !important;
+  background-color: #1BDBA6 !important;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #1BDBA6 !important;
 }
 
 ul li a {
@@ -111,7 +120,7 @@ ul li a {
 
 .exit-dashboard a i{
   font-size: 28px;
-  color: #787b91;
+  color: #777;
   transition: 1s;
 }
 
@@ -145,13 +154,14 @@ ul li a {
   line-height: 30px;
   width: 30px;
   text-align: center;
-  color: #4C5161;
+  color: #777;
+  font-weight: 400;
 }
 
 .sidebar .nav li .dropdown-menu a, .sidebar .nav li a {
   margin: 10px 20px 0;
   border-radius: 3px;
-  color: #4C5161;
+  color: #777;
   padding-left: 10px;
   padding-right: 10px;
   text-transform: capitalize;
@@ -159,17 +169,13 @@ ul li a {
   transition: all .15s ease-in;
 }
 
-.card {
-  border-radius: 6px !important;
-}
-
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {  /* fallback for old browsers */
-  border-radius: 20px;
+  border-radius: 4px;
   transition: all .15s ease-in;
 }
 
 .nav-pills.anuncios .nav-link.active, .nav-pills .show>.nav-link {
-  background: #157FFB !important;  /* fallback for old browsers */
+  background-color: #1BDBA6 !important;  /* fallback for old browsers */
   border-radius: 4px;
   padding: 10px;
   transition: all .15s ease-in;
@@ -177,6 +183,7 @@ ul li a {
 
 .nav-pills .nav-link.active i {
   color: #fff !important;
+  font-weight: 400;
 }
 
 .sidebar .navegacion ul li a p {
@@ -189,7 +196,7 @@ ul li a {
   white-space: nowrap;
   text-transform: capitalize;
   transition: all .3s linear;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.5px;
 }
 
@@ -219,7 +226,7 @@ ul li a {
     left: 0;
     z-index: 1032;
     visibility: visible;
-    background-color: #ffffff;
+    background-color: #777777;
     overflow-x: visible;
     border-top: none;
     text-align: left;

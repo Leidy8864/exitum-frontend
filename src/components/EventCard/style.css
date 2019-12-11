@@ -12,6 +12,91 @@
     border: none
 }
 
+.card-header, .card.events {
+    padding: 0px !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.card-body.events {
+    padding: 12px 10px!important;
+    border: 2px solid #E9EAED;
+}
+
+.card-body.events-footer {
+    background: #fff;
+    padding: 12px 10px!important;
+    border: 2px solid #E9EAED;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    transition: all 0.5s;
+}
+
+.card-body.events-footer button.btn-assist {
+    color: #777;
+}
+
+.card-body.events-footer:hover button.btn-assist {
+    color: #fff;
+}
+
+
+.card-body.events-footer:hover button.btn-no-assist {
+    color: #fff;
+}
+
+.card-body.events-footer:hover {
+    border-top: none !important;
+}
+
+i.fa-map-marker-alt {
+    color: #777 !important;
+}
+
+.card-body.events-footer:hover {
+    background: #157FFB;
+    border: none !important;
+    transition: all 0.5s;
+}
+
+.card-body.events-footer-delete {
+    background: #fff;
+    padding: 12px 10px!important;
+    border: 2px solid #E9EAED;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    transition: all 0.5s;
+}
+
+.card-body.events-footer-delete a {
+    color: #777;
+}
+
+.card-body.events-footer-delete:hover a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.card-body.events-footer-delete:hover {
+    background: #FD456F;
+    transition: all 0.5s;
+    border: none !important;
+}
+
+.header-events {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+strong.events-strong {
+    display: inline-block;
+    width: 80px;
+    color: #4C5261;
+}
+
 div.events-card {
     transition: 0.5s;
 }
@@ -106,4 +191,8 @@ div.events-card-3 i.fa-calendar-times {
 
 div.events-card-3 .title_add{
     color: #157FFB;
+}
+
+.card img {
+    border: none !important;
 }

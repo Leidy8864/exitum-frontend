@@ -1,14 +1,13 @@
 .Diary {
-    margin-top: 23px !important;
-    background: #FFFFFF;
-    padding: 20px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    height: calc(100vh - 120px);
-    overflow-y: auto
-  }
+  margin-top: 23px !important;
+  padding: 12px;
+  z-index: 3000;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
-  .content-diary {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
+.content-diary {
+
+}

@@ -8,6 +8,12 @@ span.bold.detail {
     font-weight: 600;
 }
 
+span.bold {
+    display: inline-block;
+    width: 100%;
+    color: #777;
+}
+
 h4.bold-title {
     color: #4C5161;
     font-size: 23px;

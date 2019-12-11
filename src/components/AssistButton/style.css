@@ -2,17 +2,8 @@
     display: block;
 }
 
-button.btn-no-assist i{
-    color: #fff !important;
-}
-
-.container-detail button.btn-no-assist i{
-    color: #FD42A6 !important;
-    background: #FEF6FB;
-    font-size: 20px;
-    padding: 15px 17px;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(207, 100, 166, 0.7);
+button.btn-no-assist {
+    color: #777;
 }
 
 .container-detail button:focus{

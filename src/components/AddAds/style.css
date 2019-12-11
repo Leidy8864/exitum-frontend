@@ -3,7 +3,9 @@
 }
 .Ads-plus{
     font-family: 'Proxima Nova' !important;
-    float: right;
+    position: absolute;
+    top: -4px;
+    right: 0px;
     border-radius: 4px;
     color: #4C5161;
     font-size: 16px;
@@ -12,11 +14,45 @@
     font-weight: 500;
 }
 
+.add-proyect-container.container-options {
+    padding: 0px !important;
+}
+
 .Ads-plus i{
     color: #4157F2 !important;
     background: #EEF5FF;
     font-size: 20px;
     padding: 15px 17px;
     border-radius: 50%;
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(66, 175, 248, 0.7);
+}
+
+.Ads-plus-proyect i{
+    color: #4157F2 !important;
+    background: #EEF5FF;
+    font-size: 20px;
+    padding: 15px 17px;
+    border-radius: 50%;
+}
+
+.container-options {
+    background: #fff;
+    padding-left: 0px !important;
+    padding: 13px;
+    margin-left: 0px !important;
+    border-radius: 10px;
+    border: 2px solid #E9EAED !important;
+}
+
+.list-group-item:first-child {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.list-group-item {
+    font-family: 'Proxima Nova';
+}
+
+.scroll-anuncios {
+    overflow-y: auto;
+    height: calc(100vh - 220px);
 }

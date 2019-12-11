@@ -9,6 +9,7 @@ class EventCard extends React.Component {
             title,
             description,
             day,
+            place,
             hour_start,
             eventType,
             handleDeleteEvent,
@@ -25,6 +26,7 @@ class EventCard extends React.Component {
                 title={title}
                 description={description}
                 day={day}
+                place={place}
                 isPart={isPart}
                 hour_start={hour_start}
                 eventType={eventType}
