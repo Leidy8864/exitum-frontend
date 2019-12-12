@@ -9,6 +9,7 @@ function View(props) {
 
     const {
         categories,
+        ocupations,
         handleSelectChange,
         className,
         position,
@@ -23,7 +24,10 @@ function View(props) {
         options,
         handleChange,
         handleInputChange,
-        company_name
+        company_name,
+        ocupationChange,
+        ocupationInputChange,
+        ocupation_name
     } = props
 
     return (
@@ -38,13 +42,22 @@ function View(props) {
                             <form onSubmit={experience} className="p-3">
                                 <div className="form_group_ mt-3">
                                     <label>Posisión</label>
-                                    <input
+                                    {/* <input
                                         type="text"
                                         onChange={position}
                                         name="position"
                                         id="nombrePosition"
                                         className="form-control"
-                                    />
+                                    /> */}
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={ocupationChange}
+                                            onInputChange={ocupationInputChange}
+                                            options={ocupations}
+                                            value={ocupation_name}
+                                        />
+                                    </Fragment>
                                 </div>
                                 <div className="form_group_ mt-3">
                                     <label>Empresa</label>

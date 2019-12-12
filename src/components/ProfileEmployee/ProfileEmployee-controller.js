@@ -3,12 +3,13 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience } from '../../redux/actions';
+import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience, ocupationsList  } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
 import getExperience from '../../redux/actions/get-experience';
 import getUniversities from '../../redux/actions/get-list-universities';
 import getCompanies from '../../redux/actions/get-list-companies';
+import listOcupations from '../../redux/actions/get-list-ocupations';
 import listCertifications from '../../redux/actions/list-certifications';
 import listEducations from '../../redux/actions/list-educations';
 import listExperiences from '../../redux/actions/list-experiences';
@@ -77,15 +78,14 @@ class ProfileEmployee extends React.Component {
                 //     : isMyProfile = false;
             }
             const userShow = await showDataByUser(id);
-            console.log('user show',userShow)
             // Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id);
 
-            const experienceActualy = userShow.data.experience[0] ? userShow.data.experience[0].position : ""
-            const country = userShow.data.country.country
+            const experienceActualy = userShow.data.experience && userShow.data.experience[0] ? userShow.data.experience[0].position : ""
+            const country = userShow.data.country ? userShow.data.country.country: ""
             const photo = userShow.data.photo
             const description = userShow.data.description
             //localStorage.setItem('photo', photo)           
@@ -117,6 +117,13 @@ class ProfileEmployee extends React.Component {
                 listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
             }
             this.props.getCompanies(listCompanies__);
+            
+            const ocupationsList_ = await ocupationsList();
+            var ocupations = [];
+            if (ocupationsList_.length >= 1) {
+                ocupations = ocupationsList_.map(x => ({ label: x.name, value: x.id }));
+            }
+            this.props.listOcupations(ocupations);
         } catch (error) {
             console.log(error)
         }
@@ -142,11 +149,9 @@ class ProfileEmployee extends React.Component {
     idExperience = async (e) => {
         e.preventDefault();
         let experience = await getOneExperience(e.target.id);
-        console.log("experience before = ", experience);
         if (experience.date_end === null) {
             experience.date_end = new Date();
         }
-        console.log("experience after = ", experience);
         this.props.getExperience(experience);
         $('#updateexperience').modal('show')
     }
@@ -170,6 +175,22 @@ class ProfileEmployee extends React.Component {
         this.setState({
             experiences: certificationsAll
         });
+
+        const ocupationsList_ = await ocupationsList();
+        var ocupations = [];
+        if (ocupationsList_.length >= 1) {
+            ocupations = ocupationsList_.map(x => ({ label: x.name, value: x.id }));
+        }
+        this.props.listOcupations(ocupations);
+
+
+        let listCompanies__ = [];
+        let listCompanies_ = await listCompanies(localStorage.getItem('id'));
+        if (listCompanies_ && listCompanies_.length >= 1) {
+            listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
+        }
+        this.props.getCompanies(listCompanies__);
+
         this.props.listExperiences(0);
     }
 
@@ -444,6 +465,8 @@ const mapDispatchToProps = {
     showDataByUser,
     getUniversities,
     getCompanies,
+    ocupationsList,
+    listOcupations,
     setImage
 };
 

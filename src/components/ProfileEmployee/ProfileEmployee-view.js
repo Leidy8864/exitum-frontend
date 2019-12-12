@@ -144,9 +144,9 @@ function View(props) {
                                                                                 <div className="info-experience">
                                                                                     <div className="data_user_detail">
                                                                                         <div><span className="gray title">Posisión:</span><span className="gray">{item_.position}</span></div>
-                                                                                        <div><span className="gray title">Desde:</span><span className="gray">{moment(item_.date_start).format('DD-MM-YYYY')}</span></div>
-                                                                                        <div><span className="gray title">Hasta:</span><span className="gray">{moment(item_.date_end).format('DD-MM-YYYY') ? moment(item_.date_end).format('DD-MM-YYYY') : "actualidad"}</span></div>
-                                                                                        <div><span className="gray title">Descripción:</span><span className="gray">{moment(item_.description).format('DD-MM-YYYY') ? moment(item_.description).format('DD-MM-YYYY') : ""}</span></div>
+                                                                                        <div><span className="gray title">Desde:</span><span className="gray">{moment(item_.date_start).format('DD/MM/YYYY')}</span></div>
+                                                                                        <div><span className="gray title">Hasta:</span><span className="gray">{item_.date_end ? moment(item_.date_end).format('DD/MM/YYYY') : "actualidad"}</span></div>
+                                                                                        <div><span className="gray title">Descripción:</span><span className="gray">{item_.description? item_.description: ""}</span></div>
                                                                                         <br />
                                                                                     </div>
                                                                                 </div>

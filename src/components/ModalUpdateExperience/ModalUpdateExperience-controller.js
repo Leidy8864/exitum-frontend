@@ -3,7 +3,7 @@ import View from './ModalUpdateExperience-view';
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
-import { updateExperience } from '../../redux/actions';
+import { updateExperience, listCategories } from '../../redux/actions';
 import listExperiences from '../../redux/actions/list-experiences';
 import $ from 'jquery'
 
@@ -15,15 +15,35 @@ class ModalUpdateExperience extends React.Component {
         position: '',
         description: '',
         company_name: '',
+        category: '',
         date_expedition: new Date(),
         date_expiration: new Date(),
         isCurrentJob : true,
         isCompanynameChanged: false,
+        isCategoryChanged: false,
+        isOcupationChanged: false,
         isSelected: false,
         isDescriptionChanged:false,
         changed_date_expedition:false,
         changed_date_expiration:false,
+        ocupation_name: '',
+        categories:[],
+        category_id:'',
         
+    }
+
+    async componentDidMount(){
+        const categorysData = await listCategories();
+        
+        var categories = [];
+        if (categorysData.length >= 1) {
+            categories = categorysData.map(x => ({ label: x.name, value: x.id }));
+        }
+        
+        this.setState({
+            categories: categories,
+            // ocupations: ocupations,
+        })
     }
 
     position = e => {
@@ -42,7 +62,8 @@ class ModalUpdateExperience extends React.Component {
         let user_id = localStorage.getItem('id')
         let {
             description, company_name, date_expedition, date_expiration, 
-            isDescriptionChanged, changed_date_expedition, changed_date_expiration
+            isDescriptionChanged, changed_date_expedition, changed_date_expiration,
+            category_id,ocupation_name, isOcupationChanged, isCategoryChanged
         } = this.state;
 
         if(!isDescriptionChanged){
@@ -65,7 +86,6 @@ class ModalUpdateExperience extends React.Component {
         const formData = {
             user_id: user_id,
             experience_id:$('#experience_id').val(),
-            position: $('#positionName').val(),
             date_start: new Date(moment(date_expedition).format('YYYY-MM-DD')),
             date_end: date_end, 
             description: description
@@ -73,6 +93,14 @@ class ModalUpdateExperience extends React.Component {
         if(company_name){
             formData.company_name = company_name.value;
         }
+        if(isOcupationChanged){
+            formData.position = ocupation_name.value;
+        }
+        if(isCategoryChanged){
+            formData.category_id = category_id;
+        }
+
+        console.log("formData = ", formData)
 
         await this.props.updateExperience(formData);
 
@@ -112,11 +140,29 @@ class ModalUpdateExperience extends React.Component {
     handleInputChange = (inputValue, actionMeta) => {
         
     };
+
+    ocupationChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ ocupation_name: newValue , isOcupationChanged: true })
+        }
+    };
+    ocupationInputChange = (inputValue, actionMeta) => {
+        
+    };
+
+    handleSelectChange = (option, action) => {
+        this.setState({
+            category: option,
+            category_id: option.value,
+            isCategoryChanged:true 
+        })
+    }
     
     render() {
         const {
             listCompaniesReducer,
             getExperienceReducer,
+            listOcupationsReducer,
         } = this.props;
 
         let {
@@ -129,12 +175,19 @@ class ModalUpdateExperience extends React.Component {
             changed_date_expiration,
             isCompanynameChanged,
             isDescriptionChanged,
-            isSelected
+            isSelected,
+            isCategoryChanged,
+            category,
+            isOcupationChanged,
+            ocupation_name
         } = this.state;
 
         experience_id = getExperienceReducer.id;
+
         if(getExperienceReducer.id && $('#experience_id').val() !== experience_id){
             if(!isCompanynameChanged)   company_name= {label: getExperienceReducer.company_name, value: getExperienceReducer.company_name}
+            if(!isCategoryChanged)   category= {label: getExperienceReducer.category.name, value: getExperienceReducer.category.id}
+            if(!isOcupationChanged)   ocupation_name = {label: getExperienceReducer.position, value: getExperienceReducer.position}
             if(!changed_date_expedition) date_expedition = new Date(moment(getExperienceReducer.date_start).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expiration) date_expiration = new Date(moment(getExperienceReducer.date_end).add(1, 'days').format('YYYY-MM-DD'));
             if(!changed_date_expedition && !changed_date_expiration && !isCompanynameChanged && !isSelected && !isDescriptionChanged){
@@ -165,6 +218,9 @@ class ModalUpdateExperience extends React.Component {
 
         return (
             <View
+                className="basic-single"
+                categories = {this.state.categories}
+                handleSelectChange={this.handleSelectChange}
                 experience_id = {experience_id}
                 description = {this.description}
                 description_ = {description}
@@ -176,8 +232,13 @@ class ModalUpdateExperience extends React.Component {
                 handleChange={this.handleChange}
                 handleInputChange={this.handleInputChange}
                 company_name={company_name}
+                category={category}
                 selectCurrentJob={this.selectCurrentJob}
                 updateExperience={this.updateExperience}
+                ocupations = {listOcupationsReducer}
+                ocupationChange = {this.ocupationChange}
+                ocupationInputChange = {this.ocupationInputChange}
+                ocupation_name = {ocupation_name}
             />
         );
     }
@@ -185,12 +246,14 @@ class ModalUpdateExperience extends React.Component {
 
 const mapDispatchToProps = {
     updateExperience,
-    listExperiences
+    listExperiences,
+    listCategories
 }
 
 const mapStateToProps = (state) => ({    
     listCompaniesReducer: state.listCompaniesReducer,
     getExperienceReducer: state.getExperienceReducer,
+    listOcupationsReducer: state.listOcupationsReducer,
 });
 
 export default withRouter(

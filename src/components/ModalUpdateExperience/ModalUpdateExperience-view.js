@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
 import CreatableSelect from 'react-select/creatable';
+import Select from 'react-select';
 
 function View(props) {
 
@@ -21,7 +22,15 @@ function View(props) {
         handleChange,
         handleInputChange,
         company_name,
-        updateExperience
+        category,
+        updateExperience,
+        ocupationChange,
+        ocupationInputChange,
+        ocupation_name,
+        ocupations,
+        className,
+        categories,
+        handleSelectChange,
     } = props
 
     return (
@@ -43,13 +52,23 @@ function View(props) {
                             <form onSubmit={updateExperience}>
                                 <div className="form_group_ mt-3">
                                     <label>Posisión</label>
-                                    <input
+                                    {/* <input
                                         type="text"
                                         id="positionName"
                                         onChange={position}
                                         name="position"
                                         className="form-control"
-                                    />
+                                    /> */}
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={ocupationChange}
+                                            onInputChange={ocupationInputChange}
+                                            options={ocupations}
+                                            value={ocupation_name}
+                                            className={"styleCreatableSelect_"}
+                                        />
+                                    </Fragment>
                                 </div>
                                 <div className="form_group_ mt-3">
                                     <label>Empresa</label>
@@ -61,6 +80,20 @@ function View(props) {
                                             options={options}
                                             className={"styleCreatableSelect_"}
                                             value={company_name}
+                                        />
+                                    </Fragment>
+                                </div>
+                                <div className="form_group_ mt-3">
+                                    <label>Seleccionar el rubro de la empresa</label>
+                                    <Fragment>
+                                        <Select
+                                            className={className}
+                                            name="category_id"
+                                            options={categories}
+                                            onChange={handleSelectChange}
+                                            value={category}
+                                            placeholder="Rubro..."
+                                            id="category_id"
                                         />
                                     </Fragment>
                                 </div>

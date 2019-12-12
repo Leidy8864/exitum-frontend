@@ -33,6 +33,7 @@ import listChallengeReducer from './listChallengesReducer'
 import getEventReducer from './getEventReducer'
 import activeBackButtonReducer from './activeBackButtonReducer';
 import setImageReducer from './setImageReducer';
+import listOcupationsReducer from './listOcupationsReducer';
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -67,5 +68,6 @@ export default combineReducers({
     listChallengeReducer: listChallengeReducer,
     getEventReducer : getEventReducer,
     activeBackButtonReducer : activeBackButtonReducer,
-    setImageReducer : setImageReducer
+    setImageReducer : setImageReducer,
+    listOcupationsReducer : listOcupationsReducer,
 });

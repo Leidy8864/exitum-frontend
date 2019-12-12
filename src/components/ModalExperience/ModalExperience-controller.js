@@ -17,7 +17,9 @@ class ModalExperience extends React.Component {
         date_expedition: new Date(),
         date_expiration: new Date(),
         isCurrentJob : true,
-        categories:[]
+        categories:[],
+        ocupation_name:'',
+        category_id:'',
         
     }
 
@@ -27,14 +29,15 @@ class ModalExperience extends React.Component {
         let radiobtn = document.getElementById("true");
         radiobtn.checked = true;
         const categorysData = await listCategories();
-        console.log("CATEGORYS",categorysData);
-
+        
         var categories = [];
         if (categorysData.length >= 1) {
             categories = categorysData.map(x => ({ label: x.name, value: x.id }));
         }
+        
         this.setState({
-            categories: categories
+            categories: categories,
+            // ocupations: ocupations,
         })
     }
 
@@ -56,7 +59,7 @@ class ModalExperience extends React.Component {
     experience = async e => {
         e.preventDefault();
         let user_id = localStorage.getItem('id')
-        const {position,company_name,date_expedition, date_expiration, isCurrentJob, description} = this.state
+        const {ocupation_name,company_name,date_expedition, date_expiration, isCurrentJob, description, category_id} = this.state
         // let description_ = description.split("\n").join('<br>')
         let description_ = description
 
@@ -66,7 +69,8 @@ class ModalExperience extends React.Component {
             date_end = moment(date_expiration).format('YYYY-MM-DD');
         }
         const formData = {
-            user_id,position,company_name: company_name.value,date_start,date_end, description: description_
+            user_id, position:ocupation_name.value, company_name: company_name.value,
+            date_start ,date_end, description: description_, category_id:category_id
         }
 
         await this.props.createExperience(formData);
@@ -79,7 +83,9 @@ class ModalExperience extends React.Component {
             company_name:'', 
             date_expedition: new Date(),  
             date_expiration: new Date(),
-            isCurrentJob : true
+            isCurrentJob : true,
+            ocupation_name:'',
+            category_id:'',
         });
         this.props.listExperiences(1);
     }
@@ -99,28 +105,40 @@ class ModalExperience extends React.Component {
 
     handleChange = (newValue, actionMeta) => {
         if(newValue){
-            this.setState({ company_name: {label: newValue.value, value: newValue.value}  })
+            this.setState({ company_name: {label: newValue.label, value: newValue.value}  })
         }
+    };
+
+    ocupationChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ ocupation_name: {label: newValue.label, value: newValue.value}  })
+        }
+    };
+    ocupationInputChange = (inputValue, actionMeta) => {
+        
     };
     
     handleInputChange = (inputValue, actionMeta) => {
         
     };
+    
 
     handleSelectChange = (option, action) => {
-
-        console.log("option.value = ", option.value)
+        this.setState({category_id: option.value})
     }
     
     render() {
         const {
-            listCompaniesReducer
+            listCompaniesReducer,
+            listOcupationsReducer
         } = this.props;
+
         return (
             <View
                 className="basic-single"
                 categories = {this.state.categories}
                 handleSelectChange={this.handleSelectChange}
+                ocupations = {listOcupationsReducer}
                 position = {this.position}
                 description = {this.description}
                 description_ = {this.state.description}
@@ -135,6 +153,9 @@ class ModalExperience extends React.Component {
                 handleChange={this.handleChange}
                 handleInputChange={this.handleInputChange}
                 company_name={this.state.company_name}
+                ocupationChange = {this.ocupationChange}
+                ocupationInputChange = {this.ocupationInputChange}
+                ocupation_name = {this.state.ocupation_name}
             />
         );
     }
@@ -143,11 +164,12 @@ class ModalExperience extends React.Component {
 const mapDispatchToProps = {
     createExperience,
     listExperiences,
-    listCategories
+    listCategories,
 }
 
 const mapStateToProps = (state) => ({    
     listCompaniesReducer: state.listCompaniesReducer,
+    listOcupationsReducer: state.listOcupationsReducer,
 });
 
 export default withRouter(

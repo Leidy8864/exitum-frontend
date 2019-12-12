@@ -76,7 +76,6 @@ export const updateUserPerfil = data => {
     return async dispatch => {
         try {
             const res = await axios.post(root + 'users/update', data);
-            console.log(res.data)
             return res.data;
         } catch (error) {
             console.log("Error" + error);
@@ -594,7 +593,6 @@ export const notAvailableUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `schedules/not-available-multiple/${id}`, data)
-            console.log(res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -606,7 +604,6 @@ export const appointmentsUser = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/create/${id}`, data)
-            console.log(res.data)
             return res.data
         } catch (error) {
             console.log("Error" + error)
@@ -647,7 +644,6 @@ export const appointmentsDelete = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/cancel/${id}`, data)
-            console.log(res.data)
             return res.data
         } catch (error) {
             console.log("Error" + error)
@@ -708,7 +704,6 @@ export const hourAvailables = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `schedules/schedule/${id}`,data)
-            console.log(res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -810,7 +805,6 @@ export const validadeTip = (data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `advices/check`, data);
-            console.log("res.data = ", res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -831,7 +825,6 @@ export const verifyChallenge = (data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `challenges/verify`, data)
-            console.log(res.data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -841,7 +834,15 @@ export const verifyChallenge = (data) => {
 export const listChallengeToVerify = async (id, page) => {
     try {
         const res = await axios.get(root + `challenges/toVerify?user_id=${id}&page=${page}`);
-        console.log(res.data)
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const ocupationsList = async () => {
+    try {
+        const res = await axios.get(root + `occupations/list`);
         return res.data.data
     } catch (error) {
         console.log("Error" + error)
