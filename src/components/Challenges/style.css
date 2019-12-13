@@ -36,10 +36,10 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 6px;
     font-size: 15px;
-    background: #fff;
+    background: #4F78E8;
     border: none;
     transition: 0.5s;
 }
@@ -76,25 +76,29 @@
     font-size: 15px;
 }
 
+.challenges-hc.container-options {
+    padding-left: 12px !important;
+}
+
 .challenge p {
     margin: 30px;
-    color: #4C5161 !important;
+    color: #fff !important;
 }
 
 .challenge_complete p {
     margin: 30px;
-    color: #4C5161 !important;
+    color: #fff !important;
 }
 
 .challenge span{
-    color: #4C5161 !important;
+    color: #fff !important;
     font-size: 15px;
     margin-right: 15px;
     margin-bottom: 6px;
 }
 
 .challenge_complete span {
-    color: #4C5161;
+    color: #fff;
     font-size: 15px;
     margin-right: 15px;
     margin-bottom: 6px;

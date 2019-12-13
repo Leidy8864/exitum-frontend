@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
 import DetailChallenge from '../DetailChallenge/DetailChallenge-controller'
 
@@ -9,13 +9,13 @@ function View(props){
         handleClick
     } = props
     return(
-        <div className="challenges-hc">
-            <div className="">
+        <Fragment>
                 {   
                     blockChallenge.length >= 1 ?
                     blockChallenge.map((dt,index) =>
-
-                        <Link className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" key={"project"+index}>
+                    <div className="challenges-hc container-options mt-3">
+                        <div className="">
+                            <Link className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" key={"project"+index}>
                             <div 
                                 className={dt.status === "completado" ? "challenge_complete" : "challenge"}
                                 
@@ -26,18 +26,20 @@ function View(props){
                                 <span>{dt.status}</span>
                             </div>
                         </Link>
+                        </div>
+                        
+                        </div>
                     )
+                    
                     :
 
                     <div className="img-startup-help">
                         <img className="max-cell" src={require('../../public/img/infostart.png')} />
                         <img className="min-cell" src={require('../../public/img/infocell.png')} />
                     </div>
-
+                    
                 }
-            </div>
-            <DetailChallenge/>
-        </div>
+        </Fragment>
     );
 }
 export default View;

@@ -1,7 +1,3 @@
-.Stages{
-    display: block;
-}
-
 .stages {
     position: relative;
 }
@@ -15,95 +11,69 @@
 }
 
 .container-stage {
+    float: right;
+    justify-content: flex-end;
     position: relative; 
     margin-top: 30px;
     height: 550px; 
 }
 
+.etapas {
+    overflow-y: auto;
+    height: calc(100vh - 400px);
+}
+
 .stages-imgs {
     position: relative !important;
+    right: 80px;
+    top: -50px;
+    height: 77px;
 }
 
-.img0,.img1, .img2, .img3,.img4 {
-    position: absolute;
+.impar {
+    position: relative;
     z-index: 1000;
     cursor: pointer;
+    margin-left: 100px;
 }
 
-.img0 {
-    top: 0px;
-    right: 217px;
+.par {
+    position: relative;
+    top: -10px;
+    right: -20px;
 }
 
-.img1 {
+.par img {
+    width: 100px;
+}
+
+.impar {
     transform: rotate(90deg);
-    top: 116px;
-    right: 135px
+    top: -12px;
+    right: 10px
 }
 
-.img2{
-    top: 231px;
-    right: 217px;
+.impar img {
+    width: 100px;
 }
 
-.img3 {
-    transform: rotate(90deg);
-    top: 349px;
-    right: 135px;
-}
-
-.img4 {
-    top: 468px;
-    right: 247px;
-}
-
-.icon0 img {
+.icon-par img, .icon-impar img {
     width: 40px;
 }
 
-.icon1 img {
-    width: 40px;
+.icon-par {
+    position: relative;
+    z-index: 4000;
+    top: 55px;
+    right: -45px;
 }
 
-.icon2 img {
-    width: 40px;
-}
-
-.icon3 img {
-    width: 40px;
-}
-
-.icon4 img {
-    width: 40px;
-}
-
-.icon0,.icon1,.icon2,.icon3,.icon4 {
-    position: absolute;
-}
-
-.icon0 {
-    top: 30px;
-    right: 275px;
-}
-
-.icon1 {
-    top: 145px;
-    right: 185px;
-}
-
-.icon2 {
-    top: 255px;
-    right: 275px;
-}
-
-.icon3 {
-    top: 375px;
-    right: 185px;
-}
-
-.icon4 {
-    top: 500px;
-    right: 305px;
+.icon-impar {
+    position: relative;
+    z-index: 4000;
+    top: 50px;
+    right: -125px;
+    width: 50%;
 }
 
 @media screen and (max-width: 1440px) {

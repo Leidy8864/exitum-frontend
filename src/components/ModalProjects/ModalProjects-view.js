@@ -59,7 +59,6 @@ function View(props) {
                                                 name="stage_id"
                                                 options={stageOptions}
                                                 onChange={handleSelectChange}
-                                                placeholder="Fase..."
                                                 id="stage_id"
                                             />
                                         </Fragment>
