@@ -216,7 +216,7 @@ function View(props) {
                                                                 <strong>{item.description}</strong>
                                                             </div>
                                                             <div className="time-exp mt-1">
-                                                                <span className="gray">{moment(item.date_start).format('DD-MM-YYYY')} - {moment(item.date_end).format('DD-MM-YYYY')}</span>
+                                                                <span className="gray">{moment(item.date_start).format('DD/MM/YYYY')} - {moment(item.date_end).format('DD/MM/YYYY')}</span>
                                                             </div>
                                                             <div className="description mb-4">
                                                                 {/* Descripcion */}
@@ -279,7 +279,7 @@ function View(props) {
                                                             <br />
                                                             <strong>{item.issuing_company}</strong>
                                                             <div className="time-exp mt-1">
-                                                                <span className="gray">{moment(item.date_expedition).format('DD-MM-YYYY')} - {moment(item.date_expiration).format('DD-MM-YYYY')}</span>
+                                                                <span className="gray">{moment(item.date_expedition).format('DD/MM/YYYY')} - {moment(item.date_expiration).format('DD/MM/YYYY')}</span>
                                                             </div>
                                                             <div className="description mt-1 mb-4">
                                                                 <Link to="#">{item.url}</Link>

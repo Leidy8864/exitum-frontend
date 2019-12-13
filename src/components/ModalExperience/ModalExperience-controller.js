@@ -111,7 +111,7 @@ class ModalExperience extends React.Component {
 
     ocupationChange = (newValue, actionMeta) => {
         if(newValue){
-            this.setState({ ocupation_name: {label: newValue.label, value: newValue.value}  })
+            this.setState({ ocupation_name: {label: newValue.label, value: newValue.label}  })
         }
     };
     ocupationInputChange = (inputValue, actionMeta) => {

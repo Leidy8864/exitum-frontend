@@ -849,5 +849,14 @@ export const ocupationsList = async () => {
     }
 }
 
+export const certificationsList = async () => {
+    try {
+        const res = await axios.get(root + `certification-name/list`);
+        return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
 
 

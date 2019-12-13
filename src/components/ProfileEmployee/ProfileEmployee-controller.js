@@ -3,7 +3,7 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience, ocupationsList  } from '../../redux/actions';
+import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience, ocupationsList,certificationsList  } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
 import getExperience from '../../redux/actions/get-experience';
@@ -11,6 +11,7 @@ import getUniversities from '../../redux/actions/get-list-universities';
 import getCompanies from '../../redux/actions/get-list-companies';
 import listOcupations from '../../redux/actions/get-list-ocupations';
 import listCertifications from '../../redux/actions/list-certifications';
+import certificationsListName from '../../redux/actions/list-certifications-name';
 import listEducations from '../../redux/actions/list-educations';
 import listExperiences from '../../redux/actions/list-experiences';
 import listSkills from '../../redux/actions/list-skills';
@@ -125,6 +126,13 @@ class ProfileEmployee extends React.Component {
                 ocupations = ocupationsList_.map(x => ({ label: x.name, value: x.id }));
             }
             this.props.listOcupations(ocupations);
+            
+            const certificationsList_ = await certificationsList();
+            var certificationsList__ = [];
+            if (certificationsList_.length >= 1) {
+                certificationsList__ = certificationsList_.map(x => ({ label: x.name, value: x.id }));
+            }
+            this.props.certificationsListName(certificationsList__);
         } catch (error) {
             console.log(error)
         }
@@ -169,6 +177,13 @@ class ProfileEmployee extends React.Component {
             listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
         }
         this.props.getCompanies(listCompanies__);
+
+        const certificationsList_ = await certificationsList();
+        var certificationsList__ = [];
+        if (certificationsList_.length >= 1) {
+            certificationsList__ = certificationsList_.map(x => ({ label: x.name, value: x.id }));
+        }
+        this.props.certificationsListName(certificationsList__);
     }
 
     refreshExperience = async () => {
@@ -467,6 +482,8 @@ const mapDispatchToProps = {
     getUniversities,
     getCompanies,
     ocupationsList,
+    certificationsList,
+    certificationsListName,
     listOcupations,
     setImage
 };

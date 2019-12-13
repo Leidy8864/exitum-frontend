@@ -17,7 +17,11 @@ function View(props){
         options,
         handleChange,
         handleInputChange,
-        company_name
+        company_name,
+        certificationChange,
+        certificationInputChange,
+        certifications,
+        certification_name,
     } = props
 
     return(
@@ -39,14 +43,23 @@ function View(props){
                                     />
                                 <div className="form_group_ mt-3">
                                     <label>Certificacion</label>
-                                    <input
+                                    {/* <input
                                         type="text"
                                         id="CertificateName"
                                         onChange={name}
                                         name="name"
                                         className="form-control"
                                         // defaultValue={CertificateName}
-                                    />
+                                    /> */}
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={certificationChange}
+                                            onInputChange={certificationInputChange}
+                                            options={certifications}
+                                            value={certification_name}
+                                        />
+                                    </Fragment>
                                 </div>
                                 <div className="form_group_ mt-3">
                                     <label>Empresa</label>

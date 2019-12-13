@@ -15,7 +15,8 @@ class ModalCertificate extends React.Component {
         company_name: '',
         date_expedition: new Date(),
         date_expiration: new Date(),
-        document: ''
+        document: '',
+        certification_name:'',
     }
 
     name = e => {
@@ -25,9 +26,9 @@ class ModalCertificate extends React.Component {
     certificate = async e => {
         e.preventDefault();
         var formData = new FormData();
-        const {name,company_name,date_expedition,date_expiration} = this.state;
+        const {name,company_name,date_expedition,date_expiration, certification_name} = this.state;
         formData.append('user_id',localStorage.getItem('id'));
-        formData.append('name',name);
+        formData.append('name',certification_name.value);
         formData.append('issuing_company',company_name.value);
         formData.append('date_expedition', moment(date_expedition).format('YYYY-MM-DD'));
         formData.append('date_expiration', moment(date_expiration).format('YYYY-MM-DD'));
@@ -40,7 +41,8 @@ class ModalCertificate extends React.Component {
             company_name: '',
             name:'', 
             date_expedition: new Date(),  
-            date_expiration: new Date()
+            date_expiration: new Date(),
+            certification_name:'',
         });
         this.props.listCertifications(1);
     }
@@ -57,12 +59,23 @@ class ModalCertificate extends React.Component {
     handleInputChange = (inputValue, actionMeta) => {
         
     };
+
+    certificationChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ certification_name: {label: newValue.label, value: newValue.label}  })
+        }
+    };
+    certificationInputChange = (inputValue, actionMeta) => {
+        
+    };
     
     
     render() {
         const {
-            listCompaniesReducer
+            listCompaniesReducer,
+            listCertificationsNameReducer
         } = this.props;
+
         return (
             <View
                 name= {this.name}
@@ -75,6 +88,10 @@ class ModalCertificate extends React.Component {
                 handleChange={this.handleChange}
                 handleInputChange={this.handleInputChange}
                 company_name={this.state.company_name}
+                certificationChange={this.certificationChange}
+                certificationInputChange={this.certificationInputChange}
+                certifications={listCertificationsNameReducer}
+                certification_name={this.state.certification_name}
             />
         );
     }
@@ -88,6 +105,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => ({    
     getCertificateReducer: state.getCertificateReducer,
     listCompaniesReducer: state.listCompaniesReducer,
+    listCertificationsNameReducer: state.listCertificationsNameReducer,
 });
 
 export default withRouter(

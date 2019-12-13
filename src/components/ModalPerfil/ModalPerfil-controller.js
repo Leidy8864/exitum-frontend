@@ -32,7 +32,6 @@ class ModalPerfil extends React.Component {
         try {
             let id = localStorage.getItem('id')
             const userShow = await showDataByUser(id);
-            console.log(userShow)
             this.setState({
                 name: userShow.data.name,
                 lastname: userShow.data.lastname,
@@ -78,7 +77,6 @@ class ModalPerfil extends React.Component {
             const index = hours.indexOf(e.target.id);
             hours.splice(index, 1)
         }
-        console.log('array', hours);
         this.setState({
             available: hours
         })
@@ -86,7 +84,6 @@ class ModalPerfil extends React.Component {
 
     updatePerfil = async (e) => {
         e.preventDefault();
-        console.log('hola')
         let user_id = localStorage.getItem('id')
 
         const { name, lastname, phone, birthday, position, available, description } = this.state
@@ -95,19 +92,12 @@ class ModalPerfil extends React.Component {
             available
         }
 
-        console.log(ScheduleData)
-
         const formData = {
             name, lastname, phone, position, birthday, user_id, description
         }
 
-        console.log(formData)
-
         const res = await this.props.updateUserPerfil(formData)
         const ress = await this.props.notAvailableUser(user_id, ScheduleData)
-
-        console.log(ress)
-        console.log(res)
 
         $('#perfilusuario').modal('hide');
         window.location.reload();
