@@ -35,6 +35,7 @@ import activeBackButtonReducer from './activeBackButtonReducer';
 import setImageReducer from './setImageReducer';
 import listOcupationsReducer from './listOcupationsReducer';
 import listCertificationsNameReducer from './listCertificationsNameReducer';
+import getListCareersReducer from './getListCareersReducer';
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -72,4 +73,5 @@ export default combineReducers({
     setImageReducer : setImageReducer,
     listOcupationsReducer : listOcupationsReducer,
     listCertificationsNameReducer : listCertificationsNameReducer,
+    getListCareersReducer : getListCareersReducer,
 });
