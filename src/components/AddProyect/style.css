@@ -43,12 +43,11 @@
 
 .Ads-plus-proyect {
     position: absolute;
-    top: 12px;
-    right: 18px;
+    top: 35px;
+    right: 30px;
 }
  
 .proyects-list-aux{
-    margin-top: 60px;
     margin-left: 40px;
     margin-right: 40px;
     overflow-y: auto;

@@ -29,7 +29,10 @@ function View(props){
                     )
                     :
 
-                    'No se encontraron resultados'
+                    <div className="img-startup-help">
+                        <img className="max-cell" src={require('../../public/img/infostart.png')} />
+                        <img className="min-cell" src={require('../../public/img/infocell.png')} />
+                    </div>
 
                 }
             </div>

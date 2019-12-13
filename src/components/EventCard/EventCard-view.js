@@ -18,7 +18,7 @@ function View(props) {
         isPart
     } = props;
     return (
-        <div className="card events mb-1">
+        <div className="card events">
             <div className="card-header">
                 <img className="w-100" src="https://www.expertosdecomputadoras.com/wp-content/uploads/2012/03/como%20hacer%20una%20copia%20de%20seguridad%20en%20mac%20sin%20usar%20time%20machine1.jpg" />
             </div>

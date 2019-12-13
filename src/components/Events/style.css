@@ -41,3 +41,9 @@ a.nav-link-morado:hover, a.nav-link-yellow:hover {
 a.nav-link-morado:focus, a.nav-link-yellow:focus, a.nav-link:focus {
     color: #FD42A6;  
 }
+
+@media screen and (max-width: 1200px) {
+    .container-fluid .events-none {
+        display: none;
+    }
+}

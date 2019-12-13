@@ -1,11 +1,12 @@
 .Diary {
   margin-top: 23px !important;
-  padding: 12px;
+  padding: 0px 12px 0px 0px;
   z-index: 3000;
   border-radius: 6px;
   margin-bottom: 20px;
   overflow-y: auto;
   overflow-x: hidden;
+  height: calc(100vh - 100px);
 }
 
 .content-diary {

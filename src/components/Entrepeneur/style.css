@@ -12,3 +12,18 @@
     height: 500px !important;
     width: 100%;
 }
+
+.add-proyects-container {
+    margin-left: 0px !important;
+}
+
+@media screen and (max-width: 1200px) {
+    .container-fluid .content-diary {
+        display: none !important;
+    }
+
+    nav.choose-calendar {
+        left: 10px !important;
+        width: 98.5% !important;
+    }
+}

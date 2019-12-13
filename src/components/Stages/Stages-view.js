@@ -34,7 +34,7 @@ function View(props) {
 
                         :
 
-                        'No se encontraron resultados'
+                        ''
                     }
                 </div>
             </div>

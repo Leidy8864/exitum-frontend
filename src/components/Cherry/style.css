@@ -1,8 +1,8 @@
 .Cherry{
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 8px;
-    z-index: 2000;
+    z-index: 5000;
 }
 
 /* Display the modal when targeted */
@@ -57,8 +57,8 @@
      text-align: center;
      background: #fff;
      padding-bottom: 20px;
-     border-bottom-right-radius: 10px;
-     border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 4px;
+     border-bottom-left-radius: 4px;
   }
   
   a.closebtn {
@@ -67,8 +67,8 @@
     color: #fff;
     font-family: 'Proxima Nova';
     text-decoration: none !important;
-    border-radius: 10px;
-    font-size: 19px;
+    border-radius: 4px;
+    font-size: 16px;
   }
 
   a.closebtn:hover {
@@ -76,8 +76,9 @@
   }
   
   .container-message {
+    text-align: center;
     padding: 10px 16px;
-    font-size: 17px;
+    font-size: 16px;
     color: #777777;
     background: #fff;
     font-family: 'Proxima Nova';

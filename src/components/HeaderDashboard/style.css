@@ -33,7 +33,7 @@ nav.dashboard-header {
   background: transparent;
   border: none !important;
   color: #777;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .perfil-pick:focus {

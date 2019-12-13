@@ -12,7 +12,7 @@
     border-top-right-radius: 4px;
     text-align: center;
     background-image: url('../../public/img/bg-usuario.jpg');
-    height: 50vh;
+    height: auto;
     width: 100%;
     background-position: center center;
     background-size: cover;
@@ -278,6 +278,11 @@ div ul.experiences {
     color: #1BDBA6;
 }
 
+.profile-employee {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 .time-exp {
     color: rgb(145, 145, 145);
     font-size: 16px;
@@ -365,9 +370,52 @@ input.inputfile{
 
 .description-perfil {
     margin: 0 auto;
-    width: 400px;
+}
+
+.experience-position {
+    text-align: center;
 }
 
 #ga{
     right: 500px;
+}
+
+.plus-perfil {
+    margin-right: 50px;
+}
+
+.edit-perfil {
+    margin-right: 50px;
+}
+
+.divider-info {
+    width: 95%;
+    float: left;
+}
+
+.experience-info-content::before {
+    content: '';
+    display: block;
+    border-bottom: 1px solid #e6e9ec;
+    width: 95%;
+}
+
+@media screen and (max-width: 420px) {
+    .zero-cel {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .img-experience img {
+        display: none;
+    }
+    .experience-info-content {
+        margin-left: 20px !important;
+    }
+    .edit-perfil {
+        margin-right: 15px;
+    }
+    .experience-position {
+        width: 270px;
+        margin: 0 auto;
+    }
 }

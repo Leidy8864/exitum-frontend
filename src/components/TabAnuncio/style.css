@@ -9,20 +9,29 @@
 .nav-link-curse {
     background: #EEF5FF;
     border-radius: 20px;
-    color: #4157F2  
+    color: #157FFB  
 }
 
 .nav-link-curses:hover {
-    color: #4157F2 !important  
+    color: #157FFB !important  
 }
 
 .nav-link-curses {
    color: #4C5161 !important  
 }
 
-.add-tabs.anuncios {
-    border: 1px solid #E9ECEF !important;
-    border-radius: 4px;
-    margin-left: 16px;
-    margin-right: 16px;
+.nav-link-anuncio {
+    background: #EEF5FF !important;
+    border-radius: 20px !important;
+    color: #157FFB !important 
+}   
+
+.nav-link-anuncio:active i{
+    background: #EEF5FF !important;
+    border-radius: 20px !important;
+    color: #157FFB !important 
+}   
+
+.nav-link-anuncio:hover {
+    color: #157FFB !important  
 }

@@ -24,21 +24,20 @@ function View(props) {
                         </li>
                     </ul>
                     :
-                    <ul className="nav nav-pills add-tabs anuncios bg-white p-4" id="myTab" role="tablist">
+                    <ul className="nav nav-pills add-tabs anuncios bg-white" id="myTab" role="tablist">
                         <li className="nav-item">
-                            <a href="#" className={adType === "coincidence" ? "nav-link-person px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "coincidence")}>Coincidencias</a>
+                            <a href="#" className={adType === "coincidence" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "coincidence")}><i data-toggle="tooltip" data-placement="top" title="Coincidencias"  className="fas fa-american-sign-language-interpreting"></i></a>
                         </li>
                         <li className="nav-item">
-                            <a href="#" className={adType === "postulation" ? "nav-link-person px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "postulation")}>Postulaciones</a>
+                            <a href="#" className={adType === "postulation" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "postulation")}><i data-toggle="tooltip" data-placement="top" title="Postulaciones"  className="fas fa-mail-bulk"></i></a>
                         </li>
                         {
                             userRole === "entrepreneur" ?
                                 <li className="nav-item">
-                                    <a href="#" className={adType === "favorite" ? "nav-link-person px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}>Favoritos</a>
+                                    <a href="#" className={adType === "favorite" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}>Favoritos</a>
                                 </li>
                                 : ''
                         }
-
                     </ul>
             }
         </div>

@@ -15,7 +15,6 @@ function View(props) {
     console.log(adsList)
     return (
         <div className="mt-4 w-100" id="entrepreneur-ads">
-                <h5 className="ml-4 mb-4">Mis Anuncios</h5>
                 {
                     adsList.length > 0 ?
                         adsList.map(function (item, index) {
@@ -23,6 +22,7 @@ function View(props) {
                                 <div className="col-md-12 events-padding" key={item.id}>
                                     <AdCard
                                         title={item.title}
+                                        description={item.description}
                                         id={item.id}
                                         index={index}
                                         startup={item.startup}

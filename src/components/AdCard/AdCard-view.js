@@ -16,7 +16,8 @@ function View(props) {
         state,
         userRole,
         proposals,
-        slugAd
+        slugAd,
+        description
     } = props;
     return (
         <div className="card p-3 pauses-play mb-3">
@@ -37,7 +38,7 @@ function View(props) {
             </div>
             <div className="">
                 <span className="title-company col-sm-12">{startup.name}</span><br />
-                <span className="bold col-sm-12">{startup.description}</span><br />
+                <span className="bold col-sm-12">{description}</span><br />
                 <span className="bold col-sm-12">{moment(startup.created_at).fromNow()}</span><br />
             </div>
             {/* {

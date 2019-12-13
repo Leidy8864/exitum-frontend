@@ -45,12 +45,12 @@ function View(props) {
                                             <ModalEvents />
                                         </div>
                                     </div>
-                                    <div className="row mt-4 scroll-anuncios">
+                                    <div className="row mt-2 scroll-anuncios">
                                             <EventsList />
                                     </div>
                                 </div>
                                 </div>
-                                <div className="col-xl-3 col-lg-12 content-diary">
+                                <div className="col-xl-3 col-lg-12 content-diary events-none">
                                     <Diary />
                                 </div>
                             </div>

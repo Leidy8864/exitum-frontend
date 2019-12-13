@@ -15,7 +15,8 @@ class AdCard extends React.Component {
             startup,
             state,
             userRole,
-            proposals
+            proposals,
+            description
         } = this.props
         return (
             <View
@@ -30,6 +31,7 @@ class AdCard extends React.Component {
             userRole={userRole}
             proposals={proposals}
             slugAd={slugAd}
+            description={description}
             />
         );
     }

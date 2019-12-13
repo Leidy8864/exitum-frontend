@@ -15,7 +15,7 @@ function View(){
                 <div className="content">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-lg-12 mt-4">
+                            <div className="col-lg-12 mt-4 calendar-none">
                                 <Diary />
                             </div>
                         </div>

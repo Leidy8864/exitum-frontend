@@ -33,6 +33,7 @@ div#list-participants{
 
 .card.profiles {
     border: 2px solid #E9EAED !important;
+    border-top-left-radius: 10px !important;
 }
 
 .accept-wait {
@@ -79,10 +80,28 @@ a.see-perfil:hover {
     .accept-wait {
         right: 32%;
     }
+    nav.choose-calendar {
+        width: 97.5% !important;
+    }
+    .Diary {
+        height: calc(100vh - 120px) !important;
+    }
 }
 
-@media screen and (max-width: 728px) {
-    .accept-wait {
-        right: 32%;
+@media screen and (max-width: 420px) {
+    nav.choose-calendar {
+        width: 95.5% !important;
+    }
+    span.no-data {
+        margin-left: 20px;
+    }
+    .experience-header h3 {
+        margin-left: -5px !important;
+    }
+    .plus-perfil {
+        margin-right: 15px !important;
+    }
+    .experience-info-content span.title {
+        width: 107px;
     }
 }

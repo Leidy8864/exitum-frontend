@@ -45,13 +45,13 @@ function View(props) {
     let phone = users.phone
     let experienceActual = experience
     let birthday = users.birthday
-    let email =users.email
+    let email = users.email
 
     return (
         <Fragment>
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12  col-lg-12 zero-cel">
                         <div id="back-button">
                             <div className="back-profile">
                                 {
@@ -62,12 +62,14 @@ function View(props) {
                         </div>
                         <div className="card profiles">
                             <div className="img-profile mb-3">
-                                <div className="photo-perfil mt-5">
+                                <div className="photo-perfil mt-4">
                                     <img id="imgSalida" src={photo || require('../../public/img/fresita_.png')} alt="img" />
                                     <div className="">
                                         <h4 className="text-white mt-4">{name} {lastname}</h4>
                                     </div>
-                                    <p className="text-white">{experience}</p>
+                                    <div className="experience-position">
+                                        <p className="text-white ">{experience}</p>
+                                    </div>
                                     {isMyProfile ? <input type="file" className="inputfile" id="file-input" name="file" accept="image/*" onChange={fileSelectedHandler} /> : ''}
                                 </div>
                                 {isMyProfile ? <button className="btn-save-img mt-2 mb-4" type="button" onClick={fileUploadHandler}>Guardar</button> : ''}
@@ -82,7 +84,7 @@ function View(props) {
                                     <div className="data_user mt-3 experience-info-content mb-3">
                                         <div className="description-perfil mt-3">
                                             <strong className="w-100">Sobre mi ...</strong><br />
-                                            <span className="gray">{description}</span>
+                                            <span className="gray justify-content-center">{description}</span>
                                         </div>
                                         <hr />
                                         <strong>{country}</strong>
@@ -90,7 +92,7 @@ function View(props) {
                                             <span className="gray title">Email:</span><span className="gray">{email}</span>
                                         </div>
                                         <div>
-                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday}</span><br/>
+                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday}</span><br />
                                         </div>
                                         <div>
                                             <span className="gray title">Celular:</span><span className="gray">{phone}</span>
@@ -99,7 +101,7 @@ function View(props) {
                                 </div>
                                 {
                                     isMyProfile ?
-                                        <div className="edit-perfil mt-4 mr-5">
+                                        <div className="edit-perfil mt-4">
                                             <a href="#" className="reminder-edit" data-toggle="modal" data-target="#perfilusuario"><i className="fas fa-marker"></i></a>
                                         </div>
                                         : ''
@@ -111,7 +113,7 @@ function View(props) {
                 </div>
 
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 zero-cel">
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -120,7 +122,7 @@ function View(props) {
                                 </div>
                                 {
                                     isMyProfile ?
-                                        <div className="plus-perfil mr-5">
+                                        <div className="plus-perfil">
                                             <a href="#" data-toggle="modal" data-target="#experience"><i className="fas fa-plus"></i></a>
                                         </div> : ''
                                 }
@@ -130,29 +132,30 @@ function View(props) {
                                     experiences.map(function (item, index) {
                                         return (
                                             <Fragment key={index}>
-                                                <div className="experience-info w-100 mb-4">
+                                                <div className="experience-info w-100 ">
                                                     <div className="info-experience w-100">
                                                         <div className="experience-info-content w-100 mt-3">
-                                                            <span className="gray title">Empresa:</span><span className=""><strong>{item.company_name}</strong></span>
-                                                            <span className="gray"> - {item.time_total}</span>
-                                                            <br />
                                                             {
                                                                 item.detail.map(function (item_, index_) {
                                                                     return (
                                                                         <Fragment key={index_}>
-                                                                            <div className="experience-info">
+                                                                            <div className="experience-info mt-4">
                                                                                 <div className="info-experience">
                                                                                     <div className="data_user_detail">
+                                                                                        <span className="gray title">Empresa:</span><span className=""><strong>{item.company_name}</strong></span>
+                                                                                        <span className="gray"> - {item.time_total}</span>
+                                                                                        <br />
                                                                                         <div><span className="gray title">Posisión:</span><span className="gray">{item_.position}</span></div>
                                                                                         <div><span className="gray title">Desde:</span><span className="gray">{moment(item_.date_start).format('DD/MM/YYYY')}</span></div>
                                                                                         <div><span className="gray title">Hasta:</span><span className="gray">{item_.date_end ? moment(item_.date_end).format('DD/MM/YYYY') : "actualidad"}</span></div>
-                                                                                        <div><span className="gray title">Descripción:</span><span className="gray">{item_.description? item_.description: ""}</span></div>
+                                                                                        <div><span className="gray title">Descripción:</span><span className="gray">{item_.description ? item_.description : ""}</span></div>
                                                                                         <br />
                                                                                     </div>
                                                                                 </div>
+                                                                                
                                                                                 {
                                                                                     isMyProfile ?
-                                                                                        <div className="edit-perfil mr-5">
+                                                                                        <div className="edit-perfil">
                                                                                             <Link to="" className="reminder-edit" onClick={idExperience} id={item_.id} data-toggle="modal" data-target="#updateexperience"><i className="fas fa-marker" id={item_.id}></i></Link>
                                                                                             <div className="mt-3">
                                                                                                 <a href="#" className="delete-perfil" >
@@ -165,8 +168,9 @@ function View(props) {
                                                                                         </div>
                                                                                         : ''
                                                                                 }
+                                                                                
                                                                             </div>
-
+                                                                            {/* <hr className="divider-info"/> */}
                                                                         </Fragment>
                                                                     )
                                                                 })
@@ -182,7 +186,7 @@ function View(props) {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 zero-cel">
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -192,7 +196,7 @@ function View(props) {
                                 {
                                     isMyProfile ?
 
-                                        <div className="plus-perfil mr-5">
+                                        <div className="plus-perfil">
                                             <a href="#" data-toggle="modal" data-target="#education"><i className="fas fa-plus"></i></a>
                                         </div>
                                         : ''
@@ -221,7 +225,7 @@ function View(props) {
                                                     </div>
                                                     {
                                                         isMyProfile ?
-                                                            <div className="edit-perfil mr-5 mt-2">
+                                                            <div className="edit-perfil mt-2">
                                                                 <Link to="" className="reminder-edit" onClick={idEducation} id={index} data-toggle="modal" data-target="#updateeducation"><i className="fas fa-marker" id={index}></i></Link>
                                                                 <div className="delete-skill mt-3">
                                                                     <a href="#" className="delete-perfil" >
@@ -248,7 +252,7 @@ function View(props) {
                 <ModalPerfil />
 
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 zero-cel">
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -257,7 +261,7 @@ function View(props) {
                                 </div>
                                 {
                                     isMyProfile ?
-                                        <div className="plus-perfil mr-5">
+                                        <div className="plus-perfil">
                                             <a href="#" data-toggle="modal" data-target="#certificate"><i className="fas fa-plus"></i></a>
                                         </div>
                                         : ''
@@ -285,7 +289,7 @@ function View(props) {
                                                     {
                                                         isMyProfile ?
 
-                                                            <div className="edit-perfil mr-5 mt-2">
+                                                            <div className="edit-perfil mt-2">
                                                                 <Link to="" className="reminder-edit" onClick={idCertificate} id={index} data-toggle="modal" data-target="#updatecertificate"><i className="fas fa-marker" id={index}></i></Link>
                                                                 <div className="delete-skill mt-3">
                                                                     <a href="#" className="delete-perfil" >
@@ -307,7 +311,7 @@ function View(props) {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 zero-cel">
                         <div className="card profiles mt-3 mb-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
@@ -317,7 +321,7 @@ function View(props) {
                                 {
                                     isMyProfile ?
 
-                                        <div className="plus-perfil mr-5">
+                                        <div className="plus-perfil">
                                             <a href="#" data-toggle="modal" data-target="#skill"><i className="fas fa-plus"></i></a>
                                         </div>
                                         : ''

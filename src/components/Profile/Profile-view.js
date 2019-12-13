@@ -16,12 +16,12 @@ function View(props) {
                     <HeaderDashboard />
                     <div className="content">
                         <div className="container-fluid">
-                            <div className="row">
-                                <div className="col-xl-9 col-lg-12 mt-4 content-challenge">
+                            <div className="row block-rows">
+                                <div className="col-md-12 col-xl-9 mt-4 content-challenge">
                                     {role === 'entrepreneur' ? perfilEntrepeneur : null }
                                     {role === 'employee' ? perfilImpulsor : null}
                                 </div>
-                                <div className="col-xl-3 col-lg-12 content-diary">
+                                <div className="col-md-12 col-xl-3 col-lg-12 content-diary">
                                     <Diary />
                                 </div>
                             </div>

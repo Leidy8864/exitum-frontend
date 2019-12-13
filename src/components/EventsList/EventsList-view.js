@@ -14,7 +14,7 @@ function View(props) {
     console.log(eventsList)
 
     return (
-        <div className="w-100 events-list mt-4" id="events-list">
+        <div className="w-100 events-list" id="events-list">
                 {
                     eventsList.length > 0 ?
                         eventsList.map(function (item) {

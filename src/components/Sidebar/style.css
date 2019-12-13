@@ -144,7 +144,7 @@ ul li a {
 
 .sidebar .navegacion .nav{
   display: block;
-  margin-top: 50px !important;
+  margin-top: 30px !important;
 }
 
 .sidebar .navegacion ul li a i{
@@ -216,6 +216,21 @@ ul li a {
   display: none !important;
 }
 
+
+
+@media screen and (max-width: 1280px) {
+  nav.choose-calendar {
+    width: 98% !important;
+    margin-left: -8px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-item.calendar {
+    display: block !important;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .sidebar {
     position: fixed;
@@ -226,7 +241,7 @@ ul li a {
     left: 0;
     z-index: 1032;
     visibility: visible;
-    background-color: #777777;
+    background-color: #fff;
     overflow-x: visible;
     border-top: none;
     text-align: left;
@@ -238,13 +253,8 @@ ul li a {
   .navbar-toggler {
     margin-left: 0px !important;
   }
-  .nav-item.calendar {
-    display: block !important;
-  }
   ul.nav-pills.add-tabs {
-    width: 100%;
-    display: block !important;
-    padding-left: 0px !important;
+
   }
   .pills-event {
     padding-right: 0px !important;
@@ -255,16 +265,21 @@ ul li a {
   .navbar-toggler {
     margin-left: 0px !important;
   }
-
   .container-tabs {
     flex-direction: column-reverse;
   }
   .pills-event {
     margin: 0 auto !important;
   }
+  .Ads-plus {
+    top: -47px !important;
+  }
   .events-list .container {
     padding-left: 0px !important;
     padding-right: 0px !important;
+  }
+  .container-fluid {
+
   }
 }
 

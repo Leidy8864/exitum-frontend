@@ -18,25 +18,11 @@ function View(props) {
             <div className="container-fluid">
 
                 <div className="content-user">
-                    <div class="dropleft">
+                    <div className="dropleft">
                         <button className="perfil-pick dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img className="img-usuario" src={photo || require('../../public/img/fresita_.png')} alt="svg" />
                             <span>{name || "Usuario"} {lastname || "Invitado"}</span>
                         </button>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <NavLink className="dropdown-item" data-toggle="pill" to="/my-profile" 
-                            onClick={goProfile}
-                            >
-                                <i className="far fa-user"></i>
-                                <p>Mi Perfil</p>
-                            </NavLink>
-                            <NavLink className="dropdown-item" to="/" 
-                            onClick={logOut}
-                            >
-                                <i className="far fa-arrow-alt-circle-left"></i>
-                                <p>Cerrar Sesion</p>
-                            </NavLink>
-                        </div>
                     </div>
 
                 </div>

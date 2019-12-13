@@ -8,6 +8,10 @@
     font-family: 'Proxima Nova' !important;
 }
 
+.stages-challenges {
+    display: block !important;
+}
+
 .space-reminder {
     margin-bottom: 100px;
 }
@@ -31,10 +35,10 @@
 nav.choose-calendar {
     top: 0px;
     border: 2px solid #E9EAED;
-    left: 10px;
+    left: 0px;
     background: #fff;
     padding: 10px;
-    width: 93%;
+    width: 96%;
     border-radius: 10px;
 }
 
@@ -167,4 +171,11 @@ a.morelink {
 
 .see-more {
     text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .img-startup-help img {
+        width: 100%;
+        height: auto;
+    }
 }

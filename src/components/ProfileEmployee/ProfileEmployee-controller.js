@@ -78,13 +78,14 @@ class ProfileEmployee extends React.Component {
                 //     : isMyProfile = false;
             }
             const userShow = await showDataByUser(id);
+            console.log(userShow)
             // Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id);
 
-            const experienceActualy = userShow.data.experience && userShow.data.experience[0] ? userShow.data.experience[0].position : ""
+            const experienceActualy = userShow.data.experience[0].description && userShow.data.experience[0].description ? userShow.data.experience[0].description : ""
             const country = userShow.data.country ? userShow.data.country.country: ""
             const photo = userShow.data.photo
             const description = userShow.data.description

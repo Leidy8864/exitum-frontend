@@ -33,9 +33,8 @@ function View(props) {
                     <div className="proyects-list-aux">
                         <div className="container">
                             <div className="row">
-                            <div className="w-100 title-proyect">
-                                <h4>Mis proyectos</h4>
-                            </div>
+                            {/* <div className="w-100 title-proyect">
+                            </div> */}
                                 {
                                     blockProjects.map((dt) =>
                                         <div
