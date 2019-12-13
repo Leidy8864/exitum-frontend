@@ -16,7 +16,11 @@ function View(props) {
         handleChange,
         handleInputChange,
         university,
-        options
+        options,
+        certificationChange,
+        certificationInputChange,
+        certifications,
+        certification_name,
     } = props
 
     return (
@@ -36,15 +40,24 @@ function View(props) {
                                 value={EducationId || ''}
                             />
                             <div className="form_group_">
-                                <label>Descripcion</label>
-                                <input
+                                <label>Carrera</label>
+                                {/* <input
                                     type="text"
                                     id="EducationDescription"
                                     // onChange={description}
                                     name="name"
                                     className="form-control"
                                     // defaultValue={EducationDescription}
-                                />
+                                /> */}
+                                <Fragment>
+                                    <CreatableSelect
+                                        isClearable
+                                        onChange={certificationChange}
+                                        onInputChange={certificationInputChange}
+                                        options={certifications}
+                                        value={certification_name}
+                                    />
+                                </Fragment>
                             </div>
                             <div className="form_group_ clocwerk mt-3">
                                 <label>Inicio de estudios</label>

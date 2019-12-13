@@ -15,7 +15,11 @@ function View(props) {
         options,
         handleChange,
         handleInputChange,
-        university_name
+        university_name,
+        certificationChange,
+        certificationInputChange,
+        certifications,
+        certification_name,
     } = props
 
     return (
@@ -29,14 +33,23 @@ function View(props) {
                         <div className="modal-body">
                             <form onSubmit={education}>
                                 <div className="form_group_">
-                                    <label>Descripcion</label>
-                                    <input
+                                    <label>Carrera</label>
+                                    {/* <input
                                         type="text"
                                         id="nombreDescripcion"
                                         className="form-control"
                                         name="description"
                                         onChange={description}
-                                    />
+                                    /> */}
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={certificationChange}
+                                            onInputChange={certificationInputChange}
+                                            options={certifications}
+                                            value={certification_name}
+                                        />
+                                    </Fragment>
                                 </div>
                                 <div className="form_group_ clocwerk mt-3">
                                     <label>Inicio de estudios</label>

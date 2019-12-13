@@ -22,28 +22,32 @@ class ModalUpdateEducation extends React.Component {
         changed_date_expiration: false,
         description : '',
         university : '',
+        certification_name : '',
     }
 
     educationUpdate = async e => {
         e.preventDefault();
-        let { date_expedition, date_expiration, changed_date_expedition, changed_date_expiration, university_name } = this.state;
-        if(!changed_date_expedition){
-            date_expedition = new Date(moment(localStorage.getItem('date_start')).format('YYYY-MM-DD'))
-        }
-        if(!changed_date_expiration){
-            date_expiration = new Date(moment(localStorage.getItem('date_end')).format('YYYY-MM-DD'))
-        }
+        let { date_expedition, date_expiration, changed_date_expedition, changed_date_expiration, university_name, certification_name } = this.state;
         const user_id = localStorage.getItem('id');
         const formData = {
             user_id:user_id,
             education_id:$('#EducationId').val(),
-            date_start: date_expedition,
-            date_end: date_expiration,
-            description: $('#EducationDescription').val(),
         }
 
         if(university_name){
             formData.university_name = university_name;
+        }
+
+        if(certification_name){
+            formData.description = certification_name.value;
+        }
+
+        if(date_expedition){
+            formData.date_start = moment(date_expedition).format('YYYY-MM-DD');
+        }
+
+        if(date_expiration){
+            formData.date_end = moment(date_expiration).format('YYYY-MM-DD');
         }
 
         await this.props.createEducationUpdate(formData);
@@ -55,6 +59,7 @@ class ModalUpdateEducation extends React.Component {
             EducationUniversity: '',
             description: '',
             university: '',
+            certification_name: '',
         })
         this.props.listEducations(1);
         this.props.cleanForm("1");
@@ -81,10 +86,19 @@ class ModalUpdateEducation extends React.Component {
 
     };
 
+    certificationChange = (newValue, actionMeta) => {
+        if(newValue){
+            this.setState({ certification_name: {label: newValue.label, value: newValue.label}  })
+        }
+    };
+    certificationInputChange = (inputValue, actionMeta) => {
+        
+    };
+
     render() {
 
         const {
-            getEducationReducer, listUniversitiesReducer
+            getEducationReducer, listUniversitiesReducer, getListCareersReducer
         } = this.props;
 
         let { EducationId,
@@ -92,7 +106,8 @@ class ModalUpdateEducation extends React.Component {
                 date_expiration, 
                 changed_date_expedition, 
                 changed_date_expiration,
-                university
+                university,
+                certification_name,
             } = this.state;
 
         EducationId = getEducationReducer.id;
@@ -107,6 +122,9 @@ class ModalUpdateEducation extends React.Component {
                 $('#EducationId').val(EducationId);
                 $('#EducationDescription').val(getEducationReducer.description);
                 $('#EducationUniversity').val(getEducationReducer.university.university);
+            }
+            if(certification_name === ''){
+                certification_name = {label: getEducationReducer.description, value: getEducationReducer.description};
             }
             localStorage.setItem('date_start', new Date(moment(getEducationReducer.date_start).add(1, 'days').format('YYYY-MM-DD')));
             localStorage.setItem('date_end', new Date(moment(getEducationReducer.date_end).add(1, 'days').format('YYYY-MM-DD')));
@@ -124,6 +142,10 @@ class ModalUpdateEducation extends React.Component {
                 handleChange={this.handleChange}
                 university={university}
                 handleInputChange={this.handleInputChange}
+                certificationChange={this.certificationChange}
+                certificationInputChange={this.certificationInputChange}
+                certifications={getListCareersReducer}
+                certification_name={certification_name}
             />
         );
     }
@@ -131,7 +153,9 @@ class ModalUpdateEducation extends React.Component {
 
 const mapStateToProps = (state) => ({    
     getEducationReducer: state.getEducationReducer,
-    listUniversitiesReducer: state.listUniversitiesReducer
+    listUniversitiesReducer: state.listUniversitiesReducer,
+    getListCareersReducer: state.getListCareersReducer,
+
 });
 
 const mapDispatchToProps = {

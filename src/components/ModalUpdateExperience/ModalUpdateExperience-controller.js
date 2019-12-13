@@ -69,13 +69,7 @@ class ModalUpdateExperience extends React.Component {
         if(!isDescriptionChanged){
             description = $('#nombreDescripcion').val()
         }
-        // if(!changed_date_expedition){
-        //     date_expedition = moment(localStorage.getItem('date_start_')).add(1, 'days').format('YYYY-MM-DD')
-        // }
-        // if(!changed_date_expiration){
-        //     date_expiration = moment(localStorage.getItem('date_end_')).add(1, 'days').format('YYYY-MM-DD')
-        // }
-        
+
         let isCurrentJob = document.getElementById('true_').checked?true:false;
         
         const formData = {
