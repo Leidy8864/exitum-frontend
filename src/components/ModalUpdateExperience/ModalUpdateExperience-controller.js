@@ -69,25 +69,18 @@ class ModalUpdateExperience extends React.Component {
         if(!isDescriptionChanged){
             description = $('#nombreDescripcion').val()
         }
-        if(!changed_date_expedition){
-            date_expedition = moment(localStorage.getItem('date_start_')).add(1, 'days').format('YYYY-MM-DD')
-        }
-        if(!changed_date_expiration){
-            date_expiration = moment(localStorage.getItem('date_end_')).add(1, 'days').format('YYYY-MM-DD')
-        }
-        let date_end = null;
-
+        // if(!changed_date_expedition){
+        //     date_expedition = moment(localStorage.getItem('date_start_')).add(1, 'days').format('YYYY-MM-DD')
+        // }
+        // if(!changed_date_expiration){
+        //     date_expiration = moment(localStorage.getItem('date_end_')).add(1, 'days').format('YYYY-MM-DD')
+        // }
+        
         let isCurrentJob = document.getElementById('true_').checked?true:false;
-
-        if(!isCurrentJob){
-            date_end = new Date(moment(date_expiration).format('YYYY-MM-DD'));
-        }
- 
+        
         const formData = {
             user_id: user_id,
             experience_id:$('#experience_id').val(),
-            date_start: new Date(moment(date_expedition).format('YYYY-MM-DD')),
-            date_end: date_end, 
             description: description
         }
         if(company_name){
@@ -100,7 +93,19 @@ class ModalUpdateExperience extends React.Component {
             formData.category_id = category_id;
         }
 
-        console.log("formData = ", formData)
+        if(changed_date_expedition){
+            formData.date_start = moment(date_expedition).format('YYYY-MM-DD')
+        }
+        
+        
+        if(changed_date_expiration){
+            formData.date_end  = moment(date_expiration).format('YYYY-MM-DD')
+        }
+
+        if(!changed_date_expiration){
+            formData.date_end  = moment(new Date()).format('YYYY-MM-DD')
+        }
+        formData.date_end  = !isCurrentJob ? formData.date_end: null
 
         await this.props.updateExperience(formData);
 
@@ -113,7 +118,17 @@ class ModalUpdateExperience extends React.Component {
             company_name:'', 
             date_expedition: new Date(),  
             date_expiration: new Date(),
-            isCurrentJob : true
+            isCurrentJob : true,
+            isCompanynameChanged: false,
+            isCategoryChanged: false,
+            isOcupationChanged: false,
+            isSelected: false,
+            isDescriptionChanged:false,
+            changed_date_expedition:false,
+            changed_date_expiration:false,
+            ocupation_name: '',
+            categories:[],
+            category_id:'',
         });
         this.props.listExperiences(1);
     }
@@ -143,7 +158,7 @@ class ModalUpdateExperience extends React.Component {
 
     ocupationChange = (newValue, actionMeta) => {
         if(newValue){
-            this.setState({ ocupation_name: newValue , isOcupationChanged: true })
+            this.setState({ ocupation_name: {label:newValue.label, value:newValue.label} , isOcupationChanged: true })
         }
     };
     ocupationInputChange = (inputValue, actionMeta) => {
