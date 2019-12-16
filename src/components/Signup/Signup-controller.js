@@ -108,52 +108,78 @@ class Signup extends React.Component {
     }
 
 
-    responseGoogle = async (res) => {
-        this.props.cleanForm("0");
-        const response = await this.props.oauthGoogle(res.accessToken);
-        if (response.status) {
-            localStorage.setItem('id', response.data.id);
-            localStorage.setItem('infoChiko', true);
-            localStorage.setItem('token', response.data.accessToken)
-            localStorage.setItem('photo', response.data.photo);
-            localStorage.setItem('confirmed', response.data.confirmed);
-            localStorage.setItem('lastname', response.data.lastname);
-            localStorage.setItem('name', response.data.name);
-            localStorage.setItem('email', response.data.email);
-            localStorage.setItem('role', response.data.role);
-
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-
-            window.location.replace('/dashboard');
-
-        } else {
-            console.log("error = ", response.message)
-            this.setState({ error_registro: response.message })
+    responseGoogle = async (response) => {
+        try {
+            this.props.cleanForm("0");
+            const user = response.profileObj;
+            if (user) {
+                const formData = {
+                    user : {
+    
+                        id : user.googleId,
+                        firstname : user.givenName,
+                        lastname : user.familyName,
+                        email : user.email,
+                        photo : user.imageUrl,
+                        provider : "google"
+                    }
+                }   
+        
+                const response = await this.props.oauthGoogle(formData);
+                if (response.status) {
+                    localStorage.setItem('id', response.data.id);
+                    localStorage.setItem('infoChiko', true);
+                    localStorage.setItem('token', response.data.accessToken)
+                    localStorage.setItem('photo', response.data.photo);
+                    localStorage.setItem('confirmed', response.data.confirmed);
+                    localStorage.setItem('lastname', response.data.lastname);
+                    localStorage.setItem('name', response.data.name);
+                    localStorage.setItem('email', response.data.email);
+                    localStorage.setItem('role', response.data.role);
+        
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+        
+                    window.location.replace('/dashboard');
+        
+                } else {
+                    console.log("error = ", response.message)
+                    this.setState({ error_registro: response.message })
+                }
+            }
+        } catch (error) {
+            console.log("Error");
         }
     }
 
     responseFacebook = async (res) => {
-        this.props.cleanForm("0");
-        const response = await this.props.oauthFacebook(res.accessToken)
-        if (response.status) {
-            localStorage.setItem('id', response.data.id);
-            localStorage.setItem('infoChiko', true);
-            localStorage.setItem('token', response.data.accessToken)
-            localStorage.setItem('photo', response.data.photo);
-            localStorage.setItem('confirmed', response.data.confirmed);
-            localStorage.setItem('lastname', response.data.lastname);
-            localStorage.setItem('name', response.data.name);
-            localStorage.setItem('email', response.data.email);
-            localStorage.setItem('role', response.data.role);
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-
-            window.location.replace('/dashboard');
-
-        } else {
-            console.log("error = ", response.message)
-            this.setState({ error_registro: response.message })
+        try {
+            
+            this.props.cleanForm("0");
+            const token = res.accessToken;
+            const response = await this.props.oauthFacebook(token)
+            if (response.status) {
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('infoChiko', true);
+                localStorage.setItem('token', response.data.accessToken)
+                localStorage.setItem('photo', response.data.photo);
+                localStorage.setItem('confirmed', response.data.confirmed);
+                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role);
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+    
+                window.location.replace('/dashboard');
+    
+            } else {
+                console.log("error = ", response.message)
+                this.setState({ error_registro: response.message })
+            }
+        } catch (error) {
+            console.log("Error");
+            
         }
     }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import View from './Signin-view';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { oauthGoogle, oauthFacebook, signIn } from '../../redux/actions';
+import { oauthGoogle, oauthFacebook, signIn, root } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form'
 
 import $ from 'jquery'
@@ -79,47 +79,79 @@ class Signin extends React.Component {
     }
 
 
-    responseGoogle = async (res) => {
-        const response = await this.props.oauthGoogle(res.accessToken)
-        if (response.status) {
-            localStorage.setItem('id', response.data.id);
-            localStorage.setItem('infoChiko', true);
-            localStorage.setItem('photo', response.data.photo)
-            localStorage.setItem('token', response.data.accessToken)
-            localStorage.setItem('confirmed', response.data.confirmed);
-            localStorage.setItem('name', response.data.name);
-            localStorage.setItem('lastname', response.data.lastname);
-            localStorage.setItem('email', response.data.email);
-            localStorage.setItem('role', response.data.role)
+    responseGoogle = async (response) => {
+        try {
 
-            $('.modal-backdrop').remove();
-            $('body').removeClass('modal-open');
-            window.location.replace('/dashboard');
-        } else {
-            this.setState({ error_login: "Credenciales incorrectas o verifique su cuenta, por favor intentelo nuevamente." });
+            const user = response.profileObj;
+            if (user) {      
+                const formData = {
+                    user : {
+    
+                        id : user.googleId,
+                        firstname : user.givenName,
+                        lastname : user.familyName,
+                        email : user.email,
+                        photo : user.imageUrl,
+                        provider : "google"
+                    }
+                }
+                console.log("FORM DATA",formData);
+                
+                
+                const response = await this.props.oauthGoogle(formData);
+                console.log("RESPONSE",response);
+                
+                if (response.status) {
+                    localStorage.setItem('id', response.data.id);
+                    localStorage.setItem('infoChiko', true);
+                    localStorage.setItem('photo', response.data.photo)
+                    localStorage.setItem('token', response.data.accessToken)
+                    localStorage.setItem('confirmed', response.data.confirmed);
+                    localStorage.setItem('name', response.data.name);
+                    localStorage.setItem('lastname', response.data.lastname);
+                    localStorage.setItem('email', response.data.email);
+                    localStorage.setItem('role', response.data.role)
+    
+                    $('.modal-backdrop').remove();
+                    $('body').removeClass('modal-open');
+                    window.location.replace('/dashboard');
+                } else {
+                    this.setState({ error_login: response.message });
+                }
+            }
+        } catch (error) {
+            console.log("Error");
 
         }
     }
 
     responseFacebook = async (res) => {
-        const response = await this.props.oauthFacebook(res.accessToken)
-        if (response.status) {
-            localStorage.setItem('id', response.data.id);
-            localStorage.setItem('infoChiko', true);
-            localStorage.setItem('token', response.data.accessToken)
-            localStorage.setItem('photo', response.data.photo)
-            localStorage.setItem('confirmed', response.data.confirmed);
-            localStorage.setItem('name', response.data.name);
-            localStorage.setItem('lastname', response.data.lastname);
-            localStorage.setItem('email', response.data.email);
-            localStorage.setItem('role', response.data.role);
+        try {
+            const token = res.accessToken;
+            console.log("TOKEN",token);
+            const response = await this.props.oauthFacebook(token);
+            console.log("RESPONSE",response);
+            
+            if (response.status) {
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('infoChiko', true);
+                localStorage.setItem('token', response.data.accessToken)
+                localStorage.setItem('photo', response.data.photo)
+                localStorage.setItem('confirmed', response.data.confirmed);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role);
 
-            $('.modal-backdrop').remove();
-            $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+                $('body').removeClass('modal-open');
 
-            window.location.replace('/dashboard');
-        } else {
-            this.setState({ error_login: "Credenciales incorrectas, por favor intentelo nuevamente." });
+                window.location.replace('/dashboard');
+            } else {
+                this.setState({ error_login: response.message });
+            }
+        } catch (error) {
+            console.log("Error");
         }
     }
 
