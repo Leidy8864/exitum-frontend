@@ -82,8 +82,8 @@ function View(props) {
                                 </div>
                             </div>
                         </form>
-                            {content_error_registro}
-                            {content_exito_registro}
+                        {content_error_registro}
+                        {content_exito_registro}
                         <div className="border-space">
                             <hr />
                             <div className="to">
@@ -92,24 +92,21 @@ function View(props) {
                             </div>
                         </div>
                         <div className="d-flex justify-content-center socials">
-
                             <FacebookLogin
                                 appId="2753590341320162"
                                 textButton=""
                                 fields="name,email,picture"
                                 callback={responseFacebook}
                                 cssClass="fab fa-facebook-f"
+                                icon={true}
                             />
-
                             <GoogleLogin
-                                clientId="990260099345-jh6kjumka8s2a2a796nur9tf64u26tir.apps.googleusercontent.com"
+                                clientId="71522118837-doshidv99lglkc314sk3sr7ve84o335d.apps.googleusercontent.com"
                                 buttonText=""
-                                onSuccess={responseGoogle}
                                 onFailure={responseGoogle}
                                 icon={true}
-
-                            >
-                            </GoogleLogin>
+                                onSuccess={responseGoogle}
+                            />
                         </div>
                     </div>
                     <div className="col-md-0 bg-register">

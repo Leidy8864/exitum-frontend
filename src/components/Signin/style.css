@@ -204,14 +204,20 @@ form.form-signin .error-message-aux {
   text-transform: capitalize;
 }
 
-.socials .fab {
+.socials .fab{
   color: #FFF;
   border: none;
   background: #3369FD;
-  font-size: 24px;
-  padding: 15px 22px !important;
   border-radius: 50%;
   margin-right: 40px;
+}
+.socials .fa-facebook-f {
+  font-size: 24px;
+  padding: 15px 20px !important;
+}
+.socials .fa-google {
+  font-size: 24px;
+  padding: 15px 17px !important;
 }
 
 .socials .fab:hover {
