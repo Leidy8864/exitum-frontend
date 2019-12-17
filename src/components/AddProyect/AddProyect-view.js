@@ -32,7 +32,7 @@ function View(props) {
                 <div >
                     <div className="proyects-list-aux">
                         <div className="container">
-                            <div className="row">
+                            <div className="row proyects-block">
                             {/* <div className="w-100 title-proyect">
                             </div> */}
                                 {

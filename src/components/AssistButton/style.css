@@ -3,7 +3,11 @@
 }
 
 button.btn-no-assist {
-    color: #777;
+    color: #fff;
+    background: #FB48A6;
+    padding: 7px 10px;
+    border-radius: 4px;
+    position: relative;
 }
 
 .container-detail button:focus{

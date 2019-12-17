@@ -20,6 +20,10 @@ h4.bold-title {
     font-weight: bold;
 }
 
+.form-group.border-anuncio {
+    margin-bottom: 0px !important;
+}
+
 .container-detail {
     display: flex;
     width: 100%;
@@ -27,8 +31,19 @@ h4.bold-title {
     padding-left: 20px;
     align-items: flex-start;
 }
+
+.scroll-anuncio {
+    overflow-y: auto;
+    height: calc(100vh - 20px) !important;
+}
+
 .button-back{
     width: 30px;
     position: absolute;
     left: 12px;
+}
+
+.detalle-anuncio {
+    display: flex;
+    justify-content: flex-start;
 }

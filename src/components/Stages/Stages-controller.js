@@ -61,7 +61,7 @@ class Stages extends React.Component {
 
     selectStage = async (e) => {
         this.props.getIdActualStage(e.target.id);
-
+        console.log(e.target.id)
         this.setState({ selected: e.target.id });
     }
 

@@ -7,10 +7,32 @@
     position: relative;
 }
 
+.complete-challenge {
+    display: flex;
+    align-content: center;
+    padding: 25px;
+    font-family: 'Proxima Nova';
+}
+
+.complete-challenge img {
+    width: 80px;
+}
+
+.welcome-challenge {
+    margin-left: 20px;
+}
+
+.welcome-challenge h2 {
+    color: #1D2129;
+}
+
+.welcome-challenge p {
+    color: #777;
+}
+
 .container-chellenges {
     margin-top: 30px;
     background: #EEF5FF;
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(28, 115, 228, 0.4);
     transition: 0.5s;
     border-radius: 10px;
     padding: 2px 40px 40px;
@@ -19,7 +41,7 @@
 }
 
 .img-startup-help img {
-    width: 170%;
+    width: 120%;
     height: auto;
 }
 
@@ -36,10 +58,10 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 10px;
+    margin-bottom: 48.5px;
     border-radius: 6px;
     font-size: 15px;
-    background: #4F78E8;
+    background: #EEF5FF;  /* fallback for old browsers */
     border: none;
     transition: 0.5s;
 }
@@ -50,9 +72,8 @@
 
 .challenge:hover {
     transition: 0.5s;
-    background: #4157F2;
+    background: #5280F6;
     transform: translate3d(0,-3px,0);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(81, 79, 230, 0.4);
     transition: 0.5s;
 }
 
@@ -82,7 +103,8 @@
 
 .challenge p {
     margin: 30px;
-    color: #fff !important;
+    font-weight: 500;
+    color: #4157F2 !important
 }
 
 .challenge_complete p {
@@ -91,8 +113,9 @@
 }
 
 .challenge span{
-    color: #fff !important;
+    color: #4157F2 !important;
     font-size: 15px;
+    font-weight: 500;
     margin-right: 15px;
     margin-bottom: 6px;
 }
@@ -102,6 +125,10 @@
     font-size: 15px;
     margin-right: 15px;
     margin-bottom: 6px;
+}
+
+.retos .container-options {
+    padding-right: 30px !important;
 }
 
 .min-cell {
@@ -118,6 +145,9 @@
     .container-chellenges {
         margin-top: 10px;
     }
+    .tags {
+        flex-wrap: wrap !important;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -130,4 +160,11 @@
     .challenges-hc {
         margin-left: 0px !important;
     }
+}
+
+@media screen and (max-width: 600px) {
+   .detalle-anuncio {
+       display: block !important;
+       padding: 10px !important;
+   }
 }

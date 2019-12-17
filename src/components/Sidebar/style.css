@@ -181,6 +181,11 @@ ul li a {
   transition: all .15s ease-in;
 }
 
+.anuncios.container-options {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+
 .nav-pills .nav-link.active i {
   color: #fff !important;
   font-weight: 400;

@@ -35,7 +35,7 @@ function View(props) {
                     }
 
                 </div>
-                <div className="row mt-4  scroll-anuncios">
+                <div className="row mt-1  scroll-anuncios">
                         {
 
                             userRole === "entrepreneur" ?

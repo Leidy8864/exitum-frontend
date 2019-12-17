@@ -30,11 +30,11 @@ function View(props) {
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
                                 <div className="container-fluid mt-4 events-scroll">
-                                    <div className="card mb-4">
+                                    <div className="card profiles mb-4">
                                         <div className="card-body d-flex justify-content-start ml-3">
                                         <BackButton />
                                             <div className="container-detail mt-2">
-                                                <div className="w-100">
+                                                <div className="">
                                                     <div className="form-group d-flex justify-content-between">
                                                         <h4 className="bold-title">{event.title}</h4>
                                                     </div>
@@ -55,7 +55,9 @@ function View(props) {
                                                             <span className="bold detail">Hora:</span><br/>
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
+                                                        <hr/>
                                                     </div>
+                                                    
                                                     {
                                                         event.toWorkshopCategories.length > 0 ?
                                                             <ul className="tags">

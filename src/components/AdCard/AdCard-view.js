@@ -30,14 +30,16 @@ function View(props) {
                                 <span><Link className="pause-bg" to="#">
                                     {state === "active" ? <i data-toggle="tooltip" data-placement="top" title="Pausar anuncio" className="far fa-pause-circle" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i> : <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Reanudar anuncio" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i>}</Link></span>
                                 <span className="ml-2"><Link className="trash-bg" to="#"><i data-toggle="tooltip" data-placement="top" title="Eliminar anuncio" className="far fa-pause-circle" className="far fa-trash-alt" id={id} onClick={handleClickDelete.bind(this, index)} ></i></Link></span>
+
                             </div>
                         </li>
                         :
                         <Link className="row col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
                 }
             </div>
+            <hr/>
             <div className="">
-                <span className="title-company col-sm-12">{startup.name}</span><br />
+                <i className="fab fa-wpforms ml-3"></i><span className="title-company col-sm-12">{startup.name}</span><br />
                 <span className="bold col-sm-12">{description}</span><br />
                 <span className="bold col-sm-12">{moment(startup.created_at).fromNow()}</span><br />
             </div>

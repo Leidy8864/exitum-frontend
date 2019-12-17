@@ -14,10 +14,10 @@ span.title-company {
 
 
 .title_add{
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     text-decoration: none !important;
-    color: #777;
+    color: #4C5161;
   }
 
   button.btn-no-assist i.fa-calendar-times {
@@ -25,7 +25,11 @@ span.title-company {
   }
   
   button.btn-assist {
-    color: #fff;
+    color: #fff !important;
+    background: #435DEE;
+    padding: 7px 10px;
+    border-radius: 4px;
+    position: relative;
 }
 
 .card-body {

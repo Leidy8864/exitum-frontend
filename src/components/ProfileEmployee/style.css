@@ -275,12 +275,27 @@ div ul.experiences {
 }
 
 .experience-info-content strong {
-    color: #1BDBA6;
+    color: #5280F6;
 }
+
+/* .css-yk16xz-control {
+    min-height: 70px !important;
+    max-height: 70px !important;
+} */
 
 .profile-employee {
     padding-left: 0px !important;
     padding-right: 0px !important;
+}
+
+.css-xb97g8:hover {
+    background: #2183F8 !important;
+    color: #fff !important;
+}
+
+.css-xb97g8 svg {
+    background: #2183F8 !important;
+    color: #fff !important;
 }
 
 .time-exp {

@@ -25,14 +25,14 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
-                                <div className="container-fluid mt-4">
-                                    <div className="card mb-4">
-                                        <div className="card-body d-flex justify-content-start">
+                                <div className="container-fluid mt-4 scroll-anuncio">
+                                    <div className="card profiles mb-4">
+                                        <div className="card-body detalle-anuncio">
                                             <BackButton
                                             />
                                             <div className="container-detail mt-2">
                                                 <div className="w-100">
-                                                    <div className="form-group d-flex justify-content-between">
+                                                    <div className="form-group d-flex justify-content-between border-anuncio">
                                                         <h4 className="bold-title">{advertisement.title}</h4>
                                                         <Link className="edit-profile" to="" data-toggle="modal" data-target="#AdsModal" onClick={handleOpenEditModal}>
                                                             <i className="fas fa-marker"></i>

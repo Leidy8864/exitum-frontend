@@ -48,7 +48,6 @@
 }
  
 .proyects-list-aux{
-    margin-left: 40px;
     margin-right: 40px;
     overflow-y: auto;
     display: flex;
@@ -150,6 +149,8 @@
     color: #fff;
 }
 
+
+
 @media screen and (max-width: 1440px) {
     .add-proyect{
         top: 30px;
@@ -175,10 +176,38 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
     .add-proyect{
         top: 20px;
         right: 75px;
         font-size: 20px;
+    }
+    .proyects-block {
+        overflow-x: auto;
+        flex-wrap: nowrap !important;
+        position: relative;
+        top: 20px;
+    }
+    .projectblockSelected,.projectblock{
+        width: 50%;
+    }
+    div.add-proyect-container.container-options {
+        padding: 0px !important;
+    }
+    .retos {
+        padding-top: 0px !important;
+    }
+    .stages-challenges {
+        height: calc(100vh - 180px);
+    }
+    .add-proyect-aux .Ads-plus-proyect{
+        top: 0px !important;
+        left: 0px !important;
+    }
+    .welcome-challenge {
+        display: none;
+    }
+    .etapas {
+        margin-top: 100px !important;
     }
   }
