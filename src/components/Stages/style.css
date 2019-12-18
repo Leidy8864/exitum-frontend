@@ -137,9 +137,6 @@
     .plus-padding .Ads-plus {
         top: -48px !important;
     }
-    .container-options .Ads-plus {
-        top: -48px !important;
-    }
     .challenges {
         margin-top: 100px !important;
         margin-left: 0px !important;
@@ -174,13 +171,22 @@
     .complete-challenge img {
         display: none;
     }
-    .etapas {
-        margin-top: 370px;
-    }
     .container-stage {
         right: 90px;
     }
     .stages-challenges {
         height: calc(100vh - 300px);
+    }
+    .events-fluid {
+        margin-right: 0px !important;
+    }
+    .scroll-anuncios {
+        height: calc(100vh - 0px) !important;
+    }
+    .retos {
+        padding-top: 0px !important;
+    }
+    .challenge {
+        margin-bottom: 20px !important;
     }
   }

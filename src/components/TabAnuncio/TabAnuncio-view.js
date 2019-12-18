@@ -24,7 +24,7 @@ function View(props) {
                         </li>
                     </ul>
                     :
-                    <ul className="nav nav-pills add-tabs anuncios container-options" id="myTab" role="tablist">
+                    <ul className="nav nav-pills add-tabs anuncios" id="myTab" role="tablist">
                         <li className="nav-item">
                             <a href="#" className={adType === "coincidence" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "coincidence")}><i data-toggle="tooltip" data-placement="top" title="Coincidencias"  className="fas fa-american-sign-language-interpreting"></i></a>
                         </li>

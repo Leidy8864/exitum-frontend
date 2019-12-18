@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { Fragment } from 'react';
+import DetailChallenge from '../DetailChallenge/DetailChallenge-controller'
 import './style.css';
 
 function View(props){
@@ -35,7 +36,7 @@ function View(props){
                             </div>
                         </Link>
                         </div>
-                        
+                        <DetailChallenge/>
                         </div>
                     )
                     
@@ -48,6 +49,7 @@ function View(props){
                     
                 }
             </div>
+            
         </Fragment>
     );
 }

@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
 
     state = {
         isConfirmed: localStorage.getItem('confirmed') || false,
-        role: localStorage.getItem('role') || '',
+        role: localStorage.getItem('role') || 'undefined',
     }
 
     logOut = e => {
@@ -62,6 +62,12 @@ class Sidebar extends React.Component {
 
 
         let menu =
+        <div className="sidebar">
+            <div className="cabecera">
+                <div className="text-logo pt-4">
+                    <img src={require('../../public/images/svg/logo-azul.svg')} alt="img"/>
+                </div>
+            </div>
             <div className="navegacion">
                 <ul className="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <li className="nav-item">
@@ -109,19 +115,12 @@ class Sidebar extends React.Component {
                     </li>
                 </ul>
             </div>
+        </div>
+            
 
-        if (this.state.isConfirmed === "false") {
+        if (this.state.role === "undefined") {
             menu = 
-            <div className="navegacion">
-                <ul>
-                    <li>
-                        <NavLink to="/dashboard" id="link">
-                            <i className="far fa-paper-plane"></i>
-                            <p className="home">Inicio</p>
-                        </NavLink>
-                    </li>
-                </ul>
-            </div>
+            ''
         }
 
         return (

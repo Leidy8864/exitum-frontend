@@ -29,6 +29,12 @@ class ChooseProfile extends React.Component {
 
     }
 
+    goInicio = e => {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.href = "/"
+    }
+
     render() {
         return (
             <View
@@ -37,6 +43,7 @@ class ChooseProfile extends React.Component {
             handleChange = {this.handleChange}
             handleSubmit = {this.handleSubmit}
             form = {this.state}
+            goInicio = {this.goInicio}
             />
         );
     }

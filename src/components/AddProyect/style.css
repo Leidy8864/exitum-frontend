@@ -1,6 +1,11 @@
 .AddProyect{
     display: block;
 }
+
+.modal {
+    z-index: 90000;
+}
+
 .add-proyect-container{
     display: inline-block;
     width: 100%;
@@ -57,7 +62,7 @@
     background-color: #EEF5FF;
     color: #4157F2;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 4px;
     margin: 10px 10px;
     padding: 8px;
     font-size: 16px;
@@ -75,7 +80,7 @@
     background-color: #4157F2;
     color: #EEF5FF;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 4px;
     margin: 10px 10px 20px;
     padding: 8px;
     height: 44px;
@@ -192,13 +197,13 @@
         width: 50%;
     }
     div.add-proyect-container.container-options {
-        padding: 0px !important;
+        padding: 25px !important;
     }
     .retos {
-        padding-top: 0px !important;
+        
     }
     .stages-challenges {
-        height: calc(100vh - 180px);
+        height: calc(100vh - 280px);
     }
     .add-proyect-aux .Ads-plus-proyect{
         top: 0px !important;
@@ -208,6 +213,6 @@
         display: none;
     }
     .etapas {
-        margin-top: 100px !important;
+        margin-top: 0px !important;
     }
   }

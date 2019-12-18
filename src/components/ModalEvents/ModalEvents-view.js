@@ -36,9 +36,9 @@ function View(props) {
                                 <h6 className="modal-title">Crear Evento</h6>
                             </div>
                             <div className="modal-body">
-                                <form id="event-form">
+                                <div id="event-form">
                                     <div className="form_group_ mt-3">
-                                        <label>Titulo del Anuncio</label>
+                                        <label>Titulo del evento</label>
                                         <input name="title" className="form-control" onChange={handleInputChange} id="title"
                                             value={title}
                                         />
@@ -104,13 +104,21 @@ function View(props) {
                                             {error_categories}
                                         </div>
                                     </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Participantes del evento</label>
+                                        <input type="number" className="form-control"/>
+                                    </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Elija un banner de tu evento</label> 
+                                        <input type="file" />
+                                    </div>
                                     {content_message}
                                     <div className="form_group_">
                                         <div className="d-flex justify-content-end mb-3">
                                             <button className="btn btn-primary event" type="button" onClick={handleSubmit}>Guardar</button>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

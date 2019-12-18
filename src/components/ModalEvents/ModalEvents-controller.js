@@ -16,6 +16,7 @@ class ModalEvents extends React.Component {
         title: '',
         description: '',
         place: '',
+        
         hour_start: '',
         categoryOptions: [],
         categories: [],
@@ -100,44 +101,47 @@ class ModalEvents extends React.Component {
             const result = decodeToken();
             const date_event = moment(day).format('YYYY-MM-DD');
             const formData = { user_id: result.id, title, description, day: date_event, hour_start, place, categories: values, event_id };
-            if (title && description && day && hour_start && place && categories.length > 0) {
-                var response = null
-                if (event_id) {
-                    response = await editEvent(formData);
-                }else{
-                    response = await createEvent(formData);
-                }
-                // console.log("RESPONSE", response);
-                if (response.status) {
-                    this.setState({ success_message: response.message });
-                    setTimeout(
-                        () => {
-                            $('#EventsModal').modal('hide');
-                            this.props.reloadPage(1);
-                            this.cleanState();
-                            this.cleanErrors();
-                        },
-                        1500
-                    );
-                } else {
-                    this.setState({ error_message: response.message });
-                    setTimeout(
-                        () => {
-                            $('#EventsModal').modal('hide');
-                            this.cleanState();
-                            this.cleanErrors();
-                        },
-                        1500
-                    );
-                }
-            } else {
-                !title ? this.setState({ error_title: 'Debes ingresar un título' }) : ''
-                !description ? this.setState({ error_description: 'Debes ingresar una descripción' }) : ''
-                !day ? this.setState({ error_day: 'Debes elegir una fecha' }) : ''
-                !hour_start ? this.setState({ error_hour_start: 'Debes elegir una hora' }) : ''
-                !place ? this.setState({ error_place: 'Debes ingresar el lugar' }) : ''
-                !categories.length > 0 ? this.setState({ error_categories: 'Debes elegir al menos una categoria' }) : ''
-            }
+            console.log(formData)
+            // if (title && description && day && hour_start && place && categories.length > 0) {
+            //     var response = null
+            //     if (event_id) {
+            //         response = await editEvent(formData);
+            //     }else{
+            //         response = await createEvent(formData);
+            //     }
+            //     // console.log("RESPONSE", response);
+            //     if (response.status) {
+            //         this.setState({ success_message: response.message });
+            //         setTimeout(
+            //             () => {
+            //                 $('#EventsModal').modal('hide');
+            //                 this.props.reloadPage(1);
+            //                 this.cleanState();
+            //                 this.cleanErrors();
+                            
+            //             },
+            //             1500
+            //         );
+            //     } else {
+            //         this.setState({ error_message: response.message });
+            //         setTimeout(
+            //             () => {
+            //                 $('#EventsModal').modal('hide');
+            //                 this.cleanState();
+            //                 this.cleanErrors();
+                            
+            //             },
+            //             1500
+            //         );
+            //     }
+            // } else {
+            //     !title ? this.setState({ error_title: 'Debes ingresar un título' }) : ''
+            //     !description ? this.setState({ error_description: 'Debes ingresar una descripción' }) : ''
+            //     !day ? this.setState({ error_day: 'Debes elegir una fecha' }) : ''
+            //     !hour_start ? this.setState({ error_hour_start: 'Debes elegir una hora' }) : ''
+            //     !place ? this.setState({ error_place: 'Debes ingresar el lugar' }) : ''
+            //     !categories.length > 0 ? this.setState({ error_categories: 'Debes elegir al menos una categoria' }) : ''
+            // }
         } catch (error) {
             console.log("Erorr intentado crear evento");
         }
