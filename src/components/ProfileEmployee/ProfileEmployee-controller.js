@@ -87,7 +87,7 @@ class ProfileEmployee extends React.Component {
             const educationsAll = await showEducationByUser(id);
             const skillsAll = await showSkillByUser(id);
 
-            const experienceActualy = userShow.data.experience[0].description && userShow.data.experience[0].description ? userShow.data.experience[0].description : ""
+            const experienceActualy = userShow.data.experience[0] && userShow.data.experience[0].description ? userShow.data.experience[0].description : ""
             const country = userShow.data.country ? userShow.data.country.country: ""
             const photo = userShow.data.photo
             const description = userShow.data.description
