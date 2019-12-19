@@ -18,7 +18,18 @@ const user_id = localStorage.getItem('id');
 class Challenges extends React.Component {
 
     state = {
-        blockChallenge: []
+        blockChallenge: [],
+        mostrarImagen: false
+    }
+
+    componentDidMount(){
+        const { step_id, startup_id } = this.props;
+        const data = {
+            step_id,
+            startup_id,
+            user_id
+        }                
+        this.getChallenges(data);
     }
 
     componentDidUpdate(nextProps){
@@ -55,7 +66,7 @@ class Challenges extends React.Component {
                 response = await challengeByEmployee(data);
             }
             const listChallenges = response.challenges;
-            
+            console.log(listChallenges)
             if (listChallenges && listChallenges.length >= 1) {
                 const challenges = listChallenges.map(x => ({
                     key: x.tip.id,
@@ -70,13 +81,15 @@ class Challenges extends React.Component {
                     status: x.status
                 }));
                 this.props.getListChallenges(challenges);
-
                 this.setState({
-                    blockChallenge: challenges
+                    blockChallenge: challenges,
                 });
+            }else{
+                
             }
         } catch (error) {
-            console.log("Error al traer challenges", error);
+            // console.log("Error al traer challenges", error);
+            this.setState({mostrarImagen:true})
         }
     }
     handleClick = (id) => {
@@ -90,6 +103,7 @@ class Challenges extends React.Component {
         return (
             <View
                 blockChallenge={this.state.blockChallenge}
+                mostrarImagen={this.state.mostrarImagen}
                 handleClick={this.handleClick}
             />
         );

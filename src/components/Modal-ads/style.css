@@ -20,9 +20,12 @@
   margin: 0 15px 15px;
 }
 
+.css-yk16xz-control {
+
+}
+
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container {
   width: calc(100% - 30px);
-  height: auto !important;
   font-size: 15px;
   font-weight: 800;
   margin: 0px 15px;
@@ -31,7 +34,7 @@
 }
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container .css-1hwfws3, .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container .css-bg1rzq-control {
-  height: 38px;
+
 }
 
 .Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container .css-bg1rzq-control .css-151xaom-placeholder,
@@ -89,13 +92,12 @@
   border-radius: 6px !important;
 }
 
-.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container .css-1hwfws3,
-.Modal-ads .modal .modal-dialog .modal-content .container .row .form_group_ .css-1pcexqc-container .css-bg1rzq-control {
-  height: auto !important;
-}
-
 .skill__multi-value__remove svg {
   color: #ffffff !important;
+}
+
+.select .css-yk16xz-control {
+  display: table;
 }
 
 .css-16pqwjk-indicatorContainer {

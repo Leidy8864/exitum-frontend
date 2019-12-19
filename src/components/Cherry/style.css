@@ -37,8 +37,8 @@
     background-color: transparent;
     position: absolute;
     border:none;
-    z-index: 2000;
-    right: 40px;
+    z-index: 8000;
+    right: -380px;
     bottom: 40px;
     padding: 0;
     width: 300px;
@@ -102,4 +102,16 @@
 
 @media screen and (max-width: 1024px) {
 
+}
+
+@media screen and (max-width: 780px) {
+  .Tree svg{
+    width: 280px;
+    position: relative;
+    top: 120px;
+    left: 30px;
+  }
+  .events-fluid {
+    margin-left: 0px !important;
+  }
 }

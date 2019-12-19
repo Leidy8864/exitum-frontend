@@ -39,7 +39,7 @@
     padding-left: 0px !important;
     padding: 13px;
     margin-left: 0px !important;
-    border-radius: 10px;
+    border-radius: 10px !important;
     border: 2px solid #E9EAED !important;
 }
 
@@ -53,6 +53,7 @@
 }
 
 .scroll-anuncios {
+    /* margin-top: 20px;
     overflow-y: auto;
-    height: calc(100vh - 220px);
+    height: calc(100vh - 220px); */
 }

@@ -11,7 +11,7 @@ function View(props) {
 
     console.log(participants)
     return (
-        <div className="container-fluid" id="list-participants">
+        <div id="list-participants">
 
             <div className="row">
                 {
@@ -19,7 +19,7 @@ function View(props) {
                         participants.map(function (item, index) {
                             return (
                                 <div className="col-md-4 col-xl-3 col-xs-2 mb-4" key={index}>
-                                    <div className="card list-persons">
+                                    <div className="card profiles list-persons">
                                         <div className="accept-wait">
                                             <p>{item.user_workshop.status === "ACCEPTED" ? <i className="fas fa-check"></i> : item.user_workshop.status === "PENDING" ? <i className="fas fa-hourglass-half"></i> : "Rechazado"}</p>
                                         </div>

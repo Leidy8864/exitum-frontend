@@ -12,7 +12,7 @@ function View(props) {
     } = props
 
     return (
-        <div className="container employee-ads-class" id="employee-ads">
+        <div className="employee-ads-class mt-4" id="employee-ads">
             <div className="row">
                 {
                     adsList.length > 0 ?
@@ -26,6 +26,7 @@ function View(props) {
                                         startup={item.startup}
                                         state={item.state}
                                         userRole={userRole}
+                                        description={item.description}
                                         handleSetAdId={handleSetAdId}
                                     />
                                 </div>

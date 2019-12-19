@@ -11,6 +11,7 @@ function View(props) {
         title,
         description,
         day,
+        photo,
         hour_start,
         place,
         eventType,
@@ -18,13 +19,13 @@ function View(props) {
         isPart
     } = props;
     return (
-        <div className="card events">
+        <div className="card mb-4 events">
             <div className="card-header">
-                <img className="w-100" src="https://www.expertosdecomputadoras.com/wp-content/uploads/2012/03/como%20hacer%20una%20copia%20de%20seguridad%20en%20mac%20sin%20usar%20time%20machine1.jpg" />
+                <img className="w-100" src={photo} />
             </div>
             <div className="card-body events">
                 <div className="d-flex header-events">
-                    <Link to={"/events/" + id} className="title_add col-sm-8">{title}
+                    <Link to={"/events/" + id} className="title_add_event col-sm-9">{title}
                     </Link>
                     <div className="">
                         <span className="gray">{moment(day).format('ll')}</span>
@@ -34,7 +35,7 @@ function View(props) {
                     <span className="gray col-sm-12 d-inline-block text-truncate">{description}</span>
                 </div>
 
-                <i className="ml-3 fas fa-map-marker-alt"></i><span className="col-sm-12 gray">{place}</span>
+                <span className="col-sm-12 gray">En {place}</span>
             </div>
             {eventType === "my_events" ?
                 <div className="card-body events-footer-delete text-center">

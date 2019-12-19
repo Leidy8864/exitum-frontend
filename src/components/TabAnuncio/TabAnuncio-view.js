@@ -24,7 +24,7 @@ function View(props) {
                         </li>
                     </ul>
                     :
-                    <ul className="nav nav-pills add-tabs anuncios bg-white" id="myTab" role="tablist">
+                    <ul className="nav nav-pills add-tabs anuncios" id="myTab" role="tablist">
                         <li className="nav-item">
                             <a href="#" className={adType === "coincidence" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "coincidence")}><i data-toggle="tooltip" data-placement="top" title="Coincidencias"  className="fas fa-american-sign-language-interpreting"></i></a>
                         </li>
@@ -34,7 +34,7 @@ function View(props) {
                         {
                             userRole === "entrepreneur" ?
                                 <li className="nav-item">
-                                    <a href="#" className={adType === "favorite" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}>Favoritos</a>
+                                    <a href="#" className={adType === "favorite" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}><i data-toggle="tooltip" data-placement="top" title="Favoritos" className="fas fa-heart"></i></a>
                                 </li>
                                 : ''
                         }

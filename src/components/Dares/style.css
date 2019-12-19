@@ -27,9 +27,16 @@ img.img-challenge {
 }
 
 span.contact {
-    color: #1D2129;
+    color: #2183F8;
     font-weight: 600;
     font-family: 'Proxima Nova';
+}
+
+.description-textos {
+    width:80%;
+    overflow:hidden !important;
+    white-space:nowrap !important;
+    text-overflow: ellipsis !important;
 }
 
 .card-body.challenges:hover {
@@ -38,17 +45,19 @@ span.contact {
 }
 
 .content-challenges {
-    padding: 0px 100px;
+    padding-left: 15px;
+    margin-top: 30px;
 }
 
 .content-help {
-    padding: 0px 100px 50px;
+    padding: 20px 40px !important;
     font-family: 'Proxima Nova';
-    color: #6C7478;
+    color: #777;
+    margin-left: 15px !important;
 }
 
 .content-help h4 {
-    color: #1D2129 !important;
+    color: #4C5161 !important;
     font-weight: 600;
 }
 
@@ -60,7 +69,6 @@ span.contact {
 .card-challenge:hover {
     background: #EEF5FF;
     transition: all ease 0.5s;
-    box-shadow: 0 7px 12px rgb(210, 231, 248);
     transform: translate3d(0,-3px,0);
 }
 
@@ -69,11 +77,11 @@ span.contact {
 }
 
 .card-challenge:hover span.contact {
-    color: #4157F2;
+    color: #2183F8;
 }
 
 .content-help strong {
-    color: #0D4EDC;
+    color: #2183F8;
 }
 
 .btn-go-challenge {
@@ -83,7 +91,7 @@ span.contact {
 .btn-go-challenge button {
     background: #D4E0F6;
     border: none;
-    color: #0D4EDC;
+    color: #2183F8;
     font-weight: 600;
     font-family: 'Proxima Nova';
     padding: 10px 25px;
@@ -94,13 +102,18 @@ span.contact {
 
 .btn-go-challenge button:hover {
     background: #D4E0F6;
-    color: #0D4EDC;
+    color: #2183F8;
     font-weight: 600;
     transition: 0.2s;
 }
 
 span.card-title-challenge {
     color: #6C7478;
+}
+
+.work-user-event strong {
+    color: #2183F8;
+    font-size: 14px !important;
 }
 
 @media screen and (max-width: 1024px) {

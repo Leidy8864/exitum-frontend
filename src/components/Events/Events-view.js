@@ -38,7 +38,7 @@ function View(props) {
                                         </div>
                                         <div className="col-md-4">
                                             <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#EventsModal">
-                                                <div className="Ads-plus">
+                                                <div className="Ads-plus events">
                                                     <i data-toggle="tooltip" data-placement="top" title="Agregar un evento" className="fas fa-plus mr-2"></i>
                                                     </div>
                                             </Link>

@@ -13,8 +13,7 @@ function View(props) {
     console.log(challenges)
     return (
         <Fragment>
-            <div className="container-fluid">
-            <div className="content-help">
+            <div className="content-help container-options">
                 <h4>Emprendedores al rescate</h4>
                 <p><strong>Verifica</strong> y <strong>Observa</strong> retos para conseguir más oportunidades de ser mejor</p>
                 <div className="helps mt-4">
@@ -29,7 +28,7 @@ function View(props) {
                         return (
                             <Fragment key={index}>
                                 <div className="col-md-6 col-xl-6">
-                                    <div className="card card-challenge mb-3">
+                                    <div className="card profiles card-challenge mb-3">
                                         <div className="contact-body">
                                             <div className="header-challenge text-center w-100 mt-3">
                                                 <img alt="" width="100px" height="100px" className="img-challenge" src={item.ownerChallenge.photo} />
@@ -38,8 +37,14 @@ function View(props) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="challenges text-center">
-                                            <span className="card-title-challenge mt-4">{item.tip.tip}</span>
+                                        <div className="challenges text-center work-user-event">
+                                            <strong>{item.startup.name}</strong><span className="card-title-challenge"> - {item.tip.tip}</span>
+                                        </div>
+                                        <div className="challenges text-center description-textos ml-4">
+                                            <span id="text-puntos" className="card-title-challenge ">{item.startup.description}</span>
+                                        </div>
+                                        <div className="stage text-center work-user-event">
+                                            <strong className="card-title-challenge">{item.stage.stage}</strong>
                                         </div>
                                         <div className="btn-go-challenge mt-4 mb-3">
                                             <button 
@@ -55,7 +60,6 @@ function View(props) {
                         )
                     }) : null
                 }
-            </div>
             </div>
         </Fragment>
     );

@@ -56,7 +56,7 @@ function View(props) {
                                                                 <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)}>
                                                                     {item.name}
                                                                 </a>
-                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
+                                                                <i className="far fa-arrow-alt-circle-down"></i>
                                                             </div>
                                                         )
                                                     }

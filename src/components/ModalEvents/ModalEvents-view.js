@@ -14,9 +14,12 @@ function View(props) {
         description,
         day,
         place,
+        participants,
+        fileSelectedHandler,
         hour_start,
         error_title,
         error_description,
+        error_participants,
         error_day,
         error_hour_start,
         error_place,
@@ -36,9 +39,9 @@ function View(props) {
                                 <h6 className="modal-title">Crear Evento</h6>
                             </div>
                             <div className="modal-body">
-                                <form id="event-form">
+                                <div id="event-form">
                                     <div className="form_group_ mt-3">
-                                        <label>Titulo del Anuncio</label>
+                                        <label>Titulo del evento</label>
                                         <input name="title" className="form-control" onChange={handleInputChange} id="title"
                                             value={title}
                                         />
@@ -51,7 +54,6 @@ function View(props) {
                                         <textarea type="text" name="description" onChange={handleInputChange} id="description"
                                             value={description}
                                             className="form-control"
-
                                         />
                                         <div className="error-message-aux">
                                             {error_description}
@@ -104,13 +106,24 @@ function View(props) {
                                             {error_categories}
                                         </div>
                                     </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Participantes del evento</label>
+                                        <input value={participants} type="number" name="participants" className="form-control" onChange={handleInputChange} />
+                                    </div>
+                                    <div className="error-message-aux">
+                                        {error_participants}
+                                    </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Elija un banner de tu evento</label>
+                                        <input type="file" name="photo" id="photo_banner"  className="form-control"/>
+                                    </div>
                                     {content_message}
                                     <div className="form_group_">
                                         <div className="d-flex justify-content-end mb-3">
                                             <button className="btn btn-primary event" type="button" onClick={handleSubmit}>Guardar</button>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

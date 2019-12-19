@@ -92,7 +92,7 @@ function View(props) {
                                             {content_error_title}
                                         </div>
                                     </div>
-                                    <div className="form_group_ mt-3">
+                                    <div className="form_group_ select mt-3">
                                         <label>Aptitudes del perfil</label>
                                         <Fragment>
                                             <CreatableSelect
@@ -112,7 +112,7 @@ function View(props) {
                                         </div>
                                     </div>
                                     <div className="form_group_ mt-3">
-                                        <label>Descripción del proyecto</label>
+                                        <label>Descripción del anuncio</label>
                                         <textarea type="text" name="description" onChange={handleChange} id="description"
                                             value={description}
                                             className="form-control"

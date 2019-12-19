@@ -18,3 +18,13 @@ div.Ads{
 .events-padding {
   padding-right: 0px !important;
 }
+
+.events-flex {
+  display: flex;
+  flex-wrap: wrap;
+  height: 200px;
+}
+
+@media screen and (max-width: 600){
+
+}

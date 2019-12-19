@@ -23,7 +23,8 @@ function View(props) {
         selectTypeDiary,
         selectedOption,
         description,
-        title
+        title,
+        isDisabled_
     } = props;
 
     return (
@@ -70,6 +71,7 @@ function View(props) {
                                             <DatePicker
                                                 onChange={onChange}
                                                 value={date}
+                                                disabled={isDisabled_}
                                             />
                                         </Fragment>
                                     </div>

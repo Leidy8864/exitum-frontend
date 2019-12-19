@@ -1,11 +1,15 @@
 .AddProyect{
     display: block;
 }
+
+.modal {
+    z-index: 90000;
+}
+
 .add-proyect-container{
     display: inline-block;
     width: 100%;
     border-radius: 4px;
-    margin-bottom: 35px;
 }
 .proyects-list{
     display: flex;
@@ -46,9 +50,34 @@
     top: 35px;
     right: 30px;
 }
+
+.container-info-impulsor {
+    margin-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.info-impulsor {
+    width: 500px;
+    margin-left: 10px;
+    font-family: 'Proxima Nova';
+}
+
+.info-impulsor h3 {
+    color: #4C5161;
+}
+
+.info-impulsor p {
+    color: #777;
+}
+
+.container-info-impulsor img {
+    width: 100px !important;
+}
  
 .proyects-list-aux{
-    margin-left: 40px;
+    margin-top: 20px;
     margin-right: 40px;
     overflow-y: auto;
     display: flex;
@@ -58,13 +87,13 @@
     background-color: #EEF5FF;
     color: #4157F2;
     font-weight: 600;
-    border-radius: 10px;
-    margin: 10px 10px;
+    border-radius: 4px;
+    margin: 10px 20px;
     padding: 8px;
     font-size: 16px;
     text-align: center;
     float: left;
-    width: 22%;
+    width: 18%;
     height: 44px;
     cursor: pointer;
     flex-shrink: 0;
@@ -76,14 +105,14 @@
     background-color: #4157F2;
     color: #EEF5FF;
     font-weight: 600;
-    border-radius: 10px;
-    margin: 10px 10px 20px;
+    border-radius: 4px;
+    margin: 10px 20px;
     padding: 8px;
     height: 44px;
     font-size: 16px;
     text-align: center;
     float: left;
-    width: 22%;
+    width: 18%;
     cursor: pointer;
     transition: all ease 0.5s;
     flex-shrink: 0;
@@ -150,6 +179,8 @@
     color: #fff;
 }
 
+
+
 @media screen and (max-width: 1440px) {
     .add-proyect{
         top: 30px;
@@ -170,15 +201,38 @@
         font-size: 25px;
     }
     .retos {
-        padding-top: 40px;
+        padding-top: 0px;
         margin-bottom: 20px;
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
     .add-proyect{
         top: 20px;
         right: 75px;
         font-size: 20px;
+    }
+    .proyects-block {
+        overflow-x: auto;
+        flex-wrap: nowrap !important;
+        position: relative;
+        top: 20px;
+    }
+    .projectblockSelected,.projectblock{
+        width: 50%;
+    }
+    div.add-proyect-container.container-options {
+        padding: 25px !important;
+    }
+   
+    .add-proyect-aux .Ads-plus-proyect{
+        top: 0px !important;
+        left: 0px !important;
+    }
+    .welcome-challenge {
+        display: none;
+    }
+    .etapas {
+        margin-top: 0px !important;
     }
   }

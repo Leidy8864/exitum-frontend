@@ -20,15 +20,23 @@ h4.bold-title {
     font-weight: bold;
 }
 
-.container-detail {
-    display: flex;
-    width: 100%;
-    justify-content: space-between !important;
-    padding-left: 20px;
-    align-items: flex-start;
+.form-group.border-anuncio {
+    margin-bottom: 0px !important;
 }
+
+.scroll-anuncio {
+    overflow-y: auto;
+    height: calc(100vh - 20px) !important;
+}
+
 .button-back{
     width: 30px;
     position: absolute;
     left: 12px;
 }
+
+.detalle-anuncio {
+    display: flex;
+    justify-content: flex-start;
+}
+

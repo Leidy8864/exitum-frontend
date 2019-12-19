@@ -38,7 +38,7 @@ function View(props) {
                                 <span className="gray">{reply}</span>
                             </div>
                             <div className="mt-4">
-                                <label className="w-100">Archivos:</label><br />
+                                <label className="w-100">Archivos subidos por el emprendedor:</label><br />
                                 <div className="downloads_container">
                                 {   
                                     challenges.files && challenges.files.length > 0 ?
@@ -49,7 +49,7 @@ function View(props) {
                                             >
                                                 {item.name}
                                             </a>
-                                            <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')}
+                                            <i className="far fa-arrow-alt-circle-down"
                                             onClick={handleDownload.bind(this, item.name)} 
                                             />
                                         </div>
@@ -58,7 +58,7 @@ function View(props) {
                                 </div>
                             </div>
                             <div className=" mt-4">
-                                <label className="w-100">Archivos:</label><br />
+                                <label className="w-100">Archivos de ayuda:</label><br />
                                 <div className="downloads_container">
                                 {   
                                     file_tips && file_tips.length > 0 ?

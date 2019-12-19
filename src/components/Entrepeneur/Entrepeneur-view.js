@@ -12,11 +12,11 @@ function View() {
                 <div className="row add-proyects-container">
                         <AddProyect />
                 </div>
-                <div className="row stages-challenges ">
-                    <div className="col-xl-7 col-lg-12 col-md-12 retos">
+                <div className="row stages-challenges container-options">
+                    <div className="col-xl-7 col-md-12 retos">
                         <Challenges />
                     </div>
-                    <div className="col-xl-5 col-lg-12 col-md-12 etapas">
+                    <div className="col-xl-5 col-md-12 etapas">
                         <Stages />
                     </div>
                 </div>

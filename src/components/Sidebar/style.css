@@ -90,11 +90,11 @@ ul.nav-pills.add-tabs li.nav-item a i {
 
 ul.nav-pills.add-tabs li.nav-item a.nav-link.active {
   border-radius: none !important;
-  background-color: #1BDBA6 !important;
+  background-color: #157FFB !important;
 }
 
 .nav-pills .nav-link.active {
-  background-color: #1BDBA6 !important;
+  background-color: #157FFB !important;
 }
 
 ul li a {
@@ -181,6 +181,11 @@ ul li a {
   transition: all .15s ease-in;
 }
 
+.anuncios.container-options {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+
 .nav-pills .nav-link.active i {
   color: #fff !important;
   font-weight: 400;
@@ -220,8 +225,8 @@ ul li a {
 
 @media screen and (max-width: 1280px) {
   nav.choose-calendar {
-    width: 98% !important;
-    margin-left: -8px;
+    width: 94% !important;
+    margin-left: 0px;
   }
 }
 
@@ -278,8 +283,15 @@ ul li a {
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-  .container-fluid {
+}
 
+@media screen and (max-width: 500px) {
+  .navbar-toggler {
+    position: relative;
+    right: 20px !important;
+  }
+  .dropleft {
+    left: 23px !important;
   }
 }
 

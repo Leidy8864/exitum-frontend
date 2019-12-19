@@ -2,229 +2,109 @@
     position: relative;
 }
 
-.scroll-stage {
-    overflow-y: scroll;
-}
-
 .title-proyect {
     margin-left: 50px;
 }
 
 .container-stage {
-    float: right;
     justify-content: flex-end;
-    position: relative; 
-    margin-top: 30px;
+    position: relative;
+    right: 60px; 
     height: 550px; 
 }
 
 .etapas {
     overflow-y: auto;
-    height: calc(100vh - 400px);
+    height: calc(100vh - 290px);
+}
+
+.stages-challenges {
+    margin-top: 21px;
+    overflow-y: auto;
 }
 
 .stages-imgs {
-    position: relative !important;
+    width: 180px;
     right: 80px;
-    top: -50px;
-    height: 77px;
+    height: 120px;
 }
 
 .impar {
     position: relative;
-    z-index: 1000;
-    cursor: pointer;
-    margin-left: 100px;
 }
 
 .par {
+    transform: rotate(90deg);
     position: relative;
-    top: -10px;
-    right: -20px;
+    top: 20px;
+    right: -195px;
 }
 
 .par img {
-    width: 100px;
+    width: 150px;
 }
 
 .impar {
-    transform: rotate(90deg);
-    top: -12px;
-    right: 10px
+    top: 0px;
+    right: -100px
 }
 
 .impar img {
-    width: 100px;
+    width: 150px;
 }
 
 .icon-par img, .icon-impar img {
     width: 40px;
+    cursor: pointer;
 }
 
 .icon-par {
     position: relative;
-    z-index: 4000;
-    top: 55px;
-    right: -45px;
+    z-index: 1000;
+    top: 85px;
+    right: -145px;
 }
 
 .icon-impar {
     position: relative;
-    z-index: 4000;
-    top: 50px;
-    right: -125px;
+    z-index: 1;
+    top: 90px;
+    right: -270px;
     width: 50%;
 }
 
+.skills .css-yk16xz-control {
+    background-color: #fff;
+    border-color: #d9d9d9 #ccc #b3b3b3;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: default;
+    display: table !important;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 36px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
 @media screen and (max-width: 1440px) {
-    .container-stage {
-        margin-top: 10px;
-    }
-    .img0 {
-        right: 165px
-    }
-    
-    .img1 {
-        right: 75px
-    }
-    
-    .img2{
-        right: 165px
-    }
-    
-    .img3 {
-        right: 75px;
-    }
-    
-    .img4 {
-        right: 165px
-    }
-    
-    .icon0 {
-        right: 225px;
-    }
-    
-    .icon1 {
-        right: 115px;
-    }
-    
-    .icon2 {
-        right: 225px;
-    }
-    
-    .icon3 {
-        right: 115px;
-    }
-    
-    .icon4 {
-        right: 305px;
-    }
-}
-
-.stages-challenges {
 
 }
-
-
 @media screen and (max-width: 1200px) {
     .stages-challenges {
-        display: block;
-        flex-direction: column-reverse;
-    }
-    .container-stage {
-        margin-top: 10px;
+        height: calc(100vh - 180px );
+        overflow-y: auto;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .container-stage {
-        margin-top: 10px;
-    }
-    .img0 {
-        right: 405px
-    }
-    
-    .img1 {
-        right: 305px
-    }
-    
-    .img2{
-        right: 405px
-    }
-    
-    .img3 {
-        right: 305px;
-    }
-    
-    .img4 {
-        right: 405px
-    }
-    
-    .icon0 {
-        right: 465px;
-    }
-    
-    .icon1 {
-        right: 345px;
-    }
-    
-    .icon2 {
-        right: 465px;
-    }
-    
-    .icon3 {
-        right: 345px;
-    }
-    
-    .icon4 {
-        right: 305px;
-    }
+
 }
 
 @media screen and (max-width: 768px) {
-    .img0 {
-        right: 155px
-    }
-    
-    .img1 {
-        right: 65px
-    }
-    
-    .img2{
-        right: 155px
-    }
-    
-    .img3 {
-        right: 65px
-    }
-    
-    .img4 {
-        right: 405px
-    }
-    
-    .icon0 {
-        right: 215px;
-    }
-    
-    .icon1 {
-        right: 110px;
-    }
-    
-    .icon2 {
-        right: 215px;
-    }
-    
-    .icon3 {
-        right: 110px;
-    }
-    
-    .icon4 {
-        right: 305px;
-    }
-    .title-proyect {
-        margin-left: 10px;
-    }
-    
     .container-chellenges {
         margin-top: 20px !important;
         padding: 0px !important;
@@ -232,61 +112,85 @@
         box-shadow: none !important;
         width: 100% !important;
     }
+    .add-proyect-container {
+        margin-bottom: 15px !important;
+    }
     .events-fluid {
         padding-left: 10px !important;
-        padding-right: 10px !important;
+        padding-right: 20px !important;
     }
     .Ads-plus {
         float: none !important;
+        top: 0px !important;
+    }
+    .plus-padding .Ads-plus {
+        top: -48px !important;
     }
     .challenges {
         margin-top: 100px !important;
         margin-left: 0px !important;
     }
+    .challenge {
+        margin-left: 10px;
+    }
+    .etapas {
+        height: calc(100vh);
+    }
+    .events-fluid {
+        margin-right: 0px !important;
+    }
+    .css-1hwfws3 {
+        height: 20px;
+        margin-right: 10px;
+    }
+    .css-1uccc91-singleValue {
+        position: relative !important;
+        margin-left: -20px;
+    }
+    .modal-footer button.adds {
+        margin-right: 0px !important;
+    }
   }
 
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 500px) {
+    .complete-challenge {
+        padding: 0px !important;
+    }
+    .complete-challenge img {
+        display: none;
+    }
     .container-stage {
-        margin-top: -25px;
+        right: 90px;
     }
-    .img0 {
-        right: 115px
+    .stages-challenges {
+        height: calc(100vh - 135px);
+        position: relative;
+        right: 3px;
     }
-    
-    .img1 {
-        right: 25px
+    .events-fluid {
+        margin-right: 0px !important;
     }
-    
-    .img2{
-        right: 115px
+    .scroll-anuncios {
+        height: calc(100vh - 0px) !important;
     }
-    
-    .img3 {
-        right: 25px
+    .retos {
+        padding-top: 0px !important;
     }
-    
-    .img4 {
-        right: 405px
+    .challenge {
+        margin-bottom: 20px !important;
     }
-    
-    .icon0 {
-        right: 175px;
+    .add-proyects-container {
+        display: none !important;
     }
-    
-    .icon1 {
-        right: 70px;
+    .stages-challenges.container-options {
+        padding: 0px !important;
     }
-    
-    .icon2 {
-        right: 175px;
+    .challenge  {
+        margin-left: 0px !important;
     }
-    
-    .icon3 {
-        right: 70px;
-    }
-    
-    .icon4 {
-        right: 305px;
+    .events-fluid {
+        padding-left: 0px !important;
+        padding-right: 10px !important;
     }
   }

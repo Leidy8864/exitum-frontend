@@ -46,6 +46,9 @@ class EmployeeAds extends React.Component {
             } else {
                 response = await listPostulations(data);
             }
+
+            console.log('employee ads',response);
+            
             const pages = response.status ? response.pages : 1;
             this.paginationData(adType, pages); //Permite la paginacion por scroll
             this.setState({

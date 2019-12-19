@@ -47,3 +47,9 @@ a.nav-link-morado:focus, a.nav-link-yellow:focus, a.nav-link:focus {
         display: none;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .Ads-plus.events {
+        top: -48px !important;
+    }
+}

@@ -19,7 +19,7 @@ function View(props) {
                     eventsList.length > 0 ?
                         eventsList.map(function (item) {
                             return (
-                                <div className="col-md-4 mb-3 events-padding" key={item.id}>
+                                <div className="col-xl-4 col-md-6 events-padding" key={item.id}>
                                     <EventCard
                                         id={item.id}
                                         title={item.title}
@@ -30,6 +30,7 @@ function View(props) {
                                         hour_start={item.hour_start}
                                         eventType={eventType}
                                         handleDeleteEvent={handleDeleteEvent}
+                                        photo = {item.photo}
                                     />
                                 </div>
                             )

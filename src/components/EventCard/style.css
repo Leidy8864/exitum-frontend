@@ -27,7 +27,7 @@
 
 .card-body.events-footer {
     background: #fff;
-    padding: 12px 10px!important;
+    padding: 10px 10px!important;
     border: 2px solid #E9EAED;
     border-bottom-left-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
@@ -56,8 +56,6 @@ i.fa-map-marker-alt {
 }
 
 .card-body.events-footer:hover {
-    background: #157FFB;
-    border: none !important;
     transition: all 0.5s;
 }
 

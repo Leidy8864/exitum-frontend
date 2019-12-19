@@ -33,6 +33,7 @@ class ModalDiary extends React.Component {
         selectedOption: null,
         to_user_id: '',
         hourAvailables: [],
+        isDisabled_: true,
     };
 
     async componentDidMount() {
@@ -52,13 +53,10 @@ class ModalDiary extends React.Component {
     }
 
     handleChange = async (selectedOption) => {
-        this.setState({ selectedOption })
-        console.log(selectedOption)
-
+        this.setState({ selectedOption, isDisabled_: false })
         const data = {
             date: moment(this.state.date).format('YYYY-MM-DD')
         }
-
 
         const hourAvailables = await this.props.hourAvailables(selectedOption.value, data);
         this.setState({ hourAvailables })
@@ -214,7 +212,8 @@ class ModalDiary extends React.Component {
             isReminder,
             users,
             selectedOption,
-            hourAvailables
+            hourAvailables,
+            isDisabled_
         } = this.state;
         return (
             <View
@@ -224,6 +223,7 @@ class ModalDiary extends React.Component {
                 time={time}
                 hourAvailables={hourAvailables}
                 isReminder={isReminder}
+                isDisabled_={isDisabled_}
                 saveReminder={this.saveReminder}
                 description={description}
                 onChange={this.onChange}

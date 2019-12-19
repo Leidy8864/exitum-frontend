@@ -1,32 +1,48 @@
 /* No CSS *//*# sourceMappingURL=style.css.map */
 .ChooseProfile{
-    width: 60%;
+    text-align: center;
+    width: 45%;
     position: absolute;
     top: 25%;
-    left: 21%;
-    z-index: 3000;
-    height: 400px;
-    color: #fff;
-    background-color: #3369fd;
-    border-radius: 8px;
-    box-shadow: 0 25px 20px -21px rgba(221, 211, 211, 0.57);
+    left: 25%;
+    z-index: 9000 !important;
+    height: auto;
+    color: #4C5161;
+    border-radius: 4px;
+    opacity: 0.9;
+    background: #fff;  /* fallback for old browsers */
+    font-family: 'Proxima Nova';
+}
+.ChooseProfile img {
+    margin-top: 30px;
+    width: 200px;
 }
 .ChooseProfile .title{
     text-align: center;
-    margin: 50px;
-    font-size: 28px;
-    font-weight: bolder;
-    font-family: 'Proxima Nova';
+    margin-top: 10px;
+    font-size: 24px;
 }
-.content-radio{
-    float: left;
-    width: 50%;
+.content-choose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divider-choose {
+    position: relative;
+    width: 90%;
+}
+
+.info-exitum {
     text-align: center;
 }
+
 .content-radio .img_impulsor{
-    margin-top: -45px;
+    width: 80px;
+    margin-top: 40px;
 }
 .content-radio .img_emprendedor{
+    width: 80px;
     margin-bottom: 3px;
 }
 
@@ -43,10 +59,14 @@
     font-family: 'Proxima Nova';
     padding-left: 28px;
     cursor: pointer;
+    margin-top: 10px;
     line-height: 20px;
-    display: inline-block;
     color: #fff;
+    font-weight: 500;
     font-size: 20px;
+}
+.content-radio label {
+    color: #4C5161 !important;
 }
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
@@ -82,4 +102,12 @@
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+.go-inicio {
+    color: #3369fd;
+    font-weight: 900;
+}
+.go-inicio:hover {
+    text-decoration: none;
+    color: #3369fd;
 }

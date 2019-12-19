@@ -11,7 +11,7 @@
 }
 
 .btn-primary {
-    border-radius: 20px !important;
+    border-radius: 4px !important;
     padding: 10px 15px !important;
     border: none !important
 }
@@ -19,4 +19,8 @@
 .btn-primary:hover {
     background: #157FFB !important;
     border: none !important
+}
+
+div#event-form {
+    padding: 10px;
 }
