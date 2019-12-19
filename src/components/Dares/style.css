@@ -50,10 +50,19 @@ span.contact {
 }
 
 .content-help {
+    display: flex;
     padding: 20px 40px !important;
     font-family: 'Proxima Nova';
     color: #777;
     margin-left: 15px !important;
+}
+
+.img-challenges img {
+    width: 120px;
+}
+
+.info-challenges-help {
+    margin-left: 30px;
 }
 
 .content-help h4 {

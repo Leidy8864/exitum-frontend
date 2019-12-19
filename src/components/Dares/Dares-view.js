@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
 import ModalDare from '../ModalDare/ModalDare-controller'
+import moment from 'moment'
 import './style.css';
 
 function View(props) {
@@ -14,11 +15,16 @@ function View(props) {
     return (
         <Fragment>
             <div className="content-help container-options">
-                <h4>Emprendedores al rescate</h4>
-                <p><strong>Verifica</strong> y <strong>Observa</strong> retos para conseguir más oportunidades de ser mejor</p>
-                <div className="helps mt-4">
-                    <li>Manda una observación de los pasos a seguir en cada reto.</li>
-                    <li>Manda una verificación de los pasos a seguir en cada reto.</li>
+                <div className="img-challenges">
+                    <img src={require('../../public/images/svg/cohete.svg')} />
+                </div>
+                <div className="info-challenges-help">
+                    <h4>Emprendedores al rescate</h4>
+                    <p><strong>Verifica</strong> y <strong>Observa</strong> retos para conseguir más oportunidades de ser mejor</p>
+                    <div className="helps mt-4">
+                        <li>Manda una observación de los pasos a seguir en cada reto.</li>
+                        <li>Manda una verificación de los pasos a seguir en cada reto.</li>
+                    </div>
                 </div>
             </div>
             <div className="row content-challenges mb-4">
@@ -42,6 +48,9 @@ function View(props) {
                                         </div>
                                         <div className="challenges text-center description-textos ml-4">
                                             <span id="text-puntos" className="card-title-challenge ">{item.startup.description}</span>
+                                        </div>
+                                        <div className="challenges text-center description-textos ml-4">
+                                            <span id="text-puntos" className="card-title-challenge">{moment(item.startup.created).format('ll')}</span>
                                         </div>
                                         <div className="stage text-center work-user-event">
                                             <strong className="card-title-challenge">{item.stage.stage}</strong>

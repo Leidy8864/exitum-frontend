@@ -15,7 +15,7 @@
 
 .etapas {
     overflow-y: auto;
-    height: calc(100vh - 290px);
+    height: calc(100vh - 390px);
 }
 
 .stages-challenges {
