@@ -26,7 +26,6 @@ class ModalMeet extends React.Component {
         hoursOptions: [],
         hourAvailables: [],
     }
-
     async componentDidMount() {
         try {
             // const advert_id = this.props.match.params.id;

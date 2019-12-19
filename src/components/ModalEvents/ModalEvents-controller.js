@@ -100,6 +100,8 @@ class ModalEvents extends React.Component {
             const result = decodeToken();
             const date_event = moment(day).format('YYYY-MM-DD');
             const formData = { user_id: result.id, title, description, day: date_event, hour_start, place, categories: values, event_id };
+            console.log("FRMDATA",formData);
+            
             if (title && description && day && hour_start && place && categories.length > 0) {
                 var response = null
                 if (event_id) {

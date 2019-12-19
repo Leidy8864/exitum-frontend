@@ -115,7 +115,7 @@ class ResetPassword extends React.Component {
 
             let content_error_message = '';
 
-            if (error) {
+            if (error_message) {
                 content_error_message = <div className="error-message col-sm-12"><p id="error-message">{error_message}</p></div>;
             }
             return (
