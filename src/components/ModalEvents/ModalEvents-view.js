@@ -14,9 +14,12 @@ function View(props) {
         description,
         day,
         place,
+        participants,
+        fileSelectedHandler,
         hour_start,
         error_title,
         error_description,
+        error_participants,
         error_day,
         error_hour_start,
         error_place,
@@ -51,7 +54,6 @@ function View(props) {
                                         <textarea type="text" name="description" onChange={handleInputChange} id="description"
                                             value={description}
                                             className="form-control"
-
                                         />
                                         <div className="error-message-aux">
                                             {error_description}
@@ -106,11 +108,14 @@ function View(props) {
                                     </div>
                                     <div className="form_group_ mt-3">
                                         <label>Participantes del evento</label>
-                                        <input type="number" className="form-control"/>
+                                        <input value={participants} type="number" name="participants" className="form-control" onChange={handleInputChange} />
+                                    </div>
+                                    <div className="error-message-aux">
+                                        {error_participants}
                                     </div>
                                     <div className="form_group_ mt-3">
-                                        <label>Elija un banner de tu evento</label> 
-                                        <input type="file" />
+                                        <label>Elija un banner de tu evento</label>
+                                        <input type="file" name="photo" id="photo_banner"  className="form-control"/>
                                     </div>
                                     {content_message}
                                     <div className="form_group_">

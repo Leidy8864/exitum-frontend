@@ -31,36 +31,41 @@ function View(props) {
                             <div className="col-xl-9 col-lg-12">
                                 <div className="container-fluid mt-4 events-scroll">
                                     <div className="card profiles mb-4">
-                                        <div className="card-body d-flex justify-content-start ml-3">
-                                        <BackButton />
+                                        <div className="card-body events-container">
+                                            <BackButton />
                                             <div className="container-detail mt-2">
+                                                <div className="foto-evento">
+                                                    <img className=""  src={event.photo} alt="foto de evento" />
+                                                </div>
                                                 <div className="">
                                                     <div className="form-group d-flex justify-content-between">
                                                         <h4 className="bold-title">{event.title}</h4>
                                                     </div>
                                                     <div className="form-group container-events">
-                                                        <span className="bold detail">Descripción:</span><br/>
+                                                        <span className="bold detail">Descripción:</span><br />
                                                         <span className="gray">{event.description}</span>
                                                     </div>
-                                                    <div className="d-flex justify-content-between container-events">
+                                                    <div className="container-events-info">
                                                         <div className="form-group">
-                                                            <span className="bold detail">Lugar:</span><br/>
+                                                            <span className="bold detail">Lugar:</span><br />
                                                             <span className="gray">{event.place}</span>
                                                         </div>
                                                         <div className="form-group">
-                                                            <span className="bold detail">Fecha:</span><br/>
+                                                            <span className="bold detail">Fecha:</span><br />
                                                             <span className="gray">{moment(event.day).format('DD/MM/YYYY')}</span>
                                                         </div>
                                                         <div className="form-group">
-                                                            <span className="bold detail">Hora:</span><br/>
+                                                            <span className="bold detail">Hora:</span><br />
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
-                                                        <hr/>
+                                                        <hr />
                                                     </div>
-                                                    
+
                                                     {
                                                         event.toWorkshopCategories.length > 0 ?
+
                                                             <ul className="tags">
+                                                                <span className="bold detail">Habilidades:</span><br />
                                                                 {
                                                                     event.toWorkshopCategories.map((item, index) =>
                                                                         <li key={index}><a href="#" className="tag">{item.name}</a></li>
@@ -70,6 +75,7 @@ function View(props) {
                                                             : ''
                                                     }
                                                 </div>
+                                                
                                                 {
                                                     user_id === event.user_id ?
                                                         <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>

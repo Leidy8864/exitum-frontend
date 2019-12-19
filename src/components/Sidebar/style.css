@@ -225,8 +225,8 @@ ul li a {
 
 @media screen and (max-width: 1280px) {
   nav.choose-calendar {
-    width: 98% !important;
-    margin-left: -8px;
+    width: 94% !important;
+    margin-left: 0px;
   }
 }
 

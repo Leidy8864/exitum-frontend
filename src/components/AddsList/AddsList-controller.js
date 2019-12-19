@@ -49,7 +49,7 @@ class AddsList extends React.Component {
     getListAds = async (data) =>{
         try {
             const adsList = await listAdsByUser(data);
-            // console.log("adslist",adsList.data);
+             //console.log("adslist",adsList.data);
             
             if (adsList.status) {                
                 const pages =  adsList.pages;

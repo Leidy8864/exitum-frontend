@@ -14,12 +14,12 @@ function View(props) {
     } = props
     console.log(adsList)
     return (
-        <div className="mt-4 w-100" id="entrepreneur-ads">
+        <div className="mt-2 events-flex w-100" id="entrepreneur-ads">
                 {
                     adsList.length > 0 ?
                         adsList.map(function (item, index) {
                             return (
-                                <div className="col-md-12 events-padding" key={item.id}>
+                                <div className="col-md-6 col-sm-12 events-padding" key={item.id}>
                                     <AdCard
                                         title={item.title}
                                         description={item.description}

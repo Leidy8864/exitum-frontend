@@ -34,14 +34,14 @@ function View(props) {
                             </div>
                         </li>
                         :
-                        <Link className="row col-sm-12" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
+                        <Link className="row col-sm-12 title-anuncio" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
                 }
             </div>
             <hr/>
             <div className="">
-                <i className="fab fa-wpforms ml-3"></i><span className="title-company col-sm-12">{startup.name}</span><br />
-                <span className="bold col-sm-12">{description}</span><br />
-                <span className="bold col-sm-12">{moment(startup.created_at).fromNow()}</span><br />
+                <span className="title-company col-sm-12">{startup.name}</span><br />
+                <span className="bold description-textos col-sm-12">{description}</span><br />
+                <span className="bold col-sm-12">hace {moment(startup.created_at).days()} dias</span><br />
             </div>
             {/* {
                 userRole === "entrepreneur" ?

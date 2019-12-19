@@ -9,6 +9,7 @@ class EventCard extends React.Component {
             title,
             description,
             day,
+            photo,
             place,
             hour_start,
             eventType,
@@ -26,6 +27,7 @@ class EventCard extends React.Component {
                 title={title}
                 description={description}
                 day={day}
+                photo = {photo}
                 place={place}
                 isPart={isPart}
                 hour_start={hour_start}

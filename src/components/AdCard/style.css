@@ -14,10 +14,22 @@ span.title-company {
 
 
 .title_add{
-    font-size: 22px;
-    font-weight: bold;
+    margin-left: 0px !important;
+    font-size: 16px;
     text-decoration: none !important;
-    color: #4C5161;
+    color: #2183F8;
+  }
+
+  .title_add_event,.title_add_event:hover {
+    margin-left: 0px !important;
+    font-size: 16px;
+    text-decoration: none !important;
+    color: #2183F8;
+  }
+
+
+  .title-anuncio {
+    margin-left: 0px !important;
   }
 
   button.btn-no-assist i.fa-calendar-times {
@@ -37,9 +49,14 @@ span.title-company {
 }
 
   .title_add:hover{
-    color: #4C5161;
+    color: #2183F8 !important;
   }
   
+  a.title-anuncio:hover {
+    color: #2183F8 !important;
+    text-decoration: none;
+  }
+
   i.fa-trash-alt {
     color: #157FFB!important;
   }

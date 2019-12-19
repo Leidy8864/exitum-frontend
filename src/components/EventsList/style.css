@@ -3,7 +3,7 @@
 }
 div#events-list{
     margin-top: 20px;
-    height: calc(100vh - 270px);
+    height: calc(100vh - 200px);
     overflow-y: auto !important;
   }
 

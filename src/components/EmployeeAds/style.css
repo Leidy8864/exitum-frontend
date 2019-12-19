@@ -2,7 +2,8 @@
     display: block;
 }
 div.employee-ads-class   {
-height: calc(100vh - 230px);
-overflow-y: auto;
-padding-left: 0px;
+    padding-left: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100vh - 230px);
 }

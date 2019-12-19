@@ -7,7 +7,7 @@ export const root = 'http://35.175.241.103:8081/';
 export const oauthGoogle = data => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + 'users/oauth/google',data);
+            const res = await axios.post(root + 'users/oauth/google', data);
             return res.data
         } catch (error) {
             console.log(error)
@@ -582,6 +582,7 @@ export const updateImageUser = data => {
     }
 }
 
+
 export const notAvailableUser = (id, data) => {
     return async dispatch => {
         try {
@@ -696,7 +697,7 @@ export const deleteExperience = data => {
 export const hourAvailables = (id, data) => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `schedules/schedule/${id}`,data)
+            const res = await axios.post(root + `schedules/schedule/${id}`, data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)
@@ -739,14 +740,7 @@ export const listEventsAssist = async (id, data) => {
     }
 }
 
-export const createEvent = async (data) => {
-    try {
-        const res = await axios.post(root + `events/create/`, data)
-        return res.data;
-    } catch (error) {
-        console.log("Error" + error)
-    }
-}
+
 
 export const deleteEvent = async (id) => {
     try {
@@ -773,17 +767,39 @@ export const showEvent = async (id) => {
     }
 }
 
-export const editEvent = async (data) => {
+export const createEvent = async (data) => {
     try {
-        const res = await axios.post(root + `events/update/`,data)
+        const res = await axios.post(root + `events/create/`, data,
+            {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;'
+                }
+            }
+        )
+        console.log("res.data =", res.data)
         return res.data;
     } catch (error) {
         console.log("Error" + error)
     }
 }
-export const getListParticipants = async (id,data) => {
+
+export const editEvent = async (data) => {
     try {
-        const res = await axios.get(root + `events/participating-event/${id}`,{
+        const res = await axios.post(root + `events/update/`, data,
+            {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;'
+                }
+            }
+        )
+        return res.data;
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+export const getListParticipants = async (id, data) => {
+    try {
+        const res = await axios.get(root + `events/participating-event/${id}`, {
             params: data
         })
         return res.data;

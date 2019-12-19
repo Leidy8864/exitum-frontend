@@ -3,19 +3,13 @@
     list-style: none;
     justify-content: start;
     padding-left: 0px !important;
-    display: flex;
   }
   
   .tag {
-    background: #8791F1;
-    border-radius: 4px;
-    color: white;
+    color: #777;
     display: inline-block;
-    height: 46px;
-    line-height: 46px;
-    padding: 0 20px 0 23px;
+    line-height: 34px;
     position: relative;
-    margin: 10px 15px 0px 0px;
     cursor: default;
   }
 
@@ -26,4 +20,9 @@
   .adjust-text p{
     width: 100%;
     word-wrap: break-word; 
+}
+
+strong.title-detail {
+  color: #2183F8;
+  font-weight: 300;
 }

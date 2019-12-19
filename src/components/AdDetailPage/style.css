@@ -24,14 +24,6 @@ h4.bold-title {
     margin-bottom: 0px !important;
 }
 
-.container-detail {
-    display: flex;
-    width: 100%;
-    justify-content: space-between !important;
-    padding-left: 20px;
-    align-items: flex-start;
-}
-
 .scroll-anuncio {
     overflow-y: auto;
     height: calc(100vh - 20px) !important;
@@ -47,3 +39,4 @@ h4.bold-title {
     display: flex;
     justify-content: flex-start;
 }
+
