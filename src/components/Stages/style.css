@@ -19,6 +19,7 @@
 }
 
 .stages-challenges {
+    margin-top: 21px;
     overflow-y: auto;
 }
 
@@ -89,25 +90,13 @@
     width: 100%;
 }
 
-/* .stages-challenges {
-    height: calc(70vh);
-    overflow-y: auto;
-} */
-
 @media screen and (max-width: 1440px) {
 
 }
 @media screen and (max-width: 1200px) {
     .stages-challenges {
-        display: block !important;
-        flex-direction: column-reverse !important;
-        height: calc(100vh - 100px );
+        height: calc(100vh - 180px );
         overflow-y: auto;
-    }
-    .retos {
-    }
-    .etapas {
-        margin-top:250px;
     }
 }
 
@@ -148,7 +137,7 @@
         height: calc(100vh);
     }
     .events-fluid {
-        margin-right: 25px !important;
+        margin-right: 0px !important;
     }
     .css-1hwfws3 {
         height: 20px;
@@ -175,7 +164,9 @@
         right: 90px;
     }
     .stages-challenges {
-        height: calc(100vh - 300px);
+        height: calc(100vh - 135px);
+        position: relative;
+        right: 3px;
     }
     .events-fluid {
         margin-right: 0px !important;
@@ -188,5 +179,18 @@
     }
     .challenge {
         margin-bottom: 20px !important;
+    }
+    .add-proyects-container {
+        display: none !important;
+    }
+    .stages-challenges.container-options {
+        padding: 0px !important;
+    }
+    .challenge  {
+        margin-left: 0px !important;
+    }
+    .events-fluid {
+        padding-left: 0px !important;
+        padding-right: 10px !important;
     }
   }

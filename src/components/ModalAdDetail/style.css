@@ -22,7 +22,14 @@
     word-wrap: break-word; 
 }
 
-strong.title-detail {
-  color: #2183F8;
+h3.title-detail {
+  margin-left: 20px;
+  color: #fff;
+  font-size: 20px;
   font-weight: 300;
+}
+
+.final-btn {
+  display: flex;
+  justify-content: flex-end;
 }

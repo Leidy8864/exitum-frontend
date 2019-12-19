@@ -283,8 +283,15 @@ ul li a {
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
-  .container-fluid {
+}
 
+@media screen and (max-width: 500px) {
+  .navbar-toggler {
+    position: relative;
+    right: 20px !important;
+  }
+  .dropleft {
+    left: 23px !important;
   }
 }
 

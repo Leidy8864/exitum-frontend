@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import ModalProjects from '../ModalProjects/ModalProjects-controller';
 
 import './style.css';
-import { NimbleEmoji } from 'emoji-mart';
 
 function View(props) {
 
@@ -22,10 +21,11 @@ function View(props) {
     return (
 
         <Fragment>
+
             {
                 role === "entrepreneur" ?
 
-                    <div>
+                    <div className="w-100">
                         <div className="add-proyect-container container-options">
                             <div className="proyects-list"></div>
                             <div className="add-proyect">
@@ -36,9 +36,8 @@ function View(props) {
                                 </Link>
                             </div>
                         </div>
-                        <div className="proyects-list-aux">
-                            <div className="container">
-                                <div className="row proyects-block">
+                        <div className="proyects-list-aux w-100">
+                                <div className="row proyects-block w-100 container-options">
                                     {
                                         blockProjects.map((dt) =>
                                             <div
@@ -53,13 +52,22 @@ function View(props) {
                                             </div>
                                         )
                                     }
+                            </div>
+                        </div>
+                    </div> : 
+                    <div className="container-options w-100">
+                        <div className="container-info-impulsor">
+                            <img className="w-100" src={require('../../public/images/svg/empleado.svg')} />
+                            <div className="info-impulsor">
+                                <h3>Bienvenido Impulsor !</h3>
+                                <div className="">
+                                    <p>Hoy es buen dia para impulsar proyectos y dar ideas a los emprendedores, los cuales dependen que sus sueños y metas dependan mucho de ti, muchos exitos ¡ </p>
                                 </div>
                             </div>
                         </div>
-                    </div> : ''
+                    </div>
                 
             }
-
             <ModalProjects />
         </Fragment>
 

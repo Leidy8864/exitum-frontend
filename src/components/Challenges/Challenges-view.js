@@ -13,7 +13,7 @@ function View(props){
         <Fragment>
             <div className="">
                 <div className="complete-challenge">
-                    <img src={require('../../public/images/svg/hojas.svg')} />
+                    <img src={require('../../public/images/svg/el-planeta-tierra.svg')} />
                     <div className="welcome-challenge">
                         <h2>Bienvenido a los retos</h2>
                         <p>Completa cada reto para poder más probabilidad de tener exito, mientras avanzas, tu planta crecera tambien.</p>

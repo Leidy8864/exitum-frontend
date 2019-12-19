@@ -23,6 +23,7 @@ class Dares extends React.Component {
         });
     }
 
+
     idChallengues = (id) => {
         const  { challenges } = this.state 
         const challenge = challenges.find( challenge => challenge.id === id);

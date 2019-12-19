@@ -23,7 +23,7 @@
 }
 
 .welcome-challenge h2 {
-    color: #1D2129;
+    color: #4C5161;
 }
 
 .welcome-challenge p {
@@ -159,6 +159,9 @@
     }
     .challenges-hc {
         margin-left: 0px !important;
+    }
+    .challenge {
+        margin-bottom: 20px;
     }
 }
 
