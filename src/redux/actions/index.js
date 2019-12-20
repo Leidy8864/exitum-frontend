@@ -165,7 +165,9 @@ export const listStages = async () => {
 //Advertisiments
 export const createAdvertisement = async (data) => {
     try {
+        console.log(data)
         const res = await axios.post(root + 'ads/create', data);
+        console.log(res.data)
         return res.data;
     } catch (error) {
         console.log("Error", error);
@@ -834,8 +836,11 @@ export const searchTip = async (id, type) => {
 export const verifyChallenge = (data) => {
     return async dispatch => {
         try {
+            console.log("DATA",data)
             const res = await axios.post(root + `challenges/verify`, data)
+            console.log("Leydi bbaby",res.data)
             return res.data.data
+            
         } catch (error) {
             console.log("Error" + error)
         }

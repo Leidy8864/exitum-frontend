@@ -41,7 +41,7 @@ function View(props) {
             <div className="">
                 <span className="title-company col-sm-12">{startup.name}</span><br />
                 <span className="bold description-textos col-sm-12">{description}</span><br />
-                <span className="bold col-sm-12">hace {moment(startup.created_at).days()} dias</span><br />
+                <span className="bold col-sm-12">{moment(startup.created_at).format('LT')}</span><br />
             </div>
             {/* {
                 userRole === "entrepreneur" ?

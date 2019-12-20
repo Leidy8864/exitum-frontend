@@ -49,6 +49,10 @@ span.contact {
     margin-top: 30px;
 }
 
+.helps li {
+    list-style: none;
+}
+
 .content-help {
     display: flex;
     padding: 20px 40px !important;
@@ -126,10 +130,29 @@ span.card-title-challenge {
 }
 
 @media screen and (max-width: 1024px) {
-    .content-challenges {
-        padding: 0 20px !important;
-    }
     .content-help {
-        padding: 0px 20px 40px;
+        margin-left: 0px !important;
+    }
+    .content-challenges {
+        padding-left: 0px;
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* .dares-padding {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    } */
+    
+}
+
+@media screen and (max-width: 500px) {  
+    .content-help.container-options {
+        display: block;
+    }   
+    .info-challenges-help {
+        margin-left: 0px;
+        margin-top: 20px;
     }
 }
