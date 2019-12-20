@@ -44,14 +44,14 @@ function View(props) {
                                     {
                                         challenge.files.length >= 1 ?
                                             <div>
-                                                <div className="form_group_">
+                                                <div className="form_group_ mt-3">
                                                     <label>Archivos para descargar</label>
                                                 </div>
                                                 <div className="downloads_container">
                                                     {
 
                                                         challenge.files.map((item, index) =>
-                                                            <div key={index} className="downloads_ mb-4">
+                                                            <div key={index} className="downloads_ ">
 
                                                                 <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)}>
                                                                     {item.name}

@@ -23,6 +23,7 @@ function View(props) {
                                         key={item.id}
                                         description={item.description}
                                         day={item.day}
+                                        participants_count = {item.participants_count}
                                         place= {item.place}
                                         hour_start={item.hour_start}
                                         eventType={eventType}

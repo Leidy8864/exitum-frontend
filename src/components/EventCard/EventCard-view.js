@@ -12,6 +12,7 @@ function View(props) {
         description,
         day,
         photo,
+        participants_count,
         hour_start,
         place,
         eventType,
@@ -21,7 +22,7 @@ function View(props) {
     return (
         <div className="card mb-4 events">
             <div className="card-header">
-                <img className="w-100" src={photo} />
+                <img className="w-100" src={photo || require('../../public/img/ssssss.png')} />
             </div>
             <div className="card-body events">
                 <div className="d-flex header-events">
@@ -35,7 +36,10 @@ function View(props) {
                     <span className="gray col-sm-12 d-inline-block text-truncate">{description}</span>
                 </div>
 
-                <span className="col-sm-12 gray">En {place}</span>
+                <div className="flex-count">
+                <span className="gray">En {place}</span>
+                <span className="gray">{participants_count}</span>
+                </div>
             </div>
             {eventType === "my_events" ?
                 <div className="card-body events-footer-delete text-center">

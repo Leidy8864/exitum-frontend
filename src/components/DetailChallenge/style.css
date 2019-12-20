@@ -10,6 +10,11 @@
     /* padding-left: 15%; */
 }
 
+.media {
+    justify-content: flex-start;
+    align-items: center !important;
+}
+
 .container_challenge_tabs {
     width: 100%;
     padding-left: 15%;
@@ -17,11 +22,16 @@
 
 .row_detail{
     width: calc(100% - 10%);
-    padding-left: 10%;
+    padding-left: 20px;
+}
+
+.media img {
+    width: 40px;
+    height: 40px;
 }
 .description_{
     width: 100%;
-    /* color: #3369fd !important; */
+    color: #777;
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: justify;
@@ -141,5 +151,6 @@ p#texto {
     background-size: cover; 
 }
 
-.summary-list{
+.media h6 {
+    color: #4C5161;
 }

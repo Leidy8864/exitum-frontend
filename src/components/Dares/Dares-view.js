@@ -19,11 +19,11 @@ function View(props) {
                     <img src={require('../../public/images/svg/cohete.svg')} />
                 </div>
                 <div className="info-challenges-help">
-                    <h4>Emprendedores al rescate</h4>
-                    <p><strong>Verifica</strong> y <strong>Observa</strong> retos para conseguir más oportunidades de ser mejor</p>
-                    <div className="helps mt-4">
-                        <li>Manda una observación de los pasos a seguir en cada reto.</li>
-                        <li>Manda una verificación de los pasos a seguir en cada reto.</li>
+                    <h4>Retos al rescate !</h4>
+                    <p><strong>Verifica</strong> y <strong>Observa</strong> los retos para conseguir más oportunidades de que un emprendedor te elija como su impulsor favorito.</p>
+                    <div className="helps">
+                        <li>- Manda una observación de los pasos a seguir en cada reto.</li>
+                        <li>- Manda una verificación de los pasos a seguir en cada reto.</li>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@ function View(props) {
                     challenges.map(function (item, index) {
                         return (
                             <Fragment key={index}>
-                                <div className="col-md-6 col-xl-6">
+                                <div className="col-md-6 col-xl-6 dares-padding">
                                     <div className="card profiles card-challenge mb-3">
                                         <div className="contact-body">
                                             <div className="header-challenge text-center w-100 mt-3">
@@ -43,13 +43,13 @@ function View(props) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="challenges text-center work-user-event">
+                                        <div className="challenges-dare text-center work-user-event">
                                             <strong>{item.startup.name}</strong><span className="card-title-challenge"> - {item.tip.tip}</span>
                                         </div>
-                                        <div className="challenges text-center description-textos ml-4">
+                                        <div className="challenges-dare text-center description-textos ml-4">
                                             <span id="text-puntos" className="card-title-challenge ">{item.startup.description}</span>
                                         </div>
-                                        <div className="challenges text-center description-textos ml-4">
+                                        <div className="challenges-dare text-center description-textos ml-4">
                                             <span id="text-puntos" className="card-title-challenge">{moment(item.startup.created).format('ll')}</span>
                                         </div>
                                         <div className="stage text-center work-user-event">

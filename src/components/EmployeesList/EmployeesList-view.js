@@ -17,6 +17,7 @@ function View(props) {
                             return (
                                 <div className="col-md-4 py-3" key={index}>
                                     <EmployeeCard
+                                        key={index}
                                         name={item.name}
                                         short_description={item.short_description}
                                         price_hour={item.price_hour}

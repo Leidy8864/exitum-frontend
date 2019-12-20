@@ -12,6 +12,7 @@ class EventCard extends React.Component {
             photo,
             place,
             hour_start,
+            participants_count,
             eventType,
             handleDeleteEvent,
             handleAssistEvent
@@ -30,6 +31,7 @@ class EventCard extends React.Component {
                 photo = {photo}
                 place={place}
                 isPart={isPart}
+                participants_count = {participants_count}
                 hour_start={hour_start}
                 eventType={eventType}
                 handleDeleteEvent={handleDeleteEvent}

@@ -178,7 +178,7 @@ class ModalAds extends React.Component {
                 setTimeout(
                     () => {
                         $('#AdsModal').modal('hide');
-                        window.location.reload();
+                        // window.location.reload();
                     },
                     900
                 );
