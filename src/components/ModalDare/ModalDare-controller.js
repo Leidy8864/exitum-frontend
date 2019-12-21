@@ -3,6 +3,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getChallenge from '../../redux/actions/get-challenge'
+import updateChallenge from '../../redux/actions/update-challenge'
 import { verifyChallenge,root } from '../../redux/actions'
 import View from './ModalDare-view';
 import Swal from 'sweetalert2'
@@ -76,7 +77,8 @@ class ModalDare extends React.Component {
             'success'
         )
 
-        const res = await this.props.verifyChallenge(data)
+        await this.props.verifyChallenge(data)
+        this.props.updateChallenge(1)
         $('#modaldare').modal('hide')
     }
 
@@ -108,7 +110,8 @@ class ModalDare extends React.Component {
             'success'
         )
 
-        const res = await this.props.verifyChallenge(data)
+        await this.props.verifyChallenge(data);
+        this.props.updateChallenge(1)
         $('#modaldare').modal('hide')
     }
 
@@ -148,7 +151,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     getChallenge,
-    verifyChallenge
+    verifyChallenge,
+    updateChallenge
 };
 
 export default withRouter(

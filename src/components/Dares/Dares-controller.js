@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import getChallenge from '../../redux/actions/get-challenge'
 import listChallenges from '../../redux/actions/list-challenges'
+import updateChallenge from '../../redux/actions/update-challenge'
 import { listChallengeToVerify } from '../../redux/actions'
 import $ from 'jquery'
 
@@ -66,9 +67,25 @@ class Dares extends React.Component {
 
     }
 
+    refreshDares = async () => {
+        const id = localStorage.getItem('id')
+        const challenges = await listChallengeToVerify(id,1)
+        console.log(challenges)
+        this.setState({
+            challenges: challenges
+        });
+
+        this.props.updateChallenge(0);
+    }
+
     render() {
 
         const { challenges } = this.state
+        const { updateChallengeReducer } = this.props;
+
+        if (updateChallengeReducer === 1) {
+            this.refreshDares();
+        }
 
         return (
             <View
@@ -80,12 +97,13 @@ class Dares extends React.Component {
 }
 
 const mapStateToProps = (state) => ({    
-
+    updateChallengeReducer: state.updateChallengeReducer,
 });
 
 const mapDispatchToProps = {
     listChallengeToVerify,
-    getChallenge
+    getChallenge,
+    updateChallenge
 };
 
 export default withRouter(
