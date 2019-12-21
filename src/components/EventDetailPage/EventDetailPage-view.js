@@ -60,7 +60,6 @@ function View(props) {
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
                                                         <hr />
-                                                        <button onClick={handleDownloadParticipants.bind(this,event.id)}>Descargar lista de participantes</button>
                                                     </div>
 
                                                     {
@@ -83,7 +82,12 @@ function View(props) {
                                         </div>
                                                 {
                                                     user_id === event.user_id ?
+                                                    <div>
+
                                                         <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
+                                                        <button onClick={handleDownloadParticipants.bind(this,event.id)}>Descargar lista de participantes</button>
+                                                    </div>
+
                                                         :
                                                         <AssistButton
                                                             isPart={isPart}
