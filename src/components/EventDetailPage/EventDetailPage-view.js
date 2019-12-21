@@ -17,7 +17,8 @@ function View(props) {
         user_id,
         event,
         isPart,
-        handleOpenEditModal
+        handleOpenEditModal,
+        handleDownloadParticipants
     } = props;
 
     return (
@@ -59,6 +60,7 @@ function View(props) {
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
                                                         <hr />
+                                                        <button onClick={handleDownloadParticipants.bind(this,event.id)}>Descargar lista de participantes</button>
                                                     </div>
 
                                                     {

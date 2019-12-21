@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import View from './EventDetailPage-view';
-import { showEvent } from '../../redux/actions';
+import { showEvent, downloadListParticipants, root } from '../../redux/actions';
 import getEvent from '../../redux/actions/getEvent';
 import reloadPage from '../../redux/actions/reloadPage';
 import { decodeToken } from '../../libs/helper';
@@ -54,6 +54,13 @@ class EventDetailPage extends React.Component {
         this.props.getEvent(event);
         
     }
+    handleDownloadParticipants = async (event_id,e) => {
+        e.preventDefault();
+        var a = document.createElement("a");
+        a.href = root + 'events/downloadParticipants/' + event_id;
+        a.target = "_blank";
+        a.click()    
+    }
     render() {
         const{
           user_id,
@@ -67,6 +74,7 @@ class EventDetailPage extends React.Component {
             isPart={isPart}
             user_id = {user_id}
             handleOpenEditModal={this.handleOpenEditModal}
+            handleDownloadParticipants={this.handleDownloadParticipants}
             />
         );
     }

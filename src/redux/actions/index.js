@@ -810,7 +810,6 @@ export const getListParticipants = async (id, data) => {
         console.log("Error" + error)
     }
 }
-
 //End Events
 
 export const validadeTip = (data) => {
