@@ -34,7 +34,37 @@ function View(props) {
                             )
                         })
                         :
-                        <h4 className="text-center no-events ml-3">No se encontraron eventos</h4>
+                        <div className="card reminder-information events">
+                        <div className="card-header events">
+                            <h3>Los eventos</h3>
+                        </div>
+                        <div className="card-body info-help-reminder">
+                            <div className="choose-calendar d-reminder-info">
+                            <i className="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Agregar un evento</p>
+                            </div>
+                        </div>
+                        <div className="card-body info-help-reminder">
+                            <div className="choose-calendar d-reminder-info">
+                            <i className="fas fa-calendar-day" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Son todos los eventos los cuales podras ver los detalles de cada uno, interesate en el que más tus habilidades se adecuen a tu perfil para que puedas sobresalir en el evento que tu haz escogido.</p>
+                            </div>
+                        </div>
+                        <div className="card-body info-help-reminder">
+                            <div className="choose-calendar d-reminder-info">
+                            <i className="fas fa-calendar-check" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Son tus eventos los cuales estas tú interesado y el cual vas a participar, no te preocupes si al final no podras asistir, tienes la alternativa de no participar si lo deseas.</p>
+                            </div>
+                        </div>
+                        <div className="card-body info-help-reminder">
+                            <div className="choose-calendar d-reminder-info">
+                            <i className="fas fa-clipboard-list" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p>Son tus propios eventos los cuales haz creado, podras ver cuantos participantes o interesados en tu evento, puedes cancelar o eliminar tu evento si tu deseas.</p>
+                            </div>
+                        </div>
+                        <div className="">
+                            <div className="img-reminder ml-2 flex-footer-event pt-1">
+                                <img className="event-img" src={require('../../public/images/svg/evento.svg')} alt="recordatorio" />
+                                <p className="ml-4">No tienes eventos en esta sección</p>
+                            </div>
+                        </div>
+                    </div>
                 }
             </div>
     );

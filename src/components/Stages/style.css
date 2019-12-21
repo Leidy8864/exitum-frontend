@@ -15,12 +15,10 @@
 
 .etapas {
     overflow-y: auto;
-    height: calc(100vh - 390px);
 }
 
 .stages-challenges {
     margin-top: 21px;
-    overflow-y: auto;
 }
 
 .stages-imgs {
@@ -95,8 +93,7 @@
 }
 @media screen and (max-width: 1200px) {
     .stages-challenges {
-        height: calc(100vh - 180px );
-        overflow-y: auto;
+
     }
 }
 

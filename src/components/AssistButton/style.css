@@ -4,12 +4,23 @@
 
 button.btn-no-assist {
     color: #fff;
-    background: #3CD9A8;
+    background: #2183F8;
     padding: 7px 10px;
     border-radius: 4px;
     position: relative;
 }
 
+button.btn-no-assist:focus, button.btn-assist:focus {
+    outline: none;
+}
+
 .container-detail button:focus{
     outline: none ;
+}
+
+button.btn-assist.edit {
+    height: 60px !important;
+}
+button.btn-no-assist.edit {
+    height: 60px !important;
 }

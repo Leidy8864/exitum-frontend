@@ -132,14 +132,16 @@ function View(props) {
                                             summary.length > 0 ?
 
                                                 summary.map((item, index) =>
+                                                    
                                                     <div className="row_detail mt-4" key={index}>
+                                                        <hr className="w-100"/>
                                                         <div className="mb-3">
                                                             <div className="media">
                                                                 <img src={item.ownerChallenge.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
                                                                 <h6 className="mt-0 font-weight-bold">{item.ownerChallenge.name + ' ' + item.ownerChallenge.lastname}</h6>
                                                             </div>
                                                             <div className="description_">
-                                                                {item.reply}
+                                                                <p className="padding-detail">{item.reply}</p>
                                                             </div>
                                                         </div>
                                                     </div>

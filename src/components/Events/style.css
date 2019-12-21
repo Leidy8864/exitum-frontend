@@ -12,8 +12,6 @@
 }
 
 .adds-scroll {
-    height: calc(100vh - 120px) !important;
-    overflow-y: auto !important;
     border-radius: 10px;
 }
 

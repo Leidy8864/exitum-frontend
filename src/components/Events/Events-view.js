@@ -45,7 +45,7 @@ function View(props) {
                                             <ModalEvents />
                                         </div>
                                     </div>
-                                    <div className="row mt-2 scroll-anuncios">
+                                    <div className="row mt-2">
                                             <EventsList />
                                     </div>
                                 </div>

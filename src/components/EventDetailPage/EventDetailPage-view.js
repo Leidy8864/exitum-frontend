@@ -78,6 +78,9 @@ function View(props) {
                                                     }
                                                 </div>
                                                 
+                                                
+                                            </div>
+                                        </div>
                                                 {
                                                     user_id === event.user_id ?
                                                         <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
@@ -87,8 +90,6 @@ function View(props) {
                                                             event_id={event.id}
                                                         />
                                                 }
-                                            </div>
-                                        </div>
 
                                     </div>
                                     <ParticipantsList />

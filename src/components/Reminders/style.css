@@ -55,6 +55,84 @@ nav.choose-calendar {
     padding: 15px 17px;
 }
 
+.choose-calendar i.fa-calendar-plus {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #4F78E8;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-play-circle {
+    color: #2183F8;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-pause-circle {
+    color: #2183F8;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-calendar-day {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-plus {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-calendar-check {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-clipboard-list {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.card.reminder-information .choose-calendar i.fa-handshake {
+    margin-right: 20px;
+}
+
+.container-not-appointment {
+    text-align: center;
+    padding: 20px;
+}
+
+.container-not-appointment h3 {
+    color: #4C5161 !important;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
 div.ocultar {
     display: none;
 }
@@ -167,6 +245,75 @@ a.morelink {
 
 .see-more {
     text-align: center;
+}
+
+.img-reminder img {
+    width: 45px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+img.event-img {
+    margin-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 35px !important;
+}
+
+.container-not-reminder {
+    position: absolute;
+    right: 20px;
+    top: 40%;
+    text-align: center;
+    display: block;
+}
+
+.container-not-reminder h3{
+    font-size: 20px;
+    font-family: 'Proxima Nova';
+    color: #4C5161;
+}
+
+.card.reminder-information {
+    margin-right: 19px !important;
+    margin-left: 15px !important;
+    border: 2px solid #E9EAED !important;
+}
+
+.card.reminder-information .card-header {
+    border: none !important;
+    border-radius: 0px !important;
+    padding: 15px !important;
+    background: #2183F8;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom: 2px solid #E9EAED !important;
+}
+
+.card.reminder-information .card-header h3 {
+    color: #fff;
+    font-size: 23px;
+    margin-left: 3px;
+}
+
+.card.reminder-information .card-body {
+    padding: 25px 10px !important;
+    border-bottom: 2px solid #E9EAED !important;
+}
+
+.card.reminder-information .info-help-reminder {
+    color: #777;
+}
+
+.card.reminder-information .choose-calendar i {
+    height: 50px;
+}
+
+.d-reminder-info {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
 }
 
 @media screen and (max-width: 1200px) {

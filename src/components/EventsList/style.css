@@ -3,8 +3,6 @@
 }
 div#events-list{
     margin-top: 20px;
-    height: calc(100vh - 200px);
-    overflow-y: auto !important;
   }
 
 .no-events {
@@ -15,4 +13,19 @@ div#events-list{
 .events-list {
     display: flex ;
     flex-wrap: wrap;
+}
+
+.card-header.events {
+    background: #2183F8 !important;
+}
+
+.img-events img {
+    width: 30px !important;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.reminder-information.events {
+    margin-right: 0px !important;
 }

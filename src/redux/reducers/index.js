@@ -36,6 +36,7 @@ import setImageReducer from './setImageReducer';
 import listOcupationsReducer from './listOcupationsReducer';
 import listCertificationsNameReducer from './listCertificationsNameReducer';
 import getListCareersReducer from './getListCareersReducer';
+import updateChallengeReducer from './updateChallengeReducer';
 export default combineReducers({
     form: formReducer,
     user : userReducer,
@@ -74,4 +75,5 @@ export default combineReducers({
     listOcupationsReducer : listOcupationsReducer,
     listCertificationsNameReducer : listCertificationsNameReducer,
     getListCareersReducer : getListCareersReducer,
+    updateChallengeReducer : updateChallengeReducer,
 });
