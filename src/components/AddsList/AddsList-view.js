@@ -14,7 +14,7 @@ function View(props) {
     } = props
     console.log(adsList)
     return (
-        <div className="mt-2 events-flex w-100" id="entrepreneur-ads">
+        <div className="mt-4 events-flex w-100" id="entrepreneur-ads">
                 {
                     adsList.length > 0 ?
                         adsList.map(function (item, index) {
@@ -38,7 +38,26 @@ function View(props) {
                         })
                         
                         :
-                        <h5 className="text-center none-persons">No se encontraron anuncios</h5>
+                        <div className="card reminder-information">
+                                        <div className="card-header">
+                                            <h3>Tus Anuncios</h3>
+                                        </div>
+                                        <div className="card-body info-help-reminder">
+                                            <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Son tus propios anuncios creados, los cuales estan en marcha para que otras personas puedan verlos y así puedan postular a dicho anuncio, cuando tu desees puedes pausar tu anuncio.</p>
+                                            </div>
+                                        </div>
+                                        <div className="card-body info-help-reminder">
+                                            <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-pause-circle" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p>Son tus propios anuncios creados, los cuales estan en pausa para que otras personas ya no puedan verlos, en este caso no habrán postulantes, cuando tu desees puedes reanudar tu anuncio.</p>
+                                            </div>
+                                        </div>
+                                        <div className="">
+                                            <div className="img-reminder ml-2">
+                                                <img className="" src={require('../../public/images/svg/pagina-web.svg')} alt="recordatorio" />
+                                            </div>
+                                        </div>
+                                    </div>
                 }
             </div>
     );

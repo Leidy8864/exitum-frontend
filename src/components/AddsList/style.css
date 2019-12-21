@@ -25,6 +25,10 @@ div.Ads{
   height: 200px;
 }
 
+.events-flex .reminder-information {
+  margin-right: 0px !important;
+}
+
 @media screen and (max-width: 600){
 
 }
