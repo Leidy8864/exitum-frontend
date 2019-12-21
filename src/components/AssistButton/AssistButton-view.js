@@ -9,11 +9,11 @@ function View(props) {
         isPart
     } = props
     return (
-        <button className={!isPart ? 'btn-assist' : 'btn-no-assist'} onClick={handleAssistEvent.bind(this,event_id)}>
+        <button className={!isPart ? 'btn-assist edit' : 'btn-no-assist edit'} onClick={handleAssistEvent.bind(this,event_id)}>
             {
                 !isPart ?
-                    "Me interesa"
-                    : "Ya no me interesa"
+                    "PARTICIPAR"
+                    : "YA NO PARTICIPAR"
             }
         </button>
     );

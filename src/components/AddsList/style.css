@@ -25,6 +25,13 @@ div.Ads{
   height: 200px;
 }
 
+.flex-footer-event {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #777;
+}
+
 .events-flex .reminder-information {
   margin-right: 0px !important;
 }

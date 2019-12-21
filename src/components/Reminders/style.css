@@ -82,6 +82,42 @@ nav.choose-calendar {
     padding: 15px 17px;
 }
 
+.choose-calendar i.fa-calendar-day {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-plus {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-calendar-check {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
+.choose-calendar i.fa-clipboard-list {
+    color: #435DEE;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: #EEF5FF;
+    padding: 15px 17px;
+}
+
 .card.reminder-information .choose-calendar i.fa-handshake {
     margin-right: 20px;
 }
@@ -212,7 +248,17 @@ a.morelink {
 }
 
 .img-reminder img {
-    width: 100px;
+    width: 45px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+img.event-img {
+    margin-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 35px !important;
 }
 
 .container-not-reminder {
