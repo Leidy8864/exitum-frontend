@@ -44,8 +44,7 @@ class Cherry extends React.Component {
     async componentDidMount() {
         const {user_id, role} = this.state
         const tip = await searchTip(user_id, role);
-        console.log("tip = ", tip)
-        if(tip.status){
+        if(tip && tip.status){
             this.setState({
                 textInfo:tip.data.description,
                 advice_id:tip.data.id,

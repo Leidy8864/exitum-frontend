@@ -85,7 +85,9 @@ function View(props) {
                                                     <div>
 
                                                         <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
-                                                        <button onClick={handleDownloadParticipants.bind(this,event.id)}>Descargar lista de participantes</button>
+                                                        <div className="link-descarga">
+                                                            <button onClick={handleDownloadParticipants.bind(this,event.id)}>Descargar lista de participantes</button>
+                                                        </div>
                                                     </div>
 
                                                         :

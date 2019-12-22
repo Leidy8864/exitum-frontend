@@ -26,9 +26,14 @@
     height: 300px;
 }
 
-.events-scroll {
-    /* overflow-y:  auto !important;
-    height: 100vh !important; */
+.link-descarga {
+    float: right;
+    margin: 20px;
+}
+.link-descarga button{
+    border: none;
+    color: blue;
+    text-decoration: underline;
 }
 
 .container-detail button {
@@ -57,11 +62,11 @@
 }
 
 @media screen and (max-width: 1440px){
-    .container-events-info {
+    /* .container-events-info {
 
     }
     .container-events {
-    }
+    } */
     .foto-evento img{
         width: 150px;
         height: 150px;
