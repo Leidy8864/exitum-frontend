@@ -5,103 +5,180 @@ import { withRouter } from 'react-router-dom';
 import { oauthGoogle, oauthFacebook, signUp, signIn, updateUser } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form'
 import $ from 'jquery';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 class Signup extends React.Component {
 
     state = {
         name: '',
-        lastname: '',
-        email: '',
-        password: '',
+        lastname_1: '',
+        lastname_2: '',
+        email_1: '',
+        email_2: '',
+        password_1: '',
+        password_2: '',
         error_name: '',
-        error_lastname: '',
-        error_email: '',
-        error_password: '',
+        error_lastname_1: '',
+        error_lastname_2: '',
+        error_email_1: '',
+        error_email_2: '',
+        error_password_1: '',
+        error_password_2: '',
         error_registro: '',
         exito_registro: '',
+        error_genre: '',
+        genre:'',
+        isChecked:false
     }
 
     name = e => {
         this.setState({ name: e.target.value })
     }
 
-    lastname = e => {
-        this.setState({ lastname: e.target.value })
+    lastname_1 = e => {
+        this.setState({ lastname_1: e.target.value })
+    }
+    lastname_2 = e => {
+        this.setState({ lastname_2: e.target.value })
     }
 
-    email = e => {
-        this.setState({ email: e.target.value })
+    email_1 = e => {
+        this.setState({ email_1: e.target.value })
+    }
+    email_2 = e => {
+        this.setState({ email_2: e.target.value })
     }
 
-    password = e => {
-        this.setState({ password: e.target.value })
+    password_1 = e => {
+        this.setState({ password_1: e.target.value })
+    }
+    password_2 = e => {
+        this.setState({ password_2: e.target.value })
+    }
+    toggleChange = () => {
+        this.setState({
+          isChecked: !this.state.isChecked,
+        });
+    }
+
+    selectGenre = async (e) => {
+        this.setState({genre: e.target.value})
     }
 
     logged = async e => {
         this.props.cleanForm("0");
-        this.setState({ error_name: '' });
-        this.setState({ error_lastname: '' });
-        this.setState({ error_email: '' });
-        this.setState({ error_password: '' });
-        this.setState({ error_registro: '' });
-        this.setState({ exito_registro: '' });
+        this.setState({ error_genre: '' })
+        this.setState({ error_name: '' })
+        this.setState({ error_lastname_1: '' })
+        this.setState({ error_lastname_2: '' })
+        this.setState({ error_email_1: '' })
+        this.setState({ error_email_2: '' })
+        this.setState({ error_password_1: '' })
+        this.setState({ error_password_2: '' })
 
         e.preventDefault();
-        const { name, lastname, email, password } = this.state
+        const { name, lastname_1, lastname_2, email_1, email_2, password_1, password_2, genre, isChecked} = this.state
         const formData = {
             name,
-            lastname,
-            email,
-            password
+            lastname_1,
+            lastname_2,
+            email: email_1, 
+            password: password_1, 
+            genre
         }
 
-        if (name && lastname && email && password && password.length >= 8) {
-            const response = await this.props.signUp(formData);
-            if (response.status) {
-                localStorage.setItem('id', response.data.id);
-                localStorage.setItem('infoChiko', true);
-                localStorage.setItem('token', response.data.accessToken);
-                localStorage.setItem('confirmed', response.data.confirmed);
-                localStorage.setItem('lastname', response.data.lastname);
-                localStorage.setItem('name', response.data.name);
-                localStorage.setItem('email', response.data.email);
-                localStorage.setItem('role', response.data.role);
+        console.log("formData = ", JSON.stringify(formData));
+        console.log("isChecked = ", isChecked);
 
-                $('.modal-backdrop').remove();
-                $('body').removeClass('modal-open');
+        if (
+            name && lastname_1 && lastname_2 && email_1 && email_2 && 
+            email_1 === email_2 && genre && password_1 && password_2 && isChecked &&
+            password_1 === password_2 && password_1.length >= 8 && password_2.length >= 8) {
+            // const response = await this.props.signUp(formData);
+            // if (response.status) {
+            //     localStorage.setItem('id', response.data.id);
+            //     localStorage.setItem('infoChiko', true);
+            //     localStorage.setItem('token', response.data.accessToken);
+            //     localStorage.setItem('confirmed', response.data.confirmed);
+            //     localStorage.setItem('lastname', response.data.lastname);
+            //     localStorage.setItem('name', response.data.name);
+            //     localStorage.setItem('email', response.data.email);
+            //     localStorage.setItem('role', response.data.role);
 
-                Swal.fire(
-                    'Felicidades se ha creado tu cuenta correctamente',
-                    'Se te ha enviado un correo de verificación a tu cuenta para poder acceder a EXITUM',
-                    'success'
-                )
-                setTimeout(
-                    () => {
-                        $('#signup').modal('hide')
-                    },
-                    5000
-                );
-            } else {
-                console.log("error = ", response.message)
-                this.setState({ error_registro: response.message })
-            }
+            //     $('.modal-backdrop').remove();
+            //     $('body').removeClass('modal-open');
+
+            //     Swal.fire(
+            //         'Felicidades se ha creado tu cuenta correctamente',
+            //         'Se te ha enviado un correo de verificación a tu cuenta para poder acceder a EXITUM',
+            //         'success'
+            //     )
+            //     setTimeout(
+            //         () => {
+            //             $('#signup').modal('hide')
+            //         },
+            //         5000
+            //     );
+            // } else {
+            //     console.log("error = ", response.message)
+            //     this.setState({ error_registro: response.message })
+            // }
         } else {
+            if (!genre) {
+                this.setState({ error_genre: 'Debes elegir un genero' })
+            }else{
+                this.setState({ error_genre: '' })
+            }
             if (!name) {
                 this.setState({ error_name: 'Debes ingresar un nombre' })
+            }else{
+                this.setState({ error_name: '' })
             }
-            if (!lastname) {
-                this.setState({ error_lastname: 'Debes ingresar un apellido' })
+            if (!lastname_1) {
+                this.setState({ error_lastname_1: 'Debes ingresar el apellido paterno' })
+            }else{
+                this.setState({ error_lastname_1: '' })
             }
-            if (!email) {
-                this.setState({ error_email: 'Debes ingresar un email' })
+            if (!lastname_2) {
+                this.setState({ error_lastname_2: 'Debes ingresar el apellido materno' })
+            }else{
+                this.setState({ error_lastname_2: '' })
             }
-            if (!password) {
-                this.setState({ error_password: 'Debes ingresar una clave' })
+            if (!email_1) {
+                this.setState({ error_email_1: 'Debes ingresar un email' })
+            }else{
+                this.setState({ error_email_1: '' })
+            }
+            if (!email_2) {
+                this.setState({ error_email_2: 'Debes confirmar tu email' })
+            }else{
+                this.setState({ error_email_2: '' })
+            }
+            if (email_2 !==email_1) {
+                this.setState({ error_email_2: 'Debes ingresar el mismo email' })
+            }
+            if (!password_1) {
+                this.setState({ error_password_1: 'Debes ingresar una clave' })
             } else {
-                if (password.length < 8) {
-                    this.setState({ error_password: 'La clave debe tener mínimo 8 caracteres' })
+                if (password_1.length < 8) {
+                    this.setState({ error_password_1: 'La clave debe tener mínimo 8 caracteres' })
+                }else{
+                    this.setState({ error_password_1: '' })
                 }
+            }
+            if (!password_2) {
+                this.setState({ error_password_2: 'Debes confirmar tu clave' })
+            } else {
+                if (password_2.length < 8) {
+                    this.setState({ error_password_2: 'La clave debe tener mínimo 8 caracteres' })
+                }else{
+                    this.setState({ error_password_2: '' })
+                }
+            }
+            if (password_2 !== password_1) {
+                this.setState({ error_password_2: 'Debes ingresar la misma clave' })
+            }else{
+                this.setState({ error_password_2: '' })
             }
 
         }
@@ -188,38 +265,62 @@ class Signup extends React.Component {
             cleanFormReducer
         } = this.props;
         let error_name = this.state.error_name;
-        let error_lastname = this.state.error_lastname;
-        let error_email = this.state.error_email;
-        let error_password = this.state.error_password;
+        let error_lastname_1 = this.state.error_lastname_1;
+        let error_lastname_2 = this.state.error_lastname_2;
+        let error_email_1 = this.state.error_email_1;
+        let error_email_2 = this.state.error_email_2;
+        let error_password_1 = this.state.error_password_1;
+        let error_password_2 = this.state.error_password_2;
         let error_registro = this.state.error_registro;
         let exito_registro = this.state.exito_registro;
+        let error_genre = this.state.error_genre;
         let content_error_name = '';
-        let content_error_lastname = '';
-        let content_error_email = '';
-        let content_error_password = '';
+        let content_error_genre = '';
+        let content_error_lastname_1 = '';
+        let content_error_lastname_2 = '';
+        let content_error_email_1 = '';
+        let content_error_email_2 = '';
+        let content_error_password_1 = '';
+        let content_error_password_2 = '';
         let content_error_registro = '';
         let content_exito_registro = '';
 
         if (cleanFormReducer) {
             error_name = '';
-            error_lastname = '';
-            error_email = '';
-            error_password = '';
+            error_lastname_1 = '';
+            error_lastname_2 = '';
+            error_email_1 = '';
+            error_email_2 = '';
+            error_password_1 = '';
+            error_password_2 = '';
             error_registro = '';
             exito_registro = '';
+            error_genre = '';
         }
 
         if (error_name) {
             content_error_name = <p>{error_name}</p>;
         }
-        if (error_lastname) {
-            content_error_lastname = <p>{error_lastname}</p>;
+        if (error_genre) {
+            content_error_genre = <p>{error_genre}</p>;
         }
-        if (error_email) {
-            content_error_email = <p>{error_email}</p>;
+        if (error_lastname_1) {
+            content_error_lastname_1 = <p>{error_lastname_1}</p>;
         }
-        if (error_password) {
-            content_error_password = <p>{error_password}</p>;
+        if (error_lastname_2) {
+            content_error_lastname_2 = <p>{error_lastname_2}</p>;
+        }
+        if (error_email_1) {
+            content_error_email_1 = <p>{error_email_1}</p>;
+        }
+        if (error_email_2) {
+            content_error_email_2 = <p>{error_email_2}</p>;
+        }
+        if (error_password_1) {
+            content_error_password_1 = <p>{error_password_1}</p>;
+        }
+        if (error_password_2) {
+            content_error_password_2 = <p>{error_password_2}</p>;
         }
         if (error_registro) {
             content_error_registro = <div className="error-message"><p>{error_registro}</p></div>;
@@ -234,13 +335,23 @@ class Signup extends React.Component {
                 responseGoogle={this.responseGoogle}
                 logged={this.logged}
                 name={this.name}
-                lastname={this.lastname}
-                email={this.email}
-                password={this.password}
+                lastname_1={this.lastname_1}
+                lastname_2={this.lastname_2}
+                selectGenre={this.selectGenre}
+                email_1={this.email_1}
+                email_2={this.email_2}
+                password_1={this.password_1}
+                password_2={this.password_2}
+                isChecked={this.state.isChecked}
+                toggleChange={this.toggleChange}
                 content_error_name={content_error_name}
-                content_error_lastname={content_error_lastname}
-                content_error_email={content_error_email}
-                content_error_password={content_error_password}
+                content_error_genre={content_error_genre}
+                content_error_lastname_1={content_error_lastname_1}
+                content_error_lastname_2={content_error_lastname_2}
+                content_error_email_1={content_error_email_1}
+                content_error_email_2={content_error_email_2}
+                content_error_password_1={content_error_password_1}
+                content_error_password_2={content_error_password_2}
                 content_error_registro={content_error_registro}
                 content_exito_registro={content_exito_registro}
             />
