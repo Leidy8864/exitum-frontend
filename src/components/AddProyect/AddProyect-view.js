@@ -12,11 +12,8 @@ function View(props) {
         blockProjects,
         selectProject,
         selected,
-        show_add_proyect_empty,
         role
     } = props
-
-    console.log("PROYECTOS VACIOS ?", show_add_proyect_empty)
 
     return (
 
@@ -35,26 +32,21 @@ function View(props) {
                                     </div>
                                 </Link>
                             </div>
-                        </div>
-                        <div className="proyects-list-aux w-100">
-                                <div className="row proyects-block w-100 container-options">
-                                    {
-                                        blockProjects.map((dt) =>
-                                            <div
-                                                key={"project" + dt.id}
-                                                id={dt.id}
-                                                className={selected.toString() === dt.id.toString() ? "projectblockSelected" : "projectblock"}
-                                                // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
-                                                onClick={selectProject}
-                                            >
-                                                {dt.name}
+                            {
+                                blockProjects.map((dt) =>
+                                    <div
+                                        key={"project" + dt.id}
+                                        id={dt.id}
+                                        className={selected.toString() === dt.id.toString() ? "projectblockSelected" : "projectblock"}
+                                        onClick={selectProject}
+                                    >
+                                        {dt.name}
 
-                                            </div>
-                                        )
-                                    }
-                            </div>
+                                    </div>
+                                )
+                            }
                         </div>
-                    </div> : 
+                    </div> :
                     <div className="container-options w-100">
                         <div className="container-info-impulsor">
                             <img className="w-100" src={require('../../public/images/svg/empleado.svg')} />
@@ -66,51 +58,10 @@ function View(props) {
                             </div>
                         </div>
                     </div>
-                
+
             }
             <ModalProjects />
         </Fragment>
-
-        // <div className="">
-        //     {show_add_proyect_empty ?
-        //         <div>
-        //             <div className="proyects-list"></div>
-        //             <div className="add-proyect">
-        //                 <Link className="" to="" data-toggle="modal" data-target="#NewProjectModal" onClick={cleanForm}>
-        //                     <div className="Ads-plus-proyect">
-        //                         <i className="fas fa-plus mr-2"></i>
-        //                     </div>
-        //                 </Link>
-        //             </div>
-        //         </div>
-        //         :
-        //         <div >
-        //             <div className="proyects-list-aux">
-        //                 <div className="container">
-        //                     <div className="row proyects-block">
-        //                         {
-        //                             blockProjects.map((dt) =>
-        //                                 <div
-        //                                     key={"project" + dt.id}
-        //                                     id={dt.id}
-        //                                     className={selected.toString() === dt.id.toString() ? "projectblockSelected" : "projectblock"}
-        //                                     // className= {selected === dt.id ? "hourModalAdsSelected": "hourModalAds"}
-        //                                     onClick={selectProject}
-        //                                 >
-        //                                     {dt.name}
-
-        //                                 </div>
-        //                             )
-        //                         }
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //            
-        //         </div>
-
-        //     }
-        //     
-        // </div>
     );
 }
 export default View;

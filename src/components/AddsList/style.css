@@ -19,6 +19,16 @@ div.Ads{
   padding-right: 0px !important;
 }
 
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-header a {
+  color: #fff;
+}
+
 .events-flex {
   display: flex;
   flex-wrap: wrap;
