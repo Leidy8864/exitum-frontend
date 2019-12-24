@@ -72,7 +72,7 @@ function View(props) {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12 mb-3 perfils">
-                                        <label>Descripcion</label>
+                                        <label>Acerca de mí</label>
                                         <textarea
                                             type="text"
                                             className="form-control"
@@ -84,7 +84,7 @@ function View(props) {
                                 </div>
                                 {isHour ?
                                     <div className="form_group_ mt-1">
-                                        <label>Seleccione horas disponibles para reuniones</label>
+                                        <label>Seleccione tus horas disponibles para reuniones</label>
                                         <div className="content-hour">
                                             {
                                                 hoursOptions.map(dt =>
@@ -92,12 +92,12 @@ function View(props) {
                                                     <div className="text-hour" key={dt}>
                                                         <input
                                                             type="checkbox"
-                                                            id={dt}
+                                                            id={dt + "checked"}
                                                             name="available"
-                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds none-checked"}
                                                             onClick={selectHour}
                                                         />
-                                                        {dt}
+                                                        <label htmlFor={dt + "checked"}>{dt}</label>
                                                     </div>
                                                 )
                                             }
