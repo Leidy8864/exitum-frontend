@@ -133,7 +133,7 @@ function View(props) {
                                 </div>
                                 {isHour ?
                                     <div className="form_group_ mt-1">
-                                        <label>Seleccione horas disponibles para reuniones</label>
+                                        <label>Seleccione tus horas disponibles para reuniones</label>
                                         <div className="content-hour">
                                             {
                                                 hoursOptions.map((dt, index) =>
@@ -144,11 +144,21 @@ function View(props) {
                                                             id={dt.hour}
                                                             name="available"
                                                             // className={unavailables.find(hour => {return hour === dt}) ? "hourModalAdsSelected" : "hourModalAds"}
-                                                            className="hourModalAds"
+                                                            // className={selected === dt ? "hourModalAdsSelected" : "hourModalAds none-checked"}
+
+                                                            className="hourModalAdsSelected"
                                                             checked={dt.selected}
                                                             onChange={selectHour}
                                                         />
+                                                        {/* <label htmlFor={dt + "checked"}>{dt}</label> */}
+
                                                         {dt.hour}
+                                                        {/* id={dt + "checked"}
+                                                            name="available"
+                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds none-checked"}
+                                                            onClick={selectHour}
+                                                        />
+                                                        <label htmlFor={dt + "checked"}>{dt}</label> */}
                                                     </div>
                                                 )
                                             }

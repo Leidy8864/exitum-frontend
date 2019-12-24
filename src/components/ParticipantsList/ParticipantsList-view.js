@@ -8,8 +8,6 @@ function View(props) {
         participants,
         user_id
     } = props
-
-    console.log(participants)
     return (
         <div id="list-participants">
 

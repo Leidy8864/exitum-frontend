@@ -60,6 +60,7 @@ function View(props) {
                                                 placeholder={'Selecciona un contacto'}
                                                 value={selectedOption}
                                                 onChange={handleChange}
+                                                name="contact"
                                                 options={options}
                                             />
                                         </Fragment>
@@ -98,7 +99,7 @@ function View(props) {
                                                     id={dt}
                                                     className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                     onClick={selectHour}
-                                                    onChange={handleChange}
+                                                    // onChange={handleChange}
                                                 >
                                                     {dt}
                                                 </div>

@@ -18,8 +18,6 @@ function View(props) {
         isHour,
     } = props
 
-    console.log(time)
-
     return (
         <div>
             <div className="modal fade" id="updateReminder" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

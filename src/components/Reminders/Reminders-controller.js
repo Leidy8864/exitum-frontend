@@ -31,10 +31,10 @@ class Reminders extends React.Component {
         })
         try {
             let id = localStorage.getItem('id')
-            const appointments = await appointmentsByUser(id);
+            const appointments = await appointmentsByUser(id);            
             // console.log("APPP",appointments);
             
-            const meetings = await meetingByUser(id);
+            const meetings = await meetingByUser(id);            
             this.showMoreOrLessText();
             this.setState({
                 appointments,
@@ -117,7 +117,7 @@ class Reminders extends React.Component {
         var id = e.target.id;
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "Si eliminas este recordatorio, ya no podrás deshacer esta acción.",
+            text: "Si eliminas esta reunión, ya no podrás deshacer esta acción.",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -156,7 +156,7 @@ class Reminders extends React.Component {
 
         Swal.fire({
             title: '¿Estás seguro?',
-            text: "Aceptaras la reunion para establecer un acuerdo con el contacto",
+            text: "Aceptaras la reunión para establecer un acuerdo con el contacto",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -170,6 +170,8 @@ class Reminders extends React.Component {
                         status
                     }
                     const response = await this.props.appointmentsConfirm(meet_notification_confirm_id, data);
+                    console.log("RESPONSE",response);
+                    
                     if (response.status) {
 
                     } else {

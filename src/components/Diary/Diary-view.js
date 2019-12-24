@@ -1,8 +1,6 @@
 
-// import React, { Fragment } from 'react';
 import React from 'react';
 import './style.css';
-// import NewDiary from '../NewDiary/NewDiary-controller';
 import ModalDiary from '../Modal-diary/Modal-diary-controller';
 import Reminders from '../Reminders/Reminders-controller'
 function View(props) {

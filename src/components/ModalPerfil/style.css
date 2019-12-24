@@ -43,28 +43,29 @@ input[type=checkbox].hourModalAds {
     position: absolute !important;
     left: -20px;
     z-index: 0;
+    height: 20px;
     border: none;
     top: 10px;
+    transition: 0.5s;
 }
 
 div.text-hour {
-    margin-left: 10px !important;
+    margin-left: 0px !important;
     position: relative;
-    left: 28px;
+    left: 0px;
     z-index: 2;
-    padding: 6px 6px;
-    width: 80px;
-    margin: 10px 12px 10px 0px;
+    padding: 2px;
+    width: 102px;
+    margin: 8px 4px 10px 0px;
     border-radius: 6px;
     color: rgb(141, 137, 137);
     font-weight: 400;
-    font-size: 14px;
 }
 
 label {
     color: #777;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 div.content-hour {
@@ -72,7 +73,7 @@ div.content-hour {
     flex-wrap: wrap;
 }
 
-input[type=checkbox] {
+/* input[type=checkbox] {
          position: relative;
 	       cursor: pointer;
     }
@@ -101,7 +102,7 @@ input[type=checkbox] {
          position: absolute;
          top: 2px;
          left: 6px;
-}
+} */
 
 .modal-footer button.adds {
     color: #fff;

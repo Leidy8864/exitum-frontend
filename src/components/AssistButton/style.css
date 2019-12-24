@@ -17,10 +17,3 @@ button.btn-no-assist:focus, button.btn-assist:focus {
 .container-detail button:focus{
     outline: none ;
 }
-
-button.btn-assist.edit {
-    height: 60px !important;
-}
-button.btn-no-assist.edit {
-    height: 60px !important;
-}

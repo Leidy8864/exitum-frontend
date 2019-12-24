@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { updateUserPerfil, notAvailableUser, showDataByUser, hourAvailables, listCountries } from '../../redux/actions'
 import $ from 'jquery';
 import Swal from 'sweetalert2'
+import { convertTimes } from '../../libs/helper';
 
 class ModalPerfil extends React.Component {
 
@@ -98,8 +99,6 @@ class ModalPerfil extends React.Component {
             let id = localStorage.getItem('id')
             const userShow = await showDataByUser(id);
             const countrieData = await listCountries();
-
-            console.log("SUUSUS",userShow);
             let phoneCodes = [];
 
             var hoursUnavailables = []
@@ -111,7 +110,7 @@ class ModalPerfil extends React.Component {
                 value : userShow.data.country.id
             }
             for (let index = 0; index < unavailables.length; index++) {
-                hoursUnavailables.push(this.convertTimes(unavailables[index].time))
+                hoursUnavailables.push(convertTimes(unavailables[index].time))
             }
 
             for (let index = 0; index < hoursOptions.length; index++) {
@@ -147,22 +146,6 @@ class ModalPerfil extends React.Component {
         });
     }
 
-    convertTimes = (time) => {
-        var regHrs = /^(\d+)/g;
-        var regMnts = /:(\d+)/g;
-        var hrs = Number(regHrs.exec(time)[1]);
-        var mnts = Number(regMnts.exec(time)[1]);
-
-        if (hrs > 24 || hrs < 0 || mnts > 59 || mnts < 0) throw ("Opps! formato de hora incorrecto.");
-        if (mnts < 10) mnts = `0${mnts}`
-
-        if (hrs > 0 && hrs < 12) time = `${hrs}:${mnts} AM`
-        if (hrs > 12 && hrs < 24) time = `${hrs - 12}:${mnts} PM`
-        if (hrs == 0) time = `12:${mnts} AM`
-        if (hrs == 12) time = `12:${mnts} PM`
-
-        return time
-    }
 
     selectHour = e => {
         var hours = this.state.available

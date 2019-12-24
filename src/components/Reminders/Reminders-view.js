@@ -77,31 +77,31 @@ function View(props) {
                                         </Fragment>
                                     )
                                 }) : <div className="card reminder-information">
-                                        <div className="card-header">
-                                            <h3>Tu agenda</h3>
-                                        </div>
-                                        <div className="card-body info-help-reminder">
-                                            <div className="choose-calendar d-reminder-info">
+                                    <div className="card-header">
+                                        <h3>Tu agenda</h3>
+                                    </div>
+                                    <div className="card-body info-help-reminder">
+                                        <div className="choose-calendar d-reminder-info">
                                             <i className="far fa-calendar-plus" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>En tu agenta puedes elegir entre agendar un recordatorio o una reunión</p>
-                                            </div>
-                                        </div>
-                                        <div className="card-body info-help-reminder">
-                                            <div className="choose-calendar d-reminder-info">
-                                            <i className="far fa-bell" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p> Indica los recordatorios que deseas archivar en tu agenda</p>
-                                            </div>
-                                        </div>
-                                        <div className="card-body info-help-reminder">
-                                            <div className="choose-calendar d-reminder-info">
-                                            <i className="far fa-handshake" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p> Indica las reuniones que deseas archivar en tu agenda</p>
-                                            </div>
-                                        </div>
-                                        <div className="container-not-appointment">
-                                            <h3>Actualmente,no tienes ningun recordatorio, agrega uno si deseas</h3>
-                                            <div className="img-reminder">
-                                                <img className="" src={require('../../public/images/svg/recordatorio.svg')} alt="recordatorio" />
-                                            </div>
                                         </div>
                                     </div>
+                                    <div className="card-body info-help-reminder">
+                                        <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-bell" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p> Indica los recordatorios que deseas archivar en tu agenda</p>
+                                        </div>
+                                    </div>
+                                    <div className="card-body info-help-reminder">
+                                        <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-handshake" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p> Indica las reuniones que deseas archivar en tu agenda</p>
+                                        </div>
+                                    </div>
+                                    <div className="container-not-appointment">
+                                        <h3>Actualmente,no tienes ningun recordatorio, agrega uno si deseas</h3>
+                                        <div className="img-reminder">
+                                            <img className="" src={require('../../public/images/svg/recordatorio.svg')} alt="recordatorio" />
+                                        </div>
+                                    </div>
+                                </div>
 
 
                         }
@@ -131,9 +131,17 @@ function View(props) {
                                                                         </a>
 
                                                                     </div> :
-                                                                    <div className="footer-meeting d-flex pb-2">
-                                                                        <i className="far fa-calendar-check mt-1" id={item.id} onClick={confirmMeetNotification}></i>
-                                                                    </div>
+                                                                    !item.status ?
+                                                                        <div className="footer-meeting d-flex pb-2">
+                                                                            <i className="far fa-calendar-check mt-1" id={item.id} onClick={confirmMeetNotification} style={{ cursor: "pointer" }}></i>
+                                                                        </div>
+                                                                        :
+                                                                        <div className="delete-reminder icon">
+                                                                            <a href="#" className="icon-edit">
+                                                                                <i id={item.id} onClick={handleClickDeleteMeet} className="fas fa-trash mt-1"></i>
+                                                                            </a>
+
+                                                                        </div>
 
                                                             }
                                                         </div>
@@ -148,9 +156,14 @@ function View(props) {
                                                                     <div className="description-reminder d-flex">
                                                                         <i className="far fa-clock mr-2 mt-1"></i><p className="ml-2">{item.time}</p>
                                                                     </div>
-                                                                    <div className="footer-meeting d-flex pb-2">
-                                                                        <i className="far fa-calendar-times" id={item.id} onClick={handleClickDeleteMeetNotification}></i>
-                                                                    </div>
+                                                                    {
+                                                                        !item.status ?
+                                                                            <div className="footer-meeting d-flex pb-2">
+                                                                                <i className="far fa-calendar-times" id={item.id} onClick={handleClickDeleteMeetNotification} style={{ cursor: "pointer" }}></i>
+                                                                            </div>
+                                                                            : ''
+                                                                    }
+
                                                                 </div>
 
 
@@ -191,31 +204,31 @@ function View(props) {
 
                                     )
                                 }) : <div className="card reminder-information">
-                                <div className="card-header">
-                                    <h3>Tu agenda</h3>
-                                </div>
-                                <div className="card-body info-help-reminder">
-                                    <div className="choose-calendar d-reminder-info">
-                                    <i className="far fa-calendar-plus" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>En tu agenta puedes elegir entre agendar un recordatorio o una reunión</p>
+                                    <div className="card-header">
+                                        <h3>Tu agenda</h3>
+                                    </div>
+                                    <div className="card-body info-help-reminder">
+                                        <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-calendar-plus" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>En tu agenta puedes elegir entre agendar un recordatorio o una reunión</p>
+                                        </div>
+                                    </div>
+                                    <div className="card-body info-help-reminder">
+                                        <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-bell" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p> Indica los recordatorios que deseas archivar en tu agenda</p>
+                                        </div>
+                                    </div>
+                                    <div className="card-body info-help-reminder">
+                                        <div className="choose-calendar d-reminder-info">
+                                            <i className="far fa-handshake" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p> Indica las reuniones que deseas archivar en tu agenda</p>
+                                        </div>
+                                    </div>
+                                    <div className="container-not-appointment">
+                                        <h3>Actualmente,no tienes ningun reunión, agrega uno si deseas</h3>
+                                        <div className="img-reminder">
+                                            <img className="" src={require('../../public/images/svg/reunion.svg')} alt="recordatorio" />
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="card-body info-help-reminder">
-                                    <div className="choose-calendar d-reminder-info">
-                                    <i className="far fa-bell" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p> Indica los recordatorios que deseas archivar en tu agenda</p>
-                                    </div>
-                                </div>
-                                <div className="card-body info-help-reminder">
-                                    <div className="choose-calendar d-reminder-info">
-                                    <i className="far fa-handshake" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p> Indica las reuniones que deseas archivar en tu agenda</p>
-                                    </div>
-                                </div>
-                                <div className="container-not-appointment">
-                                    <h3>Actualmente,no tienes ningun reunión, agrega uno si deseas</h3>
-                                    <div className="img-reminder">
-                                        <img className="" src={require('../../public/images/svg/reunion.svg')} alt="recordatorio" />
-                                    </div>
-                                </div>
-                            </div>
                         }
                     </div>
                 </div>

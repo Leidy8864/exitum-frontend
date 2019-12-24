@@ -16,6 +16,12 @@
     color: #157FFB !important  
 }
 
+.absolute-help {
+    position: absolute;
+    right: 50px;
+    top: -3px;
+}
+
 .nav-link-curses {
    color: #4C5161 !important  
 }

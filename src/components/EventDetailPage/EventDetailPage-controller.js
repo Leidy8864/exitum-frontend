@@ -42,7 +42,6 @@ class EventDetailPage extends React.Component {
                 event : response.status ? response.data : [],
                 isPart : participant ? true : false
             });
-            console.log("EVENT",response.data);                             
         } catch (error) {
             console.log("Error al ver detalle de evento",error);
         }

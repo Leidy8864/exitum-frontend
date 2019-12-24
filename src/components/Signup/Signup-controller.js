@@ -83,46 +83,45 @@ class Signup extends React.Component {
             lastname_1,
             lastname_2,
             email: email_1, 
+            emailConfirm: email_2, 
+            passwordConfirm : password_2,
             password: password_1, 
             genre
         }
-
-        console.log("formData = ", JSON.stringify(formData));
-        console.log("isChecked = ", isChecked);
 
         if (
             name && lastname_1 && lastname_2 && email_1 && email_2 && 
             email_1 === email_2 && genre && password_1 && password_2 && isChecked &&
             password_1 === password_2 && password_1.length >= 8 && password_2.length >= 8) {
-            // const response = await this.props.signUp(formData);
-            // if (response.status) {
-            //     localStorage.setItem('id', response.data.id);
-            //     localStorage.setItem('infoChiko', true);
-            //     localStorage.setItem('token', response.data.accessToken);
-            //     localStorage.setItem('confirmed', response.data.confirmed);
-            //     localStorage.setItem('lastname', response.data.lastname);
-            //     localStorage.setItem('name', response.data.name);
-            //     localStorage.setItem('email', response.data.email);
-            //     localStorage.setItem('role', response.data.role);
+            const response = await this.props.signUp(formData);
+            if (response.status) {
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('infoChiko', true);
+                localStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('confirmed', response.data.confirmed);
+                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('name', response.data.name);
+                localStorage.setItem('email', response.data.email);
+                localStorage.setItem('role', response.data.role);
 
-            //     $('.modal-backdrop').remove();
-            //     $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+                $('body').removeClass('modal-open');
 
-            //     Swal.fire(
-            //         'Felicidades se ha creado tu cuenta correctamente',
-            //         'Se te ha enviado un correo de verificación a tu cuenta para poder acceder a EXITUM',
-            //         'success'
-            //     )
-            //     setTimeout(
-            //         () => {
-            //             $('#signup').modal('hide')
-            //         },
-            //         5000
-            //     );
-            // } else {
-            //     console.log("error = ", response.message)
-            //     this.setState({ error_registro: response.message })
-            // }
+                Swal.fire(
+                    'Felicidades se ha creado tu cuenta correctamente',
+                    'Se te ha enviado un correo de verificación a tu cuenta para poder acceder a EXITUM',
+                    'success'
+                )
+                setTimeout(
+                    () => {
+                        $('#signup').modal('hide')
+                    },
+                    5000
+                );
+            } else {
+                console.log("error = ", response.message)
+                this.setState({ error_registro: response.message })
+            }
         } else {
             if (!genre) {
                 this.setState({ error_genre: 'Debes elegir un genero' })

@@ -1,9 +1,9 @@
 import axios from 'axios'
 // import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
 import { AUTH_ERROR } from './types'
-export const root = 'http://localhost:8081/';
+// export const root = 'http://localhost:8081/';
 
-// export const root = 'http://35.175.241.103:8081/';
+export const root = 'http://35.175.241.103:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
@@ -652,7 +652,7 @@ export const appointmentsConfirm = (id, data) => {
     return async dispatch => {
         try {
             const res = await axios.post(root + `appointments/confirmation/${id}`, data)
-            return res.data.data
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -700,7 +700,7 @@ export const deleteExperience = data => {
 export const hourAvailables = (id, data) => {
     return async dispatch => {
         try {
-            const res = await axios.post(root + `schedules/schedule/3`, data)
+            const res = await axios.post(root + `schedules/schedule/${id}`, data)
             return res.data.data
         } catch (error) {
             console.log("Error" + error)

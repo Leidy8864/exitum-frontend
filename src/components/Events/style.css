@@ -16,9 +16,9 @@
 }
 
 .nav-link-person {
-    background: #FEF6FB;
+    background: #EEF5FF;
     border-radius: 20px;
-    color: #FD42A6  
+    color: #435DEE  
 }
 
 .lista-eventos {
@@ -26,7 +26,7 @@
 }
 
 .nav-link-person:hover {
-    color: #FD42A6  
+    color: #435DEE  
 }
 
 a.nav-link-morado, a.nav-link-yellow, a.nav-link {
@@ -34,11 +34,11 @@ a.nav-link-morado, a.nav-link-yellow, a.nav-link {
 }
 
 a.nav-link-morado:hover, a.nav-link-yellow:hover {
-    color: #FD42A6;  
+    color: #435DEE;  
 }
 
 a.nav-link-morado:focus, a.nav-link-yellow:focus, a.nav-link:focus {
-    color: #FD42A6;  
+    color: #435DEE;  
 }
 
 @media screen and (max-width: 1200px) {
