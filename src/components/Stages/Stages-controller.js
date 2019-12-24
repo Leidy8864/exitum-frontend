@@ -19,20 +19,21 @@ class Stages extends React.Component {
         projectId: 0
     }
     componentDidMount(){
+        let data = {}
         if (role === "employee") {
-            const data = {
+            data = {
                 user_id
             }
-            this.getListStages(data);
         }
+        this.getListStages(data);
     }
     //Función que detecta los cambios en el componente para modificar el state
     componentDidUpdate(nextProps) {
-        const { projectId } = this.props;
-        if (nextProps.projectId !== projectId) {
-            if (projectId) {                
+        const { project } = this.props;
+        if (nextProps.project !== project) {            
+            if (project) {                
                 const data = {
-                    projectId,
+                    projectId : project.id,
                     user_id
                 }
                 this.getListStages(data);
@@ -47,7 +48,7 @@ class Stages extends React.Component {
             } else {
                 listStages = await actuallyStageEmployee(data.user_id);
             }            
-            const steps = listStages ? listStages.steps : [];
+            const steps = listStages ? listStages.steps : [];            
             if (steps.length >= 1) {
                 this.props.getIdActualStage(steps[0].id);
                 this.setState({
@@ -83,7 +84,7 @@ class Stages extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    projectId: state.getIdProjectReducer,
+    project: state.getIdProjectReducer,
 });
 
 const mapDispatchToProps = {

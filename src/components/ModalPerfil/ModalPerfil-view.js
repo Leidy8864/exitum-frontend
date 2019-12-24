@@ -1,13 +1,15 @@
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
+import Select from 'react-select';
 
 function View(props) {
 
     const {
         isHour,
         name,
-        lastname,
+        lastname_1,
+        lastname_2,
         phone,
         birthday,
         description,
@@ -15,7 +17,11 @@ function View(props) {
         selectHour,
         selected,
         handleChange,
-        updatePerfil
+        updatePerfil,
+        checked,
+        phoneCodes,
+        handleSelectChange,
+        country
     } = props
 
     return (
@@ -29,7 +35,7 @@ function View(props) {
                         <div className="modal-body">
                             <form>
                                 <div className="row">
-                                    <div className="col-md-6 mb-3">
+                                    <div className="col-md-12 mb-3">
                                         <label>Nombres</label>
                                         <input
                                             type="text"
@@ -39,7 +45,7 @@ function View(props) {
                                             className="form-control"
                                         />
                                     </div>
-                                    <div className="col-md-6 mb-3">
+                                    {/* <div className="col-md-6 mb-3">
                                         <label>Apellidos</label>
                                         <input
                                             type="text"
@@ -47,10 +53,62 @@ function View(props) {
                                             defaultValue={lastname}
                                             onChange={handleChange}
                                             className="form-control" />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
+                                        <label>Apellido Materno</label>
+                                        <input
+                                            type="text"
+                                            name="lastname_1"
+                                            defaultValue={lastname_1}
+                                            onChange={handleChange}
+                                            className="form-control"
+                                        />
+                                    </div>
+                                    <div className="col-md-6 mb-3">
+                                        <label>Apellido Paterno</label>
+                                        <input
+                                            type="text"
+                                            name="lastname_2"
+                                            defaultValue={lastname_2}
+                                            onChange={handleChange}
+                                            className="form-control" />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12 mb-3">
+                                        <label>Celular</label>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <Fragment>
+                                                    <Select
+                                                        className="basic-single"
+                                                        value={country}
+                                                        name="country"
+                                                        options={phoneCodes}
+                                                        onChange={handleSelectChange}
+                                                        placeholder="Código"
+                                                        id="category_id"
+                                                    />
+                                                </Fragment>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <input
+                                                    type="text"
+                                                    name="phone"
+                                                    defaultValue={phone}
+                                                    onChange={handleChange}
+                                                    className="form-control"
+                                                    placeholder="Número celular"
+                                                />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-12 mb-3">
                                         <label>Fecha de nacimiento</label>
                                         <input
                                             type="date"
@@ -60,19 +118,10 @@ function View(props) {
                                             onChange={handleChange}
                                         />
                                     </div>
-                                    <div className="col-md-6 mb-3">
-                                        <label>Celular</label>
-                                        <input
-                                            type="text"
-                                            name="phone"
-                                            defaultValue={phone}
-                                            onChange={handleChange}
-                                            className="form-control" />
-                                    </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12 mb-3 perfils">
-                                        <label>Descripcion</label>
+                                        <label>Acerca de mí</label>
                                         <textarea
                                             type="text"
                                             className="form-control"
@@ -87,17 +136,19 @@ function View(props) {
                                         <label>Seleccione horas disponibles para reuniones</label>
                                         <div className="content-hour">
                                             {
-                                                hoursOptions.map(dt =>
+                                                hoursOptions.map((dt, index) =>
 
-                                                    <div className="text-hour" key={dt}>
+                                                    <div className="text-hour" key={index}>
                                                         <input
                                                             type="checkbox"
-                                                            id={dt}
+                                                            id={dt.hour}
                                                             name="available"
-                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                            onClick={selectHour}
+                                                            // className={unavailables.find(hour => {return hour === dt}) ? "hourModalAdsSelected" : "hourModalAds"}
+                                                            className="hourModalAds"
+                                                            checked={dt.selected}
+                                                            onChange={selectHour}
                                                         />
-                                                        {dt}
+                                                        {dt.hour}
                                                     </div>
                                                 )
                                             }

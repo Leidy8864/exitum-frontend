@@ -66,7 +66,7 @@ function View(props) {
                                                         event.toWorkshopCategories.length > 0 ?
 
                                                             <ul className="tags">
-                                                                <span className="bold detail">Habilidades:</span><br />
+                                                                <span className="bold detail">Categorías:</span><br />
                                                                 {
                                                                     event.toWorkshopCategories.map((item, index) =>
                                                                         <li key={index}><a href="#" className="tag">{item.name}</a></li>

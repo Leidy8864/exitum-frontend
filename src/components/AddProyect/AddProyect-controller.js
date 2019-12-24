@@ -8,7 +8,7 @@ import { listStartupsByUser } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getIdProject from '../../redux/actions/get-id-project';
-
+import moment from 'moment';
 
 const role = localStorage.getItem('role');
 
@@ -33,9 +33,13 @@ class AddProyect extends React.Component {
             if (role === "entrepreneur") {
                 let proyectos = [];
                 const listaProyectos = await listStartupsByUser({ id: localStorage.getItem('id') });
+                console.log("LISTAPRO",listaProyectos);
+                
                 if (listaProyectos.length >= 1) {
-                    proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name }));
-                    this.props.getIdProject(listaProyectos[0].id);
+                    proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name, description : x.description, created : moment(x.created).format('DD/MM/YYYY') }));
+                    console.log("PROJECT",proyectos[0]);
+                    
+                    this.props.getIdProject(proyectos[0]);
                     this.setState({
                         selected: listaProyectos[0].id,
                         show_add_proyect_empty: false
@@ -58,13 +62,16 @@ class AddProyect extends React.Component {
 
     }
 
-    selectProject = async (e) => {
+    selectProject = (e) => {
 
-        const projecId = e.target.id;
+        let projectId = e.target.id;
+        console.log("BLOCKPRO",this.state.blockProjects);
+        console.log("PROJECTID",projectId);
+        
+        const project = this.state.blockProjects.find((item) => item.id == projectId);         
+        this.props.getIdProject(project);
 
-        this.props.getIdProject(projecId);
-
-        this.setState({ selected: projecId });
+        this.setState({ selected: projectId });
     }
 
     render() {

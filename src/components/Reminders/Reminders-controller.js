@@ -32,6 +32,8 @@ class Reminders extends React.Component {
         try {
             let id = localStorage.getItem('id')
             const appointments = await appointmentsByUser(id);
+            // console.log("APPP",appointments);
+            
             const meetings = await meetingByUser(id);
             this.showMoreOrLessText();
             this.setState({

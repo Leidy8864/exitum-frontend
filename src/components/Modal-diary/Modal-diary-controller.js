@@ -58,9 +58,9 @@ class ModalDiary extends React.Component {
             date: moment(this.state.date).format('YYYY-MM-DD')
         }
 
-        const hourAvailables = await this.props.hourAvailables(selectedOption.value, data);
+        const hourAvailables = await this.props.hourAvailables(3, data);
         this.setState({ hourAvailables })
-        this.setState({ to_user_id: selectedOption.value })
+        this.setState({ to_user_id: 3 })
     };
 
     handleChangeForm = (e) => {

@@ -19,36 +19,43 @@ class Challenges extends React.Component {
 
     state = {
         blockChallenge: [],
-        mostrarImagen: false
+        mostrarImagen: false,
+        project : ''
     }
 
-    componentDidMount(){
-        const { step_id, startup_id } = this.props;
+    componentDidMount() {
+        const { step_id, project } = this.props;
         const data = {
             step_id,
-            startup_id,
+            startup_id: project.id,
             user_id
-        }                
+        }
         this.getChallenges(data);
+        this.setState({
+            project: project
+        });
     }
 
-    componentDidUpdate(nextProps){
-        const { step_id, startup_id } = this.props;
-        if (nextProps.step_id !== step_id) {
-            if (step_id) {
+    componentDidUpdate(nextProps) {
+        const { step_id, project } = this.props;
+        if (nextProps.step_id !== step_id || nextProps.project !== project) {
+            if (step_id || project) {
                 const data = {
                     step_id,
-                    startup_id,
+                    startup_id: project.id,
                     user_id
-                }                
+                }
                 this.getChallenges(data);
+                this.setState({
+                    project: project
+                });
                 /*
                 Función permite saber cuando se la ruta ha cambiado para resetar el valor del ID  de proyecto 
                 y de fase,esto permite que cuando se vuelva a acceder a esta ruta se vuelvan a hacer 
                 las llamadas para mostrar la información.
                 */
                 this.props.history.listen(() => {
-                    this.props.getIdProject(0);
+                    this.props.getIdProject('');
                     this.props.getIdActualStage(0);
                 });
             }
@@ -75,7 +82,7 @@ class Challenges extends React.Component {
                     title: x.tip.tip,
                     description: x.tip.description,
                     files: x.tip.file_tips,
-                    comment : x.comment,
+                    comment: x.comment,
                     reply: x.reply,
                     uploaded_files: x.files,
                     status: x.status
@@ -84,12 +91,12 @@ class Challenges extends React.Component {
                 this.setState({
                     blockChallenge: challenges,
                 });
-            }else{
-                
+            } else {
+
             }
         } catch (error) {
             // console.log("Error al traer challenges", error);
-            this.setState({mostrarImagen:true})
+            this.setState({ mostrarImagen: true })
         }
     }
     handleClick = (id) => {
@@ -105,13 +112,14 @@ class Challenges extends React.Component {
                 blockChallenge={this.state.blockChallenge}
                 mostrarImagen={this.state.mostrarImagen}
                 handleClick={this.handleClick}
+                project={this.state.project}
             />
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    startup_id: state.getIdProjectReducer,
+    project: state.getIdProjectReducer,
     step_id: state.getIdStageReducer,
 });
 

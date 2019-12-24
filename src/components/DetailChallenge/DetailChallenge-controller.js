@@ -6,6 +6,8 @@ import { withRouter } from 'react-router-dom';
 import cleanForm from '../../redux/actions/clean-form';
 import { datailChallenge, completeChallenge, root, deleteFileReplyy, getSummaryChallenge } from '../../redux/actions';
 import $ from 'jquery';
+import getTipId from '../../redux/actions/getTipId';
+
 class DetailChallenge extends React.Component {
 
     state = {
@@ -38,6 +40,7 @@ class DetailChallenge extends React.Component {
                     reply: challenge.reply,
                     active : true
                 });
+                this.props.getTipId('');
             }
         }
     }
@@ -205,7 +208,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     datailChallenge,
-    cleanForm
+    cleanForm,
+    getTipId
 };
 
 export default withRouter(

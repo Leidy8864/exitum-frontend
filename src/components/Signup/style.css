@@ -36,7 +36,7 @@
   padding-left: 15px !important;
   margin-top: 10px;
 }
-
+/* 
 input[type=checkbox] + label {
   display: block;
   margin: 0.2em;
@@ -82,7 +82,7 @@ input[type=checkbox]:checked:disabled + label:before {
   transform: scale(1);
   background-color: #2183F8;
   border-color: #2183F8;
-}
+} */
 
 @media screen and (max-width: 576px) {
   form.form-signin input {

@@ -82,7 +82,7 @@ class Signin extends React.Component {
     responseGoogle = async (response) => {
         try {
 
-            const user = response.profileObj;
+            const user = response.profileObj;            
             if (user) {      
                 const formData = {
                     user : {
