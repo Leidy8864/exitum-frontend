@@ -211,6 +211,11 @@ a {
 	color: #0254EB
 }
 
+label a:hover {
+    text-decoration: none !important;
+    color: #4F78E8 !important;
+}
+
 a.morelink:hover {
 	text-decoration:none;
     outline: none;

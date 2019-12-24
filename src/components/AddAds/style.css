@@ -48,6 +48,19 @@
     border-bottom-right-radius: 0px !important;
 }
 
+.absolute-help li {
+    list-style: none;
+}
+
+.absolute-help li i{
+    color: #4157F2 !important;
+    background: #EEF5FF;
+    font-size: 20px;
+    padding: 15px 17px;
+    border-radius: 50%;
+}
+
+
 .list-group-item {
     font-family: 'Proxima Nova';
 }

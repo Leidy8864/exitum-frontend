@@ -8,10 +8,18 @@
 }
 
 .complete-challenge {
-    display: flex;
+    display: -webkit-box; 
     align-content: center;
     padding: 25px;
     font-family: 'Proxima Nova';
+}
+
+.add-proyect a:focus {
+    outline: none;
+}
+
+.challenges-hc a {
+    outline: none;
 }
 
 .complete-challenge img {

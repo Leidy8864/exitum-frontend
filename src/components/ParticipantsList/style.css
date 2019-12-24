@@ -5,7 +5,15 @@
 div#list-participants{
     height: calc(100vh - 430px);
     overflow-y: auto;
-  }
+}
+
+.plus-perfil a:focus {
+    outline: none;
+}
+
+.edit-perfil a:focus {
+    outline: none;
+}
 
 .none-persons {
     margin-left: 20px;

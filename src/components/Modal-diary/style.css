@@ -2,7 +2,7 @@
     display: block;
 }
 .label-radio-modal-diary{
-    color: #157FFB !important;
+    color: #777 !important;
     width: 43% !important;
     font-size: 15px !important;
 }
@@ -13,20 +13,20 @@
     top: 0 !important;
     width: 18px !important;
     height: 18px !important;
-    border: 1px solid #157FFB !important;
+    border: 1px solid #777 !important;
     border-radius: 100% !important;
     background: #fff !important;
 }
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #157FFB; 
+    color: #777; 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #157FFB; 
+    color: #777; 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #157FFB; 
+    color: #777; 
 }
 .date{
     float: left;

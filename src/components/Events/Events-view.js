@@ -37,7 +37,13 @@ function View(props) {
                                             </ul>
                                         </div>
                                         <div className="col-md-4">
+                                        <div className="absolute-help">
+                                                <li className="nav-item">
+                                                    <a className="active px-4" href="#"><i data-toggle="tooltip" data-toggle="collapse" href="#eventCollapse" role="button" aria-expanded="false" aria-controls="collapseExample" data-placement="top" title="Ayuda" className="fas fa-question-circle"></i></a>
+                                                </li>
+                                            </div>
                                             <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#EventsModal">
+                                            
                                                 <div className="Ads-plus events">
                                                     <i data-toggle="tooltip" data-placement="top" title="Agregar un evento" className="fas fa-plus mr-2"></i>
                                                     </div>

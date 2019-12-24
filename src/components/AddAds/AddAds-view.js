@@ -23,11 +23,16 @@ function View(props) {
                     {
                         userRole === "entrepreneur" ?
                             <div className="col-md-4 plus-padding">
+                                <div className="absolute-help">
+                                    <li className="nav-item">
+                                        <a className="active px-4" href="#"><i data-toggle="tooltip" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-placement="top" title="Ayuda" className="fas fa-question-circle"></i></a>
+                                    </li>
+                                </div>
                                 <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
                                     <div className="Ads-plus">
-                                    <i data-toggle="tooltip" data-placement="top" title="Agregar un anuncio"  className="fas fa-plus mr-2"></i>
-                                        
-                                </div>
+                                        <i data-toggle="tooltip" data-placement="top" title="Agregar un anuncio" className="fas fa-plus mr-2"></i>
+
+                                    </div>
                                 </Link>
                                 <ModalAds />
                             </div>
@@ -36,16 +41,16 @@ function View(props) {
 
                 </div>
                 <div className="row scroll-anuncios">
-                        {
+                    {
 
-                            userRole === "entrepreneur" ?
+                        userRole === "entrepreneur" ?
 
-                                <AddsList
-                                    userRole={userRole}
-                                /> :
-                                <EmployeeAds userRole={userRole} />
+                            <AddsList
+                                userRole={userRole}
+                            /> :
+                            <EmployeeAds userRole={userRole} />
 
-                        }
+                    }
                 </div>
             </div>
         </div>
