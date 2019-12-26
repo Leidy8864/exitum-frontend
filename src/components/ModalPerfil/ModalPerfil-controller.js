@@ -128,7 +128,7 @@ class ModalPerfil extends React.Component {
                 name: userShow.data.name,
                 lastname_1: userShow.data.lastname_1,
                 lastname_2: userShow.data.lastname_2,
-                birthday_date: userShow.data.birthday,
+                birthday: userShow.data.birthday,
                 phone: userShow.data.phone,
                 description: userShow.data.description,
                 available: hourAvailables,
@@ -185,7 +185,7 @@ class ModalPerfil extends React.Component {
         }
 
         const formData = {
-            name, lastname_1, phone, position, birthday, user_id, description,
+            name, lastname_1, phone, position, birthday, user_id, description, birthday,
             lastname_2,country_phone_id : country.value
         }
         console.log("FORMDATA",formData);
