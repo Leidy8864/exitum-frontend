@@ -93,7 +93,7 @@ function View(props) {
                                             <span className="gray title">Email:</span><span className="gray">{email}</span>
                                         </div>
                                         <div>
-                                            <span className="gray title">Cumpleaños:</span><span className="gray">{moment(birthday).format('DD/MM/YYYY')}</span><br />
+                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday ? moment(birthday).format('DD/MM/YYYY') : ''}</span><br />
                                         </div>
                                         <div>
                                             <span className="gray title">Celular:</span><span className="gray">{phone}</span>

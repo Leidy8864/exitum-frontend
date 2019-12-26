@@ -59,17 +59,16 @@ class ModalEvents extends React.Component {
                 $('#EventsModal').on('hidden.bs.modal', () => {
                     this.props.getEvent(null);
                 });
+                let dateEvent = new Date(moment(event.day).format('LLLL'));
                 const categories = event.toWorkshopCategories.map(x => ({ label: x.name, value: x.id }));
                 const country = {
-                    label : event.department.country.country,
-                    value : event.department.country.id
+                    label: event.department.country.country,
+                    value: event.department.country.id
                 }
                 const department = {
-                    label : event.department.department,
-                    value : event.department.department
+                    label: event.department.department,
+                    value: event.department.department
                 }
-                console.log("department",department)
-
                 this.setState({
                     event_id: event.id,
                     title: event.title,
@@ -77,9 +76,9 @@ class ModalEvents extends React.Component {
                     participants: event.participants,
                     place: event.place,
                     hour_start: event.hour_start,
-                    day: new Date(event.day),
-                    department : department,
-                    country : country,
+                    day: dateEvent,
+                    department: department,
+                    country: country,
                     categories: categories
                 });
 
@@ -97,8 +96,8 @@ class ModalEvents extends React.Component {
             error_categories: '',
             success_message: '',
             error_message: '',
-            error_department : '',
-            error_country : ''
+            error_department: '',
+            error_country: ''
         });
     }
 
@@ -110,8 +109,8 @@ class ModalEvents extends React.Component {
             participants: '',
             hour_start: '',
             categories: [],
-            department : '',
-            country : '',
+            department: '',
+            country: '',
             day: new Date()
         });
     }
@@ -141,32 +140,32 @@ class ModalEvents extends React.Component {
 
         try {
             const { title, description, day, hour_start, place, participants, categories, event_id, country, department } = this.state;
-            var values = [];
+            // const formData = { user_id: result.id, title, description,participants,photo, day: date_event, hour_start, place, categories: values, event_id };            
+            if (title && description && day && hour_start && place && categories) {
+                var values = [];
 
-            var formData = new FormData();
+                var formData = new FormData();
 
-            for (let index = 0; index < categories.length; index++) {
-                values.push(categories[index].label)
-                formData.append('categories', categories[index].label);
-            }
-            const result = decodeToken();
-            const date_event = moment(day).format('YYYY-MM-DD');
+                for (let index = 0; index < categories.length; index++) {
+                    values.push(categories[index].label)
+                    formData.append('categories', categories[index].label);
+                }
+                const result = decodeToken();
+                const date_event = moment(day).format('YYYY-MM-DD');
 
-            formData.append('user_id', result.id);
-            formData.append('title', title);
-            formData.append('description', description);
-            formData.append('participants', participants);
-            formData.append('day', date_event);
-            formData.append('hour_start', hour_start);
-            formData.append('place', place);
-            formData.append('country_id', country.value);
-            formData.append('department', department.value);
+                formData.append('user_id', result.id);
+                formData.append('title', title);
+                formData.append('description', description);
+                formData.append('participants', participants);
+                formData.append('day', date_event);
+                formData.append('hour_start', hour_start);
+                formData.append('place', place);
+                formData.append('country_id', country.value);
+                formData.append('department', department.value);
 
-            // formData.append('categories',values);
-            formData.append('event_id', event_id);
-            formData.append('photo', document.querySelector('#photo_banner').files[0]);
-            // const formData = { user_id: result.id, title, description,participants,photo, day: date_event, hour_start, place, categories: values, event_id };
-            if (title && description && day && hour_start && place && categories.length > 0) {
+                // formData.append('categories',values);
+                formData.append('event_id', event_id);
+                formData.append('photo', document.querySelector('#photo_banner').files[0]);
                 var response = null
                 if (event_id) {
                     response = await editEvent(formData);
@@ -211,8 +210,8 @@ class ModalEvents extends React.Component {
                 !department ? this.setState({ error_department: 'Debes elegir una ciudad' }) : ''
                 !hour_start ? this.setState({ error_hour_start: 'Debes elegir una hora' }) : ''
                 !place ? this.setState({ error_place: 'Debes ingresar la dirección' }) : ''
-                !categories.length > 0 ? this.setState({ error_categories: 'Debes elegir al menos una categoria' }) : '',
-                    !participants ? this.setState({ error_participants: 'Debes ingresar una cantidad de participantes' }) : ''
+                !categories ? this.setState({ error_categories: 'Debes elegir al menos una categoria' }) : '',
+                !participants ? this.setState({ error_participants: 'Debes ingresar una cantidad de participantes' }) : ''
             }
         } catch (error) {
             console.log("Erorr intentado crear evento =", error);

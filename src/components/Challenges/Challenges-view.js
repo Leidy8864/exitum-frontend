@@ -13,26 +13,31 @@ function View(props) {
     return (
         <Fragment>
             <div className="">
-                <div className="complete-challenge">
-                    <img src={require('../../public/images/svg/el-planeta-tierra.svg')} />
-                    <div className="welcome-challenge">
-                        {
-                            project.name ?
+                {
+                    !mostrarImagen ?
+                        <div className="complete-challenge">
+                            <img src={require('../../public/images/svg/el-planeta-tierra.svg')} />
+                            <div className="welcome-challenge">
+                                {
+                                    project.name ?
 
-                                <div>
-                                    <h3>{project.name}</h3>
-                                    <p>Creado : {project.created}</p>
-                                    <p>{project.description}</p>
-                                </div>
-                                : <div>
-                                    <h2>Bienvenido a los retos</h2>
-                                    <p>Completa cada reto para poder más probabilidad de tener éxito, mientras avanzas, tu planta crecerá tambien.</p>
+                                        <div>
+                                            <h3>{project.name}</h3>
+                                            <p>Creado : {project.created}</p>
+                                            <p>{project.description}</p>
+                                        </div>
+                                        : <div>
+                                            <h2>Bienvenido a los retos</h2>
+                                            <p>Completa cada reto para poder más probabilidad de tener éxito, mientras avanzas, tu planta crecerá tambien.</p>
 
-                                </div>
-                        }
+                                        </div>
+                                }
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                        : ''
+                }
+
                 {
                     blockChallenge.length >= 1 ?
                         blockChallenge.map((dt, index) =>
