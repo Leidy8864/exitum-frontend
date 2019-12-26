@@ -149,7 +149,7 @@ function View(props) {
                                 <div className="row mt-1 mt-2">
                                     <div className="col-md-12 text-center">
                                         <input className="check-register" type="checkbox" id="checked" name="fruit-1" value="Apple" checked={isChecked} onChange={toggleChange} />
-                                        <label htmlFor="checked">Sí,acepto los <a href="https://www.w3schools.com" target="_blank">Términos y condiciones</a> que he leido</label>
+                                        <label htmlFor="checked">Sí,acepto los <a href="http://35.175.241.103:8081/legal/terminos-y-condiciones" target="_blank">Términos y condiciones</a> que he leido</label>
                                     </div>
                                 </div>
                                 <div className="row mt-1">
