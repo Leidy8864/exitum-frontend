@@ -113,11 +113,11 @@ function View(props) {
                                     <div className="col-md-12 mb-3 clocwerk">
                                         <label>Fecha de nacimiento</label>
                                         <Fragment>
-                                        <DatePicker
-                                            onChange={onChange}
-                                            value={birthday}
-                                            name="birthday"
-                                        />
+                                            <DatePicker
+                                                onChange={onChange}
+                                                value={birthday}
+                                                name="birthday"
+                                            />
                                         </Fragment>
                                         {/* <input
                                             type="date"
@@ -150,24 +150,13 @@ function View(props) {
                                                     <div className="text-hour" key={index}>
                                                         <input
                                                             type="checkbox"
-                                                            id={dt.hour}
+                                                            id={index}
                                                             name="available"
-                                                            // className={unavailables.find(hour => {return hour === dt}) ? "hourModalAdsSelected" : "hourModalAds"}
-                                                            // className={selected === dt ? "hourModalAdsSelected" : "hourModalAds none-checked"}
-
-                                                            className="hourModalAdsSelected"
+                                                            className={dt.selected ? "hourModalAdsSelected none-checked" : "hourModalAds none-checked"}
                                                             checked={dt.selected}
-                                                            onChange={selectHour}
+                                                            onChange={selectHour.bind(this, dt.hour)}
                                                         />
-                                                        {/* <label htmlFor={dt + "checked"}>{dt}</label> */}
-
-                                                        {dt.hour}
-                                                        {/* id={dt + "checked"}
-                                                            name="available"
-                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds none-checked"}
-                                                            onClick={selectHour}
-                                                        />
-                                                        <label htmlFor={dt + "checked"}>{dt}</label> */}
+                                                        <label htmlFor={index}>{dt.hour}</label>
                                                     </div>
                                                 )
                                             }

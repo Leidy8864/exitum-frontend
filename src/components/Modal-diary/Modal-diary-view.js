@@ -49,7 +49,7 @@ function View(props) {
                                 </div>
                                 <div className="form_group_ mt-3">
                                     <label>Titulo</label><br />
-                                    <input type="text" name="title" className="form-control" onChange={handleChangeForm}  value={title}/>
+                                    <input type="text" name="title" className="form-control" onChange={handleChangeForm} value={title} />
                                 </div>
                                 {isMeet ?
                                     <div className="form_group_ mt-3">
@@ -73,6 +73,7 @@ function View(props) {
                                                 onChange={onChange}
                                                 value={date}
                                                 disabled={isDisabled_}
+                                                minDate={new Date()}
                                             />
                                         </Fragment>
                                     </div>
@@ -84,6 +85,7 @@ function View(props) {
                                                 <DatePicker
                                                     onChange={onChange}
                                                     value={date}
+                                                    minDate={new Date()}
                                                 />
                                             </Fragment>
                                         </div>
@@ -99,7 +101,7 @@ function View(props) {
                                                     id={dt}
                                                     className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
                                                     onClick={selectHour}
-                                                    // onChange={handleChange}
+                                                // onChange={handleChange}
                                                 >
                                                     {dt}
                                                 </div>
@@ -107,44 +109,44 @@ function View(props) {
                                         }
                                     </div> :
                                     <div className="form_group_ mt-3">
-                                            <label>Hora del evento</label>
-                                            <br />
-                                            {
-                                                hoursOptions && hoursOptions.length > 0 ?
-                                                    hoursOptions.map(dt =>
-                                                        <div
-                                                            key={dt}
-                                                            id={dt}
-                                                            className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
-                                                            onClick={selectHour}
-                                                            onChange={handleChange}
-                                                        >
-                                                            {dt}
-                                                        </div>
-                                                    ) : null
-                                            }
+                                        <label>Hora del evento</label>
+                                        <br />
+                                        {
+                                            hoursOptions && hoursOptions.length > 0 ?
+                                                hoursOptions.map(dt =>
+                                                    <div
+                                                        key={dt}
+                                                        id={dt}
+                                                        className={selected === dt ? "hourModalAdsSelected" : "hourModalAds"}
+                                                        onClick={selectHour}
+                                                        onChange={handleChange}
+                                                    >
+                                                        {dt}
+                                                    </div>
+                                                ) : null
+                                        }
                                     </div>
                                 }
                                 <div className="form_group_">
                                     <label>Descripción</label>
-                                    <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} value={description}/>
+                                    <textarea type="text" name="description" className="form-control" onChange={handleChangeForm} value={description} />
                                 </div>
                             </div>
 
                             {
                                 isReminder ?
                                     <div className="form_group_">
-                                            <div className="modal-footer">
-                                                <button onClick={saveReminder} className="btn btn-primary" type="button">Guardar</button>
-                                            </div>
+                                        <div className="modal-footer">
+                                            <button onClick={saveReminder} className="btn btn-primary" type="button">Guardar</button>
+                                        </div>
                                     </div> : null
                             }
                             {
                                 isMeet ?
                                     <div className="form_group_">
-                                            <div className="modal-footer">
-                                                <button onClick={saveMeet} className="btn btn-primary" type="button">Guardar</button>
-                                            </div>
+                                        <div className="modal-footer">
+                                            <button onClick={saveMeet} className="btn btn-primary" type="button">Guardar</button>
+                                        </div>
                                     </div> : null
                             }
                         </div>

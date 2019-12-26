@@ -119,7 +119,7 @@ class ModalDiary extends React.Component {
         } else {
             Swal.fire({
                 type: 'error',
-                text: 'Ya hay una hora reservada para esta recordatorio, elije una hora disponible',
+                text: 'Ya hay una hora reservada para esta recordatorio, elige una hora disponible',
                 showConfirmButton: false
             })
             this.props.listReminders(1);
@@ -157,7 +157,7 @@ class ModalDiary extends React.Component {
         } else {
             Swal.fire({
                 type: 'error',
-                text: 'Ya hay una hora reservada para esta reunión, elije una hora disponible',
+                text: 'Ya hay una hora reservada para esta reunión, elige una hora disponible',
                 showConfirmButton: false
             })
             this.props.listMeets(1)

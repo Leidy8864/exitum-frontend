@@ -149,16 +149,16 @@ class ModalPerfil extends React.Component {
     }
 
 
-    selectHour = e => {
+    selectHour = (hourSelected,e) => {
         var hours = this.state.available
         //this.setState({not_available:e.target.id});  
         if (e.target.checked) {
-            hours.push(e.target.id);
+            hours.push(hourSelected);
         } else {
-            const index = hours.indexOf(e.target.id);
+            const index = hours.indexOf(hourSelected);
             hours.splice(index, 1)
         }
-        let hour = this.state.hoursOptions.find(item => { return item.hour === e.target.id });
+        let hour = this.state.hoursOptions.find(item => { return item.hour === hourSelected });
         hour.selected = !hour.selected;
 
         // console.log("HOURS", hours);

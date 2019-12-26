@@ -23,18 +23,18 @@ class Challenges extends React.Component {
         project : ''
     }
 
-    componentDidMount() {
-        const { step_id, project } = this.props;        
-        const data = {
-            step_id: step_id ? step_id : 0,
-            startup_id: project.id ? project.id : 0,
-            user_id
-        }
-        this.getChallenges(data);
-        this.setState({
-            project: project
-        });
-    }
+    // componentDidMount() {
+    //     const { step_id, project } = this.props;                
+    //     const data = {
+    //         step_id: step_id ? step_id : 0,
+    //         startup_id: project.id ? project.id : 0,
+    //         user_id
+    //     }
+    //     this.getChallenges(data);
+    //     this.setState({
+    //         project: project
+    //     });
+    // }
 
     componentDidUpdate(nextProps) {
         const { step_id, project } = this.props;
@@ -71,10 +71,7 @@ class Challenges extends React.Component {
 
             } else {
                 response = await challengeByEmployee(data);
-            }
-
-            console.log("RESPONSE",response);
-            
+            }                        
             const listChallenges = response.challenges;
             if (listChallenges && listChallenges.length >= 1) {
                 const challenges = listChallenges.map(x => ({
@@ -92,13 +89,14 @@ class Challenges extends React.Component {
                 this.props.getListChallenges(challenges);
                 this.setState({
                     blockChallenge: challenges,
+                    mostrarImagen : false
                 });
             } else {
                 this.setState({ mostrarImagen: true })
 
             }
         } catch (error) {
-            console.log("Error al traer challenges", error);
+            // console.log("Error al traer challenges", error);
             this.setState({ mostrarImagen: true })
         }
     }

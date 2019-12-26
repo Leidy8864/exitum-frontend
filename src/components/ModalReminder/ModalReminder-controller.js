@@ -9,6 +9,7 @@ import View from './ModalReminder-view';
 import Swal from 'sweetalert2'
 import $ from 'jquery'
 import { convertTimes } from '../../libs/helper';
+import moment from 'moment';
 
 
 class ModalReminder extends React.Component {
@@ -25,9 +26,9 @@ class ModalReminder extends React.Component {
         selected: "",
         hoursOptions: [
             // '06:00 AM', 
-            '07:00 AM', '08:00 AM', '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
-            '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM',
-            '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM', 
+            '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
+            '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM',
+            '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', 
             
             // '11:00 PM', '12:00 AM',
         ],
@@ -35,10 +36,13 @@ class ModalReminder extends React.Component {
     }
 
     handleChange = (e) => {
-        const value = e.target.value.trim();
+        // const value = e.target.value.trim();
         this.setState({
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         });
+    }
+    handleChangeDatePicker =  date => {
+        this.setState({ date })
     }
 
     componentDidUpdate(nextProps) {
@@ -46,30 +50,28 @@ class ModalReminder extends React.Component {
         const { reminders } = this.props
 
         if (nextProps.reminders !== reminders)
-            if (reminders) {
-                console.log("REMINDERS",reminders);
-                
+            if (reminders) {                
                 $('#updatereminder').on('hidden.bs.modal', () => {
                     this.props.getReminder(null)
                 });
-                const time = convertTimes(reminders.time)
+                const time = convertTimes(reminders.time);                
+                let dateReminder = new Date(moment(reminders.date).format('LLLL'));
+
                 this.setState({
                     id: reminders.id,
                     from_user_id: reminders.from_user_id,
                     to_user_id: reminders.to_user_id,
-                    date: reminders.date,
+                    date: dateReminder,
                     title: reminders.title,
                     time: time,
                     description: reminders.description,
+                    selected : time
                 });
             }
     }
 
-    selectHour = async (e) => {
-        console.log("SELECTED",e.target.id);
-        
+    selectHour = async (e) => {        
         this.setState({ selected: e.target.id, time: e.target.id });
-        console.log(e.target.id)
     }
 
     updateReminder = async e => {
@@ -103,7 +105,7 @@ class ModalReminder extends React.Component {
         } else {
             Swal.fire({
                 type: 'error',
-                text: 'Ya hay una hora reservada para esta reunión, elije una hora disponible',
+                text: res.message,
                 showConfirmButton: false
             })
             this.setState({
@@ -122,6 +124,7 @@ class ModalReminder extends React.Component {
             <View
                 handleChange={this.handleChange}
                 updateReminder={this.updateReminder}
+                handleChangeDatePicker={this.handleChangeDatePicker}
                 date={date}
                 selected={selected}
                 description={description}

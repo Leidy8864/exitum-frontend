@@ -26,7 +26,8 @@ function View(props) {
                                             <p>Creado : {project.created}</p>
                                             <p>{project.description}</p>
                                         </div>
-                                        : <div>
+                                        :
+                                        <div>
                                             <h2>Bienvenido a los retos</h2>
                                             <p>Completa cada reto para poder más probabilidad de tener éxito, mientras avanzas, tu planta crecerá tambien.</p>
 
@@ -59,14 +60,13 @@ function View(props) {
                             </div>
                         )
 
-                        : mostrarImagen &&
-
-                        <div className="img-startup-help">
+                        : <div className="img-startup-help">
                             <img className="max-cell" src={require('../../public/img/infostart.png')} />
                             <img className="min-cell" src={require('../../public/img/infocell.png')} />
                         </div>
 
                 }
+
             </div>
 
         </Fragment>
