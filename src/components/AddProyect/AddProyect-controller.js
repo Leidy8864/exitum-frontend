@@ -32,13 +32,9 @@ class AddProyect extends React.Component {
         try {
             if (role === "entrepreneur") {
                 let proyectos = [];
-                const listaProyectos = await listStartupsByUser({ id: localStorage.getItem('id') });
-                console.log("LISTAPRO",listaProyectos);
-                
+                const listaProyectos = await listStartupsByUser({ id: localStorage.getItem('id') });                
                 if (listaProyectos.length >= 1) {
-                    proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name, description : x.description, created : moment(x.created).format('DD/MM/YYYY') }));
-                    console.log("PROJECT",proyectos[0]);
-                    
+                    proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name, description : x.description, created : moment(x.created).format('DD/MM/YYYY') }));                    
                     this.props.getIdProject(proyectos[0]);
                     this.setState({
                         selected: listaProyectos[0].id,

@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
-
+import DatePicker from 'react-date-picker';
 function View(props) {
 
     const {
@@ -14,6 +14,7 @@ function View(props) {
         selected,
         hoursOptions,
         updateReminder,
+        handleChangeDatePicker,
         timePaint,
         isHour,
     } = props
@@ -32,9 +33,21 @@ function View(props) {
                                     <label>Titulo</label>
                                     <input type="text" className="form-control" name="title" onChange={handleChange} defaultValue={title} />
                                 </div>
-                                <div className="mt-3">
-                                    <label>Fecha del evento</label>
-                                    <input type="date" className="form-control" name="date" onChange={handleChange} defaultValue={date} />
+                                <div className="form_group mt-3">
+                                    <div className="datepicker">
+
+                                        <label>Fecha del evento</label>
+                                        <Fragment>
+                                            <DatePicker
+                                                name="date"
+                                                onChange={handleChangeDatePicker}
+                                                value={date}
+                                                minDate={new Date()}
+
+                                            />
+                                        </Fragment>
+                                    </div>
+                                    {/* <input type="date" className="form-control" name="date" onChange={handleChange} defaultValue={date} /> */}
                                 </div>
                                 <div className="form_group_ mt-3">
                                     <label>Hora del evento</label>
@@ -44,14 +57,14 @@ function View(props) {
                                                 key={dt}
                                                 id={dt}
                                                 className=
-                                                { 
-                                                    selected === dt ? "hourModalAdsSelected" : "hourModalAds" 
-                                                    && time === dt ? "hourModalAdsSelected" : "hourModalAds" 
-                                                    
+                                                {
+                                                    selected === dt ? "hourModalAdsSelected" : "hourModalAds"
+                                                        && time === dt ? "hourModalAdsSelected" : "hourModalAds"
+
                                                 }
                                                 onClick={selectHour}
                                                 onChange={handleChange}
-                                                
+
                                             >
                                                 {dt}
                                             </div>

@@ -15,10 +15,9 @@ class Dares extends React.Component {
         challenges: []
     }
 
-    async componentDidMount () {
+    async componentDidMount() {
         const id = localStorage.getItem('id')
-        const challenges = await listChallengeToVerify(id,1)
-        console.log(challenges)
+        const challenges = await listChallengeToVerify(id, 1)
         this.setState({
             challenges: challenges
         });
@@ -26,8 +25,8 @@ class Dares extends React.Component {
 
 
     idChallengues = (id) => {
-        const  { challenges } = this.state 
-        const challenge = challenges.find( challenge => challenge.id === id);
+        const { challenges } = this.state
+        const challenge = challenges.find(challenge => challenge.id === id);
         this.props.getChallenge(challenge);
     }
 
@@ -38,7 +37,7 @@ class Dares extends React.Component {
             var moretext = "Ver más";
             var lesstext = "Ver menos";
             $('#text-puntos').each(function () {
-                var content = $(this).html();                
+                var content = $(this).html();
                 if (content.length > showChar) {
 
                     var c = content.substr(0, showChar);
@@ -69,8 +68,7 @@ class Dares extends React.Component {
 
     refreshDares = async () => {
         const id = localStorage.getItem('id')
-        const challenges = await listChallengeToVerify(id,1)
-        console.log(challenges)
+        const challenges = await listChallengeToVerify(id, 1)
         this.setState({
             challenges: challenges
         });
@@ -89,14 +87,14 @@ class Dares extends React.Component {
 
         return (
             <View
-                idChallengues = {this.idChallengues}
-                challenges = {challenges}
+                idChallengues={this.idChallengues}
+                challenges={challenges}
             />
         );
     }
 }
 
-const mapStateToProps = (state) => ({    
+const mapStateToProps = (state) => ({
     updateChallengeReducer: state.updateChallengeReducer,
 });
 
