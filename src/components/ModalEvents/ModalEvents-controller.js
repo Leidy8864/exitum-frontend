@@ -4,7 +4,7 @@ import View from './ModalEvents-view';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { listCategories, createEvent, editEvent, listCountries, listCitiesByCountry } from '../../redux/actions';
-import moment from 'moment';
+import moment, { min } from 'moment';
 import { decodeToken } from '../../libs/helper';
 import reloadPage from '../../redux/actions/reloadPage';
 import getEvent from '../../redux/actions/getEvent';
@@ -27,7 +27,8 @@ class ModalEvents extends React.Component {
         categories: [],
         photo: null,
         day: new Date(),
-        event_id: 0
+        event_id: 0,
+        focused: false
     }
     async componentDidMount() {
         const categoriesData = await listCategories();
@@ -56,6 +57,8 @@ class ModalEvents extends React.Component {
         const { event } = this.props;
         if (nextProps.event !== event) {
             if (event) {
+                console.log("EVENT", event);
+
                 $('#EventsModal').on('hidden.bs.modal', () => {
                     this.props.getEvent(null);
                 });
@@ -132,7 +135,21 @@ class ModalEvents extends React.Component {
         }
         this.setState({ [action.name]: option });
     };
+    onTimeChange = (options) => {
+        const {
+            hour,
+            minute
+        } = options;
+        console.log("OPTIONS", options);
 
+        this.setState({
+            hour_start: `${hour}:${minute}`
+        });
+    }
+
+    onFocusChange = (focused) => {
+        this.setState({ focused });
+    }
     handleSubmit = async (e) => {
         this.cleanErrors();
 
@@ -211,7 +228,7 @@ class ModalEvents extends React.Component {
                 !hour_start ? this.setState({ error_hour_start: 'Debes elegir una hora' }) : ''
                 !place ? this.setState({ error_place: 'Debes ingresar la dirección' }) : ''
                 !categories ? this.setState({ error_categories: 'Debes elegir al menos una categoria' }) : '',
-                !participants ? this.setState({ error_participants: 'Debes ingresar una cantidad de participantes' }) : ''
+                    !participants ? this.setState({ error_participants: 'Debes ingresar una cantidad de participantes' }) : ''
             }
         } catch (error) {
             console.log("Erorr intentado crear evento =", error);
@@ -241,7 +258,10 @@ class ModalEvents extends React.Component {
             countriesOptions,
             citiesOptions,
             department,
-            country
+            country,
+            focused,
+            hour,
+            minute
         } = this.state;
 
         let content_message = '';
@@ -282,6 +302,11 @@ class ModalEvents extends React.Component {
                 handleInputChange={this.handleInputChange}
                 handleDateChange={this.handleDateChange}
                 handleSubmit={this.handleSubmit}
+                onTimeChange={this.onTimeChange}
+                onFocusChange={this.onFocusChange}
+                focused={focused}
+                hour={hour}
+                minute={minute}
             />
 
         );
