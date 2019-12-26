@@ -7,6 +7,7 @@ import { updateUserPerfil, notAvailableUser, showDataByUser, hourAvailables, lis
 import $ from 'jquery';
 import Swal from 'sweetalert2'
 import { convertTimes } from '../../libs/helper';
+import moment from 'moment';
 
 class ModalPerfil extends React.Component {
 
@@ -16,7 +17,7 @@ class ModalPerfil extends React.Component {
         lastname_2: '',
         country : '',
         phone: '',
-        birthday: '',
+        birthday_date: new Date(),
         position: '',
         description: '',
         fromHour: '',
@@ -127,7 +128,7 @@ class ModalPerfil extends React.Component {
                 name: userShow.data.name,
                 lastname_1: userShow.data.lastname_1,
                 lastname_2: userShow.data.lastname_2,
-                birthday: userShow.data.birthday,
+                birthday_date: userShow.data.birthday,
                 phone: userShow.data.phone,
                 description: userShow.data.description,
                 available: hourAvailables,
@@ -174,10 +175,10 @@ class ModalPerfil extends React.Component {
         e.preventDefault();
         let user_id = localStorage.getItem('id')
 
-        const { name, lastname_1,lastname_2,country, phone, birthday, position, available, description } = this.state
+        const { name, lastname_1,lastname_2,country, phone, birthday_date, position, available, description } = this.state
 
         const lastname = lastname_1 + ' '+lastname_2;
-
+        let birthday = moment(birthday_date).format('YYYY-MM-DD');
         localStorage.setItem('lastname',lastname);
         const ScheduleData = {
             available
@@ -213,6 +214,7 @@ class ModalPerfil extends React.Component {
         // }
     }
 
+    onChange = birthday_date => this.setState({ birthday_date })
 
     render() {
         const { name, lastname_1, lastname_2,phone, birthday, position, to_hour, from_hour, isHour, hoursOptions, available, description, checked,phoneCodes,country } = this.state
@@ -223,7 +225,7 @@ class ModalPerfil extends React.Component {
                 lastname_2={lastname_2}
                 phoneCodes={phoneCodes}
                 phone={phone}
-                birthday={birthday}
+                birthday={this.state.birthday_date}
                 position={position}
                 available={available}
                 description={description}
@@ -239,6 +241,7 @@ class ModalPerfil extends React.Component {
                 checked={checked}
                 handleSelectChange={this.handleSelectChange}
                 country={country}
+                onChange = {this.onChange}
             />
         );
     }

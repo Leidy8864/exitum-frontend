@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import './style.css';
 import Select from 'react-select';
+import DatePicker from 'react-date-picker'
 
 function View(props) {
 
@@ -21,7 +22,8 @@ function View(props) {
         checked,
         phoneCodes,
         handleSelectChange,
-        country
+        country,
+        onChange,
     } = props
 
     return (
@@ -108,15 +110,22 @@ function View(props) {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-12 mb-3">
+                                    <div className="col-md-12 mb-3 clocwerk">
                                         <label>Fecha de nacimiento</label>
-                                        <input
+                                        <Fragment>
+                                        <DatePicker
+                                            onChange={onChange}
+                                            value={birthday}
+                                            name="birthday"
+                                        />
+                                        </Fragment>
+                                        {/* <input
                                             type="date"
                                             className="form-control"
-                                            name="birthday"
+                                            name=""
                                             defaultValue={birthday}
                                             onChange={handleChange}
-                                        />
+                                        /> */}
                                     </div>
                                 </div>
                                 <div className="row">
