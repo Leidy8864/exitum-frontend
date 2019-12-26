@@ -4,6 +4,9 @@ import './style.css';
 import DatePicker from 'react-date-picker';
 import CreatableSelect from 'react-select/creatable';
 import Select from 'react-select';
+// import TimePicker from 'react-time-picker';
+import TimePicker from 'react-times';
+import 'react-times/css/material/default.css';
 
 function View(props) {
     const {
@@ -34,10 +37,15 @@ function View(props) {
         countriesOptions,
         error_country,
         error_department,
-        country
+        country,
+        onFocusChange,
+        onTimeChange,
+        hour,
+        minute,
+        focused
     } = props
     // console.log("DAY",day);
-    
+
     return (
         <div className="Modal-ads">
             <Fragment>
@@ -84,7 +92,14 @@ function View(props) {
                                     </div>
                                     <div className="form_group_ mt-3">
                                         <label>Hora</label>
-                                        <input type="time" name="hour_start" className="form-control" onChange={handleInputChange} value={hour_start} />
+                                        {/* <input type="time" name="hour_start" className="form-control" onChange={handleInputChange} value={hour_start} /> */}
+                                        <TimePicker
+                                            focused={focused}
+                                            onFocusChange={onFocusChange}
+                                            onTimeChange={onTimeChange}
+                                            time={hour_start}
+
+                                        />
                                         <div className="error-message-aux">
                                             {error_hour_start}
                                         </div>

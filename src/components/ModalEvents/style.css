@@ -28,3 +28,18 @@ div#event-form {
 .Modal-ads .css-yk16xz-control {
     display: table;
 }
+.picker_container{
+    margin : 0 90px 20px !important;
+}
+.picker_pointer .pointer_drag{
+    background-color: #157FFB !important;
+}
+.time_picker_modal_header{
+    background-color: #157FFB !important;
+}
+.picker_pointer{
+    background-color: #157FFB !important;
+}
+.picker_center{
+    background-color: #157FFB !important;
+}

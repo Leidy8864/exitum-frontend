@@ -182,6 +182,8 @@ class ModalPerfil extends React.Component {
         const lastname = lastname_1 + ' ' + lastname_2;
         let birthday = moment(birthday_date).format('YYYY-MM-DD');
         localStorage.setItem('lastname', lastname);
+        localStorage.setItem('name', name);
+
         const ScheduleData = {
             available
         }
