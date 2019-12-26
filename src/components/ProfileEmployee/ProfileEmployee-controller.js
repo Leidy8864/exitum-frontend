@@ -79,7 +79,7 @@ class ProfileEmployee extends React.Component {
                 //     this.props.history.push('/my-profile')
                 //     : isMyProfile = false;
             }
-            const userShow = await showDataByUser(id);
+            const userShow = await showDataByUser(id);            
             // Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);

@@ -176,9 +176,13 @@ class ModalPerfil extends React.Component {
 
         const { name, lastname_1,lastname_2,country, phone, birthday, position, available, description } = this.state
 
+        const lastname = lastname_1 + ' '+lastname_2;
+
+        localStorage.setItem('lastname',lastname);
         const ScheduleData = {
             available
         }
+
         const formData = {
             name, lastname_1, phone, position, birthday, user_id, description,
             lastname_2,country_phone_id : country.value

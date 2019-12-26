@@ -13,6 +13,7 @@ import BackButton from '../BackButton/BackButton-controller'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import './style.css';
+
 // import { SlowBuffer } from 'buffer';
 
 function View(props) {
@@ -41,7 +42,7 @@ function View(props) {
     } = props
 
     let name = users.name
-    let lastname = users.lastname
+    let lastname = users.lastname_1 + ' ' + users.lastname_2
     let phone = users.phone
     let experienceActual = experience
     let birthday = users.birthday
@@ -92,7 +93,7 @@ function View(props) {
                                             <span className="gray title">Email:</span><span className="gray">{email}</span>
                                         </div>
                                         <div>
-                                            <span className="gray title">Cumpleaños:</span><span className="gray">{birthday}</span><br />
+                                            <span className="gray title">Cumpleaños:</span><span className="gray">{moment(birthday).format('DD/MM/YYYY')}</span><br />
                                         </div>
                                         <div>
                                             <span className="gray title">Celular:</span><span className="gray">{phone}</span>
@@ -152,7 +153,7 @@ function View(props) {
                                                                                         <br />
                                                                                     </div>
                                                                                 </div>
-                                                                                
+
                                                                                 {
                                                                                     isMyProfile ?
                                                                                         <div className="edit-perfil">
@@ -168,7 +169,7 @@ function View(props) {
                                                                                         </div>
                                                                                         : ''
                                                                                 }
-                                                                                
+
                                                                             </div>
                                                                             {/* <hr className="divider-info"/> */}
                                                                         </Fragment>

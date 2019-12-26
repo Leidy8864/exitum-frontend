@@ -57,7 +57,7 @@ function View(props) {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
-                                        <label>Apellido Materno</label>
+                                        <label>Apellido Paterno</label>
                                         <input
                                             type="text"
                                             name="lastname_1"
@@ -67,7 +67,7 @@ function View(props) {
                                         />
                                     </div>
                                     <div className="col-md-6 mb-3">
-                                        <label>Apellido Paterno</label>
+                                        <label>Apellido Materno</label>
                                         <input
                                             type="text"
                                             name="lastname_2"

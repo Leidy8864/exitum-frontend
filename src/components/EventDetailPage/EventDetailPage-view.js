@@ -36,7 +36,7 @@ function View(props) {
                                             <BackButton />
                                             <div className="container-detail mt-2">
                                                 <div className="foto-evento">
-                                                    <img className=""  src={event.photo} alt="foto de evento" />
+                                                    <img className=""  src={event.photo || require('../../public/img/ssssss.png') } alt="foto de evento" />
                                                 </div>
                                                 <div className="">
                                                     <div className="form-group d-flex justify-content-between">
@@ -44,18 +44,18 @@ function View(props) {
                                                     </div>
                                                     <div className="form-group container-events">
                                                         <span className="bold detail">Descripción:</span><br />
-                                                        <span className="gray">{event.description}</span>
+                                                        <p className="gray text-justify">{event.description}</p>
                                                     </div>
-                                                    <div className="container-events-info">
-                                                        <div className="form-group">
+                                                    <div className="container-events-info row">
+                                                        <div className="form-group col-sm-4">
                                                             <span className="bold detail">Lugar:</span><br />
                                                             <span className="gray">{event.place}</span>
                                                         </div>
-                                                        <div className="form-group">
+                                                        <div className="form-group col-sm-4">
                                                             <span className="bold detail">Fecha:</span><br />
                                                             <span className="gray">{moment(event.day).format('DD/MM/YYYY')}</span>
                                                         </div>
-                                                        <div className="form-group">
+                                                        <div className="form-group col-sm-4">
                                                             <span className="bold detail">Hora:</span><br />
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
