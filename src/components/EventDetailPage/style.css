@@ -47,6 +47,20 @@
     padding-left: 20px;
 }
 
+p.gray.text-justify {
+    color: #777 !important;
+}
+
+.events-detail-container {
+    display: flex;
+    justify-content: start;
+}
+
+.link-descarga {
+    position: relative;
+    top: -35px;
+}
+
 .container-events {
     width: 88% !important;
 }

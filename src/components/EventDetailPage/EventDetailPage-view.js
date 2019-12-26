@@ -32,11 +32,11 @@ function View(props) {
                             <div className="col-xl-9 col-lg-12">
                                 <div className="container-fluid mt-4 events-scroll">
                                     <div className="card profiles mb-4">
-                                        <div className="card-body events-container">
+                                        <div className="card-body events-detail-container">
                                             <BackButton />
                                             <div className="container-detail mt-2">
                                                 <div className="foto-evento">
-                                                    <img className=""  src={event.photo || require('../../public/img/ssssss.png') } alt="foto de evento" />
+                                                    <img className="" src={event.photo || require('../../public/img/ssssss.png')} alt="foto de evento" />
                                                 </div>
                                                 <div className="">
                                                     <div className="form-group d-flex justify-content-between">
@@ -60,42 +60,49 @@ function View(props) {
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
                                                         <hr />
-                                                    </div>
+                                                        <div className="form-group col-sm-12">
+                                                            {
+                                                                event.toWorkshopCategories.length > 0 ?
 
-                                                    {
-                                                        event.toWorkshopCategories.length > 0 ?
+                                                                    <ul className="tags">
+                                                                        <span className="bold detail">Categorías:</span><br />
+                                                                        {
+                                                                            event.toWorkshopCategories.map((item, index) =>
+                                                                                <li key={index}><a href="#" className="tag">{item.name}</a></li>
+                                                                            )
+                                                                        }
+                                                                    </ul>
+                                                                    : ''
+                                                            }
+                                                            <br/>
+                                                        </div>
+                                                        <div className="form-group cl-md-12 d-block">
+                                                        {
+                                                                user_id === event.user_id ?
+                                                                    <div>
 
-                                                            <ul className="tags">
-                                                                <span className="bold detail">Categorías:</span><br />
-                                                                {
-                                                                    event.toWorkshopCategories.map((item, index) =>
-                                                                        <li key={index}><a href="#" className="tag">{item.name}</a></li>
-                                                                    )
-                                                                }
-                                                            </ul>
-                                                            : ''
-                                                    }
-                                                </div>
-                                                
-                                                
-                                            </div>
-                                        </div>
-                                                {
-                                                    user_id === event.user_id ?
-                                                    <div>
+                                                                        <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
+                                                                        <div className="link-descarga">
+                                                                            <Link className="atras-arrow" to="#"><i className="fas fa-file-excel" onClick={handleDownloadParticipants.bind(this, event.id)}></i></Link>
+                                                                        </div>
+                                                                    </div>
 
-                                                        <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
-                                                        <div className="link-descarga">
-                                                            <button onClick={handleDownloadParticipants.bind(this,event.id)}>Descargar lista de participantes</button>
+                                                                    :
+                                                                    <AssistButton
+                                                                        isPart={isPart}
+                                                                        event_id={event.id}
+                                                                    />
+                                                            }
                                                         </div>
                                                     </div>
 
-                                                        :
-                                                        <AssistButton
-                                                            isPart={isPart}
-                                                            event_id={event.id}
-                                                        />
-                                                }
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
 
                                     </div>
                                     <ParticipantsList />

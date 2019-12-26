@@ -15,7 +15,7 @@ class ModalPerfil extends React.Component {
         name: '',
         lastname_1: '',
         lastname_2: '',
-        country : '',
+        country: '',
         phone: '',
         birthday_date: new Date(),
         position: '',
@@ -23,7 +23,7 @@ class ModalPerfil extends React.Component {
         fromHour: '',
         toHour: '',
         selected: "",
-        phoneCodes : '',
+        phoneCodes: '',
         hoursOptions: [
             {
                 hour: '7:00 AM',
@@ -99,6 +99,7 @@ class ModalPerfil extends React.Component {
         try {
             let id = localStorage.getItem('id')
             const userShow = await showDataByUser(id);
+            let birthdayDate = new Date(moment(userShow.data.birthday).format('LLLL'));
             const countrieData = await listCountries();
             let phoneCodes = [];
 
@@ -107,8 +108,8 @@ class ModalPerfil extends React.Component {
             var hoursOptions = this.state.hoursOptions;
             let hourAvailables = [];
             const country = {
-                label : `${userShow.data.country.country}(${userShow.data.country.calling_code})`,
-                value : userShow.data.country.id
+                label: `${userShow.data.country.country}(${userShow.data.country.calling_code})`,
+                value: userShow.data.country.id
             }
             for (let index = 0; index < unavailables.length; index++) {
                 hoursUnavailables.push(convertTimes(unavailables[index].time))
@@ -123,17 +124,17 @@ class ModalPerfil extends React.Component {
             }
             if (countrieData.length > 0) {
                 phoneCodes = countrieData.map(x => ({ label: `${x.country}(${x.calling_code})`, value: x.id }));
-            }            
+            }
             this.setState({
                 name: userShow.data.name,
                 lastname_1: userShow.data.lastname_1,
                 lastname_2: userShow.data.lastname_2,
-                birthday: userShow.data.birthday,
+                birthday_date: birthdayDate,
                 phone: userShow.data.phone,
                 description: userShow.data.description,
                 available: hourAvailables,
                 phoneCodes: phoneCodes,
-                country : country
+                country: country
             })
         } catch (error) {
             console.log(error)
@@ -175,21 +176,21 @@ class ModalPerfil extends React.Component {
         e.preventDefault();
         let user_id = localStorage.getItem('id')
 
-        const { name, lastname_1,lastname_2,country, phone, birthday_date, position, available, description } = this.state
+        const { name, lastname_1, lastname_2, country, phone, birthday_date, position, available, description } = this.state
 
-        const lastname = lastname_1 + ' '+lastname_2;
+        const lastname = lastname_1 + ' ' + lastname_2;
         let birthday = moment(birthday_date).format('YYYY-MM-DD');
-        localStorage.setItem('lastname',lastname);
+        localStorage.setItem('lastname', lastname);
         const ScheduleData = {
             available
         }
 
         const formData = {
-            name, lastname_1, phone, position, birthday, user_id, description, birthday,
-            lastname_2,country_phone_id : country.value
+            name, lastname_1, phone, position, birthday, user_id, description,
+            lastname_2, country_phone_id: country.value
         }
-        console.log("FORMDATA",formData);
-        
+        console.log("FORMDATA", formData);
+
 
         const res = await this.props.updateUserPerfil(formData)
         const ress = await this.props.notAvailableUser(user_id, ScheduleData)
@@ -217,7 +218,7 @@ class ModalPerfil extends React.Component {
     onChange = birthday_date => this.setState({ birthday_date })
 
     render() {
-        const { name, lastname_1, lastname_2,phone, birthday, position, to_hour, from_hour, isHour, hoursOptions, available, description, checked,phoneCodes,country } = this.state
+        const { name, lastname_1, lastname_2, phone, birthday, position, to_hour, from_hour, isHour, hoursOptions, available, description, checked, phoneCodes, country } = this.state
         return (
             <View
                 name={name}
@@ -241,7 +242,7 @@ class ModalPerfil extends React.Component {
                 checked={checked}
                 handleSelectChange={this.handleSelectChange}
                 country={country}
-                onChange = {this.onChange}
+                onChange={this.onChange}
             />
         );
     }

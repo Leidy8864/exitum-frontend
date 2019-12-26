@@ -60,6 +60,10 @@
     border-radius: 50%;
 }
 
+.card.anuncios-pro {
+    margin-right: 0px !important;
+}
+
 
 .list-group-item {
     font-family: 'Proxima Nova';

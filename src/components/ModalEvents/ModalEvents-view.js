@@ -36,6 +36,8 @@ function View(props) {
         error_department,
         country
     } = props
+    // console.log("DAY",day);
+    
     return (
         <div className="Modal-ads">
             <Fragment>

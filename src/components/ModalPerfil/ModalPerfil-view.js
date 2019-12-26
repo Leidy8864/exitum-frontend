@@ -23,7 +23,7 @@ function View(props) {
         phoneCodes,
         handleSelectChange,
         country,
-        onChange,
+        onChange
     } = props
 
     return (
@@ -119,13 +119,6 @@ function View(props) {
                                             name="birthday"
                                         />
                                         </Fragment>
-                                        {/* <input
-                                            type="date"
-                                            className="form-control"
-                                            name=""
-                                            defaultValue={birthday}
-                                            onChange={handleChange}
-                                        /> */}
                                     </div>
                                 </div>
                                 <div className="row">
