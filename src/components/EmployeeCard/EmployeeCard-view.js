@@ -7,7 +7,6 @@ function View(props) {
     const {
         name,
         short_description,
-        price_hour,
         starts,
         saved,
         user_id,

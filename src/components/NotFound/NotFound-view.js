@@ -7,10 +7,10 @@ function View() {
         <Fragment>
             <div className="not-found">
                 <div className="capsula-not-found">
-                    <img className="img-capsule" src={require('../../public/img/Capsurocket.png')} />
+                    <img className="img-capsule" src={require('../../public/img/Capsurocket.png')} alt="imagen" />
                 </div>
                 <div className="satelite-not-found">
-                    <img className="img-satelite" src={require('../../public/img/Satellite.png')} />
+                    <img className="img-satelite" src={require('../../public/img/Satellite.png')} alt="imagen" />
                 </div>
             </div>
         </Fragment >

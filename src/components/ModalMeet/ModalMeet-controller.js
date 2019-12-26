@@ -113,7 +113,7 @@ class ModalMeet extends React.Component {
             
             const res = await this.props.appointmentsUpdate(id,data)
 
-            if(res.status == true) {
+            if(res.status === true) {
                 Swal.fire(
                     'Buen trabajo',
                     'Actualizado correctamente',

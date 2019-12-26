@@ -89,8 +89,9 @@ form input {
 
 .css-1hwfws3 {
   font-weight: 400 !important;
-  padding: 0px !important;
-  margin-left: 4px !important;
+  padding-left: 0px !important;
+  margin-left: 6px !important;
+  display: -webkit-box !important;
 }
 
 .css-2b097c-container { 

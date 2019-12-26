@@ -7,7 +7,6 @@ import { getListParticipants } from '../../redux/actions';
 import reloadPage from '../../redux/actions/reloadPage';
 import $ from 'jquery';
 import { decodeToken } from '../../libs/helper';
-import activeBackButton from '../../redux/actions/activeBackButton';
 class ParticipantsList extends React.Component {
     state = {
         participants: [{

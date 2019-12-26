@@ -62,6 +62,9 @@ function View(props) {
                                             <button type="submit" className="submit-signin">Iniciar Sesión</button>
                                         </div>
                                     </div>
+                                    
+                                </div>
+                                <div className="mt-2">
                                     {contentError}
                                 </div>
                             </form>

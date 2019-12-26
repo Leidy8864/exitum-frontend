@@ -19,6 +19,10 @@
 
 }
 
+.react-date-picker__calendar {
+    z-index: 1000 !important;
+}
+
 span.no-data {
     margin-left: 100px;
     margin-bottom: 15px;
@@ -277,11 +281,6 @@ div ul.experiences {
 .experience-info-content strong {
     color: #5280F6;
 }
-
-/* .css-yk16xz-control {
-    min-height: 70px !important;
-    max-height: 70px !important;
-} */
 
 .profile-employee {
     padding-left: 0px !important;

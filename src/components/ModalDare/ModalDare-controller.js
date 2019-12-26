@@ -8,7 +8,6 @@ import { verifyChallenge,root } from '../../redux/actions'
 import View from './ModalDare-view';
 import Swal from 'sweetalert2'
 import $ from 'jquery'
-import { runInThisContext } from 'vm';
 
 class ModalDare extends React.Component {
 
