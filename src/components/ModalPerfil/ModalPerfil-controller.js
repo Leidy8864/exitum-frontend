@@ -125,11 +125,12 @@ class ModalPerfil extends React.Component {
             if (countrieData.length > 0) {
                 phoneCodes = countrieData.map(x => ({ label: `${x.country}(${x.calling_code})`, value: x.id }));
             }
+            
             this.setState({
                 name: userShow.data.name,
                 lastname_1: userShow.data.lastname_1,
                 lastname_2: userShow.data.lastname_2,
-                birthday_date: birthdayDate,
+                birthday_date: userShow.data.birthday? birthdayDate: new Date(moment().format('LLLL')),
                 phone: userShow.data.phone,
                 description: userShow.data.description,
                 available: hourAvailables,
