@@ -55,7 +55,7 @@ class Signin extends React.Component {
                 localStorage.setItem('token', response.data.accessToken);
                 localStorage.setItem('confirmed', response.data.confirmed);
                 localStorage.setItem('name', response.data.name);
-                localStorage.setItem('lastname', response.data.lastname);
+                localStorage.setItem('lastname', response.data.lastname_1 + ' ' + response.data.lastname_2);
                 localStorage.setItem('email', response.data.email);
                 localStorage.setItem('role', response.data.role);
                 localStorage.setItem('photo', response.data.photo)
