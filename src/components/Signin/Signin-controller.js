@@ -82,25 +82,25 @@ class Signin extends React.Component {
     responseGoogle = async (response) => {
         try {
 
-            const user = response.profileObj;            
-            if (user) {      
+            const user = response.profileObj;
+            if (user) {
                 const formData = {
-                    user : {
-    
-                        id : user.googleId,
-                        firstname : user.givenName,
-                        lastname : user.familyName,
-                        email : user.email,
-                        photo : user.imageUrl,
-                        provider : "google"
+                    user: {
+
+                        id: user.googleId,
+                        firstname: user.givenName,
+                        lastname: user.familyName,
+                        email: user.email,
+                        photo: user.imageUrl,
+                        provider: "google"
                     }
                 }
-                console.log("FORM DATA",formData);
-                
-                
+                console.log("FORM DATA", formData);
+
+
                 const response = await this.props.oauthGoogle(formData);
-                console.log("RESPONSE",response);
-                
+                console.log("RESPONSE", response);
+
                 if (response.status) {
                     localStorage.setItem('id', response.data.id);
                     localStorage.setItem('infoChiko', true);
@@ -111,7 +111,7 @@ class Signin extends React.Component {
                     localStorage.setItem('lastname', response.data.lastname);
                     localStorage.setItem('email', response.data.email);
                     localStorage.setItem('role', response.data.role)
-    
+
                     $('.modal-backdrop').remove();
                     $('body').removeClass('modal-open');
                     window.location.replace('/dashboard');
@@ -128,10 +128,10 @@ class Signin extends React.Component {
     responseFacebook = async (res) => {
         try {
             const token = res.accessToken;
-            console.log("TOKEN",token);
+            console.log("TOKEN", token);
             const response = await this.props.oauthFacebook(token);
-            console.log("RESPONSE",response);
-            
+            console.log("RESPONSE", response);
+
             if (response.status) {
                 localStorage.setItem('id', response.data.id);
                 localStorage.setItem('infoChiko', true);

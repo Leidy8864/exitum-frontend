@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import  { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form'
 import userReducer from './user';
 import cleanFormReducer from './cleanFormReducer';
 import getIdProjectReducer from './getIdProjectReducer';
@@ -37,28 +37,30 @@ import listOcupationsReducer from './listOcupationsReducer';
 import listCertificationsNameReducer from './listCertificationsNameReducer';
 import getListCareersReducer from './getListCareersReducer';
 import updateChallengeReducer from './updateChallengeReducer';
+import showNotificationReducer from './showNotificationReducer';
+
 export default combineReducers({
     form: formReducer,
-    user : userReducer,
+    user: userReducer,
     cleanFormReducer: cleanFormReducer,
     getIdProjectReducer: getIdProjectReducer,
     getIdStageReducer: getIdStageReducer,
-    getListChallengesReducer:getListChallengesReducer,
-    getTipIdReducer:getTipIdReducer,
-    getCertificateReducer:getCertificateReducer,
-    listCertificationsReducer:listCertificationsReducer,
+    getListChallengesReducer: getListChallengesReducer,
+    getTipIdReducer: getTipIdReducer,
+    getCertificateReducer: getCertificateReducer,
+    listCertificationsReducer: listCertificationsReducer,
     getEducationReducer: getEducationReducer,
     listEducationsReducer: listEducationsReducer,
     listSkillsReducer: listSkillsReducer,
     openModalReducer: openModalReducer,
-    getAdStateReducer : getAdStateReducer,
-    getTypeAdsReducer : getTypeAdsReducer,
-    getAdIdReducer : getAdIdReducer,
-    getListAdsReducer : getListAdsReducer,
-    getAdvertReducer :getAdvertReducer,
+    getAdStateReducer: getAdStateReducer,
+    getTypeAdsReducer: getTypeAdsReducer,
+    getAdIdReducer: getAdIdReducer,
+    getListAdsReducer: getListAdsReducer,
+    getAdvertReducer: getAdvertReducer,
     getReminderReducer: getReminderReducer,
-    listUniversitiesReducer : listUniversitiesReducer,
-    listCompaniesReducer : listCompaniesReducer,
+    listUniversitiesReducer: listUniversitiesReducer,
+    listCompaniesReducer: listCompaniesReducer,
     listRemindersReducer: listRemindersReducer,
     listUsersReducer: listUsersReducer,
     getExperienceReducer: getExperienceReducer,
@@ -66,14 +68,15 @@ export default combineReducers({
     reloadPageReducer: reloadPageReducer,
     listMeetsReducer: listMeetsReducer,
     getMeetReducer: getMeetReducer,
-    getEventTypeReducer : getEventTypeReducer,
+    getEventTypeReducer: getEventTypeReducer,
     getChallengeReducer: getChallengeReducer,
     listChallengeReducer: listChallengeReducer,
-    getEventReducer : getEventReducer,
-    activeBackButtonReducer : activeBackButtonReducer,
-    setImageReducer : setImageReducer,
-    listOcupationsReducer : listOcupationsReducer,
-    listCertificationsNameReducer : listCertificationsNameReducer,
-    getListCareersReducer : getListCareersReducer,
-    updateChallengeReducer : updateChallengeReducer,
+    getEventReducer: getEventReducer,
+    activeBackButtonReducer: activeBackButtonReducer,
+    setImageReducer: setImageReducer,
+    listOcupationsReducer: listOcupationsReducer,
+    listCertificationsNameReducer: listCertificationsNameReducer,
+    getListCareersReducer: getListCareersReducer,
+    updateChallengeReducer: updateChallengeReducer,
+    showNotificationReducer: showNotificationReducer
 });

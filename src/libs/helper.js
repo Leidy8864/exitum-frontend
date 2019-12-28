@@ -1,11 +1,9 @@
 import jwt from 'jsonwebtoken';
-
-import $ from 'jquery';
-
+const token = localStorage.getItem('token');
 export const decodeToken = () => {
     const token = localStorage.getItem('token')
-    const result = jwt.decode(token);    
-    return result;    
+    const result = jwt.decode(token);
+    return result;
 }
 
 export const convertTimes = (time) => {
@@ -23,4 +21,25 @@ export const convertTimes = (time) => {
     if (hrs == 12) time = `12:${mnts} PM`
 
     return time
+}
+
+export const isLogged = () => {
+    if (token) {
+        return true;
+    } else {
+        return false
+    }
+}
+export const isTokenExpired = () => {
+    const result = decodeToken();
+    try {
+        if (isLogged && result.exp < Math.floor(Date.now() / 1000)) {
+            localStorage.clear();
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        return true;
+    }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from '../components/Home/Home-controller';
 import { Provider } from 'react-redux';
-
 import Dashboardoffice from '../components/Dashboardoffice/Dashboardoffice-controller';
 import ChooseProfileController from '../components/ChooseProfile/ChooseProfile-controller';
 import Advertisement from '../components/Advertisement/Advertisement-controller';
@@ -10,10 +9,8 @@ import AdDetailPage from '../components/AdDetailPage/AdDetailPage-controller';
 import Events from '../components/Events/Events-controller';
 import Dare from '../components/Dare/Dare-controller';
 import Calendar from '../components/Calendar/Calendar-controller'
-
 import Profile from '../components/Profile/Profile-controller';
 import NotFound from '../components/NotFound/NotFound-controller';
-
 import store from '../redux/store';
 import ChooseProfileRoute from './ChooseProfileRoute';
 import ProtectedRoute from './ProtectedRoute';
@@ -28,7 +25,7 @@ class AllRoutes extends React.Component {
         <Router>
           <Switch>
             <HomeRoute exact path="/" component={Home} />
-            <Route exact path="/dashboard" component={Dashboardoffice} />
+            <ProtectedRoute exact path="/dashboard" component={Dashboardoffice} />
             <ChooseProfileRoute exact path="/choose-profile" component={ChooseProfileController} />
             <ProtectedRoute exact path="/advertisement" component={Advertisement} />
             <ProtectedRoute exact path="/advertisement/:id/:title" component={AdDetailPage} />

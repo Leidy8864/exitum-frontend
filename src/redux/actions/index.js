@@ -1,9 +1,9 @@
 import axios from 'axios'
 // import { AUTH_ERROR, UPDATE_USER, UPDATE_USER_ERROR } from './types'
 import { AUTH_ERROR } from './types'
-// export const root = 'http://localhost:8081/';
+export const root = 'http://localhost:8081/';
 
-export const root = 'http://35.175.241.103:8081/';
+// export const root = 'http://35.175.241.103:8081/';
 
 export const oauthGoogle = data => {
     return async dispatch => {
@@ -897,6 +897,19 @@ export const listCitiesByCountry = async (id) => {
             country_id : id
         }});
         return res.data.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+export const challengeNotification = async (id) => {
+    try {
+        const res = await axios.get(root + `challenges/showAlert`,{
+            params : {
+                user_id : id
+            }
+        });
+        return res.data
     } catch (error) {
         console.log("Error" + error)
     }

@@ -32,6 +32,9 @@
   height: 100vh;
 }
 
+.swal2-title{
+  font-size: 23px !important;
+}
 @media screen and (max-width: 1024px) {
   .main-panel {
     width: 100%;
