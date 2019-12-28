@@ -1,31 +1,39 @@
 
 import React from 'react';
-// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Route, Redirect } from 'react-router-dom';
 
 class ProtectedRoute extends React.Component {
-
-    isLogged() {
+    isLogged = () => {
         const token = localStorage.getItem("token");
-
-        if (token  != null) {
+        if (token) {
             return true
-        } else {
-            return false;
-        };
+        }else{
+            return false
+        }
     }
 
     render() {
-
         const { component: Component, ...props } = this.props;
         return (
             <Route
                 {...props}
-                render={props => (
-                    this.isLogged() ?
-                      <Component {...props} /> :
-                      <Redirect to='/' />
-                  )} 
+                render={props => {
+                    if (this.isLogged()) {
+                        return <Component {...props} />;
+                      } else {
+                        return (
+                          <Redirect
+                            to={{
+                              pathname: "/",
+                              state: {
+                                from: props.location
+                              }
+                            }}
+                          />
+                        );
+                      }
+                }
+                }
             />
         )
     }

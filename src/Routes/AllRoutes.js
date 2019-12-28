@@ -28,7 +28,7 @@ class AllRoutes extends React.Component {
         <Router>
           <Switch>
             <HomeRoute exact path="/" component={Home} />
-            <Route exact path="/dashboard" component={Dashboardoffice} />
+            <ProtectedRoute exact path="/dashboard" component={Dashboardoffice} />
             <ChooseProfileRoute exact path="/choose-profile" component={ChooseProfileController} />
             <ProtectedRoute exact path="/advertisement" component={Advertisement} />
             <ProtectedRoute exact path="/advertisement/:id/:title" component={AdDetailPage} />

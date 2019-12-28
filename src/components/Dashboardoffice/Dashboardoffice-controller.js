@@ -11,7 +11,8 @@ import Cherry from '../Cherry/Cherry-controller'
 class Dashboardoffice extends React.Component {
 
     state = {
-        role: localStorage.getItem('role') || 'undefined'
+        role: localStorage.getItem('role') || 'undefined',
+        confirmed : localStorage.getItem('confirmed') || 'false'
     }
 
     pickDiary = e => {
@@ -43,12 +44,12 @@ class Dashboardoffice extends React.Component {
                 </main>
             </div>
 
-        if (this.state.role === 'undefined') {
+        if (this.state.role === 'undefined' || this.state.confirmed === "false") {
             content = 
             <div className="container-undefined">
                 <Tree />
             </div>
-        }
+        }   
 
         return (
             <View
@@ -58,4 +59,5 @@ class Dashboardoffice extends React.Component {
         );
     }
 }
+
 export default Dashboardoffice;

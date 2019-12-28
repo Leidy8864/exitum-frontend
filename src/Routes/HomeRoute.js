@@ -1,6 +1,5 @@
 
 import React from 'react';
-// import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Route, Redirect } from 'react-router-dom';
 
 class HomeRoute extends React.Component {
@@ -8,11 +7,11 @@ class HomeRoute extends React.Component {
     isLogged() {
         const token = localStorage.getItem("token");
 
-        if (token == null) {
+        if (!token) {
             return true;
         } else {
             return false;
-        };
+        }
     }
 
     render() {

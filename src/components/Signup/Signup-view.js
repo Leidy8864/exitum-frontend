@@ -58,25 +58,25 @@ function View(props) {
                                 <div className="col-md-6">
                                     <input
                                         className="mediun"
-                                        onChange={lastname_2}
+                                        onChange={lastname_1}
                                         name="lastname"
                                         type="text"
                                         placeholder="Apellido Paterno"
                                     />
                                     <div className="error-message-aux">
-                                        {content_error_lastname_2}
+                                        {content_error_lastname_1}
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <input
                                         className="mediun"
-                                        onChange={lastname_1}
+                                        onChange={lastname_2}
                                         name="lastname"
                                         type="text"
                                         placeholder="Apellido Materno"
                                     />
                                     <div className="error-message-aux">
-                                        {content_error_lastname_1}
+                                        {content_error_lastname_2}
                                     </div>
                                 </div>
                             </div>
