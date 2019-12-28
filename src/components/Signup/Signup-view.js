@@ -61,7 +61,7 @@ function View(props) {
                                         onChange={lastname_1}
                                         name="lastname"
                                         type="text"
-                                        placeholder="Apellido Paterno"
+                                        placeholder="Apellido Materno"
                                     />
                                     <div className="error-message-aux">
                                         {content_error_lastname_1}
@@ -73,7 +73,7 @@ function View(props) {
                                         onChange={lastname_2}
                                         name="lastname"
                                         type="text"
-                                        placeholder="Apellido Materno"
+                                        placeholder="Apellido Paterno"
                                     />
                                     <div className="error-message-aux">
                                         {content_error_lastname_2}

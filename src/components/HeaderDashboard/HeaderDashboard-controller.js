@@ -44,7 +44,6 @@ class HeaderDashboard extends React.Component {
     }
 
     render() {
-
         let header =
 
             <nav className="navbar navbar-expand-lg navbar-light bg-light dashboard-header">
@@ -53,7 +52,7 @@ class HeaderDashboard extends React.Component {
                     <div className="content-user">
                         <div className="dropleft">
                             <button className="perfil-pick dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img className="img-usuario" src={this.state.photo === 'null' ? this.state.imagen : this.state.photo} alt="svg" />
+                                <img className="img-usuario" src={this.state.photo !== 'null' ? this.state.photo : this.state.imagen} alt="svg" />
                                 <span>{this.state.name || "Usuario"} {this.state.lastname || "Invitado"}</span>
                             </button>
                         </div>
