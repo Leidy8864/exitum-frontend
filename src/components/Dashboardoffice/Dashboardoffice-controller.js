@@ -13,40 +13,48 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import showNotification from '../../redux/actions/showNotification';
 import moment from 'moment';
-
-
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
+import ReactNotifications from 'react-notifications-component';
+import MyNotification from '../MyNotification/MyNotification-controller'
+import { updateLastLogin } from '../../libs/helper';
 class Dashboardoffice extends React.Component {
-
     state = {
         role: localStorage.getItem('role') || 'undefined',
         confirmed: localStorage.getItem('confirmed') || 'false'
     }
-
-    async componentDidMount() {        
-        const response = await challengeNotification(localStorage.getItem('id'));        
-        if (response.status) {
-            if (this.props.show) {
-                let modals = [];
+    async componentDidMount() {
+        if (this.props.show) {
+            const response = await challengeNotification(localStorage.getItem('id'));
+            if (response.status) {
                 let notifications = response.data;
+                // console.log("NOTIFICACIONS", notifications.length);
+
                 if (notifications.length > 0) {
-                    
-                    for (let index = 0; index < notifications.length; index++) {    
+
+                    for (let index = 0; index < notifications.length; index++) {
                         let date_max = moment(notifications[index].date_max);
                         let date_now = moment(new Date());
-                        let hours = date_max.diff(date_now,'hours');
+                        let days = date_max.diff(date_now, 'days');
                         let text = notifications[index].startup ? `de la Startup "${notifications[index].startup.name}"` : '';
-                        let role = notifications[index].startup ? 'emprendedor' : 'impulsor';                        
-                        modals.push({
-                            position: 'top-end',
-                            type: 'info',
-                            text: `Bienvenido ${role}, recuerde que tiene ${hours} horas para completar el reto "${notifications[index].tip.tip}" ${text}`,
-                            showConfirmButton: true,
-                            showCloseButton: false
+                        let textDays = `que  ${days > 0 ? 'tiene ' + days + ' días' : 'hoy es el último día'}`
+                        let role = notifications[index].startup ? 'emprendedor' : 'impulsor';
+
+                        store.addNotification({
+                            content: <MyNotification title={`Hola ${role}`}
+                                message={`Recuerde ${textDays} para completar el reto "${notifications[index].tip.tip}" ${text}`} />,   // 👈
+                            type: 'default',                         // 'default', 'success', 'info', 'warning'
+                            container: 'top-right',                // where to position the notifications
+                            animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                            animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                            dismiss: {
+                                duration: 20000
+                            }
                         })
-                        
-                    }                    
-                    Swal.queue(modals) // Cola de sweet alert
+                    }
                 }
+                updateLastLogin();
                 this.props.showNotification(0);
             }
         }
@@ -70,9 +78,11 @@ class Dashboardoffice extends React.Component {
                                 <div className="col-xl-9 col-lg-12 events-fluid">
                                     <Tree />
                                     <Cherry />
+                                    <ReactNotifications />
                                 </div>
                                 <div className="col-xl-3 col-lg-12 content-diary">
                                     <Diary />
+
                                 </div>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
     logOut = e => {
         e.preventDefault()
         localStorage.clear();
-        this.props.history.push('/');
+        window.location.replace('/');
     }
 
     chooseProfile = async() =>{

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import cleanForm from '../../redux/actions/clean-form'
 import $ from 'jquery';
+import { updateLastLogin } from '../../libs/helper';
 
 class Ads extends React.Component {
 
@@ -16,6 +17,7 @@ class Ads extends React.Component {
     }
 
     async componentDidMount() {
+
         const { url, isConfirmed } = this.state;
         const token = url.substr(url.indexOf("token") + 6);
         // alert(token);
@@ -39,6 +41,8 @@ class Ads extends React.Component {
                 }
             }
         }
+        updateLastLogin();
+
     }
 
     cleanForm = () => {

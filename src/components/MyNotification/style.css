@@ -1,0 +1,21 @@
+.MyNotification{
+    display: block;
+}
+.myNotification{
+    display: flex;
+    background-color: #435DEE ;
+    border-radius: 10px;
+    /* margin: 5px 50px; */
+    width: 455px;
+}
+.myNotification img{
+    margin-left: 10px;
+}
+.text-info-notification{
+    margin: 5px 10px;
+    text-align: justify;
+    color: #ffffff;
+}
+/* .text-info-notification h4{
+    color: blue;
+} */

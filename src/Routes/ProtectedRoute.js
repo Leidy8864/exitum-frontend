@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { isTokenExpired } from '../libs/helper';
+import { isTokenExpired, isLogged } from '../libs/helper';
 
 class ProtectedRoute extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class ProtectedRoute extends React.Component {
       <Route
         {...props}
         render={props => {
-          if (!isTokenExpired()) {
+          if (isLogged()) {
             return <Component {...props} />;
           } else {
             return (

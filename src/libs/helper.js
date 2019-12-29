@@ -1,4 +1,6 @@
 import jwt from 'jsonwebtoken';
+import moment from 'moment';
+import { updateUser } from '../redux/actions';
 const token = localStorage.getItem('token');
 export const decodeToken = () => {
     const token = localStorage.getItem('token')
@@ -42,4 +44,13 @@ export const isTokenExpired = () => {
     } catch (error) {
         return true;
     }
+}
+
+export const updateLastLogin = async () => {
+    console.log("is udpateing");
+    
+    const data = {
+        user_id : localStorage.getItem('id')
+    }
+    await updateUser(data);
 }
