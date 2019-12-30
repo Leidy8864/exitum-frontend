@@ -28,12 +28,20 @@ class HeaderDashboard extends React.Component {
         })
     }
     componentDidUpdate(nextProps) {
-        const { imageProfile } = this.props;
+        const { imageProfile, reload } = this.props;
         if (nextProps.imageProfile !== imageProfile) {
             if (imageProfile) {
                 this.setState({
                     photo: imageProfile
                 });
+            }
+        }
+        if (nextProps.reload !== reload) {
+            if (reload) {
+                this.setState({
+                    name: localStorage.getItem('name'),
+                    lastname: localStorage.getItem('lastname')
+                })
             }
         }
     }
@@ -52,7 +60,7 @@ class HeaderDashboard extends React.Component {
                     <div className="content-user">
                         <div className="dropleft">
                             <button className="perfil-pick dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img className="img-usuario" src={this.state.photo !== 'null' && this.state.photo !='undefined'? this.state.photo : this.state.imagen} alt="svg" />
+                                <img className="img-usuario" src={this.state.photo !== 'null' && this.state.photo != 'undefined' ? this.state.photo : this.state.imagen} alt="svg" />
                                 <span>{this.state.name || "Usuario"} {this.state.lastname || "Invitado"}</span>
                             </button>
                         </div>
@@ -79,7 +87,8 @@ class HeaderDashboard extends React.Component {
     }
 }
 const mapStateToProps = (state) => ({
-    imageProfile: state.setImageReducer
+    imageProfile: state.setImageReducer,
+    reload: state.reloadPageReducer
 });
 export default withRouter(
     connect(mapStateToProps, null)(HeaderDashboard)

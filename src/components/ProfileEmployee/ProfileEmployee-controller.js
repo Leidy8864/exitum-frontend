@@ -3,7 +3,7 @@ import React from 'react';
 import View from './ProfileEmployee-view';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience, ocupationsList, certificationsList, careersList  } from '../../redux/actions';
+import { showDataByUser, showCertificationByUser, showExperienceByUser, showEducationByUser, showSkillByUser, updateImageUser, listUniversities, listCompanies, getOneExperience, ocupationsList, certificationsList, careersList } from '../../redux/actions';
 import getCertificate from '../../redux/actions/get-certificate';
 import getEducation from '../../redux/actions/get-education';
 import getExperience from '../../redux/actions/get-experience';
@@ -20,6 +20,7 @@ import { deleteSkill, deleteCertificate, deleteEducation, deleteExperience } fro
 import Swal from 'sweetalert2';
 import $ from 'jquery'
 import setImage from '../../redux/actions/setImage';
+import reloadPage from '../../redux/actions/reloadPage';
 class ProfileEmployee extends React.Component {
 
     state = {
@@ -79,7 +80,7 @@ class ProfileEmployee extends React.Component {
                 //     this.props.history.push('/my-profile')
                 //     : isMyProfile = false;
             }
-            const userShow = await showDataByUser(id);            
+            const userShow = await showDataByUser(id);
             // Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard
             const certificationsAll = await showCertificationByUser(id);
             const experiencesAll = await showExperienceByUser(id);
@@ -87,7 +88,7 @@ class ProfileEmployee extends React.Component {
             const skillsAll = await showSkillByUser(id);
 
             const experienceActualy = userShow.data.experience[0] && userShow.data.experience[0].description ? userShow.data.experience[0].description : ""
-            const country = userShow.data.country ? userShow.data.country.country: ""
+            const country = userShow.data.country ? userShow.data.country.country : ""
             const photo = userShow.data.photo
             const description = userShow.data.description
             //localStorage.setItem('photo', photo)           
@@ -119,31 +120,47 @@ class ProfileEmployee extends React.Component {
                 listCompanies__ = listCompanies_.map(x => ({ label: x.name, value: x.name }));
             }
             this.props.getCompanies(listCompanies__);
-            
+
             const ocupationsList_ = await ocupationsList();
             var ocupations = [];
             if (ocupationsList_.length >= 1) {
                 ocupations = ocupationsList_.map(x => ({ label: x.name, value: x.id }));
             }
             this.props.listOcupations(ocupations);
-            
+
             const certificationsList_ = await certificationsList();
             var certificationsList__ = [];
             if (certificationsList_.length >= 1) {
                 certificationsList__ = certificationsList_.map(x => ({ label: x.name, value: x.id }));
             }
             this.props.certificationsListName(certificationsList__);
-            
+
             const careersList_ = await careersList();
             var careersList__ = [];
             if (careersList_.length >= 1) {
-            careersList__ = careersList_.map(x => ({ label: x.name, value: x.id }));
+                careersList__ = careersList_.map(x => ({ label: x.name, value: x.id }));
             }
             this.props.listCareers(careersList__);
         } catch (error) {
             console.log(error)
         }
     }
+
+    async componentDidUpdate(nextProps) {
+        const { reload } = this.props;
+
+        if (nextProps.reload !== reload) {
+            if (reload) {
+                var id = localStorage.getItem('id');
+                const userShow = await showDataByUser(id);
+                this.setState({
+                    users: userShow.data
+                })
+                this.props.reloadPage(0);
+            }
+        }
+    }
+
     idCertificate = async (e) => {
         e.preventDefault();
         const certificate = this.state.certifications[e.target.id];
@@ -241,7 +258,7 @@ class ProfileEmployee extends React.Component {
         const careersList_ = await careersList();
         var careersList__ = [];
         if (careersList_.length >= 1) {
-        careersList__ = careersList_.map(x => ({ label: x.name, value: x.id }));
+            careersList__ = careersList_.map(x => ({ label: x.name, value: x.id }));
         }
         this.props.listCareers(careersList__);
     }
@@ -478,9 +495,11 @@ const mapStateToProps = (state) => ({
     listSkillsReducer: state.listSkillsReducer,
     listEducationsReducer: state.listEducationsReducer,
     listExperiencesReducer: state.listExperiencesReducer,
+    reload: state.reloadPageReducer
 });
 
 const mapDispatchToProps = {
+    reloadPage,
     deleteCertificate,
     deleteEducation,
     deleteExperience,

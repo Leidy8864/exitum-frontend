@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import cleanForm from '../../redux/actions/clean-form';
 import { datailChallenge, completeChallenge, root, deleteFileReplyy, getSummaryChallenge } from '../../redux/actions';
 import $ from 'jquery';
+import reloadPage from '../../redux/actions/reloadPage';
 import getTipId from '../../redux/actions/getTipId';
 
 class DetailChallenge extends React.Component {
@@ -23,7 +24,7 @@ class DetailChallenge extends React.Component {
             files: [],
             uploaded_files: []
         },
-        active : true
+        active: true
     }
 
     // componentDidMount(){
@@ -33,22 +34,22 @@ class DetailChallenge extends React.Component {
         const { tip_id, challenges } = this.props;
         if (nextProps.tip_id !== tip_id) {
             if (tip_id) {
-                const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });                
+                const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });
                 this.setState({
                     challenge: challenge,
                     challenge_id: challenge.challenge_id,
                     reply: challenge.reply,
-                    active : true
+                    active: true
                 });
                 this.props.getTipId('');
             }
         }
     }
 
-    handleGetSummary = async () =>{
-                
-        const {challenge} = this.state;
-        
+    handleGetSummary = async () => {
+
+        const { challenge } = this.state;
+
         const data = {
             user_id: localStorage.getItem('id'),
             tip_id: challenge.tip_id
@@ -58,8 +59,8 @@ class DetailChallenge extends React.Component {
 
         console.log("RESPONSE", summary);
         this.setState({
-            summary : summary,
-            active : false
+            summary: summary,
+            active: false
         })
 
     }
@@ -129,22 +130,15 @@ class DetailChallenge extends React.Component {
                 const response = await completeChallenge(formData);
                 if (response.status) {
                     this.setState({ success_message: response.message });
+                    this.props.reloadPage(1);
+                } else {
+                    this.setState({ error_message: response.message });
                     setTimeout(
                         () => {
                             $('#detailCHallengeModal').modal('hide');
-                            window.location.reload();
                         },
                         1200
                     );
-                } else {
-                    this.setState({ error_message: response.message });
-                    // setTimeout(
-                    //     () => {
-                    //         $('#detailCHallengeModal').modal('hide');
-                    //         window.location.reload();
-                    //     },
-                    //     1000
-                    // );
                 }
             } catch (error) {
                 console.log("ERROR COMPLETANDO PROYECTO" + error);
@@ -165,7 +159,7 @@ class DetailChallenge extends React.Component {
         let content_error_reply = '';
         let content_message = '';
 
-        const { reply, summary,active } = this.state;
+        const { reply, summary, active } = this.state;
         if (cleanFormReducer) {
             error_reply = '';
             success_message = '';
@@ -209,7 +203,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     datailChallenge,
     cleanForm,
-    getTipId
+    getTipId,
+    reloadPage
 };
 
 export default withRouter(

@@ -17,7 +17,7 @@ class EmployeeAds extends React.Component {
         adsList: []
     }
 
-    componentDidMount() {        
+    componentDidMount() {
         this.getEmployeeAds("coincidence");
     }
     componentDidUpdate(nextProps) {
@@ -29,8 +29,6 @@ class EmployeeAds extends React.Component {
             }
         }
         if (nextProps.reload !== reload) {
-            console.log("reloading in employees");
-            
             if (reload) {
                 this.getEmployeeAds(adType)
                 this.props.reloadPage(0);
@@ -38,7 +36,7 @@ class EmployeeAds extends React.Component {
         }
     }
 
-    async getEmployeeAds(adType){
+    async getEmployeeAds(adType) {
         try {
             var response = "";
             if (adType === "coincidence") {
@@ -46,15 +44,12 @@ class EmployeeAds extends React.Component {
             } else {
                 response = await listPostulations(data);
             }
-
-            console.log('employee ads',response);
-            
             const pages = response.status ? response.pages : 1;
             this.paginationData(adType, pages); //Permite la paginacion por scroll
             this.setState({
                 pages: pages,
                 adsList: response.status ? response.data : []
-            });   
+            });
         } catch (error) {
             console.error("Error al litar ads for employees", error);
         }
@@ -81,8 +76,6 @@ class EmployeeAds extends React.Component {
                     adType === "coincidence" ? adsList = await listAdsBySkills(data)
                         : adsList = await listPostulations(data);
 
-                    console.log("AD LIST", adsList);
-
                     const arrayList = adsList.data;
 
                     if (arrayList.length > 0) {
@@ -103,8 +96,6 @@ class EmployeeAds extends React.Component {
         });
     }
     handleSetAdId = (id) => {
-        console.log("AD ID", id);
-
         const { adsList } = this.state;
         const advert = adsList.find(advert => { return advert.id === id });
         this.props.getAdvert(advert); //Guarda el objeto de anuncio en redux

@@ -5,7 +5,8 @@ import jwt from 'jsonwebtoken';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { listCategories, listStages, createStartup } from '../../redux/actions';
-import cleanForm from '../../redux/actions/clean-form'
+import cleanForm from '../../redux/actions/clean-form';
+import reloadPage from '../../redux/actions/reloadPage';
 import $ from 'jquery';
 class ModalsProjects extends React.Component {
     state = {
@@ -26,22 +27,16 @@ class ModalsProjects extends React.Component {
     };
     async componentDidUpdate(nextProps) {
 
-        const {isModalOpen} = this.props;
+        const { isModalOpen } = this.props;
 
         if (nextProps.isModalOpen !== isModalOpen) {
-            console.log("modal open",isModalOpen);
-            
-            if (isModalOpen) {                                
+            if (isModalOpen) {
                 try {
-                    console.log("SE ABRIO ESTA VERGA");
 
                     const categorysData = await listCategories();
-                    console.log("CATEGORYS",categorysData);
 
                     const stageData = await listStages();
-        
-                    console.log("STAGE DATA", stageData);
-        
+
                     var categories = [];
                     var stages = [];
                     if (categorysData.length >= 1) {
@@ -50,11 +45,11 @@ class ModalsProjects extends React.Component {
                     if (stageData.length >= 1) {
                         stages = stageData.map(x => ({ label: x.stage, value: x.id, description: x.description }));
                     }
-        
+
                     const token = localStorage.getItem('token');
-        
+
                     const result = jwt.decode(token);
-        
+
                     this.setState({
                         categories: categories,
                         stages: stages,
@@ -62,16 +57,14 @@ class ModalsProjects extends React.Component {
                     });
                 } catch (error) {
                     console.log("ERROR");
-                }   
+                }
             }
         }
     }
     handleChange = (e) => {
 
-        const value = e.target.value.trim();
-
         this.setState({
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         });
     }
     handleSelectChange = (option, action) => {
@@ -84,9 +77,25 @@ class ModalsProjects extends React.Component {
             stageDescription = stage.description;
         }
         this.setState({
-            [action.name]: option.value,
+            [action.name]: option,
             stageDescription: stageDescription
         });
+    }
+
+    cleanState = () => {
+        this.setState({
+            name: '',
+            category_id: '',
+            stage_id: '',
+            description: '',
+            error_name: '',
+            error_category: '',
+            error_stage: '',
+            error_description: '',
+            success_message: '',
+            error_message: '',
+            stageDescription: ''
+        })
     }
 
     handleSubmit = async (e) => {
@@ -106,7 +115,7 @@ class ModalsProjects extends React.Component {
         const { id, category_id, stage_id, description, name } = this.state;
 
         const formData = {
-            id, category_id, stage_id, description, name
+            id, category_id: category_id.value, stage_id: stage_id.value, description, name
         }
 
         if (id && category_id && stage_id && description && name) {
@@ -115,24 +124,18 @@ class ModalsProjects extends React.Component {
 
             if (response.status) {
                 this.setState({ success_message: response.message });
-                setTimeout(
-                    () => {
-                        $('#NewProjectModal').modal('hide');
-                        window.location.reload();
-                    },
-                    1000
-                );
+                this.props.reloadPage(1);
             } else {
-                console.log("error = ", response.message)
+                // console.log("error = ", response.message)
                 this.setState({ error_message: response.message });
-                setTimeout(
-                    () => {
-                        $('#NewProjectModal').modal('hide');
-                        // window.location.reload();
-                    },
-                    1000
-                );
             }
+            setTimeout(
+                () => {
+                    $('#NewProjectModal').modal('hide');
+                    this.cleanState()
+                },
+                1500
+            );
 
         } else {
             if (!name) {
@@ -154,7 +157,11 @@ class ModalsProjects extends React.Component {
         const {
             categories,
             stages,
-            stageDescription
+            stageDescription,
+            name,
+            category_id,
+            stage_id,
+            description
         } = this.state;
 
         const { cleanFormReducer } = this.props;
@@ -213,6 +220,10 @@ class ModalsProjects extends React.Component {
                 handleChange={this.handleChange}
                 handleSelectChange={this.handleSelectChange}
                 handleSubmit={this.handleSubmit}
+                name={name}
+                category_id={category_id}
+                stage_id={stage_id}
+                description={description}
 
             />
         );
@@ -220,13 +231,14 @@ class ModalsProjects extends React.Component {
 }
 const mapStateToProps = state => ({
     cleanFormReducer: state.cleanFormReducer,
-    isModalOpen : state.openModalReducer
+    isModalOpen: state.openModalReducer
 });
 const mapDispatchToProps = {
     listCategories,
     listStages,
     createStartup,
-    cleanForm
+    cleanForm,
+    reloadPage
 };
 
 export default withRouter(

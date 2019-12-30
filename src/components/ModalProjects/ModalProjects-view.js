@@ -15,7 +15,11 @@ function View(props) {
         content_error_stage,
         content_error_description,
         content_message,
-        stageDescription
+        stageDescription,
+        name,
+        category_id,
+        stage_id,
+        description
     } = props;
     return (
         <div className="Modal-ads">
@@ -30,7 +34,7 @@ function View(props) {
                                 <form>
                                     <div className="form_group_">
                                         <label>Nombre del Proyecto</label>
-                                        <input name="name" className="form-control" onChange={handleChange} id="name_project" />
+                                        <input name="name" className="form-control" onChange={handleChange} id="name_project" value={name} />
                                         <div className="error-message-aux">
                                             {content_error_name}
                                         </div>
@@ -45,6 +49,7 @@ function View(props) {
                                                 onChange={handleSelectChange}
                                                 placeholder="Rubro..."
                                                 id="category_id"
+                                                value={category_id}
                                             />
                                         </Fragment>
                                         <div className="error-message-aux">
@@ -60,6 +65,7 @@ function View(props) {
                                                 options={stageOptions}
                                                 onChange={handleSelectChange}
                                                 id="stage_id"
+                                                value={stage_id}
                                             />
                                         </Fragment>
 
@@ -77,7 +83,7 @@ function View(props) {
                                     </div>
                                     <div className="form_group_">
                                         <label>Descripción del proyecto</label>
-                                        <textarea name="description" className="form-control" onChange={handleChange} id="description" />
+                                        <textarea name="description" className="form-control" onChange={handleChange} id="description" value={description} />
                                         <div className="error-message-aux">
                                             {content_error_description}
                                         </div>

@@ -8,6 +8,7 @@ import { listStartupsByUser } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import getIdProject from '../../redux/actions/get-id-project';
+import reloadPage from '../../redux/actions/reloadPage';
 import moment from 'moment';
 
 const role = localStorage.getItem('role');
@@ -31,25 +32,7 @@ class AddProyect extends React.Component {
     async componentDidMount() {
         try {
             if (role === "entrepreneur") {
-                let proyectos = [];
-                const listaProyectos = await listStartupsByUser({ id: localStorage.getItem('id') });                
-                if (listaProyectos.length >= 1) {
-                    proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name, description : x.description, created : moment(x.created).format('DD/MM/YYYY') }));                    
-                    this.props.getIdProject(proyectos[0]);
-                    this.setState({
-                        selected: listaProyectos[0].id,
-                        show_add_proyect_empty: false
-                    });
-                } else {
-                    this.setState({
-                        // selected: listaProyectos[0].id,
-                        show_add_proyect_empty: true,
-                    });
-                }
-
-                this.setState({
-                    blockProjects: proyectos
-                });
+                this.getListOfProject();
             }
 
         } catch (error) {
@@ -57,14 +40,46 @@ class AddProyect extends React.Component {
         }
 
     }
+    componentDidUpdate(nextProps) {
+        const { reload } = this.props;
+
+        if (nextProps.reload !== reload) {
+            if (reload) {
+                this.getListOfProject();
+                this.props.reloadPage(0);
+            }
+        }
+    }
+
+    getListOfProject = async () => {
+        let proyectos = [];
+        const listaProyectos = await listStartupsByUser({ id: localStorage.getItem('id') });
+        if (listaProyectos.length >= 1) {
+            proyectos = listaProyectos.map(x => ({ key: x.id, id: x.id, name: x.name, description: x.description, created: moment(x.created).format('DD/MM/YYYY') }));
+            this.props.getIdProject(proyectos[0]);
+            this.setState({
+                selected: listaProyectos[0].id,
+                show_add_proyect_empty: false
+            });
+        } else {
+            this.setState({
+                // selected: listaProyectos[0].id,
+                show_add_proyect_empty: true,
+            });
+        }
+
+        this.setState({
+            blockProjects: proyectos
+        });
+    }
 
     selectProject = (e) => {
 
         let projectId = e.target.id;
-        console.log("BLOCKPRO",this.state.blockProjects);
-        console.log("PROJECTID",projectId);
-        
-        const project = this.state.blockProjects.find((item) => item.id == projectId);         
+        console.log("BLOCKPRO", this.state.blockProjects);
+        console.log("PROJECTID", projectId);
+
+        const project = this.state.blockProjects.find((item) => item.id == projectId);
         this.props.getIdProject(project);
 
         this.setState({ selected: projectId });
@@ -83,13 +98,17 @@ class AddProyect extends React.Component {
         );
     }
 }
+const mapStateToProps = state => ({
+    reload: state.reloadPageReducer
+});
 const mapDispatchToProps = {
     cleanForm,
     getIdProject,
     listStartupsByUser,
-    openModal
+    openModal,
+    reloadPage
 };
 
 export default withRouter(
-    connect(null, mapDispatchToProps)(AddProyect)
+    connect(mapStateToProps, mapDispatchToProps)(AddProyect)
 )

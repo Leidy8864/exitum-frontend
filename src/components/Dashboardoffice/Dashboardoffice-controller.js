@@ -38,7 +38,7 @@ class Dashboardoffice extends React.Component {
                         let date_now = moment(new Date());
                         let days = date_max.diff(date_now, 'days');
                         let text = notifications[index].startup ? `de la Startup "${notifications[index].startup.name}"` : '';
-                        let textDays = `que  ${days > 0 ? 'tiene ' + days + ' días' : 'hoy es el último día'}`
+                        let textDays = `que  ${days > 0 ? days == 1 ? 'tiene ' + days + ' día' : 'tiene ' + days + ' días'  : 'hoy es el último día'}`
                         let role = notifications[index].startup ? 'emprendedor' : 'impulsor';
 
                         store.addNotification({

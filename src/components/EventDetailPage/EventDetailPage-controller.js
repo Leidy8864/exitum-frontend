@@ -9,71 +9,71 @@ import reloadPage from '../../redux/actions/reloadPage';
 import { decodeToken } from '../../libs/helper';
 
 class EventDetailPage extends React.Component {
-    state={
-        user_id : '',
-        event : {
-            toWorkshopCategories : []
+    state = {
+        user_id: '',
+        event: {
+            toWorkshopCategories: []
         },
-        isPart : false
+        isPart: false
     }
-    componentDidMount(){
-            this.getDataEvent();
+    componentDidMount() {
+        this.getDataEvent();
     }
-    componentDidUpdate(nextProps){
-        const {reload } = this.props;
+    componentDidUpdate(nextProps) {
+        const { reload } = this.props;
 
         if (nextProps.reload !== reload) {
-            if (reload) {                
+            if (reload) {
                 this.getDataEvent();
                 this.props.reloadPage(0);
             }
         }
     }
 
-    async getDataEvent(){
+    async getDataEvent() {
         try {
-            
+
             const event_id = this.props.match.params.id;
             const response = await showEvent(event_id);
             const result = decodeToken();  //toWorkshopUsers
             const participant = response.data.toWorkshopUsers.find(participant => participant.id === result.id);
             this.setState({
-                user_id : result.id,
-                event : response.status ? response.data : [],
-                isPart : participant ? true : false
+                user_id: result.id,
+                event: response.status ? response.data : [],
+                isPart: participant ? true : false
             });
         } catch (error) {
-            console.log("Error al ver detalle de evento",error);
+            console.log("Error al ver detalle de evento", error);
         }
 
     }
 
     handleOpenEditModal = () => {
-        const {event} = this.state;
+        const { event } = this.state;
         this.props.getEvent(event);
-        
+
     }
-    handleDownloadParticipants = async (event_id,e) => {
+    handleDownloadParticipants = async (event_id, e) => {
         e.preventDefault();
         var a = document.createElement("a");
         a.href = root + 'events/downloadParticipants/' + event_id;
         a.target = "_blank";
-        a.click()    
+        a.click()
     }
     render() {
-        const{
-          user_id,
-          event,
-          isPart
-        } = 
-        this.state;
+        const {
+            user_id,
+            event,
+            isPart
+        } =
+            this.state;
         return (
             <View
-            event={event}
-            isPart={isPart}
-            user_id = {user_id}
-            handleOpenEditModal={this.handleOpenEditModal}
-            handleDownloadParticipants={this.handleDownloadParticipants}
+                event={event}
+                isPart={isPart}
+                user_id={user_id}
+                handleOpenEditModal={this.handleOpenEditModal}
+                handleDownloadParticipants={this.handleDownloadParticipants}
             />
         );
     }

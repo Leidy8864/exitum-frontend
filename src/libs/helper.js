@@ -46,9 +46,7 @@ export const isTokenExpired = () => {
     }
 }
 
-export const updateLastLogin = async () => {
-    console.log("is udpateing");
-    
+export const updateLastLogin = async () => {    
     const data = {
         user_id : localStorage.getItem('id')
     }

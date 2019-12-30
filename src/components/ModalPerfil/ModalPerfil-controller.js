@@ -7,6 +7,7 @@ import { updateUserPerfil, notAvailableUser, showDataByUser, hourAvailables, lis
 import $ from 'jquery';
 import Swal from 'sweetalert2'
 import { convertTimes } from '../../libs/helper';
+import reloadPage from '../../redux/actions/reloadPage';
 import moment from 'moment';
 
 class ModalPerfil extends React.Component {
@@ -125,12 +126,12 @@ class ModalPerfil extends React.Component {
             if (countrieData.length > 0) {
                 phoneCodes = countrieData.map(x => ({ label: `${x.country}(${x.calling_code})`, value: x.id }));
             }
-            
+
             this.setState({
                 name: userShow.data.name,
                 lastname_1: userShow.data.lastname_1,
                 lastname_2: userShow.data.lastname_2,
-                birthday_date: userShow.data.birthday? birthdayDate: new Date(moment().format('LLLL')),
+                birthday_date: userShow.data.birthday ? birthdayDate : new Date(moment().format('LLLL')),
                 phone: userShow.data.phone,
                 description: userShow.data.description,
                 available: hourAvailables,
@@ -150,7 +151,7 @@ class ModalPerfil extends React.Component {
     }
 
 
-    selectHour = (hourSelected,e) => {
+    selectHour = (hourSelected, e) => {
         var hours = this.state.available
         //this.setState({not_available:e.target.id});  
         if (e.target.checked) {
@@ -199,7 +200,7 @@ class ModalPerfil extends React.Component {
         const ress = await this.props.notAvailableUser(user_id, ScheduleData)
 
         $('#perfilusuario').modal('hide');
-        window.location.reload();
+        this.props.reloadPage(1)
         Swal.fire(
             'Buen trabajo',
             'Se ha guardado tu perfil correctamente',
@@ -258,7 +259,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     updateUserPerfil,
     notAvailableUser,
-    showDataByUser
+    showDataByUser,
+    reloadPage
 };
 
 export default withRouter(

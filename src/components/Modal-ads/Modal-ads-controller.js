@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 import cleanForm from '../../redux/actions/clean-form'
 import { listStartupsByUser, listSkillsAxio, createAdvertisement, listAreas, updateAdvertisement } from '../../redux/actions';
 import getAdvert from '../../redux/actions/getAdvert';
+import reloadPage from '../../redux/actions/reloadPage';
 import $ from 'jquery';
 
 class ModalAds extends React.Component {
@@ -23,7 +24,7 @@ class ModalAds extends React.Component {
         error_description: '',
         success_message: '',
         error_message: '',
-        advertisement_id : 0,
+        advertisement_id: 0,
         title: '',
         description: '',
         area_id: '',
@@ -76,7 +77,7 @@ class ModalAds extends React.Component {
         const { advertisement } = this.props;
 
         if (nextProps.advertisement !== advertisement) {
-            if (advertisement) {                
+            if (advertisement) {
                 $('#AdsModal').on('hidden.bs.modal', () => {
                     this.props.getAdvert(null);
                 });
@@ -84,13 +85,11 @@ class ModalAds extends React.Component {
                 const areaSelected = { label: advertisement.area.name, value: advertisement.area.id }
                 const skillsSelected = advertisement.skills.map(x => ({ label: x.skill, value: x.skill }));
                 const arraySkills = advertisement.skills.map(x => (x.skill));
-                console.log(arraySkills);
-
                 this.setState({
                     startup_idSelected: startupSelected,
                     area_idSelected: areaSelected,
                     skillsSelected: skillsSelected,
-                    advertisement_id : advertisement.id,
+                    advertisement_id: advertisement.id,
                     area_id: advertisement.area.id,
                     startup_id: advertisement.startup.id,
                     skills: arraySkills,
@@ -122,6 +121,19 @@ class ModalAds extends React.Component {
             success_message: '',
             error_message: '',
         });
+    }
+    cleanState = () => {
+        this.setState({
+            startup_idSelected: '',
+            area_idSelected: '',
+            skillsSelected: '',
+            advertisement_id: '',
+            area_id: '',
+            startup_id: '',
+            skills: '',
+            title: '',
+            description: ''
+        })
     }
     handleChange = (e) => {
 
@@ -164,28 +176,32 @@ class ModalAds extends React.Component {
 
         const { title, description, area_id, startup_id, skills, advertisement_id } = this.state;
 
-        const formData = { title, description, area_id, startup_id, skills,advertisement_id }
+        const formData = { title, description, area_id, startup_id, skills, advertisement_id }
 
         if (title && description && area_id && startup_id && skills.length >= 1) {
             var response = null;
             if (advertisement_id) {
                 response = await updateAdvertisement(formData)
-            }else{
+            } else {
                 response = await createAdvertisement(formData);
-            }        
+            }
             if (response.status) {
                 this.setState({ success_message: response.message });
-                setTimeout(
-                    () => {
-                        $('#AdsModal').modal('hide');
-                        // window.location.reload();
-                    },
-                    900
-                );
+                this.props.reloadPage(1);
             }
             else {
                 this.setState({ error_message: response.message });
             }
+            setTimeout(
+                () => {
+                    $('#AdsModal').modal('hide');
+                    if (!advertisement_id) {
+                        this.cleanState();
+                        this.cleanErrors();
+                    }
+                },
+                1200
+            );
 
         } else {
             if (!title) {
@@ -275,7 +291,7 @@ class ModalAds extends React.Component {
             content_message = <div className="error-message"><p className="text-center">{error_message}</p></div>;
         }
         return (
-        <View
+            <View
                 className="basic-single"
                 proyectClassNamePrefix="proyecto"
                 AreaClassNamePrefix="area"
@@ -322,7 +338,8 @@ const mapDispatchToProps = {
     createAdvertisement,
     listAreas,
     cleanForm,
-    getAdvert
+    getAdvert,
+    reloadPage
 };
 
 export default withRouter(
