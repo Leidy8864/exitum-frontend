@@ -1,10 +1,11 @@
 
 import React from 'react';
 import View from './EventCard-view';
+import moment from 'moment';
 
 class EventCard extends React.Component {
     render() {
-        const {
+        let {
             id,
             title,
             description,
@@ -15,13 +16,18 @@ class EventCard extends React.Component {
             participants_count,
             eventType,
             handleDeleteEvent,
-            handleAssistEvent
+            handleAssistEvent,
+            date_publicacion
         } = this.props;
 
         var isPart = true;
         if (eventType !== "my_events" && eventType === "events") {
             isPart = false
         }
+        date_publicacion = moment(date_publicacion);
+        var today = moment();
+        var published = today.diff(date_publicacion, 'days') == 0 ? 'Publicado hoy': 'publicado hace '+ today.diff(date_publicacion, 'days') + ' días';
+
         return (
             <View
                 id={id}
@@ -32,6 +38,7 @@ class EventCard extends React.Component {
                 place={place}
                 isPart={isPart}
                 participants_count = {participants_count}
+                published = {published}
                 hour_start={hour_start}
                 eventType={eventType}
                 handleDeleteEvent={handleDeleteEvent}

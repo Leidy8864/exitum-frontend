@@ -41,7 +41,7 @@
 }
 
 .container-detail {
-    display: flex;
+    display: block;
     width: 100%;
     justify-content: space-between;
     padding-left: 20px;
