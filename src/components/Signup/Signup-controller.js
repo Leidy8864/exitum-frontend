@@ -104,6 +104,7 @@ class Signup extends React.Component {
                 localStorage.setItem('email', response.data.email);
                 localStorage.setItem('role', response.data.role);
                 localStorage.setItem('photo', response.data.photo);
+                localStorage.setItem('genre', response.data.genre);
 
                 $('.modal-backdrop').remove();
                 $('body').removeClass('modal-open');
