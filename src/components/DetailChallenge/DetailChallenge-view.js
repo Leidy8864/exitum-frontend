@@ -13,8 +13,10 @@ function View(props) {
         handledDeleteFile,
         reply,
         handleGetSummary,
+        handleReplyChange,
         summary,
-        active
+        active,
+        content_error_questionary
     } = props
     return (
         <div className="Modal-ads">
@@ -71,13 +73,35 @@ function View(props) {
                                                 <span className="gray">{challenge.comment}</span>
                                             </div> : ''
                                     }
-                                    <div className="form_group_ mt-3">
-                                        <label>Respuesta al reto planteado</label>
-                                        <textarea name="reply" className="form-control" onChange={handleChange} value={reply ? reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>
-                                        <div className="error-message-aux">
-                                            {content_error_reply}
-                                        </div>
-                                    </div>
+                                    {
+                                        challenge.questionnaire ?
+
+                                            <div className="form_group_ mt-3">
+                                                <label>Cuestionario</label>
+                                                {
+                                                    challenge.replies.map((item, index) =>
+                                                        <div key={index} className="p-3">
+                                                            <div className="row mb-2">
+                                                                <label>{item.query}</label>
+                                                                <textarea id={index} name={item.id} className="form-control" onChange={handleReplyChange} value={item.reply ? item.reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                                <div className="error-message-aux">
+                                                    {content_error_questionary}
+                                                </div>
+                                            </div>
+
+                                            :
+                                            <div className="form_group_ mt-3">
+                                                <label>Respuesta al reto planteado</label>
+                                                <textarea name="reply" className="form-control" onChange={handleChange} value={reply ? reply : ''} disabled={challenge.status === "Verificado" ? 'disabled' : ''}></textarea>
+                                                <div className="error-message-aux">
+                                                    {content_error_reply}
+                                                </div>
+                                            </div>
+                                    }
                                     {
                                         challenge.uploaded_files.length >= 1 ?
                                             <div>
@@ -93,7 +117,7 @@ function View(props) {
                                                                 <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)} key={index}>
                                                                     {item.name}
                                                                 </a>
-                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} onClick={handleDownload.bind(this, item.key_s3)}/>
+                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} onClick={handleDownload.bind(this, item.key_s3)} />
                                                             </div>
                                                             {
                                                                 challenge.status !== "Verificado" ?
@@ -113,7 +137,7 @@ function View(props) {
 
                                                 <div className="form_group_">
                                                     <label>Subir archivos</label>
-                                                    <input id="choose_files" className="form-control" type="file" name="file" onChange={handleInputFileChange} />
+                                                    <input id="choose_files" className="form-control" type="file" name="file" onChange={handleInputFileChange} multiple="multiple" />
                                                 </div>
                                                 {content_message}
                                                 <div className="form_group_ mt-4">
@@ -131,9 +155,9 @@ function View(props) {
                                             summary.length > 0 ?
 
                                                 summary.map((item, index) =>
-                                                    
+
                                                     <div className="row_detail mt-4" key={index}>
-                                                        <hr className="w-100"/>
+                                                        <hr className="w-100" />
                                                         <div className="mb-3">
                                                             <div className="media">
                                                                 <img src={item.ownerChallenge.photo || 'https://www.w3schools.com/howto/img_avatar.png'} className="image-user mr-3" alt="..." />
