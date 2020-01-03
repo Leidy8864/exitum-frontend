@@ -18,7 +18,7 @@ function View(props) {
                 eventsList.length > 0 ?
                     eventsList.map(function (item) {
                         return (
-                            <div className="col-xl-4 col-md-6 events-padding" key={item.id}>
+                            <div className="col-xl-6 col-md-6 events-padding" key={item.id}>
                                 <EventCard
                                     id={item.id}
                                     title={item.title}

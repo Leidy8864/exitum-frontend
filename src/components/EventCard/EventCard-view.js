@@ -43,8 +43,8 @@ function View(props) {
                 </div>
                 <div className="mt-2 flex-count">
                     {/* <span className="gray">{participants_count}</span> */}
-                    <span className="gray">{"Gratis"}</span>
-                    <span className="gray">{published}</span>
+                    <span className="gray span-laster">{"Gratis"}</span>
+                    <span className="gray span-laster">{published}</span>
                 </div>
             </div>
             {eventType === "my_events" ?
