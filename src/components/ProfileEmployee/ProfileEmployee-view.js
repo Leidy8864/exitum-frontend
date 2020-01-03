@@ -13,6 +13,7 @@ import BackButton from '../BackButton/BackButton-controller'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import './style.css';
+import Aptitudes from '../../public/images/icons/Aptitudes';
 
 // import { SlowBuffer } from 'buffer';
 
@@ -79,7 +80,7 @@ function View(props) {
                             <div className="profile">
                                 <div className="content-data-user mb-4">
                                     <div className="img-experience experience-header ml-4 mt-4">
-                                        <img src={require('../../public/images/svg/avatar.svg')} />
+                                        <img src={require('../../public/icons/PERFIL-CELESTE.png')} />
                                         <h3 className="ml-4">Perfil</h3>
                                     </div>
                                     <div className="data_user mt-3 experience-info-content mb-3">
@@ -118,7 +119,7 @@ function View(props) {
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
-                                    <img src={require('../../public/images/svg/experience.svg')} />
+                                    <img src={require('../../public/icons/EXPERIENCIA.png')} />
                                     <h3 className="ml-4">Experiencia</h3>
                                 </div>
                                 {
@@ -191,7 +192,7 @@ function View(props) {
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
-                                    <img src={require('../../public/images/svg/birrete.svg')} />
+                                    <img src={require('../../public/icons/ESTUDIOS.png')} />
                                     <h3 className="ml-4">Educación</h3>
                                 </div>
                                 {
@@ -266,7 +267,7 @@ function View(props) {
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
-                                    <img src={require('../../public/images/svg/rollo-de-diploma.svg')} />
+                                    <img src={require('../../public/icons/CERTIFICADOS.png')}  />
                                     <h3 className="ml-4">Certificado</h3>
                                 </div>
                                 {
@@ -325,7 +326,7 @@ function View(props) {
                         <div className="card profiles mt-3 mb-5">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
-                                    <img src={require('../../public/images/svg/hombre-que-corre.svg')} />
+                                    <Aptitudes />
                                     <h3 className="ml-4">Aptitudes</h3>
                                 </div>
                                 {

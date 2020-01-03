@@ -109,13 +109,15 @@ nav.choose-calendar {
     padding: 15px 17px;
 }
 
-.choose-calendar i.fa-clipboard-list {
-    color: #435DEE;
-    font-size: 20px;
+.choose-calendar svg {
+    min-width: 30px;
+    min-height: 30px;
+    margin-left: 12px;
     margin-right: 20px;
-    border-radius: 50%;
-    background: #EEF5FF;
-    padding: 15px 17px;
+}
+
+.choose-calendar svg.padding-zero {
+    margin-left: 9px !important;
 }
 
 .card.reminder-information .choose-calendar i.fa-handshake {
@@ -319,6 +321,13 @@ img.event-img {
     display: flex;
     justify-content: flex-start;
     align-content: center;
+}
+
+.d-reminder-info.help i {
+    font-size: 25px; 
+    margin-left: 10px;
+    margin-right: 15px;
+    color: #777 !important;
 }
 
 @media screen and (max-width: 1200px) {

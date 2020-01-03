@@ -15,10 +15,30 @@
     border-radius: 10px;
 }
 
+.nav-link-person svg{
+
+}
+
+.nav-link-yellow svg {
+
+}
+
 .nav-link-person {
-    background: #EEF5FF;
-    border-radius: 20px;
-    color: #435DEE  
+    padding: 5px 6px !important;
+}
+
+.nav-link-person.active {
+    border-radius: 50%;
+    padding: 5px 6px !important;
+    background: #435DEE;
+}
+
+.nav-link-person.active svg path.st0{
+    fill : #435DEE !important;  
+}
+
+.nav-link-person.active svg circle.st0{
+    fill : #435DEE !important;  
 }
 
 .lista-eventos {

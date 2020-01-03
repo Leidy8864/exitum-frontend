@@ -78,16 +78,17 @@ ul.nav-pills.add-tabs {
 ul.nav-pills.add-tabs li.nav-item a {
   position: relative;
   top: 0px;
-  margin-right: 20px;
-  font-size: 18px;
-  padding: 8px 10px !important;
+  padding: 10px 11px !important;
+  margin-right: 15px;
+  background: #EEF5FF;
+  border-radius: 50%;
 }
 
 ul.nav-pills.add-tabs li.nav-item a i {
   font-size: 28px;
 }
 
-ul.nav-pills.add-tabs li.nav-item a.nav-link.active {
+ul.nav-pills.add-tabs li.nav-item a.nav-link.active svg{
   border-radius: none !important;
   background-color: #157FFB !important;
 }
@@ -135,6 +136,24 @@ h3.name-perfil-sidebar {
 
 ul li a img {
   margin-left: 15px;
+}
+
+.flex-svg {
+  display: flex !important;
+}
+
+.flex-svg svg {
+  margin-right: 15px;
+}
+
+.nav-pills .nav-link.active svg {
+  width: 30px;
+  fill: #fff;
+}
+
+.nav-pills .nav-link svg {
+  width: 30px;
+  fill: #777778;
 }
 
 ul li a {

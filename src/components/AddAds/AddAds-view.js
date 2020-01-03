@@ -45,17 +45,12 @@ function View(props) {
                <div className="collapse mt-4 w-100" id="collapseExample">
                     <div className="card anuncios-pro reminder-information">
                         <div className="card-body info-help-reminder">
-                            <div className="choose-calendar d-reminder-info">
-                                <i className="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Agregar un Anuncio</p>
-                            </div>
-                        </div>
-                        <div className="card-body info-help-reminder">
-                            <div className="choose-calendar d-reminder-info">
+                            <div className="d-reminder-info help">
                                 <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Son tus propios anuncios creados, los cuales estan en marcha para que otras personas puedan verlos y así puedan postular a dicho anuncio, cuando tu desees puedes pausar tu anuncio.</p>
                             </div>
                         </div>
                         <div className="card-body info-help-reminder">
-                            <div className="choose-calendar d-reminder-info">
+                            <div className="d-reminder-info help">
                                 <i className="far fa-pause-circle" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p>Son tus propios anuncios creados, los cuales estan en pausa para que otras personas ya no puedan verlos, en este caso no habrán postulantes, cuando tu desees puedes reanudar tu anuncio.</p>
                             </div>
                         </div>

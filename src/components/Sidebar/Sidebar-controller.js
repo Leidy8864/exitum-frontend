@@ -5,6 +5,13 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import * as actions from '../../redux/actions'
+import Inicio from '../../public/images/icons/Inicio'
+import Anuncios from '../../public/images/icons/Anuncios'
+import Eventos from '../../public/images/icons/Eventos'
+import Retos from '../../public/images/icons/Retos'
+import Perfil from '../../public/images/icons/Perfil'
+import Agenda from '../../public/images/icons/Agenda'
+import Salida from '../../public/images/icons/Salida'
 // import $ from 'jquery'
 
 class Sidebar extends React.Component {
@@ -71,45 +78,45 @@ class Sidebar extends React.Component {
             <div className="navegacion">
                 <ul className="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <li className="nav-item">
-                        <NavLink className="nav-link" data-toggle="pill" to="/dashboard" onClick={this.goDashboard}>
-                            <i className="far fa-paper-plane"></i>
+                        <NavLink className="nav-link flex-svg" data-toggle="pill" to="/dashboard" onClick={this.goDashboard}>
+                            <Inicio />
                             <p className="home">Inicio</p>
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink className="nav-link" data-toggle="pill" to="/advertisement" onClick={this.goAdvertisement}>
-                            <i className="far fa-address-card"></i>
+                        <NavLink className="nav-link flex-svg" data-toggle="pill" to="/advertisement" onClick={this.goAdvertisement}>
+                            <Anuncios />
                             <p>Anuncios</p>
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" data-toggle="pill" to="/events" onClick={this.goEvents}>
-                            <i className="far fa-calendar-alt"></i>
+                        <NavLink className="nav-link flex-svg" data-toggle="pill" to="/events" onClick={this.goEvents}>
+                            <Eventos />
                             <p>Eventos</p>
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" data-toggle="pill" to="/challenges" onClick={this.goChallenges}>
-                            <i className="far fa-snowflake"></i>
+                        <NavLink className="nav-link flex-svg" data-toggle="pill" to="/challenges" onClick={this.goChallenges}>
+                            <Retos />
                             <p>Retos</p>
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" data-toggle="pill" to="/my-profile" onClick={this.goProfile}>
-                            <i className="far fa-user"></i>
+                        <NavLink className="nav-link flex-svg" data-toggle="pill" to="/my-profile" onClick={this.goProfile}>
+                            <Perfil />
                             <p>Perfil</p>
                         </NavLink>
                     </li>
-                    <li className="nav-item calendar">
-                        <NavLink className="nav-link" data-toggle="pill" to="/calendar" onClick={this.goDairy}>
-                            <i className="far fa-calendar"></i>
+                    <li className="nav-item calendar flex-svg">
+                        <NavLink className="nav-link flex-svg" data-toggle="pill" to="/calendar" onClick={this.goDairy}>
+                            <Agenda />
                             <p>Agenda</p>
                         </NavLink>
                     </li>
-                    <li className="exit-dashboard">
+                    <li className="exit-dashboard flex-svg">
                         <NavLink to="/" onClick={this.logOut}>
-                            <i className="far fa-arrow-alt-circle-left"></i>
+                            <Salida />
                             <p>Salir</p>
                         </NavLink>
                     </li>
