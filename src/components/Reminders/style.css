@@ -49,10 +49,26 @@ nav.choose-calendar {
 .choose-calendar i.fa-bell {
     color: #fff;
     font-size: 20px;
-    margin-right: 20px;
     border-radius: 50%;
     background: #FD456F;
     padding: 15px 17px;
+}
+
+.choose-calendar.recordatorio i {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.no-reunion svg {
+    width: 50px;
+}
+
+.choose-calendar.reuniones svg {
+    max-height: 55px !important;
+    min-width: 55px;
+    position: relative;
+    left: 2px;
+    margin-left: 5px !important;
 }
 
 .choose-calendar i.fa-calendar-plus {
@@ -283,7 +299,7 @@ img.event-img {
 }
 
 .card.reminder-information {
-    margin-right: 19px !important;
+    margin-right: 17px !important;
     margin-left: 15px !important;
     border: 2px solid #E9EAED !important;
 }
@@ -318,7 +334,10 @@ img.event-img {
 }
 
 .d-reminder-info {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex; 
     justify-content: flex-start;
     align-content: center;
 }

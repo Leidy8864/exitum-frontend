@@ -49,7 +49,7 @@ function View(props) {
                                                 <div className="form_group_ mt-3">
                                                     <label>Archivos para descargar</label>
                                                 </div>
-                                                <div className="downloads_container">
+                                                <div className="downloads_container row p-3">
                                                     {
 
                                                         challenge.files.map((item, index) =>

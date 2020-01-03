@@ -6,7 +6,7 @@
 .Diary .start-diary {
   position: absolute;
   height: 20px;
-  right: 16px;
+  right: 25px;
   top: 3px;
   font-size: 19px !important;
   color: #fff;
@@ -28,6 +28,14 @@
   font-size: 20px;
   padding: 15px 17px;
   border-radius: 50%;
+}
+
+.start-diary button svg {
+  background: #157FFB;
+  width: 50px;
+  fill: #fff;
+  border-radius: 50%;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

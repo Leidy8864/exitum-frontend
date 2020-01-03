@@ -40,41 +40,41 @@ function View(props) {
                             <div className="mt-4">
                                 <label className="w-100">Archivos subidos por el emprendedor:</label><br />
                                 <div className="downloads_container">
-                                {   
-                                    challenges.files && challenges.files.length > 0 ?
-                                    challenges.files.map((item, index) =>
-                                        <div key={index} className="downloads_ mb-2">
-                                            <a className="text-file" name={item.name} href="#" 
-                                            onClick={handleDownload.bind(this, item.name)}
-                                            >
-                                                {item.name}
-                                            </a>
-                                            <i className="far fa-arrow-alt-circle-down"
-                                            onClick={handleDownload.bind(this, item.name)} 
-                                            />
-                                        </div>
-                                    ) : <span className="gray">No hay archivos</span>
-                                } 
+                                    {
+                                        challenges.files && challenges.files.length > 0 ?
+                                            challenges.files.map((item, index) =>
+                                                <div key={index} className="downloads_ mb-2">
+                                                    <a className="text-file" name={item.name} href="#"
+                                                        onClick={handleDownload.bind(this, item.name)}
+                                                    >
+                                                        {item.name}
+                                                    </a>
+                                                    <i className="far fa-arrow-alt-circle-down"
+                                                        onClick={handleDownload.bind(this, item.name)}
+                                                    />
+                                                </div>
+                                            ) : <span className="gray">No hay archivos</span>
+                                    }
                                 </div>
                             </div>
                             <div className=" mt-4">
                                 <label className="w-100">Archivos de ayuda:</label><br />
-                                <div className="downloads_container">
-                                {   
-                                    file_tips && file_tips.length > 0 ?
-                                    file_tips.map((item, index) =>
-                                        <div key={index} className="downloads_ mb-2">
-                                            <a className="text-file" name={item.name} href="#" 
-                                            onClick={handleDownload.bind(this, item.name)}
-                                            >
-                                                {item.name}
-                                            </a>
-                                            <i className="far fa-arrow-alt-circle-down"
-                                            onClick={handleDownload.bind(this, item.name)} 
-                                            ></i>
-                                        </div>
-                                    ) : <span className="gray">No hay archivos</span>
-                                } 
+                                <div className="downloads_container row p-3">
+                                    {
+                                        file_tips && file_tips.length > 0 ?
+                                            file_tips.map((item, index) =>
+                                                <div key={index} className="downloads_ derecha-padding mb-2">
+                                                    <a className="text-file" name={item.name} href="#"
+                                                        onClick={handleDownload.bind(this, item.name)}
+                                                    >
+                                                        {item.name}
+                                                    </a>
+                                                    <i className="far fa-arrow-alt-circle-down"
+                                                        onClick={handleDownload.bind(this, item.name)}
+                                                    ></i>
+                                                </div>
+                                            ) : <span className="gray">No hay archivos</span>
+                                    }
                                 </div>
                             </div>
                             <div className="mt-4">
