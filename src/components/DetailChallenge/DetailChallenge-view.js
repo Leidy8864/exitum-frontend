@@ -52,11 +52,10 @@ function View(props) {
 
                                                         challenge.files.map((item, index) =>
                                                             <div key={index} className="downloads_ ">
-
                                                                 <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)}>
                                                                     {item.name}
                                                                 </a>
-                                                                <i className="far fa-arrow-alt-circle-down"></i>
+                                                                <i className="far fa-arrow-alt-circle-down" onClick={handleDownload.bind(this, item.key_s3)}></i>
                                                             </div>
                                                         )
                                                     }
