@@ -1,6 +1,8 @@
 
 import React from 'react';
 import './style.css';
+import Play from '../../public/images/icons/Play';
+import Pause from '../../public/images/icons/Pause';
 function View(props) {
     const {
         handleSetState,
@@ -17,10 +19,10 @@ function View(props) {
                 !isDetail && userRole === "entrepreneur" ?
                     <ul className="nav nav-pills add-tabs" id="myTab" role="tablist">
                             <li className="nav-item">
-                                <a className={adState === "active" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" onClick={handleSetState.bind(this, "active")}><i data-toggle="tooltip" data-placement="top" title="Anuncios en actividad"  className="far fa-play-circle"></i></a>
+                                <a className={adState === "active" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} data-toggle="tooltip" data-placement="top" title="Anuncios en actividad" href="#" onClick={handleSetState.bind(this, "active")}><Play /></a>
                             </li>
                             <li className="nav-item">
-                                <a className={adState === "closed" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" onClick={handleSetState.bind(this, "closed")}><i data-toggle="tooltip" data-placement="top" title="Anuncios en pausa" className="far fa-pause-circle"></i></a>
+                                <a className={adState === "closed" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} href="#" data-toggle="tooltip" data-placement="top" title="Anuncios en pausa" onClick={handleSetState.bind(this, "closed")}><Pause /></a>
                             </li>
                     </ul>
                     :

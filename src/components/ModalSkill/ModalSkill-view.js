@@ -1,7 +1,7 @@
 
 import React, { Fragment } from 'react';
 import './style.css';
-import ReactSelect from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 function View(props){
 
     const {
@@ -21,9 +21,8 @@ function View(props){
                         </div>
                         <div className="modal-body skills">
                             <Fragment>
-                                <ReactSelect
+                                <CreatableSelect
                                     isMulti
-                                    
                                     onChange={handleChange}
                                     options={options}
                                 />

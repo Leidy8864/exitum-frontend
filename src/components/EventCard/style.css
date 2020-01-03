@@ -205,3 +205,6 @@ div.events-card-3 .title_add{
 .card img {
     border: none !important;
 }
+.card-header-img{
+    max-width: 100%;
+}

@@ -10,6 +10,8 @@ function View(props) {
         eventType,
         handleDeleteEvent
     } = props
+
+    console.log("eventsList = ", eventsList)
     return (
         <div className="w-100 events-list" id="events-list">
             {
@@ -29,6 +31,7 @@ function View(props) {
                                     eventType={eventType}
                                     handleDeleteEvent={handleDeleteEvent}
                                     photo={item.photo}
+                                    date_publicacion={item.date_publicacion}
                                 />
                             </div>
                         )

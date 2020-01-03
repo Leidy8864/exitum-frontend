@@ -6,6 +6,8 @@ import TabAnuncio from '../TabAnuncio/TabAnuncio-controller'
 import AddsList from '../AddsList/AddsList-controller'
 import EmployeeAds from '../EmployeeAds/EmployeeAds-controller';
 import ModalAds from '../Modal-ads/Modal-ads-controller';
+import Play from '../../public/images/icons/Play';
+import Pause from '../../public/images/icons/Pause';
 function View(props) {
     const {
         cleanForm,
@@ -31,7 +33,6 @@ function View(props) {
                                 <Link className="signin edit-icon" to="" data-toggle="modal" data-target="#AdsModal" onClick={cleanForm}>
                                     <div className="Ads-plus">
                                         <i data-toggle="tooltip" data-placement="top" title="Agregar un anuncio" className="fas fa-plus mr-2"></i>
-
                                     </div>
                                 </Link>
                                 <ModalAds />
@@ -46,12 +47,12 @@ function View(props) {
                     <div className="card anuncios-pro reminder-information">
                         <div className="card-body info-help-reminder">
                             <div className="d-reminder-info help">
-                                <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i><p>Son tus propios anuncios creados, los cuales estan en marcha para que otras personas puedan verlos y así puedan postular a dicho anuncio, cuando tu desees puedes pausar tu anuncio.</p>
+                                <Play /><p>Son tus propios anuncios creados, los cuales estan en marcha para que otras personas puedan verlos y así puedan postular a dicho anuncio, cuando tu desees puedes pausar tu anuncio.</p>
                             </div>
                         </div>
                         <div className="card-body info-help-reminder">
                             <div className="d-reminder-info help">
-                                <i className="far fa-pause-circle" data-toggle="tooltip" data-placement="top" title="Reuniones"></i><p>Son tus propios anuncios creados, los cuales estan en pausa para que otras personas ya no puedan verlos, en este caso no habrán postulantes, cuando tu desees puedes reanudar tu anuncio.</p>
+                                <Pause /><p>Son tus propios anuncios creados, los cuales estan en pausa para que otras personas ya no puedan verlos, en este caso no habrán postulantes, cuando tu desees puedes reanudar tu anuncio.</p>
                             </div>
                         </div>
                     </div>

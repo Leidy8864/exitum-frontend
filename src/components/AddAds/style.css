@@ -74,3 +74,10 @@
     overflow-y: auto;
     height: calc(100vh - 220px); */
 }
+
+@media screen and (max-width: 768px) {
+    .absolute-help li i {
+        position: relative;
+        top: -45px;
+    }
+}

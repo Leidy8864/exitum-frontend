@@ -23,9 +23,10 @@ function View(props) {
         phoneCodes,
         handleSelectChange,
         country,
-        onChange
+        onChange,
+        browser
     } = props
-
+    console.log(browser)
     return (
         <div>
             <div className="modal fade" id="perfilusuario" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -111,7 +112,7 @@ function View(props) {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12 mb-3 clocwerk">
-                                        <label>Fecha de nacimiento</label>
+                                     <label>{browser === "safari" ? "Fecha de nacimiento (Click al icono del calendario)" : "Fecha de nacimiento"}</label>
                                         <Fragment>
                                             <DatePicker
                                                 onChange={onChange}

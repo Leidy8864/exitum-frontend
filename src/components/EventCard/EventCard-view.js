@@ -17,28 +17,34 @@ function View(props) {
         place,
         eventType,
         handleDeleteEvent,
-        isPart
+        isPart,
+        published
     } = props;
     return (
         <div className="card mb-4 events">
             <div className="card-header">
-                <img className="w-100" src={photo || require('../../public/img/ssssss.png')} />
+                <img className="card-header-img" src={photo || require('../../public/img/ssssss.png')} />
             </div>
             <div className="card-body events">
                 <div className="d-flex header-events">
-                    <Link to={"/events/" + id} className="title_add_event col-sm-9">{title}
+                    <Link to={"/events/" + id} className="title_add_event col-sm-9 ">{title}
                     </Link>
-                    <div className="">
-                        <span className="gray">{moment(day).format('ll')}</span>
-                    </div>
+                </div>
+                <div className="mt-2 flex-count">
+                    <span className="gray">{moment(day).format('ll')}</span>
+                    <span className="gray">{hour_start}</span>
                 </div>
                 <div className="mt-2">
                     <span className="gray col-sm-12 d-inline-block text-truncate">{description}</span>
                 </div>
 
-                <div className="flex-count">
-                <span className="gray">En {place}</span>
-                <span className="gray">{participants_count}</span>
+                <div className="mt-2">
+                    <span className="gray col-sm-12 d-inline-block text-truncate">{place}</span>
+                </div>
+                <div className="mt-2 flex-count">
+                    {/* <span className="gray">{participants_count}</span> */}
+                    <span className="gray">{"Gratis"}</span>
+                    <span className="gray">{published}</span>
                 </div>
             </div>
             {eventType === "my_events" ?

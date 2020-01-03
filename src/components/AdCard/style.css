@@ -22,9 +22,11 @@ span.title-company {
 
   .title_add_event,.title_add_event:hover {
     margin-left: 0px !important;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none !important;
     color: #2183F8;
+    text-transform: uppercase;
+    font-weight: bolder;
   }
 
   .title-anuncio {
@@ -85,7 +87,10 @@ span.title-company {
   }
 
   .card-header {
-    border: none !important
+    border: none !important;
+    width: 100%;
+    background-color: #fff !important;
+    text-align: center;
   }
 
   .card.pauses-play .card-header{

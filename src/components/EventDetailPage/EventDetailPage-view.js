@@ -30,7 +30,7 @@ function View(props) {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-xl-9 col-lg-12">
-                                <div className="container-fluid mt-4 events-scroll">
+                                <div className="container-fluid mt-4 events-fluid">
                                     <div className="card profiles mb-4">
                                         <div className="card-body events-detail-container">
                                             <BackButton />

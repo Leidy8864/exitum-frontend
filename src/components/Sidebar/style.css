@@ -255,6 +255,9 @@ nav.choose-calendar svg {
   border-radius: 50%;
 }
 
+.choose-calendar.options-choose svg {
+  margin-right: 0px !important;
+}
 
 
 @media screen and (max-width: 1280px) {
