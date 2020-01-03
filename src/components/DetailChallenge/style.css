@@ -58,9 +58,12 @@ p.padding-detail {
     display: block;
 }
 .downloads_ {
-    /* margin-bottom: 20px; */
+    margin: 4px;
     width: 13em;
     display: flex;
+    float: left;
+    position: relative;
+    -ms-flex-align: stretch;
     align-items: stretch;
     background: #ffffff;
     border: 1px solid #157FFB;

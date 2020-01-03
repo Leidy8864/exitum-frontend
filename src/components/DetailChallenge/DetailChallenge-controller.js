@@ -131,6 +131,12 @@ class DetailChallenge extends React.Component {
                 if (response.status) {
                     this.setState({ success_message: response.message });
                     this.props.reloadPage(1);
+                    setTimeout(
+                        () => {
+                            $('#detailCHallengeModal').modal('hide');
+                        },
+                        1200
+                    );
                 } else {
                     this.setState({ error_message: response.message });
                     setTimeout(
