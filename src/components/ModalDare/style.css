@@ -18,3 +18,7 @@ textarea.form-control {
     color: #F46580;
     border-color: #F46580;
 }
+
+.derecha-padding {
+    margin-left: 0px;
+}

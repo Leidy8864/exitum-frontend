@@ -61,7 +61,6 @@ p.padding-detail {
     /* margin-bottom: 20px; */
     width: 13em;
     display: flex;
-    align-items: stretch;
     background: #ffffff;
     border: 1px solid #157FFB;
     border-radius: 4px;

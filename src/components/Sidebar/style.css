@@ -239,6 +239,21 @@ ul li a {
   display: none !important;
 }
 
+nav.choose-calendar svg {
+  width: 53px;
+  position: relative;
+  top: -4px;
+}
+
+.choose-calendar.agenda svg {
+  max-height: 50px;
+  min-width: 50px;
+  fill: #fff;
+  padding: 0px 10px;
+  background: #157FFB !important;
+  border-radius: 50%;
+}
+
 
 
 @media screen and (max-width: 1280px) {

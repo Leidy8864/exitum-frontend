@@ -49,10 +49,25 @@ nav.choose-calendar {
 .choose-calendar i.fa-bell {
     color: #fff;
     font-size: 20px;
-    margin-right: 20px;
     border-radius: 50%;
     background: #FD456F;
     padding: 15px 17px;
+}
+
+.choose-calendar.recordatorio i {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.no-reunion svg {
+    width: 50px;
+}
+
+.choose-calendar.reuniones svg {
+    min-width: 55px;
+    position: relative;
+    left: 2px;
+    margin-left: 5px !important;
 }
 
 .choose-calendar i.fa-calendar-plus {

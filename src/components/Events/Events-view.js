@@ -62,17 +62,17 @@ function View(props) {
                                             <div className="card reminder-information events">
                                                 <div className="card-body info-help-reminder">
                                                     <div className="choose-calendar d-reminder-info">
-                                                        <EventosDisponibles /><p>Son todos los eventos los cuales podras ver los detalles de cada uno, interesate en el que más tus habilidades se adecuen a tu perfil para que puedas sobresalir en el evento que tu haz escogido.</p>
+                                                        <EventosDisponibles /><p>Son todos los eventos los cuales podrás ver los detalles de cada uno. Interésate en el que tus habilidades se adecúen más a tu perfil y puedas sobresalir en el evento que has escogido.</p>
                                                     </div>
                                                 </div>
                                                 <div className="card-body info-help-reminder">
                                                     <div className="choose-calendar d-reminder-info">
-                                                        <EventosAsistir /><p>Son tus eventos los cuales estas tú interesado y el cual vas a participar, no te preocupes si al final no podras asistir, tienes la alternativa de no participar si lo deseas.</p>
+                                                        <EventosAsistir /><p>Son tus eventos los cuáles estas tú interesado y en los cuáles vas a participar. Si no puedes asistir, no te preocupes si al final no puedes por fuerza mayor.</p>
                                                     </div>
                                                 </div>
                                                 <div className="card-body info-help-reminder">
                                                     <div className="choose-calendar d-reminder-info">
-                                                        <EventosOrganizados /><p>Son tus propios eventos los cuales haz creado, podras ver cuantos participantes o interesados en tu evento, puedes cancelar o eliminar tu evento si tu deseas.</p>
+                                                        <EventosOrganizados /><p>Son tus propios eventos los cuáles tú mismo has creado. Podrás revisar cuántos participantes o interesados hay para tu evento, imprimir lista de asistentes, así como puedes cancelar o eliminar tu evento si tu así lo deseas.</p>
                                                     </div>
                                                 </div>
                                             </div>
