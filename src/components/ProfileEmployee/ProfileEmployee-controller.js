@@ -154,7 +154,8 @@ class ProfileEmployee extends React.Component {
                 var id = localStorage.getItem('id');
                 const userShow = await showDataByUser(id);
                 this.setState({
-                    users: userShow.data
+                    users: userShow.data,
+                    description : userShow.data.description
                 })
                 this.props.reloadPage(0);
             }
