@@ -18,23 +18,30 @@ class DetailChallenge extends React.Component {
         success_message: '',
         error_message: '',
         error_reply: '',
+        error_questionary: '',
         summary: [],
         challenge: {
             challenge_id: '',
             files: [],
-            uploaded_files: []
+            uploaded_files: [],
+            questionnaire: 0,
+            replies: [{
+                id: '',
+                query: '',
+                reply: ''
+
+            }
+            ]
         },
         active: true
     }
-
-    // componentDidMount(){
-    //     console.log("IN DID MOUNT");
-    // }
     async componentDidUpdate(nextProps) {
         const { tip_id, challenges } = this.props;
         if (nextProps.tip_id !== tip_id) {
             if (tip_id) {
+                
                 const challenge = challenges.find((challenge) => { return challenge.tip_id === tip_id });
+                console.log("challenge.challenge_id ",challenge.challenge_id);
                 this.setState({
                     challenge: challenge,
                     challenge_id: challenge.challenge_id,
@@ -49,15 +56,11 @@ class DetailChallenge extends React.Component {
     handleGetSummary = async () => {
 
         const { challenge } = this.state;
-
         const data = {
             user_id: localStorage.getItem('id'),
             tip_id: challenge.tip_id
         }
-
         const summary = await getSummaryChallenge(data);
-
-        console.log("RESPONSE", summary);
         this.setState({
             summary: summary,
             active: false
@@ -79,15 +82,23 @@ class DetailChallenge extends React.Component {
     }
     handleInputFileChange = (e) => {
         e.preventDefault();
-        let file = e.target.files[0];
-
         this.setState({
-            file: file
+            file: e.target.files
         });
     }
-    handledDeleteFile = async (key_s3) => {
-        console.log("KEY", key_s3);
+    handleReplyChange = (e) => {
+        const { id, value } = e.target;
+        let replies = this.state.challenge.replies;
+        replies[id].reply = value;
+        this.setState({
+            challenge: {
+                ...this.state.challenge,
+                replies: replies
+            }
+        })
 
+    }
+    handledDeleteFile = async (key_s3) => {
         try {
             const { challenge, challenge_id } = this.state;
 
@@ -112,21 +123,54 @@ class DetailChallenge extends React.Component {
 
         }
     }
+    validateForm = () => {
+        const { reply, challenge } = this.state;
+        let error_reply = "";
+        let error_questionary = "";
+        if (!reply) {
+            error_reply = 'Debes ingresar un respuesta'
+        }
+        if (challenge.questionnaire) {
+            challenge.replies.forEach((element) => {
+                if (!element.reply) {
+                    error_questionary = "Debes responder el cuestionario"
+                }
+            })
+        }
+        if (error_reply || error_questionary) {
+            this.setState({
+                error_reply,
+                error_questionary
+            });
+            return false;
+        }
+        return true
+    }
     handleClick = async (e) => {
         this.props.cleanForm("0");
         this.setState({
-            error_reply: ''
+            error_reply: '',
+            error_questionary: ''
         })
-        const { reply, file, challenge_id } = this.state;
-        let formData = new FormData();
-        formData.append("file", file);
-        formData.append("reply", reply)
-        formData.append("challenge_id", challenge_id);
+        const { reply, file, challenge_id, challenge } = this.state;
 
 
-        if (reply) {
-
+        if (this.validateForm()) {            
             try {
+                let formData = new FormData();
+                if (challenge.questionnaire) {
+                    for (let index = 0; index < challenge.replies.length; index++) {                        
+                        formData.append('replies', JSON.stringify(challenge.replies[index]));
+                    }
+                }
+                if (file) {
+                    for (var i = 0; i < file.length; i++) {
+                        formData.append('file', file[i])
+                    }
+                }
+                formData.append("reply", reply)
+                formData.append("challenge_id", challenge_id);
+
                 const response = await completeChallenge(formData);
                 if (response.status) {
                     this.setState({ success_message: response.message });
@@ -150,8 +194,6 @@ class DetailChallenge extends React.Component {
                 console.log("ERROR COMPLETANDO PROYECTO" + error);
 
             }
-        } else {
-            this.setState({ error_reply: 'Debes ingresar un respuesta' })
         }
 
     }
@@ -160,19 +202,26 @@ class DetailChallenge extends React.Component {
         const { cleanFormReducer } = this.props;
 
         let error_reply = this.state.error_reply;
+        let error_questionary = this.state.error_questionary;
+
         let success_message = this.state.success_message;
         let error_message = this.state.error_message;
         let content_error_reply = '';
         let content_message = '';
+        let content_error_questionary = '';
 
-        const { reply, summary, active } = this.state;
+        const { reply, summary, active, challenge } = this.state;
         if (cleanFormReducer) {
             error_reply = '';
             success_message = '';
             error_message = '';
+            error_questionary ='';
         }
         if (error_reply) {
             content_error_reply = <p>{error_reply}</p>
+        }
+        if (error_questionary) {
+            content_error_questionary = <p>{error_questionary}</p>
         }
         if (success_message) {
             content_message = <div className="success-message my-3"><p className="text-center">{success_message}</p></div>;
@@ -182,16 +231,18 @@ class DetailChallenge extends React.Component {
         }
         return (
             <View
-                challenge={this.state.challenge}
+                challenge={challenge}
                 handleClick={this.handleClick}
                 handleChange={this.handleChange}
                 handleInputFileChange={this.handleInputFileChange}
                 handleDownload={this.handleDownload}
                 content_error_reply={content_error_reply}
                 content_message={content_message}
+                content_error_questionary={content_error_questionary}
                 handledDeleteFile={this.handledDeleteFile}
                 reply={reply}
                 handleGetSummary={this.handleGetSummary}
+                handleReplyChange={this.handleReplyChange}
                 summary={summary}
                 active={active}
             />

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import View from './Challenges-view';
-import { challengeByStep, challengeByEmployee, listCategories } from '../../redux/actions';
+import { challengeByStep, challengeByEmployee, listCategories, viewedChallenge } from '../../redux/actions';
 import cleanForm from '../../redux/actions/clean-form';
 import getTipId from '../../redux/actions/getTipId';
 import getListChallenges from '../../redux/actions/getListChallenges';
@@ -20,7 +20,7 @@ class Challenges extends React.Component {
     state = {
         blockChallenge: [],
         mostrarImagen: false,
-        project : ''
+        project: ''
     }
 
     // componentDidMount() {
@@ -63,7 +63,9 @@ class Challenges extends React.Component {
     }
 
 
-    async getChallenges(data) {        
+    async getChallenges(data) {
+        // console.log("KKKK");
+        
         try {
             var response = null;
             if (role === "entrepreneur") {
@@ -71,8 +73,10 @@ class Challenges extends React.Component {
 
             } else {
                 response = await challengeByEmployee(data);
-            }                        
+            }
             const listChallenges = response.challenges;
+            console.log("LISTA CHALLENGES", listChallenges);
+
             if (listChallenges && listChallenges.length >= 1) {
                 const challenges = listChallenges.map(x => ({
                     key: x.tip.id,
@@ -84,12 +88,19 @@ class Challenges extends React.Component {
                     comment: x.comment,
                     reply: x.reply,
                     uploaded_files: x.files,
-                    status: x.status
+                    status: x.status,
+                    replies: x.replies.map(item => ({
+                        id: item.reply.id,
+                        query: item.query,
+                        reply: item.reply.reply
+                    })),
+                    questionnaire: x.tip.questionnaire
+
                 }));
                 this.props.getListChallenges(challenges);
                 this.setState({
                     blockChallenge: challenges,
-                    mostrarImagen : false
+                    mostrarImagen: false
                 });
             } else {
                 this.setState({ mostrarImagen: true })
@@ -100,11 +111,15 @@ class Challenges extends React.Component {
             this.setState({ mostrarImagen: true })
         }
     }
-    handleClick = (id) => {
+    handleClick = async (id) => {
         $('#title').val('');
         $('#description').val('');
         this.props.cleanForm("1");
         this.props.getTipId(id);
+        const challenge = this.state.blockChallenge.find((element) => element.tip_id === id);        
+        const response = await viewedChallenge(challenge.challenge_id);
+        console.log("RRESPONSE",response);
+        
     }
 
     render() {

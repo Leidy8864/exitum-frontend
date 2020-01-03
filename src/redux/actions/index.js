@@ -916,5 +916,15 @@ export const challengeNotification = async (id) => {
 }
 
 
+export const viewedChallenge = async (id) => {
+    try {
+        const res = await axios.post(root + `challenges/viewedChallenge?challenge_id=${id}`);
+        return res.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
+
+
 
 
