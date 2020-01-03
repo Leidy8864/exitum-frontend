@@ -11,7 +11,7 @@ class HeaderDashboard extends React.Component {
         name: localStorage.getItem('name'),
         lastname: localStorage.getItem('lastname'),
         photo: localStorage.getItem('photo'),
-        imagen: "https://img.icons8.com/plasticine/2x/user.png",
+        imagen: localStorage.getItem('genre') !== 'null' && localStorage.getItem('genre') !== 'undefined' && localStorage.getItem('genre') ==='femenino'  ? "https://img.icons8.com/color/48/000000/guest-female.png" : "https://img.icons8.com/plasticine/2x/user.png",
         role: localStorage.getItem('role') || 'undefined'
     }
 
@@ -60,7 +60,7 @@ class HeaderDashboard extends React.Component {
                     <div className="content-user">
                         <div className="dropleft">
                             <button className="perfil-pick dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img className="img-usuario" src={this.state.photo !== 'null' && this.state.photo != 'undefined' ? this.state.photo : this.state.imagen} alt="svg" />
+                                <img className="img-usuario" src={this.state.photo !== 'null' && this.state.photo !== 'undefined' ? this.state.photo : this.state.imagen} alt="svg" />
                                 <span>{this.state.name || "Usuario"} {this.state.lastname || "Invitado"}</span>
                             </button>
                         </div>

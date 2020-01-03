@@ -10,6 +10,7 @@ function View(props) {
         mostrarImagen,
         project
     } = props
+
     return (
         <Fragment>
             <div className="">

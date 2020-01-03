@@ -23,8 +23,9 @@ class ChooseProfile extends React.Component {
             user_id: result.id,
             [e.target.name]: e.target.value,
         }
-        const respone = await updateUser(data);
-        localStorage.setItem('role', respone.data.role);
+        const response = await updateUser(data);
+        localStorage.setItem('role', response.data.role);
+        localStorage.setItem('genre', response.data.genre);
 
         this.props.history.push('/dashboard');
         window.location.href = "/dashboard";

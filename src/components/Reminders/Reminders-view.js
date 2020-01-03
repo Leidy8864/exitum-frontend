@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import './style.css';
 import Agenda from '../../public/images/icons/Agenda';
 import Reuniones from '../../public/images/icons/Reuniones';
+import Notificacion from '../../public/images/icons/Notificacion'
 
 function View(props) {
 
@@ -27,7 +28,7 @@ function View(props) {
             </div>
             <div className="events-diary">
                 <nav className="choose-calendar">
-                    <a href="#reuniones"><i className="far fa-bell" data-toggle="tooltip" data-placement="top" title="Recordatorios"></i></a>
+                    <a href="#reuniones" data-toggle="tooltip" data-placement="top" title="Recordatorios"><Notificacion /></a>
                     <a href="#recordatorios" data-toggle="tooltip" data-placement="top" title="Reunion"><Reuniones /></a>
                 </nav>
                 <div className="appointments ocultar" id="reuniones">

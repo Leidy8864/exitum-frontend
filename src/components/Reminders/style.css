@@ -64,6 +64,7 @@ nav.choose-calendar {
 }
 
 .choose-calendar.reuniones svg {
+    max-height: 55px !important;
     min-width: 55px;
     position: relative;
     left: 2px;
@@ -298,7 +299,7 @@ img.event-img {
 }
 
 .card.reminder-information {
-    margin-right: 19px !important;
+    margin-right: 17px !important;
     margin-left: 15px !important;
     border: 2px solid #E9EAED !important;
 }
@@ -333,7 +334,10 @@ img.event-img {
 }
 
 .d-reminder-info {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex; 
     justify-content: flex-start;
     align-content: center;
 }

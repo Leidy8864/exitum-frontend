@@ -242,7 +242,8 @@ ul li a {
 nav.choose-calendar svg {
   width: 53px;
   position: relative;
-  top: -4px;
+  top: -1px;
+  right: 2px;
 }
 
 .choose-calendar.agenda svg {
