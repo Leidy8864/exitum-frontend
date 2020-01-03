@@ -12,8 +12,8 @@
     color: #157FFB  
 }
 
-.nav-link-curses:hover {
-    color: #157FFB !important  
+.nav-link-curse.active svg {
+    stroke : #157FFB  
 }
 
 .absolute-help {
@@ -22,7 +22,7 @@
     top: -3px;
 }
 
-.nav-link-curses {
+.nav-link-curses.active svg{
    color: #4C5161 !important  
 }
 

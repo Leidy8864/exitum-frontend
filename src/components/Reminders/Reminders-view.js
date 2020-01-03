@@ -27,7 +27,7 @@ function View(props) {
 
             </div>
             <div className="events-diary">
-                <nav className="choose-calendar">
+                <nav className="choose-calendar options-choose">
                     <a href="#reuniones" data-toggle="tooltip" data-placement="top" title="Recordatorios"><Notificacion /></a>
                     <a href="#recordatorios" data-toggle="tooltip" data-placement="top" title="Reunion"><Reuniones /></a>
                 </nav>
@@ -89,8 +89,8 @@ function View(props) {
                                         </div>
                                     </div>
                                     <div className="card-body info-help-reminder">
-                                        <div className="choose-calendar recordatorio d-reminder-info">
-                                            <i className="far fa-bell"></i><p> Indica los recordatorios que deseas archivar en tu agenda</p>
+                                        <div className="choose-calendar reuniones d-reminder-info">
+                                            <Notificacion /><p> Indica los recordatorios que deseas archivar en tu agenda</p>
                                         </div>
                                     </div>
                                     <div className="card-body info-help-reminder">
@@ -100,8 +100,8 @@ function View(props) {
                                     </div>
                                     <div className="container-not-appointment">
                                         <h3>Actualmente,no tienes ningun recordatorio, agrega uno si deseas</h3>
-                                        <div className="img-reminder choose-calendar">
-                                            <i className="far fa-bell" data-toggle="tooltip" data-placement="top" title="Reuniones"></i>
+                                        <div className="img-reminder no-reunion">
+                                            <Notificacion />
                                         </div>
                                     </div>
                                 </div>
@@ -216,8 +216,8 @@ function View(props) {
                                         </div>
                                     </div>
                                     <div className="card-body info-help-reminder">
-                                        <div className="choose-calendar recordatorio d-reminder-info">
-                                            <i className="far fa-bell"></i><p> Indica los recordatorios que deseas archivar en tu agenda</p>
+                                        <div className="choose-calendar reuniones d-reminder-info">
+                                            <Notificacion /><p> Indica los recordatorios que deseas archivar en tu agenda</p>
                                         </div>
                                     </div>
                                     <div className="card-body info-help-reminder">

@@ -342,11 +342,13 @@ img.event-img {
     align-content: center;
 }
 
-.d-reminder-info.help i {
-    font-size: 25px; 
+.d-reminder-info.help svg {
+    height: 60px;
+    min-width: 30px;
+    position: relative;
+    top: -10px;
     margin-left: 10px;
     margin-right: 15px;
-    color: #777 !important;
 }
 
 @media screen and (max-width: 1200px) {
