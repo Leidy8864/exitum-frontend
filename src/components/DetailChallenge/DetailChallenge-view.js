@@ -93,7 +93,7 @@ function View(props) {
                                                                 <a className="text-file" name={item.name} href="#" onClick={handleDownload.bind(this, item.key_s3)} key={index}>
                                                                     {item.name}
                                                                 </a>
-                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} />
+                                                                <img src={require('../../public/images/svg/flecha-hacia-abajo.svg')} onClick={handleDownload.bind(this, item.key_s3)}/>
                                                             </div>
                                                             {
                                                                 challenge.status !== "Verificado" ?
