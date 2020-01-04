@@ -18,7 +18,7 @@ class ModalEvents extends React.Component {
         description: '',
         place: '',
         participants: '',
-        hour_start: '',
+        hour_start: '13:00',
         country: '',
         department: '',
         categoryOptions: [],

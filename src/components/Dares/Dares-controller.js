@@ -12,12 +12,20 @@ import $ from 'jquery'
 class Dares extends React.Component {
 
     state = {
-        challenges: []
+        challenges: [{
+            stage : {},
+            ownerChallenge : {},
+            tip : {},
+            startup : {}
+        },
+        ]
     }
 
     async componentDidMount() {
         const id = localStorage.getItem('id')
         const challenges = await listChallengeToVerify(id, 1)
+        console.log("CCCHALLENGES",challenges);
+        
         this.setState({
             challenges: challenges
         });

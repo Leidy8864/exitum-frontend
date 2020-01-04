@@ -75,10 +75,10 @@ class ProfileEmployee extends React.Component {
             if (routePath.includes("/profile/")) { //Evalua si la ruta es como /profile/:id
                 id = this.props.match.params.id
                 activeBackButton = true;
-
-                // id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
-                //     this.props.history.push('/my-profile')
-                //     : isMyProfile = false;
+                // isMyProfile = false;
+                id === localStorage.getItem('id') ? //Si el id recibido en la ruta es igual al del usuario que esta logueado redirige a su perfil.
+                    this.props.history.push('/my-profile')
+                    : isMyProfile = false;
             }
             const userShow = await showDataByUser(id);
             // Object.entries(userShow.data).length === 0 ? this.props.history.push('/dashboard') : ''; //Se no se encuentra al usuario redirige al dashboard

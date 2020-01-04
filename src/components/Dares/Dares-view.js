@@ -28,7 +28,7 @@ function View(props) {
                 </div>
             </div>
             <div className="row content-challenges mb-4">
-                
+
                 {challenges && challenges.length > 0 ?
                     challenges.map(function (item, index) {
                         return (
@@ -43,22 +43,38 @@ function View(props) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="challenges-dare text-center work-user-event">
-                                            <strong>{item.startup.name}</strong><span className="card-title-challenge"> - {item.tip.tip}</span>
-                                        </div>
-                                        <div className="challenges-dare text-center description-textos ml-4">
-                                            <span id="text-puntos" className="card-title-challenge ">{item.startup.description}</span>
-                                        </div>
-                                        <div className="challenges-dare text-center description-textos ml-4">
-                                            <span id="text-puntos" className="card-title-challenge">{moment(item.startup.created).format('ll')}</span>
-                                        </div>
+                                        {
+                                            item.startup ?
+
+                                                <div className="challenges-dare text-center work-user-event">
+                                                    <strong>{item.startup.name}</strong>
+                                                    <span className="card-title-challenge"> - {item.tip.tip}</span>
+                                                </div>
+
+                                                : ''
+                                        }
+                                        {
+                                            item.startup ?
+                                                <div className="challenges-dare text-center description-textos ml-4">
+                                                    <span id="text-puntos" className="card-title-challenge ">{item.startup.description}</span>
+                                                </div>
+                                                : ''
+                                        }
+                                        {
+                                            item.startup ?
+                                                <div className="challenges-dare text-center description-textos ml-4">
+                                                    <span id="text-puntos" className="card-title-challenge">{moment(item.startup.created).format('ll')}</span>
+                                                </div>
+                                                : ''
+                                        }
+
                                         <div className="stage text-center work-user-event">
                                             <strong className="card-title-challenge">{item.stage.stage}</strong>
                                         </div>
                                         <div className="btn-go-challenge mt-4 mb-3">
-                                            <button 
-                                                onClick={idChallengues.bind(this,item.id)}
-                                                id={item.id} 
+                                            <button
+                                                onClick={idChallengues.bind(this, item.id)}
+                                                id={item.id}
                                                 data-toggle="modal" data-target="#modaldare" className="title-body mb-3">
                                                 Ver reto</button>
                                         </div>

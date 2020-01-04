@@ -94,7 +94,7 @@ function View(props) {
                                         <label>Hora</label>
                                         {/* <input type="time" name="hour_start" className="form-control" onChange={handleInputChange} value={hour_start} /> */}
                                         <TimePicker
-                                            focused={focused}
+                                            // focused={focused}
                                             onFocusChange={onFocusChange}
                                             onTimeChange={onTimeChange}
                                             time={hour_start}
