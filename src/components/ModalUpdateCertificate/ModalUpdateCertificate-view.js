@@ -1,10 +1,10 @@
 
-import React,{Fragment} from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
 import DatePicker from 'react-date-picker';
 import CreatableSelect from 'react-select/creatable';
 
-function View(props){
+function View(props) {
 
     const {
         name,
@@ -22,9 +22,12 @@ function View(props){
         certificationInputChange,
         certifications,
         certification_name,
+        specialityChange,
+        specialitiesOptions,
+        specialities
     } = props
 
-    return(
+    return (
         <div>
             <div className="modal fade" id="updatecertificate" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -40,7 +43,7 @@ function View(props){
                                     name="id"
                                     className="form-control"
                                     value={CertificateId || ''}
-                                    />
+                                />
                                 <div className="form_group_ mt-3">
                                     <label>Certificacion</label>
                                     {/* <input
@@ -98,10 +101,23 @@ function View(props){
                                         />
                                     </Fragment>
                                 </div>
+                                <div className="form_group_">
+                                    <label>Especialidades</label>
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            isMulti
+                                            onChange={specialityChange}
+                                            className="basic-multi-select"
+                                            options={specialitiesOptions}
+                                            value={specialities}
+                                        />
+                                    </Fragment>
+                                </div>
                                 <div className="response_file mt-3">
                                     {/* <p id="texto">Subir Cerfiticado</p> */}
                                     <label>Sube un certificado</label>
-                                    <input id="choose_file" type="file" name="document" className="form-control" />
+                                    <input id="choose_file2" type="file" name="document" className="form-control" />
                                 </div>
                                 <div className="modal-footer mt-3">
                                     <button type="submit" className="btn btn-primary" onClick={certificateUpdate}>Actualizar</button>

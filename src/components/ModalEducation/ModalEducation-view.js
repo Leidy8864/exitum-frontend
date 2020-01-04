@@ -20,6 +20,9 @@ function View(props) {
         certificationInputChange,
         certifications,
         certification_name,
+        specialityChange,
+        specialities,
+        specialitiesOptions
     } = props
 
     return (
@@ -33,6 +36,19 @@ function View(props) {
                         <div className="modal-body">
                             <form onSubmit={education}>
                                 <div className="form_group_">
+                                    <label>Universidad</label>
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            onChange={handleChange}
+                                            onInputChange={handleInputChange}
+                                            options={options}
+                                            className={"styleCreatableSelect_"}
+                                            value={university_name}
+                                        />
+                                    </Fragment>
+                                </div>
+                                <div className="form_group_ mt-3">
                                     <label>Carrera</label>
                                     {/* <input
                                         type="text"
@@ -71,16 +87,22 @@ function View(props) {
                                         />
                                     </Fragment>
                                 </div>
-                                <div className="form_group_ mt-3">
-                                    <label>Universidad</label>
+                                <div className="form_group_">
+                                    <label>Especialidades</label>
+                                    {/* <input
+                                        type="text"
+                                        id="nombreDescripcion"
+                                        className="form-control"
+                                        name="description"
+                                        onChange={description}
+                                    /> */}
                                     <Fragment>
                                         <CreatableSelect
                                             isClearable
-                                            onChange={handleChange}
-                                            onInputChange={handleInputChange}
-                                            options={options}
-                                            className={"styleCreatableSelect_"}
-                                            value={university_name}
+                                            isMulti
+                                            onChange={specialityChange}
+                                            options={specialitiesOptions}
+                                            value={specialities}
                                         />
                                     </Fragment>
                                 </div>

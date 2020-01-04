@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import cleanForm from '../../redux/actions/clean-form'
-import { listStartupsByUser, listSkillsAxio, createAdvertisement, listAreas, updateAdvertisement } from '../../redux/actions';
+import { listStartupsByUser, listSkillsAxio, createAdvertisement, listAreas, updateAdvertisement, getListSpecialities } from '../../redux/actions';
 import getAdvert from '../../redux/actions/getAdvert';
 import reloadPage from '../../redux/actions/reloadPage';
 import $ from 'jquery';
@@ -32,7 +32,9 @@ class ModalAds extends React.Component {
         skills: [],
         list_skills: [],
         startups: [],
-        areas: []
+        areas: [],
+        specialities: [],
+        specialitiesOptions: []
     };
 
     async componentDidMount() {
@@ -46,10 +48,12 @@ class ModalAds extends React.Component {
                 });
                 const skillsData = await listSkillsAxio();
                 const areasData = await listAreas();
+                const response = await getListSpecialities();
 
-                var startups = [];
-                var skills = [];
-                var areas = [];
+                let startups = [];
+                let skills = [];
+                let areas = [];
+                let listSpecialities = [];
 
                 if (startupsData.length >= 1) {
                     startups = startupsData.map(x => ({ label: x.name, value: x.id }));
@@ -61,11 +65,14 @@ class ModalAds extends React.Component {
                 if (areasData.length >= 1) {
                     areas = areasData.map(x => ({ label: x.name, value: x.id }));
                 }
-
+                if (response.status) {
+                    listSpecialities = response.data.map(x => ({ label: x.name, value: x.name }));
+                }
                 this.setState({
                     startups: startups,
                     list_skills: skills,
-                    areas: areas
+                    areas: areas,
+                    specialitiesOptions: listSpecialities
                 });
             } catch (error) {
                 console.log("ERROR", error);
@@ -85,6 +92,7 @@ class ModalAds extends React.Component {
                 const areaSelected = { label: advertisement.area.name, value: advertisement.area.id }
                 const skillsSelected = advertisement.skills.map(x => ({ label: x.skill, value: x.skill }));
                 const arraySkills = advertisement.skills.map(x => (x.skill));
+                const arraySpecialities = advertisement.toAdvertisementSpecialities.map(x => ({ label: x.name, value: x.name }))
                 this.setState({
                     startup_idSelected: startupSelected,
                     area_idSelected: areaSelected,
@@ -94,7 +102,8 @@ class ModalAds extends React.Component {
                     startup_id: advertisement.startup.id,
                     skills: arraySkills,
                     title: advertisement.title,
-                    description: advertisement.description
+                    description: advertisement.description,
+                    specialities : arraySpecialities
                 })
             }
         }
@@ -165,6 +174,11 @@ class ModalAds extends React.Component {
             }
         }
     }
+    specialityChange = (option, action) => {
+        this.setState({
+            specialities: option
+        })
+    }
 
     handleSubmit = async (e) => {
 
@@ -174,9 +188,14 @@ class ModalAds extends React.Component {
 
         e.preventDefault();
 
-        const { title, description, area_id, startup_id, skills, advertisement_id } = this.state;
-
-        const formData = { title, description, area_id, startup_id, skills, advertisement_id }
+        const { title, description, area_id, startup_id, skills, advertisement_id, specialities } = this.state;
+        let specialitiesFormated = []
+        specialities.forEach(element => {
+            specialitiesFormated.push(element.value)
+        });
+        console.log("SPECIALTITITIT",specialitiesFormated);
+        
+        const formData = { title, description, area_id, startup_id, skills, advertisement_id, specialities: specialitiesFormated }
 
         if (title && description && area_id && startup_id && skills.length >= 1) {
             var response = null;
@@ -246,7 +265,9 @@ class ModalAds extends React.Component {
             skillsSelected,
             title,
             description,
-            advertisement_id
+            advertisement_id,
+            specialities,
+            specialitiesOptions
         } = this.state;
 
         const { cleanFormReducer } = this.props;
@@ -323,6 +344,9 @@ class ModalAds extends React.Component {
                 description={description}
                 title={title}
                 advertisement_id={advertisement_id}
+                specialities={specialities}
+                specialitiesOptions={specialitiesOptions}
+                specialityChange={this.specialityChange}
             />
         );
     }

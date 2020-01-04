@@ -431,7 +431,7 @@ export const createEducation = data => {
         try {
             const res = await axios.post(root + `educations/create`, data
             )
-            return res.data.data
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -444,7 +444,7 @@ export const createEducationUpdate = data => {
             const res = await axios.post(
                 root + `educations/update`, data
             )
-            return res.data.data
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -462,7 +462,7 @@ export const createCertification = data => {
                     }
                 }
             )
-            return res.data.data
+            return res.data
         } catch (error) {
             console.log("Error" + error)
         }
@@ -925,6 +925,13 @@ export const viewedChallenge = async (id) => {
     }
 }
 
-
+export const getListSpecialities = async (id) => {
+    try {
+        const res = await axios.get(root + `specialities/list`);
+        return res.data
+    } catch (error) {
+        console.log("Error" + error)
+    }
+}
 
 

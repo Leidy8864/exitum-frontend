@@ -127,7 +127,7 @@ class DetailChallenge extends React.Component {
         const { reply, challenge } = this.state;
         let error_reply = "";
         let error_questionary = "";
-        if (!reply) {
+        if (!reply && !challenge.questionnaire) {
             error_reply = 'Debes ingresar un respuesta'
         }
         if (challenge.questionnaire) {

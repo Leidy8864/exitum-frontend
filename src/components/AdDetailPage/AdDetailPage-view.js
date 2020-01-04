@@ -63,18 +63,38 @@ function View(props) {
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    {
-                                                        advertisement.skills.length > 0 ?
-                                                            <ul className="tags">
-                                                                <span className="bold detail">Habilidades:</span><br />
-                                                                {
-                                                                    advertisement.skills.map((item, index) =>
-                                                                        <li key={index}><a href="#" className="tag">-{item.skill}</a></li>
-                                                                    )
-                                                                }
-                                                            </ul>
-                                                            : ''
-                                                    }
+                                                    <div className="d-flex justify-content-between container-events">
+                                                        <div className="form-group">
+                                                            {
+                                                                advertisement.skills.length > 0 ?
+                                                                    <ul className="tags">
+                                                                        <span className="bold detail">Habilidades:</span><br />
+                                                                        {
+                                                                            advertisement.skills.map((item, index) =>
+                                                                                <li key={index}><a href="#" className="tag">-{item.skill}</a></li>
+                                                                            )
+                                                                        }
+                                                                    </ul>
+                                                                    : ''
+                                                            }
+                                                        </div>
+                                                        <div className="form-group">
+
+                                                            {
+                                                                advertisement.toAdvertisementSpecialities.length > 0 ?
+                                                                    <ul className="tags">
+                                                                        <span className="bold detail">Especialidades:</span><br />
+                                                                        {
+                                                                            advertisement.toAdvertisementSpecialities.map((item, index) =>
+                                                                                <li key={index}><a href="#" className="tag">-{item.name}</a></li>
+                                                                            )
+                                                                        }
+                                                                    </ul>
+                                                                    : ''
+                                                            }
+                                                        </div>
+                                                        <div className="form-group"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

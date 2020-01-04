@@ -30,7 +30,10 @@ function View(props) {
         skillsSelected,
         description,
         title,
-        advertisement_id
+        advertisement_id,
+        specialities,
+        specialitiesOptions,
+        specialityChange
 
     } = props;
     return (
@@ -110,6 +113,25 @@ function View(props) {
                                         <div className="error-message-aux">
                                             {content_error_skills}
                                         </div>
+                                    </div>
+                                    <div className="form_group_ mt-3">
+                                        <label>Especialidades</label>
+                                        <Fragment>
+                                            <CreatableSelect
+                                                isMulti
+                                                value={specialities}
+                                                name="specialities"
+                                                options={specialitiesOptions}
+                                                className="basic-multi-select"
+                                                // classNamePrefix={categoryClassNamePrefix}
+                                                placeholder="Especialidades..."
+                                                onChange={specialityChange}
+                                                id="specialities"
+                                            />
+                                        </Fragment>
+                                        {/* <div className="error-message-aux">
+                                            {error_categories}
+                                        </div> */}
                                     </div>
                                     <div className="form_group_ mt-3">
                                         <label>Descripción del anuncio</label>

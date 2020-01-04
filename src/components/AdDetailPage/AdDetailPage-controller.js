@@ -14,7 +14,8 @@ class AdDetailPage extends React.Component {
         advertisement: {
             area: {},
             startup: {},
-            skills: []
+            skills: [],
+            toAdvertisementSpecialities : []
         }
     }
     async componentDidMount() {

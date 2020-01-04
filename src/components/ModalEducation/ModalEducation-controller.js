@@ -4,7 +4,7 @@ import View from './ModalEducation-view';
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {withRouter } from 'react-router-dom'
-import { createEducation } from '../../redux/actions';
+import { createEducation, getListSpecialities } from '../../redux/actions';
 import listEducations from '../../redux/actions/list-educations';
 import $ from 'jquery'
 
@@ -17,6 +17,18 @@ class ModalEducation extends React.Component {
         date_expiration: new Date(),
         university_name: '',
         certification_name:'',
+        specialities : [],
+        specialitiesOptions : []
+    }
+
+    async componentDidMount(){
+        const response = await getListSpecialities();
+        if (response.status) {
+            const listSpecialities = response.data.map(x => ({label : x.name, value : x.name}));
+            this.setState({
+                specialitiesOptions : listSpecialities
+            });
+        }
     }
 
     description = e => {
@@ -26,16 +38,22 @@ class ModalEducation extends React.Component {
     education = async e => {
         e.preventDefault();
         let user_id = localStorage.getItem('id');
-        const { description, date_expedition, date_expiration, university_name, certification_name  } = this.state
+        const { description, date_expedition, date_expiration, university_name, certification_name,specialities } = this.state
         let date_start = moment(date_expedition).format('YYYY-MM-DD');
         let date_end = moment(date_expiration).format('YYYY-MM-DD');
+        let specialitiesFormated = []
+        specialities.forEach(element => {
+            specialitiesFormated.push(element.value)
+        });
         const formData = {
-            user_id, date_start, date_end,description: certification_name.value,university_name:university_name.value
+            user_id, date_start, date_end,description: certification_name.value,university_name:university_name.value,
+            specialities : specialitiesFormated
         }
-
         console.log("formData = ", formData)
 
         const response = await this.props.createEducation(formData);
+        console.log("REPONSE EDUCATION",response);
+        
         $('#education').modal('hide');
         $('#certificate').modal('hide')
         $('#nombreDescripcion').val('')
@@ -71,6 +89,11 @@ class ModalEducation extends React.Component {
     certificationInputChange = (inputValue, actionMeta) => {
         
     };
+    specialityChange = (option,action) => {
+        this.setState({
+            specialities : option
+        })
+    }
 
     render() {
         const {
@@ -92,7 +115,10 @@ class ModalEducation extends React.Component {
                 university_name={this.state.university_name}
                 certificationChange={this.certificationChange}
                 certificationInputChange={this.certificationInputChange}
+                specialityChange={this.specialityChange}
                 certifications={getListCareersReducer}
+                specialities = {this.state.specialities}
+                specialitiesOptions={this.state.specialitiesOptions}
                 certification_name={this.state.certification_name}
             />
         );

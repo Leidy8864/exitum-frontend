@@ -20,6 +20,9 @@ function View(props) {
         certificationInputChange,
         certifications,
         certification_name,
+        specialityChange,
+        specialitiesOptions,
+        specialities
     } = props
 
     return (
@@ -75,14 +78,33 @@ function View(props) {
                                     </Fragment>
                                 </div>
                                 <div className="form_group_ clocwerk mt-3">
-                                        <label>Fecha final</label>
-                                        <Fragment>
-                                            <DatePicker
-                                                onChange={onChange_}
-                                                value={dateFinal}
-                                                name="date_expiration"
-                                            />
-                                        </Fragment>
+                                    <label>Fecha final</label>
+                                    <Fragment>
+                                        <DatePicker
+                                            onChange={onChange_}
+                                            value={dateFinal}
+                                            name="date_expiration"
+                                        />
+                                    </Fragment>
+                                </div>
+                                <div className="form_group_">
+                                    <label>Especialidades</label>
+                                    {/* <input
+                                        type="text"
+                                        id="nombreDescripcion"
+                                        className="form-control"
+                                        name="description"
+                                        onChange={description}
+                                    /> */}
+                                    <Fragment>
+                                        <CreatableSelect
+                                            isClearable
+                                            isMulti
+                                            onChange={specialityChange}
+                                            options={specialitiesOptions}
+                                            value={specialities}
+                                        />
+                                    </Fragment>
                                 </div>
                                 <div className="response_file mt-3">
                                     {/* <p id="texto">Subir Cerfiticado</p> */}

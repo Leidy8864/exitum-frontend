@@ -42,7 +42,7 @@ function View(props) {
         onTimeChange,
         hour,
         minute,
-        focused
+        focused,
     } = props
     // console.log("DAY",day);
 
