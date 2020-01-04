@@ -65,6 +65,12 @@ class Signup extends React.Component {
         this.setState({genre: e.target.value})
     }
 
+    register = e => {
+        e.preventDefault();
+        $('#signup').modal('hide')
+        $('#signin').modal('show')
+    }
+
     logged = async e => {
         this.props.cleanForm("0");
         this.setState({ error_genre: '' })
@@ -339,6 +345,7 @@ class Signup extends React.Component {
                 lastname_1={this.lastname_1}
                 lastname_2={this.lastname_2}
                 selectGenre={this.selectGenre}
+                register = {this.register}
                 email_1={this.email_1}
                 email_2={this.email_2}
                 password_1={this.password_1}

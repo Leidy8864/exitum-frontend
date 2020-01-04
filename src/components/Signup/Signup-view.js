@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
+import { Link } from 'react-router-dom'
 
 function View(props) {
 
@@ -28,7 +29,8 @@ function View(props) {
         content_exito_registro,
         selectGenre,
         isChecked,
-        toggleChange
+        toggleChange,
+        register
     } = props
 
     return (
@@ -160,6 +162,9 @@ function View(props) {
                         </form>
                         {content_error_registro}
                         {content_exito_registro}
+                        <div className="forget-password">
+                                <strong className="letter-black">¿Ya tienes una cuenta?</strong><Link onClick={register} data-toggle="modal" data-target="#signin" className="ml-2" to="/">Inicia Sesíon</Link>
+                                </div>
                         <div className="border-space">
                             <hr />
                             <div className="to">

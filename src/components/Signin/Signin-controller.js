@@ -35,6 +35,12 @@ class Signin extends React.Component {
 
     }
 
+    register = e => {
+        e.preventDefault(e)
+        $('#signin').modal('hide')
+        $('#signup').modal('show')
+    }
+
     logged = async e => {
         e.preventDefault();
 
@@ -174,6 +180,7 @@ class Signin extends React.Component {
         }
         return (
             <View
+                register = {this.register}
                 responseFacebook={this.responseFacebook}
                 responseGoogle={this.responseGoogle}
                 logged={this.logged}

@@ -9,6 +9,7 @@ import GoogleLogin from 'react-google-login'
 function View(props) {
 
     const {
+        register,
         forgetPass,
         email,
         contentError,
@@ -72,6 +73,9 @@ function View(props) {
                             <div className="forget-password">
                                 <Link onClick={forgetPass} data-toggle="modal" data-target="#forgetpass" to="/"><p>¿Olvidaste tu contraseña?</p></Link>
                             </div>
+                            <div className="forget-password">
+                                <strong className="letter-black">¿Aún no tienes una cuenta?</strong><Link onClick={register} data-toggle="modal" data-target="#signin" className="ml-2" to="/">Registrate</Link>
+                                </div>
                             <div className="border-space">
                                 <hr />
                                 <div className="to">
