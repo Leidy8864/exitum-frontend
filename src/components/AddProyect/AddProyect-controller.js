@@ -45,8 +45,10 @@ class AddProyect extends React.Component {
 
         if (nextProps.reload !== reload) {
             if (reload) {
-                this.getListOfProject();
-                this.props.reloadPage(0);
+                if (role === "entrepreneur") {                    
+                    this.getListOfProject();
+                    this.props.reloadPage(0);
+                }
             }
         }
     }

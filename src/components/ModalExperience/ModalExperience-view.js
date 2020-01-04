@@ -41,7 +41,7 @@ function View(props) {
                         <div className="modal-body">
                             <form onSubmit={experience} className="p-3">
                                 <div className="form_group_ mt-3">
-                                    <label>Posisión</label>
+                                    <label>Posición</label>
                                     {/* <input
                                         type="text"
                                         onChange={position}

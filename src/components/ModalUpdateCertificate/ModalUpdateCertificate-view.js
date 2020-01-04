@@ -7,7 +7,6 @@ import CreatableSelect from 'react-select/creatable';
 function View(props) {
 
     const {
-        name,
         date,
         dateFinal,
         onChange,
