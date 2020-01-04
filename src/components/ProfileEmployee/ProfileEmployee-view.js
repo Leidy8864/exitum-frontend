@@ -304,7 +304,7 @@ function View(props) {
                                                                     {
                                                                         isMyProfile ?
                                                                             <Fragment>
-                                                                                <Link to="" className="reminder-edit" onClick={idCertificate} id={index} data-toggle="modal" data-target="#updateeducation"><i className="fas fa-marker" id={index}></i></Link>
+                                                                                <Link to="" className="reminder-edit" onClick={idCertificate} id={index} data-toggle="modal" data-target="#updatecertificate"><i className="fas fa-marker" id={index}></i></Link>
                                                                                 <div className="mt-3">
                                                                                     <a href="#" className="delete-perfil" >
                                                                                         <i className="fas fa-trash-alt"
