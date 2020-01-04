@@ -87,7 +87,7 @@ function View(props) {
                                         />
                                     </Fragment>
                                 </div>
-                                <div className="form_group_">
+                                <div className="form_group_ education-select">
                                     <label>Especialidades</label>
                                     {/* <input
                                         type="text"

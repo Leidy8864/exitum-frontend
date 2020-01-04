@@ -13,3 +13,7 @@
     height: 40px !important;
     /* display: -webkit-box !important; */
 }
+
+.form_group_.education-select .css-yk16xz-control{
+    display: table !important;
+}

@@ -58,7 +58,6 @@ function View(props) {
                                         >
                                             <p>{dt.title}</p>
                                             <span>{dt.status}</span>
-                                            {console.log('date completed',dt.date_completed)}
                                             {
                                                 dt.date_completed ? 
                                                 <span className="text-white">{moment().diff(dt.date_completed,'days') == 0 ? 'Respondido Hoy' : 'Respondido hace' + moment().diff(dt.date_completed, 'days') + 'días' }</span> : ''
