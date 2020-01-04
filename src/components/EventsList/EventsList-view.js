@@ -31,7 +31,7 @@ function View(props) {
                                     eventType={eventType}
                                     handleDeleteEvent={handleDeleteEvent}
                                     photo={item.photo}
-                                    date_publicacion={item.date_publicacion}
+                                    date_publication={item.date_publication}
                                 />
                             </div>
                         )

@@ -17,16 +17,18 @@ class EventCard extends React.Component {
             eventType,
             handleDeleteEvent,
             handleAssistEvent,
-            date_publicacion
+            date_publication
         } = this.props;
 
         var isPart = true;
         if (eventType !== "my_events" && eventType === "events") {
             isPart = false
         }
-        date_publicacion = moment(date_publicacion);
-        var today = moment();
-        var published = today.diff(date_publicacion, 'days') == 0 ? 'Publicado hoy': 'publicado hace '+ today.diff(date_publicacion, 'days') + ' días';
+        date_publication = moment(date_publication);
+        var today = moment()
+        console.log("title = ", title);
+        console.log("today.diff(date_publication, 'days') = ", today.diff(date_publication, 'days'))
+        var published = today.diff(date_publication, 'days') === 0 ? 'Publicado hoy': 'publicado hace '+ today.diff(date_publication, 'days') + ' día(s)';
 
         return (
             <View

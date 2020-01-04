@@ -459,8 +459,6 @@ class ProfileEmployee extends React.Component {
         }
         let user = localStorage.getItem('name');
         let lastname = localStorage.getItem('lastname');
-        // const { file } = this.state;
-
         return (
             <View
                 user={user}
