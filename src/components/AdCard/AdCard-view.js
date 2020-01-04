@@ -41,7 +41,8 @@ function View(props) {
             <div className="">
                 <span className="title-company col-sm-12">{startup.name}</span><br />
                 <span className="bold description-textos col-sm-12">{description}</span><br />
-                <span className="bold col-sm-12">{moment(startup.created_at).format('LT')}</span><br />
+                    <span className="bold col-sm-12">{moment().diff(startup.created_at,'days') == 0 ? 'Creado hoy' : 'Creado hace' + moment().diff(startup.created_at, 'days') + 'días' }</span>
+                
             </div>
             {/* {
                 userRole === "entrepreneur" ?

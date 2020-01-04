@@ -40,14 +40,14 @@ function View(props) {
                                                 </div>
                                                 <div className="">
                                                     <div className="form-group d-flex justify-content-between">
-                                                        <h4 className="bold-title">{event.title}</h4>
+                                                        <h4 className="bold-title margin-top-25">{event.title}</h4>
                                                     </div>
                                                     <div className="form-group container-events">
                                                         <span className="bold detail">Descripción:</span><br />
                                                         <p className="gray text-justify">{event.description}</p>
                                                     </div>
                                                     <div className="container-events-info row">
-                                                        <div className="form-group col-sm-4">
+                                                        <div className="form-group col-sm-12">
                                                             <span className="bold detail">Lugar:</span><br />
                                                             <span className="gray">{event.place}</span>
                                                         </div>
@@ -59,6 +59,10 @@ function View(props) {
                                                             <span className="bold detail">Hora:</span><br />
                                                             <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
                                                         </div>
+                                                        <div className="form-group col-sm-4">
+                                                            <span className="bold detail">Participantes:</span><br />
+                                                            <span className="gray">{event.participants_count}</span>
+                                                        </div>
                                                         <hr />
                                                         <div className="form-group col-sm-12">
                                                             {
@@ -68,7 +72,7 @@ function View(props) {
                                                                         <span className="bold detail">Categorías:</span><br />
                                                                         {
                                                                             event.toWorkshopCategories.map((item, index) =>
-                                                                                <li key={index}><a href="#" className="tag">{item.name}</a></li>
+                                                                                <li key={index}><a href="#" className="tag tag_aux">{item.name}</a></li>
                                                                             )
                                                                         }
                                                                     </ul>

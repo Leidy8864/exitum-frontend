@@ -308,7 +308,7 @@ img.event-img {
     border: none !important;
     border-radius: 0px !important;
     padding: 15px !important;
-    background: #2183F8;
+    background-color: #2183F8 !important;
     border-top-left-radius: 6px !important;
     border-top-right-radius: 6px !important;
     border-bottom: 2px solid #E9EAED !important;

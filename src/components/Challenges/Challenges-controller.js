@@ -18,7 +18,10 @@ const user_id = localStorage.getItem('id');
 class Challenges extends React.Component {
 
     state = {
-        blockChallenge: [],
+        blockChallenge: [{
+
+        }
+        ],
         mostrarImagen: false,
         project: ''
     }
@@ -89,6 +92,7 @@ class Challenges extends React.Component {
                     reply: x.reply,
                     uploaded_files: x.files,
                     status: x.status,
+                    date_completed: x.date_completed,
                     replies: x.replies.map(item => ({
                         id: item.reply.id,
                         query: item.query,
