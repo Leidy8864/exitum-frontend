@@ -370,6 +370,7 @@ function View(props) {
                                                         </div> : ''
                                                 }
                                             </div>
+
                                         )
                                     }) : <span className="no-data gray">Aún no ha guardado ningun dato, agregue un skill</span>
                             }

@@ -24,7 +24,7 @@
 }
 
 .container-undefined {
-  background: #EFEFEF;
+  background: #FFF;
   background-blend-mode: soft-light;
   background-size: cover;
   background-color: (10,10,10,0.1);

@@ -114,7 +114,7 @@ function View(props) {
                                             {content_error_skills}
                                         </div>
                                     </div>
-                                    <div className="form_group_ mt-3">
+                                    <div className="form_group_ select mt-3">
                                         <label>Especialidades</label>
                                         <Fragment>
                                             <CreatableSelect

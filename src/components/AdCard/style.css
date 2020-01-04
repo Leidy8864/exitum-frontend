@@ -30,6 +30,8 @@ a.title_add{
 
   .title-anuncio {
     margin-left: 0px !important;
+    font-size: 20px;
+    text-transform: uppercase;
   }
 
   button.btn-no-assist i.fa-calendar-times {

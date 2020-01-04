@@ -4,8 +4,6 @@
 .myNotification{
     display: flex;
     background-color: #435DEE ;
-    border-radius: 10px;
-    /* margin: 5px 50px; */
     width: 455px;
 }
 .myNotification img{

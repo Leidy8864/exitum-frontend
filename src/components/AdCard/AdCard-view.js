@@ -21,7 +21,6 @@ function View(props) {
     } = props;
     return (
         <div className="card pauses-play mb-3">
-            <div>
                 {
                     userRole === "entrepreneur" ?
                         <div className="d-flex justify-content-between card-anuncios p-3">
@@ -37,9 +36,13 @@ function View(props) {
                             </div>
                         </div>
                         :
-                        <Link className="row col-sm-12 title-anuncio" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
+                        <div className="d-flex justify-content-between card-anuncios p-3">
+                            <div className="start-info">
+                                <img className="mr-2" width="20px" src={require('../../public/icons/ESTRELLA.svg')} />
+                                <Link className="row col-sm-12 title-anuncio" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
+                            </div>
+                        </div>
                 }
-            </div>
             <div className="pb-3">
                 <div className="">
                     <strong className="bold col-sm-12">Proyecto: {startup.name}</strong>

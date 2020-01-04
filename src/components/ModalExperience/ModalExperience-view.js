@@ -29,7 +29,7 @@ function View(props) {
         ocupationInputChange,
         ocupation_name
     } = props
-
+    console.log("ALDO ",ocupations)
     return (
         <div>
             <div className="modal fade" id="experience" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

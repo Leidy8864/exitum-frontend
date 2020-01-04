@@ -52,8 +52,10 @@
 }
 
 .container-info-impulsor {
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     margin-left: 30px;
-    display: flex;
     justify-content: flex-start;
     align-content: center;
 }
@@ -74,6 +76,7 @@
 
 .container-info-impulsor img {
     width: 100px !important;
+    height: 110px;
 }
  
 .proyects-list-aux{
