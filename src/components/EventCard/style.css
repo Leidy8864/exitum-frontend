@@ -95,6 +95,11 @@ i.fa-map-marker-alt {
     border: none !important;
 }
 
+a.title_add {
+    color: #4C5261 !important;
+    font-size: 20px;
+}
+
 .header-events {
     justify-content: flex-start;
     align-items: center;
@@ -206,7 +211,7 @@ div.events-card-3 .title_add{
     border: none !important;
 }
 .card-header-img{
-    max-width: 100%;
+    max-width: 100% !important;
 }
 .span-laster{
     color: #b6b4b4 !important;

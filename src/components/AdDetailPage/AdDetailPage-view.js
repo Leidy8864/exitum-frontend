@@ -71,7 +71,7 @@ function View(props) {
                                                                         <span className="bold detail">Habilidades:</span><br />
                                                                         {
                                                                             advertisement.skills.map((item, index) =>
-                                                                                <li key={index}><a href="#" className="tag">-{item.skill}</a></li>
+                                                                                <li key={index}><a href="#" className="tag tag_aux">-{item.skill}</a></li>
                                                                             )
                                                                         }
                                                                     </ul>

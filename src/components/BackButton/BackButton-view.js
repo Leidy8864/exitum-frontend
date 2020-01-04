@@ -8,7 +8,7 @@ function View(props) {
         goBack
     } = props;
     return (
-        <Link to="#" className="atras-arrow" onClick={goBack}>
+        <Link to="#" className="atras-arrow go" onClick={goBack}>
             <i className="fas fa-arrow-left"></i>
         </Link>
     );

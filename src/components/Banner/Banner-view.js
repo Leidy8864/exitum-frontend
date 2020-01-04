@@ -43,6 +43,9 @@ function View(props) {
                             <h2>Tu <span>sueño</span><br/>
                                 en nuestras manos</h2>
                             </div>
+                            <div className="info-small">
+                                <span>Demuestra tu experiencia y el potencial que hay en tí</span>
+                            </div>
                             <div className="btn-register">
                                 <button onClick={cleanForm} type="button" className="btn-signup" data-toggle="modal" data-target="#signup" >
                                     Registrarme

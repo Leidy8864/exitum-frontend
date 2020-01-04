@@ -215,17 +215,17 @@ function View(props) {
                                                             <div className="experience-info mt-4 mb-2">
                                                                 <div className="info-experience">
                                                                     <div className="data_user_detail">
-                                                                    <span className="gray">{item.university.university}</span>
-                                                                    <br />
-                                                                    <div className="description">
-                                                                        <strong>{item.description}</strong>
-                                                                    </div>
-                                                                    <div className="time-exp mt-1">
-                                                                        <span className="gray">{moment(item.date_start).format('DD/MM/YYYY')} - {moment(item.date_end).format('DD/MM/YYYY')}</span>
-                                                                    </div>
-                                                                    <div className="description mb-4">
-                                                                        {/* Descripcion */}
-                                                                    </div>
+                                                                        <span className="gray">{item.university.university}</span>
+                                                                        <br />
+                                                                        <div className="description">
+                                                                            <strong>{item.description}</strong>
+                                                                        </div>
+                                                                        <div className="time-exp mt-1">
+                                                                            <span className="gray">{moment(item.date_start).format('DD/MM/YYYY')} - {moment(item.date_end).format('DD/MM/YYYY')}</span>
+                                                                        </div>
+                                                                        <div className="description mb-4">
+                                                                            {/* Descripcion */}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <div className="edit-perfil">
@@ -267,7 +267,7 @@ function View(props) {
                         <div className="card profiles mt-3">
                             <div className="experience mt-3">
                                 <div className="img-experience experience-header ml-4 mt-2">
-                                    <img src={require('../../public/icons/CERTIFICADOS.png')}  />
+                                    <img src={require('../../public/icons/CERTIFICADOS.png')} />
                                     <h3 className="ml-4">Certificado</h3>
                                 </div>
                                 {
@@ -283,36 +283,44 @@ function View(props) {
                                     certifications.map(function (item, index) {
                                         return (
                                             <Fragment key={index}>
-                                                <div className="experience-info">
-                                                    <div className="info-experience">
-                                                        <div className="experience-info-content mt-3">
-                                                            <span className="gray">{item.name}</span>
-                                                            <br />
-                                                            <strong>{item.issuing_company}</strong>
-                                                            <div className="time-exp mt-1">
-                                                                <span className="gray">{moment(item.date_expedition).format('DD/MM/YYYY')} - {moment(item.date_expiration).format('DD/MM/YYYY')}</span>
-                                                            </div>
-                                                            <div className="description mt-1 mb-4">
-                                                                <Link to="#">{item.url}</Link>
+                                                <div className="experience-info w-100">
+                                                    <div className="info-experience w-100">
+                                                        <div className="experience-info-content w-100 mt-3">
+                                                            <div className="experience-info mt-4 mb-2">
+                                                                <div className="info-experience">
+                                                                    <div className="data-user-detail">
+                                                                        <span className="gray">{item.name}</span>
+                                                                        <br />
+                                                                        <strong>{item.issuing_company}</strong>
+                                                                        <div className="time-exp mt-1">
+                                                                            <span className="gray">{moment(item.date_expedition).format('DD/MM/YYYY')} - {moment(item.date_expiration).format('DD/MM/YYYY')}</span>
+                                                                        </div>
+                                                                        <div className="description mt-1 mb-4">
+                                                                            <Link to="#">{item.url}</Link>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="edit-perfil">
+                                                                    {
+                                                                        isMyProfile ?
+                                                                            <Fragment>
+                                                                                <Link to="" className="reminder-edit" onClick={idCertificate} id={index} data-toggle="modal" data-target="#updateeducation"><i className="fas fa-marker" id={index}></i></Link>
+                                                                                <div className="mt-3">
+                                                                                    <a href="#" className="delete-perfil" >
+                                                                                        <i className="fas fa-trash-alt"
+                                                                                            id={item.id}
+                                                                                            onClick={handleClickDeleteCertificate}
+                                                                                        ></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </Fragment>
+                                                                            : ''
+                                                                    }
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {
-                                                        isMyProfile ?
 
-                                                            <div className="edit-perfil mt-2">
-                                                                <Link to="" className="reminder-edit" onClick={idCertificate} id={index} data-toggle="modal" data-target="#updatecertificate"><i className="fas fa-marker" id={index}></i></Link>
-                                                                <div className="delete-skill mt-3">
-                                                                    <a href="#" className="delete-perfil" >
-                                                                        <i className="fas fa-trash-alt"
-                                                                            id={item.id}
-                                                                            onClick={handleClickDeleteCertificate}
-                                                                        ></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            : ''
-                                                    }
                                                 </div>
                                             </Fragment>
                                         )

@@ -35,8 +35,14 @@ h4.bold-title {
     left: 12px;
 }
 
-.detalle-anuncio {
-    display: flex;
-    justify-content: flex-start;
+a.atras-arrow.go{
+    position: absolute;
+    top: -7px;
+    left: -6px;
+    z-index: 99000;
+}
+
+.container-detail-anuncio {
+    padding: 20px 50px;
 }
 

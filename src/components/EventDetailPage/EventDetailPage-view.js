@@ -32,60 +32,21 @@ function View(props) {
                             <div className="col-xl-9 col-lg-12">
                                 <div className="container-fluid mt-4 events-fluid">
                                     <div className="card profiles mb-4">
-                                        <div className="card-body events-detail-container">
+                                        <div className="events-detail-container ">
                                             <BackButton />
                                             <div className="container-detail mt-2">
                                                 <div className="foto-evento">
                                                     <img className="" src={event.photo || require('../../public/img/ssssss.png')} alt="foto de evento" />
                                                 </div>
-                                                <div className="">
-                                                    <div className="form-group d-flex justify-content-between">
+
+                                                <div className="container-detail-anuncio">
+                                                    <div className="form-group header-anuncios-detail">
                                                         <h4 className="bold-title margin-top-25">{event.title}</h4>
-                                                    </div>
-                                                    <div className="form-group container-events">
-                                                        <span className="bold detail">Descripción:</span><br />
-                                                        <p className="gray text-justify">{event.description}</p>
-                                                    </div>
-                                                    <div className="container-events-info row">
-                                                        <div className="form-group col-sm-12">
-                                                            <span className="bold detail">Lugar:</span><br />
-                                                            <span className="gray">{event.place}</span>
-                                                        </div>
-                                                        <div className="form-group col-sm-4">
-                                                            <span className="bold detail">Fecha:</span><br />
-                                                            <span className="gray">{moment(event.day).format('DD/MM/YYYY')}</span>
-                                                        </div>
-                                                        <div className="form-group col-sm-4">
-                                                            <span className="bold detail">Hora:</span><br />
-                                                            <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
-                                                        </div>
-                                                        <div className="form-group col-sm-4">
-                                                            <span className="bold detail">Participantes:</span><br />
-                                                            <span className="gray">{event.participants_count}</span>
-                                                        </div>
-                                                        <hr />
-                                                        <div className="form-group col-sm-12">
+                                                        <div className="">
                                                             {
-                                                                event.toWorkshopCategories.length > 0 ?
-
-                                                                    <ul className="tags">
-                                                                        <span className="bold detail">Categorías:</span><br />
-                                                                        {
-                                                                            event.toWorkshopCategories.map((item, index) =>
-                                                                                <li key={index}><a href="#" className="tag tag_aux">{item.name}</a></li>
-                                                                            )
-                                                                        }
-                                                                    </ul>
-                                                                    : ''
-                                                            }
-                                                            <br/>
-                                                        </div>
-                                                        <div className="form-group cl-md-12 d-block">
-                                                        {
                                                                 user_id === event.user_id ?
-                                                                    <div>
-
-                                                                        <Link className="atras-arrow" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
+                                                                    <div className="d-flex">
+                                                                        <Link className="atras-arrow mr-2" to="" data-toggle="modal" data-target="#EventsModal" onClick={handleOpenEditModal}><i className="fas fa-marker"></i></Link>
                                                                         <div className="link-descarga">
                                                                             <Link className="atras-arrow" to="#"><i className="fas fa-file-excel" onClick={handleDownloadParticipants.bind(this, event.id)}></i></Link>
                                                                         </div>
@@ -97,13 +58,52 @@ function View(props) {
                                                                         event_id={event.id}
                                                                     />
                                                             }
+
                                                         </div>
                                                     </div>
+                                                    <hr />
+                                                    <div className="form-group container-events">
+                                                        <p className="gray text-justify">{event.description}</p>
+                                                    </div>
+                                                    <hr />
+                                                    <div className="container-events-info row">
+                                                        <div className="form-group col-sm-3">
+                                                            <img width="20px" className="mr-2" src={require('../../public/icons/ENCUENTRO.svg')} />
+                                                            <span className="gray">{event.place}</span>
+                                                        </div>
+                                                        <div className="form-group col-sm-3">
+                                                            <img width="20px" className="mr-2" src={require('../../public/icons/CALENDARIO.svg')} />
+                                                            <span className="gray">{moment(event.day).format('DD/MM/YYYY')}</span>
+                                                        </div>
+                                                        <div className="form-group col-sm-3">
+                                                            <img width="20px" className="mr-2" src={require('../../public/icons/TIEMPO.svg')} />
+                                                            <span className="gray">{moment(event.hour_start, "h:mm").format("LT")}</span>
+                                                        </div>
+                                                        <div className="form-group col-sm-3">
+                                                            <img width="20px" className="mr-2" src={require('../../public/icons/PARTICIPANTES.svg')} />
+                                                            <span className="gray">{event.participants_count}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="container-events-info row">
+                                                        <div className="form-group col-sm-12">
+                                                            {
+                                                                event.toWorkshopCategories.length > 0 ?
 
-
+                                                                    <div className="tags">
+                                                                        <hr />
+                                                                        <img width="20px" className="mr-2" src={require('../../public/icons/CANDIDATO.svg')} />
+                                                                        {
+                                                                            event.toWorkshopCategories.map((item, index) =>
+                                                                                <li key={index}><a href="#" className="tag tag_aux">{item.name}</a></li>
+                                                                            )
+                                                                        }
+                                                                    </div>
+                                                                    : ''
+                                                            }
+                                                            <br />
+                                                        </div>
+                                                    </div>
                                                 </div>
-
-
                                             </div>
                                         </div>
 

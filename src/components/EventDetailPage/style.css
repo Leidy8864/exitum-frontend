@@ -28,12 +28,15 @@
     border-radius: 3px;
     position: relative;
     margin-right: 30px;
-    height: 300px;
+    width: 100%;
+    height: 500px;
+}
+
+.header-detail-anuncio {
 }
 
 .link-descarga {
-    float: right;
-    margin: 20px;
+
 }
 .link-descarga button{
     border: none;
@@ -49,21 +52,20 @@
     display: block;
     width: 100%;
     justify-content: space-between;
-    padding-left: 20px;
 }
 
 p.gray.text-justify {
     color: #777 !important;
 }
 
-.events-detail-container {
-    display: flex;
-    justify-content: start;
+.events-detail-container {  
+
 }
 
-.link-descarga {
-    position: relative;
-    top: -35px;
+.header-anuncios-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .container-events {
@@ -81,22 +83,15 @@ p.gray.text-justify {
 }
 
 @media screen and (max-width: 1440px){
-    /* .container-events-info {
-
-    }
-    .container-events {
-    } */
-    .foto-evento img{
-        height: 150px;
-    }
 }
 
 @media screen and (max-width: 768px){
     .container-events {
         display: block !important;
     }
-    .foto-evento {
-        display: none;
+    .foto-evento img{
+        height: 400px;
+        /* display: none; */
     }
     .events-container {
         display: block;

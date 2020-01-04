@@ -12,12 +12,11 @@ span.title-company {
   font-weight: 600;
 }
 
-
-.title_add{
+a.title_add{
     margin-left: 0px !important;
     font-size: 16px;
     text-decoration: none !important;
-    color: #2183F8;
+    color: #fff;
   }
 
   .title_add_event,.title_add_event:hover {
@@ -94,7 +93,12 @@ span.title-company {
   }
 
   .card.pauses-play .card-header{
-    background: #E5FBF8 !important;
+    border: none !important;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    background: #2982ED !important;
   }
   
   .images-icons {
@@ -103,12 +107,21 @@ span.title-company {
   }
 
   .images-icons a.pause-bg i{
-    color: #4C5161;
+    color: #4C5261 !important;
     font-size: 27px;
   }
 
+  strong.bold {
+    color: #777 !important;
+  }
+
+  .start-info {
+    display: flex;
+    justify-content: center;
+  }
+
   .images-icons a.trash-bg i{
-    color: #4C5161 !important;
+    color: #4C5261 !important;
     font-size: 24px;
   }
 

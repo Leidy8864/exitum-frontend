@@ -3,13 +3,10 @@
 }
 .banner {
   background-image: url('../../public/img/banner-exitum.png');
-  background-size: cover;
-  width: 100%;
-  height: auto;
-}
-
-.banner .container {
-  max-width: 1540px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 900px;
 }
 
 .banner .container .container-banner {
@@ -21,21 +18,33 @@
 .banner .container .container-banner .info-banner {
   margin-top: 250px;
   font-family: 'Proxima Nova';
+  z-index: 666;
 }
 
 .banner .container .container-banner .info-banner h3 {
   text-align: left;
   left: 90px;
   color: #F3F300;
-  font-size: 60px;
+  font-size: 80px;
   position: relative;
   line-height: 40px;
+}
+
+.info-small {
+  margin-bottom: 34px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.info-small span {
+  color: #fff;
+  font-size: 20px;
 }
 
 .banner .container .container-banner .info-banner h2 {
   color: #fff;
   font-weight: 200;
-  font-size: 55px;
+  font-size: 60px;
   line-height: 64px;
   margin-bottom: 40px;
 }
@@ -48,12 +57,12 @@
 .banner .container .container-banner .info-banner .btn-register button.btn-signup {
   padding: 10px 25px;
   border-radius: 4px;
-  background: #9DBDF9;
+  background: #45EBEC;
   border: none;
   color: #fff;
   outline: none;
   font-family: 'Proxima Nova';
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .banner .container .container-banner .img-banner {
@@ -69,8 +78,10 @@
 .banner .container .container-banner .img-banner .capsule {
   -webkit-animation: rotate 4s ease-in-out infinite alternate;
           animation: rotate 4s ease-in-out infinite alternate;
-  width: 300px;
+          margin-top: 100px;
+  max-width: 420px;
   height: auto;
+  padding: 20px;
 }
 
 .items {
@@ -181,7 +192,7 @@
 }
 
 .rectangle-2 {
-  top: 389px;
+  top: 89px;
   left: 619px;
   width: 53px;
   height: 53px;
@@ -206,8 +217,8 @@
 }
 
 .circle-2 {
-  top: 551px;
-  left: 662px;
+  top: 701px;
+  left: 772px;
   width: 53px;
   height: 53px;
   z-index: 1;

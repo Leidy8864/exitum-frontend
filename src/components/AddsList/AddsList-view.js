@@ -19,7 +19,7 @@ function View(props) {
                 adsList.length > 0 ?
                     adsList.map(function (item, index) {
                         return (
-                            <div className="col-md-6 col-sm-12 events-padding" key={item.id}>
+                            <div className="col-md-12 col-sm-12 events-padding" key={item.id}>
                                 <AdCard
                                     title={item.title}
                                     description={item.description}
