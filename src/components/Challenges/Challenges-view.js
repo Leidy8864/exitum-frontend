@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { Fragment } from 'react';
 import DetailChallenge from '../DetailChallenge/DetailChallenge-controller'
+import moment from 'moment'
 import './style.css';
 
 function View(props) {
@@ -42,8 +43,11 @@ function View(props) {
 
                 {
                     blockChallenge.length >= 1 ?
+                    
                         blockChallenge.map((dt, index) =>
+
                             <div className="challenges-hc mt-3" key={index}>
+                                
                                 <div className="">
                                     <Link className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" key={"project" + index}>
                                         <div
@@ -54,6 +58,11 @@ function View(props) {
                                         >
                                             <p>{dt.title}</p>
                                             <span>{dt.status}</span>
+                                            {console.log('date completed',dt.date_completed)}
+                                            {
+                                                dt.date_completed ? 
+                                                <span className="text-white">{moment().diff(dt.date_completed,'days') == 0 ? 'Respondido Hoy' : 'Respondido hace' + moment().diff(dt.date_completed, 'days') + 'días' }</span> : ''
+                                            }
                                         </div>
                                     </Link>
                                 </div>
