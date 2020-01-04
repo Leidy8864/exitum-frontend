@@ -15,8 +15,8 @@ class ModalUpdateCertificate extends React.Component {
         CertificateId: '',
         CertificateName: '',
         CertificateIssuingCompany: '',
-        date_expedition: localStorage.getItem('expedition'),
-        date_expiration: localStorage.getItem('expiration'),
+        date_expedition: localStorage.getItem('expedition') !== 'undefined' ? localStorage.getItem('expedition') :  moment().format('YYYY-MM-DD'),
+        date_expiration: localStorage.getItem('expiration') !== 'undefined' ? localStorage.getItem('expiration') : moment().format('YYYY-MM-DD'),
         changed_date_expedition: false,
         changed_date_expiration: false,
         certification_name: '',
@@ -31,6 +31,11 @@ class ModalUpdateCertificate extends React.Component {
                 specialitiesOptions: listSpecialities
             });
         }
+        $('#updatecertificate').on('hidden.bs.modal', () => {
+            this.setState({
+                specialities : []
+            })
+        });
     }
     certificateUpdate = async e => {
         e.preventDefault();
@@ -133,7 +138,9 @@ class ModalUpdateCertificate extends React.Component {
         if (certification_name === '') {
             certification_name = { label: getCertificateReducer.name, value: getCertificateReducer.name };
         }
-
+        console.log("date_expedition = " , date_expedition )
+        console.log("date_expiration = " , date_expiration )
+        
         return (
             <View
                 name={this.name}
