@@ -16,6 +16,10 @@
     stroke : #157FFB  
 }
 
+.nav-link-anuncio.active svg {
+    stroke : #157FFB  
+}
+
 .absolute-help {
     position: absolute;
     right: 50px;

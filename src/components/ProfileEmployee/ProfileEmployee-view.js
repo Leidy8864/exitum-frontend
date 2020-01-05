@@ -43,7 +43,7 @@ function View(props) {
     } = props
 
     let name = users.name
-    let lastname = users.lastname_1 + ' ' + users.lastname_2
+    let lastname = users.lastname_1
     let phone = users.phone
     let experienceActual = experience
     let birthday = users.birthday

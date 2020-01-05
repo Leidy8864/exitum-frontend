@@ -3,6 +3,9 @@ import React from 'react';
 import './style.css';
 import Play from '../../public/images/icons/Play';
 import Pause from '../../public/images/icons/Pause';
+import Calidad from '../../public/images/icons/Calidad'
+import Postulaciones from '../../public/images/icons/Postulaciones'
+
 function View(props) {
     const {
         handleSetState,
@@ -28,15 +31,15 @@ function View(props) {
                     :
                     <ul className="nav nav-pills add-tabs anuncios" id="myTab" role="tablist">
                         <li className="nav-item">
-                            <a href="#" className={adType === "coincidence" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "coincidence")}><i data-toggle="tooltip" data-placement="top" title="Coincidencias"  className="fas fa-american-sign-language-interpreting"></i></a>
+                            <a href="#" className={adType === "coincidence" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} data-toggle="tooltip" data-placement="top" title="Coincidencias"  className="" onClick={handleSetAdType.bind(this, "coincidence")}><Calidad /></a>
                         </li>
                         <li className="nav-item">
-                            <a href="#" className={adType === "postulation" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "postulation")}><i data-toggle="tooltip" data-placement="top" title="Postulaciones"  className="fas fa-mail-bulk"></i></a>
+                            <a href="#" className={adType === "postulation" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} data-toggle="tooltip" data-placement="top" title="Postulaciones"  className="" onClick={handleSetAdType.bind(this, "postulation")}><Postulaciones /></a>
                         </li>
                         {
                             userRole === "entrepreneur" ?
                                 <li className="nav-item">
-                                    <a href="#" className={adType === "favorite" ? "nav-link-anuncio px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}><i data-toggle="tooltip" data-placement="top" title="Favoritos" className="fas fa-heart"></i></a>
+                                    <a href="#" className={adType === "favorite" ? "nav-link-curse px-4 active" : "nav-link-curses px-4"} onClick={handleSetAdType.bind(this, "favorite")}><i data-toggle="tooltip" data-placement="top" title="Favoritos" className="fas fa-heart"></i></a>
                                 </li>
                                 : ''
                         }
