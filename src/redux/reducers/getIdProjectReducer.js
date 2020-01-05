@@ -1,6 +1,8 @@
 import { type as getIdProject } from '../actions/get-id-project';
 
-const defaultState = 0;
+const defaultState = {
+    id : ''
+};
 
 function reducer(state = defaultState, { type, payload }) {
     switch (type) {

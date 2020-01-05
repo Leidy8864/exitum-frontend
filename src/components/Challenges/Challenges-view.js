@@ -43,11 +43,11 @@ function View(props) {
 
                 {
                     blockChallenge.length >= 1 ?
-                    
+
                         blockChallenge.map((dt, index) =>
 
                             <div className="challenges-hc mt-3" key={index}>
-                                
+
                                 <div className="">
                                     <Link className="signin" to="" data-toggle="modal" data-target="#detailCHallengeModal" key={"project" + index}>
                                         <div
@@ -57,10 +57,12 @@ function View(props) {
                                             onClick={handleClick.bind(this, dt.tip_id)}
                                         >
                                             <p>{dt.title}</p>
-                                            <span>{dt.status}</span>
+                                            <span>{dt.status === "Con observaciones" || dt.status === "Verificado" ? dt.verifyingChallenge ?
+
+                                                <span>{dt.status === "Con observaciones" ? `Observador por ${dt.verifyingChallenge.name} ${dt.verifyingChallenge.lastname_1} ${dt.verifyingChallenge.lastname_2}` : `Verificado por ${dt.verifyingChallenge.name} ${dt.verifyingChallenge.lastname_1} ${dt.verifyingChallenge.lastname_2}`}</span> : '' : dt.status}</span>
                                             {
-                                                dt.date_completed ? 
-                                                <span className="text-white">{moment().diff(dt.date_completed,'days') == 0 ? 'Respondido Hoy' : 'Respondido hace' + moment().diff(dt.date_completed, 'days') + 'días' }</span> : ''
+                                                dt.date_completed ?
+                                                    <span className="text-white">{moment().diff(dt.date_completed, 'days') == 0 ? 'Respondido Hoy' : 'Respondido hace ' + moment().diff(dt.date_completed, 'days') + ' días'}</span> : ''
                                             }
                                         </div>
                                     </Link>

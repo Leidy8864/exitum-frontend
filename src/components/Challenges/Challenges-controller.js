@@ -18,26 +18,28 @@ const user_id = localStorage.getItem('id');
 class Challenges extends React.Component {
 
     state = {
-        blockChallenge: [{
+        blockChallenge: [],
+        mostrarImagen: true,
+        project: '',
+        verifyingChallenge : {
 
         }
-        ],
-        mostrarImagen: false,
-        project: ''
     }
 
-    // componentDidMount() {
-    //     const { step_id, project } = this.props;                
-    //     const data = {
-    //         step_id: step_id ? step_id : 0,
-    //         startup_id: project.id ? project.id : 0,
-    //         user_id
-    //     }
-    //     this.getChallenges(data);
-    //     this.setState({
-    //         project: project
-    //     });
-    // }
+    componentDidMount() {
+        const { step_id, project } = this.props;
+        if (project.id) {
+            const data = {
+                step_id: step_id ? step_id : 0,
+                startup_id: project.id ? project.id : 0,
+                user_id
+            }
+            this.getChallenges(data);
+            this.setState({
+                project: project
+            });
+        }
+    }
 
     componentDidUpdate(nextProps) {
         const { step_id, project } = this.props;
@@ -67,7 +69,7 @@ class Challenges extends React.Component {
 
 
     async getChallenges(data) {
-        // console.log("KKKK");
+        console.log("KKKK");
         
         try {
             var response = null;
@@ -98,7 +100,8 @@ class Challenges extends React.Component {
                         query: item.query,
                         reply: item.reply.reply
                     })),
-                    questionnaire: x.tip.questionnaire
+                    questionnaire: x.tip.questionnaire,
+                    verifyingChallenge : x.verifyingChallenge
 
                 }));
                 this.props.getListChallenges(challenges);
