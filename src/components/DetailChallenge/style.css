@@ -88,6 +88,8 @@ p.padding-detail {
 .downloads_container img {
     width: 17px !important;
     margin-left: 8px;
+    height: 17px;
+    margin-top: 10px;
     cursor: pointer;
 }
 
