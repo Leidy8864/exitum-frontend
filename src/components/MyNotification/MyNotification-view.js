@@ -9,7 +9,7 @@ function View(props) {
     } = props;
     return (
         <div className="myNotification p-2">
-            <img src={require('../../public/img/chikorita.png')} width="100px" alt="notificacion"/>           
+            <img src={require('../../public/img/chikorita.png')} height="100px" width="100px" alt="notificacion"/>           
             <div className="text-info-notification">
                 <h4>{title}</h4>
                 <p>{message}</p>

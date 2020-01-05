@@ -457,12 +457,11 @@ class ProfileEmployee extends React.Component {
         if (listEducationsReducer === 1) {
             this.refreshEducation();
         }
-        let user = localStorage.getItem('name');
-        let lastname = localStorage.getItem('lastname');
+
         return (
             <View
-                user={user}
-                lastname={lastname}
+                user={this.state.user}
+                lastname={this.state.lastname}
                 experiences={this.state.experiences}
                 experience={this.state.experience}
                 country={this.state.country}

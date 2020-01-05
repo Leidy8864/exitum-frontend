@@ -21,33 +21,31 @@ function View(props) {
     } = props;
     return (
         <div className="card pauses-play mb-3">
-                {
-                    userRole === "entrepreneur" ?
-                        <div className="d-flex justify-content-between card-anuncios p-3">
-                            <div className="start-info">
+            {
+                userRole === "entrepreneur" ?
+                    <div className="d-flex justify-content-between card-anuncios p-3">
+                        <div className="start-info">
                             <img className="mr-2" width="20px" src={require('../../public/icons/ESTRELLA.svg')} />
                             <Link to={"/advertisement/" + id + "/" + slugAd} className="title_add">{title}</Link>
-                            </div>
-                            <div className="images-icons">
-                                <span><Link data-toggle="tooltip" data-placement="top" title="Pausar anuncio" className="pause-bg" to="#">
-                                    {state === "active" ? <i className="far fa-pause-circle" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i> : <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Reanudar anuncio" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i>}</Link></span>
-                                <span className="ml-2"><Link className="trash-bg" to="#"><i data-toggle="tooltip" data-placement="top" title="Eliminar anuncio" className="far fa-pause-circle" className="far fa-trash-alt" id={id} onClick={handleClickDelete.bind(this, index)} ></i></Link></span>
+                        </div>
+                        <div className="images-icons">
+                            <span><Link data-toggle="tooltip" data-placement="top" title="Pausar anuncio" className="pause-bg" to="#">
+                                {state === "active" ? <i className="far fa-pause-circle" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i> : <i className="far fa-play-circle" data-toggle="tooltip" data-placement="top" title="Reanudar anuncio" id={id} onClick={handleClickUpdate.bind(this, index, state)}></i>}</Link></span>
+                            <span className="ml-2"><Link className="trash-bg" to="#"><i data-toggle="tooltip" data-placement="top" title="Eliminar anuncio" className="far fa-pause-circle" className="far fa-trash-alt" id={id} onClick={handleClickDelete.bind(this, index)} ></i></Link></span>
 
-                            </div>
                         </div>
-                        :
-                        <div className="d-flex justify-content-between card-anuncios p-3">
-                            <div className="start-info">
-                                <img className="mr-2" width="20px" src={require('../../public/icons/ESTRELLA.svg')} />
-                                <Link className="row col-sm-12 title-anuncio" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
-                            </div>
+                    </div>
+                    :
+                    <div className="card-anuncios p-3">
+                        <div className="start-info">
+                            <img className="ml-2 mr-1" min-width="20px" height="20px" src={require('../../public/icons/ESTRELLA.svg')} />
+                            <Link className="row col-sm-12 title-anuncio" to="" data-toggle="modal" data-target="#adDetail" onClick={handleSetAdId.bind(this, id)}>{title}</Link>
                         </div>
-                }
-            <div className="pb-3">
-                <div className="">
-                    <strong className="bold col-sm-12">Proyecto: {startup.name}</strong>
-                    <strong className="bold col-sm-12">{moment().diff(startup.created_at,'days') == 0 ? 'Creado: hoy' : 'hace' + moment().diff(startup.created_at, 'days') + 'días' }</strong>
-                </div>
+                    </div>
+            }
+            <div className="pl-4 pr-1 pb-4">
+                <strong className="bold ml-3">Proyecto: {startup.name}</strong><br/>
+                <strong className="bold ml-3">{moment().diff(startup.created_at, 'days') == 0 ? 'Creado: hoy' : 'hace' + moment().diff(startup.created_at, 'days') + 'días'}</strong>
                 <span className="bold description-textos col-sm-12">{description}</span><br />
             </div>
             {/* {

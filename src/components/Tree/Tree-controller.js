@@ -57,16 +57,16 @@ class Tree extends React.Component {
 
         let {conditionShowCapsule, conditionShowTreeContainer} = this.state;
         let blockTree=<br/>;
-        if(this.state.isConfirmed === "false"){
-            blockTree = <div className="Tree">
-                <div className="Tree-plus">
-                    <div className="img-verify">
-                    <img alt="img" src={require('../../public/images/svg/verify.png')} />
-                    </div>
-                    Por favor de verificar su correo electronico, para que puedas acceder a tu cuenta!</div>
-                    <Link onClick={this.salir} to="/">Salir de la web</Link>
-                </div>;
-        }
+        // if(this.state.isConfirmed === "false"){
+        //     blockTree = <div className="Tree">
+        //         <div className="Tree-plus">
+        //             <div className="img-verify">
+        //             <img alt="img" src={require('../../public/images/svg/verify.png')} />
+        //             </div>
+        //             Por favor de verificar su correo electronico, para que puedas acceder a tu cuenta!</div>
+        //             <Link onClick={this.salir} to="/">Salir de la web</Link>
+        //         </div>;
+        // }
         if(this.state.isConfirmed === "true" && (this.state.role === "employee" || this.state.role === "entrepreneur")){
             conditionShowCapsule = true;
         }

@@ -34,7 +34,7 @@ function View(props) {
                                     <div className="card profiles mb-4">
                                         <div className="events-detail-container ">
                                             <BackButton />
-                                            <div className="container-detail mt-2">
+                                            <div className="container-detail">
                                                 <div className="foto-evento">
                                                     <img className="" src={event.photo || require('../../public/img/ssssss.png')} alt="foto de evento" />
                                                 </div>

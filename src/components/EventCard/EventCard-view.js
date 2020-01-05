@@ -23,11 +23,11 @@ function View(props) {
     return (
         <div className="card mb-4 events">
             <div className="card-header">
-                <img className="card-header-img" src={photo || require('../../public/img/ssssss.png')} />
+                <img className="card-header-img" src={photo || require('../../public/img/Default.jpg')} />
             </div>
             <div className="card-body events">
                 <div className="d-flex header-events">
-                    <Link to={"/events/" + id} className="title_add_event col-sm-9 ">{title}
+                    <Link to={"/events/" + id} className="title_add_event text-truncate col-sm-12 ">{title}
                     </Link>
                 </div>
                 <div className="mt-2 flex-count">
@@ -38,7 +38,7 @@ function View(props) {
                     <span className="gray col-sm-12 d-inline-block text-truncate">{description}</span>
                 </div>
 
-                <div className="mt-2">
+                <div className="">
                     <span className="gray col-sm-12 d-inline-block text-truncate">{place}</span>
                 </div>
                 <div className="mt-2 flex-count">
